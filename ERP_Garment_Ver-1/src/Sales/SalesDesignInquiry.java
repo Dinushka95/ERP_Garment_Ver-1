@@ -9,6 +9,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.db_con;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
@@ -75,10 +76,16 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jButton5 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldDescription = new javax.swing.JTextField();
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings dateSettings = new DatePickerSettings();
+        dateSettings.setFormatForDatesCommonEra("yyyy/MM/dd");
+        dateSettings.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings);
         jLabel4 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings dateSettings1 = new DatePickerSettings();
+        dateSettings1.setFormatForDatesCommonEra("yyyy/MM/dd");
+        dateSettings1.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
@@ -97,6 +104,8 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jButton14 = new javax.swing.JButton();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jButton13 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -127,12 +136,16 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextFieldSalesDesignInquiryId.setEditable(false);
+        jTextFieldSalesDesignInquiryId.setName("Sales Design Inquiry ID"); // NOI18N
         jTextFieldSalesDesignInquiryId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldSalesDesignInquiryIdActionPerformed(evt);
             }
         });
         jPanel2.add(jTextFieldSalesDesignInquiryId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 110, -1));
+
+        jTextFieldCustomerId.setEditable(false);
+        jTextFieldCustomerId.setName("Customer ID"); // NOI18N
         jPanel2.add(jTextFieldCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 110, -1));
 
         jButton1.setText("Search Customer");
@@ -195,12 +208,19 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, -1, -1));
 
         jButton5.setText("Clear");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 90, -1));
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 720, 190));
 
         jLabel1.setText("Description");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 330, -1, -1));
+
+        jTextFieldDescription.setName("Description"); // NOI18N
         jPanel2.add(jTextFieldDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 330, 380, 60));
         jPanel2.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 410, -1, -1));
 
@@ -239,6 +259,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
         jTextFieldCustomerName.setEditable(false);
+        jTextFieldCustomerName.setName("Customer Name"); // NOI18N
         jPanel2.add(jTextFieldCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 770, 520));
@@ -300,10 +321,26 @@ SalesDesignInquiryModel salesDesignInquiryModel;
                 jButton15ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
         jButton16.setText("Search");
-        jPanelcustomerSearch.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
+        jPanelcustomerSearch.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
+
+        jButton12.setText("New Customer");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 50, -1, -1));
+
+        jButton13.setText("View All");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
 
         jPanel1.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 30, 480, 510));
 
@@ -407,7 +444,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     }//GEN-LAST:event_jTextField8ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+    clear();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -424,7 +461,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-jPanelcustomerSearch.setVisible(true);
+    jPanelcustomerSearch.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
@@ -443,9 +480,8 @@ jTextFieldCustomerName.setText(CustomerName);
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
  int x=jTable3.getSelectedRow();
-    String y=(String) jTable3.getValueAt(x,1);
+    String y=(String) jTable3.getValueAt(x,0);
     DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT \n" +
-"    `customer_table`.`LogNo`,\n" +
 "    `customer_table`.`CustomerId`,\n" +
 "    `customer_table`.`CustomerName`,\n" +
 "    `customer_table`.`CustomerCompanyName`,\n" +
@@ -468,6 +504,19 @@ jTextFieldCustomerName.setText(CustomerName);
         Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
     }        // TODO add your handling code here:
     }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+
+        jTable3.setModel(DbUtils.resultSetToTableModel(salesDesignInquiryModel.ViewAll()));
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       model.setRowCount(0);
+    }//GEN-LAST:event_jButton5ActionPerformed
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",MainWindow.userid));
@@ -478,9 +527,8 @@ jTextFieldCustomerName.setText(CustomerName);
             jTextFieldCustomerName.setText("");
             jTextFieldDescription.setText("");
             datePicker2.setDateToToday();
-            datePicker1.setDate(LocalDate.of(1992,Month.DECEMBER,2));
-            
-            model.removeRow(ERROR);
+            datePicker1.setDateToToday();
+            model.setRowCount(0);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -489,6 +537,8 @@ jTextFieldCustomerName.setText(CustomerName);
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;

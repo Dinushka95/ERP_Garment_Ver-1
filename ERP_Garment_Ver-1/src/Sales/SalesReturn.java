@@ -72,8 +72,6 @@ CustomerModel customerModel;
         jTextFieldPhone = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jTextFieldAddress = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -183,13 +181,6 @@ CustomerModel customerModel;
         jTextFieldEmail.setName("Email"); // NOI18N
         jPanel2.add(jTextFieldEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 110, -1));
         jTextFieldEmail.getAccessibleContext().setAccessibleName("");
-
-        jLabel12.setText("Address");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
-
-        jTextFieldAddress.setName("Address"); // NOI18N
-        jPanel2.add(jTextFieldAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 210, -1));
-        jTextFieldAddress.getAccessibleContext().setAccessibleName("");
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 510, 520));
 
@@ -362,13 +353,15 @@ CustomerModel customerModel;
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         
-        boolean result=customerModel.AddCustomer(jTextFieldCustomerId, jTextFieldCustomerName, jTextFieldCompanyName,jTextFieldPhone,jTextFieldEmail, jTextFieldAddress, datePicker2);
-        if(result){
+      //  boolean result=customerModel.AddCustomer(jTextFieldCustomerId, jTextFieldCustomerName, jTextFieldCompanyName,jTextFieldPhone,jTextFieldEmail,datePicker2);
+     //   if(result)
+     {
             JOptionPane.showMessageDialog(null,"Successfully To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
              generate_sdi();
              clear();
         }
-        else{
+       // else
+        {
             JOptionPane.showMessageDialog(null,"Failed To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
         
         }  
@@ -492,7 +485,7 @@ jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFie
             jTextFieldCompanyName.setText("");
             jTextFieldPhone.setText("");
             jTextFieldEmail.setText("");
-            jTextFieldAddress.setText("");
+            
     }
     
     private void clearSearch(){
@@ -518,7 +511,6 @@ jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFie
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -541,7 +533,6 @@ jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFie
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextFieldAddress;
     private javax.swing.JTextField jTextFieldAddress1;
     private javax.swing.JTextField jTextFieldCompanyName;
     private javax.swing.JTextField jTextFieldCompanyName1;

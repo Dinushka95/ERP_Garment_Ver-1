@@ -36,21 +36,20 @@ public boolean AddCustomer(JTextField CustomerId,JTextField CustomerName,JTextFi
         return false;
         
     }
-    public ResultSet ViewAll(){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`LogNo`,\n" +
-"    `customer_table`.`CustomerId`,\n" +
-"    `customer_table`.`CustomerName`,\n" +
-"    `customer_table`.`CustomerCompanyName`,\n" +
-"    `customer_table`.`CustomerPhone`,\n" +
-"    `customer_table`.`CustomerEmail`,\n" +
-"    `customer_table`.`CustomerAddress`,\n" +
-"    `customer_table`.`CustomerAddedDate`\n" +
-"FROM `garmentsystem`.`customer_table`;");
+public ResultSet ViewAll(){
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`CustomerId`,\n" +
+    "    `customer_table`.`CustomerName`,\n" +
+    "    `customer_table`.`CustomerCompanyName`,\n" +
+    "    `customer_table`.`CustomerPhone`,\n" +
+    "    `customer_table`.`CustomerEmail`,\n" +
+    "    `customer_table`.`CustomerAddress`,\n" +
+    "    `customer_table`.`CustomerAddedDate`\n" +
+    "FROM `garmentsystem`.`customer_table`;");
 
     return DB_Connect.DB_ResultSet;
     }
     
-    public boolean EditCustomer(String logNo,String Customerid,JTextField CustomerName,JTextField CompanyName,JTextField Phone,JTextField Email,JTextField Address){
+public boolean EditCustomer(String logNo,String Customerid,JTextField CustomerName,JTextField CompanyName,JTextField Phone,JTextField Email,JTextField Address){
     Validation validation =new Validation();
         if(validation.ValidationCheck(CustomerName, true,0,'@')&&validation.ValidationCheck(CompanyName, true,0,'@')&&validation.ValidationCheck(Phone, true,0,'1')&&validation.ValidationCheck(Email, false,0,'@')&&validation.ValidationCheck(Address, false,0,'@')){
         boolean x =MainWindow.db_con.execute("UPDATE `garmentsystem`.`customer_table`\n" +
@@ -60,7 +59,7 @@ public boolean AddCustomer(JTextField CustomerId,JTextField CustomerName,JTextFi
 "`CustomerPhone` = '"+Phone.getText()+"',\n" +
 "`CustomerEmail` = '"+Email.getText()+"',\n" +
 "`CustomerAddress` = '"+Address.getText()+"'\n" +
-"WHERE `LogNo` = '"+logNo+"' AND `CustomerId` = '"+Customerid+"';");   
+"WHERE `CustomerId` = '"+Customerid+"';");   
          return x;
         }
         return false;
@@ -69,50 +68,47 @@ public boolean AddCustomer(JTextField CustomerId,JTextField CustomerName,JTextFi
     
     public boolean DeleteCustomer(String CustomerId){
     boolean x =MainWindow.db_con.execute("DELETE FROM `garmentsystem`.`customer_table` \n" +
-"WHERE\n" +
-"    CustomerId = '"+CustomerId+"';");   
+    "WHERE\n" +
+    "CustomerId = '"+CustomerId+"';");   
          return x;
         }
     
-   public ResultSet SearchID(String Key){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`LogNo`,\n" +
-"    `customer_table`.`CustomerId`,\n" +
-"    `customer_table`.`CustomerName`,\n" +
-"    `customer_table`.`CustomerCompanyName`,\n" +
-"    `customer_table`.`CustomerPhone`,\n" +
-"    `customer_table`.`CustomerEmail`,\n" +
-"    `customer_table`.`CustomerAddress`,\n" +
-"    `customer_table`.`CustomerAddedDate`\n" +
-"FROM `garmentsystem`.`customer_table` where `CustomerId`= '"+Key+"';");
+public ResultSet SearchID(String Key){
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`CustomerId`,\n" +
+    "    `customer_table`.`CustomerName`,\n" +
+    "    `customer_table`.`CustomerCompanyName`,\n" +
+    "    `customer_table`.`CustomerPhone`,\n" +
+    "    `customer_table`.`CustomerEmail`,\n" +
+    "    `customer_table`.`CustomerAddress`,\n" +
+    "    `customer_table`.`CustomerAddedDate`\n" +
+    "FROM `garmentsystem`.`customer_table` where `CustomerId`= '"+Key+"';");
 
     return DB_Connect.DB_ResultSet;
     }
       
    
 public ResultSet SearchName(String Key){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`LogNo`,\n" +
-"    `customer_table`.`CustomerId`,\n" +
-"    `customer_table`.`CustomerName`,\n" +
-"    `customer_table`.`CustomerCompanyName`,\n" +
-"    `customer_table`.`CustomerPhone`,\n" +
-"    `customer_table`.`CustomerEmail`,\n" +
-"    `customer_table`.`CustomerAddress`,\n" +
-"    `customer_table`.`CustomerAddedDate`\n" +
-"FROM `garmentsystem`.`customer_table` where `CustomerName`= '"+Key+"';");
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`CustomerId`,\n" +
+    "    `customer_table`.`CustomerName`,\n" +  
+    "    `customer_table`.`CustomerCompanyName`,\n" +
+    "    `customer_table`.`CustomerPhone`,\n" +
+    "    `customer_table`.`CustomerEmail`,\n" +
+    "    `customer_table`.`CustomerAddress`,\n" +
+    "    `customer_table`.`CustomerAddedDate`\n" +
+    "FROM `garmentsystem`.`customer_table` where `CustomerName`= '"+Key+"';");
 
     return DB_Connect.DB_ResultSet;
     }
          
 public ResultSet Searchphone(String Key){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`LogNo`,\n" +
-"    `customer_table`.`CustomerId`,\n" +
-"    `customer_table`.`CustomerName`,\n" +
-"    `customer_table`.`CustomerCompanyName`,\n" +
-"    `customer_table`.`CustomerPhone`,\n" +
-"    `customer_table`.`CustomerEmail`,\n" +
-"    `customer_table`.`CustomerAddress`,\n" +
-"    `customer_table`.`CustomerAddedDate`\n" +
-"FROM `garmentsystem`.`customer_table` where `CustomerPhone`= '"+Key+"';");
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`CustomerId`,\n" +
+    "    `customer_table`.`CustomerName`,\n" +
+    "    `customer_table`.`CustomerCompanyName`,\n" +
+    "    `customer_table`.`CustomerPhone`,\n" +
+    "    `customer_table`.`CustomerEmail`,\n" +
+    "    `customer_table`.`CustomerAddress`,\n" +
+    "    `customer_table`.`CustomerAddedDate`\n" +
+    "FROM `garmentsystem`.`customer_table` where `CustomerPhone`= '"+Key+"';");
 
     return DB_Connect.DB_ResultSet;
     }

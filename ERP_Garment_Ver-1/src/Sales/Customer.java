@@ -63,8 +63,8 @@ CustomerModel customerModel;
         dateSettings.setFormatForDatesCommonEra("yyyy/MM/dd");
         dateSettings.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings);
-        jButton4 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jButtonADDCustomer = new javax.swing.JButton();
+        jButtonResetAll = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldCompanyName = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -146,21 +146,21 @@ CustomerModel customerModel;
         datePicker2.setName(""); // NOI18N
         jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, -1));
 
-        jButton4.setText("ADD Customer");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        jButtonADDCustomer.setText("ADD Customer");
+        jButtonADDCustomer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButtonADDCustomerActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
+        jPanel2.add(jButtonADDCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
 
-        jButton6.setText("Reset All");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        jButtonResetAll.setText("Reset All");
+        jButtonResetAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                jButtonResetAllActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, -1));
+        jPanel2.add(jButtonResetAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, -1));
 
         jLabel4.setText("Company Name");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
@@ -347,7 +347,7 @@ CustomerModel customerModel;
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 410, 520));
 
-        jTabbedPane1.addTab("Search &  Delete", jPanel3);
+        jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Reports", jPanel4);
@@ -359,7 +359,7 @@ CustomerModel customerModel;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void jButtonADDCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADDCustomerActionPerformed
         
         boolean result=customerModel.AddCustomer(jTextFieldCustomerId, jTextFieldCustomerName, jTextFieldCompanyName,jTextFieldPhone,jTextFieldEmail, jTextFieldAddress, datePicker2);
         if(result){
@@ -371,7 +371,7 @@ CustomerModel customerModel;
             JOptionPane.showMessageDialog(null,"Failed To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
         
         }  
-    }//GEN-LAST:event_jButton4ActionPerformed
+    }//GEN-LAST:event_jButtonADDCustomerActionPerformed
 
     private void jTextFieldCustomerIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerIdActionPerformed
         // TODO add your handling code here:
@@ -381,9 +381,9 @@ CustomerModel customerModel;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSearchCustomerNameActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    clear();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void jButtonResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAllActionPerformed
+    clear();        
+    }//GEN-LAST:event_jButtonResetAllActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
     boolean result=customerModel.EditCustomer(LogNo, CustomerId, jTextFieldCustomerName1, jTextFieldCompanyName1,jTextFieldPhone1, jTextFieldEmail1, jTextFieldAddress1);
@@ -404,11 +404,11 @@ CustomerModel customerModel;
     }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-clearSearch();        // TODO add your handling code here:
+    clearSearch();        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.Searchphone(jTextFieldSearchCustomerPhone.getText())));          // TODO add your handling code here:
+    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.Searchphone(jTextFieldSearchCustomerPhone.getText())));         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -418,23 +418,22 @@ jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.Searchphone(jTextFi
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
     int x=jTable2.getSelectedRow();
-    String y=(String) jTable2.getValueAt(x,1);
+    String y=(String) jTable2.getValueAt(x,0);
     DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT \n" +
-"    `customer_table`.`LogNo`,\n" +
-"    `customer_table`.`CustomerId`,\n" +
-"    `customer_table`.`CustomerName`,\n" +
-"    `customer_table`.`CustomerCompanyName`,\n" +
-"    `customer_table`.`CustomerPhone`,\n" +
-"    `customer_table`.`CustomerEmail`,\n" +
-"    `customer_table`.`CustomerAddress`,\n" +
-"    `customer_table`.`CustomerAddedDate`\n" +
-"FROM\n" +
-"    `garmentsystem`.`customer_table`\n" +
-"WHERE\n" +
-"    CustomerId = '"+y+"';");
+    "    `customer_table`.`CustomerId`,\n" +
+    "    `customer_table`.`CustomerName`,\n" +
+    "    `customer_table`.`CustomerCompanyName`,\n" +
+    "    `customer_table`.`CustomerPhone`,\n" +
+    "    `customer_table`.`CustomerEmail`,\n" +
+    "    `customer_table`.`CustomerAddress`,\n" +
+    "    `customer_table`.`CustomerAddedDate`\n" +
+    "FROM\n" +
+    "    `garmentsystem`.`customer_table`\n" +
+    "WHERE\n" +
+    "    CustomerId = '"+y+"';");
     try {
         DB_Connect.DB_ResultSet.next();
-        LogNo=DB_Connect.DB_ResultSet.getString("LogNo");
+        
         
         CustomerId=DB_Connect.DB_ResultSet.getString("CustomerId");
         
@@ -474,11 +473,11 @@ jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.Searchphone(jTextFi
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
- jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchID(jTextFieldSearchCustomerId.getText())));        // TODO add your handling code here:
+    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchID(jTextFieldSearchCustomerId.getText())));        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFieldSearchCustomerName.getText())));          // TODO add your handling code here:
+    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFieldSearchCustomerName.getText())));          // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -509,12 +508,12 @@ jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFie
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JButton jButtonADDCustomer;
+    private javax.swing.JButton jButtonResetAll;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
