@@ -87,16 +87,37 @@ public class SalesDesignInquiryModel {
     }
     
     public ResultSet ViewAll(){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`CustomerId`,\n" +
-    "    `customer_table`.`CustomerName`,\n" +
-    "    `customer_table`.`CustomerCompanyName`,\n" +
-    "    `customer_table`.`CustomerPhone`,\n" +
-    "    `customer_table`.`CustomerEmail`,\n" +
-    "    `customer_table`.`CustomerAddress`,\n" +
-    "    `customer_table`.`CustomerAddedDate`\n" +
-    "FROM `garmentsystem`.`customer_table`;");
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table;");
 
     return DB_Connect.DB_ResultSet;
     }
+    
+    public ResultSet SearchSDIID(String Key){
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where SalesDesignInquiryId='"+Key+"';");
+
+    return DB_Connect.DB_ResultSet;
+    }
+      
+   
+public ResultSet SearchCustomerID(String Key){
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where customer_table_CustomerId='"+Key+"';");
+
+    return DB_Connect.DB_ResultSet;
+    }
+         
+public ResultSet SearchCustomerName(String Key){
+   DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where customer_table_CustomerId=(SELECT `customer_table`.`CustomerId`\n" +
+"FROM `garmentsystem`.`customer_table` where CustomerName='"+Key+"');");
+
+    return DB_Connect.DB_ResultSet;
+    }
+
+public boolean DeleteSDI(String SDIId){
+    boolean x =MainWindow.db_con.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table1`WHERE salesdesigninquiry_table_SalesDesignInquiryId='"+SDIId+"';"); 
+    boolean y =MainWindow.db_con.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table`WHERE SalesDesignInquiryId='"+SDIId+"';"); 
+      
+         return x;
+        }
+
     
 }
