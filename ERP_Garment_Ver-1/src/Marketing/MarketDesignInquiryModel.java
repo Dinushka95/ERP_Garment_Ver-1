@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Sales;
+package Marketing;
 
+import Sales.*;
 import MainSystem.DB_Connect;
 import com.github.lgooddatepicker.components.DatePicker;
 import MainSystem.MainWindow;
@@ -19,7 +20,7 @@ import javax.swing.JTextField;
  *
  * @author Dinushka
  */
-public class SalesDesignInquiryModel {
+public class MarketDesignInquiryModel {
     
     
     public boolean AddSDI(JTextField SDIID,JTextField CustomerId,DatePicker Date,JTable table,JTextField Description,DatePicker DueDate){
@@ -88,19 +89,6 @@ public class SalesDesignInquiryModel {
     
     public ResultSet ViewAll(){
     DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table;");
-
-    return DB_Connect.DB_ResultSet;
-    }
-    
-    public ResultSet ViewAllCustomer(){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`CustomerId`,\n" +
-    "    `customer_table`.`CustomerName`,\n" +
-    "    `customer_table`.`CustomerCompanyName`,\n" +
-    "    `customer_table`.`CustomerPhone`,\n" +
-    "    `customer_table`.`CustomerEmail`,\n" +
-    "    `customer_table`.`CustomerAddress`,\n" +
-    "    `customer_table`.`CustomerAddedDate`\n" +
-    "FROM `garmentsystem`.`customer_table`;");
 
     return DB_Connect.DB_ResultSet;
     }
