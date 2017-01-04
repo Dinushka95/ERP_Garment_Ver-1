@@ -10,6 +10,7 @@ import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.db_con;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
@@ -48,6 +49,8 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         datePicker2.setDateToToday();
         salesDesignInquiryModel= new SalesDesignInquiryModel();
          datePicker1.setDateToToday();
+        jTable5.setModel(DbUtils.resultSetToTableModel(salesDesignInquiryModel.ViewAll()));
+        jTable5.setDefaultRenderer(Object.class, new MyCellRenderer());
 
     }
 
@@ -61,6 +64,17 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jTextFieldSalesDesignInquiryId1 = new javax.swing.JTextField();
+        jButton22 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jTextFieldSalesDesignInquiryId = new javax.swing.JTextField();
@@ -129,6 +143,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
 
         setTitle(" Sales Design Inquiry Management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
@@ -137,6 +152,59 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable5);
+
+        jPanel7.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 1220, 360));
+        jPanel7.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 80, -1));
+
+        jLabel11.setText("Sales Design Inquiry ID");
+        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jButton8.setText("Search");
+        jPanel7.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        jButton18.setText("View All");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
+
+        jLabel16.setText("Sales Design Inquiry ID");
+        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, -1, -1));
+
+        jTextFieldSalesDesignInquiryId1.setName("Sales Design Inquiry ID"); // NOI18N
+        jTextFieldSalesDesignInquiryId1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSalesDesignInquiryId1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jTextFieldSalesDesignInquiryId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 110, -1));
+
+        jButton22.setText("Select to edit");
+        jPanel7.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, -1, -1));
+
+        jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1310, 520));
+
+        jTabbedPane1.addTab("Main", jPanel6);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -402,6 +470,11 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jPanel3.add(jTextFieldSearchCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 30, 90, -1));
 
         jButton9.setText("Edit");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 60, -1));
 
         jButton10.setText("Delete");
@@ -471,6 +544,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Reports", jPanel4);
+        jTabbedPane1.addTab("Edit", jPanel8);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -635,9 +709,22 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         }  
     clearSearch();
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        jTable5.setModel(DbUtils.resultSetToTableModel(salesDesignInquiryModel.ViewAll()));
+
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jTextFieldSalesDesignInquiryId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSalesDesignInquiryId1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSalesDesignInquiryId1ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",MainWindow.userid));
+    jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",Integer.toString(MainWindow.userid)));
     }
         private void clear(){
             generate_sdi();
@@ -667,23 +754,28 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonSearchCustomerID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -697,16 +789,22 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanelcustomerSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextFieldCustomerId;
@@ -715,9 +813,45 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JTextField jTextFieldQuantatiy;
     private javax.swing.JTextField jTextFieldSDICustomerId;
     private javax.swing.JTextField jTextFieldSalesDesignInquiryId;
+    private javax.swing.JTextField jTextFieldSalesDesignInquiryId1;
     private javax.swing.JTextField jTextFieldSearchCustomerID;
     private javax.swing.JTextField jTextFieldSearchCustomerName;
     private javax.swing.JTextField jTextFieldSearchSDIID;
     private javax.swing.JTextField jTextFieldSize;
     // End of variables declaration//GEN-END:variables
+
+public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
+    @Override
+    public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, java.lang.Object value, boolean isSelected, boolean hasFocus, int row, int column)
+    {
+        final java.awt.Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+     { 
+         System.out.println(jTable5.getModel().getValueAt(row,6));
+         if((jTable5.getModel().getValueAt(row,6).equals("true"))&&(jTable5.getModel().getValueAt(row,8).equals("false")))
+         {
+          cellComponent.setBackground(Color.CYAN);
+          cellComponent.setForeground(Color.black);  
+         }
+         else if ((jTable5.getModel().getValueAt(row,6).equals("false"))&&(jTable5.getModel().getValueAt(row,8).equals("false")))
+         {
+         cellComponent.setBackground(Color.red);
+         cellComponent.setForeground(Color.black);
+         }
+          else if ((jTable5.getModel().getValueAt(row,6).equals("pending"))&&(jTable5.getModel().getValueAt(row,8).equals("false")))
+         {
+         cellComponent.setBackground(Color.ORANGE);
+         cellComponent.setForeground(Color.black);
+         }   
+           else if ((jTable5.getModel().getValueAt(row,6).equals("true"))&&(jTable5.getModel().getValueAt(row,8).equals("true")))
+         {
+         cellComponent.setBackground(Color.GREEN);
+         cellComponent.setForeground(Color.black);
+         }  
+     }
+        return cellComponent;
+}
+}
+
+
+
 }

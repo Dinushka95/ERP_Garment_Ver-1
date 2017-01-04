@@ -11,6 +11,8 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
+import java.awt.Color;
 
 /**
  *
@@ -21,17 +23,20 @@ DefaultTableModel model;
 DefaultTableModel model2;
 DefaultTableModel model3;
 int RowCountjTable1;
-CustomerModel customerModeSDI;
 String CustomerId;
 String CustomerName;
-SalesDesignInquiryModel salesDesignInquiryModel;
+SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
     /**
      * Creates new form SalesDesignInquiry
      */
     public SalesDesignInquiryApproval() {
         initComponents();
-        generate_sdi();
+        
+        
         datePicker2.setDateToToday();
+        salesdesigninquiryapprovalmodel=new SalesDesignInquiryApprovalModel();
+        ViewAllSDI();
+       
 
     }
 
@@ -53,22 +58,20 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jLabel11 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jTextFieldSalesDesignInquiryId = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jTextFieldSalesDesignInquiryId = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         DatePickerSettings dateSettings1 = new DatePickerSettings();
         dateSettings1.setFormatForDatesCommonEra("yyyy/MM/dd");
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
-        jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
         jLabel12 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
-        setTitle("Market Design Inquiry Management");
+        setTitle("Sales Design Inquiry Approval Management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -94,7 +97,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         ));
         jScrollPane5.setViewportView(jTable5);
 
-        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 480, 360));
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 1220, 360));
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 80, -1));
 
         jLabel11.setText("Sales Design ID");
@@ -104,47 +107,43 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
         jButton1.setText("View All");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
 
-        jLabel1.setText("The table should be green when all  are approved red are pending and orange needs to be edited ");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 470, -1, -1));
+        jLabel2.setText("Sales Design Inquiry ID");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 770, 520));
-
-        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextFieldSalesDesignInquiryId.setEditable(false);
         jTextFieldSalesDesignInquiryId.setName("Sales Design Inquiry ID"); // NOI18N
         jTextFieldSalesDesignInquiryId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldSalesDesignInquiryIdActionPerformed(evt);
             }
         });
-        jPanel6.add(jTextFieldSalesDesignInquiryId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 110, -1));
-
-        jLabel2.setText("Sales Design Inquiry ID");
-        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
+        jPanel2.add(jTextFieldSalesDesignInquiryId, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, 110, -1));
 
         jLabel7.setText("Approve Date");
-        jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, -1, -1));
 
         datePicker2.setEnabled(false);
-        jPanel6.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 70, -1, -1));
-
-        jButton2.setText("Update Approval");
-        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, -1, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Approved ", "Not Approved" }));
-        jPanel6.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
+        jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, -1, -1));
 
         jLabel12.setText("Approved by Name");
-        jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
-        jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, 80, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, -1));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 80, -1));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 30, 440, 510));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Approved ", "Not Approved" }));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 480, -1, -1));
 
-        jTabbedPane1.addTab("Market Design Inquiry Approval", jPanel1);
+        jButton2.setText("Update Approval");
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 480, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1310, 520));
+
+        jTabbedPane1.addTab("Sales Design Inquiry Approval", jPanel1);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Reports", jPanel4);
@@ -157,11 +156,25 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private void jTextFieldSalesDesignInquiryIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSalesDesignInquiryIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSalesDesignInquiryIdActionPerformed
-    private void generate_sdi(){
-    AutoIdGenerator aid = new AutoIdGenerator();
-    jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",MainWindow.userid));
-    }
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+           ViewAllSDI();
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField2ActionPerformed
+    
+      private  void ViewAllSDI(){
+    
+    jTable5.setModel(DbUtils.resultSetToTableModel(salesdesigninquiryapprovalmodel.ViewAllSDI()));
+    jTable5.setDefaultRenderer(Object.class, new MyCellRenderer());
+    }
+      
+    
+ 
+ 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
@@ -169,7 +182,6 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
@@ -177,7 +189,6 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable5;
@@ -185,4 +196,41 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextFieldSalesDesignInquiryId;
     // End of variables declaration//GEN-END:variables
+
+
+public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
+    @Override
+    public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, java.lang.Object value, boolean isSelected, boolean hasFocus, int row, int column)
+    {
+        final java.awt.Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+     { 
+         System.out.println(jTable5.getModel().getValueAt(row,6));
+         if(jTable5.getModel().getValueAt(row,6).equals("SDIApproval=$true DesignCreated=$false"))
+         {
+          cellComponent.setBackground(Color.CYAN);
+          cellComponent.setForeground(Color.black);  
+         }
+         else if (jTable5.getModel().getValueAt(row,6).equals("SDIApproval=$false DesignCreated=$false"))
+         {
+         cellComponent.setBackground(Color.red);
+         cellComponent.setForeground(Color.black);
+         }
+          else if (jTable5.getModel().getValueAt(row,6).equals("SDIApproval=$pending DesignCreated=$false"))
+         {
+         cellComponent.setBackground(Color.ORANGE);
+         cellComponent.setForeground(Color.black);
+         }
+         else if (jTable5.getModel().getValueAt(row,6).equals("SDIApproval=$true DesignCreated=$true"))
+         {
+         cellComponent.setBackground(Color.GREEN);
+         cellComponent.setForeground(Color.black);
+         }  
+     }
+        return cellComponent;
+}
+}
+
+
+
+
 }
