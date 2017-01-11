@@ -32,7 +32,7 @@ import java.util.logging.Logger;
  * @author Dinushka
  */
 public class MainWindow extends javax.swing.JFrame {
-public static String  userid="1";
+public static int  userid=1;
 public static DB_Connect db_con;
     /**
      * Creates new form Login

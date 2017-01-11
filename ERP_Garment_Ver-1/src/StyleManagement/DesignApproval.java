@@ -159,7 +159,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     }//GEN-LAST:event_jTextFieldSalesDesignInquiryIdActionPerformed
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",MainWindow.userid));
+    jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",Integer.toString(MainWindow.userid)));
     }
 
 

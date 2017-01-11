@@ -320,7 +320,7 @@ CreateDesignModel NewSalesDesignModel ;
     }//GEN-LAST:event_jButton13ActionPerformed
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    jTextFieldCustomerId.setText(aid.generate("cus",MainWindow.userid));
+    jTextFieldCustomerId.setText(aid.generate("cus",Integer.toString(MainWindow.userid)));
     }
     
     private void clear(){
