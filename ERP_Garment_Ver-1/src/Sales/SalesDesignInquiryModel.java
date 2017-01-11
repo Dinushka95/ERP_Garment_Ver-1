@@ -9,9 +9,11 @@ import MainSystem.DB_Connect;
 import com.github.lgooddatepicker.components.DatePicker;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.db_con;
-import static MainSystem.MainWindow.userid;
 import MainSystem.Validation;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -39,21 +41,43 @@ public class SalesDesignInquiryModel {
         Validation validation =new Validation();
         
         if(validation.ValidationCheck(SDIID, true,0,'@')&&validation.ValidationCheck(CustomerId, true,0,'@')&&validation.ValidationCheck(Description, true,0,'@')){
-        boolean x =MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`salesdesigninquiry_table`\n" +
-        "(`SalesDesignInquiryId`,\n" +
-        "`customer_table_CustomerId`,\n" +
-        "`Description`,\n" +
-        "`AddedDate`,\n" +
-        "`DueDate`,\n" +
-        "`users_table_userId`)\n" +
-        "VALUES\n" +
-        "('"+SDIID.getText()+"',\n" +
-        "'"+CustomerId.getText()+"',\n" +
-        "'"+Description.getText()+"',\n" +
-        "'"+Date.getText()+"',\n" +
-        "'"+DueDate.getText()+"',\n" +
-        ""+userid+");");  
-   
+        boolean x =MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table`\n" +
+"(\n" +
+"`SalesDesignInquiryId`,\n" +
+"" +
+"`Description`,\n" +
+"`AddedDate`,\n" +
+"`DueDate`,\n" +
+"`status-SSDIApproval`,\n" +
+"`status-SDIApprovalName`,\n" +
+"`status-DesignCreated`,\n" +
+"`status-DesignCreatedName`,\n" +
+"`users_table_userId`,\n" +
+"`customer_table_CustomerId`)\n" +
+"VALUES\n" +
+"(\n" +
+"'"+SDIID.getText()+"',\n" +
+"\n" +
+"'"+Description.getText()+"',\n" +
+"'"+Date.getText()+"',\n" +
+"'"+DueDate.getText()+"',\n" +
+"'false',\n" +
+"'null',\n" +
+"'false',\n" +
+"'null',\n" +
+""+Integer.toString(MainWindow.userid)+",\n" +
+"'"+CustomerId.getText()+"');");  
+        
+        int id=0;
+        DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table ORDER BY ID DESC;");
+            try {
+                DB_Connect.DB_ResultSet.next();
+                 id=Integer.parseInt(DB_Connect.DB_ResultSet.getString("ID"));
+                 System.err.println(id);
+            } catch (SQLException ex) {
+                Logger.getLogger(SalesDesignInquiryModel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
         boolean x3=false;    
         table.getRowCount();
         while(c<table.getRowCount()){
@@ -61,7 +85,7 @@ public class SalesDesignInquiryModel {
             x1=null;
             try {
                 y1=(String) table.getValueAt(c,0); 
-                x1=(String) table.getValueAt(c,1);  // TODO add your handling code here:
+                x1=(String) table.getValueAt(c,1);  
                 //System.out.println("GGGGGGG");
             } 
             catch (Exception e){
@@ -70,14 +94,15 @@ public class SalesDesignInquiryModel {
             }
             // System.out.println(x1+"GGGGGGG"+y1);
             c++;
-            x3 =MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`salesdesigninquiry_table1`\n" +
-            "(`salesdesigninquiry_table_SalesDesignInquiryId`,\n" +
-            "`Size`,\n" +
-            "`Quantity`)\n" +
-            "VALUES\n" +
-            "('"+SDIID.getText()+"',\n" +
-            "'"+y1+"',\n" +
-            "'"+x1+"');");
+            System.err.println(id);
+            x3 =MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table1`\n" +
+"(`Size`,\n" +
+"`Quantity`,\n" +
+"`designinquiry_table_ID`)\n" +
+"VALUES\n" +
+"('"+y1+"',\n" +
+"'"+x1+"',\n" +
+""+id+");");
         }
         
         if(x&&x3){
@@ -87,7 +112,7 @@ public class SalesDesignInquiryModel {
     }
     
     public ResultSet ViewAll(){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table;");
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where MarketDesignInquiryId IS NULL ORDER BY AddedDate desc;");
 
     return DB_Connect.DB_ResultSet;
     }
@@ -106,28 +131,28 @@ public class SalesDesignInquiryModel {
     }
     
     public ResultSet SearchSDIID(String Key){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where SalesDesignInquiryId='"+Key+"';");
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId='"+Key+"';");
 
     return DB_Connect.DB_ResultSet;
     }
       
    
 public ResultSet SearchCustomerID(String Key){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where customer_table_CustomerId='"+Key+"';");
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where customer_table_CustomerId='"+Key+"';");
 
     return DB_Connect.DB_ResultSet;
     }
          
 public ResultSet SearchCustomerName(String Key){
-   DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where customer_table_CustomerId=(SELECT `customer_table`.`CustomerId`\n" +
+   DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where customer_table_CustomerId=(SELECT `customer_table`.`CustomerId`\n" +
 "FROM `garmentsystem`.`customer_table` where CustomerName='"+Key+"');");
 
     return DB_Connect.DB_ResultSet;
     }
 
 public boolean DeleteSDI(String SDIId){
-    boolean x =MainWindow.db_con.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table1`WHERE salesdesigninquiry_table_SalesDesignInquiryId='"+SDIId+"';"); 
-    boolean y =MainWindow.db_con.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table`WHERE SalesDesignInquiryId='"+SDIId+"';"); 
+    boolean x =MainWindow.db_con.execute("DELETE FROM garmentsystem.designinquiry_table`WHERE salesdesigninquiry_table_SalesDesignInquiryId='"+SDIId+"';"); 
+    boolean y =MainWindow.db_con.execute("DELETE FROM garmentsystem.designinquiry_table`WHERE SalesDesignInquiryId='"+SDIId+"';"); 
       
          return x;
         }
