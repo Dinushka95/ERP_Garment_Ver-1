@@ -11,6 +11,7 @@ import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.db_con;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.awt.Color;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.Month;
@@ -32,23 +33,26 @@ int RowCountjTable1;
 CustomerModel customerModeSDI;
 String CustomerId;
 String CustomerName;
-SalesDesignInquiryModel salesDesignInquiryModel;
+MarketDesignInquiryModel marketDesignInquiryModel;
     /**
      * Creates new form SalesDesignInquiry
      */
     public MarketDesignInquiry() {
         initComponents();
-        generate_sdi();
+        generate_mdi();
         datePicker2.setDateToToday();
          model = (DefaultTableModel) jTable1.getModel();
         model.removeRow(0);
         model2=(DefaultTableModel) jTable2.getModel();
         model3=(DefaultTableModel) jTable4.getModel();
-        jPanelEmployeeSearch.setVisible(false);
+        
         customerModeSDI = new CustomerModel();
         datePicker2.setDateToToday();
-        salesDesignInquiryModel= new SalesDesignInquiryModel();
+        marketDesignInquiryModel= new MarketDesignInquiryModel();
          datePicker1.setDateToToday();
+         getEmployeeid();
+        jTable5.setModel(DbUtils.resultSetToTableModel(marketDesignInquiryModel.ViewAll()));
+        jTable5.setDefaultRenderer(Object.class, new MarketDesignInquiry.MyCellRenderer());
 
     }
 
@@ -62,11 +66,21 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable5 = new javax.swing.JTable();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jButton18 = new javax.swing.JButton();
+        jLabel16 = new javax.swing.JLabel();
+        jTextFieldSalesDesignInquiryId1 = new javax.swing.JTextField();
+        jButton22 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jTextFieldSalesDesignInquiryId = new javax.swing.JTextField();
-        jTextFieldCustomerId = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        jTextFieldMarketDesignInquiryId = new javax.swing.JTextField();
+        jTextFieldEmploeeId = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
@@ -95,18 +109,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
-        jTextFieldCustomerName = new javax.swing.JTextField();
-        jPanelEmployeeSearch = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jButton11 = new javax.swing.JButton();
-        jTextField10 = new javax.swing.JTextField();
-        jTextFieldSDICustomerId = new javax.swing.JTextField();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jButton15 = new javax.swing.JButton();
-        jButton16 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
+        jTextFieldEmployeeName = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
@@ -126,6 +129,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
 
         setTitle("Market Design Inquiry Management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
@@ -135,31 +139,76 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(jTable5);
+
+        jPanel7.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 1220, 360));
+        jPanel7.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 80, -1));
+
+        jLabel11.setText("Market Design Inquiry ID");
+        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jButton8.setText("Search");
+        jPanel7.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+
+        jButton18.setText("View All");
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
+
+        jLabel16.setText("Market Design Inquiry ID");
+        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, -1, -1));
+
+        jTextFieldSalesDesignInquiryId1.setName("Sales Design Inquiry ID"); // NOI18N
+        jTextFieldSalesDesignInquiryId1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSalesDesignInquiryId1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jTextFieldSalesDesignInquiryId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 110, -1));
+
+        jButton22.setText("Select to edit");
+        jPanel7.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, -1, -1));
+
+        jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1310, 520));
+
+        jTabbedPane1.addTab("Main", jPanel6);
+
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextFieldSalesDesignInquiryId.setEditable(false);
-        jTextFieldSalesDesignInquiryId.setName("Sales Design Inquiry ID"); // NOI18N
-        jTextFieldSalesDesignInquiryId.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldMarketDesignInquiryId.setEditable(false);
+        jTextFieldMarketDesignInquiryId.setName("Sales Design Inquiry ID"); // NOI18N
+        jTextFieldMarketDesignInquiryId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSalesDesignInquiryIdActionPerformed(evt);
+                jTextFieldMarketDesignInquiryIdActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldSalesDesignInquiryId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 110, -1));
+        jPanel2.add(jTextFieldMarketDesignInquiryId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 110, -1));
 
-        jTextFieldCustomerId.setEditable(false);
-        jTextFieldCustomerId.setName("Customer ID"); // NOI18N
-        jPanel2.add(jTextFieldCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 110, -1));
-
-        jButton1.setText("Search Employee");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, -1, -1));
+        jTextFieldEmploeeId.setEditable(false);
+        jTextFieldEmploeeId.setName("Customer ID"); // NOI18N
+        jPanel2.add(jTextFieldEmploeeId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 110, -1));
 
         jLabel2.setText("Market Design Inquiry ID");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
@@ -263,79 +312,13 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jLabel15.setText("Employee Name");
         jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, -1, -1));
 
-        jTextFieldCustomerName.setEditable(false);
-        jTextFieldCustomerName.setName("Customer Name"); // NOI18N
-        jPanel2.add(jTextFieldCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, -1));
+        jTextFieldEmployeeName.setEditable(false);
+        jTextFieldEmployeeName.setName("Customer Name"); // NOI18N
+        jPanel2.add(jTextFieldEmployeeName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 770, 520));
 
-        jPanelEmployeeSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanelEmployeeSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(jTable3);
-
-        jPanelEmployeeSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 430, 330));
-
-        jButton11.setText("Select");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-        jPanelEmployeeSearch.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, -1));
-
-        jTextField10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField10ActionPerformed(evt);
-            }
-        });
-        jPanelEmployeeSearch.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, 60, -1));
-        jPanelEmployeeSearch.add(jTextFieldSDICustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
-
-        jLabel12.setText("Employee ID");
-        jPanelEmployeeSearch.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabel13.setText("Employee name");
-        jPanelEmployeeSearch.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-
-        jButton15.setText("Search");
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
-            }
-        });
-        jPanelEmployeeSearch.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
-
-        jButton16.setText("Search");
-        jPanelEmployeeSearch.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
-
-        jButton13.setText("View All");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-        jPanelEmployeeSearch.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
-
-        jPanel1.add(jPanelEmployeeSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 30, 480, 510));
-
-        jTabbedPane1.addTab("ADD Design Inquiry ", jPanel1);
+        jTabbedPane1.addTab("ADD Market Design Inquiry ", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -359,7 +342,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
-        jLabel8.setText("Sales Design Inquiry ID");
+        jLabel8.setText("Market Design Inquiry ID");
         jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jTextFieldSearchSDIID.addActionListener(new java.awt.event.ActionListener() {
@@ -453,6 +436,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Reports", jPanel4);
+        jTabbedPane1.addTab("Edit", jPanel8);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -460,10 +444,10 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      boolean result=salesDesignInquiryModel.AddSDI(jTextFieldSalesDesignInquiryId,jTextFieldCustomerId,datePicker2,jTable1,jTextFieldDescription,datePicker1);
+      boolean result=marketDesignInquiryModel.AddMDI(jTextFieldMarketDesignInquiryId,jTextFieldEmploeeId,datePicker2,jTable1,jTextFieldDescription,datePicker1);
         if(result){
             JOptionPane.showMessageDialog(null,"Successfully To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-             generate_sdi();
+             generate_mdi();
              clear();
         }
         else{
@@ -480,9 +464,9 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextFieldSalesDesignInquiryIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSalesDesignInquiryIdActionPerformed
+    private void jTextFieldMarketDesignInquiryIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMarketDesignInquiryIdActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSalesDesignInquiryIdActionPerformed
+    }//GEN-LAST:event_jTextFieldMarketDesignInquiryIdActionPerformed
 
     private void jTextFieldSearchSDIIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchSDIIDActionPerformed
         // TODO add your handling code here:
@@ -497,7 +481,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        generate_sdi();
+        generate_mdi();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -509,63 +493,13 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         RowCountjTable1=jTable1.getSelectedRow();
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    jPanelEmployeeSearch.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField10ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-jTextFieldCustomerId.setText(CustomerId);
-jTextFieldCustomerName.setText(CustomerName);
-        jPanelEmployeeSearch.setVisible(false);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-    jTable3.setModel(DbUtils.resultSetToTableModel(customerModeSDI.SearchID(jTextFieldSDICustomerId.getText()))); 
-    }//GEN-LAST:event_jButton15ActionPerformed
-
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
- int x=jTable3.getSelectedRow();
-    String y=(String) jTable3.getValueAt(x,0);
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT \n" +
-"    `customer_table`.`CustomerId`,\n" +
-"    `customer_table`.`CustomerName`,\n" +
-"    `customer_table`.`CustomerCompanyName`,\n" +
-"    `customer_table`.`CustomerPhone`,\n" +
-"    `customer_table`.`CustomerEmail`,\n" +
-"    `customer_table`.`CustomerAddress`,\n" +
-"    `customer_table`.`CustomerAddedDate`\n" +
-"FROM\n" +
-"    `garmentsystem`.`customer_table`\n" +
-"WHERE\n" +
-"    CustomerId = '"+y+"';");
-    try {
-        DB_Connect.DB_ResultSet.next();
-        CustomerId=DB_Connect.DB_ResultSet.getString("CustomerId");
-        CustomerName=DB_Connect.DB_ResultSet.getString("CustomerName");
-
-        
-       
-    } catch (SQLException ex) {
-        Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
-    }    
-    }//GEN-LAST:event_jTable3MouseClicked
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-
-        jTable3.setModel(DbUtils.resultSetToTableModel(salesDesignInquiryModel.ViewAll()));
-    }//GEN-LAST:event_jButton13ActionPerformed
-
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
        model.setRowCount(0);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
 
-        jTable2.setModel(DbUtils.resultSetToTableModel(salesDesignInquiryModel.ViewAll()));
+        jTable2.setModel(DbUtils.resultSetToTableModel(marketDesignInquiryModel.ViewAll()));
         clearSearch();
     }//GEN-LAST:event_jButton20ActionPerformed
 
@@ -574,17 +508,17 @@ jTextFieldCustomerName.setText(CustomerName);
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-     jTable2.setModel(DbUtils.resultSetToTableModel(salesDesignInquiryModel.SearchSDIID(jTextFieldSearchSDIID.getText())));  
+     jTable2.setModel(DbUtils.resultSetToTableModel(marketDesignInquiryModel.SearchSDIID(jTextFieldSearchSDIID.getText())));  
      clearSearch();
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButtonSearchCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchCustomerIDActionPerformed
-     jTable2.setModel(DbUtils.resultSetToTableModel(salesDesignInquiryModel.SearchCustomerID(jTextFieldSearchCustomerID.getText())));    
+     jTable2.setModel(DbUtils.resultSetToTableModel(marketDesignInquiryModel.SearchCustomerID(jTextFieldSearchCustomerID.getText())));    
      clearSearch();
     }//GEN-LAST:event_jButtonSearchCustomerIDActionPerformed
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-    jTable2.setModel(DbUtils.resultSetToTableModel(salesDesignInquiryModel.SearchCustomerName(jTextFieldSearchCustomerName.getText())));    
+    jTable2.setModel(DbUtils.resultSetToTableModel(marketDesignInquiryModel.SearchCustomerName(jTextFieldSearchCustomerName.getText())));    
      clearSearch();
     }//GEN-LAST:event_jButton19ActionPerformed
 
@@ -599,10 +533,10 @@ jTextFieldCustomerName.setText(CustomerName);
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         
-        Boolean result =salesDesignInquiryModel.DeleteSDI(jTextFieldSearchSDIID.getText());
+        Boolean result =marketDesignInquiryModel.DeleteSDI(jTextFieldSearchSDIID.getText());
     if(result){
             JOptionPane.showMessageDialog(null,"Successfully Deleted Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-            jTable2.setModel(DbUtils.resultSetToTableModel(salesDesignInquiryModel.ViewAll()));
+            jTable2.setModel(DbUtils.resultSetToTableModel(marketDesignInquiryModel.ViewAll()));
             model2.setRowCount(0);
              clear();
               
@@ -613,14 +547,22 @@ jTextFieldCustomerName.setText(CustomerName);
         }  
     clearSearch();
     }//GEN-LAST:event_jButton10ActionPerformed
-    private void generate_sdi(){
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        jTable5.setModel(DbUtils.resultSetToTableModel(marketDesignInquiryModel.ViewAll()));
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jTextFieldSalesDesignInquiryId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSalesDesignInquiryId1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSalesDesignInquiryId1ActionPerformed
+    private void generate_mdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",MainWindow.userid));
+    jTextFieldMarketDesignInquiryId.setText(aid.generate("mdi",Integer.toString(MainWindow.userid)));
     }
         private void clear(){
-            generate_sdi();
-            jTextFieldCustomerId.setText("");
-            jTextFieldCustomerName.setText("");
+            generate_mdi();
+            jTextFieldEmploeeId.setText("");
+            jTextFieldEmployeeName.setText("");
             jTextFieldDescription.setText("");
             datePicker2.setDateToToday();
             datePicker1.setDateToToday();
@@ -632,33 +574,49 @@ jTextFieldCustomerName.setText(CustomerName);
             jTextFieldSearchCustomerName.setText("");
 
     }
+        private void getEmployeeid(){
+        String tem=Integer.toString(MainWindow.userid);
+        String tem1=null;
+        DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT Employee_Name_tablecol FROM garmentsystem.employee_table where EmployeeId='"+tem+"';");
+            try {
+                DB_Connect.DB_ResultSet.next();
+                 tem1=(DB_Connect.DB_ResultSet.getString("Employee_Name_tablecol"));
+                 System.err.println(tem1);
+            } catch (SQLException ex) {
+                Logger.getLogger(SalesDesignInquiryModel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        
+        jTextFieldEmploeeId.setText(tem);
+        jTextFieldEmployeeName.setText(tem1);
+        
+        
+        
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton15;
-    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonSearchCustomerID;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -672,26 +630,61 @@ jTextFieldCustomerName.setText(CustomerName);
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanelEmployeeSearch;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextFieldCustomerId;
-    private javax.swing.JTextField jTextFieldCustomerName;
+    private javax.swing.JTable jTable5;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldDescription;
+    private javax.swing.JTextField jTextFieldEmploeeId;
+    private javax.swing.JTextField jTextFieldEmployeeName;
+    private javax.swing.JTextField jTextFieldMarketDesignInquiryId;
     private javax.swing.JTextField jTextFieldQuantatiy;
-    private javax.swing.JTextField jTextFieldSDICustomerId;
-    private javax.swing.JTextField jTextFieldSalesDesignInquiryId;
+    private javax.swing.JTextField jTextFieldSalesDesignInquiryId1;
     private javax.swing.JTextField jTextFieldSearchCustomerID;
     private javax.swing.JTextField jTextFieldSearchCustomerName;
     private javax.swing.JTextField jTextFieldSearchSDIID;
     private javax.swing.JTextField jTextFieldSize;
     // End of variables declaration//GEN-END:variables
+
+public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
+    @Override
+    public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, java.lang.Object value, boolean isSelected, boolean hasFocus, int row, int column)
+    {
+        final java.awt.Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+     { 
+         System.out.println(jTable5.getModel().getValueAt(row,6));
+         if((jTable5.getModel().getValueAt(row,6).equals("true"))&&(jTable5.getModel().getValueAt(row,8).equals("false")))
+         {
+          cellComponent.setBackground(Color.CYAN);
+          cellComponent.setForeground(Color.black);  
+         }
+         else if ((jTable5.getModel().getValueAt(row,6).equals("false"))&&(jTable5.getModel().getValueAt(row,8).equals("false")))
+         {
+         cellComponent.setBackground(Color.red);
+         cellComponent.setForeground(Color.black);
+         }
+          else if ((jTable5.getModel().getValueAt(row,6).equals("pending"))&&(jTable5.getModel().getValueAt(row,8).equals("false")))
+         {
+         cellComponent.setBackground(Color.ORANGE);
+         cellComponent.setForeground(Color.black);
+         }   
+           else if ((jTable5.getModel().getValueAt(row,6).equals("true"))&&(jTable5.getModel().getValueAt(row,8).equals("true")))
+         {
+         cellComponent.setBackground(Color.GREEN);
+         cellComponent.setForeground(Color.black);
+         }  
+     }
+        return cellComponent;
+}
+}
+    
 }
