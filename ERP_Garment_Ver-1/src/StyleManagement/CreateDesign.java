@@ -1,15 +1,13 @@
 
 package StyleManagement;
 
-import Sales.*;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
-import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
-import static MainSystem.MainWindow.db_con;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.awt.Color;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
@@ -25,6 +23,7 @@ int RowCountjTable2;
 CreateDesignModel NewSalesDesignModel ;
 
 
+
         String LogNo;
         String CustomerId;
         String CustomerName;
@@ -32,6 +31,8 @@ CreateDesignModel NewSalesDesignModel ;
         String CustomerPhone;
         String CustomerEmail;
         String CustomerAddres;
+        
+        
 
 
     /**
@@ -43,6 +44,7 @@ CreateDesignModel NewSalesDesignModel ;
         datePicker2.setDateToToday();
     NewSalesDesignModel = new CreateDesignModel();
      jTable1.setModel(DbUtils.resultSetToTableModel(NewSalesDesignModel.ViewAll()));
+     jTable1.setDefaultRenderer(Object.class, new CreateDesign.MyCellRenderer());
     }
 
     /**
@@ -59,6 +61,8 @@ CreateDesignModel NewSalesDesignModel ;
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jTextFieldCustomerId = new javax.swing.JTextField();
@@ -76,20 +80,13 @@ CreateDesignModel NewSalesDesignModel ;
         jLabel1 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        jPanel6 = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jButton11 = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jTextFieldSize = new javax.swing.JTextField();
-        jTextFieldQuantatiy = new javax.swing.JTextField();
-        jButton12 = new javax.swing.JButton();
-        jButton13 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel4 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jLabelImg = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextFieldDescription1 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
@@ -117,10 +114,25 @@ CreateDesignModel NewSalesDesignModel ;
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 740, 450));
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1310, 240));
 
         jButton1.setText(" Select to ADD Design");
-        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 60, -1, -1));
+        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, -1, -1));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel5.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 1300, 180));
 
         jTabbedPane1.addTab("Main ", jPanel5);
 
@@ -143,10 +155,10 @@ CreateDesignModel NewSalesDesignModel ;
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 52, -1, -1));
 
         jLabel7.setText("Date");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 50, -1, -1));
 
         datePicker2.setName(""); // NOI18N
-        jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, -1, -1));
+        jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 50, -1, -1));
 
         jButton4.setText("ADD Design");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -171,10 +183,10 @@ CreateDesignModel NewSalesDesignModel ;
                 jTextFieldSalesDesignInquiryIdActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldSalesDesignInquiryId, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 80, 110, -1));
+        jPanel2.add(jTextFieldSalesDesignInquiryId, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 90, 110, -1));
 
         jLabel12.setText("Sales Or Market Design Inquiry ID");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
 
         jTextFieldDescription.setName("Description"); // NOI18N
         jPanel2.add(jTextFieldDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 380, 60));
@@ -183,77 +195,48 @@ CreateDesignModel NewSalesDesignModel ;
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jLabel14.setText("Designer name");
-        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, -1));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 80, -1));
+        jPanel2.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {}
-            }
-            ,
-            new String [] {
-                "Size","Quantity"
-            }
-        ));
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
-            }
-        });
-        jScrollPane3.setViewportView(jTable3);
-
-        jPanel6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 360, 130));
-
-        jButton11.setText("Add  Row");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
+        jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+                jTextField2ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 90, -1));
+        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, 80, -1));
 
-        jLabel5.setText("Size");
-        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 50, -1, -1));
-
-        jLabel6.setText("Colour");
-        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 80, -1, -1));
-        jPanel6.add(jTextFieldSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 70, -1));
-        jPanel6.add(jTextFieldQuantatiy, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 80, 70, -1));
-
-        jButton12.setText("Delete Row");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Pattern Choose File");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, -1, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 420, -1, -1));
 
-        jButton13.setText("Clear");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        jLabelImg.setText("Image## Do not move##");
+        jLabelImg.setMaximumSize(new java.awt.Dimension(300, 300));
+        jLabelImg.setMinimumSize(new java.awt.Dimension(300, 300));
+        jLabelImg.setPreferredSize(new java.awt.Dimension(300, 300));
+        jPanel2.add(jLabelImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 40, 300, 300));
+        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 80, -1));
+
+        jLabel15.setText("Designer Creator's name");
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, -1, -1));
+
+        jLabel3.setText("Note");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, 10));
+
+        jTextFieldDescription1.setName("Description"); // NOI18N
+        jPanel2.add(jTextFieldDescription1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, 380, 60));
+
+        jButton3.setText("image Choose File");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 90, -1));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 370, -1, 20));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
-        jPanel6.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, -1, -1));
-
-        jLabel4.setText("Gender");
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
-
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, 720, 190));
-
-        jLabel3.setText("Future add able to add picture and pattern ");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 80, -1, -1));
-
-        jTextField1.setText("File name ");
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 70, -1, -1));
-
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 1120, 520));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 1270, 520));
 
         jTabbedPane1.addTab("ADD Design", jPanel1);
 
@@ -270,54 +253,61 @@ CreateDesignModel NewSalesDesignModel ;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTextFieldSalesDesignInquiryIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSalesDesignInquiryIdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSalesDesignInquiryIdActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        clear();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-      //  boolean result=customerModel.AddCustomer(jTextFieldCustomerId, jTextFieldCustomerName, jTextFieldCompanyName,jTextFieldPhone,jTextFieldEmail,datePicker2);
-     //   if(result)
-     {
+
+        //  boolean result=customerModel.AddCustomer(jTextFieldCustomerId, jTextFieldCustomerName, jTextFieldCompanyName,jTextFieldPhone,jTextFieldEmail,datePicker2);
+        //   if(result)
+        {
             JOptionPane.showMessageDialog(null,"Successfully To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-             generate_sdi();
-             clear();
+            generate_sdi();
+            clear();
         }
-       // else
+        // else
         {
             JOptionPane.showMessageDialog(null,"Failed To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-        
-        }  
+
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextFieldCustomerIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerIdActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCustomerIdActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-    clear();        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton6ActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    JFileChooser fileChooser2 = new JFileChooser();
+    fileChooser2.setCurrentDirectory(new File(System.getProperty("user.home")));
+    int result = fileChooser2.showOpenDialog(this);
+    if (result == JFileChooser.APPROVE_OPTION) {
+    File selectedFile = fileChooser2.getSelectedFile();
+    System.out.println("Selected pattern file: " + selectedFile.getAbsolutePath());
 
-    private void jTextFieldSalesDesignInquiryIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSalesDesignInquiryIdActionPerformed
+}
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSalesDesignInquiryIdActionPerformed
+    }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-   
-    }//GEN-LAST:event_jTable3MouseClicked
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-
-        model.addRow(new Object[]{ jTextFieldSize.getText(),jTextFieldQuantatiy.getText()});
-        jTextFieldSize.setText("");
-        jTextFieldQuantatiy.setText("");
-
-    }//GEN-LAST:event_jButton11ActionPerformed
-
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-
-   
-    }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        model.setRowCount(0);
-    }//GEN-LAST:event_jButton13ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    JFileChooser fileChooser1 = new JFileChooser();
+    //fileChooser1.setCurrentDirectory(new File(System.getProperty("user.home")));
+    int result = fileChooser1.showOpenDialog(this);
+    if (result == JFileChooser.APPROVE_OPTION) {
+    File selectedFile = fileChooser1.getSelectedFile();
+    System.out.println("Selected pattern file: " + selectedFile.getAbsolutePath());
+    ImageIcon icon = new ImageIcon(selectedFile.getAbsolutePath());
+    jLabelImg.setIcon(icon);
+    }
+    }//GEN-LAST:event_jButton3ActionPerformed
+    
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextFieldCustomerId.setText(aid.generate("cus",Integer.toString(MainWindow.userid)));
@@ -333,38 +323,59 @@ CreateDesignModel NewSalesDesignModel ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabelImg;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextFieldCustomerId;
     private javax.swing.JTextField jTextFieldDescription;
-    private javax.swing.JTextField jTextFieldQuantatiy;
+    private javax.swing.JTextField jTextFieldDescription1;
     private javax.swing.JTextField jTextFieldSalesDesignInquiryId;
-    private javax.swing.JTextField jTextFieldSize;
     // End of variables declaration//GEN-END:variables
+
+public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
+    @Override
+    public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, java.lang.Object value, boolean isSelected, boolean hasFocus, int row, int column)
+    {
+        final java.awt.Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+     { 
+         if((jTable1.getModel().getValueAt(row,8).equals("false")))
+         {
+         cellComponent.setBackground(Color.red);
+         cellComponent.setForeground(Color.black);  
+         }
+         else if ((jTable1.getModel().getValueAt(row,8).equals("true")))
+         {
+         cellComponent.setBackground(Color.green);
+         cellComponent.setForeground(Color.black);
+         }
+          else if ((jTable1.getModel().getValueAt(row,8).equals("pending")))
+         {
+         cellComponent.setBackground(Color.ORANGE);
+         cellComponent.setForeground(Color.black);
+         }     
+     }
+        return cellComponent;
+}
+}
 }
