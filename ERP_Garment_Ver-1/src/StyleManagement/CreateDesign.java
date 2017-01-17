@@ -3,9 +3,24 @@ package StyleManagement;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
+import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.db_con;
 import java.awt.Color;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.sql.Blob;
+import java.sql.SQLException;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -31,7 +46,8 @@ CreateDesignModel NewSalesDesignModel ;
         String CustomerPhone;
         String CustomerEmail;
         String CustomerAddres;
-        
+        FileInputStream fis;
+        int filelenth;
         
 
 
@@ -87,6 +103,9 @@ CreateDesignModel NewSalesDesignModel ;
         jLabel3 = new javax.swing.JLabel();
         jTextFieldDescription1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jLabelImg1 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
 
@@ -210,13 +229,13 @@ CreateDesignModel NewSalesDesignModel ;
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 420, -1, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 410, -1, -1));
 
         jLabelImg.setText("Image## Do not move##");
         jLabelImg.setMaximumSize(new java.awt.Dimension(300, 300));
         jLabelImg.setMinimumSize(new java.awt.Dimension(300, 300));
         jLabelImg.setPreferredSize(new java.awt.Dimension(300, 300));
-        jPanel2.add(jLabelImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 40, 300, 300));
+        jPanel2.add(jLabelImg, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 40, 300, 300));
         jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 120, 80, -1));
 
         jLabel15.setText("Designer Creator's name");
@@ -234,7 +253,29 @@ CreateDesignModel NewSalesDesignModel ;
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 370, -1, 20));
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 370, -1, 20));
+
+        jButton5.setText("jButton5");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 380, -1, -1));
+
+        jLabelImg1.setText("Image## Do not move##");
+        jLabelImg1.setMaximumSize(new java.awt.Dimension(300, 300));
+        jLabelImg1.setMinimumSize(new java.awt.Dimension(300, 300));
+        jLabelImg1.setPreferredSize(new java.awt.Dimension(300, 300));
+        jPanel2.add(jLabelImg1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 60, 300, 300));
+
+        jButton7.setText("jButton7");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 380, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 1270, 520));
 
@@ -305,9 +346,120 @@ CreateDesignModel NewSalesDesignModel ;
     System.out.println("Selected pattern file: " + selectedFile.getAbsolutePath());
     ImageIcon icon = new ImageIcon(selectedFile.getAbsolutePath());
     jLabelImg.setIcon(icon);
-    }
-    }//GEN-LAST:event_jButton3ActionPerformed
     
+        try {
+            fis = new FileInputStream(selectedFile);
+        } catch (FileNotFoundException ex) {
+            System.err.println("5");
+            Logger.getLogger(CreateDesign.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        filelenth=(int)selectedFile.length();
+        System.err.println("zzzzzzz");
+        DB_Connect dvv =new overideExcute();
+        System.err.println("zzzzzzzzzzzzzzzzzz");
+        dvv.execute(LogNo);
+        System.err.println("11111111111111111111111");
+//        try {
+//            DB_Connect.DB_PreparedStatement.setBinaryStream(10,(InputStream)fis,(int)selectedFile.length());
+//        } catch (SQLException ex) {
+//            Logger.getLogger(CreateDesign.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    MainSystem.MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`design_table`\n" +
+//"(`patten`)\n" +
+//"VALUES(?);");
+    } 
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `design_table`.`patten`\n" +
+"FROM `garmentsystem`.`design_table` where `design_table`.`ID` =1 ;");
+    try {
+        DB_Connect.DB_ResultSet.next();
+        Blob imageBlob=DB_Connect.DB_ResultSet.getBlob("patten");
+        //System.out.println(imageBlob.length());
+        InputStream binaryStream = imageBlob.getBinaryStream(1, imageBlob.length());
+       
+        
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        int a1 = binaryStream.read();
+        
+        while (a1 >= 0) {
+          //  System.out.print(a1);
+        //output.write((char) a1);
+        a1 = binaryStream.read();
+        
+        }
+        //System.out.println(output);
+        //System.out.println(Arrays.toString(output.toByteArray()));
+        
+        
+         
+        Image myImage = Toolkit.getDefaultToolkit().createImage(output.toByteArray());
+        
+        output.close();
+        ImageIcon icon = new ImageIcon(myImage);
+        jLabelImg1.setIcon(icon);
+        
+    } catch (SQLException ex) {
+        Logger.getLogger(CreateDesign.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (IOException ex) {
+        Logger.getLogger(CreateDesign.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+    
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    System.out.println();
+    
+    byte[] bytes = ("ava").getBytes();
+    for(byte b : bytes) {
+    
+    System.out.println("byte = " + b);
+    System.out.println("binnnary = " + Integer.toBinaryString(b));
+   
+    
+}
+    }//GEN-LAST:event_jButton7ActionPerformed
+    
+    class overideExcute extends DB_Connect{
+
+        @Override
+        public boolean execute(String SQL_String) {
+            try {
+                DB_PreparedStatement =DB_connection.prepareStatement("INSERT INTO `garmentsystem`.`design_table`(`patten`)VALUES(?);");
+            } catch (SQLException ex) {
+                System.err.println("1");
+                Logger.getLogger(CreateDesign.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }
+            
+            try {
+                DB_PreparedStatement.setBinaryStream(1,(InputStream)fis,filelenth);
+            } catch (SQLException ex) {
+                System.err.println("2");
+                Logger.getLogger(CreateDesign.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }
+            
+            try {
+                DB_PreparedStatement.executeUpdate();
+            } catch (SQLException ex) {
+                System.err.println("3");
+                Logger.getLogger(CreateDesign.class.getName()).log(Level.SEVERE, null, ex);
+                return false;
+            }
+            
+            return (true); 
+        }
+        
+        
+        
+        
+        
+ 
+    }
+       
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextFieldCustomerId.setText(aid.generate("cus",Integer.toString(MainWindow.userid)));
@@ -326,7 +478,9 @@ CreateDesignModel NewSalesDesignModel ;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
@@ -335,6 +489,7 @@ CreateDesignModel NewSalesDesignModel ;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabelImg;
+    private javax.swing.JLabel jLabelImg1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
