@@ -27,8 +27,10 @@ public class MarketDesignInquiryModel {
     
     
     public boolean AddMDI(JTextField MDIID,JTextField CustomerId,DatePicker Date,JTable table,JTextField Description,DatePicker DueDate){
-            String y1=null;
+        String y1=null;
         String x1=null;
+        String z1=null;
+        String z2=null;
         boolean check =false;
         int c=0;
           //check for atleast one size value
@@ -50,8 +52,8 @@ public class MarketDesignInquiryModel {
 "`Description`,\n" +
 "`AddedDate`,\n" +
 "`DueDate`,\n" +
-"`status-SSDIApproval`,\n" +
-"`status-SDIApprovalName`,\n" +
+"`status-Approval`,\n" +
+"`status-ApprovalName`,\n" +
 "`status-DesignCreated`,\n" +
 "`status-DesignCreatedName`,\n" +
 "`users_table_userId`\n" +
@@ -100,11 +102,11 @@ public class MarketDesignInquiryModel {
             x3 =MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table1`\n" +
 "(`Size`,\n" +
 "`Quantity`,\n" +
-"`designinquiry_table_ID`)\n" +
+"`designinquiry_table_ID`,`Colour`,`status-DesignCreated`)\n" +
 "VALUES\n" +
 "('"+y1+"',\n" +
 "'"+x1+"',\n" +
-""+id+");");
+""+id+",'"+z1+"','false');");
         }
         
         if(x&&x3){

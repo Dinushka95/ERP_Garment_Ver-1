@@ -14,6 +14,8 @@ import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import java.awt.Color;
 
+
+
 /**
  *
  * @author Dinushka
@@ -36,6 +38,7 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
         datePicker2.setDateToToday();
         salesdesigninquiryapprovalmodel=new SalesDesignInquiryApprovalModel();
         ViewAllSDI();
+        
        
 
     }
@@ -170,6 +173,7 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
     
     jTable5.setModel(DbUtils.resultSetToTableModel(salesdesigninquiryapprovalmodel.ViewAllSDI()));
     jTable5.setDefaultRenderer(Object.class, new MyCellRenderer());
+   
     }
       
     
@@ -205,22 +209,22 @@ public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
         final java.awt.Component cellComponent = super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
      { 
          System.out.println(jTable5.getModel().getValueAt(row,6));
-         if(jTable5.getModel().getValueAt(row,6).equals("SDIApproval=$true DesignCreated=$false"))
+         if((jTable5.getModel().getValueAt(row,6).equals("true"))&&(jTable5.getModel().getValueAt(row,8).equals("false")))
          {
           cellComponent.setBackground(Color.CYAN);
           cellComponent.setForeground(Color.black);  
          }
-         else if (jTable5.getModel().getValueAt(row,6).equals("SDIApproval=$false DesignCreated=$false"))
+         else if ((jTable5.getModel().getValueAt(row,6).equals("false"))&&(jTable5.getModel().getValueAt(row,8).equals("false")))
          {
          cellComponent.setBackground(Color.red);
          cellComponent.setForeground(Color.black);
          }
-          else if (jTable5.getModel().getValueAt(row,6).equals("SDIApproval=$pending DesignCreated=$false"))
+          else if ((jTable5.getModel().getValueAt(row,6).equals("pending"))&&(jTable5.getModel().getValueAt(row,8).equals("false")))
          {
          cellComponent.setBackground(Color.ORANGE);
          cellComponent.setForeground(Color.black);
-         }
-         else if (jTable5.getModel().getValueAt(row,6).equals("SDIApproval=$true DesignCreated=$true"))
+         }   
+           else if ((jTable5.getModel().getValueAt(row,6).equals("true"))&&(jTable5.getModel().getValueAt(row,8).equals("true")))
          {
          cellComponent.setBackground(Color.GREEN);
          cellComponent.setForeground(Color.black);

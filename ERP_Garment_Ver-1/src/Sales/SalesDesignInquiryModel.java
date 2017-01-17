@@ -27,6 +27,8 @@ public class SalesDesignInquiryModel {
     public boolean AddSDI(JTextField SDIID,JTextField CustomerId,DatePicker Date,JTable table,JTextField Description,DatePicker DueDate){
         String y1=null;
         String x1=null;
+        String z1=null;
+        String z2=null;
         boolean check =false;
         int c=0;
           //check for atleast one size value
@@ -48,8 +50,8 @@ public class SalesDesignInquiryModel {
 "`Description`,\n" +
 "`AddedDate`,\n" +
 "`DueDate`,\n" +
-"`status-SSDIApproval`,\n" +
-"`status-SDIApprovalName`,\n" +
+"`status-Approval`,\n" +
+"`status-ApprovalName`,\n" +
 "`status-DesignCreated`,\n" +
 "`status-DesignCreatedName`,\n" +
 "`users_table_userId`,\n" +
@@ -83,9 +85,14 @@ public class SalesDesignInquiryModel {
         while(c<table.getRowCount()){
             y1=null;
             x1=null;
+            z1=null;
+            //z2=null;
             try {
                 y1=(String) table.getValueAt(c,0); 
-                x1=(String) table.getValueAt(c,1);  
+                x1=(String) table.getValueAt(c,1);
+                z1=(String) table.getValueAt(c,2);
+                //z2=(String) table.getValueAt(c,3);
+                
                 //System.out.println("GGGGGGG");
             } 
             catch (Exception e){
@@ -98,11 +105,11 @@ public class SalesDesignInquiryModel {
             x3 =MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table1`\n" +
 "(`Size`,\n" +
 "`Quantity`,\n" +
-"`designinquiry_table_ID`)\n" +
+"`designinquiry_table_ID`,`Colour`,`status-DesignCreated`)\n" +
 "VALUES\n" +
 "('"+y1+"',\n" +
 "'"+x1+"',\n" +
-""+id+");");
+""+id+",'"+z1+"','false');"); 
         }
         
         if(x&&x3){

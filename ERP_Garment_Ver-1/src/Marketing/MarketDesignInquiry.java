@@ -93,6 +93,8 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         jTextFieldQuantatiy = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        jTextFieldColour = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jTextFieldDescription = new javax.swing.JTextField();
         DatePickerSettings dateSettings = new DatePickerSettings();
@@ -268,6 +270,10 @@ MarketDesignInquiryModel marketDesignInquiryModel;
             }
         });
         jPanel5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 90, -1));
+
+        jLabel17.setText("Colour");
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 110, -1, -1));
+        jPanel5.add(jTextFieldColour, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 70, -1));
 
         jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 720, 190));
 
@@ -458,9 +464,10 @@ MarketDesignInquiryModel marketDesignInquiryModel;
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        model.addRow(new Object[]{ jTextFieldSize.getText(),jTextFieldQuantatiy.getText()});
+        model.addRow(new Object[]{ jTextFieldSize.getText(),jTextFieldQuantatiy.getText(),jTextFieldColour.getText()});
          jTextFieldSize.setText("");
          jTextFieldQuantatiy.setText("");
+         jTextFieldColour.setText("");
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -617,6 +624,7 @@ MarketDesignInquiryModel marketDesignInquiryModel;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -643,6 +651,7 @@ MarketDesignInquiryModel marketDesignInquiryModel;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextFieldColour;
     private javax.swing.JTextField jTextFieldDescription;
     private javax.swing.JTextField jTextFieldEmploeeId;
     private javax.swing.JTextField jTextFieldEmployeeName;

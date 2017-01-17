@@ -15,7 +15,7 @@ import java.sql.ResultSet;
  */
 public class SalesDesignInquiryApprovalModel {
         public ResultSet ViewAllSDI(){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table ORDER BY AddedDate desc;");
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where MarketDesignInquiryId IS NULL ORDER BY AddedDate desc;");
 
     return DB_Connect.DB_ResultSet;
     }
