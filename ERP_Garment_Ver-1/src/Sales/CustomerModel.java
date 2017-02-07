@@ -10,6 +10,7 @@ import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
 import MainSystem.Validation;
 import static MainSystem.MainWindow.db_con;
+import static MainSystem.MainWindow.userid;
 import java.sql.ResultSet;
 import javax.swing.JTextField;
 
@@ -27,10 +28,10 @@ public boolean AddCustomer(JTextField CustomerId,JTextField CustomerName,JTextFi
                 + " `garmentsystem`.`customer_table`(`CustomerId`,`CustomerName`"
                 + ",`CustomerCompanyName`,`CustomerPhone`,"
                 + "`CustomerEmail`,`CustomerAddress`,"
-                + "`CustomerAddedDate`)VALUES('"+CustomerId.getText()+"',"
+                + "`CustomerAddedDate`,`users_table_userId`)VALUES('"+CustomerId.getText()+"',"
                 + "'"+CustomerName.getText()+"','"+CompanyName.getText()+"'"
                 + ",'"+Phone.getText()+"','"
-                + ""+Email.getText()+"','"+Address.getText()+"','"+Date.getText()+"');");   
+                + ""+Email.getText()+"','"+Address.getText()+"','"+Date.getText()+"',"+userid+");");   
          return x;
         }
         return false;
@@ -43,7 +44,7 @@ public ResultSet ViewAll(){
     "    `customer_table`.`CustomerPhone`,\n" +
     "    `customer_table`.`CustomerEmail`,\n" +
     "    `customer_table`.`CustomerAddress`,\n" +
-    "    `customer_table`.`CustomerAddedDate`\n" +
+    "    `customer_table`.`CustomerAddedDate`\n " +
     "FROM `garmentsystem`.`customer_table`;");
 
     return DB_Connect.DB_ResultSet;
