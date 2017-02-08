@@ -17,10 +17,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Blob;
 import java.sql.SQLException;
-import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
@@ -384,16 +382,16 @@ CreateDesignModel NewSalesDesignModel ;
         int a1 = binaryStream.read();
         
         while (a1 >= 0) {
-          //  System.out.print(a1);
-        //output.write((char) a1);
+       // System.out.print(Integer.toBinaryString(a1));
+        //System.out.print("-"+a1+"-");
+        output.write((char) a1);
         a1 = binaryStream.read();
         
         }
-        //System.out.println(output);
-        //System.out.println(Arrays.toString(output.toByteArray()));
-        
-        
-         
+      //  System.out.println(output);
+        //System.out.println(Arrays.toString(output.toByteArray())); 
+                 
+                 
         Image myImage = Toolkit.getDefaultToolkit().createImage(output.toByteArray());
         
         output.close();
