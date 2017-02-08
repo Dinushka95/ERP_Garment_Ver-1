@@ -20,9 +20,9 @@ public class DB_Connect {
     public static ResultSet DB_ResultSet =null;
     
     //Default Contructor will use above valuse 
-    public static String DB_Host=  "jdbc:mysql://localhost:3306/garmentsystem";             ; //"jdbc:mysql://itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com:3306/sliitgarment";
-    public static String username="root";                 //"rosliit216v";
-    public static String password="root";                 //"JS9sd56dss5";
+    public static String DB_Host= "jdbc:mysql://itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com:3306/garmentsystem";       // "jdbc:mysql://localhost:3306/garmentsystem"; 
+    public static String username="rosliit216v";
+    public static String password="JS9sd56dss5";
    
     //Default Contructor 
     public DB_Connect() {
