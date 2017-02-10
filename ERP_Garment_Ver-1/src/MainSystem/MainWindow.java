@@ -72,6 +72,7 @@ public static DB_Connect db_con;
         jButton5 = new javax.swing.JButton();
         jButton37 = new javax.swing.JButton();
         jButton46 = new javax.swing.JButton();
+        jButton52 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
         jButton41 = new javax.swing.JButton();
@@ -79,14 +80,18 @@ public static DB_Connect db_con;
         jButton6 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton42 = new javax.swing.JButton();
+        jPanel14 = new javax.swing.JPanel();
+        jButton12 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
+        jButton28 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
+        jButton43 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton43 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
@@ -96,21 +101,25 @@ public static DB_Connect db_con;
         jButton25 = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
         jButton27 = new javax.swing.JButton();
-        jButton28 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jButton18 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
-        jPanel7 = new javax.swing.JPanel();
-        jButton34 = new javax.swing.JButton();
-        jButton35 = new javax.swing.JButton();
-        jButton36 = new javax.swing.JButton();
-        jButton39 = new javax.swing.JButton();
-        jButton40 = new javax.swing.JButton();
+        jPanel12 = new javax.swing.JPanel();
+        jButton49 = new javax.swing.JButton();
+        jButton50 = new javax.swing.JButton();
+        jButton51 = new javax.swing.JButton();
+        jButton53 = new javax.swing.JButton();
+        jButton57 = new javax.swing.JButton();
+        jPanel13 = new javax.swing.JPanel();
+        jButton48 = new javax.swing.JButton();
+        jButton54 = new javax.swing.JButton();
+        jButton55 = new javax.swing.JButton();
+        jButton56 = new javax.swing.JButton();
+        jButton58 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jButton29 = new javax.swing.JButton();
         jButton30 = new javax.swing.JButton();
@@ -119,7 +128,16 @@ public static DB_Connect db_con;
         jButton33 = new javax.swing.JButton();
         jButton44 = new javax.swing.JButton();
         jButton45 = new javax.swing.JButton();
+        jButton47 = new javax.swing.JButton();
+        jPanel7 = new javax.swing.JPanel();
+        jButton34 = new javax.swing.JButton();
+        jButton36 = new javax.swing.JButton();
+        jButton39 = new javax.swing.JButton();
+        jButton40 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
+        jButton59 = new javax.swing.JButton();
+        jButton60 = new javax.swing.JButton();
+        jButton61 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
@@ -129,7 +147,7 @@ public static DB_Connect db_con;
         setPreferredSize(new java.awt.Dimension(1365, 730));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -173,13 +191,13 @@ public static DB_Connect db_con;
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
 
-        jButton37.setText("Order");
+        jButton37.setText("payment");
         jButton37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton37ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, -1, -1));
+        jPanel1.add(jButton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, -1, -1));
 
         jButton46.setText("Sales Design Inquiry Approval");
         jButton46.addActionListener(new java.awt.event.ActionListener() {
@@ -188,6 +206,14 @@ public static DB_Connect db_con;
             }
         });
         jPanel1.add(jButton46, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+
+        jButton52.setText("Order");
+        jButton52.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton52ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton52, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, -1, -1));
 
         jTabbedPane1.addTab("Sales ", jPanel1);
 
@@ -221,13 +247,13 @@ public static DB_Connect db_con;
         });
         jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 11, -1, -1));
 
-        jButton14.setText("Create Product Costing Material");
+        jButton14.setText("Design Cost Estimate");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         jButton42.setText("Design Approval");
         jButton42.addActionListener(new java.awt.event.ActionListener() {
@@ -235,9 +261,53 @@ public static DB_Connect db_con;
                 jButton42ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        jPanel2.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
         jTabbedPane1.addTab("Style Management", jPanel2);
+
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton12.setText(" Sample Costing");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+
+        jButton23.setText("Request Sample");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 11, -1, -1));
+
+        jButton28.setText("Create Sample");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+
+        jButton35.setText(" Sample Customer Approval");
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
+
+        jButton43.setText(" Sample Manger Approval");
+        jButton43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton43ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
+
+        jTabbedPane1.addTab("Sampling", jPanel14);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -255,17 +325,6 @@ public static DB_Connect db_con;
 
         jButton11.setText("Iron & Packing Planning");
         jPanel3.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
-
-        jButton12.setText("Check Inventory Planning");
-        jPanel3.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, -1, -1));
-
-        jButton43.setText("Create Product Costing Labour");
-        jButton43.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton43ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, -1, -1));
 
         jTabbedPane1.addTab("Manufacturing Planning", jPanel3);
 
@@ -293,11 +352,8 @@ public static DB_Connect db_con;
         jButton26.setText("Purchasing ");
         jPanel5.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
-        jButton27.setText("Return goods");
+        jButton27.setText("Return goods (to supplier)");
         jPanel5.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
-
-        jButton28.setText("Other expenses ");
-        jPanel5.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
         jTabbedPane1.addTab("Procurements ", jPanel5);
 
@@ -315,35 +371,101 @@ public static DB_Connect db_con;
         jButton21.setText("machine parts ");
         jPanel6.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
-        jButton22.setText("machinery / fixed assets   ");
+        jButton22.setText("machinery");
         jPanel6.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
 
-        jButton23.setText("Return goods");
-        jPanel6.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, -1, -1));
+        jButton24.setText("Re-Order List");
+        jPanel6.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
 
-        jButton24.setText("Stock alert ");
-        jPanel6.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, -1, -1));
+        jTabbedPane1.addTab("Inventory ", jPanel6);
 
-        jTabbedPane1.addTab("Inventory Management ", jPanel6);
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jButton49.setText("Distribution");
+        jButton49.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton49ActionPerformed(evt);
+            }
+        });
+        jPanel12.add(jButton49, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
-        jButton34.setText("Recruitment");
-        jPanel7.add(jButton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        jButton50.setText("Shipment");
+        jButton50.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton50ActionPerformed(evt);
+            }
+        });
+        jPanel12.add(jButton50, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
-        jButton35.setText("Workforce management ");
-        jPanel7.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        jButton51.setText("Vehicle Maintenance");
+        jButton51.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton51ActionPerformed(evt);
+            }
+        });
+        jPanel12.add(jButton51, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
-        jButton36.setText("Payroll");
-        jPanel7.add(jButton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
+        jButton53.setText("Vehicle");
+        jButton53.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton53ActionPerformed(evt);
+            }
+        });
+        jPanel12.add(jButton53, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
-        jButton39.setText("Enter time card");
-        jPanel7.add(jButton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 10, -1, -1));
+        jButton57.setText("Fuel Bills");
+        jButton57.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton57ActionPerformed(evt);
+            }
+        });
+        jPanel12.add(jButton57, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
-        jButton40.setText("Levels");
-        jPanel7.add(jButton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
+        jTabbedPane1.addTab("Distribution", jPanel12);
 
-        jTabbedPane1.addTab("Human Resource ", jPanel7);
+        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton48.setText("Contractors");
+        jButton48.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton48ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(jButton48, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
+
+        jButton54.setText("Job Request");
+        jButton54.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton54ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(jButton54, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jButton55.setText("Order Parts");
+        jButton55.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton55ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(jButton55, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
+
+        jButton56.setText("Job Inspecting And Estimation ");
+        jButton56.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton56ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(jButton56, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+
+        jButton58.setText("Job Out-Source");
+        jButton58.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton58ActionPerformed(evt);
+            }
+        });
+        jPanel13.add(jButton58, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+
+        jTabbedPane1.addTab("Maintenances", jPanel13);
 
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -353,43 +475,67 @@ public static DB_Connect db_con;
         jButton30.setText("Cash ");
         jPanel8.add(jButton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
-        jButton31.setText("Payables");
+        jButton31.setText("Expenses");
         jPanel8.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
-        jButton32.setText("Recoverables ");
+        jButton32.setText("Income");
         jPanel8.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
         jButton33.setText("Cash flow");
-        jPanel8.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+        jPanel8.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, -1, -1));
 
-        jButton44.setText("Create Product Costing Others");
+        jButton44.setText("Profit & Loss");
         jButton44.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton44ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton44, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
+        jPanel8.add(jButton44, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, -1, -1));
 
-        jButton45.setText("Final Product Costing");
+        jButton45.setText("Loans");
         jButton45.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton45ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton45, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, -1, -1));
+        jPanel8.add(jButton45, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, -1));
+
+        jButton47.setText("Fixed Assets");
+        jButton47.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton47ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jButton47, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
 
         jTabbedPane1.addTab("Finance ", jPanel8);
 
-        javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
-        jPanel9.setLayout(jPanel9Layout);
-        jPanel9Layout.setHorizontalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1345, Short.MAX_VALUE)
-        );
-        jPanel9Layout.setVerticalGroup(
-            jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 39, Short.MAX_VALUE)
-        );
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton34.setText("Employee");
+        jPanel7.add(jButton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+
+        jButton36.setText("Payroll");
+        jPanel7.add(jButton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+
+        jButton39.setText("Attendants");
+        jPanel7.add(jButton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+
+        jButton40.setText("Levels");
+        jPanel7.add(jButton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+
+        jTabbedPane1.addTab("Human Resource ", jPanel7);
+
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton59.setText("Database Network Settings ");
+        jPanel9.add(jButton59, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+
+        jButton60.setText("User Settings");
+        jPanel9.add(jButton60, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jButton61.setText("Database Back-up");
+        jPanel9.add(jButton61, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
 
         jTabbedPane1.addTab("Settings", jPanel9);
 
@@ -401,12 +547,12 @@ public static DB_Connect db_con;
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 39, Short.MAX_VALUE)
+            .addGap(0, 60, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Help", jPanel10);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1350, 70));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 1350, 70));
 
         jDesktopPane1.setMaximumSize(new java.awt.Dimension(1365, 730));
         jDesktopPane1.setMinimumSize(new java.awt.Dimension(1365, 730));
@@ -576,33 +722,6 @@ public static DB_Connect db_con;
         salesorder.setMaximizable(false); 
     }//GEN-LAST:event_jButton37ActionPerformed
 
-    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
-        CreateProductCostingLabour createproductcostinglabour =new CreateProductCostingLabour();
-        createproductcostinglabour.setVisible(true);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.add(createproductcostinglabour);
-        try {
-           createproductcostinglabour.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       createproductcostinglabour.setMaximizable(false); 
-    }//GEN-LAST:event_jButton43ActionPerformed
-
-    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
-    CreateProductCostingOther createproductcostingother=new CreateProductCostingOther();
-            createproductcostingother.setVisible(true);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.add(createproductcostingother);
-        try {
-           createproductcostingother.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       createproductcostingother.setMaximizable(false); 
-    
-    }//GEN-LAST:event_jButton44ActionPerformed
-
     private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
     ProductCosting productcosting = new ProductCosting();
                 productcosting.setVisible(true);
@@ -630,6 +749,87 @@ public static DB_Connect db_con;
        salesdesigninquiryapproval.setMaximizable(false); 
         
     }//GEN-LAST:event_jButton46ActionPerformed
+
+    private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton47ActionPerformed
+
+    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        CreateProductCostingOther createproductcostingother=new CreateProductCostingOther();
+        createproductcostingother.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(createproductcostingother);
+        try {
+            createproductcostingother.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        createproductcostingother.setMaximizable(false);
+    }//GEN-LAST:event_jButton44ActionPerformed
+
+    private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton48ActionPerformed
+
+    private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton49ActionPerformed
+
+    private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton50ActionPerformed
+
+    private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton51ActionPerformed
+
+    private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton52ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton12ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton28ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton35ActionPerformed
+
+    private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton54ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton54ActionPerformed
+
+    private void jButton55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton55ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton55ActionPerformed
+
+    private void jButton56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton56ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton56ActionPerformed
+
+    private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton53ActionPerformed
+
+    private void jButton57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton57ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton57ActionPerformed
+
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton43ActionPerformed
+
+    private void jButton58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton58ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton58ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -709,8 +909,23 @@ public static DB_Connect db_con;
     private javax.swing.JButton jButton44;
     private javax.swing.JButton jButton45;
     private javax.swing.JButton jButton46;
+    private javax.swing.JButton jButton47;
+    private javax.swing.JButton jButton48;
+    private javax.swing.JButton jButton49;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton50;
+    private javax.swing.JButton jButton51;
+    private javax.swing.JButton jButton52;
+    private javax.swing.JButton jButton53;
+    private javax.swing.JButton jButton54;
+    private javax.swing.JButton jButton55;
+    private javax.swing.JButton jButton56;
+    private javax.swing.JButton jButton57;
+    private javax.swing.JButton jButton58;
+    private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton60;
+    private javax.swing.JButton jButton61;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
@@ -718,6 +933,9 @@ public static DB_Connect db_con;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel13;
+    private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
