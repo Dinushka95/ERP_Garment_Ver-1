@@ -33,6 +33,8 @@ import java.util.logging.Logger;
  */
 public class MainWindow extends javax.swing.JFrame {
 public static int  userid=1;
+public static String  username="test";
+
 public static DB_Connect db_con;
     /**
      * Creates new form Login
@@ -521,7 +523,7 @@ public static DB_Connect db_con;
         jButton39.setText("Attendants");
         jPanel7.add(jButton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
-        jButton40.setText("Levels");
+        jButton40.setText("Leaves");
         jPanel7.add(jButton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
         jTabbedPane1.addTab("Human Resource ", jPanel7);
@@ -547,7 +549,7 @@ public static DB_Connect db_con;
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 60, Short.MAX_VALUE)
+            .addGap(0, 41, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Help", jPanel10);
