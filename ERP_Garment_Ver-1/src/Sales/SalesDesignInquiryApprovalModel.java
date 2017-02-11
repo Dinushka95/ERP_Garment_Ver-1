@@ -6,7 +6,9 @@
 package Sales;
 
 import MainSystem.DB_Connect;
+import MainSystem.MainWindow;
 import static MainSystem.MainWindow.db_con;
+import com.github.lgooddatepicker.components.DatePicker;
 import java.sql.ResultSet;
 
 /**
@@ -20,4 +22,17 @@ public class SalesDesignInquiryApprovalModel {
     return DB_Connect.DB_ResultSet;
     }
     
+        
+        public boolean Update(String SDI){
+            DatePicker mydatePicker =new DatePicker();
+            mydatePicker.setDateToToday();
+            boolean x =MainWindow.db_con.execute("UPDATE `garmentsystem`.`designinquiry_table`\n" +
+            "SET\n" +
+            "`status-Approval` = 'true',\n" +
+            "`status-ApprovalName` = '"+MainWindow.username+"',\n" +
+            "`status-ApprovalDate` = '"+mydatePicker.getDate()+"'\n" +
+            "WHERE `SalesDesignInquiryId` = '"+SDI+"';"); 
+        
+    return false;    
+    }
 }

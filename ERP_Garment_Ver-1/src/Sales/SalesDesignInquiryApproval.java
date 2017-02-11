@@ -8,11 +8,16 @@ package Sales;
 import Marketing.*;
 import Sales.*;
 import MainSystem.AutoIdGenerator;
+import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.db_con;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import java.awt.Color;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -27,6 +32,10 @@ DefaultTableModel model3;
 int RowCountjTable1;
 String CustomerId;
 String CustomerName;
+String SalesDesignInquiryId;
+String statusApprovalName;
+String statusApproval;
+String statusApprovalDate;
 SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
     /**
      * Creates new form SalesDesignInquiry
@@ -35,7 +44,7 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
         initComponents();
         
         
-        datePicker2.setDateToToday();
+        
         salesdesigninquiryapprovalmodel=new SalesDesignInquiryApprovalModel();
         ViewAllSDI();
         
@@ -61,17 +70,10 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
         jLabel11 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jButton2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jTextFieldSalesDesignInquiryId = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        DatePickerSettings dateSettings1 = new DatePickerSettings();
-        dateSettings1.setFormatForDatesCommonEra("yyyy/MM/dd");
-        dateSettings1.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
-        datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
-        jLabel12 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setTitle("Sales Design Inquiry Approval Management");
@@ -98,6 +100,11 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable5MouseClicked(evt);
+            }
+        });
         jScrollPane5.setViewportView(jTable5);
 
         jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 1220, 360));
@@ -117,32 +124,30 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
 
-        jLabel2.setText("Sales Design Inquiry ID");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 480, -1, -1));
+        jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton2.setText("Update Approval");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+
+        jLabel2.setText("Sales Design Inquiry ID");
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jTextFieldSalesDesignInquiryId.setEditable(false);
         jTextFieldSalesDesignInquiryId.setName("Sales Design Inquiry ID"); // NOI18N
         jTextFieldSalesDesignInquiryId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldSalesDesignInquiryIdActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldSalesDesignInquiryId, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 480, 110, -1));
+        jPanel3.add(jTextFieldSalesDesignInquiryId, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 110, -1));
 
-        jLabel7.setText("Approve Date");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 480, -1, -1));
-
-        datePicker2.setEnabled(false);
-        jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 480, -1, -1));
-
-        jLabel12.setText("Approved by Name");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 480, -1, -1));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 480, 80, -1));
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Approved ", "Not Approved" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 480, -1, -1));
-
-        jButton2.setText("Update Approval");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 480, -1, -1));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 450, 520, 60));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1310, 520));
 
@@ -168,6 +173,27 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
+
+    private void jTable5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable5MouseClicked
+        int x=jTable5.getSelectedRow();
+    String y=(String) jTable5.getValueAt(x,1);
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId = '"+y+"'");
+    try {
+        DB_Connect.DB_ResultSet.next();
+        SalesDesignInquiryId=DB_Connect.DB_ResultSet.getString("SalesDesignInquiryId");
+        
+        jTextFieldSalesDesignInquiryId.setText(SalesDesignInquiryId);
+        
+       
+    } catch (SQLException ex) {
+        Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+    }    
+    
+    }//GEN-LAST:event_jTable5MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       salesdesigninquiryapprovalmodel.Update(jTextFieldSalesDesignInquiryId.getText());
+    }//GEN-LAST:event_jButton2ActionPerformed
     
       private  void ViewAllSDI(){
     
@@ -181,23 +207,19 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable5;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextFieldSalesDesignInquiryId;
     // End of variables declaration//GEN-END:variables
 
