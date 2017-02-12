@@ -2,8 +2,6 @@
 package Sales;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
-import MainSystem.AutoIdGenerator;
-import MainSystem.MainWindow;
 
 
 /**
@@ -19,9 +17,6 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
      */
     public SalesInquiry() {
         initComponents();
-         jPanelcustomerSearch4.setVisible(false);
-         jPanelproductSearch.setVisible(false);
-
     }
 
 
@@ -156,13 +151,15 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jLabel3.setText("Customer ID");
         jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
 
-        jLabel4.setText("Company Name");
+        jLabel4.setText("Customer Name");
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
 
+        jTextFieldCustomerName.setEditable(false);
         jTextFieldCustomerName.setName("Customer Name"); // NOI18N
         jPanel6.add(jTextFieldCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 30, 110, -1));
         jTextFieldCustomerName.getAccessibleContext().setAccessibleName("");
 
+        jTextFieldCompanyName.setEditable(false);
         jTextFieldCompanyName.setName("Company name"); // NOI18N
         jPanel6.add(jTextFieldCompanyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 110, -1));
         jTextFieldCompanyName.getAccessibleContext().setAccessibleName("");
@@ -183,6 +180,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jPanel6.add(jTextFieldCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 110, -1));
         jTextFieldCustomerId.getAccessibleContext().setAccessibleName("");
 
+        datePicker2.setEnabled(false);
         datePicker2.setName(""); // NOI18N
         jPanel6.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
 
@@ -595,8 +593,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-    jPanelcustomerSearch4.setVisible(true);
-    jPanelproductSearch.setVisible(false);
+
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
@@ -604,7 +601,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable3MouseClicked
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-jPanelproductSearch.setVisible(false);
+
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
@@ -624,7 +621,7 @@ jPanelproductSearch.setVisible(false);
     }//GEN-LAST:event_jTable7MouseClicked
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-    jPanelcustomerSearch4.setVisible(false);
+
     }//GEN-LAST:event_jButton19ActionPerformed
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
@@ -645,13 +642,9 @@ jPanelproductSearch.setVisible(false);
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-    jPanelproductSearch.setVisible(true);
-    jPanelcustomerSearch4.setVisible(false);
+
     }//GEN-LAST:event_jButton13ActionPerformed
-    private void generate_sdi(){
-    AutoIdGenerator aid = new AutoIdGenerator();
-    jTextFieldCustomerId.setText(aid.generate("cus",Integer.toString(MainWindow.userid)));
-    }
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -706,25 +699,16 @@ jPanelproductSearch.setVisible(false);
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanelcustomerSearch;
-    private javax.swing.JPanel jPanelcustomerSearch1;
-    private javax.swing.JPanel jPanelcustomerSearch2;
-    private javax.swing.JPanel jPanelcustomerSearch3;
     private javax.swing.JPanel jPanelcustomerSearch4;
     private javax.swing.JPanel jPanelproductSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
     private javax.swing.JTable jTable7;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;

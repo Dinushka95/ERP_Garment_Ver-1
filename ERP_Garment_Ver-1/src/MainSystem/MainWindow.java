@@ -13,10 +13,10 @@ import Marketing.MarketDesignInquiry;
 import Marketing.MarketDesignInquiryApproval;
 import Sales.SalesDesignInquiry;
 import Sales.Customer;
-import Sales.Sales;
+import Sales.SalesInvoice;
 import Sales.SalesDesignInquiryApproval;
 import Sales.SalesInquiry;
-import Sales.SalesOrder;
+import Sales.SalesPayment;
 import Sales.SalesReturn;
 import StyleManagement.CreateDesign;
 import StyleManagement.CreateProductCostingMaterial;
@@ -75,7 +75,6 @@ public static DB_Connect db_con;
         jButton5 = new javax.swing.JButton();
         jButton37 = new javax.swing.JButton();
         jButton46 = new javax.swing.JButton();
-        jButton52 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jButton13 = new javax.swing.JButton();
         jButton41 = new javax.swing.JButton();
@@ -168,7 +167,7 @@ public static DB_Connect db_con;
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
 
         jButton3.setText("Sales Inquiry");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -178,13 +177,13 @@ public static DB_Connect db_con;
         });
         jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
-        jButton4.setText("Sales");
+        jButton4.setText("Sales Invoice");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, -1, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
 
         jButton5.setText("Sales Return");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -192,15 +191,15 @@ public static DB_Connect db_con;
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, -1, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, -1));
 
-        jButton37.setText("payment");
+        jButton37.setText("Sales Payment");
         jButton37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton37ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 10, -1, -1));
+        jPanel1.add(jButton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
 
         jButton46.setText("Sales Design Inquiry Approval");
         jButton46.addActionListener(new java.awt.event.ActionListener() {
@@ -209,14 +208,6 @@ public static DB_Connect db_con;
             }
         });
         jPanel1.add(jButton46, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
-
-        jButton52.setText("Order");
-        jButton52.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton52ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jButton52, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 10, -1, -1));
 
         jTabbedPane1.addTab("Sales ", jPanel1);
 
@@ -537,13 +528,13 @@ public static DB_Connect db_con;
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton59.setText("Database Network Settings ");
-        jPanel9.add(jButton59, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        jPanel9.add(jButton59, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         jButton60.setText("User Settings");
-        jPanel9.add(jButton60, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel9.add(jButton60, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jButton61.setText("Database Back-up");
-        jPanel9.add(jButton61, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, -1, -1));
+        jPanel9.add(jButton61, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jTabbedPane1.addTab("Settings", jPanel9);
 
@@ -623,7 +614,7 @@ public static DB_Connect db_con;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         Sales sales = new Sales();
+         SalesInvoice sales = new SalesInvoice();
         sales.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(sales);
@@ -718,7 +709,7 @@ public static DB_Connect db_con;
     }//GEN-LAST:event_jButton42ActionPerformed
 
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
-    SalesOrder salesorder = new SalesOrder();
+    SalesPayment salesorder = new SalesPayment();
     salesorder.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(salesorder);
@@ -790,10 +781,6 @@ public static DB_Connect db_con;
     private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton51ActionPerformed
-
-    private void jButton52ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton52ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton52ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
@@ -936,7 +923,6 @@ public static DB_Connect db_con;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton50;
     private javax.swing.JButton jButton51;
-    private javax.swing.JButton jButton52;
     private javax.swing.JButton jButton53;
     private javax.swing.JButton jButton54;
     private javax.swing.JButton jButton55;
