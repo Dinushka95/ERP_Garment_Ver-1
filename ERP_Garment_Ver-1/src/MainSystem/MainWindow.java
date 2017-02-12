@@ -551,7 +551,7 @@ public static DB_Connect db_con;
 
         jTabbedPane1.addTab("Help", jPanel10);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 1350, 70));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1350, 70));
 
         jDesktopPane1.setMaximumSize(new java.awt.Dimension(1365, 730));
         jDesktopPane1.setMinimumSize(new java.awt.Dimension(1365, 730));
