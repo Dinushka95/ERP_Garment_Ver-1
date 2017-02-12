@@ -1,17 +1,16 @@
 
 package InventoryManagement;
 
-import Sales.*;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
+import MainSystem.DB_Connect;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
+import static MainSystem.MainWindow.db_con;
+import java.util.HashSet;
+import java.util.Set;
 /**
  *
  * @author Dinushka
@@ -20,9 +19,6 @@ public class RawMaterials extends javax.swing.JInternalFrame {
 DefaultTableModel model;
 int RowCountjTable;
 
-Connection conn=null;
-PreparedStatement pst = null;
-ResultSet rs = null;
 
 
 
@@ -31,8 +27,10 @@ ResultSet rs = null;
      * Creates new form SalesDesignInquiry
      */
     public RawMaterials() {
-        initComponents();
         
+        initComponents();
+        TableLoad();
+        TableLoad2();
         
         
         generate_mid();
@@ -72,6 +70,22 @@ ResultSet rs = null;
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        searchname = new javax.swing.JTextField();
+        ViewAll = new javax.swing.JButton();
+        ResetButton1 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -259,6 +273,150 @@ ResultSet rs = null;
         jTabbedPane1.addTab("ADD Materials", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel12.setText("Material Name");
+
+        ViewAll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ViewAll.setText("View All");
+        ViewAll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewAllActionPerformed(evt);
+            }
+        });
+
+        ResetButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        ResetButton1.setText("Reset All");
+        ResetButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetButton1ActionPerformed(evt);
+            }
+        });
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel12)
+                .addGap(142, 142, 142)
+                .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(ResetButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ViewAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ViewAll)
+                    .addComponent(jButton1)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel12)
+                        .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28)
+                .addComponent(ResetButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 530));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Material ID");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Material Name");
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel6.setText("Material Cost Per Unit");
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel7.setText("Quantity");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel8.setText("Material Value");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setText("Re-Order Quantity");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel10.setText("Date");
+
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(68, 68, 68)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel3))
+                .addContainerGap(399, Short.MAX_VALUE))
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(48, 48, 48)
+                .addComponent(jLabel3)
+                .addGap(56, 56, 56)
+                .addComponent(jLabel5)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel6)
+                .addGap(55, 55, 55)
+                .addComponent(jLabel7)
+                .addGap(58, 58, 58)
+                .addComponent(jLabel8)
+                .addGap(45, 45, 45)
+                .addComponent(jLabel9)
+                .addGap(52, 52, 52)
+                .addComponent(jLabel10)
+                .addContainerGap(38, Short.MAX_VALUE))
+        );
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 600, 530));
+
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -291,13 +449,15 @@ ResultSet rs = null;
         // TODO add your handling code here;
         
         AddMaterial();
-        
         TableLoad();
+        TextBoxClear();
         
         
         
     }//GEN-LAST:event_AddButtonActionPerformed
 
+
+    
     private void quantityfieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfieldKeyReleased
         // TODO add your handling code here:
         double qty = Double.parseDouble(quantityfield.getText());
@@ -307,11 +467,41 @@ ResultSet rs = null;
         
         valuefield.setText(Double.toString(val));
     }//GEN-LAST:event_quantityfieldKeyReleased
+
+    private void ViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAllActionPerformed
+        // TODO add your handling code here:
+        TableLoad2();
+    }//GEN-LAST:event_ViewAllActionPerformed
+
+    private void ResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButton1ActionPerformed
+        // TODO add your handling code here:
+        clearSearch();
+
+        
+    }//GEN-LAST:event_ResetButton1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        MaterialNameSearch();
+    }//GEN-LAST:event_jButton1ActionPerformed
     private void generate_mid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     idfield.setText(aid.generate("mat",Integer.toString(MainWindow.userid)));
     }
-    
+    private void TableLoad()
+    {
+
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+            jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+
+    }
+    private void TableLoad2()
+    {
+
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+
+    }
     private void TextBoxClear(){
             generate_mid();
             namefield.setText("");
@@ -329,14 +519,16 @@ ResultSet rs = null;
         String name = namefield.getText();
         String cost =  costfield.getText();
         String qty = quantityfield.getText();
+        String value = valuefield.getText();
         String reorder = reorderfield.getText();
         String date = datePicker2.getText();
         
-        String sql = "INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
+        boolean x= MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
 "(`Material_id`,\n" +
 "`Material_Name`,\n" +
 "`Material_cost`,\n" +
 "`Material_qty`,\n" +
+"`Material_Value`,\n" +
 "`Material_reorder`,\n" +
 "`Material_date`)\n" +
 "VALUES\n" +
@@ -344,21 +536,17 @@ ResultSet rs = null;
 "'"+name+"',\n" +
 "'"+cost+"',\n" +
 "'"+qty+"',\n" +
+"'"+value+"',\n" +
 "'"+reorder+"',\n" +
-"'"+date+"');";
-        
-        System.out.println(sql);
-        try
-        {
-            pst = conn.prepareStatement(sql);
-            pst.execute();
-            
-            TableLoad();
-            TextBoxClear();
-        } catch (SQLException ex) 
-        {
-            System.out.println(ex);
-        }
+"'"+date+"');");
+      
+    }
+    
+        public void MaterialNameSearch()
+    {
+            String matname = searchname.getText();
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_Name LIKE '"+matname+"%'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
     }
     
     public void ChangeMaterialTableHeader()
@@ -372,46 +560,53 @@ ResultSet rs = null;
 
     }
     
-    public void TableLoad()
-    {
-        try
-        {
-            String sql = "SELECT Material_id,Material_Name,Material_cost,Material_qty,Material_Value,Material_reorder,Material_date";
-            pst = conn.prepareStatement(sql);
-            rs = pst.executeQuery();
-            jTable1.setModel(DbUtils.resultSetToTableModel(rs));
-        } catch (SQLException ex) {
-            System.out.println(ex);
-    }
-    }
+
     
-    private void clearSearch(){
+    private void clearSearch()
+    {
+        searchname.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JButton ResetButton;
+    private javax.swing.JButton ResetButton1;
+    private javax.swing.JButton ViewAll;
     private javax.swing.JTextField costfield;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JTextField idfield;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField namefield;
     private javax.swing.JTextField quantityfield;
     private javax.swing.JTextField reorderfield;
+    private javax.swing.JTextField searchname;
     private javax.swing.JTextField valuefield;
     // End of variables declaration//GEN-END:variables
 }
