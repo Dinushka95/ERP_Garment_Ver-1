@@ -1,36 +1,20 @@
 
 package Sales;
 
-import javax.swing.table.DefaultTableModel;
-
 
 /**
  *
  * @author Dinushka
  */
-public class SalesReturn extends javax.swing.JInternalFrame {
-DefaultTableModel model;
-int RowCountjTable2;
-CustomerModel customerModel;
-
-
-        String LogNo;
-        String CustomerId;
-        String CustomerName;
-        String CustomerCompanyName;
-        String CustomerPhone;
-        String CustomerEmail;
-        String CustomerAddres;
+public class SalesPayment extends javax.swing.JInternalFrame {
 
 
     /**
      * Creates new form SalesDesignInquiry
      */
-    public SalesReturn() {
+    public SalesPayment() {
         initComponents();
-   
-        
-        customerModel = new CustomerModel();
+
     }
 
     /**
@@ -48,7 +32,7 @@ CustomerModel customerModel;
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Sales Return Management");
+        setTitle("Sales Payment Management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -57,7 +41,7 @@ CustomerModel customerModel;
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("ADD Sales Return", jPanel1);
+        jTabbedPane1.addTab("ADD Sales Payment", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Search &  Delete", jPanel3);
@@ -71,8 +55,6 @@ CustomerModel customerModel;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;

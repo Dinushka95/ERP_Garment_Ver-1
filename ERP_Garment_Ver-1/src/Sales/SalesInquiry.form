@@ -151,7 +151,7 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel4">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="Company Name"/>
+                        <Property name="text" type="java.lang.String" value="Customer Name"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -161,6 +161,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldCustomerName">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="name" type="java.lang.String" value="Customer Name" noResource="true"/>
                       </Properties>
                       <AccessibilityProperties>
@@ -174,6 +175,7 @@
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextFieldCompanyName">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="name" type="java.lang.String" value="Company name" noResource="true"/>
                       </Properties>
                       <AccessibilityProperties>
@@ -224,6 +226,7 @@
                     </Component>
                     <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker2">
                       <Properties>
+                        <Property name="enabled" type="boolean" value="false"/>
                         <Property name="name" type="java.lang.String" value="" noResource="true"/>
                       </Properties>
                       <AuxValues>
