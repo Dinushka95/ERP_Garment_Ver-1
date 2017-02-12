@@ -18,7 +18,7 @@ import static MainSystem.MainWindow.db_con;
  *
  * @author Dinushka
  */
-public class ReturnGoods extends javax.swing.JInternalFrame {
+public class RawMaterials2 extends javax.swing.JInternalFrame {
 DefaultTableModel model;
 int RowCountjTable2;
 CustomerModel customerModel;
@@ -36,7 +36,7 @@ CustomerModel customerModel;
     /**
      * Creates new form SalesDesignInquiry
      */
-    public ReturnGoods() {
+    public RawMaterials2() {
         initComponents();
         generate_sdi();
         datePicker2.setDateToToday();
@@ -78,13 +78,10 @@ CustomerModel customerModel;
         jPanelcustomerSearch = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jTextFieldSearchCustomerName = new javax.swing.JTextField();
-        jTextFieldSearchCustomerPhone = new javax.swing.JTextField();
-        jTextFieldSearchCustomerId = new javax.swing.JTextField();
+        jTextFieldSearchMaterialName = new javax.swing.JTextField();
+        jTextFieldSearchMaterialId = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -108,7 +105,7 @@ CustomerModel customerModel;
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Goods Return Management");
+        setTitle("Raw Materils");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -193,7 +190,7 @@ CustomerModel customerModel;
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 510, 520));
 
-        jTabbedPane1.addTab("ADD Customer", jPanel1);
+        jTabbedPane1.addTab("ADD Materials", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -217,31 +214,19 @@ CustomerModel customerModel;
 
         jPanelcustomerSearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 770, 330));
 
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jTextFieldSearchMaterialName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                jTextFieldSearchMaterialNameActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
-
-        jTextFieldSearchCustomerName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSearchCustomerNameActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 60, -1));
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 60, -1));
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
+        jPanelcustomerSearch.add(jTextFieldSearchMaterialName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 60, -1));
+        jPanelcustomerSearch.add(jTextFieldSearchMaterialId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
 
         jLabel9.setText("Customer ID");
         jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel10.setText("Customer name");
         jPanelcustomerSearch.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jLabel11.setText("Customer phone");
-        jPanelcustomerSearch.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
         jButton8.setText("View All");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -378,9 +363,9 @@ CustomerModel customerModel;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCustomerIdActionPerformed
 
-    private void jTextFieldSearchCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerNameActionPerformed
+    private void jTextFieldSearchMaterialNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchMaterialNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSearchCustomerNameActionPerformed
+    }//GEN-LAST:event_jTextFieldSearchMaterialNameActionPerformed
 
     private void jButtonResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAllActionPerformed
     clear();        
@@ -407,10 +392,6 @@ CustomerModel customerModel;
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
     clearSearch();        
     }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.Searchphone(jTextFieldSearchCustomerPhone.getText())));         
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
          
@@ -452,12 +433,15 @@ CustomerModel customerModel;
         
        
     } catch (SQLException ex) {
-        Logger.getLogger(ReturnGoods.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(RawMaterials2.class.getName()).log(Level.SEVERE, null, ex);
     }
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
+        jTextFieldSearchMaterialId.setText("");
+        jTextFieldSearchMaterialName.setText("");
+                
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -474,11 +458,11 @@ CustomerModel customerModel;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchID(jTextFieldSearchCustomerId.getText())));        // TODO add your handling code here:
+    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchID(jTextFieldSearchMaterialId.getText())));        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFieldSearchCustomerName.getText())));          // TODO add your handling code here:
+    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFieldSearchMaterialName.getText())));          // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -505,7 +489,6 @@ CustomerModel customerModel;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -516,7 +499,6 @@ CustomerModel customerModel;
     private javax.swing.JButton jButtonADDCustomer;
     private javax.swing.JButton jButtonResetAll;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
@@ -552,8 +534,7 @@ CustomerModel customerModel;
     private javax.swing.JTextField jTextFieldEmail1;
     private javax.swing.JTextField jTextFieldPhone;
     private javax.swing.JTextField jTextFieldPhone1;
-    private javax.swing.JTextField jTextFieldSearchCustomerId;
-    private javax.swing.JTextField jTextFieldSearchCustomerName;
-    private javax.swing.JTextField jTextFieldSearchCustomerPhone;
+    private javax.swing.JTextField jTextFieldSearchMaterialId;
+    private javax.swing.JTextField jTextFieldSearchMaterialName;
     // End of variables declaration//GEN-END:variables
 }
