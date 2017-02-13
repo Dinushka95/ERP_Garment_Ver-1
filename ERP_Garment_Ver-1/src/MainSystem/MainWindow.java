@@ -7,6 +7,10 @@ package MainSystem;
 
 import Finance.CreateProductCostingOther;
 import Finance.ProductCosting;
+import HumanResource.Department;
+import HumanResource.Employee;
+import HumanResource.Leave;
+import HumanResource.Payroll;
 import InventoryManagement.RawMaterials;
 import ManufacturingPlanning.CreateProductCostingLabour;
 import Marketing.MarketDesignInquiry;
@@ -132,10 +136,10 @@ public static DB_Connect db_con;
         jButton45 = new javax.swing.JButton();
         jButton47 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
-        jButton34 = new javax.swing.JButton();
-        jButton36 = new javax.swing.JButton();
-        jButton39 = new javax.swing.JButton();
-        jButton40 = new javax.swing.JButton();
+        btnEmployee = new javax.swing.JButton();
+        btnPayroll = new javax.swing.JButton();
+        btnDepartment = new javax.swing.JButton();
+        btnLeaves = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jButton59 = new javax.swing.JButton();
         jButton60 = new javax.swing.JButton();
@@ -511,17 +515,37 @@ public static DB_Connect db_con;
 
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton34.setText("Employee");
-        jPanel7.add(jButton34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
+        btnEmployee.setText("Employee");
+        btnEmployee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEmployeeActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnEmployee, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        jButton36.setText("Payroll");
-        jPanel7.add(jButton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
+        btnPayroll.setText("Payroll");
+        btnPayroll.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPayrollActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnPayroll, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
-        jButton39.setText("Attendants");
-        jPanel7.add(jButton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+        btnDepartment.setText("Department");
+        btnDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDepartmentActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
 
-        jButton40.setText("Leaves");
-        jPanel7.add(jButton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+        btnLeaves.setText("Leaves");
+        btnLeaves.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLeavesActionPerformed(evt);
+            }
+        });
+        jPanel7.add(btnLeaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
         jTabbedPane1.addTab("Human Resource ", jPanel7);
 
@@ -839,6 +863,59 @@ public static DB_Connect db_con;
         raw.setMaximizable(false);
     }//GEN-LAST:event_jButton18ActionPerformed
 
+    private void btnEmployeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEmployeeActionPerformed
+        Employee empIns = new Employee(); 
+        empIns.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(empIns);
+        try {
+            empIns.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            System.out.println(ex);
+        }
+        empIns.setMaximizable(false);
+    }//GEN-LAST:event_btnEmployeeActionPerformed
+
+    private void btnPayrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayrollActionPerformed
+        Payroll payRollIns = new Payroll();
+        payRollIns.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(payRollIns);
+        try {
+            payRollIns.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            System.out.println(ex);
+        }
+        payRollIns.setMaximizable(false);
+    }//GEN-LAST:event_btnPayrollActionPerformed
+
+    private void btnLeavesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeavesActionPerformed
+        Leave leaveIns = new Leave(); 
+        leaveIns.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(leaveIns);
+        try {
+            leaveIns.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            System.out.println(ex);
+        }
+        leaveIns.setMaximizable(false);
+    }//GEN-LAST:event_btnLeavesActionPerformed
+
+    private void btnDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDepartmentActionPerformed
+        Department depIns = new Department();
+        depIns.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(depIns);
+        try {
+            depIns.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            System.out.println(ex);
+        }
+        depIns.setMaximizable(false);
+        
+    }//GEN-LAST:event_btnDepartmentActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -876,6 +953,10 @@ public static DB_Connect db_con;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDepartment;
+    private javax.swing.JButton btnEmployee;
+    private javax.swing.JButton btnLeaves;
+    private javax.swing.JButton btnPayroll;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
@@ -903,14 +984,10 @@ public static DB_Connect db_con;
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
-    private javax.swing.JButton jButton36;
     private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton38;
-    private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton40;
     private javax.swing.JButton jButton41;
     private javax.swing.JButton jButton42;
     private javax.swing.JButton jButton43;
