@@ -133,8 +133,6 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jButton12 = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
         jPanelSDISearch = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         jPanel12 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jTextFieldSearchSDIID = new javax.swing.JTextField();
@@ -160,6 +158,8 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jButton26 = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         jPanelSDIEdit = new javax.swing.JPanel();
         jPanelSDIReport = new javax.swing.JPanel();
 
@@ -479,26 +479,6 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
         jPanelSDISearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTable2);
-
-        jPanelSDISearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, 1230, 250));
-
         jPanel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -626,7 +606,27 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jLabel23.setText("Sales Design Inquiry ID");
         jPanel11.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        jPanel12.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 10, 330, 70));
+        jPanel12.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 330, 70));
+
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTable2);
+
+        jPanel12.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 1230, 250));
 
         jPanelSDISearch.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1270, 540));
 

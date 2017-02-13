@@ -60,6 +60,8 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        jLabel8 = new javax.swing.JLabel();
         jPanelproductSearch = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -108,8 +110,13 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton25 = new javax.swing.JButton();
-        jButton30 = new javax.swing.JButton();
-        jButton29 = new javax.swing.JButton();
+        jPanel11 = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
+        jButton31 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
+        jButton33 = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
         jPanel9 = new javax.swing.JPanel();
@@ -282,6 +289,10 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Note");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, -1, -1));
+        jPanel2.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 410, -1, -1));
+
+        jLabel8.setText("Estimated date of purchase");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 410, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 740, 510));
 
@@ -536,21 +547,36 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         });
         jPanelcustomerSearch.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
 
-        jButton30.setText("Edit");
-        jButton30.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton30ActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jButton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 60, -1));
+        jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton29.setText("Delete");
-        jButton29.addActionListener(new java.awt.event.ActionListener() {
+        jButton7.setText("Report");
+        jPanel11.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 40, -1, -1));
+
+        jButton31.setText("Edit");
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton29ActionPerformed(evt);
+                jButton31ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
+        jPanel11.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 60, -1));
+
+        jButton32.setText("Delete");
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, -1, -1));
+
+        jButton33.setText("Clear");
+        jPanel11.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+        jPanel11.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 80, -1));
+
+        jLabel24.setText("Sales  Inquiry ID");
+        jPanel11.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        jPanelcustomerSearch.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 330, 70));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 830, 510));
 
@@ -567,7 +593,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         ));
         jScrollPane5.setViewportView(jTable4);
 
-        jPanel3.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 60, -1, -1));
+        jPanel3.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 120, -1, 410));
 
         jTabbedPane1.addTab("Search &  Delete", jPanel3);
 
@@ -689,18 +715,19 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSalesDesignInquiryId1ActionPerformed
 
-    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
-
-
-    }//GEN-LAST:event_jButton29ActionPerformed
-
-    private void jButton30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton30ActionPerformed
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton30ActionPerformed
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+
+        
+    }//GEN-LAST:event_jButton32ActionPerformed
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -722,11 +749,13 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
-    private javax.swing.JButton jButton29;
-    private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
+    private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
@@ -741,13 +770,16 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
@@ -779,6 +811,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextFieldCompanyName;
     private javax.swing.JTextField jTextFieldCustomerId;
     private javax.swing.JTextField jTextFieldCustomerName;
