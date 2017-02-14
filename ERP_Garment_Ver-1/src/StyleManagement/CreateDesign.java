@@ -37,13 +37,15 @@ CreateDesignModel NewSalesDesignModel ;
 
 
 
-        String LogNo;
-        String CustomerId;
-        String CustomerName;
-        String CustomerCompanyName;
-        String CustomerPhone;
-        String CustomerEmail;
-        String CustomerAddres;
+        String StyleId;
+        String StyleDescription;
+        String Designer;
+        String Size;
+        String Gender;
+        String Type;
+        String Status;
+        String Collection;
+        String ColourInformation;
         FileInputStream fis;
         int filelenth;
         
@@ -79,7 +81,6 @@ CreateDesignModel NewSalesDesignModel ;
         jTable2 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
         DatePickerSettings dateSettings = new DatePickerSettings();
         dateSettings.setFormatForDatesCommonEra("yyyy/MM/dd");
         dateSettings.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
@@ -230,15 +231,13 @@ CreateDesignModel NewSalesDesignModel ;
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
-        jLabel7.setText("Date");
-
         datePicker2.setName(""); // NOI18N
 
         jPanel6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 255)));
         jPanel6.setForeground(new java.awt.Color(204, 204, 255));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Style ID");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         id.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,126 +245,122 @@ CreateDesignModel NewSalesDesignModel ;
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Style Description");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         styleDes.setColumns(20);
         styleDes.setRows(5);
         jScrollPane3.setViewportView(styleDes);
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Designer");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Categories");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Size");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "S", "L", "M", "XL", "2XL", "3XL", "4XL" }));
         jComboBox1.setBackground(new java.awt.Color(51, 255, 204));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "S", "L", "M", "XL", "2XL", "3XL", "4XL" }));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Gender");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton1.setText("Male");
+        jRadioButton1.setBackground(new java.awt.Color(255, 255, 255));
 
-        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton2.setText("Female");
+        jRadioButton2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Type");
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type", "Trouser", "Shirt", "Dress", "Frock", "Shalwar", "Kurtha", "Shorts", "Shifts" }));
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("Date");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Status");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        jCheckBox1.setText("Started");
         jCheckBox1.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox1.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jCheckBox1.setText("Started");
 
+        jCheckBox2.setText("Inprogress");
         jCheckBox2.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox2.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jCheckBox2.setText("Inprogress");
 
+        jCheckBox3.setText("Finished");
         jCheckBox3.setBackground(new java.awt.Color(255, 255, 255));
         jCheckBox3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jCheckBox3.setText("Finished");
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setText("Collection");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Men", "Women", "Children", "Teenagers" }));
+        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
 
-        jButton6.setBackground(new java.awt.Color(255, 255, 0));
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 0, 153));
         jButton6.setText("Generate Report");
+        jButton6.setBackground(new java.awt.Color(255, 255, 255));
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 0));
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 153));
         jButton2.setText("ADD DESIGN");
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
+        jLabel15.setText("Color Information");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(51, 255, 0));
-        jLabel15.setText("Color Information");
 
-        jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Alizarin\t ", "Amaranth\t ", "Amber\t ", "Amethyst\t ", "Apricot\t ", "Aqua\t ", "Aquamarine\t ", "Asparagus\t ", "Auburn\t ", "Azure", "Beige\t ", "Bistre\t ", "Black\t ", "Blue\t ", "Blue Green\t ", "Blue Violet\t ", "Bondi Blue\t ", "Brass\t ", "Bronze\t ", "Brown\t ", "Buff\t ", "Burgundy\t ", "Burnt Orange\t ", "Burnt Sienna\t ", "Burnt Umber", "Camouflage Green\t ", "Caput Mortuum\t ", "Cardinal\t ", "Carmine\t ", "Carrot orange\t ", "Celadon\t ", "Cerise\t ", "Cerulean\t ", "Champagne\t ", "Charcoal\t ", "Chartreuse\t ", "Cherry Blossom Pink\t ", "Chestnut\t ", "Chocolate\t ", "Cinnabar\t ", "Cinnamon\t ", "Cobalt\t ", "Copper\t ", "Coral\t ", "Corn\t ", "Cornflower\t ", "Cream\t ", "Crimson\t ", "Cyan" }));
+        jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
 
-        jButton8.setBackground(new java.awt.Color(255, 255, 0));
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton8.setForeground(new java.awt.Color(0, 0, 153));
         jButton8.setText("ADD");
+        jButton8.setBackground(new java.awt.Color(255, 255, 255));
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setText("Image");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jButton5.setBackground(new java.awt.Color(255, 255, 0));
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton5.setForeground(new java.awt.Color(0, 0, 153));
         jButton5.setText("RESET");
+        jButton5.setBackground(new java.awt.Color(255, 255, 255));
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel20.setText("COLOR INFORMATION");
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel37.setText("Login");
+        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel38.setText("Add Color");
+        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel39.setText("New Color");
+        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -538,9 +533,7 @@ CreateDesignModel NewSalesDesignModel ;
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(357, 357, 357)
-                .addComponent(jLabel7)
-                .addGap(18, 18, 18)
+                .addGap(398, 398, 398)
                 .addComponent(datePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -552,9 +545,7 @@ CreateDesignModel NewSalesDesignModel ;
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(datePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
+                .addComponent(datePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(448, 448, 448))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
@@ -567,49 +558,49 @@ CreateDesignModel NewSalesDesignModel ;
 
         jTabbedPane1.addTab("ADD Design", jPanel1);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("SEARCH BY");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Style ID");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Categories");
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("Size");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "S", "L", "M", "XL", "2XL", "3XL", "4XL" }));
         jComboBox5.setBackground(new java.awt.Color(51, 255, 204));
         jComboBox5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "S", "L", "M", "XL", "2XL", "3XL", "4XL" }));
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setText("Gender");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton3.setSelected(true);
         jRadioButton3.setText("Male");
+        jRadioButton3.setBackground(new java.awt.Color(255, 255, 255));
 
-        jRadioButton4.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton4.setText("Female");
+        jRadioButton4.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setText("Collection");
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jComboBox7.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Men", "Women", "Children", "Teenagers" }));
+        jComboBox7.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setText("Current Date and Time");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel40.setText("Login");
+        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setText("Type");
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jComboBox6.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jComboBox6.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type", "Trouser", "Shirt", "Dress", "Frock", "Shalwar", "Kurtha", "Shorts", "Shifts" }));
+        jComboBox6.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -625,18 +616,18 @@ CreateDesignModel NewSalesDesignModel ;
         jTable3.setColumnSelectionAllowed(true);
         jScrollPane4.setViewportView(jTable3);
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel23.setText("Image");
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        jButton4.setText("SEARCH");
         jButton4.setBackground(new java.awt.Color(255, 255, 0));
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setForeground(new java.awt.Color(0, 0, 153));
-        jButton4.setText("SEARCH");
 
+        jButton3.setText("RESET");
         jButton3.setBackground(new java.awt.Color(255, 255, 0));
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setForeground(new java.awt.Color(0, 0, 153));
-        jButton3.setText("RESET");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -645,9 +636,7 @@ CreateDesignModel NewSalesDesignModel ;
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel8)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
@@ -658,8 +647,7 @@ CreateDesignModel NewSalesDesignModel ;
                         .addGap(35, 35, 35)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(11, 11, 11)
                 .addComponent(jLabel18)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -679,7 +667,7 @@ CreateDesignModel NewSalesDesignModel ;
                                 .addComponent(jLabel21)
                                 .addGap(30, 30, 30)
                                 .addComponent(jComboBox6, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(425, Short.MAX_VALUE))
+                        .addContainerGap(426, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel40)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -748,62 +736,62 @@ CreateDesignModel NewSalesDesignModel ;
 
         jTabbedPane1.addTab("View Design", jPanel3);
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel24.setText("Style ID");
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel25.setText("Style Description");
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         styleDes1.setColumns(20);
         styleDes1.setRows(5);
         jScrollPane5.setViewportView(styleDes1);
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setText("Designer");
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel27.setText("Categories");
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel28.setText("Size");
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "S", "L", "M", "XL", "2XL", "3XL", "4XL" }));
         jComboBox8.setBackground(new java.awt.Color(51, 255, 204));
         jComboBox8.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "S", "L", "M", "XL", "2XL", "3XL", "4XL" }));
 
-        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel29.setText("Gender");
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jRadioButton5.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton5.setSelected(true);
         jRadioButton5.setText("Male");
+        jRadioButton5.setBackground(new java.awt.Color(255, 255, 255));
 
-        jRadioButton6.setBackground(new java.awt.Color(255, 255, 255));
         jRadioButton6.setText("Female");
+        jRadioButton6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel30.setText("Type");
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jComboBox9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jComboBox9.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type", "Trouser", "Shirt", "Dress", "Frock", "Shalwar", "Kurtha", "Shorts", "Shifts" }));
+        jComboBox9.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
 
-        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel31.setText("COLOR");
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jComboBox10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Alizarin\t ", "Amaranth\t ", "Amber\t ", "Amethyst\t ", "Apricot\t ", "Aqua\t ", "Aquamarine\t ", "Asparagus\t ", "Auburn\t ", "Azure", "Beige\t ", "Bistre\t ", "Black\t ", "Blue\t ", "Blue Green\t ", "Blue Violet\t ", "Bondi Blue\t ", "Brass\t ", "Bronze\t ", "Brown\t ", "Buff\t ", "Burgundy\t ", "Burnt Orange\t ", "Burnt Sienna\t ", "Burnt Umber", "Camouflage Green\t ", "Caput Mortuum\t ", "Cardinal\t ", "Carmine\t ", "Carrot orange\t ", "Celadon\t ", "Cerise\t ", "Cerulean\t ", "Champagne\t ", "Charcoal\t ", "Chartreuse\t ", "Cherry Blossom Pink\t ", "Chestnut\t ", "Chocolate\t ", "Cinnabar\t ", "Cinnamon\t ", "Cobalt\t ", "Copper\t ", "Coral\t ", "Corn\t ", "Cornflower\t ", "Cream\t ", "Crimson\t ", "Cyan" }));
+        jComboBox10.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
 
-        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel32.setText("Color Information");
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jComboBox11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Men", "Women", "Children", "Teenagers" }));
+        jComboBox11.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
 
-        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel33.setText("Collection");
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel34.setText("Status");
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         jCheckBox4.setText("Started");
 
@@ -811,13 +799,13 @@ CreateDesignModel NewSalesDesignModel ;
 
         jCheckBox6.setText("Finished");
 
-        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel35.setText("Image");
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        jButton7.setText("SEARCH");
         jButton7.setBackground(new java.awt.Color(255, 255, 0));
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton7.setForeground(new java.awt.Color(0, 0, 153));
-        jButton7.setText("SEARCH");
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -833,43 +821,43 @@ CreateDesignModel NewSalesDesignModel ;
         jTable4.setColumnSelectionAllowed(true);
         jScrollPane6.setViewportView(jTable4);
 
+        jButton9.setText("UPDATE ");
         jButton9.setBackground(new java.awt.Color(255, 255, 0));
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.setForeground(new java.awt.Color(0, 0, 102));
-        jButton9.setText("UPDATE ");
 
+        jButton10.setText("DELETE DESIGN");
         jButton10.setBackground(new java.awt.Color(255, 255, 0));
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton10.setForeground(new java.awt.Color(0, 0, 102));
-        jButton10.setText("DELETE DESIGN");
 
+        jButton11.setText("RESET");
         jButton11.setBackground(new java.awt.Color(255, 255, 0));
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton11.setForeground(new java.awt.Color(0, 0, 102));
-        jButton11.setText("RESET");
 
-        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel36.setText("Date");
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        jButton12.setText("DELETE");
         jButton12.setBackground(new java.awt.Color(255, 255, 0));
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton12.setForeground(new java.awt.Color(0, 0, 153));
-        jButton12.setText("DELETE");
 
+        jButton13.setText("SEARCH");
         jButton13.setBackground(new java.awt.Color(255, 255, 0));
         jButton13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton13.setForeground(new java.awt.Color(0, 0, 153));
-        jButton13.setText("SEARCH");
 
+        jButton14.setText("UPDATE ");
         jButton14.setBackground(new java.awt.Color(255, 255, 0));
         jButton14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton14.setForeground(new java.awt.Color(0, 0, 102));
-        jButton14.setText("UPDATE ");
 
+        jButton15.setText("DELETE");
         jButton15.setBackground(new java.awt.Color(255, 255, 0));
         jButton15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton15.setForeground(new java.awt.Color(0, 0, 153));
-        jButton15.setText("DELETE");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -951,7 +939,7 @@ CreateDesignModel NewSalesDesignModel ;
                                 .addGap(246, 246, 246)
                                 .addComponent(jButton7))
                             .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(jLabel35))))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(493, 493, 493)
@@ -1012,8 +1000,7 @@ CreateDesignModel NewSalesDesignModel ;
                                     .addComponent(jLabel26)))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGap(68, 68, 68)
-                                .addComponent(jLabel25)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(jLabel25)))))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(466, 466, 466)
@@ -1073,34 +1060,23 @@ CreateDesignModel NewSalesDesignModel ;
         // TODO add your handling code here:
     }//GEN-LAST:event_idActionPerformed
 
+@SuppressWarnings("empty-statement")
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        /* Coded add design button to add designs to database*/
-
-        String SId =id.getText();
-        if(SId.isEmpty()) {
-            JOptionPane.showMessageDialog(null,"You can't have Style ID Null");
-        } else {
-            SId= id.getText();
+       
+        Validation Val=new Validation();
+        Val.typecheck();
+       
+        boolean result=CreateDesignModel.AddDesign(id, styleDes,jTextField2,jTextField3,jComboBox1,jComboBox2,datePicker2,jCheckBox3,jCheckBox1,jCheckBox2,jCheckBox3,jCheckBox4,jTextField4);
+        if(result){
+            JOptionPane.showMessageDialog(null,"Successfully Added To Design", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+             generate_sdi();
+             clear();
         }
-        String StyleDes=styleDes.getText();
-        if(StyleDes.isEmpty()){
-            JOptionPane.showMessageDialog(null,"You can't have Style Description Null");
-        }else{
-            StyleDes=styleDes.getText();
-        }
-        String Designer=jTextField2.getText();
-        if(Designer.isEmpty()){
-          JOptionPane.showMessageDialog(null,"Please add the Designer");  
-        }else{
-            Designer=jTextField2.getText();
-        }
-        String Size=(String) jComboBox1.getSelectedItem();//casting 
-        if(Size.isEmpty()){
-           JOptionPane.showMessageDialog(null,"Please add the Designer");   
-        }
-        /*ButtonGroup buttonGroup = new ButtonGroup();
-        buttonGroup.add(new JRadioButton('Label', false));
-        buttonGroup.add(new JRadioButton('Label2', true));*/
+        else{
+            JOptionPane.showMessageDialog(null,"Failed Added To Design", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+        
+        }  
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
@@ -1255,7 +1231,6 @@ CreateDesignModel NewSalesDesignModel ;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
