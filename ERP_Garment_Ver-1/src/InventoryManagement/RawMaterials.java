@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.db_con;
+import java.sql.PreparedStatement;
 import java.util.HashSet;
 import java.util.Set;
 /**
@@ -86,6 +87,15 @@ int RowCountjTable;
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        EditButton = new javax.swing.JButton();
+        DeleteButton = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -157,11 +167,16 @@ int RowCountjTable;
 
         datePicker2.setName(""); // NOI18N
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Value");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        valuefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valuefield.setEnabled(false);
+        valuefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valuefield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                valuefieldKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -276,19 +291,19 @@ int RowCountjTable;
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("Material Name");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        ViewAll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ViewAll.setText("View All");
+        ViewAll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ViewAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewAllActionPerformed(evt);
             }
         });
 
-        ResetButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetButton1.setText("Reset All");
+        ResetButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetButton1ActionPerformed(evt);
@@ -306,10 +321,15 @@ int RowCountjTable;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Search");
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -341,12 +361,13 @@ int RowCountjTable;
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(37, 37, 37)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(ViewAll)
-                    .addComponent(jButton1)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
-                        .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(ViewAll)
+                        .addComponent(jButton1)))
                 .addGap(28, 28, 28)
                 .addComponent(ResetButton1)
                 .addGap(18, 18, 18)
@@ -358,26 +379,63 @@ int RowCountjTable;
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Material ID");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Material Name");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Material Cost Per Unit");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Quantity");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Material Value");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel9.setText("Re-Order Quantity");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel10.setText("Date");
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jTextField1.setEditable(false);
+        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField4KeyReleased(evt);
+            }
+        });
+
+        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        datePicker1.setEnabled(false);
+        datePicker1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        EditButton.setText("Edit");
+        EditButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        EditButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditButtonActionPerformed(evt);
+            }
+        });
+
+        DeleteButton.setText("Delete");
+        DeleteButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        DeleteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -386,33 +444,68 @@ int RowCountjTable;
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(68, 68, 68)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel10)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel6)
+                    .addComponent(jLabel3)
                     .addComponent(jLabel5)
-                    .addComponent(jLabel3))
-                .addContainerGap(399, Short.MAX_VALUE))
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel10))
+                .addGap(88, 88, 88)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jTextField6)
+                        .addComponent(jTextField5)
+                        .addComponent(jTextField4)
+                        .addComponent(jTextField3)
+                        .addComponent(jTextField2)
+                        .addComponent(jTextField1)
+                        .addComponent(datePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(34, 34, 34)
+                        .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(99, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(48, 48, 48)
-                .addComponent(jLabel3)
-                .addGap(56, 56, 56)
-                .addComponent(jLabel5)
-                .addGap(54, 54, 54)
-                .addComponent(jLabel6)
-                .addGap(55, 55, 55)
-                .addComponent(jLabel7)
-                .addGap(58, 58, 58)
-                .addComponent(jLabel8)
-                .addGap(45, 45, 45)
-                .addComponent(jLabel9)
-                .addGap(52, 52, 52)
-                .addComponent(jLabel10)
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel3)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addComponent(jLabel7))
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel8)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel9)
+                        .addGap(62, 62, 62))
+                    .addComponent(jLabel10)
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(39, 39, 39)
+                        .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(EditButton)
+                    .addComponent(DeleteButton))
+                .addGap(32, 32, 32))
         );
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 600, 530));
@@ -484,6 +577,76 @@ int RowCountjTable;
         // TODO add your handling code here:
         MaterialNameSearch();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        int row =jTable2.getSelectedRow();
+        String id = jTable2.getValueAt(row,0).toString();
+        String name = jTable2.getValueAt(row,1).toString();
+        String cost = jTable2.getValueAt(row,2).toString();
+        String qty = jTable2.getValueAt(row,3).toString();
+        String value = jTable2.getValueAt(row,4).toString();
+        String reorder = jTable2.getValueAt(row,5).toString();
+        String date = jTable2.getValueAt(row,6).toString();
+        
+        jTextField1.setText(id);
+        jTextField2.setText(name);
+        jTextField3.setText(cost);
+        jTextField4.setText(qty);
+        jTextField5.setText(value);
+        jTextField6.setText(reorder);
+        datePicker1.setText(date);
+        
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
+        // TODO add your handling code here:
+        EditMaterials();
+        TextBoxClear2();
+        TableLoad2();
+    }//GEN-LAST:event_EditButtonActionPerformed
+
+    private void valuefieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_valuefieldKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valuefieldKeyReleased
+
+    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+        // TODO add your handling code here:
+        double perunit = Double.parseDouble(jTextField3.getText());
+        double qty = Double.parseDouble(jTextField4.getText());
+        
+        double val = perunit * qty;
+        
+        jTextField5.setText(Double.toString(val));
+    }//GEN-LAST:event_jTextField4KeyReleased
+
+    private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
+        // TODO add your handling code here:
+        String id = jTextField1.getText();
+        
+        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
+"WHERE Material_id = '"+id+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                TextBoxClear2();
+                TableLoad2();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+        
+//        DB_Connect.DB_ResultSet = db_con.executeQuery("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
+//"WHERE Material_id = '"+id+"';");
+        
+
+
+        
+
+    }//GEN-LAST:event_DeleteButtonActionPerformed
     private void generate_mid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     idfield.setText(aid.generate("mat",Integer.toString(MainWindow.userid)));
@@ -511,6 +674,17 @@ int RowCountjTable;
             datePicker2.setText("");
     }
     
+    private void TextBoxClear2()
+    {
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField6.setText("");
+        datePicker1.setText("");
+    }
+    
     public void AddMaterial()
     {
         
@@ -523,7 +697,7 @@ int RowCountjTable;
         String reorder = reorderfield.getText();
         String date = datePicker2.getText();
         
-        boolean x= MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
+        DB_Connect.DB_ResultSet = db_con.executeQuery("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
 "(`Material_id`,\n" +
 "`Material_Name`,\n" +
 "`Material_cost`,\n" +
@@ -541,6 +715,45 @@ int RowCountjTable;
 "'"+date+"');");
       
     }
+    
+    public void EditMaterials()
+    {
+        String id,name,cost,qty,value,reorder,date;
+        id=jTextField1.getText();
+        name=jTextField2.getText();
+        cost=jTextField3.getText();
+        qty=jTextField4.getText();
+        value=jTextField5.getText();
+        reorder=jTextField6.getText();
+        date=datePicker1.getText();
+        
+        boolean x = db_con.execute("UPDATE `garmentsystem`.`Raw_Materials`\n" +
+"SET\n" +
+"`Material_id` = '"+id+"',\n" +
+"`Material_Name` = '"+name+"',\n" +
+"`Material_cost` = '"+cost+"',\n" +
+"`Material_qty` = '"+qty+"',\n" +
+"`Material_Value` = '"+value+"',\n" +
+"`Material_reorder` = '"+reorder+"',\n" +
+"`Material_date` = '"+date+"'\n" +
+"WHERE `Material_id` = '"+id+"'");
+        
+        try
+        {
+            if (x==true)
+            {
+                TextBoxClear2();
+                TableLoad2();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+        
+        
+
+    }
+        
     
         public void MaterialNameSearch()
     {
@@ -569,10 +782,13 @@ int RowCountjTable;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
+    private javax.swing.JButton DeleteButton;
+    private javax.swing.JButton EditButton;
     private javax.swing.JButton ResetButton;
     private javax.swing.JButton ResetButton1;
     private javax.swing.JButton ViewAll;
     private javax.swing.JTextField costfield;
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JTextField idfield;
     private javax.swing.JButton jButton1;
@@ -603,6 +819,12 @@ int RowCountjTable;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField namefield;
     private javax.swing.JTextField quantityfield;
     private javax.swing.JTextField reorderfield;
