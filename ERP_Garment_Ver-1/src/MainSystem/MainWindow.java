@@ -12,7 +12,7 @@ import HumanResource.Employee;
 import HumanResource.Leave;
 import HumanResource.Payroll;
 import InventoryManagement.RawMaterials;
-import ManufacturingPlanning.CreateProductCostingLabour;
+import ManufacturingPlanning.CuttingSchedule;
 import Marketing.MarketDesignInquiry;
 import Marketing.MarketDesignInquiryApproval;
 import Sales.SalesDesignInquiry;

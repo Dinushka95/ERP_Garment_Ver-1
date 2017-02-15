@@ -18,7 +18,7 @@ import static MainSystem.MainWindow.db_con;
  *
  * @author Dinushka
  */
-public class Cutting extends javax.swing.JInternalFrame {
+public class Washing extends javax.swing.JInternalFrame {
 DefaultTableModel model;
 int RowCountjTable2;
 CustomerModel customerModel;
@@ -541,7 +541,7 @@ CustomerModel customerModel;
         
        
     } catch (SQLException ex) {
-        Logger.getLogger(Cutting.class.getName()).log(Level.SEVERE, null, ex);
+        Logger.getLogger(Washing.class.getName()).log(Level.SEVERE, null, ex);
     }
     }//GEN-LAST:event_jTable2MouseClicked
 
