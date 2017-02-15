@@ -143,6 +143,7 @@ CustomerModel customerModel;
         jLabel7.setText("Date");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
+        datePicker2.setEnabled(false);
         datePicker2.setName(""); // NOI18N
         jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, -1));
 

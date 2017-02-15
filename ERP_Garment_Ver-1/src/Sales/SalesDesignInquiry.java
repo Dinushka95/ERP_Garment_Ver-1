@@ -385,10 +385,10 @@ SalesDesignInquiryModel salesDesignInquiryModel;
             }
         });
         jPanel10.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, -1, -1));
-        jPanel10.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, 150, -1));
+        jPanel10.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 150, -1));
 
         jLabel19.setText("Design Name");
-        jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
+        jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 720, 80));
 
@@ -437,10 +437,10 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jLabel12.setText("Customer ID");
         jPanelcustomerSearch.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jLabel13.setText("Customer name");
+        jLabel13.setText("Customer Name");
         jPanelcustomerSearch.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        jLabel14.setText("Customer phone");
+        jLabel14.setText("Customer Phone");
         jPanelcustomerSearch.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         jButton14.setText("Search");

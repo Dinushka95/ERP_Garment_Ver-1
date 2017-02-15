@@ -144,6 +144,7 @@
                 </Component>
                 <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker2">
                   <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
                     <Property name="name" type="java.lang.String" value="" noResource="true"/>
                   </Properties>
                   <AuxValues>

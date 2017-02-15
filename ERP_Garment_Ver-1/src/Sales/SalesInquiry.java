@@ -77,6 +77,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jButton16 = new javax.swing.JButton();
         jButton17 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         jPanelcustomerSearch4 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTable7 = new javax.swing.JTable();
@@ -217,7 +218,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 60, -1, -1));
 
         jLabel3.setText("Customer ID");
-        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 30, -1, -1));
+        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, -1, -1));
 
         jLabel4.setText("Customer Name");
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 60, -1, -1));
@@ -317,7 +318,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
-        jPanelproductSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 430, 330));
+        jPanelproductSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 430, 260));
 
         jButton12.setText("Select");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
@@ -346,7 +347,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jPanelproductSearch.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         jButton14.setText("Search");
-        jPanelproductSearch.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
+        jPanelproductSearch.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
 
         jButton15.setText("Search");
         jButton15.addActionListener(new java.awt.event.ActionListener() {
@@ -354,10 +355,10 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
                 jButton15ActionPerformed(evt);
             }
         });
-        jPanelproductSearch.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
+        jPanelproductSearch.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
         jButton16.setText("Search");
-        jPanelproductSearch.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, -1, -1));
+        jPanelproductSearch.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
 
         jButton17.setText("View All");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
@@ -365,10 +366,13 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
                 jButton17ActionPerformed(evt);
             }
         });
-        jPanelproductSearch.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
+        jPanelproductSearch.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
 
         jLabel6.setText("Should add more search parameteres");
-        jPanelproductSearch.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 40, 120, 40));
+        jPanelproductSearch.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, 210, 40));
+
+        jLabel13.setText("Image");
+        jPanelproductSearch.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, 160, 130));
 
         jPanel1.add(jPanelproductSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 20, 480, 510));
 
@@ -762,6 +766,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel19;

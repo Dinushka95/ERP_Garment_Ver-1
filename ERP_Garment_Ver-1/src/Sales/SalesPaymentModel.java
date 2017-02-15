@@ -9,6 +9,6 @@ package Sales;
  *
  * @author Dinushka
  */
-public class SalesModel {
+public class SalesPaymentModel {
     
 }

@@ -623,7 +623,7 @@
                     <Component class="javax.swing.JTextField" name="jTextField2">
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="340" y="10" width="150" height="-1"/>
+                          <AbsoluteConstraints x="320" y="10" width="150" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -633,7 +633,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="270" y="10" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="250" y="10" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -737,7 +737,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel13">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Customer name"/>
+                    <Property name="text" type="java.lang.String" value="Customer Name"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -747,7 +747,7 @@
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel14">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Customer phone"/>
+                    <Property name="text" type="java.lang.String" value="Customer Phone"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
