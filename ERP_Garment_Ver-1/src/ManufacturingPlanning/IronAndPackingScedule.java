@@ -14,7 +14,7 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Dinushka
  */
-public class CuttingSchedule extends javax.swing.JInternalFrame {
+public class IronAndPackingScedule extends javax.swing.JInternalFrame {
 DefaultTableModel model;
 int RowCountjTable2;
 CreateDesignModel NewSalesDesignModel ;
@@ -32,7 +32,7 @@ CreateDesignModel NewSalesDesignModel ;
     /**
      * Creates new form SalesDesignInquiry
      */
-    public CuttingSchedule() {
+    public IronAndPackingScedule() {
         initComponents();
         generate_sdi();
       
