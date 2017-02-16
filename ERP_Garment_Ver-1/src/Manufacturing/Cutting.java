@@ -485,7 +485,7 @@ CustomerModel customerModel;
         boolean result=customerModel.EditCustomer(LogNo, CustomerId, jTextFieldCustomerName1, jTextFieldCompanyName1,jTextFieldPhone1, jTextFieldEmail1, jTextFieldAddress1);
         if(result){
             JOptionPane.showMessageDialog(null,"Successfully To edited Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-            jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.ViewAll()));
+//            jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.ViewAll()));
 
         }
         else{
@@ -508,16 +508,16 @@ CustomerModel customerModel;
     }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFieldSearchCustomerName.getText())));          // TODO add your handling code here:
+//        jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFieldSearchCustomerName.getText())));          // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchID(jTextFieldSearchCustomerId.getText())));        // TODO add your handling code here:
+  //      jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchID(jTextFieldSearchCustomerId.getText())));        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
 
-        jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.ViewAll()));
+      //  jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.ViewAll()));
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTextFieldSearchCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerNameActionPerformed
