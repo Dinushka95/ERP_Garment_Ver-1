@@ -96,20 +96,20 @@
                                       <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="-2" pref="97" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="idfield" pref="201" max="32767" attributes="0"/>
                                       <Component id="namefield" max="32767" attributes="0"/>
                                       <Component id="costfield" alignment="0" max="32767" attributes="0"/>
                                       <Component id="quantityfield" alignment="0" max="32767" attributes="0"/>
                                       <Component id="reorderfield" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="datePicker2" alignment="0" max="32767" attributes="0"/>
                                       <Component id="valuefield" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="datePicker2" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
                           <Component id="ResetButton" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace pref="66" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="66" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -255,11 +255,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ResetButtonActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker2">
-                  <AuxValues>
-                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="DatePickerSettings dateSettings = new DatePickerSettings();&#xa;dateSettings.setFormatForDatesCommonEra(&quot;yyyy/MM/dd&quot;);&#xa;dateSettings.setFormatForDatesBeforeCommonEra(&quot;uuuu/MM/dd&quot;);&#xa;&#xa;&#xa;datePicker2.setName(&quot;&quot;); // NOI18N"/>
-                  </AuxValues>
-                </Component>
                 <Component class="javax.swing.JLabel" name="jLabel2">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Value"/>
@@ -278,6 +273,17 @@
                   <Events>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="valuefieldKeyReleased"/>
                   </Events>
+                </Component>
+                <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker2">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                    <Property name="name" type="java.lang.String" value="" noResource="true"/>
+                  </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(dateSettings1)"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings dateSettings1 = new DatePickerSettings();&#xa;dateSettings1.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;dateSettings1.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
+                    <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="Customer_datePicker2"/>
+                  </AuxValues>
                 </Component>
               </SubComponents>
             </Container>
@@ -697,6 +703,11 @@
                       <Font name="Tahoma" size="14" style="0"/>
                     </Property>
                   </Properties>
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(dateSettings2)"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings dateSettings2 = new DatePickerSettings();&#xa;dateSettings2.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;dateSettings2.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
+                    <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="datePicker1.setName(&quot;&quot;); // NOI18N"/>
+                  </AuxValues>
                 </Component>
                 <Component class="javax.swing.JButton" name="EditButton">
                   <Properties>
