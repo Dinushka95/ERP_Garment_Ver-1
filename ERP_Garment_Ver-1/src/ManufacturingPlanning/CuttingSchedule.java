@@ -17,7 +17,7 @@ import net.proteanit.sql.DbUtils;
 public class CuttingSchedule extends javax.swing.JInternalFrame {
 DefaultTableModel model;
 int RowCountjTable2;
-CreateDesignModel NewSalesDesignModel ;
+Create_Design NewSalesDesignModel ;
 
 
         String LogNo;
@@ -36,9 +36,11 @@ CreateDesignModel NewSalesDesignModel ;
         initComponents();
         generate_sdi();
       
-    NewSalesDesignModel = new CreateDesignModel();
-     jTable1.setModel(DbUtils.resultSetToTableModel(NewSalesDesignModel.ViewAll()));
+    NewSalesDesignModel = new Create_Design();
+     //jTable1.setModel(DbUtils.resultSetToTableModel(NewSalesDesignModel.viewAll()));
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

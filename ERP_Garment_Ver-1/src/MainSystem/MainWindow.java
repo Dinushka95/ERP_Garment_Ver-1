@@ -23,9 +23,9 @@ import Sales.SalesDesignInquiryApproval;
 import Sales.SalesInquiry;
 import Sales.SalesPayment;
 import Sales.SalesReturn;
-import StyleManagement.CreateDesign;
-import StyleManagement.CreateProductCostingMaterial;
-import StyleManagement.DesignApproval;
+import StyleManagement.Create_Design;
+import StyleManagement.Design_Cost_Estimate;
+import StyleManagement.Design_Approval;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
@@ -684,7 +684,7 @@ public static DB_Connect db_con;
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
        
-        CreateDesign createdesign =new CreateDesign();
+        Create_Design createdesign =new Create_Design();
         createdesign.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(createdesign);
@@ -712,7 +712,7 @@ public static DB_Connect db_con;
     }//GEN-LAST:event_jButton41ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        CreateProductCostingMaterial createproductcostingmaterial =new CreateProductCostingMaterial();
+        Design_Cost_Estimate createproductcostingmaterial =new Design_Cost_Estimate();
         createproductcostingmaterial.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(createproductcostingmaterial);
@@ -725,7 +725,7 @@ public static DB_Connect db_con;
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
-        DesignApproval designapproval = new  DesignApproval();
+        Design_Approval designapproval = new  Design_Approval();
         designapproval.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(designapproval);
