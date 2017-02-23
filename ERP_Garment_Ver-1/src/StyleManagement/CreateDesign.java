@@ -1063,9 +1063,7 @@ CreateDesignModel NewSalesDesignModel ;
 @SuppressWarnings("empty-statement")
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        
-        Validation Val=new Validation();
-        Val.typecheck();
-       
+    
         boolean result=CreateDesignModel.AddDesign(id, styleDes,jTextField2,jTextField3,jComboBox1,jComboBox2,datePicker2,jCheckBox3,jCheckBox1,jCheckBox2,jCheckBox3,jCheckBox4,jTextField4);
         if(result){
             JOptionPane.showMessageDialog(null,"Successfully Added To Design", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
