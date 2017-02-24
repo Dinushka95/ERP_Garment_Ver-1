@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.db_con;
+import java.util.HashSet;
 import javax.swing.JOptionPane;
 /**
  *
@@ -85,32 +86,38 @@ int RowCountjTable;
         jPanel3 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
-        searchname = new javax.swing.JTextField();
+        searchProduct = new javax.swing.JTextField();
         ViewAll = new javax.swing.JButton();
         ResetButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        EditButton = new javax.swing.JButton();
+        DeleteButton = new javax.swing.JButton();
+        idfield1 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        namefield1 = new javax.swing.JTextField();
+        typeBox1 = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel25 = new javax.swing.JLabel();
+        designName1 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        costfield1 = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        quantityfield1 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        valuefield1 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        sellingPrice1 = new javax.swing.JTextField();
+        jLabel30 = new javax.swing.JLabel();
         DatePickerSettings dateSettings2 = new DatePickerSettings();
         dateSettings2.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
-        EditButton = new javax.swing.JButton();
-        DeleteButton = new javax.swing.JButton();
+        datePicker3 = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
+        DesignId = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         jMenuItem2.setText("Add Type");
@@ -363,7 +370,7 @@ int RowCountjTable;
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel12.setText("Material Name");
+        jLabel12.setText("Product Name");
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         ViewAll.setText("View All");
@@ -416,7 +423,7 @@ int RowCountjTable;
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(142, 142, 142)
-                .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(searchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -436,7 +443,7 @@ int RowCountjTable;
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
-                        .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(searchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ViewAll)
                         .addComponent(jButton1)))
@@ -450,49 +457,6 @@ int RowCountjTable;
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 530));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-
-        jLabel3.setText("Material ID");
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel5.setText("Material Name");
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel6.setText("Material Cost Per Unit");
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel7.setText("Quantity");
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel8.setText("Material Value");
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel9.setText("Re-Order Quantity");
-        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel10.setText("Date");
-        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jTextField1.setEditable(false);
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTextField4KeyReleased(evt);
-            }
-        });
-
-        jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        datePicker1.setName(""); // NOI18N
-        datePicker1.setEnabled(false);
-        datePicker1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         EditButton.setText("Edit");
         EditButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -510,71 +474,155 @@ int RowCountjTable;
             }
         });
 
+        idfield1.setEditable(false);
+
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel18.setText("Product ID");
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel20.setText("Product Name");
+
+        typeBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        typeBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Shirt", "Trouser", "Socks" }));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel22.setText("* Product Type");
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel24.setText("Design ID");
+
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel25.setText("Design Description");
+
+        designName1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        designName1.setEnabled(false);
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel26.setText("Material Cost Per Unit");
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel27.setText("Quantity");
+
+        quantityfield1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantityfield1ActionPerformed(evt);
+            }
+        });
+        quantityfield1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantityfield1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                quantityfield1KeyTyped(evt);
+            }
+        });
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel28.setText("Stock Value");
+
+        valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valuefield1.setEnabled(false);
+        valuefield1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                valuefield1KeyReleased(evt);
+            }
+        });
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel29.setText("Selling Price");
+
+        sellingPrice1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel30.setText("Date");
+
+        datePicker3.setEnabled(false);
+        datePicker3.setName(""); // NOI18N
+
+        DesignId.setEnabled(false);
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
+                .addGap(285, 285, 285)
+                .addComponent(EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel26, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel27)
+                    .addComponent(jLabel30)
+                    .addComponent(jLabel24)
+                    .addComponent(jLabel28, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6)
-                    .addComponent(jLabel7)
-                    .addComponent(jLabel8)
-                    .addComponent(jLabel9)
-                    .addComponent(jLabel10))
-                .addGap(88, 88, 88)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jTextField6)
-                        .addComponent(jTextField5)
-                        .addComponent(jTextField4)
-                        .addComponent(jTextField3)
-                        .addComponent(jTextField2)
-                        .addComponent(jTextField1)
-                        .addComponent(datePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(99, Short.MAX_VALUE))
+                    .addComponent(idfield1)
+                    .addComponent(namefield1)
+                    .addComponent(costfield1)
+                    .addComponent(quantityfield1)
+                    .addComponent(valuefield1)
+                    .addComponent(datePicker3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(designName1)
+                    .addComponent(sellingPrice1)
+                    .addComponent(DesignId, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(28, 28, 28)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel22)
+                    .addComponent(typeBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(134, 134, 134))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addContainerGap(55, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel3)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel6)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(44, 44, 44)
-                        .addComponent(jLabel7))
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel8)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jLabel9)
-                        .addGap(62, 62, 62))
-                    .addComponent(jLabel10)
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(datePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                    .addComponent(jLabel18)
+                    .addComponent(idfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel22))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel20)
+                        .addComponent(namefield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(typeBox1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(33, 33, 33)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel24)
+                    .addComponent(DesignId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel25)
+                    .addComponent(designName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel26)
+                    .addComponent(costfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel27)
+                    .addComponent(quantityfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel28)
+                    .addComponent(valuefield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel29)
+                    .addComponent(sellingPrice1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(datePicker3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel30, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(47, 47, 47)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EditButton)
                     .addComponent(DeleteButton))
@@ -643,7 +691,7 @@ int RowCountjTable;
 
     private void ResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButton1ActionPerformed
         // TODO add your handling code here:
-        clearSearch();
+        clear();
 
         
     }//GEN-LAST:event_ResetButton1ActionPerformed
@@ -658,19 +706,26 @@ int RowCountjTable;
         int row =jTable2.getSelectedRow();
         String id = jTable2.getValueAt(row,0).toString();
         String name = jTable2.getValueAt(row,1).toString();
-        String cost = jTable2.getValueAt(row,2).toString();
-        String qty = jTable2.getValueAt(row,3).toString();
-        String value = jTable2.getValueAt(row,4).toString();
-        String reorder = jTable2.getValueAt(row,5).toString();
-        String date = jTable2.getValueAt(row,6).toString();
+        String Designid = jTable2.getValueAt(row,2).toString();
+        String desdes = jTable2.getValueAt(row,3).toString();
+        String type = jTable2.getValueAt(row,4).toString();
+        String cost = jTable2.getValueAt(row,5).toString();
+        String qty = jTable2.getValueAt(row,6).toString();
+        String value = jTable2.getValueAt(row,7).toString();
+        String price = jTable2.getValueAt(row,8).toString();
+        String date = jTable2.getValueAt(row,9).toString();
         
-        jTextField1.setText(id);
-        jTextField2.setText(name);
-        jTextField3.setText(cost);
-        jTextField4.setText(qty);
-        jTextField5.setText(value);
-        jTextField6.setText(reorder);
-        datePicker1.setText(date);
+        idfield1.setText(id);
+        namefield1.setText(name);
+        DesignId.setText(Designid);
+        designName1.setText(desdes);
+        typeBox1.setSelectedItem(type);
+        costfield1.setText(cost);
+        quantityfield1.setText(qty);
+        valuefield1.setText(value);
+        sellingPrice1.setText(price);
+        datePicker3.setText(date);
+        
         
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -678,8 +733,8 @@ int RowCountjTable;
     
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         // TODO add your handling code here:
-        //EditMaterials();
-        TextBoxClear2();
+        EditProduct();
+        clear();
         TableLoad2();
     }//GEN-LAST:event_EditButtonActionPerformed
 
@@ -687,42 +742,10 @@ int RowCountjTable;
         // TODO add your handling code here:
     }//GEN-LAST:event_valuefieldKeyReleased
 
-    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
-        // TODO add your handling code here:
-        double perunit = Double.parseDouble(jTextField3.getText());
-        double qty = Double.parseDouble(jTextField4.getText());
-        
-        double val = perunit * qty;
-        
-        jTextField5.setText(Double.toString(val));
-    }//GEN-LAST:event_jTextField4KeyReleased
-
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
-        // TODO add your handling code here:
-        String id = jTextField1.getText();
         
-        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
-"WHERE Material_id = '"+id+"';");
-        
-        try
-        {
-            if (x==true)
-            {
-                TextBoxClear2();
-                TableLoad2();
-            }
-        }
-        catch (Exception ex){
-            System.out.println(ex);
-        }
-        
-//        DB_Connect.DB_ResultSet = db_con.executeQuery("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
-//"WHERE Material_id = '"+id+"';");
-        
-
-
-        
-
+        DeleteProduct();
+        clear();
     }//GEN-LAST:event_DeleteButtonActionPerformed
 
     private void jPanel6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseReleased
@@ -740,6 +763,29 @@ int RowCountjTable;
         AddCombo(answer);
         
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void quantityfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityfield1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityfield1ActionPerformed
+
+    private void quantityfield1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfield1KeyReleased
+        
+        
+        double qty = Double.parseDouble(quantityfield1.getText());
+        double perunit = Double.parseDouble(costfield1.getText());
+        
+        double val = perunit * qty;
+        
+        valuefield1.setText(Double.toString(val));
+    }//GEN-LAST:event_quantityfield1KeyReleased
+
+    private void quantityfield1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfield1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityfield1KeyTyped
+
+    private void valuefield1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_valuefield1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valuefield1KeyReleased
     private void generate_finid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     idfield.setText(aid.generate("fingd",Integer.toString(MainWindow.userid)));
@@ -774,17 +820,6 @@ int RowCountjTable;
     void AddCombo(String item)
     {
         typeBox.addItem(item);
-    }
-    
-    private void TextBoxClear2()
-    {
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jTextField5.setText("");
-        jTextField6.setText("");
-        datePicker1.setText("");
     }
     
     private void FillCombo()
@@ -850,7 +885,7 @@ int RowCountjTable;
                 TableLoad();
                 TextBoxClear();
                 TableLoad2();
-                TextBoxClear2();
+                clear();
             }
         }
         catch(Exception ex)
@@ -874,51 +909,102 @@ int RowCountjTable;
       
     }
     
+    private void EditProduct()
+    {
+        String id = idfield1.getText();
+        String name = namefield1.getText();
+        String designID = ComboDesignID.getSelectedItem().toString();
+        String designame = designName1.getText();
+        String type = typeBox1.getSelectedItem().toString();
+        String cost =  costfield1.getText();
+        String qty = quantityfield1.getText();
+        String value = valuefield1.getText();
+        String price = sellingPrice1.getText();
+        String date = datePicker3.getText();
+        
+        boolean x =db_con.execute("UPDATE `garmentsystem`.`product_table`\n" +
+"SET\n" +
+"`ProductId` = '"+id+"',\n" +
+"`ProductName` = '"+name+"',\n" +
+"`DesignId` = '"+designID+"',\n" +
+"`Design_Description` = '"+designame+"',\n" +
+"`ProductType` = '"+type+"',\n" +
+"`Cost` = '"+cost+"',\n" +
+"`Quantity` = '"+qty+"',\n" +
+"`Stock_Value` = '"+value+"',\n" +
+"`Price` = '"+price+"',\n" +
+"`Date` = '"+date+"'\n" +
+"WHERE `ProductId` = '"+id+"';");
+    }
+    
+    
+    private void DeleteProduct()
+    {
+        String id = idfield1.getText();
+        
+        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`product_table`\n" +
+"WHERE ProductId = '"+id+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                clear();
+                TableLoad2();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+    }
     
     
         
     
         public void MaterialNameSearch()
     {
-            String matname = searchname.getText();
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_Name LIKE '"+matname+"%'");
+            String proname = searchProduct.getText();
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table WHERE ProductName LIKE '"+proname+"%'");
             jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
     }
     
-    public void ChangeMaterialTableHeader()
-    {
-        jTable1.getColumnModel().getColumn(0).setHeaderValue("Matrial ID");
-        jTable1.getColumnModel().getColumn(1).setHeaderValue("Material Name");
-        jTable1.getColumnModel().getColumn(2).setHeaderValue("Material Cost");
-        jTable1.getColumnModel().getColumn(3).setHeaderValue("Material Quantity");
-        jTable1.getColumnModel().getColumn(4).setHeaderValue("Material Re-Order Level");
-        jTable1.getColumnModel().getColumn(5).setHeaderValue("Material Added Date");
-
-    }
+    
     
 
     
-    private void clearSearch()
+    private void clear()
     {
-        searchname.setText("");
+        searchProduct.setText("");
+        namefield1.setText("");
+        ComboDesignID.setSelectedIndex(0);
+        designName1.setText("");
+        typeBox1.setSelectedIndex(0);
+        costfield1.setText("");
+        quantityfield1.setText("");
+        valuefield1.setText("");
+        sellingPrice1.setText("");
+        datePicker3.setDateToToday();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JComboBox<String> ComboDesignID;
     private javax.swing.JButton DeleteButton;
+    private javax.swing.JTextField DesignId;
     private javax.swing.JButton EditButton;
     private javax.swing.JButton ResetButton;
     private javax.swing.JButton ResetButton1;
     private javax.swing.JButton ViewAll;
     private javax.swing.JTextField costfield;
-    private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private javax.swing.JTextField costfield1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
+    private com.github.lgooddatepicker.components.DatePicker datePicker3;
     private javax.swing.JTextField designName;
+    private javax.swing.JTextField designName1;
     private javax.swing.JTextField idfield;
+    private javax.swing.JTextField idfield1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
@@ -926,16 +1012,20 @@ int RowCountjTable;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -950,17 +1040,16 @@ int RowCountjTable;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField namefield;
+    private javax.swing.JTextField namefield1;
     private javax.swing.JTextField quantityfield;
-    private javax.swing.JTextField searchname;
+    private javax.swing.JTextField quantityfield1;
+    private javax.swing.JTextField searchProduct;
     private javax.swing.JTextField sellingPrice;
+    private javax.swing.JTextField sellingPrice1;
     private javax.swing.JComboBox<String> typeBox;
+    private javax.swing.JComboBox<String> typeBox1;
     private javax.swing.JTextField valuefield;
+    private javax.swing.JTextField valuefield1;
     // End of variables declaration//GEN-END:variables
 }
