@@ -11,7 +11,8 @@ import HumanResource.Department;
 import HumanResource.Employee;
 import HumanResource.Leave;
 import HumanResource.Payroll;
-import InventoryManagement.FinishedGoods;
+import InventoryManagement.Accessories;
+import InventoryManagement.FinishedProducts;
 import InventoryManagement.RawMaterials;
 import ManufacturingPlanning.CuttingSchedule;
 import Marketing.MarketDesignInquiry;
@@ -375,6 +376,11 @@ public static DB_Connect db_con;
         jPanel6.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         jButton20.setText("accessories");
+        jButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton20ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         jButton21.setText("machine parts ");
@@ -924,7 +930,7 @@ public static DB_Connect db_con;
 
     private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
         
-        FinishedGoods fin = new FinishedGoods();
+        FinishedProducts fin = new FinishedProducts();
         fin.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(fin);
@@ -936,6 +942,20 @@ public static DB_Connect db_con;
         fin.setMaximizable(false);
         
     }//GEN-LAST:event_jButton19ActionPerformed
+
+    private void jButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton20ActionPerformed
+        
+        Accessories acc = new Accessories();
+        acc.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(acc);
+        try {
+            acc.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        acc.setMaximizable(false);
+    }//GEN-LAST:event_jButton20ActionPerformed
 
     
     /**

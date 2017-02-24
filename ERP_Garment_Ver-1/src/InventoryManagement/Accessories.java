@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Dinushka
  */
-public class FinishedGoods extends javax.swing.JInternalFrame {
+public class Accessories extends javax.swing.JInternalFrame {
 DefaultTableModel model;
 int RowCountjTable;
 
@@ -27,15 +27,15 @@ int RowCountjTable;
     /**
      * Creates new form SalesDesignInquiry
      */
-    public FinishedGoods() {
+    public Accessories() {
         
         initComponents();
         TableLoad();
         TableLoad2();
-        FillCombo();
         
         
-        generate_finid();
+        
+        generate_accid();
         datePicker2.setDateToToday();
       
     }
@@ -49,8 +49,6 @@ int RowCountjTable;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPopupMenu1 = new javax.swing.JPopupMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -71,15 +69,8 @@ int RowCountjTable;
         dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
-        jLabel4 = new javax.swing.JLabel();
-        ComboDesignID = new javax.swing.JComboBox<>();
-        jLabel13 = new javax.swing.JLabel();
-        designName = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        sellingPrice = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        typeBox = new javax.swing.JComboBox<>();
-        jLabel17 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        typefield = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -120,16 +111,8 @@ int RowCountjTable;
         DesignId = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
-        jMenuItem2.setText("Add Type");
-        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem2ActionPerformed(evt);
-            }
-        });
-        jPopupMenu1.add(jMenuItem2);
-
         setResizable(true);
-        setTitle("Raw Materils");
+        setTitle("Accessories");
         setEnabled(false);
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
@@ -147,13 +130,13 @@ int RowCountjTable;
             }
         });
 
-        jLabel1.setText("Product ID");
+        jLabel1.setText("Accessory ID");
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel11.setText("Product Name");
+        jLabel11.setText("Accessory Name");
         jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel14.setText("Material Cost Per Unit");
+        jLabel14.setText("Cost Per Unit");
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel19.setText("Quantity");
@@ -178,7 +161,7 @@ int RowCountjTable;
             }
         });
 
-        AddButton.setText("Add Product");
+        AddButton.setText("Add Accessory");
         AddButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,29 +191,10 @@ int RowCountjTable;
         datePicker2.setEnabled(false);
         datePicker2.setName(""); // NOI18N
 
-        jLabel4.setText("Design ID");
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Accessory Type");
 
-        ComboDesignID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel13.setText("Design Description");
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        designName.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel15.setText("Selling Price");
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        sellingPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-
-        jLabel16.setText("* Product Type");
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-
-        typeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Shirt", "Trouser", "Socks" }));
-        typeBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel17.setText("Right CLick to add a  new Type");
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        typefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -239,96 +203,72 @@ int RowCountjTable;
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel19)
-                            .addComponent(jLabel21)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(97, 97, 97)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idfield)
-                            .addComponent(namefield)
-                            .addComponent(costfield)
-                            .addComponent(quantityfield)
-                            .addComponent(valuefield)
-                            .addComponent(datePicker2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(ComboDesignID, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(designName)
-                            .addComponent(sellingPrice))
-                        .addGap(108, 108, 108)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel16))
-                        .addGap(224, 224, 224))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(184, 184, 184))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
+                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                        .addComponent(jLabel19)
+                        .addComponent(jLabel21)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel3))
+                .addGap(97, 97, 97)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(namefield, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
+                    .addComponent(costfield)
+                    .addComponent(quantityfield)
+                    .addComponent(valuefield)
+                    .addComponent(typefield)
+                    .addComponent(idfield)
+                    .addComponent(datePicker2, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(188, 188, 188)
+                .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
                 .addComponent(ResetButton)
-                .addGap(212, 212, 212))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
-                    .addComponent(idfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel11)
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(namefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jLabel17)
-                .addGap(4, 4, 4)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(ComboDesignID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel13)
-                    .addComponent(designName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(costfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(quantityfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(valuefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(sellingPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datePicker2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(26, 26, 26)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1)
+                            .addComponent(idfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel11)
+                            .addComponent(namefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(40, 40, 40)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14)
+                            .addComponent(costfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(39, 39, 39)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel19)
+                            .addComponent(quantityfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(32, 32, 32)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(valuefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(typefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(44, 44, 44)
+                        .addComponent(datePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel21))
+                .addGap(51, 51, 51)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddButton)
                     .addComponent(ResetButton))
-                .addContainerGap(75, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 540));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 540));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -351,7 +291,7 @@ int RowCountjTable;
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 686, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -362,7 +302,7 @@ int RowCountjTable;
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 600, 540));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 10, 710, 540));
 
         jTabbedPane1.addTab("ADD Materials", jPanel1);
 
@@ -476,32 +416,32 @@ int RowCountjTable;
 
         idfield1.setEditable(false);
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel18.setText("Product ID");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel20.setText("Product Name");
+        jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        typeBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         typeBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Shirt", "Trouser", "Socks" }));
+        typeBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel22.setText("* Product Type");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel24.setText("Design ID");
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel25.setText("Design Description");
+        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        designName1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         designName1.setEnabled(false);
+        designName1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel26.setText("Material Cost Per Unit");
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel27.setText("Quantity");
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         quantityfield1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -517,24 +457,24 @@ int RowCountjTable;
             }
         });
 
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel28.setText("Stock Value");
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valuefield1.setEnabled(false);
+        valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valuefield1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 valuefield1KeyReleased(evt);
             }
         });
 
-        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel29.setText("Selling Price");
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         sellingPrice1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel30.setText("Date");
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         datePicker3.setEnabled(false);
         datePicker3.setName(""); // NOI18N
@@ -662,11 +602,9 @@ int RowCountjTable;
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         // TODO add your handling code here;
         
-        AddProduct();
-        TableLoad();
-        TableLoad2();
+        AddAccessory();
         TextBoxClear();
-        generate_finid();
+        generate_accid();
         
         
         
@@ -749,20 +687,9 @@ int RowCountjTable;
     }//GEN-LAST:event_DeleteButtonActionPerformed
 
     private void jPanel6MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel6MouseReleased
-        // TODO add your handling code here:
-        if(evt.isPopupTrigger())
-        {
-            jPopupMenu1.show(this, evt.getX(), evt.getY());
-        }
+        
         
     }//GEN-LAST:event_jPanel6MouseReleased
-
-    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
-        
-        String answer = JOptionPane.showInputDialog(null,"Please type the Product Name :");
-        AddCombo(answer);
-        
-    }//GEN-LAST:event_jMenuItem2ActionPerformed
 
     private void quantityfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityfield1ActionPerformed
         // TODO add your handling code here:
@@ -786,96 +713,62 @@ int RowCountjTable;
     private void valuefield1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_valuefield1KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_valuefield1KeyReleased
-    private void generate_finid(){
+    private void generate_accid(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    idfield.setText(aid.generate("fingd",Integer.toString(MainWindow.userid)));
+    idfield.setText(aid.generate("ACC",Integer.toString(MainWindow.userid)));
     }
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Accessory_Table");
             jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Accessory_Table");
             jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     private void TextBoxClear(){
-        generate_finid();
+        generate_accid();
         namefield.setText("");
-        ComboDesignID.setSelectedIndex(0);
-        designName.setText("");
-        typeBox.setSelectedIndex(0);
         costfield.setText("");
         quantityfield.setText("");
         valuefield.setText("");
-        sellingPrice.setText("");
+        typefield.setText("");
         datePicker2.setDateToToday();
     }
     
-    void AddCombo(String item)
-    {
-        typeBox.addItem(item);
-    }
     
-    private void FillCombo()
-    {
-        try
-        {
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Design_table");
-            
-            while(DB_Connect.DB_ResultSet.next())
-            {
-                String id = DB_Connect.DB_ResultSet.getString("StyleId");
-                ComboDesignID.addItem(id);
-            }
-        }
-        catch (Exception ex)
-        {
-            System.out.println(ex);
-        }
-    }
-    
-    public void AddProduct()
+    public void AddAccessory()
     {
         
         
         String id = idfield.getText();
         String name = namefield.getText();
-        String designID = ComboDesignID.getSelectedItem().toString();
-        String designame = designName.getText();
-        String type = typeBox.getSelectedItem().toString();
         String cost =  costfield.getText();
         String qty = quantityfield.getText();
         String value = valuefield.getText();
-        String price = sellingPrice.getText();
+        String type = typefield.getText();
         String date = datePicker2.getText();
         
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`product_table`\n" +
-"(`ProductId`,\n" +
-"`ProductName`,\n" +
-"`DesignId`,\n" +
-"`Design_Description`,\n" +
-"`ProductType`,\n" +
-"`Cost`,\n" +
-"`Quantity`,\n" +
-"`Stock_Value`,\n" +
-"`Price`,\n" +
-"`Date`)\n" +
+        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`Accessory_Table`\n" +
+"(`accessory_id`,\n" +
+"`accessory_name`,\n" +
+"`accessory_cost`,\n" +
+"`accessory_qty`,\n" +
+"`accessory_value`,\n" +
+"`accessory_type`,\n" +
+"`accessory_date`)\n" +
 "VALUES\n" +
 "('"+id+"',\n" +
 "'"+name+"',\n" +
-"'"+designID+"',\n" +
-"'"+designame+"',\n" +
-"'"+type+"',\n" +
 "'"+cost+"',\n" +
 "'"+qty+"',\n" +
 "'"+value+"',\n" +
-"'"+price+"',\n" +
+"'"+type+"',\n" +
 "'"+date+"');");
         
         try
@@ -911,31 +804,8 @@ int RowCountjTable;
     
     private void EditProduct()
     {
-        String id = idfield1.getText();
-        String name = namefield1.getText();
-        String designID = ComboDesignID.getSelectedItem().toString();
-        String designame = designName1.getText();
-        String type = typeBox1.getSelectedItem().toString();
-        String cost =  costfield1.getText();
-        String qty = quantityfield1.getText();
-        String value = valuefield1.getText();
-        String price = sellingPrice1.getText();
-        String date = datePicker3.getText();
         
-        boolean x =db_con.execute("UPDATE `garmentsystem`.`product_table`\n" +
-"SET\n" +
-"`ProductId` = '"+id+"',\n" +
-"`ProductName` = '"+name+"',\n" +
-"`DesignId` = '"+designID+"',\n" +
-"`Design_Description` = '"+designame+"',\n" +
-"`ProductType` = '"+type+"',\n" +
-"`Cost` = '"+cost+"',\n" +
-"`Quantity` = '"+qty+"',\n" +
-"`Stock_Value` = '"+value+"',\n" +
-"`Price` = '"+price+"',\n" +
-"`Date` = '"+date+"'\n" +
-"WHERE `ProductId` = '"+id+"';");
-    }
+        }
     
     
     private void DeleteProduct()
@@ -974,21 +844,10 @@ int RowCountjTable;
     
     private void clear()
     {
-        searchProduct.setText("");
-        namefield1.setText("");
-        ComboDesignID.setSelectedIndex(0);
-        designName1.setText("");
-        typeBox1.setSelectedIndex(0);
-        costfield1.setText("");
-        quantityfield1.setText("");
-        valuefield1.setText("");
-        sellingPrice1.setText("");
-        datePicker3.setDateToToday();
-    }
+        }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
-    private javax.swing.JComboBox<String> ComboDesignID;
     private javax.swing.JButton DeleteButton;
     private javax.swing.JTextField DesignId;
     private javax.swing.JButton EditButton;
@@ -999,7 +858,6 @@ int RowCountjTable;
     private javax.swing.JTextField costfield1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
-    private javax.swing.JTextField designName;
     private javax.swing.JTextField designName1;
     private javax.swing.JTextField idfield;
     private javax.swing.JTextField idfield1;
@@ -1007,11 +865,7 @@ int RowCountjTable;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -1024,9 +878,8 @@ int RowCountjTable;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -1034,7 +887,6 @@ int RowCountjTable;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -1045,10 +897,9 @@ int RowCountjTable;
     private javax.swing.JTextField quantityfield;
     private javax.swing.JTextField quantityfield1;
     private javax.swing.JTextField searchProduct;
-    private javax.swing.JTextField sellingPrice;
     private javax.swing.JTextField sellingPrice1;
-    private javax.swing.JComboBox<String> typeBox;
     private javax.swing.JComboBox<String> typeBox1;
+    private javax.swing.JTextField typefield;
     private javax.swing.JTextField valuefield;
     private javax.swing.JTextField valuefield1;
     // End of variables declaration//GEN-END:variables
