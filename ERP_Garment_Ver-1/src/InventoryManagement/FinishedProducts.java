@@ -788,7 +788,7 @@ int RowCountjTable;
     }//GEN-LAST:event_valuefield1KeyReleased
     private void generate_finid(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    idfield.setText(aid.generate("fingd",Integer.toString(MainWindow.userid)));
+    idfield.setText(aid.generate("FINGD",Integer.toString(MainWindow.userid)));
     }
     private void TableLoad()
     {

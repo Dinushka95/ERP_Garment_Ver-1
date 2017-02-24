@@ -650,7 +650,7 @@ int RowCountjTable;
     }//GEN-LAST:event_DeleteButtonActionPerformed
     private void generate_mid(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    idfield.setText(aid.generate("mat",Integer.toString(MainWindow.userid)));
+    idfield.setText(aid.generate("MAT",Integer.toString(MainWindow.userid)));
     }
     private void TableLoad()
     {
