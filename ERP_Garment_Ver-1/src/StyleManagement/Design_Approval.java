@@ -35,7 +35,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         
         
         
-        generate_Sid();
+        
+        generate_Aid();
         datePicker1.setDateToToday();
       
     }
@@ -69,7 +70,10 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings dateSettings1 = new DatePickerSettings();
+        dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -139,6 +143,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTextArea1);
 
         jLabel2.setText("Date");
+
+        datePicker1.setName("");
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -291,6 +297,11 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         );
 
         jButton7.setText("Add Approve");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         jButton8.setText("Decline");
 
@@ -351,16 +362,28 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        AddDesignApproval();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
-        private void generate_mid(){
+
+        private void generate_Aid(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    //idfield.setText(aid.generate("mat",Integer.toString(MainWindow.userid)));
+    jTextField7.setText(aid.generate("AID",Integer.toString(MainWindow.userid)));
     }
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Design_table");
             jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+
+    }
+    private void TableLoad2()
+    {
+
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Design_Approval_table");
+            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     
@@ -377,76 +400,60 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     
    
     
-    public void AddMaterial()
+    public void AddDesignApproval()
     {
-        /*
         
-        String id = idfield.getText();
-        String name = namefield.getText();
-        String cost =  costfield.getText();
-        String qty = quantityfield.getText();
-        String value = valuefield.getText();
-        String reorder = reorderfield.getText();
-        String date = datePicker2.getText();
         
-        DB_Connect.DB_ResultSet = db_con.executeQuery("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
-"(`Material_id`,\n" +
-"`Material_Name`,\n" +
-"`Material_cost`,\n" +
-"`Material_qty`,\n" +
-"`Material_Value`,\n" +
-"`Material_reorder`,\n" +
-"`Material_date`)\n" +
+        String id = jTextField7.getText();
+        String name = jTextField8.getText();
+        String comment =  jTextArea1.getText();
+        
+        jRadioButton1.setActionCommand("Approve");
+        jRadioButton2.setActionCommand("NotApprove");
+        
+        
+        String status = Approval.getSelection().getActionCommand();
+        
+        String date = datePicker1.getText();
+        
+        
+        
+       boolean  x = db_con.execute("INSERT INTO `garmentsystem`.`Design_Approval_table`\n" +
+"(`ApprovedId`,\n" +
+"`ApprovedBy`,\n" +
+"`Status`,\n" +
+"`Comment`,\n" +
+"`Date`)\n" +
 "VALUES\n" +
 "('"+id+"',\n" +
 "'"+name+"',\n" +
-"'"+cost+"',\n" +
-"'"+qty+"',\n" +
-"'"+value+"',\n" +
-"'"+reorder+"',\n" +
+"'"+status+"',\n" +
+"'"+comment+"',\n" +
 "'"+date+"');");
-     */ 
-    }
-   /* 
-    public void EditMaterials()
-    {
-        String id,name,cost,qty,value,reorder,date;
-        id=jTextField1.getText();
-        name=jTextField2.getText();
-        cost=jTextField3.getText();
-        qty=jTextField4.getText();
-        value=jTextField5.getText();
-        reorder=jTextField6.getText();
-        date=datePicker1.getText();
-        
-        boolean x = db_con.execute("UPDATE `garmentsystem`.`Raw_Materials`\n" +
-"SET\n" +
-"`Material_id` = '"+id+"',\n" +
-"`Material_Name` = '"+name+"',\n" +
-"`Material_cost` = '"+cost+"',\n" +
-"`Material_qty` = '"+qty+"',\n" +
-"`Material_Value` = '"+value+"',\n" +
-"`Material_reorder` = '"+reorder+"',\n" +
-"`Material_date` = '"+date+"'\n" +
-"WHERE `Material_id` = '"+id+"'");
         
         try
         {
-            if (x==true)
+            if(x==true)
             {
-                TextBoxClear2();
                 TableLoad2();
+                TextBoxClear();
             }
         }
-        catch (Exception ex){
+        catch(Exception ex)
+        {
             System.out.println(ex);
         }
         
         
-
-    }
         
+      
+    }
     
+    
+   
+    
+        
+    /*
         public void MaterialNameSearch()
     {
             String matname = searchname.getText();
