@@ -118,6 +118,8 @@ public class SalesDesignInquiryModel {
     return false;    
     }
     
+
+    
     public ResultSet ViewAll(){
     DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where MarketDesignInquiryId IS NULL ORDER BY AddedDate desc;");
 

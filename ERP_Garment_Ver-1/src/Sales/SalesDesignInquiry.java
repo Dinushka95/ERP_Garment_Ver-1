@@ -11,9 +11,11 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.db_con;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
+import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
@@ -73,6 +75,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jLabel16 = new javax.swing.JLabel();
         jTextFieldSalesDesignInquiryId1 = new javax.swing.JTextField();
         jButton22 = new javax.swing.JButton();
+        jButton27 = new javax.swing.JButton();
         jPanelSDIAdd = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -221,6 +224,14 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jButton22.setText("Select to edit");
         jPanel7.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, -1, -1));
 
+        jButton27.setText("jButton27");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 460, -1, -1));
+
         jPanelSDIMain.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1310, 520));
 
         jTabbedPane1.addTab("Main", jPanelSDIMain);
@@ -326,7 +337,12 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jPanel9.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 210, 150));
 
         jButton23.setText("ADD a skech Image");
-        jPanel9.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
 
         jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 260, 220));
 
@@ -821,6 +837,20 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+    JFileChooser fileChooser1 = new JFileChooser();
+    fileChooser1.setCurrentDirectory(new File(System.getProperty("user.home")));
+    int result = fileChooser1.showOpenDialog(this);
+    if (result == JFileChooser.APPROVE_OPTION) {
+    File selectedFile = fileChooser1.getSelectedFile();
+    System.out.println("Selected pattern file: " + selectedFile.getAbsolutePath());
+    }
+    }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+
+    }//GEN-LAST:event_jButton27ActionPerformed
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",Integer.toString(MainWindow.userid)));
@@ -863,6 +893,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
+    private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
