@@ -31,6 +31,7 @@ int RowCountjTable;
         initComponents();
         TableLoad();
         TableLoad2();
+        FillCombo();
         
         
         generate_finid();
@@ -76,7 +77,7 @@ int RowCountjTable;
         jLabel15 = new javax.swing.JLabel();
         sellingPrice = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        typeBox = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -122,6 +123,7 @@ int RowCountjTable;
 
         setResizable(true);
         setTitle("Raw Materils");
+        setEnabled(false);
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -202,7 +204,6 @@ int RowCountjTable;
         jLabel4.setText("Design ID");
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        ComboDesignID.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         ComboDesignID.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel13.setText("Design Description");
@@ -215,14 +216,14 @@ int RowCountjTable;
 
         sellingPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setText("* Product Type");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Shirt", "Trouser", "Socks" }));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        typeBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Shirt", "Trouser", "Socks" }));
+        typeBox.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("Right CLick to add a  new Type");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -255,7 +256,7 @@ int RowCountjTable;
                             .addComponent(sellingPrice))
                         .addGap(108, 108, 108)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16))
                         .addGap(224, 224, 224))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
@@ -267,7 +268,7 @@ int RowCountjTable;
                 .addComponent(AddButton, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(55, 55, 55)
                 .addComponent(ResetButton)
-                .addGap(214, 214, 214))
+                .addGap(212, 212, 212))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -282,7 +283,7 @@ int RowCountjTable;
                     .addComponent(jLabel11)
                     .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(namefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(typeBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel17)
                 .addGap(4, 4, 4)
@@ -309,18 +310,18 @@ int RowCountjTable;
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
                     .addComponent(sellingPrice, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(datePicker2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(34, 34, 34)
+                .addGap(26, 26, 26)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddButton)
                     .addComponent(ResetButton))
-                .addGap(34, 34, 34))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 530));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 540));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -350,11 +351,11 @@ int RowCountjTable;
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 600, 530));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 600, 540));
 
         jTabbedPane1.addTab("ADD Materials", jPanel1);
 
@@ -613,10 +614,11 @@ int RowCountjTable;
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         // TODO add your handling code here;
         
-        AddMaterial();
+        AddProduct();
         TableLoad();
         TableLoad2();
         TextBoxClear();
+        generate_finid();
         
         
         
@@ -745,29 +747,33 @@ int RowCountjTable;
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table");
             jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table");
             jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     private void TextBoxClear(){
-            generate_finid();
-            namefield.setText("");
-            costfield.setText("");
-            quantityfield.setText("");
-//            reorderfield.setText("");
-            datePicker2.setText("");
+        generate_finid();
+        namefield.setText("");
+        ComboDesignID.setSelectedIndex(0);
+        designName.setText("");
+        typeBox.setSelectedIndex(0);
+        costfield.setText("");
+        quantityfield.setText("");
+        valuefield.setText("");
+        sellingPrice.setText("");
+        datePicker2.setDateToToday();
     }
     
     void AddCombo(String item)
     {
-        jComboBox1.addItem(item);
+        typeBox.addItem(item);
     }
     
     private void TextBoxClear2()
@@ -781,49 +787,91 @@ int RowCountjTable;
         datePicker1.setText("");
     }
     
-    public void AddMaterial()
+    private void FillCombo()
+    {
+        try
+        {
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Design_table");
+            
+            while(DB_Connect.DB_ResultSet.next())
+            {
+                String id = DB_Connect.DB_ResultSet.getString("StyleId");
+                ComboDesignID.addItem(id);
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
+    public void AddProduct()
     {
         
         
         String id = idfield.getText();
         String name = namefield.getText();
+        String designID = ComboDesignID.getSelectedItem().toString();
+        String designame = designName.getText();
+        String type = typeBox.getSelectedItem().toString();
         String cost =  costfield.getText();
         String qty = quantityfield.getText();
         String value = valuefield.getText();
-        //String reorder = reorderfield.getText();
+        String price = sellingPrice.getText();
         String date = datePicker2.getText();
         
-//        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
-//"(`Material_id`,\n" +
-//"`Material_Name`,\n" +
-//"`Material_cost`,\n" +
-//"`Material_qty`,\n" +
-//"`Material_Value`,\n" +
-//"`Material_reorder`,\n" +
-//"`Material_date`)\n" +
-//"VALUES\n" +
-//"('"+id+"',\n" +
-//"'"+name+"',\n" +
-//"'"+cost+"',\n" +
-//"'"+qty+"',\n" +
-//"'"+value+"',\n" +
-//"'"+reorder+"',\n" +
-//"'"+date+"');");
+        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`product_table`\n" +
+"(`ProductId`,\n" +
+"`ProductName`,\n" +
+"`DesignId`,\n" +
+"`Design_Description`,\n" +
+"`ProductType`,\n" +
+"`Cost`,\n" +
+"`Quantity`,\n" +
+"`Stock_Value`,\n" +
+"`Price`,\n" +
+"`Date`)\n" +
+"VALUES\n" +
+"('"+id+"',\n" +
+"'"+name+"',\n" +
+"'"+designID+"',\n" +
+"'"+designame+"',\n" +
+"'"+type+"',\n" +
+"'"+cost+"',\n" +
+"'"+qty+"',\n" +
+"'"+value+"',\n" +
+"'"+price+"',\n" +
+"'"+date+"');");
+        
+        try
+        {
+            if(x==true)
+            {
+                TableLoad();
+                TextBoxClear();
+                TableLoad2();
+                TextBoxClear2();
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
         
         
-//        try
-//        {
-//            if(x==true)
-//            {
-//                TableLoad();
-//                TextBoxClear();
-//            }
-//        }
-//        catch(Exception ex)
-//        {
-//            System.out.println(ex);
-//        }
-//      
+        try
+        {
+            if(x==true)
+            {
+                TableLoad();
+                TextBoxClear();
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+      
     }
     
     
@@ -869,7 +917,6 @@ int RowCountjTable;
     private javax.swing.JTextField designName;
     private javax.swing.JTextField idfield;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -913,6 +960,7 @@ int RowCountjTable;
     private javax.swing.JTextField quantityfield;
     private javax.swing.JTextField searchname;
     private javax.swing.JTextField sellingPrice;
+    private javax.swing.JComboBox<String> typeBox;
     private javax.swing.JTextField valuefield;
     // End of variables declaration//GEN-END:variables
 }
