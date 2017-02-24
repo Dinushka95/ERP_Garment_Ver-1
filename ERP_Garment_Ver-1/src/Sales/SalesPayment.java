@@ -142,7 +142,7 @@ public class SalesPayment extends javax.swing.JInternalFrame {
         });
         jPanel6.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 90, -1, -1));
 
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 670, 120));
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 680, 120));
 
         jButton4.setText("ADD Sales Payment");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
