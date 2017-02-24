@@ -32,7 +32,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         
         initComponents();
         TableLoad();
-        TableLoad2();
+        
         
         
         generate_Sid();
@@ -97,6 +97,11 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jButton2.setText("View Design");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Design ID" }));
 
@@ -342,6 +347,10 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
         private void generate_mid(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -352,13 +361,6 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 
             DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
             jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
-
-    }
-    private void TableLoad2()
-    {
-
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     
@@ -373,17 +375,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
             datePicker1.setText("");
     }
     
-    private void TextBoxClear2()
-    {
-      /*  jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField3.setText("");
-        jTextField4.setText("");
-        jTextField5.setText("");
-        jTextField6.setText("");
-        datePicker1.setText("");
-    */
-    }
+   
+    
     public void AddMaterial()
     {
         /*
