@@ -27,6 +27,7 @@ public class Create_Design extends javax.swing.JInternalFrame {
       initComponents();
       TableLoad();
       generate_stlid();
+      datePicker1.setDateToToday();
         
         
         
@@ -92,7 +93,6 @@ public class Create_Design extends javax.swing.JInternalFrame {
         jButton5 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         DatePickerSettings dateSettings1 = new DatePickerSettings();
-
         dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
@@ -409,7 +409,7 @@ public class Create_Design extends javax.swing.JInternalFrame {
 
         jLabel13.setText("Date");
 
-        datePicker2.setName("");
+        datePicker1.setName("");
 
         jPanel14.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
@@ -1163,6 +1163,7 @@ public class Create_Design extends javax.swing.JInternalFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         AddDesign();
+        TableLoad();
         TextBoxClear2();
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -1212,11 +1213,20 @@ public class Create_Design extends javax.swing.JInternalFrame {
         String size = jComboBox1.getSelectedItem().toString();
         String Type =  jComboBox2.getSelectedItem().toString();
         
-        String gender = GenderButtonGroup.getSelection().toString();
-        String status = Status.getSelection().toString();
+        jRadioButton1.setActionCommand("Male");
+        jRadioButton2.setActionCommand("Female");
         
         
-        String date = datePicker2.getText();
+        String gender = GenderButtonGroup.getSelection().getActionCommand();
+        
+        jRadioButton3.setActionCommand("Start");
+        jRadioButton4.setActionCommand("In Progress");
+        jRadioButton5.setActionCommand("Finished");
+                
+        String status = Status.getSelection().getActionCommand();
+        
+        
+        String date = datePicker1.getText();
         
         String collection = jComboBox3.getSelectedItem().toString();
         
@@ -1246,7 +1256,7 @@ public class Create_Design extends javax.swing.JInternalFrame {
 "'"+color+"',\n" +
 "'"+designer+"',\n" +
 "'"+status+"',\n" +
-"'"+date+"';");
+"'"+date+"');");
         
         try
         {
