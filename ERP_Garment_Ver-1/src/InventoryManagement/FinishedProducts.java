@@ -698,7 +698,7 @@ int RowCountjTable;
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        MaterialNameSearch();
+        ProductNameSearch();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
@@ -788,7 +788,7 @@ int RowCountjTable;
     }//GEN-LAST:event_valuefield1KeyReleased
     private void generate_finid(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    idfield.setText(aid.generate("fingd",Integer.toString(MainWindow.userid)));
+    idfield.setText(aid.generate("FINGD",Integer.toString(MainWindow.userid)));
     }
     private void TableLoad()
     {
@@ -894,18 +894,7 @@ int RowCountjTable;
         }
         
         
-        try
-        {
-            if(x==true)
-            {
-                TableLoad();
-                TextBoxClear();
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
+        
       
     }
     
@@ -961,7 +950,7 @@ int RowCountjTable;
     
         
     
-        public void MaterialNameSearch()
+        public void ProductNameSearch()
     {
             String proname = searchProduct.getText();
             DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table WHERE ProductName LIKE '"+proname+"%'");
