@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
-import static MainSystem.MainWindow.db_con;
+
 
 /**
  *
@@ -418,42 +418,7 @@ CustomerModel customerModel;
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-    int x=jTable2.getSelectedRow();
-    String y=(String) jTable2.getValueAt(x,0);
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT \n" +
-    "    `customer_table`.`CustomerId`,\n" +
-    "    `customer_table`.`CustomerName`,\n" +
-    "    `customer_table`.`CustomerCompanyName`,\n" +
-    "    `customer_table`.`CustomerPhone`,\n" +
-    "    `customer_table`.`CustomerEmail`,\n" +
-    "    `customer_table`.`CustomerAddress`,\n" +
-    "    `customer_table`.`CustomerAddedDate`\n" +
-    "FROM\n" +
-    "    `garmentsystem`.`customer_table`\n" +
-    "WHERE\n" +
-    "    CustomerId = '"+y+"';");
-    try {
-        DB_Connect.DB_ResultSet.next();
-        
-        
-        CustomerId=DB_Connect.DB_ResultSet.getString("CustomerId");
-        
-        jTextFieldCustomerId1.setText(CustomerId);
-        CustomerName=DB_Connect.DB_ResultSet.getString("CustomerName");
-        jTextFieldCustomerName1.setText(CustomerName);
-        CustomerCompanyName=DB_Connect.DB_ResultSet.getString("CustomerCompanyName");
-        jTextFieldCompanyName1.setText(CustomerCompanyName);
-        CustomerPhone=DB_Connect.DB_ResultSet.getString("CustomerPhone");
-        jTextFieldPhone1.setText(CustomerPhone);
-        CustomerEmail=DB_Connect.DB_ResultSet.getString("CustomerEmail");
-        jTextFieldEmail1.setText(CustomerEmail);
-        CustomerAddres=DB_Connect.DB_ResultSet.getString("CustomerAddress");
-        jTextFieldAddress1.setText(CustomerAddres);
-        
-       
-    } catch (SQLException ex) {
-        Logger.getLogger(Payroll.class.getName()).log(Level.SEVERE, null, ex);
-    }
+   
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed

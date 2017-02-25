@@ -2,17 +2,8 @@
 package Manufacturing;
 
 import Sales.*;
-import com.github.lgooddatepicker.components.DatePickerSettings;
-import MainSystem.AutoIdGenerator;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
-import MainSystem.DB_Connect;
-import MainSystem.MainWindow;
-import static MainSystem.MainWindow.db_con;
 
 /**
  *

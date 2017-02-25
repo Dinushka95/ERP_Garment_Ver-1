@@ -5,13 +5,9 @@
  */
 package Sales;
 
-import Marketing.*;
+import static MainSystem.AutoQuery.db_con;
 import Sales.*;
-import MainSystem.AutoIdGenerator;
 import MainSystem.DB_Connect;
-import MainSystem.MainWindow;
-import static MainSystem.MainWindow.db_con;
-import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import java.awt.Color;

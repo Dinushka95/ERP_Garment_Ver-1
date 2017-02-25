@@ -3,12 +3,12 @@ package InventoryManagement;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
+import static MainSystem.AutoQuery.db_con;
 import MainSystem.DB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
-import static MainSystem.MainWindow.db_con;
-import java.util.Set;
+
 /**
  *
  * @author Dinushka

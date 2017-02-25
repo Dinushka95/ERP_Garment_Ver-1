@@ -127,14 +127,14 @@ public class SalesPayment extends javax.swing.JInternalFrame {
         datePicker2.setName(""); // NOI18N
         jPanel6.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 60, -1, -1));
 
-        jLabel5.setText("Sales Inquiry ID");
+        jLabel5.setText("Sales Invoice ID");
         jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 90, -1, -1));
 
         jTextFieldCustomerName3.setEditable(false);
         jTextFieldCustomerName3.setName("Customer Name"); // NOI18N
         jPanel6.add(jTextFieldCustomerName3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 90, 110, -1));
 
-        jButton12.setText("Search Sales Inquiry");
+        jButton12.setText("Search Sales Invoice");
         jButton12.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton12ActionPerformed(evt);
@@ -226,7 +226,7 @@ public class SalesPayment extends javax.swing.JInternalFrame {
         });
         jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
-        jLabel6.setText("Sales Inquiry ID");
+        jLabel6.setText("Sales Invoice ID");
         jPanelcustomerSearch.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
         jPanelcustomerSearch.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 70, -1));
 

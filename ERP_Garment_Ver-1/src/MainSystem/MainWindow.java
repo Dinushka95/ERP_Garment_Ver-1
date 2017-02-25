@@ -15,6 +15,7 @@ import InventoryManagement.Accessories;
 import InventoryManagement.FinishedProducts;
 import InventoryManagement.Machine_Parts;
 import InventoryManagement.RawMaterials;
+import static MainSystem.MainWindow.autoQuery;
 import ManufacturingPlanning.CuttingSchedule;
 import Marketing.MarketDesignInquiry;
 import Marketing.MarketDesignInquiryApproval;
@@ -42,8 +43,8 @@ import java.util.logging.Logger;
 public class MainWindow extends javax.swing.JFrame {
 public static int  userid=1;
 public static String  username="test";
-
-public static DB_Connect db_con;
+public static AutoQuery autoQuery;
+//public static DB_Connect db_con;
     /**
      * Creates new form Login
      */
@@ -51,8 +52,10 @@ public static DB_Connect db_con;
         initComponents();
         centerLocation();
         setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
-        db_con= new DB_Connect();
-       db_con.connect();
+    //    db_con= new DB_Connect();
+    //   db_con.connect();
+           autoQuery=new AutoQuery();
+           
        
  
     }

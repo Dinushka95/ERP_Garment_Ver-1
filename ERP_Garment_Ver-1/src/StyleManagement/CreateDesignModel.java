@@ -5,8 +5,9 @@
  */
 package StyleManagement;
 
+import static MainSystem.AutoQuery.db_con;
 import MainSystem.DB_Connect;
-import static MainSystem.MainWindow.db_con;
+
 import com.github.lgooddatepicker.components.DatePicker;
 import java.sql.ResultSet;
 import javax.swing.JCheckBox;

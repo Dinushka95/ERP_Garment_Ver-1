@@ -5,12 +5,12 @@
  */
 package Marketing;
 
+import static MainSystem.AutoQuery.db_con;
 import Sales.*;
 import MainSystem.DB_Connect;
 import com.github.lgooddatepicker.components.DatePicker;
 import MainSystem.MainWindow;
-import static MainSystem.MainWindow.db_con;
-import static MainSystem.MainWindow.userid;
+
 import MainSystem.Validation;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -45,7 +45,7 @@ public class MarketDesignInquiryModel {
         Validation validation =new Validation();
         
         if(validation.ValidationCheck(MDIID, true,0,'@')&&validation.ValidationCheck(CustomerId, true,0,'@')&&validation.ValidationCheck(Description, true,0,'@')){
-        boolean x =MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table`\n" +
+        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table`\n" +
 "(\n" +
 "`MarketDesignInquiryId`,\n" +
 "" +
@@ -99,7 +99,7 @@ public class MarketDesignInquiryModel {
             // System.out.println(x1+"GGGGGGG"+y1);
             c++;
             System.err.println(id);
-            x3 =MainWindow.db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table1`\n" +
+            x3 = db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table1`\n" +
 "(`Size`,\n" +
 "`Quantity`,\n" +
 "`designinquiry_table_ID`,`Colour`,`status-DesignCreated`)\n" +
@@ -142,8 +142,8 @@ public ResultSet SearchCustomerName(String Key){
     }
 
 public boolean DeleteSDI(String SDIId){
-    boolean x =MainWindow.db_con.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table1`WHERE salesdesigninquiry_table_SalesDesignInquiryId='"+SDIId+"';"); 
-    boolean y =MainWindow.db_con.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table`WHERE SalesDesignInquiryId='"+SDIId+"';"); 
+    boolean x = db_con.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table1`WHERE salesdesigninquiry_table_SalesDesignInquiryId='"+SDIId+"';"); 
+    boolean y = db_con.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table`WHERE SalesDesignInquiryId='"+SDIId+"';"); 
       
          return x;
         }

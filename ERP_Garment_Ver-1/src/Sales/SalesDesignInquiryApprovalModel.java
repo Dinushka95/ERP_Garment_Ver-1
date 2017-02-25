@@ -5,9 +5,10 @@
  */
 package Sales;
 
+import static MainSystem.AutoQuery.db_con;
 import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
-import static MainSystem.MainWindow.db_con;
+ 
 import com.github.lgooddatepicker.components.DatePicker;
 import java.sql.ResultSet;
 
@@ -26,7 +27,7 @@ public class SalesDesignInquiryApprovalModel {
         public boolean Update(String SDI){
             DatePicker mydatePicker =new DatePicker();
             mydatePicker.setDateToToday();
-            boolean x =MainWindow.db_con.execute("UPDATE `garmentsystem`.`designinquiry_table`\n" +
+            boolean x = db_con.execute("UPDATE `garmentsystem`.`designinquiry_table`\n" +
             "SET\n" +
             "`status-Approval` = 'true',\n" +
             "`status-ApprovalName` = '"+MainWindow.username+"',\n" +

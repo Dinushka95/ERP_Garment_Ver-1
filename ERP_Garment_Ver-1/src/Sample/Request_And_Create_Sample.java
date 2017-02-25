@@ -1,18 +1,5 @@
 
 package Sample;
-
-import InventoryManagement.*;
-import com.github.lgooddatepicker.components.DatePickerSettings;
-import MainSystem.AutoIdGenerator;
-import MainSystem.DB_Connect;
-import java.sql.SQLException;
-import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
-import MainSystem.MainWindow;
-import static MainSystem.MainWindow.db_con;
-import java.sql.PreparedStatement;
-import java.util.HashSet;
-import java.util.Set;
 /**
  *
  * @author Dinushka
