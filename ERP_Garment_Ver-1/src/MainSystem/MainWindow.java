@@ -13,6 +13,7 @@ import HumanResource.Leave;
 import HumanResource.Payroll;
 import InventoryManagement.Accessories;
 import InventoryManagement.FinishedProducts;
+import InventoryManagement.Machine_Parts;
 import InventoryManagement.RawMaterials;
 import ManufacturingPlanning.CuttingSchedule;
 import Marketing.MarketDesignInquiry;
@@ -384,6 +385,11 @@ public static DB_Connect db_con;
         jPanel6.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         jButton21.setText("machine parts ");
+        jButton21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton21ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
         jButton22.setText("machinery");
@@ -956,6 +962,21 @@ public static DB_Connect db_con;
         }
         acc.setMaximizable(false);
     }//GEN-LAST:event_jButton20ActionPerformed
+
+    private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
+        
+        Machine_Parts prt = new Machine_Parts();
+        prt.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(prt);
+        try {
+            prt.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        prt.setMaximizable(false);
+        
+    }//GEN-LAST:event_jButton21ActionPerformed
 
     
     /**
