@@ -5,7 +5,7 @@
  */
 package Sales;
 
-import static MainSystem.AutoQuery.db_con;
+import static MainSystem.AutoSQLQuery.db_con;
 import Sales.*;
 import MainSystem.DB_Connect;
 import javax.swing.table.DefaultTableModel;

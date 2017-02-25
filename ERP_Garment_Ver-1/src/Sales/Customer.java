@@ -3,7 +3,7 @@ package Sales;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoQuery.db_con;
+import static MainSystem.AutoSQLQuery.db_con;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

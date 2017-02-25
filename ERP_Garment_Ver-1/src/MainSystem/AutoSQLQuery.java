@@ -12,11 +12,11 @@ import javax.swing.JComponent;
  *
  * @author Dinushka
  */
-public class AutoQuery  {
+public class AutoSQLQuery  {
     
     public static DB_Connect db_con;
     
-    public AutoQuery() {
+    public AutoSQLQuery() {
        db_con= new DB_Connect();
        db_con.connect(); 
     }

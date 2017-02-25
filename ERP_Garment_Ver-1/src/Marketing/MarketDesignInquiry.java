@@ -7,7 +7,7 @@ package Marketing;
 
 import Sales.*;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoQuery.db_con;
+import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
 

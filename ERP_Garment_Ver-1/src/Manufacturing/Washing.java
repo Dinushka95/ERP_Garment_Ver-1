@@ -1,7 +1,7 @@
 
 package Manufacturing;
 
-import static MainSystem.AutoQuery.db_con;
+import static MainSystem.AutoSQLQuery.db_con;
 import Sales.*;
 import java.sql.SQLException;
 import java.util.logging.Level;

@@ -5,7 +5,7 @@
  */
 package Sales;
 
-import static MainSystem.AutoQuery.db_con;
+import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.DB_Connect;
 import com.github.lgooddatepicker.components.DatePicker;
 import MainSystem.MainWindow;
