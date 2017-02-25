@@ -364,7 +364,7 @@ int RowCountjTable;
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 600, 540));
 
-        jTabbedPane1.addTab("ADD Materials", jPanel1);
+        jTabbedPane1.addTab("ADD Product", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

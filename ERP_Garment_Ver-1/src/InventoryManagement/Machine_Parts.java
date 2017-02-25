@@ -267,7 +267,7 @@ int RowCountjTable;
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 620, 530));
 
-        jTabbedPane1.addTab("ADD Materials", jPanel1);
+        jTabbedPane1.addTab("ADD Machine Part", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -379,29 +379,29 @@ int RowCountjTable;
 
         idfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("Machine Part ID");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("Machine Part Name");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         namefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel16.setText("Machine Number");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel17.setText("Part Value");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         qtyfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel18.setText("Quantity");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel22.setText("Purchased Date");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         datePicker3.setEnabled(false);
         datePicker3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
