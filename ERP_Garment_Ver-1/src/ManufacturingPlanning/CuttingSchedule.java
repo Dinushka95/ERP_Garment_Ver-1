@@ -2,12 +2,9 @@
 package ManufacturingPlanning;
 
 import StyleManagement.*;
-import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
-import MainSystem.MainWindow;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
 
 
 /**
