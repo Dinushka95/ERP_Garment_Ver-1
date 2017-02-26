@@ -9,6 +9,7 @@ import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.DB_Connect;
 import com.github.lgooddatepicker.components.DatePicker;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
  
 import MainSystem.Validation;
 import java.sql.ResultSet;
@@ -122,7 +123,8 @@ public class SalesDesignInquiryModel {
 
     
     public ResultSet ViewAll(){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where MarketDesignInquiryId IS NULL ORDER BY AddedDate desc;");
+    DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_designinquiry_table");
+            
 
     return DB_Connect.DB_ResultSet;
     }

@@ -349,17 +349,7 @@ CustomerModel customerModel;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        boolean result=customerModel.EditCustomer(LogNo, CustomerId, jTextFieldCustomerName1, jTextFieldCompanyName1,jTextFieldPhone1, jTextFieldEmail1, jTextFieldAddress1);
-        if(result){
-            JOptionPane.showMessageDialog(null,"Successfully To edited Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-//            jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.ViewAll()));
-
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Failed To edit Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-
-        }
-        clearSearch();
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

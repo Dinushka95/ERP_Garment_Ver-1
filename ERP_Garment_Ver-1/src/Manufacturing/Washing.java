@@ -1,34 +1,13 @@
 
 package Manufacturing;
 
-import static MainSystem.AutoSQLQuery.db_con;
-import Sales.*;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
-import MainSystem.DB_Connect;
-
 
 /**
  *
  * @author Dinushka
  */
 public class Washing extends javax.swing.JInternalFrame {
-DefaultTableModel model;
-int RowCountjTable2;
-CustomerModel customerModel;
 
-
-        String LogNo;
-        String CustomerId;
-        String CustomerName;
-        String CustomerCompanyName;
-        String CustomerPhone;
-        String CustomerEmail;
-        String CustomerAddres;
 
 
     /**
@@ -474,17 +453,7 @@ CustomerModel customerModel;
     }//GEN-LAST:event_jTextFieldSearchCustomerNameActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    boolean result=customerModel.EditCustomer(LogNo, CustomerId, jTextFieldCustomerName1, jTextFieldCompanyName1,jTextFieldPhone1, jTextFieldEmail1, jTextFieldAddress1);
-    if(result){
-            JOptionPane.showMessageDialog(null,"Successfully To edited Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-             jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.ViewAll()));
-             
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Failed To edit Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-        
-        }
-    clearSearch();
+    
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextFieldCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerId1ActionPerformed
@@ -492,55 +461,20 @@ CustomerModel customerModel;
     }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-    clearSearch();        
+           
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.Searchphone(jTextFieldSearchCustomerPhone.getText())));         
+         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
          
-       jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.ViewAll()));
+      
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-    int x=jTable2.getSelectedRow();
-    String y=(String) jTable2.getValueAt(x,0);
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT \n" +
-    "    `customer_table`.`CustomerId`,\n" +
-    "    `customer_table`.`CustomerName`,\n" +
-    "    `customer_table`.`CustomerCompanyName`,\n" +
-    "    `customer_table`.`CustomerPhone`,\n" +
-    "    `customer_table`.`CustomerEmail`,\n" +
-    "    `customer_table`.`CustomerAddress`,\n" +
-    "    `customer_table`.`CustomerAddedDate`\n" +
-    "FROM\n" +
-    "    `garmentsystem`.`customer_table`\n" +
-    "WHERE\n" +
-    "    CustomerId = '"+y+"';");
-    try {
-        DB_Connect.DB_ResultSet.next();
-        
-        
-        CustomerId=DB_Connect.DB_ResultSet.getString("CustomerId");
-        
-        jTextFieldCustomerId1.setText(CustomerId);
-        CustomerName=DB_Connect.DB_ResultSet.getString("CustomerName");
-        jTextFieldCustomerName1.setText(CustomerName);
-        CustomerCompanyName=DB_Connect.DB_ResultSet.getString("CustomerCompanyName");
-        jTextFieldCompanyName1.setText(CustomerCompanyName);
-        CustomerPhone=DB_Connect.DB_ResultSet.getString("CustomerPhone");
-        jTextFieldPhone1.setText(CustomerPhone);
-        CustomerEmail=DB_Connect.DB_ResultSet.getString("CustomerEmail");
-        jTextFieldEmail1.setText(CustomerEmail);
-        CustomerAddres=DB_Connect.DB_ResultSet.getString("CustomerAddress");
-        jTextFieldAddress1.setText(CustomerAddres);
-        
-       
-    } catch (SQLException ex) {
-        Logger.getLogger(Washing.class.getName()).log(Level.SEVERE, null, ex);
-    }
+
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -552,24 +486,17 @@ CustomerModel customerModel;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchID(jTextFieldSearchCustomerId.getText())));        // TODO add your handling code here:
+       // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFieldSearchCustomerName.getText())));          // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
  
     
 
     
-    private void clearSearch(){
-            jTextFieldCustomerId1.setText("");
-            jTextFieldCustomerName1.setText("");
-            jTextFieldCompanyName1.setText("");
-            jTextFieldPhone1.setText("");
-            jTextFieldEmail1.setText("");
-            jTextFieldAddress1.setText("");
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

@@ -9,13 +9,15 @@ import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
- 
+import static MainSystem.MainWindow.autoSqlQuery; 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
 import java.io.File;
+import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -34,6 +36,9 @@ CustomerModel customerModeSDI;
 String CustomerId;
 String CustomerName;
 SalesDesignInquiryModel salesDesignInquiryModel;
+
+FileInputStream fis;
+int filelenth;
     /**
      * Creates new form SalesDesignInquiry
      */
@@ -103,7 +108,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
+        jLabelImage = new javax.swing.JLabel();
         jButton23 = new javax.swing.JButton();
         jPanel10 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -121,6 +126,8 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jButton24 = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        jButton28 = new javax.swing.JButton();
         jPanelcustomerSearch = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -334,8 +341,8 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel18.setText("Please upload Skech Image");
-        jPanel9.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 210, 150));
+        jLabelImage.setText("Please upload Skech Image");
+        jPanel9.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 210, 150));
 
         jButton23.setText("ADD a skech Image");
         jButton23.addActionListener(new java.awt.event.ActionListener() {
@@ -408,6 +415,17 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 720, 80));
+
+        jLabel18.setText("jLabel18");
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 70, 50));
+
+        jButton28.setText("jButton28");
+        jButton28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton28ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
 
         jPanelSDIAdd.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 770, 520));
 
@@ -841,17 +859,28 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
     JFileChooser fileChooser1 = new JFileChooser();
-    fileChooser1.setCurrentDirectory(new File(System.getProperty("user.home")));
+    //fileChooser1.setCurrentDirectory(new File(System.getProperty("user.home")));
     int result = fileChooser1.showOpenDialog(this);
     if (result == JFileChooser.APPROVE_OPTION) {
     File selectedFile = fileChooser1.getSelectedFile();
     System.out.println("Selected pattern file: " + selectedFile.getAbsolutePath());
+    ImageIcon icon = new ImageIcon(selectedFile.getAbsolutePath());
+    jLabelImage.setIcon(icon);
+    
+    autoSqlQuery.executeAutoAddImage("sadasd", selectedFile);
+    
     }
     }//GEN-LAST:event_jButton23ActionPerformed
-
+    
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
 
     }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+            
+    jLabel18 .setIcon(autoSqlQuery.executeAutoGetImage("ghhj"));
+
+    }//GEN-LAST:event_jButton28ActionPerformed
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",Integer.toString(MainWindow.userid)));
@@ -871,6 +900,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
             jTextFieldSearchCustomerName.setText("");
 
     }
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
@@ -895,6 +925,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
+    private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -926,6 +957,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelImage;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
@@ -971,6 +1003,9 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JTextField jTextFieldSize;
     // End of variables declaration//GEN-END:variables
 
+
+        
+        
 public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
     @Override
     public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, java.lang.Object value, boolean isSelected, boolean hasFocus, int row, int column)
@@ -1003,6 +1038,11 @@ public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
 }
 }
 
-
-
 }
+
+
+
+
+
+
+

@@ -10,12 +10,10 @@ import Finance.ProductCosting;
 import HumanResource.Department;
 import HumanResource.Employee;
 import HumanResource.Leave;
-import HumanResource.Payroll;
 import InventoryManagement.Accessories;
 import InventoryManagement.FinishedProducts;
 import InventoryManagement.Machine_Parts;
 import InventoryManagement.RawMaterials;
-import static MainSystem.MainWindow.autoQuery;
 import Marketing.MarketDesignInquiry;
 import Marketing.MarketDesignInquiryApproval;
 import Sales.SalesDesignInquiry;
@@ -34,6 +32,7 @@ import java.awt.Toolkit;
 import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 /**
  *
@@ -42,7 +41,8 @@ import java.util.logging.Logger;
 public class MainWindow extends javax.swing.JFrame {
 public static int  userid=1;
 public static String  username="test";
-public static AutoSQLQuery autoQuery;
+public static AutoSQLQuery autoSqlQuery;
+public static Validation validation;
 
 //public static DB_Connect db_con;
     /**
@@ -54,7 +54,8 @@ public static AutoSQLQuery autoQuery;
         setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
     //    db_con= new DB_Connect();
     //   db_con.connect();
-           autoQuery=new AutoSQLQuery();
+           autoSqlQuery=new AutoSQLQuery();
+           validation =new Validation();
            
        
  
@@ -898,16 +899,7 @@ public static AutoSQLQuery autoQuery;
     }//GEN-LAST:event_btnEmployeeActionPerformed
 
     private void btnPayrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayrollActionPerformed
-        Payroll payRollIns = new Payroll();
-        payRollIns.setVisible(true);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.add(payRollIns);
-        try {
-            payRollIns.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            System.out.println(ex);
-        }
-        payRollIns.setMaximizable(false);
+
     }//GEN-LAST:event_btnPayrollActionPerformed
 
     private void btnLeavesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeavesActionPerformed

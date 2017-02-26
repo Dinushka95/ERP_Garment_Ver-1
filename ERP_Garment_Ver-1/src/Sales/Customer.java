@@ -388,7 +388,7 @@ CustomerModel customerModel;
     }//GEN-LAST:event_jButtonResetAllActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    boolean result=customerModel.EditCustomer(LogNo, CustomerId, jTextFieldCustomerName1, jTextFieldCompanyName1,jTextFieldPhone1, jTextFieldEmail1, jTextFieldAddress1);
+    boolean result=customerModel.EditCustomer(CustomerId, jTextFieldCustomerName1, jTextFieldCompanyName1,jTextFieldPhone1, jTextFieldEmail1, jTextFieldAddress1);
     if(result){
             JOptionPane.showMessageDialog(null,"Successfully To edited Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
              jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.ViewAll()));
