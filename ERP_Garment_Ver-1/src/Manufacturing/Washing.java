@@ -1,13 +1,28 @@
 
 package Manufacturing;
 
+import Sales.*;
+import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
+
 
 /**
  *
  * @author Dinushka
  */
 public class Washing extends javax.swing.JInternalFrame {
+DefaultTableModel model;
+int RowCountjTable2;
+CustomerModel customerModel;
 
+
+        String LogNo;
+        String CustomerId;
+        String CustomerName;
+        String CustomerCompanyName;
+        String CustomerPhone;
+        String CustomerEmail;
+        String CustomerAddres;
 
 
     /**
@@ -461,20 +476,20 @@ public class Washing extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-           
+    clearSearch();        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         
+    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.Searchphone(jTextFieldSearchCustomerPhone.getText())));         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
          
-      
+       jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.ViewAll()));
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-
+   
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -486,17 +501,24 @@ public class Washing extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-       // TODO add your handling code here:
+    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchID(jTextFieldSearchCustomerId.getText())));        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-        // TODO add your handling code here:
+    jTable2.setModel(DbUtils.resultSetToTableModel(customerModel.SearchName(jTextFieldSearchCustomerName.getText())));          // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
  
     
 
     
-
+    private void clearSearch(){
+            jTextFieldCustomerId1.setText("");
+            jTextFieldCustomerName1.setText("");
+            jTextFieldCompanyName1.setText("");
+            jTextFieldPhone1.setText("");
+            jTextFieldEmail1.setText("");
+            jTextFieldAddress1.setText("");
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
