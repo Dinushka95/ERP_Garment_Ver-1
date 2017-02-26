@@ -67,7 +67,7 @@ public class AutoSQLQuery  extends DB_Connect{
     {
         String ArraySelect="";
                     
-        ArraySelect="SELECT * FROM garmentsystem."+TableName+"`where "+KeyName+" = '"+Key+"'";
+        ArraySelect="SELECT * FROM garmentsystem."+TableName+" where "+KeyName+" = '"+Key+"'";
         
         return db_con.executeQuery(ArraySelect);
     }

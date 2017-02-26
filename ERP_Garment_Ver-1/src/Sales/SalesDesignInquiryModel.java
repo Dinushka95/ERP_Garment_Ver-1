@@ -12,10 +12,8 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
  
 import MainSystem.Validation;
+import java.io.File;
 import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
@@ -26,7 +24,7 @@ import javax.swing.JTextField;
 public class SalesDesignInquiryModel {
     
     
-    public boolean AddSDI(JTextField SDIID,JTextField CustomerId,DatePicker Date,JTable table,JTextField Description,DatePicker DueDate){
+    public boolean AddSDI(JTextField SDIID,JTextField DesignName,JTextField CustomerId,DatePicker Date,JTable table,JTextField Description,DatePicker DueDate,File Image){
         String y1=null;
         String x1=null;
         String z1=null;
@@ -44,56 +42,37 @@ public class SalesDesignInquiryModel {
         
         Validation validation =new Validation();
         
-        if(validation.ValidationCheck(SDIID, true,0,'@')&&validation.ValidationCheck(CustomerId, true,0,'@')&&validation.ValidationCheck(Description, true,0,'@')){
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table`\n" +
-"(\n" +
-"`SalesDesignInquiryId`,\n" +
-"" +
-"`Description`,\n" +
-"`AddedDate`,\n" +
-"`DueDate`,\n" +
-"`status-Approval`,\n" +
-"`status-ApprovalName`,\n" +
-"`status-DesignCreated`,\n" +
-"`status-DesignCreatedName`,\n" +
-"`users_table_userId`,\n" +
-"`customer_table_CustomerId`)\n" +
-"VALUES\n" +
-"(\n" +
-"'"+SDIID.getText()+"',\n" +
-"\n" +
-"'"+Description.getText()+"',\n" +
-"'"+Date.getText()+"',\n" +
-"'"+DueDate.getText()+"',\n" +
-"'false',\n" +
-"'null',\n" +
-"'false',\n" +
-"'null',\n" +
-""+Integer.toString(MainWindow.userid)+",\n" +
-"'"+CustomerId.getText()+"');");  
+        if(validation.ValidationCheck(SDIID, true,0,'@')&&
+           validation.ValidationCheck(CustomerId, true,0,'@')&&
+           validation.ValidationCheck(Description, true,0,'@')){
+            
+            boolean x =autoSqlQuery.executeAutoADD(new String[]{"DesignInquiryId="+SDIID.getText(),
+                                                                "DesignName="+DesignName.getText(),           
+                                                                "Description="+Description.getText(),
+                                                                "AddedDate="+Date.getText(),
+                                                                "DueDate="+DueDate.getText(),
+                                                                "status-Approval=false",
+                                                                "status-ApprovalName=null",
+                                                                "status-DesignCreated=null",
+                                                                "status-DesignCreatedName=false",
+                                                                "customer_table_CustomerId="+CustomerId.getText(),                                                                
+                                                                "users_table_userId="+Integer.toString(MainWindow.userid),
+                                                                },"d_designinquiry_table");
         
-        int id=0;
-        DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table ORDER BY ID DESC;");
-            try {
-                DB_Connect.DB_ResultSet.next();
-                 id=Integer.parseInt(DB_Connect.DB_ResultSet.getString("ID"));
-                 System.err.println(id);
-            } catch (SQLException ex) {
-                Logger.getLogger(SalesDesignInquiryModel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        
+            autoSqlQuery.executeAutoAddImage(SDIID.getText(),Image);
+            
         boolean x3=false;    
         table.getRowCount();
         while(c<table.getRowCount()){
             y1=null;
             x1=null;
             z1=null;
-            //z2=null;
+            z2=null;
             try {
                 y1=(String) table.getValueAt(c,0); 
                 x1=(String) table.getValueAt(c,1);
                 z1=(String) table.getValueAt(c,2);
-                //z2=(String) table.getValueAt(c,3);
+                z2=(String) table.getValueAt(c,3);
                 
                 //System.out.println("GGGGGGG");
             } 
@@ -103,21 +82,18 @@ public class SalesDesignInquiryModel {
             }
             // System.out.println(x1+"GGGGGGG"+y1);
             c++;
-            System.err.println(id);
-            x3 = db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table1`\n" +
-"(`Size`,\n" +
-"`Quantity`,\n" +
-"`designinquiry_table_ID`,`Colour`,`status-DesignCreated`)\n" +
-"VALUES\n" +
-"('"+y1+"',\n" +
-"'"+x1+"',\n" +
-""+id+",'"+z1+"','false');"); 
-        }
-        
+            
+            x3 = autoSqlQuery.executeAutoADD(new String[]{  "DesignInquiryId="+SDIID.getText(),
+                                                            "Size="+y1,
+                                                            "Quantity="+x1,
+                                                            "Colour="+z1,
+                                                            "Description="+z2,
+                                                            },"d_designinquiry_table1");
+            }
         if(x&&x3){
          return x;}
         }
-    return false;    
+        return false;    
     }
     
 
@@ -130,16 +106,7 @@ public class SalesDesignInquiryModel {
     }
     
     public ResultSet ViewAllCustomer(){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `customer_table`.`CustomerId`,\n" +
-    "    `customer_table`.`CustomerName`,\n" +
-    "    `customer_table`.`CustomerCompanyName`,\n" +
-    "    `customer_table`.`CustomerPhone`,\n" +
-    "    `customer_table`.`CustomerEmail`,\n" +
-    "    `customer_table`.`CustomerAddress`,\n" +
-    "    `customer_table`.`CustomerAddedDate`\n" +
-    "FROM `garmentsystem`.`customer_table`;");
-
-    return DB_Connect.DB_ResultSet;
+    return DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_customer_table");
     }
     
     public ResultSet SearchSDIID(String Key){
