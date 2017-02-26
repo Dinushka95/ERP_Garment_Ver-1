@@ -13,15 +13,13 @@ import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
 import java.io.File;
-import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
+import static MainSystem.MainWindow.autogetimage;
 
 /**
  *
@@ -340,7 +338,7 @@ File Image;
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelImage.setText("Please upload Skech Image");
+        jLabelImage.setText("           Please upload Skech Image   ");
         jPanel9.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 210, 150));
 
         jButton23.setText("ADD a skech Image");
@@ -349,7 +347,7 @@ File Image;
                 jButton23ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
+        jPanel9.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
         jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 260, 220));
 
@@ -416,7 +414,7 @@ File Image;
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 720, 80));
 
         jLabel18.setText("jLabel18");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 360, 70, 50));
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 70, 50));
 
         jButton28.setText("jButton28");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
@@ -424,7 +422,7 @@ File Image;
                 jButton28ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
+        jPanel2.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, -1));
 
         jPanelSDIAdd.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 770, 520));
 
@@ -849,18 +847,9 @@ File Image;
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    JFileChooser fileChooser1 = new JFileChooser();
-    //fileChooser1.setCurrentDirectory(new File(System.getProperty("user.home")));
-    int result = fileChooser1.showOpenDialog(this);
-    if (result == JFileChooser.APPROVE_OPTION) {
-    File selectedFile = fileChooser1.getSelectedFile();
-    System.out.println("Selected pattern file: " + selectedFile.getAbsolutePath());
-    ImageIcon icon = new ImageIcon(selectedFile.getAbsolutePath());
-    jLabelImage.setIcon(icon);
-    Image =selectedFile;
-    //autoSqlQuery.executeAutoAddImage("sadasd", selectedFile);
     
-    }
+        autogetimage.load();
+        jLabelImage.setIcon(autogetimage.getImageIcon());   
     }//GEN-LAST:event_jButton23ActionPerformed
     
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -869,7 +858,7 @@ File Image;
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
             
-    jLabel18 .setIcon(autoSqlQuery.executeAutoGetImage("ghhj"));
+    jLabel18 .setIcon(autoSqlQuery.executeAutoGetImage("FGD17a1683cd"));
 
     }//GEN-LAST:event_jButton28ActionPerformed
     private void generate_sdi(){

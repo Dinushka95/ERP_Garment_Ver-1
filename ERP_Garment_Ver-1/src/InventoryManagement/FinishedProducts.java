@@ -14,6 +14,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
 import javax.swing.JOptionPane;
+import static MainSystem.MainWindow.autogetimage;
 /**
  *
  * @author Dinushka
@@ -725,15 +726,9 @@ File Image;
     }//GEN-LAST:event_ComboDesignIDActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        JFileChooser fileChooser1 = new JFileChooser();
-        int result = fileChooser1.showOpenDialog(this);
-        if (result == JFileChooser.APPROVE_OPTION) {
-            File selectedFile = fileChooser1.getSelectedFile();
-            System.out.println("Selected pattern file: " + selectedFile.getAbsolutePath());
-            ImageIcon icon = new ImageIcon(selectedFile.getAbsolutePath());
-            jLabelImage.setIcon(icon);
-            Image =selectedFile;        
-        }
+       autogetimage.load();
+       jLabelImage.setIcon(autogetimage.getImageIcon());
+     
     }//GEN-LAST:event_jButton23ActionPerformed
     private void generate_finid(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -830,7 +825,7 @@ File Image;
         try
         {
             if(x==true)
-            {   autoSqlQuery.executeAutoAddImage(id,Image);
+            {   autoSqlQuery.executeAutoAddImage(id, autogetimage.getFile());
                 TableLoad();
                 TextBoxClear();
                 TableLoad2();
