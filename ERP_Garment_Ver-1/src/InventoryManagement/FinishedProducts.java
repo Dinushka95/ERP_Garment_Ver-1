@@ -8,6 +8,10 @@ import MainSystem.DB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
+import java.io.File;
+import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 
 import javax.swing.JOptionPane;
 /**
@@ -17,6 +21,7 @@ import javax.swing.JOptionPane;
 public class FinishedProducts extends javax.swing.JInternalFrame {
 DefaultTableModel model;
 int RowCountjTable;
+File Image;
 
 
 
@@ -80,6 +85,9 @@ int RowCountjTable;
         jLabel16 = new javax.swing.JLabel();
         typeBox = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
+        jPanel9 = new javax.swing.JPanel();
+        jLabelImage = new javax.swing.JLabel();
+        jButton23 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -92,6 +100,7 @@ int RowCountjTable;
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jLabelProductImageSED = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         EditButton = new javax.swing.JButton();
         DeleteButton = new javax.swing.JButton();
@@ -261,7 +270,23 @@ int RowCountjTable;
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(451, 122, 203, -1));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 540));
+        jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImage.setText("                Please upload  Image");
+        jPanel9.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 210, 150));
+
+        jButton23.setText("ADD an Image");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
+
+        jPanel6.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 260, 220));
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 700, 540));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
@@ -302,9 +327,12 @@ int RowCountjTable;
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setText("Product Name");
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        jPanel7.add(searchProduct, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 201, -1));
 
         ViewAll.setText("View All");
         ViewAll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -313,6 +341,7 @@ int RowCountjTable;
                 ViewAllActionPerformed(evt);
             }
         });
+        jPanel7.add(ViewAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 83, -1));
 
         ResetButton1.setText("Reset All");
         ResetButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -321,6 +350,7 @@ int RowCountjTable;
                 ResetButton1ActionPerformed(evt);
             }
         });
+        jPanel7.add(ResetButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -340,6 +370,8 @@ int RowCountjTable;
         });
         jScrollPane2.setViewportView(jTable2);
 
+        jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 656, 280));
+
         jButton1.setText("Search");
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -347,45 +379,10 @@ int RowCountjTable;
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(142, 142, 142)
-                .addComponent(searchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ResetButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ViewAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(23, 23, 23))
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel12)
-                        .addComponent(searchProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(ViewAll)
-                        .addComponent(jButton1)))
-                .addGap(28, 28, 28)
-                .addComponent(ResetButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jLabelProductImageSED.setText("              Product Image");
+        jPanel7.add(jLabelProductImageSED, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 160, 160));
 
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 530));
 
@@ -660,6 +657,9 @@ int RowCountjTable;
         datePicker3.setText(date);
         
         
+        jLabelProductImageSED.setIcon(autoSqlQuery.executeAutoGetImage(id));
+        
+        
     }//GEN-LAST:event_jTable2MouseClicked
 
      
@@ -723,6 +723,18 @@ int RowCountjTable;
     private void ComboDesignIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboDesignIDActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboDesignIDActionPerformed
+
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        JFileChooser fileChooser1 = new JFileChooser();
+        int result = fileChooser1.showOpenDialog(this);
+        if (result == JFileChooser.APPROVE_OPTION) {
+            File selectedFile = fileChooser1.getSelectedFile();
+            System.out.println("Selected pattern file: " + selectedFile.getAbsolutePath());
+            ImageIcon icon = new ImageIcon(selectedFile.getAbsolutePath());
+            jLabelImage.setIcon(icon);
+            Image =selectedFile;        
+        }
+    }//GEN-LAST:event_jButton23ActionPerformed
     private void generate_finid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     idfield.setText(aid.generate("FGD",Integer.toString(MainWindow.userid)));
@@ -818,7 +830,7 @@ int RowCountjTable;
         try
         {
             if(x==true)
-            {
+            {   autoSqlQuery.executeAutoAddImage(id,Image);
                 TableLoad();
                 TextBoxClear();
                 TableLoad2();
@@ -930,6 +942,7 @@ int RowCountjTable;
     private javax.swing.JTextField idfield;
     private javax.swing.JTextField idfield1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton23;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -952,6 +965,8 @@ int RowCountjTable;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabelImage;
+    private javax.swing.JLabel jLabelProductImageSED;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -960,6 +975,7 @@ int RowCountjTable;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JPopupMenu jPopupMenu1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
