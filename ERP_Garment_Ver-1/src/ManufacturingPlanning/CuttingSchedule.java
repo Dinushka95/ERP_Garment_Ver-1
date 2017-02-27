@@ -103,6 +103,8 @@ Create_Design NewSalesDesignModel ;
         jTextField20 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         jTextField21 = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        jTextField26 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
@@ -131,6 +133,16 @@ Create_Design NewSalesDesignModel ;
         jTextField14 = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jLabel33 = new javax.swing.JLabel();
+        jTextField22 = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        jTextField23 = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        jTextField24 = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel37 = new javax.swing.JLabel();
+        jTextField25 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -188,7 +200,7 @@ Create_Design NewSalesDesignModel ;
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
         jLabel7.setText("No of Lines");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
 
         jButton4.setText("ADD schedule");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -199,14 +211,14 @@ Create_Design NewSalesDesignModel ;
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 450, -1, -1));
 
         jLabel15.setText("No of Labourers");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 330, -1, -1));
 
         jLabel16.setText("Room No");
-        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, 110, -1));
+        jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 390, 110, -1));
         jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 110, -1));
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 110, -1));
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, 110, -1));
+        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 330, 110, -1));
+        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 360, 110, -1));
 
         jLabel1.setText("Schedule ID");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
@@ -292,6 +304,10 @@ Create_Design NewSalesDesignModel ;
         jPanel2.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
         jPanel2.add(jTextField21, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 110, -1));
 
+        jLabel38.setText("Supervisor ID");
+        jPanel2.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+        jPanel2.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 110, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 1260, 520));
 
         jTabbedPane1.addTab("ADD cutting schedule", jPanel1);
@@ -327,54 +343,76 @@ Create_Design NewSalesDesignModel ;
         ));
         jScrollPane3.setViewportView(jTable3);
 
-        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, -1, 350));
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, 350));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setText("Schedule ID");
-        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
-        jPanel6.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 90, 170, -1));
+        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, -1, -1));
+        jPanel6.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 170, -1));
 
         jLabel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 170, 20));
+        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 170, 20));
 
-        jLabel11.setText("Sample ID");
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, -1, -1));
+        jLabel11.setText("Style  ID");
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, -1));
 
         jLabel14.setText("Start Date");
-        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, -1, -1));
-        jPanel6.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, 170, -1));
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
+        jPanel6.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 170, -1));
 
-        jLabel17.setText("End Date");
-        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 170, -1, -1));
+        jLabel17.setText("Days per sample");
+        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, -1, -1));
 
         jTextField11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField11ActionPerformed(evt);
             }
         });
-        jPanel6.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 170, 170, -1));
+        jPanel6.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 170, -1));
 
         jLabel18.setText("No of Labourers");
-        jPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 210, -1, -1));
-        jPanel6.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 210, 170, -1));
+        jPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, -1, -1));
+        jPanel6.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 230, 170, -1));
 
         jLabel19.setText("Room No");
-        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 250, -1, -1));
-        jPanel6.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 170, -1));
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 260, -1, -1));
+        jPanel6.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 260, 170, -1));
 
         jLabel20.setText("No of Lines");
         jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 290, -1, -1));
         jPanel6.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, 170, -1));
 
         jButton6.setText("Edit");
-        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, -1, -1));
 
         jButton8.setText("Delete");
-        jPanel6.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, -1, -1));
+        jPanel6.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 370, -1, -1));
+
+        jLabel33.setText("Material ID");
+        jPanel6.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, -1, -1));
+        jPanel6.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 80, 170, -1));
+
+        jLabel34.setText("Width per sample");
+        jPanel6.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, -1, -1));
+        jPanel6.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 320, 170, -1));
+
+        jLabel35.setText("Quantity");
+        jPanel6.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, -1, -1));
+        jPanel6.add(jTextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 110, 170, -1));
+
+        jLabel36.setText("Colour");
+        jPanel6.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 140, -1, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel6.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 140, 170, -1));
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 70, 550, 410));
+
+        jLabel37.setText("Supervisor ID");
+        jPanel3.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
+        jPanel3.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 110, -1));
 
         jTabbedPane1.addTab("Search &  Edit || Delete", jPanel3);
 
@@ -439,6 +477,7 @@ Create_Design NewSalesDesignModel ;
     private javax.swing.JCheckBox jCheckBox2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -465,6 +504,12 @@ Create_Design NewSalesDesignModel ;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -498,6 +543,11 @@ Create_Design NewSalesDesignModel ;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
+    private javax.swing.JTextField jTextField22;
+    private javax.swing.JTextField jTextField23;
+    private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
