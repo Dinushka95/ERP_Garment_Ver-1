@@ -561,7 +561,7 @@ public class Machinery extends javax.swing.JInternalFrame {
             generate_mac_prtid();
             idfield.setText("");
             costfield.setText("");
-            machineCombo.setSelectedIndex(0);
+            //machineCombo.setSelectedIndex(0);
             deprate.setText("");
             qtyfield.setText("");
             datePicker2.setDateToToday();
@@ -573,7 +573,7 @@ public class Machinery extends javax.swing.JInternalFrame {
     {
         String id = idfield.getText();
         String name = costfield.getText();
-        String machineid = machineCombo.getSelectedItem().toString();
+//        String machineid = machineCombo.getSelectedItem().toString();
         String value = deprate.getText();
         String qty = qtyfield.getText();
         String date = datePicker2.getText();
@@ -590,7 +590,7 @@ public class Machinery extends javax.swing.JInternalFrame {
 "VALUES\n" +
 "('"+id+"',\n" +
 "'"+name+"',\n" +
-"'"+machineid+"',\n" +
+//"'"+machineid+"',\n" +
 "'"+value+"',\n" +
 "'"+qty+"',\n" +
 "'"+date+"');");
@@ -655,7 +655,7 @@ public class Machinery extends javax.swing.JInternalFrame {
             while(DB_Connect.DB_ResultSet.next())
             {
                 String id = DB_Connect.DB_ResultSet.getString("Machine_id");
-                machineCombo.addItem(id);
+//                machineCombo.addItem(id);
             }
         }
         catch(Exception ex)
