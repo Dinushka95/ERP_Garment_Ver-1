@@ -410,11 +410,12 @@ public class Create_Design extends javax.swing.JInternalFrame {
                 {null, null, null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Style ID", "Style Description", "Size", "Gender", "Type", "Collection", "Color", "Designer", "Status", "Date"
+                "Style ID", "Style Description", "Style Size", "Gender", "Type", "Collection", "Color", "Designer", "Status", "Date"
             }
         ));
         jTable6.setColumnSelectionAllowed(true);
         jScrollPane9.setViewportView(jTable6);
+        jTable6.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);

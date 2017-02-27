@@ -43,6 +43,7 @@ public static int  userid=1;
 public static String  username="test";
 public static AutoSQLQuery autoSqlQuery;
 public static Validation validation;
+public static AutoGetImage autogetimage;
 
 //public static DB_Connect db_con;
     /**
@@ -56,6 +57,7 @@ public static Validation validation;
     //   db_con.connect();
            autoSqlQuery=new AutoSQLQuery();
            validation =new Validation();
+           autogetimage=new AutoGetImage();
            
        
  

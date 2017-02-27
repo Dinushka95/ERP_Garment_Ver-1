@@ -12,16 +12,13 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery; 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
-import java.io.File;
-import java.io.FileInputStream;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
+import static MainSystem.MainWindow.autogetimage;
 
 /**
  *
@@ -37,8 +34,6 @@ String CustomerId;
 String CustomerName;
 SalesDesignInquiryModel salesDesignInquiryModel;
 
-FileInputStream fis;
-int filelenth;
     /**
      * Creates new form SalesDesignInquiry
      */
@@ -97,9 +92,9 @@ int filelenth;
         jTextFieldColour = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
-        jTextFieldColour1 = new javax.swing.JTextField();
+        jTextFieldDecription = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextFieldDescription = new javax.swing.JTextField();
+        jTextFieldMainDescription = new javax.swing.JTextField();
         DatePickerSettings dateSettings = new DatePickerSettings();
         dateSettings.setFormatForDatesCommonEra("yyyy/MM/dd");
         dateSettings.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
@@ -124,7 +119,7 @@ int filelenth;
         jTextFieldCustomerName = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        JTextFieldDesignName = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jButton28 = new javax.swing.JButton();
@@ -258,7 +253,7 @@ int filelenth;
             }
             ,
             new String [] {
-                "Size","Quantity","Colour"
+                "Size","Quantity","Colour","Description"
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -308,15 +303,15 @@ int filelenth;
 
         jLabel20.setText("Description");
         jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
-        jPanel5.add(jTextFieldColour1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 590, 20));
+        jPanel5.add(jTextFieldDecription, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 590, 20));
 
-        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 720, 150));
+        jPanel2.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 720, 160));
 
         jLabel1.setText("Main Description");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, -1, -1));
 
-        jTextFieldDescription.setName("Description"); // NOI18N
-        jPanel2.add(jTextFieldDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 260, 60));
+        jTextFieldMainDescription.setName("Description"); // NOI18N
+        jPanel2.add(jTextFieldMainDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 280, 260, 60));
         jPanel2.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 420, -1, -1));
 
         jLabel4.setText("Due Date");
@@ -341,7 +336,7 @@ int filelenth;
         jPanel9.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabelImage.setText("Please upload Skech Image");
+        jLabelImage.setText("           Please upload Skech Image   ");
         jPanel9.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 210, 150));
 
         jButton23.setText("ADD a skech Image");
@@ -350,7 +345,7 @@ int filelenth;
                 jButton23ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, -1, -1));
+        jPanel9.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
         jPanel2.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 280, 260, 220));
 
@@ -409,7 +404,7 @@ int filelenth;
             }
         });
         jPanel10.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, -1, -1));
-        jPanel10.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 150, -1));
+        jPanel10.add(JTextFieldDesignName, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 150, -1));
 
         jLabel19.setText("Design Name");
         jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
@@ -417,7 +412,7 @@ int filelenth;
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 720, 80));
 
         jLabel18.setText("jLabel18");
-        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 350, 70, 50));
+        jPanel2.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 70, 50));
 
         jButton28.setText("jButton28");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
@@ -425,7 +420,7 @@ int filelenth;
                 jButton28ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 420, -1, -1));
+        jPanel2.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, -1));
 
         jPanelSDIAdd.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 770, 520));
 
@@ -677,7 +672,7 @@ int filelenth;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      boolean result=salesDesignInquiryModel.AddSDI(jTextFieldSalesDesignInquiryId,jTextFieldCustomerId,datePicker2,jTable1,jTextFieldDescription,datePicker1);
+      boolean result=salesDesignInquiryModel.AddSDI(jTextFieldSalesDesignInquiryId,JTextFieldDesignName,jTextFieldCustomerId,datePicker2,jTable1,jTextFieldMainDescription,datePicker1,autogetimage.getFile());
         if(result){
             JOptionPane.showMessageDialog(null,"Successfully To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
              generate_sdi();
@@ -691,10 +686,11 @@ int filelenth;
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         
-        model.addRow(new Object[]{ jTextFieldSize.getText(),jTextFieldQuantatiy.getText(),jTextFieldColour.getText()});
+        model.addRow(new Object[]{ jTextFieldSize.getText(),jTextFieldQuantatiy.getText(),jTextFieldColour.getText(),jTextFieldDecription.getText()});
          jTextFieldSize.setText("");
          jTextFieldQuantatiy.setText("");
          jTextFieldColour.setText("");
+         jTextFieldDecription.setText("");
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -742,20 +738,12 @@ int filelenth;
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
- int x=jTable3.getSelectedRow();
+    
+    int x=jTable3.getSelectedRow();
     String y=(String) jTable3.getValueAt(x,0);
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT \n" +
-"    `customer_table`.`CustomerId`,\n" +
-"    `customer_table`.`CustomerName`,\n" +
-"    `customer_table`.`CustomerCompanyName`,\n" +
-"    `customer_table`.`CustomerPhone`,\n" +
-"    `customer_table`.`CustomerEmail`,\n" +
-"    `customer_table`.`CustomerAddress`,\n" +
-"    `customer_table`.`CustomerAddedDate`\n" +
-"FROM\n" +
-"    `garmentsystem`.`customer_table`\n" +
-"WHERE\n" +
-"    CustomerId = '"+y+"';");
+    
+    DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId", y);
+    
     try {
         DB_Connect.DB_ResultSet.next();
         CustomerId=DB_Connect.DB_ResultSet.getString("CustomerId");
@@ -858,18 +846,9 @@ int filelenth;
     }//GEN-LAST:event_jButton25ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-    JFileChooser fileChooser1 = new JFileChooser();
-    //fileChooser1.setCurrentDirectory(new File(System.getProperty("user.home")));
-    int result = fileChooser1.showOpenDialog(this);
-    if (result == JFileChooser.APPROVE_OPTION) {
-    File selectedFile = fileChooser1.getSelectedFile();
-    System.out.println("Selected pattern file: " + selectedFile.getAbsolutePath());
-    ImageIcon icon = new ImageIcon(selectedFile.getAbsolutePath());
-    jLabelImage.setIcon(icon);
     
-    autoSqlQuery.executeAutoAddImage("sadasd", selectedFile);
-    
-    }
+        autogetimage.load();
+        jLabelImage.setIcon(autogetimage.getImageIcon());   
     }//GEN-LAST:event_jButton23ActionPerformed
     
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
@@ -878,7 +857,7 @@ int filelenth;
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
             
-    jLabel18 .setIcon(autoSqlQuery.executeAutoGetImage("ghhj"));
+    jLabel18 .setIcon(autoSqlQuery.executeAutoGetImage("FGD17a1683cd"));
 
     }//GEN-LAST:event_jButton28ActionPerformed
     private void generate_sdi(){
@@ -889,10 +868,13 @@ int filelenth;
             generate_sdi();
             jTextFieldCustomerId.setText("");
             jTextFieldCustomerName.setText("");
-            jTextFieldDescription.setText("");
+            jTextFieldMainDescription.setText("");
             datePicker2.setDateToToday();
             datePicker1.setDateToToday();
             model.setRowCount(0);
+            JTextFieldDesignName.setText("");
+            jLabelImage.setIcon(null);
+            jLabelImage.setText("Please Add Image");
     }
         private void clearSearch(){
             jTextFieldSearchSDIID.setText("");
@@ -903,6 +885,7 @@ int filelenth;
         
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField JTextFieldDesignName;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
@@ -985,14 +968,13 @@ int filelenth;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextFieldColour;
-    private javax.swing.JTextField jTextFieldColour1;
     private javax.swing.JTextField jTextFieldCustomerId;
     private javax.swing.JTextField jTextFieldCustomerName;
-    private javax.swing.JTextField jTextFieldDescription;
+    private javax.swing.JTextField jTextFieldDecription;
+    private javax.swing.JTextField jTextFieldMainDescription;
     private javax.swing.JTextField jTextFieldQuantatiy;
     private javax.swing.JTextField jTextFieldSDICustomerId;
     private javax.swing.JTextField jTextFieldSalesDesignInquiryId;
@@ -1006,7 +988,7 @@ int filelenth;
 
         
         
-public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
+ public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
     @Override
     public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, java.lang.Object value, boolean isSelected, boolean hasFocus, int row, int column)
     {

@@ -16,7 +16,10 @@ public class SalesInvoice extends javax.swing.JInternalFrame {
      */
     public SalesInvoice() {
         initComponents();
-
+        jPanelcustomerSearch1.setVisible(false);
+        jPanelSalesInquirySearch.setVisible(false);
+        jPanelproductSearch.setVisible(false);
+        
     }
 
     /**
@@ -89,6 +92,7 @@ public class SalesInvoice extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton25 = new javax.swing.JButton();
+        jButton35 = new javax.swing.JButton();
         jPanelproductSearch = new javax.swing.JPanel();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable6 = new javax.swing.JTable();
@@ -435,6 +439,14 @@ public class SalesInvoice extends javax.swing.JInternalFrame {
         });
         jPanelSalesInquirySearch.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
 
+        jButton35.setText("Select");
+        jButton35.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton35ActionPerformed(evt);
+            }
+        });
+        jPanelSalesInquirySearch.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 500, -1, -1));
+
         jPanel1.add(jPanelSalesInquirySearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(790, 20, 440, 530));
 
         jPanelproductSearch.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -691,7 +703,9 @@ public class SalesInvoice extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextFieldCustomerIdActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        
+        jPanelcustomerSearch1.setVisible(true);
+        jPanelSalesInquirySearch.setVisible(false);
+        jPanelproductSearch.setVisible(false);    
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -699,11 +713,15 @@ public class SalesInvoice extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-  
+        jPanelcustomerSearch1.setVisible(false);
+        jPanelSalesInquirySearch.setVisible(false);
+        jPanelproductSearch.setVisible(true);
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        
+        jPanelcustomerSearch1.setVisible(false);
+        jPanelSalesInquirySearch.setVisible(true);
+        jPanelproductSearch.setVisible(false);
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
@@ -711,7 +729,9 @@ public class SalesInvoice extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable3MouseClicked
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-
+        jPanelcustomerSearch1.setVisible(false);
+        jPanelSalesInquirySearch.setVisible(false);
+        jPanelproductSearch.setVisible(false);
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
@@ -813,7 +833,9 @@ public class SalesInvoice extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable6MouseClicked
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-
+        jPanelcustomerSearch1.setVisible(false);
+        jPanelSalesInquirySearch.setVisible(false);
+        jPanelproductSearch.setVisible(false);
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
@@ -827,6 +849,12 @@ public class SalesInvoice extends javax.swing.JInternalFrame {
     private void jButton34ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton34ActionPerformed
 
     }//GEN-LAST:event_jButton34ActionPerformed
+
+    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+        jPanelcustomerSearch1.setVisible(false);
+        jPanelSalesInquirySearch.setVisible(false);
+        jPanelproductSearch.setVisible(false);
+    }//GEN-LAST:event_jButton35ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -859,6 +887,7 @@ public class SalesInvoice extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
+    private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
