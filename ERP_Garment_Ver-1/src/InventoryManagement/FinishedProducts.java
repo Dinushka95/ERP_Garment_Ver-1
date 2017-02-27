@@ -770,7 +770,7 @@ File Image;
     {
         try
         {
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Design_table");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
             while(DB_Connect.DB_ResultSet.next())
             {

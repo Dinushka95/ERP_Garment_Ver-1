@@ -50,15 +50,6 @@ Create_Design NewSalesDesignModel ;
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel5 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jTextField3 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -87,53 +78,51 @@ Create_Design NewSalesDesignModel ;
         jLabel3 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
+        jLabel9 = new javax.swing.JLabel();
+        datePicker4 = new com.github.lgooddatepicker.components.DatePicker();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField8 = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jLabel18 = new javax.swing.JLabel();
+        jTextField10 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        jTextField11 = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        datePicker5 = new com.github.lgooddatepicker.components.DatePicker();
+        datePicker6 = new com.github.lgooddatepicker.components.DatePicker();
+        jLabel20 = new javax.swing.JLabel();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel21 = new javax.swing.JLabel();
+        jTextField12 = new javax.swing.JTextField();
+        jLabel22 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jTextField14 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Create Product Costing Labour");
+        setTitle("IronAndPacking Schedule");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(jTable1);
-
-        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 740, 450));
-
-        jButton1.setText(" Select to Create New Product");
-        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1120, 470, -1, -1));
-
-        jTextField3.setText("jTextField3");
-        jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 40, -1, -1));
-
-        jButton2.setText("Filter by design id");
-        jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 100, -1, -1));
-
-        jLabel8.setText("Design Id");
-        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 40, -1, -1));
-
-        jButton3.setText("View All");
-        jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 210, -1, -1));
-
-        jButton5.setText("Search");
-        jPanel5.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 40, -1, -1));
-
-        jTabbedPane1.addTab("Main ", jPanel5);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -224,6 +213,99 @@ Create_Design NewSalesDesignModel ;
         jTabbedPane1.addTab("ADD Iron & Packing schedule", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setText("Schedule ID");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+        jPanel3.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 80, -1));
+
+        jLabel5.setText("Type");
+        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No ironing/ pressing", "Minimuum ironing/ pressing", "Under ironing/ pressing", "Final ironinng/ pressing", "Permanent ironing/ pressing", " " }));
+        jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 80, -1));
+
+        jLabel6.setText("Start Date");
+        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
+        jPanel3.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
+
+        jLabel9.setText("End Date");
+        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 50, -1));
+        jPanel3.add(datePicker4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
+        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, 280));
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setText("Schedule ID");
+        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, -1, -1));
+        jPanel6.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 110, -1));
+
+        jLabel17.setText("No of Labourers");
+        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
+        jPanel6.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 110, -1));
+
+        jLabel18.setText("Room No");
+        jPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 300, -1, -1));
+        jPanel6.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 300, 110, -1));
+
+        jLabel11.setText("No of Lines");
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
+        jPanel6.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 110, -1));
+
+        jLabel14.setText("Start Date");
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+
+        jLabel19.setText("End Date");
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
+        jPanel6.add(datePicker5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
+        jPanel6.add(datePicker6, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 170, -1, -1));
+
+        jLabel20.setText("Iron type");
+        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, -1, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No ironing/ pressing", "Minimuum ironing/ pressing", "Under ironing/ pressing", "Final ironinng/ pressing", "Permanent ironing/ pressing", " " }));
+        jPanel6.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, -1, -1));
+
+        jLabel21.setText("Style No");
+        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 70, -1, -1));
+        jPanel6.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 110, -1));
+
+        jLabel22.setText("Type");
+        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, -1, -1));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No ironing/ pressing", "Minimuum ironing/ pressing", "Under ironing/ pressing", "Final ironinng/ pressing", "Permanent ironing/ pressing", " " }));
+        jPanel6.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 110, -1));
+
+        jButton6.setText("Edit");
+        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, -1));
+
+        jButton8.setText("Delete");
+        jPanel6.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 410, -1, -1));
+
+        jLabel25.setText("Quantity");
+        jPanel6.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+        jPanel6.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 110, -1));
+
+        jLabel26.setText("Supervisor ID");
+        jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
+        jPanel6.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 230, 110, -1));
+
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 470, 470));
+
         jTabbedPane1.addTab("Search &  Delete", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -269,43 +351,69 @@ Create_Design NewSalesDesignModel ;
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private com.github.lgooddatepicker.components.DatePicker datePicker4;
+    private com.github.lgooddatepicker.components.DatePicker datePicker5;
+    private com.github.lgooddatepicker.components.DatePicker datePicker6;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }

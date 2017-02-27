@@ -39,22 +39,8 @@ public class Sewing extends javax.swing.JInternalFrame {
         jTable4 = new javax.swing.JTable();
         jLabel2 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jPanelcustomerSearch = new javax.swing.JPanel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jTextFieldSearchCustomerName = new javax.swing.JTextField();
-        jTextFieldSearchCustomerPhone = new javax.swing.JTextField();
-        jTextFieldSearchCustomerId = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jButton8 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jTextFieldCustomerId1 = new javax.swing.JTextField();
         jTextFieldCustomerName1 = new javax.swing.JTextField();
@@ -132,98 +118,26 @@ public class Sewing extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 410, -1, -1));
         jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 410, 70, -1));
 
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Item"));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 518, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 277, Short.MAX_VALUE)
+        );
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, 530, 300));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 860, 520));
 
         jTabbedPane1.addTab("ADD Sewing details", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanelcustomerSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-
-        jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 670, 290));
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTable2);
-
-        jPanelcustomerSearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, 770, 330));
-
-        jButton1.setText("Search");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 80, -1, -1));
-
-        jTextFieldSearchCustomerName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSearchCustomerNameActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 60, -1));
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 60, -1));
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
-
-        jLabel9.setText("Sewing ID");
-        jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabel10.setText("Style No");
-        jPanelcustomerSearch.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jLabel11.setText("Room No");
-        jPanelcustomerSearch.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
-
-        jButton8.setText("View All");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
-
-        jButton5.setText("Search");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
-
-        jButton10.setText("Search");
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton10ActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
-
-        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 830, 510));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -317,10 +231,6 @@ public class Sewing extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextFieldSearchCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSearchCustomerNameActionPerformed
-
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
   
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -333,30 +243,9 @@ public class Sewing extends javax.swing.JInternalFrame {
          
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         
-       
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-   
-    }//GEN-LAST:event_jTable2MouseClicked
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
  
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-            // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-   
-    }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
@@ -368,18 +257,12 @@ public class Sewing extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -389,20 +272,15 @@ public class Sewing extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanelcustomerSearch;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
@@ -413,8 +291,5 @@ public class Sewing extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextFieldCustomerName1;
     private javax.swing.JTextField jTextFieldEmail1;
     private javax.swing.JTextField jTextFieldPhone1;
-    private javax.swing.JTextField jTextFieldSearchCustomerId;
-    private javax.swing.JTextField jTextFieldSearchCustomerName;
-    private javax.swing.JTextField jTextFieldSearchCustomerPhone;
     // End of variables declaration//GEN-END:variables
 }
