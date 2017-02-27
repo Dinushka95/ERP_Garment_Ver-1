@@ -33,6 +33,8 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static MainSystem.MainWindow.autoSqlQuery;
+import ManufacturingPlanning.CuttingSchedule;
+import ManufacturingPlanning.SewingSchedule;
 
 /**
  *
@@ -322,9 +324,19 @@ public static AutoGetImage autogetimage;
         jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jButton8.setText("Cutting Planning");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
         jButton9.setText("Sewing Planning");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
 
         jButton10.setText("Washing Planning");
@@ -974,6 +986,32 @@ public static AutoGetImage autogetimage;
         prt.setMaximizable(false);
         
     }//GEN-LAST:event_jButton21ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        CuttingSchedule cuttingschedule =new CuttingSchedule();
+        cuttingschedule.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(cuttingschedule);
+        try {
+            cuttingschedule.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cuttingschedule.setMaximizable(false);      
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        SewingSchedule sewingSchedule =new SewingSchedule();
+        sewingSchedule.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(sewingSchedule);
+        try {
+            sewingSchedule.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sewingSchedule.setMaximizable(false);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     
     /**
