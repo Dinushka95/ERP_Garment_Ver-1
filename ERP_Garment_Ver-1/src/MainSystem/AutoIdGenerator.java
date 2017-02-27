@@ -12,11 +12,11 @@ public class AutoIdGenerator {
 
 
 Date now;
-public String generate (String UserID,String Prefix){
+public String generate (String Prefix,String UserID){
     now=new Date();     
     int hc=now.hashCode();
     String hhc=Integer.toHexString(hc);
-    String ff=UserID+Prefix+hhc;
+    String ff=Prefix+UserID+hhc;
    // System.out.println(ff);
     return ff;
 }
