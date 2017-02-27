@@ -27,9 +27,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         initComponents();
         TableLoad();
         
-        
-        
-        
+        TableLoad2();
         generate_Aid();
         datePicker1.setDateToToday();
       
@@ -359,6 +357,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
         AddDesignApproval();
+        TableLoad();
+        TableLoad2();
     }//GEN-LAST:event_jButton7ActionPerformed
 
 
@@ -369,14 +369,14 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Design_table");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Design_Approval_table");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_Approval_Table");
             jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
@@ -412,7 +412,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         
         
         
-       boolean  x = db_con.execute("INSERT INTO `garmentsystem`.`Design_Approval_table`\n" +
+       boolean  x = db_con.execute("INSERT INTO `garmentsystem`.`T_Design_Approval_Table`\n" +
 "(`ApprovedId`,\n" +
 "`ApprovedBy`,\n" +
 "`Status`,\n" +
