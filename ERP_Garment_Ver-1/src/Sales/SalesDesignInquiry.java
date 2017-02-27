@@ -12,7 +12,6 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery; 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
-import java.io.File;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,7 +33,6 @@ CustomerModel customerModeSDI;
 String CustomerId;
 String CustomerName;
 SalesDesignInquiryModel salesDesignInquiryModel;
-File Image;
 
     /**
      * Creates new form SalesDesignInquiry
@@ -674,7 +672,7 @@ File Image;
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-      boolean result=salesDesignInquiryModel.AddSDI(jTextFieldSalesDesignInquiryId,JTextFieldDesignName,jTextFieldCustomerId,datePicker2,jTable1,jTextFieldMainDescription,datePicker1,Image);
+      boolean result=salesDesignInquiryModel.AddSDI(jTextFieldSalesDesignInquiryId,JTextFieldDesignName,jTextFieldCustomerId,datePicker2,jTable1,jTextFieldMainDescription,datePicker1,autogetimage.getFile());
         if(result){
             JOptionPane.showMessageDialog(null,"Successfully To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
              generate_sdi();
@@ -740,7 +738,8 @@ File Image;
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
- int x=jTable3.getSelectedRow();
+    
+    int x=jTable3.getSelectedRow();
     String y=(String) jTable3.getValueAt(x,0);
     
     DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId", y);
@@ -989,7 +988,7 @@ File Image;
 
         
         
-public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
+ public class MyCellRenderer extends javax.swing.table.DefaultTableCellRenderer {
     @Override
     public java.awt.Component getTableCellRendererComponent(javax.swing.JTable table, java.lang.Object value, boolean isSelected, boolean hasFocus, int row, int column)
     {
