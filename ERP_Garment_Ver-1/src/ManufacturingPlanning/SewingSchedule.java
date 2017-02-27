@@ -24,6 +24,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     }
     public void AddSewingSchedule(){
         String Schedule_ID=jTextField6.getText();
+        String Style_ID=jTextField4.getText();
         //String
     
     }

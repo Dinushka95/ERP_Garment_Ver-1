@@ -35,6 +35,7 @@ import java.util.logging.Logger;
 import static MainSystem.MainWindow.autoSqlQuery;
 import ManufacturingPlanning.CuttingSchedule;
 import ManufacturingPlanning.SewingSchedule;
+import ManufacturingPlanning.WashingSchedule;
 
 /**
  *
@@ -340,6 +341,11 @@ public static AutoGetImage autogetimage;
         jPanel3.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
 
         jButton10.setText("Washing Planning");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
         jButton11.setText("Iron & Packing Planning");
@@ -1012,6 +1018,19 @@ public static AutoGetImage autogetimage;
         }
         sewingSchedule.setMaximizable(false);        // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        WashingSchedule washingSchedule = new WashingSchedule();
+        washingSchedule.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(washingSchedule);
+        try {
+            washingSchedule.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            System.out.println(ex);
+        }
+        washingSchedule.setMaximizable(false);
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     
     /**
