@@ -19,7 +19,7 @@ import javax.swing.JTextField;
  */
 public class SalesInquiryModel {
     
-    public String generate_sdi(){
+    public String generate_sii(){
     AutoIdGenerator aid = new AutoIdGenerator();
     return(aid.generate("sii",Integer.toString(MainWindow.userid)));
     }
@@ -33,7 +33,7 @@ public class SalesInquiryModel {
     return DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_customer_table");
     }
     
-    public boolean AddSDI(JTextField SalesInquiryId,JTextField CustomerId,DatePicker SalesInquiry,DatePicker PurchaseDue,JTextArea Note,JTextField Total,JComboBox DiscountRate,JTextField GrandTotal,JTable SalesInquiryTable){
+    public boolean AddSII(JTextField SalesInquiryId,JTextField CustomerId,DatePicker SalesInquiry,DatePicker PurchaseDue,JTextArea Note,JTextField Total,JComboBox DiscountRate,JTextField GrandTotal,JTable SalesInquiryTable){
         String y1=null;
         String x1=null;
         String z1=null;

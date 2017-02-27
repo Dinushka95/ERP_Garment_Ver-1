@@ -237,6 +237,7 @@
                       </Properties>
                       <Events>
                         <EventHandler event="componentAdded" listener="java.awt.event.ContainerListener" parameters="java.awt.event.ContainerEvent" handler="jTableSalesInuiryComponentAdded"/>
+                        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableSalesInuiryMouseClicked"/>
                         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTableSalesInuiryKeyTyped"/>
                       </Events>
                     </Component>

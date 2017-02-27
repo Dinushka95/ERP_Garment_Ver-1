@@ -28,11 +28,12 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
  String Quantity="";
  String  CustomerId;
  String  CustomerName;
+ int RowCountjTable;
  
     public SalesInquiry() {
         initComponents();
         salesinquirymodel=new  SalesInquiryModel();
-        jTextFieldSalesInquiryId.setText(salesinquirymodel.generate_sdi());
+        jTextFieldSalesInquiryId.setText(salesinquirymodel.generate_sii());
         jPanelcustomerSearch4.setVisible(false);
         jPanelproductSearch.setVisible(false);
         datePickerSalesInquiry.setDateToToday();
@@ -232,6 +233,11 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jTableSalesInuiry.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 jTableSalesInuiryComponentAdded(evt);
+            }
+        });
+        jTableSalesInuiry.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableSalesInuiryMouseClicked(evt);
             }
         });
         jTableSalesInuiry.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -683,10 +689,10 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-              boolean result=salesinquirymodel.AddSDI(jTextFieldSalesInquiryId,jTextFieldCustomerId,datePickerSalesInquiry,datePickerPurchaseDue,jTextAreaNote,jTextFieldTotal,jComboBoxDiscountRate,jTextFieldGrandTotal, jTableSalesInuiry);
+              boolean result=salesinquirymodel.AddSII(jTextFieldSalesInquiryId,jTextFieldCustomerId,datePickerSalesInquiry,datePickerPurchaseDue,jTextAreaNote,jTextFieldTotal,jComboBoxDiscountRate,jTextFieldGrandTotal, jTableSalesInuiry);
         if(result){
             JOptionPane.showMessageDialog(null,"Successfully To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-             salesinquirymodel.generate_sdi();
+             salesinquirymodel.generate_sii();
              //clear();
         }
         else{
@@ -860,6 +866,10 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     private void jTableSalesInuiryKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableSalesInuiryKeyTyped
        
     }//GEN-LAST:event_jTableSalesInuiryKeyTyped
+
+    private void jTableSalesInuiryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSalesInuiryMouseClicked
+        RowCountjTable=jTableSalesInuiry.getSelectedRow();
+    }//GEN-LAST:event_jTableSalesInuiryMouseClicked
     
     public void getSubTotal(){
      
