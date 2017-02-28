@@ -28,10 +28,13 @@ public class Machinery extends javax.swing.JInternalFrame {
         initComponents();
         TableLoad();
         TableLoad2();
-        FillCombo();
         
         
-        generate_mac_prtid();
+        
+        generate_Asstid();
+        generate_macid();
+        
+        
         datePicker2.setDateToToday();
       
     }
@@ -48,7 +51,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        qtyfield = new javax.swing.JTextField();
+        typefield = new javax.swing.JTextField();
         DatePickerSettings dateSettings1 = new DatePickerSettings();
         dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
@@ -58,8 +61,8 @@ public class Machinery extends javax.swing.JInternalFrame {
         deprate = new javax.swing.JTextField();
         costfield = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        idfield = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        macid = new javax.swing.JTextField();
+        asstid = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -67,7 +70,8 @@ public class Machinery extends javax.swing.JInternalFrame {
         ResetButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         accdep = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        dpp = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -114,10 +118,10 @@ public class Machinery extends javax.swing.JInternalFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        qtyfield.setEditable(false);
-        qtyfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        qtyfield.setText("Machinery");
-        jPanel6.add(qtyfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 188, -1));
+        typefield.setEditable(false);
+        typefield.setText("Machinery");
+        typefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel6.add(typefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 188, -1));
 
         datePicker2.setEnabled(false);
         datePicker2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -128,12 +132,17 @@ public class Machinery extends javax.swing.JInternalFrame {
         jLabel21.setText("Purchased Date");
         jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Depreaciation Rate    %");
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, 150, -1));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 150, -1));
 
         deprate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel6.add(deprate, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 70, 188, -1));
+        deprate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                deprateKeyReleased(evt);
+            }
+        });
+        jPanel6.add(deprate, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 60, 188, -1));
 
         costfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel6.add(costfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, 188, -1));
@@ -142,26 +151,28 @@ public class Machinery extends javax.swing.JInternalFrame {
         jLabel1.setText("Cost");
         jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, 139, -1));
 
-        idfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel6.add(idfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 188, -1));
+        macid.setEditable(false);
+        macid.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel6.add(macid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 188, -1));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 188, -1));
+        asstid.setEditable(false);
+        asstid.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel6.add(asstid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 188, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Machine ID");
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 58, -1, -1));
 
+        jLabel2.setText("Fixed Asset ID");
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Asset ID");
         jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 106, 133, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Asset Type");
         jPanel6.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 164, 120, -1));
 
+        AddButton.setText("Add Machine");
         AddButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        AddButton.setText("Add Part");
         AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddButtonActionPerformed(evt);
@@ -169,25 +180,30 @@ public class Machinery extends javax.swing.JInternalFrame {
         });
         jPanel6.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 40, -1, -1));
 
-        ResetButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetButton.setText("Reset All");
+        ResetButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetButtonActionPerformed(evt);
             }
         });
-        jPanel6.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 100, -1, -1));
+        jPanel6.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 100, 110, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Accumulate Depreaciation");
-        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, -1, -1));
 
-        accdep.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel6.add(accdep, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 120, 190, -1));
+        accdep.setEditable(false);
+        accdep.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel6.add(accdep, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 140, 190, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Next year Cost");
-        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
+        jLabel6.setText("Depreciation");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, -1, -1));
+
+        dpp.setEditable(false);
+        dpp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel6.add(dpp, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 100, 190, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1310, 210));
 
@@ -231,19 +247,19 @@ public class Machinery extends javax.swing.JInternalFrame {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("Part Name");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        ViewAll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ViewAll.setText("View All");
+        ViewAll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ViewAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewAllActionPerformed(evt);
             }
         });
 
-        ResetButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetButton1.setText("Reset All");
+        ResetButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetButton1ActionPerformed(evt);
@@ -268,8 +284,8 @@ public class Machinery extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Search");
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -319,16 +335,16 @@ public class Machinery extends javax.swing.JInternalFrame {
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        EditButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditButton.setText("Edit");
+        EditButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditButtonActionPerformed(evt);
             }
         });
 
-        DeleteButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         DeleteButton.setText("Delete");
+        DeleteButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         DeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteButtonActionPerformed(evt);
@@ -337,29 +353,29 @@ public class Machinery extends javax.swing.JInternalFrame {
 
         idfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel14.setText("Machine Part ID");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("Machine Part Name");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         namefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel16.setText("Machine Number");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel17.setText("Part Value");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         qtyfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel18.setText("Quantity");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel22.setText("Purchased Date");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         datePicker3.setEnabled(false);
         datePicker3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -458,7 +474,7 @@ public class Machinery extends javax.swing.JInternalFrame {
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         // TODO add your handling code here;
         
-        AddPart();
+        AddMachine();
         TableLoad();
         TableLoad2();
         TextBoxClear();
@@ -539,61 +555,92 @@ public class Machinery extends javax.swing.JInternalFrame {
         
 
     }//GEN-LAST:event_DeleteButtonActionPerformed
-    private void generate_mac_prtid(){
+
+    private void deprateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deprateKeyReleased
+        
+        double cst = Double.parseDouble(costfield.getText());
+        
+        double rate = Double.parseDouble(deprate.getText());
+        
+        double depreciation = cst*(rate/100);
+        
+        dpp.setText(Double.toString(depreciation));
+        
+        double acc = cst-depreciation;
+        
+        accdep.setText(Double.toString(acc));
+        
+    }//GEN-LAST:event_deprateKeyReleased
+    private void generate_Asstid(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    idfield.setText(aid.generate("MAC_PRT",Integer.toString(MainWindow.userid)));
+    asstid.setText(aid.generate("ASST",Integer.toString(MainWindow.userid)));
     }
+    
+    private void generate_macid(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    macid.setText(aid.generate("MAC",Integer.toString(MainWindow.userid)));
+    }
+    
+    
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS");
             jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS");
             jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     private void TextBoxClear(){
-            generate_mac_prtid();
-            idfield.setText("");
-            costfield.setText("");
-            //machineCombo.setSelectedIndex(0);
-            deprate.setText("");
-            qtyfield.setText("");
+            
             datePicker2.setDateToToday();
+            generate_Asstid();
+            generate_macid();
+            costfield.setText("");
+            deprate.setText("");
+            dpp.setText("");
+            accdep.setText("");
+            
     }
     
     
     
-    public void AddPart()
+    public void AddMachine()
     {
-        String id = idfield.getText();
-        String name = costfield.getText();
-//        String machineid = machineCombo.getSelectedItem().toString();
-        String value = deprate.getText();
-        String qty = qtyfield.getText();
         String date = datePicker2.getText();
+        String mac_id = macid.getText();
+        String asst_id = asstid.getText();
+        String type = typefield.getText();
+        String cost = costfield.getText();
+        String dprate = deprate.getText();
+        String dppr = dpp.getText();
+        String accmdep = accdep.getText();
         
         
         
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`MachineParts_Table`\n" +
-"(`part_id`,\n" +
-"`part_name`,\n" +
-"`part_Machine_number`,\n" +
-"`part_value`,\n" +
-"`part_quantity`,\n" +
-"`part_purchased_date`)\n" +
+        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`F_FIXASSETS`\n" +
+"(`Date`,\n" +
+"`FixAssetsID`,\n" +
+"`FixAssetType`,\n" +
+"`AssetID`,\n" +
+"`Cost`,\n" +
+"`Rate`,\n" +
+"`Depreaciation`,\n" +
+"`Accumulate Depreaciation`)\n" +
 "VALUES\n" +
-"('"+id+"',\n" +
-"'"+name+"',\n" +
-//"'"+machineid+"',\n" +
-"'"+value+"',\n" +
-"'"+qty+"',\n" +
-"'"+date+"');");
+"('"+date+"',\n" +
+"'"+asst_id+"',\n" +
+"'"+type+"',\n" +
+"'"+mac_id+"',\n" +
+"'"+cost+"',\n" +
+"'"+dprate+"',\n" +
+"'"+dppr+"',\n" +
+"'"+accmdep+"');");
         
         
         try
@@ -646,23 +693,7 @@ public class Machinery extends javax.swing.JInternalFrame {
 
     }
     
-    private void FillCombo()
-    {
-        try
-        {
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Machine_Table");
-            
-            while(DB_Connect.DB_ResultSet.next())
-            {
-                String id = DB_Connect.DB_ResultSet.getString("Machine_id");
-//                machineCombo.addItem(id);
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-    }
+    
     
         private void PartNameSearch()
     {
@@ -703,11 +734,12 @@ public class Machinery extends javax.swing.JInternalFrame {
     private javax.swing.JButton ResetButton1;
     private javax.swing.JButton ViewAll;
     private javax.swing.JTextField accdep;
+    private javax.swing.JTextField asstid;
     private javax.swing.JTextField costfield;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
     private javax.swing.JTextField deprate;
-    private javax.swing.JTextField idfield;
+    private javax.swing.JTextField dpp;
     private javax.swing.JTextField idfield1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
@@ -724,7 +756,7 @@ public class Machinery extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -737,12 +769,12 @@ public class Machinery extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField machinenumber;
+    private javax.swing.JTextField macid;
     private javax.swing.JTextField namefield1;
-    private javax.swing.JTextField qtyfield;
     private javax.swing.JTextField qtyfield1;
     private javax.swing.JTextField searchname;
+    private javax.swing.JTextField typefield;
     private javax.swing.JTextField valuefield1;
     // End of variables declaration//GEN-END:variables
 }
