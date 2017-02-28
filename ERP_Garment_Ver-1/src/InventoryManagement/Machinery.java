@@ -28,10 +28,13 @@ public class Machinery extends javax.swing.JInternalFrame {
         initComponents();
         TableLoad();
         TableLoad2();
-        FillCombo();
         
         
-        generate_mac_prtid();
+        
+        generate_Asstid();
+        generate_macid();
+        
+        
         datePicker2.setDateToToday();
       
     }
@@ -48,7 +51,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
-        qtyfield = new javax.swing.JTextField();
+        typefield = new javax.swing.JTextField();
         DatePickerSettings dateSettings1 = new DatePickerSettings();
         dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
@@ -58,8 +61,8 @@ public class Machinery extends javax.swing.JInternalFrame {
         deprate = new javax.swing.JTextField();
         costfield = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        idfield = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        macid = new javax.swing.JTextField();
+        asstid = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -67,7 +70,8 @@ public class Machinery extends javax.swing.JInternalFrame {
         ResetButton = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         accdep = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        dpp = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -83,21 +87,25 @@ public class Machinery extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         EditButton = new javax.swing.JButton();
         DeleteButton = new javax.swing.JButton();
-        idfield1 = new javax.swing.JTextField();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        namefield1 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        valuefield1 = new javax.swing.JTextField();
-        qtyfield1 = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         DatePickerSettings dateSettings2 = new DatePickerSettings();
         dateSettings2.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
-        machinenumber = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        macid1 = new javax.swing.JTextField();
+        asstid1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        typefield1 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        costfield1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        deprate1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        dpp1 = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        accdep1 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -114,54 +122,61 @@ public class Machinery extends javax.swing.JInternalFrame {
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        qtyfield.setEditable(false);
-        qtyfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        qtyfield.setText("Machinery");
-        jPanel6.add(qtyfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 188, -1));
+        typefield.setEditable(false);
+        typefield.setText("Machinery");
+        typefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel6.add(typefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 188, -1));
 
         datePicker2.setEnabled(false);
         datePicker2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         datePicker2.setName(""); // NOI18N
         jPanel6.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, 190, -1));
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel21.setText("Purchased Date");
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel11.setText("Depreaciation Rate    %");
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 70, 150, -1));
+        jLabel11.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 150, -1));
 
         deprate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel6.add(deprate, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 70, 188, -1));
+        deprate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                deprateKeyReleased(evt);
+            }
+        });
+        jPanel6.add(deprate, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 60, 188, -1));
 
         costfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel6.add(costfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, 188, -1));
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Cost");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 30, 139, -1));
 
-        idfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel6.add(idfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 188, -1));
+        macid.setEditable(false);
+        macid.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel6.add(macid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 188, -1));
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 188, -1));
+        asstid.setEditable(false);
+        asstid.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel6.add(asstid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 188, -1));
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Machine ID");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 58, -1, -1));
 
+        jLabel2.setText("Fixed Asset ID");
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel2.setText("Asset ID");
         jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 106, 133, -1));
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Asset Type");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jPanel6.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 164, 120, -1));
 
+        AddButton.setText("Add Machine");
         AddButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        AddButton.setText("Add Part");
         AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddButtonActionPerformed(evt);
@@ -169,25 +184,30 @@ public class Machinery extends javax.swing.JInternalFrame {
         });
         jPanel6.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 40, -1, -1));
 
-        ResetButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetButton.setText("Reset All");
+        ResetButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetButtonActionPerformed(evt);
             }
         });
-        jPanel6.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 100, -1, -1));
+        jPanel6.add(ResetButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 100, 110, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Accumulate Depreaciation");
-        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 140, -1, -1));
 
-        accdep.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jPanel6.add(accdep, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 120, 190, -1));
+        accdep.setEditable(false);
+        accdep.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel6.add(accdep, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 140, 190, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel5.setText("Next year Cost");
-        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 170, -1, -1));
+        jLabel6.setText("Depreciation");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, -1, -1));
+
+        dpp.setEditable(false);
+        dpp.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jPanel6.add(dpp, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 100, 190, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1310, 210));
 
@@ -225,25 +245,25 @@ public class Machinery extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 1320, 310));
 
-        jTabbedPane1.addTab("ADD Machine Part", jPanel1);
+        jTabbedPane1.addTab("ADD Machine", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
+        jLabel12.setText("Machine ID");
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel12.setText("Part Name");
 
-        ViewAll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ViewAll.setText("View All");
+        ViewAll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ViewAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewAllActionPerformed(evt);
             }
         });
 
-        ResetButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetButton1.setText("Reset All");
+        ResetButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ResetButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetButton1ActionPerformed(evt);
@@ -268,8 +288,8 @@ public class Machinery extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setText("Search");
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -281,162 +301,213 @@ public class Machinery extends javax.swing.JInternalFrame {
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1296, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(64, 64, 64)
                 .addComponent(jLabel12)
                 .addGap(142, 142, 142)
                 .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ResetButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ViewAll, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(23, 23, 23))
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(ViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ResetButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGap(37, 37, 37)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel12)
                         .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ViewAll)
-                        .addComponent(jButton1)))
-                .addGap(28, 28, 28)
-                .addComponent(ResetButton1)
+                        .addComponent(jButton1)
+                        .addComponent(ResetButton1)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 530));
+        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 1320, 280));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        EditButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditButton.setText("Edit");
+        EditButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         EditButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditButtonActionPerformed(evt);
             }
         });
 
-        DeleteButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         DeleteButton.setText("Delete");
+        DeleteButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         DeleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeleteButtonActionPerformed(evt);
             }
         });
 
-        idfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel14.setText("Machine Part ID");
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel15.setText("Machine Part Name");
-
-        namefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel16.setText("Machine Number");
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel17.setText("Part Value");
-
-        valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        qtyfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        jLabel18.setText("Quantity");
-
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel22.setText("Purchased Date");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         datePicker3.setEnabled(false);
         datePicker3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         datePicker3.setName(""); // NOI18N
 
-        machinenumber.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Machine ID");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        macid1.setEditable(false);
+        macid1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        asstid1.setEditable(false);
+        asstid1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        jLabel7.setText("Fixed Asset ID");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel14.setText("Asset Type");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        typefield1.setEditable(false);
+        typefield1.setText("Machinery");
+        typefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel8.setText("Cost");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        costfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jLabel15.setText("Depreaciation Rate    %");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        deprate1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        deprate1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                deprate1KeyReleased(evt);
+            }
+        });
+
+        jLabel9.setText("Depreciation");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        dpp1.setEditable(false);
+        dpp1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        jLabel10.setText("Accumulate Depreaciation");
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        accdep1.setEditable(false);
+        accdep1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
+                .addContainerGap(98, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(285, 285, 285)
-                        .addComponent(EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(34, 34, 34)
-                        .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel22)
+                        .addGap(83, 83, 83)
+                        .addComponent(datePicker3, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(280, 280, 280)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71)
+                        .addComponent(costfield1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel22)
-                            .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGap(1, 1, 1)
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel18, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel14, javax.swing.GroupLayout.Alignment.LEADING))
-                                    .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(jLabel16, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGap(139, 139, 139)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(qtyfield1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(valuefield1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(namefield1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idfield1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                            .addComponent(machinenumber)
-                            .addComponent(datePicker3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(91, Short.MAX_VALUE))
+                        .addComponent(jLabel5)
+                        .addGap(116, 116, 116)
+                        .addComponent(macid1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(282, 282, 282)
+                        .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(60, 60, 60)
+                        .addComponent(deprate1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(asstid1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(282, 282, 282)
+                        .addComponent(jLabel9)
+                        .addGap(134, 134, 134)
+                        .addComponent(dpp1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(62, 62, 62)
+                        .addComponent(typefield1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(282, 282, 282)
+                        .addComponent(jLabel10)
+                        .addGap(52, 52, 52)
+                        .addComponent(accdep1, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(62, 62, 62)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(DeleteButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(EditButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel14)
-                    .addComponent(idfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel15)
-                    .addComponent(namefield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel16)
-                    .addComponent(machinenumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel17)
-                    .addComponent(valuefield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(51, 51, 51)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel18)
-                    .addComponent(qtyfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 41, Short.MAX_VALUE)
+                .addContainerGap(33, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(datePicker3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(EditButton)
-                    .addComponent(DeleteButton))
-                .addGap(32, 32, 32))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addComponent(EditButton)
+                        .addGap(60, 60, 60)
+                        .addComponent(DeleteButton)
+                        .addGap(59, 59, 59))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel22)
+                            .addComponent(datePicker3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(jLabel8))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(costfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(3, 3, 3)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(jLabel5))
+                            .addComponent(macid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel15))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(deprate1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel7))
+                            .addComponent(asstid1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addComponent(dpp1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(17, 17, 17)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(jLabel14))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addComponent(typefield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel10)
+                            .addComponent(accdep1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(29, 29, 29))))
         );
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 600, 530));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1320, 240));
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
@@ -458,7 +529,7 @@ public class Machinery extends javax.swing.JInternalFrame {
     private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
         // TODO add your handling code here;
         
-        AddPart();
+        AddMachine();
         TableLoad();
         TableLoad2();
         TextBoxClear();
@@ -483,41 +554,47 @@ public class Machinery extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        PartNameSearch();
+        MachineIDSearch();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
         int row =jTable2.getSelectedRow();
-        String id = jTable2.getValueAt(row,0).toString();
-        String name = jTable2.getValueAt(row,1).toString();
-        String macnum = jTable2.getValueAt(row,2).toString();
-        String value = jTable2.getValueAt(row,3).toString();
-        String qty = jTable2.getValueAt(row,4).toString();
-        String date = jTable2.getValueAt(row,5).toString();
+        String date = jTable2.getValueAt(row,0).toString();
+        String assetid = jTable2.getValueAt(row,1).toString();
+        String type = jTable2.getValueAt(row,2).toString();
+        String macid = jTable2.getValueAt(row,3).toString();
+        String cost = jTable2.getValueAt(row,4).toString();
+        String dprate = jTable2.getValueAt(row,5).toString();
+        String depreciation = jTable2.getValueAt(row,6).toString();
+        String accdepreciation = jTable2.getValueAt(row,7).toString();
+
         
-        idfield1.setText(id);
-        namefield1.setText(name);
-        machinenumber.setText(macnum);
-        valuefield1.setText(value);
-        qtyfield1.setText(qty);
         datePicker3.setText(date);
+        macid1.setText(macid);
+        asstid1.setText(assetid);
+        typefield1.setText(type);
+        costfield1.setText(cost);
+        deprate1.setText(dprate);
+        dpp1.setText(depreciation);
+        accdep1.setText(accdepreciation);
         
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         // TODO add your handling code here:
-        EditMaterials();
+        EditMachinery();
         clear();
         TableLoad2();
     }//GEN-LAST:event_EditButtonActionPerformed
 
     private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
         // TODO add your handling code here:
-        String id = idfield1.getText();
+        String id1 = macid1.getText();
+        String id2 = asstid1.getText();
         
-        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`MachineParts_Table`\n" +
-"WHERE part_id = '"+id+"';");
+        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`F_FIXASSETS`\n" +
+"WHERE AssetID = '"+id1+"' and FixAssetsID = '"+id2+"';");
         
         try
         {
@@ -531,69 +608,114 @@ public class Machinery extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
         
-//        DB_Connect.DB_ResultSet = db_con.executeQuery("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
-//"WHERE Material_id = '"+id+"';");
-        
+       
 
 
         
 
     }//GEN-LAST:event_DeleteButtonActionPerformed
-    private void generate_mac_prtid(){
+
+    private void deprateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deprateKeyReleased
+        
+        double cst = Double.parseDouble(costfield.getText());
+        
+        double rate = Double.parseDouble(deprate.getText());
+        
+        double depreciation = cst*(rate/100);
+        
+        dpp.setText(Double.toString(depreciation));
+        
+        double acc = cst-depreciation;
+        
+        accdep.setText(Double.toString(acc));
+        
+    }//GEN-LAST:event_deprateKeyReleased
+
+    private void deprate1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deprate1KeyReleased
+        
+        double cst = Double.parseDouble(costfield1.getText());
+        
+        double rate = Double.parseDouble(deprate1.getText());
+        
+        double depreciation = cst*(rate/100);
+        
+        dpp1.setText(Double.toString(depreciation));
+        
+        double acc = cst-depreciation;
+        
+        accdep1.setText(Double.toString(acc));
+        
+    }//GEN-LAST:event_deprate1KeyReleased
+    private void generate_Asstid(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    idfield.setText(aid.generate("MAC_PRT",Integer.toString(MainWindow.userid)));
+    asstid.setText(aid.generate("ASST",Integer.toString(MainWindow.userid)));
     }
+    
+    private void generate_macid(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    macid.setText(aid.generate("MAC",Integer.toString(MainWindow.userid)));
+    }
+    
+    
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS");
             jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table");
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS");
             jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
     private void TextBoxClear(){
-            generate_mac_prtid();
-            idfield.setText("");
-            costfield.setText("");
-            //machineCombo.setSelectedIndex(0);
-            deprate.setText("");
-            qtyfield.setText("");
+            
             datePicker2.setDateToToday();
+            generate_Asstid();
+            generate_macid();
+            costfield.setText("");
+            deprate.setText("");
+            dpp.setText("");
+            accdep.setText("");
+            
     }
     
     
     
-    public void AddPart()
+    public void AddMachine()
     {
-        String id = idfield.getText();
-        String name = costfield.getText();
-//        String machineid = machineCombo.getSelectedItem().toString();
-        String value = deprate.getText();
-        String qty = qtyfield.getText();
         String date = datePicker2.getText();
+        String mac_id = macid.getText();
+        String asst_id = asstid.getText();
+        String type = typefield.getText();
+        String cost = costfield.getText();
+        String dprate = deprate.getText();
+        String dppr = dpp.getText();
+        String accmdep = accdep.getText();
         
         
         
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`MachineParts_Table`\n" +
-"(`part_id`,\n" +
-"`part_name`,\n" +
-"`part_Machine_number`,\n" +
-"`part_value`,\n" +
-"`part_quantity`,\n" +
-"`part_purchased_date`)\n" +
+        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`F_FIXASSETS`\n" +
+"(`Date`,\n" +
+"`FixAssetsID`,\n" +
+"`FixAssetType`,\n" +
+"`AssetID`,\n" +
+"`Cost`,\n" +
+"`Rate`,\n" +
+"`Depreaciation`,\n" +
+"`Accumulate Depreaciation`)\n" +
 "VALUES\n" +
-"('"+id+"',\n" +
-"'"+name+"',\n" +
-//"'"+machineid+"',\n" +
-"'"+value+"',\n" +
-"'"+qty+"',\n" +
-"'"+date+"');");
+"('"+date+"',\n" +
+"'"+asst_id+"',\n" +
+"'"+type+"',\n" +
+"'"+mac_id+"',\n" +
+"'"+cost+"',\n" +
+"'"+dprate+"',\n" +
+"'"+dppr+"',\n" +
+"'"+accmdep+"');");
         
         
         try
@@ -611,24 +733,28 @@ public class Machinery extends javax.swing.JInternalFrame {
       
     }
     
-    public void EditMaterials()
+    public void EditMachinery()
     {
-        String id = idfield1.getText();
-        String name = namefield1.getText();
-        String machineid = machinenumber.getText();
-        String value = valuefield1.getText();
-        String qty = qtyfield1.getText();
         String date = datePicker3.getText();
+        String mac_id = macid1.getText();
+        String asst_id = asstid1.getText();
+        String type = typefield1.getText();
+        String cost = costfield1.getText();
+        String dprate = deprate1.getText();
+        String dppr = dpp1.getText();
+        String accmdep = accdep1.getText();
         
-        boolean x = db_con.execute("UPDATE `garmentsystem`.`MachineParts_Table`\n" +
+        boolean x = db_con.execute("UPDATE `garmentsystem`.`F_FIXASSETS`\n" +
 "SET\n" +
-"`part_id` = '"+id+"',\n" +
-"`part_name` = '"+name+"',\n" +
-"`part_Machine_number` = '"+machineid+"',\n" +
-"`part_value` = '"+value+"',\n" +
-"`part_quantity` = '"+qty+"',\n" +
-"`part_purchased_date` = '"+date+"'\n" +
-"WHERE `part_id` = '"+id+"';");
+"`Date` = '"+date+"',\n" +
+"`FixAssetsID` = '"+asst_id+"',\n" +
+"`FixAssetType` = '"+type+"',\n" +
+"`AssetID` = '"+mac_id+"',\n" +
+"`Cost` = '"+cost+"',\n" +
+"`Rate` = '"+dprate+"',\n" +
+"`Depreaciation` = '"+dppr+"',\n" +
+"`Accumulate Depreaciation` = '"+accmdep+"'\n" +
+"WHERE `FixAssetsID` = '"+asst_id+"' AND `AssetID` = '"+mac_id+"';");
         
         try
         {
@@ -646,28 +772,12 @@ public class Machinery extends javax.swing.JInternalFrame {
 
     }
     
-    private void FillCombo()
-    {
-        try
-        {
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Machine_Table");
-            
-            while(DB_Connect.DB_ResultSet.next())
-            {
-                String id = DB_Connect.DB_ResultSet.getString("Machine_id");
-//                machineCombo.addItem(id);
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-    }
     
-        private void PartNameSearch()
+    
+        private void MachineIDSearch()
     {
-            String partname = searchname.getText();
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table WHERE part_name LIKE '"+partname+"%'");
+            String machineid = searchname.getText();
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS WHERE FixAssetsID LIKE '"+machineid+"%'");
             jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
     }
     
@@ -687,12 +797,14 @@ public class Machinery extends javax.swing.JInternalFrame {
     private void clear()
     {
         searchname.setText("");
-        idfield1.setText("");
-        namefield1.setText("");
-        machinenumber.setText("");
-        valuefield1.setText("");
-        qtyfield1.setText("");
-        datePicker3.setText("");
+        datePicker3.setDateToToday();
+        macid1.setText("");
+        asstid1.setText("");
+        typefield1.setText("");
+        costfield1.setText("");
+        deprate.setText("");
+        dpp.setText("");
+        accdep.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -703,28 +815,35 @@ public class Machinery extends javax.swing.JInternalFrame {
     private javax.swing.JButton ResetButton1;
     private javax.swing.JButton ViewAll;
     private javax.swing.JTextField accdep;
+    private javax.swing.JTextField accdep1;
+    private javax.swing.JTextField asstid;
+    private javax.swing.JTextField asstid1;
     private javax.swing.JTextField costfield;
+    private javax.swing.JTextField costfield1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
     private javax.swing.JTextField deprate;
-    private javax.swing.JTextField idfield;
-    private javax.swing.JTextField idfield1;
+    private javax.swing.JTextField deprate1;
+    private javax.swing.JTextField dpp;
+    private javax.swing.JTextField dpp1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -737,12 +856,10 @@ public class Machinery extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField machinenumber;
-    private javax.swing.JTextField namefield1;
-    private javax.swing.JTextField qtyfield;
-    private javax.swing.JTextField qtyfield1;
+    private javax.swing.JTextField macid;
+    private javax.swing.JTextField macid1;
     private javax.swing.JTextField searchname;
-    private javax.swing.JTextField valuefield1;
+    private javax.swing.JTextField typefield;
+    private javax.swing.JTextField typefield1;
     // End of variables declaration//GEN-END:variables
 }

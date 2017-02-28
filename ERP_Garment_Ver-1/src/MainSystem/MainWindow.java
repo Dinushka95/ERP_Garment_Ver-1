@@ -18,6 +18,7 @@ import HumanResource.Leave;
 import InventoryManagement.Accessories;
 import InventoryManagement.FinishedProducts;
 import InventoryManagement.Machine_Parts;
+import InventoryManagement.Machinery;
 import InventoryManagement.RawMaterials;
 import Marketing.MarketDesignInquiry;
 import Marketing.MarketDesignInquiryApproval;
@@ -422,6 +423,11 @@ public static AutoGetImage autogetimage;
         jPanel6.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
 
         jButton22.setText("machinery");
+        jButton22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton22ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
 
         jButton24.setText("Re-Order List");
@@ -1081,6 +1087,21 @@ public static AutoGetImage autogetimage;
         }
         washingSchedule.setMaximizable(false);
     }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
+        
+        
+        Machinery mac = new Machinery();
+        mac.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(mac);
+        try {
+            mac.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        mac.setMaximizable(false);
+    }//GEN-LAST:event_jButton22ActionPerformed
 
     
     /**
