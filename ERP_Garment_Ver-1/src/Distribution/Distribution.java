@@ -124,7 +124,7 @@ public class Distribution extends javax.swing.JInternalFrame {
         jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 130, -1));
         jPanel1.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
 
-        jTabbedPane1.addTab("ADD Vehicle", jPanel1);
+        jTabbedPane1.addTab("ADD Distribution", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

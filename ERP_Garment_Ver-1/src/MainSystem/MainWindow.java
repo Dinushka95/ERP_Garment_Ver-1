@@ -8,8 +8,8 @@ package MainSystem;
 import Distribution.Distribution;
 import Distribution.Shipmentnew;
 import Distribution.Vehicle;
-import Distribution.Fuel;
-import Distribution.Maintanance1;
+import Distribution.Fuel1;
+import Distribution.maintanance1;
 import Finance.CreateProductCostingOther;
 import Finance.ProductCosting;
 import HumanResource.Department;
@@ -868,7 +868,7 @@ public static AutoGetImage autogetimage;
     }//GEN-LAST:event_jButton50ActionPerformed
 
     private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
-        Maintanance1   maintaince =new  Maintanance1();
+        maintanance1   maintaince =new  maintanance1();
          maintaince .setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add( maintaince );
@@ -922,7 +922,7 @@ public static AutoGetImage autogetimage;
     }//GEN-LAST:event_jButton53ActionPerformed
 
     private void jButton57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton57ActionPerformed
-         Fuel   fuel=new   Fuel();
+         Fuel1   fuel=new   Fuel1();
          fuel.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(fuel);
