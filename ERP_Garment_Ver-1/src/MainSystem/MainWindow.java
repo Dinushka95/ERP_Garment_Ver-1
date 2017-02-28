@@ -5,6 +5,11 @@
  */
 package MainSystem;
 
+import Distribution.Distribution;
+import Distribution.Shipmentnew;
+import Distribution.Vehicle;
+import Distribution.Fuel;
+import Distribution.Maintanance1;
 import Finance.CreateProductCostingOther;
 import Finance.ProductCosting;
 import HumanResource.Department;
@@ -837,15 +842,42 @@ public static AutoGetImage autogetimage;
     }//GEN-LAST:event_jButton48ActionPerformed
 
     private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
-        // TODO add your handling code here:
+        Distribution distribution=new Distribution();
+        distribution.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(distribution);
+        try {
+            distribution.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        distribution.setMaximizable(false); 
     }//GEN-LAST:event_jButton49ActionPerformed
 
     private void jButton50ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton50ActionPerformed
-        // TODO add your handling code here:
+        Shipmentnew Shipment=new Shipmentnew();
+       Shipment.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(Shipment);
+        try {
+           Shipment.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       Shipment.setMaximizable(false); 
     }//GEN-LAST:event_jButton50ActionPerformed
 
     private void jButton51ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton51ActionPerformed
-        // TODO add your handling code here:
+        Maintanance1   maintaince =new  Maintanance1();
+         maintaince .setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add( maintaince );
+        try {
+           maintaince .setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+          maintaince .setMaximizable(false);
     }//GEN-LAST:event_jButton51ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
@@ -877,11 +909,29 @@ public static AutoGetImage autogetimage;
     }//GEN-LAST:event_jButton56ActionPerformed
 
     private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
-        // TODO add your handling code here:
+          Vehicle  vehicle=new  Vehicle();
+        vehicle.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(vehicle);
+        try {
+           vehicle.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        vehicle.setMaximizable(false); 
     }//GEN-LAST:event_jButton53ActionPerformed
 
     private void jButton57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton57ActionPerformed
-        // TODO add your handling code here:
+         Fuel   fuel=new   Fuel();
+         fuel.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(fuel);
+        try {
+           fuel.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         fuel.setMaximizable(false);
     }//GEN-LAST:event_jButton57ActionPerformed
 
     private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed

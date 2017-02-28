@@ -1,15 +1,20 @@
 
 package Distribution;
 
-import MainSystem.AutoIdGenerator;
-import MainSystem.MainWindow;
-
 /**
  *
  * @author Dinushka
  */
-public class Shipment extends javax.swing.JInternalFrame {
+public class Shipmentnew extends javax.swing.JInternalFrame {
 
+
+    /**
+     * Creates new form SalesDesignInquiry
+     */
+    public Shipmentnew() {
+        initComponents();
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -78,7 +83,7 @@ public class Shipment extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Customer Management");
+        setTitle("Distribution Management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -406,54 +411,12 @@ public class Shipment extends javax.swing.JInternalFrame {
         jTabbedPane1.addTab("Reports", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
-        jTabbedPane1.getAccessibleContext().setAccessibleName("ADD Shipment");
+        jTabbedPane1.getAccessibleContext().setAccessibleName("ADD Discription");
 
         getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldSearchCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSearchCustomerNameActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    
-    clearSearch();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextFieldCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerId1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-    clearSearch();        
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         
-       
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-    
-    }//GEN-LAST:event_jTable2MouseClicked
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
- 
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-    
-    }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -464,51 +427,32 @@ public class Shipment extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AddShipment();
+        //AddShipment();
     }//GEN-LAST:event_jButton1ActionPerformed
-    private void generate_shipid(){
-    AutoIdGenerator aid = new AutoIdGenerator();
-    jTextField1.setText(aid.generate("shpmnt",Integer.toString(MainWindow.userid)));
-    }
-    
 
-    
-    private void clearSearch(){
-        jTextField1.setText("");
-        jTextField5.setText("");
-        jTextField6.setText("");
-        jTextField7.setText("");
-        jComboBox1.getSelectedItem();
-        //datePicker.setText(Sdate);
-        //jTextField1.setText(ID);
-        jTextField3.setText("");
-        jTextField4.setText("");
-    }
-    
-    public void AddShipment()
-    {
-        int row=jTable1.getSelectedRow();
-        String ID=jTable1.getValueAt(row,0).toString();
-       String supplier=jTable1.getValueAt(row,1).toString();
-       String address=jTable1.getValueAt(row,2).toString();
-       String phone=jTable1.getValueAt(row,3).toString();
-        String from=jTable1.getValueAt(row,4).toString();
-        String Shipped_date=jTable1.getValueAt(row,5).toString();
-        String Delivered_date=jTable1.getValueAt(row,6).toString();
-        String recieved=jTable1.getValueAt(row,7).toString();
-        String discription=jTable1.getValueAt(row,0).toString();
-        
-        
-        jTextField1.setText(ID);
-        jTextField5.setText(supplier);
-        jTextField6.setText(address);
-        jTextField7.setText(phone);
-        jComboBox1.getSelectedItem();
-        //datePicker.setText(Sdate);
-        //jTextField1.setText(ID);
-        jTextField3.setText(recieved);
-        jTextField4.setText(discription);
-   }
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTextFieldSearchCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSearchCustomerNameActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
