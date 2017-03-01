@@ -10,6 +10,9 @@ import Distribution.Shipmentnew;
 import Distribution.Vehicle;
 import Distribution.Fuel1;
 import Distribution.maintanance1;
+import Finance.BankDetail;
+import Finance.Expences1;
+import Finance.LOANDETAILS;
 
 import HumanResource.Department;
 import HumanResource.Employee;
@@ -510,12 +513,22 @@ public static AutoGetImage autogetimage;
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton29.setText("Bank");
+        jButton29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton29ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
         jButton30.setText("Cash ");
         jPanel8.add(jButton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         jButton31.setText("Expenses");
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         jButton32.setText("Income");
@@ -607,7 +620,7 @@ public static AutoGetImage autogetimage;
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 41, Short.MAX_VALUE)
+            .addGap(0, 51, Short.MAX_VALUE)
         );
 
         jTabbedPane1.addTab("Help", jPanel10);
@@ -783,7 +796,16 @@ public static AutoGetImage autogetimage;
     }//GEN-LAST:event_jButton37ActionPerformed
 
     private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
-    
+         LOANDETAILS  loan =new  LOANDETAILS();
+         loan .setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(loan);
+        try {
+           loan .setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+          loan .setMaximizable(false);
     
     }//GEN-LAST:event_jButton45ActionPerformed
 
@@ -1085,6 +1107,34 @@ public static AutoGetImage autogetimage;
         }
         mac.setMaximizable(false);
     }//GEN-LAST:event_jButton22ActionPerformed
+
+    private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed
+        // TODO add your handling code here:
+         BankDetail bank = new BankDetail();
+        bank.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(bank);
+        try {
+            bank.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        bank.setMaximizable(false);
+    }//GEN-LAST:event_jButton29ActionPerformed
+
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        // TODO add your handling code here:
+         Expences1 pen = new Expences1();
+        pen.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(pen);
+        try {
+            pen.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        pen.setMaximizable(false);
+    }//GEN-LAST:event_jButton31ActionPerformed
 
     
     /**
