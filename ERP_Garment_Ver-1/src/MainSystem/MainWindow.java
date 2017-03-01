@@ -42,6 +42,9 @@ import static MainSystem.MainWindow.autoSqlQuery;
 import ManufacturingPlanning.CuttingSchedule;
 import ManufacturingPlanning.SewingSchedule;
 import ManufacturingPlanning.WashingSchedule;
+import Sample.Sample_Approval;
+import Sample.Sample_Costing;
+import java.awt.PopupMenu;
 
 /**
  *
@@ -106,9 +109,7 @@ public static AutoGetImage autogetimage;
         jButton42 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jButton12 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
-        jButton35 = new javax.swing.JButton();
         jButton43 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
@@ -255,7 +256,7 @@ public static AutoGetImage autogetimage;
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton6.setText("Create Design ");
+        jButton6.setText("Request_And_Create Design");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -269,7 +270,7 @@ public static AutoGetImage autogetimage;
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
+        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
 
         jButton42.setText("Design Approval");
         jButton42.addActionListener(new java.awt.event.ActionListener() {
@@ -277,7 +278,7 @@ public static AutoGetImage autogetimage;
                 jButton42ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+        jPanel2.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
 
         jTabbedPane1.addTab("Style Management", jPanel2);
 
@@ -289,41 +290,25 @@ public static AutoGetImage autogetimage;
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
+        jPanel14.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
 
-        jButton23.setText("Request Sample");
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
-            }
-        });
-        jPanel14.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 11, -1, -1));
-
-        jButton28.setText("Create Sample");
+        jButton28.setText("Request_And_Create Sample");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton28ActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, -1, -1));
+        jPanel14.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
-        jButton35.setText(" Sample Customer Approval");
-        jButton35.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton35ActionPerformed(evt);
-            }
-        });
-        jPanel14.add(jButton35, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
-
-        jButton43.setText(" Sample Manger Approval");
+        jButton43.setText(" Sample Approval");
         jButton43.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton43ActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
+        jPanel14.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
 
-        jTabbedPane1.addTab("Sampling", jPanel14);
+        jTabbedPane1.addTab("Sampling Mgmt", jPanel14);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -888,19 +873,24 @@ public static AutoGetImage autogetimage;
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
         // TODO add your handling code here:
+        Sample_Costing cost = new  Sample_Costing();
+        cost.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(cost);
+        try {
+           cost.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cost.setMaximizable(false);
+        
+                                             
     }//GEN-LAST:event_jButton12ActionPerformed
-
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton28ActionPerformed
-
-    private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton54ActionPerformed
         // TODO add your handling code here:
@@ -942,6 +932,18 @@ public static AutoGetImage autogetimage;
 
     private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
         // TODO add your handling code here:
+        Sample_Approval Approve = new  Sample_Approval();
+        Approve.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(Approve);
+        try {
+           Approve.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Approve.setMaximizable(false);
+        
+                                     
     }//GEN-LAST:event_jButton43ActionPerformed
 
     private void jButton58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton58ActionPerformed
@@ -1160,7 +1162,6 @@ public static AutoGetImage autogetimage;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
@@ -1172,7 +1173,6 @@ public static AutoGetImage autogetimage;
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
-    private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton37;
     private javax.swing.JButton jButton38;
     private javax.swing.JButton jButton4;

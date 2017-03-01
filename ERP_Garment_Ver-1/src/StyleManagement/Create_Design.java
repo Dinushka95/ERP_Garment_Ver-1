@@ -6,6 +6,9 @@ import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.DB_Connect;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.userid;
+import static MainSystem.MainWindow.validation;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JTextField;
@@ -319,11 +322,13 @@ public class Create_Design extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Type");
 
+        jTextField1.setName("StyleId"); // NOI18N
+
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "S", "MS", "M", "L", "XL", "2XL", "3XL", "4XL" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "MS", "M", "L", "XL", "2XL", "3XL", "4XL" }));
 
         GenderButtonGroup.add(jRadioButton1);
         jRadioButton1.setText("Male");
@@ -1133,7 +1138,6 @@ public class Create_Design extends javax.swing.JInternalFrame {
                                 .addComponent(jLabel35)
                                 .addGap(23, 23, 23)
                                 .addComponent(jComboBox7, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel4Layout.createSequentialGroup()
                                 .addGap(97, 97, 97)
@@ -1255,9 +1259,11 @@ public class Create_Design extends javax.swing.JInternalFrame {
 
     private void AddDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDesignActionPerformed
         // TODO add your handling code here:
+       if( validation.ValidationCheck(jTextField1,true, 0,'@')){
         AddDesign();
         TableLoad();
         TextBoxClear2();
+       }
     }//GEN-LAST:event_AddDesignActionPerformed
 
     private void EditbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditbtnActionPerformed
@@ -1401,30 +1407,19 @@ public class Create_Design extends javax.swing.JInternalFrame {
         String color = jComboBox4.getSelectedItem().toString();
         
         
+        boolean x =autoSqlQuery.executeAutoADD(new String[]  {"StyleId="+id,
+                                                            "StyleDesc="+des,
+                                                            "Size="+size,
+                                                            "Gender="+gender,
+                                                            "Type="+Type,
+                                                            "Collection="+collection,
+                                                            "Color="+color,
+                                                            "Designer="+designer,
+                                                            "Status="+status,
+                                                            "Date="+date,
+                                                           }, "T_Design_table");
         
-        boolean  x = db_con.execute("INSERT INTO `garmentsystem`.`T_Design_table`\n" +
-"(`StyleId`,\n" +
-"`StyleDesc`,\n" +
-"`Size`,\n" +
-"`Gender`,\n" +
-"`Type`,\n" +
-"`Collection`,\n" +
-"`Color`,\n" +
-"`Designer`,\n" +
-"`Status`,\n" +
-"`Date`)\n" +
-"VALUES\n" +
-"('"+id+"',\n" +
-"'"+des+"',\n" +
-"'"+size+"',\n" +
-"'"+gender+"',\n" +
-"'"+Type+"',\n" +
-"'"+collection+"',\n" +
-"'"+color+"',\n" +
-"'"+designer+"',\n" +
-"'"+status+"',\n" +
-"'"+date+"');");
-        
+  
         try
         {
             if(x==true)

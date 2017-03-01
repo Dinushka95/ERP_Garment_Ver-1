@@ -188,13 +188,13 @@ int RowCountjTable;
         datePicker2.setEnabled(false);
         datePicker2.setName(""); // NOI18N
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel3.setText("Accessory Type");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         typefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel7.setText("Re-Order Level");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         reorderfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -421,34 +421,34 @@ int RowCountjTable;
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel4.setText("Accessory ID");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel13.setText("Accessory Name");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel15.setText("Cost Per Unit");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel23.setText("Quantity");
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Stock Value");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Accessory Type");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel31.setText("Date");
+        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         datePicker3.setEnabled(false);
         datePicker3.setName(""); // NOI18N
 
         typefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valuefield1.setEnabled(false);
+        valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valuefield1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 valuefield1KeyReleased(evt);
@@ -477,8 +477,8 @@ int RowCountjTable;
 
         idfield1.setEditable(false);
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel8.setText("Re-Order Level");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         reorder1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
