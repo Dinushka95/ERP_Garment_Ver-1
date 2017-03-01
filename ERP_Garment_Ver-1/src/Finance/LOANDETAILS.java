@@ -20,18 +20,7 @@ import MainSystem.MainWindow;
  * @author Dinushka
  */
 public class LOANDETAILS extends javax.swing.JInternalFrame {
-DefaultTableModel model;
-int RowCountjTable2;
-CustomerModel customerModel;
 
-
-        String LogNo;
-        String CustomerId;
-        String CustomerName;
-        String CustomerCompanyName;
-        String CustomerPhone;
-        String CustomerEmail;
-        String CustomerAddres;
 
 
     /**
@@ -188,7 +177,7 @@ CustomerModel customerModel;
    
       private void TableLoad()
   {
-      DB_Connect.DB_ResultSet = db_con.executeQuerry("SELECT `F_LOANDETAILS`.`BankName`,\n" +
+      DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `F_LOANDETAILS`.`BankName`,\n" +
 "    `F_LOANDETAILS`.`BranchName`,\n" +
 "    `F_LOANDETAILS`.`AccNo`,\n" +
 "    `F_LOANDETAILS`.`Date`,\n" +
