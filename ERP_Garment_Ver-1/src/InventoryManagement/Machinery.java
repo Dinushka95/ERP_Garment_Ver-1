@@ -251,7 +251,7 @@ public class Machinery extends javax.swing.JInternalFrame {
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        jLabel12.setText("Part Name");
+        jLabel12.setText("Machine ID");
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         ViewAll.setText("View All");
@@ -312,9 +312,9 @@ public class Machinery extends javax.swing.JInternalFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jButton1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ResetButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(ViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(ResetButton1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -327,11 +327,10 @@ public class Machinery extends javax.swing.JInternalFrame {
                         .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ViewAll)
-                        .addComponent(jButton1)))
-                .addGap(28, 28, 28)
-                .addComponent(ResetButton1)
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                        .addComponent(jButton1)
+                        .addComponent(ResetButton1)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -555,25 +554,30 @@ public class Machinery extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        PartNameSearch();
+        MachineIDSearch();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
         int row =jTable2.getSelectedRow();
-        String id = jTable2.getValueAt(row,0).toString();
-        String name = jTable2.getValueAt(row,1).toString();
-        String macnum = jTable2.getValueAt(row,2).toString();
-        String value = jTable2.getValueAt(row,3).toString();
-        String qty = jTable2.getValueAt(row,4).toString();
-        String date = jTable2.getValueAt(row,5).toString();
-//        
-//        idfield1.setText(id);
-//        namefield1.setText(name);
-//        machinenumber.setText(macnum);
-//        valuefield1.setText(value);
-//        qtyfield1.setText(qty);
-//        datePicker3.setText(date);
+        String date = jTable2.getValueAt(row,0).toString();
+        String assetid = jTable2.getValueAt(row,1).toString();
+        String type = jTable2.getValueAt(row,2).toString();
+        String macid = jTable2.getValueAt(row,3).toString();
+        String cost = jTable2.getValueAt(row,4).toString();
+        String dprate = jTable2.getValueAt(row,5).toString();
+        String depreciation = jTable2.getValueAt(row,6).toString();
+        String accdepreciation = jTable2.getValueAt(row,7).toString();
+
+        
+        datePicker3.setText(date);
+        macid1.setText(macid);
+        asstid1.setText(assetid);
+        typefield1.setText(type);
+        costfield1.setText(cost);
+        deprate1.setText(dprate);
+        dpp1.setText(depreciation);
+        accdep1.setText(accdepreciation);
         
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -590,7 +594,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         String id2 = asstid1.getText();
         
         boolean x = db_con.execute("DELETE FROM `garmentsystem`.`F_FIXASSETS`\n" +
-"WHERE AssetID = '"+id1+"' and FixAssetID = '"+id2+"';");
+"WHERE AssetID = '"+id1+"' and FixAssetsID = '"+id2+"';");
         
         try
         {
@@ -628,7 +632,19 @@ public class Machinery extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_deprateKeyReleased
 
     private void deprate1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_deprate1KeyReleased
-        // TODO add your handling code here:
+        
+        double cst = Double.parseDouble(costfield1.getText());
+        
+        double rate = Double.parseDouble(deprate1.getText());
+        
+        double depreciation = cst*(rate/100);
+        
+        dpp1.setText(Double.toString(depreciation));
+        
+        double acc = cst-depreciation;
+        
+        accdep1.setText(Double.toString(acc));
+        
     }//GEN-LAST:event_deprate1KeyReleased
     private void generate_Asstid(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -719,14 +735,14 @@ public class Machinery extends javax.swing.JInternalFrame {
     
     public void EditMachinery()
     {
-        String date = datePicker2.getText();
-        String mac_id = macid.getText();
-        String asst_id = asstid.getText();
-        String type = typefield.getText();
-        String cost = costfield.getText();
-        String dprate = deprate.getText();
-        String dppr = dpp.getText();
-        String accmdep = accdep.getText();
+        String date = datePicker3.getText();
+        String mac_id = macid1.getText();
+        String asst_id = asstid1.getText();
+        String type = typefield1.getText();
+        String cost = costfield1.getText();
+        String dprate = deprate1.getText();
+        String dppr = dpp1.getText();
+        String accmdep = accdep1.getText();
         
         boolean x = db_con.execute("UPDATE `garmentsystem`.`F_FIXASSETS`\n" +
 "SET\n" +
@@ -758,10 +774,10 @@ public class Machinery extends javax.swing.JInternalFrame {
     
     
     
-        private void PartNameSearch()
+        private void MachineIDSearch()
     {
-            String partname = searchname.getText();
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table WHERE part_name LIKE '"+partname+"%'");
+            String machineid = searchname.getText();
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS WHERE FixAssetsID LIKE '"+machineid+"%'");
             jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
     }
     
