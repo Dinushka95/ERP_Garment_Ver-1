@@ -41,12 +41,9 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -58,6 +55,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jTextField8 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
 
         setResizable(true);
         setTitle("Expences");
@@ -87,7 +85,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Fix Assets Type");
         jPanel11.add(jLabel7);
-        jLabel7.setBounds(320, 70, 100, 14);
+        jLabel7.setBounds(350, 70, 100, 14);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Items", "Land And Building", "Vehicals" }));
         jPanel11.add(jComboBox1);
@@ -97,31 +95,23 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jPanel11.add(jLabel1);
         jLabel1.setBounds(10, 110, 22, 14);
 
-        jLabel2.setText("Rate");
+        jLabel2.setText("Depreaciation Rate");
         jPanel11.add(jLabel2);
-        jLabel2.setBounds(10, 140, 23, 14);
+        jLabel2.setBounds(10, 140, 110, 14);
 
-        jLabel3.setText("Depreaciation");
-        jPanel11.add(jLabel3);
-        jLabel3.setBounds(10, 170, 70, 14);
-
-        jLabel4.setText("Year");
+        jLabel4.setText("Date");
         jPanel11.add(jLabel4);
-        jLabel4.setBounds(10, 40, 22, 14);
-        jPanel11.add(jTextField1);
-        jTextField1.setBounds(180, 40, 120, 20);
+        jLabel4.setBounds(10, 40, 60, 14);
         jPanel11.add(jTextField2);
-        jTextField2.setBounds(180, 110, 120, 20);
+        jTextField2.setBounds(180, 110, 140, 20);
         jPanel11.add(jTextField3);
-        jTextField3.setBounds(180, 140, 120, 20);
-        jPanel11.add(jTextField4);
-        jTextField4.setBounds(180, 170, 120, 20);
+        jTextField3.setBounds(180, 140, 140, 20);
 
         jLabel8.setText("Accumulate Depreaciation");
         jPanel11.add(jLabel8);
-        jLabel8.setBounds(10, 200, 140, 14);
+        jLabel8.setBounds(10, 180, 140, 14);
         jPanel11.add(jTextField5);
-        jTextField5.setBounds(180, 200, 120, 20);
+        jTextField5.setBounds(180, 170, 140, 20);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -143,21 +133,23 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jPanel11.add(jLabel9);
         jLabel9.setBounds(10, 70, 70, 14);
         jPanel11.add(jTextField6);
-        jTextField6.setBounds(180, 70, 120, 20);
+        jTextField6.setBounds(180, 70, 140, 20);
         jPanel11.add(jLabel10);
         jLabel10.setBounds(540, 110, 90, 20);
 
         jLabel11.setText("Next year Cost");
         jPanel11.add(jLabel11);
-        jLabel11.setBounds(10, 230, 90, 14);
+        jLabel11.setBounds(10, 220, 90, 14);
         jPanel11.add(jTextField8);
-        jTextField8.setBounds(180, 230, 120, 20);
+        jTextField8.setBounds(180, 210, 140, 20);
 
         jLabel12.setText("ID");
         jPanel11.add(jLabel12);
         jLabel12.setBounds(570, 70, 40, 14);
         jPanel11.add(jTextField7);
         jTextField7.setBounds(620, 70, 90, 20);
+        jPanel11.add(datePicker1);
+        datePicker1.setBounds(180, 40, 139, 20);
 
         jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 830, 470));
 
@@ -172,13 +164,13 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -191,10 +183,8 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
