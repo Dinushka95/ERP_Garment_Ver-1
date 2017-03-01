@@ -10,10 +10,10 @@ import Distribution.Shipmentnew;
 import Distribution.Vehicle;
 import Distribution.Fuel1;
 import Distribution.maintanance1;
+import Maintance.Contactor;
 import Finance.BankDetail;
 import Finance.Expences1;
 import Finance.LOANDETAILS;
-
 import HumanResource.Department;
 import HumanResource.Employee;
 import HumanResource.Leave;
@@ -41,12 +41,12 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static MainSystem.MainWindow.autoSqlQuery;
+import Maintance.OrderParts;
 import ManufacturingPlanning.CuttingSchedule;
 import ManufacturingPlanning.SewingSchedule;
 import ManufacturingPlanning.WashingSchedule;
 import Sample.Sample_Approval;
 import Sample.Sample_Costing;
-import java.awt.PopupMenu;
 
 /**
  *
@@ -641,7 +641,7 @@ public static AutoGetImage autogetimage;
             .addGap(0, 730, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, -1, -1));
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
         getAccessibleContext().setAccessibleDescription("");
 
@@ -833,6 +833,16 @@ public static AutoGetImage autogetimage;
 
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
         // TODO add your handling code here:
+        Contactor  contactor =new  Contactor();
+         contactor .setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(contactor );
+        try {
+           contactor .setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+          contactor .setMaximizable(false);
     }//GEN-LAST:event_jButton48ActionPerformed
 
     private void jButton49ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton49ActionPerformed
@@ -900,6 +910,17 @@ public static AutoGetImage autogetimage;
     }//GEN-LAST:event_jButton54ActionPerformed
 
     private void jButton55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton55ActionPerformed
+
+         OrderParts order = new  OrderParts();
+        order.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(order);
+        try {
+           order.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        order.setMaximizable(false);
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton55ActionPerformed
 
