@@ -1,21 +1,46 @@
 
 package Distribution;
 
+import Sales.*;
+import com.github.lgooddatepicker.components.DatePickerSettings;
+import MainSystem.AutoIdGenerator;
+import static MainSystem.AutoSQLQuery.db_con;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
+import MainSystem.DB_Connect;
+import MainSystem.MainWindow;
 
 
 /**
  *
  * @author Dinushka
  */
-public class maintaince extends javax.swing.JInternalFrame {
+public class maintanance1 extends javax.swing.JInternalFrame {
+DefaultTableModel model;
+int RowCountjTable2;
+CustomerModel customerModel;
 
+
+        String LogNo;
+        String CustomerId;
+        String CustomerName;
+        String CustomerCompanyName;
+        String CustomerPhone;
+        String CustomerEmail;
+        String CustomerAddres;
 
 
     /**
      * Creates new form SalesDesignInquiry
      */
-    public maintaince() {
-     
+    public maintanance1() {
+        initComponents();
+
+  
     }
 
     /**
@@ -55,7 +80,7 @@ public class maintaince extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Maintaince");
+        setTitle("Distribution Management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -136,7 +161,7 @@ public class maintaince extends javax.swing.JInternalFrame {
         jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 140, 140, -1));
         jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 140, -1));
 
-        jTabbedPane1.addTab("ADD Fuel Details", jPanel1);
+        jTabbedPane1.addTab("ADD Maintanance Details", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -188,25 +213,11 @@ public class maintaince extends javax.swing.JInternalFrame {
         jTabbedPane1.addTab("Reports", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1350, 590));
-        jTabbedPane1.getAccessibleContext().setAccessibleName("ADD Discription");
 
         getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         
-      
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-    
-    }//GEN-LAST:event_jTable2MouseClicked
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -215,10 +226,21 @@ public class maintaince extends javax.swing.JInternalFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
     
+   
     
-    
- 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

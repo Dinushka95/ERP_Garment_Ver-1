@@ -1,15 +1,20 @@
 
 package Distribution;
 
-import MainSystem.AutoIdGenerator;
-import MainSystem.MainWindow;
-
 /**
  *
  * @author Dinushka
  */
-public class Shipment extends javax.swing.JInternalFrame {
+public class Shipmentnew extends javax.swing.JInternalFrame {
 
+
+    /**
+     * Creates new form SalesDesignInquiry
+     */
+    public Shipmentnew() {
+        initComponents();
+
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -59,26 +64,10 @@ public class Shipment extends javax.swing.JInternalFrame {
         jButton9 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        jPanel5 = new javax.swing.JPanel();
-        jTextFieldCustomerId1 = new javax.swing.JTextField();
-        jTextFieldCustomerName1 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
-        jTextFieldCompanyName1 = new javax.swing.JTextField();
-        jLabel16 = new javax.swing.JLabel();
-        jTextFieldPhone1 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        jTextFieldEmail1 = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jTextFieldAddress1 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Customer Management");
+        setTitle("Distribution Management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -329,131 +318,18 @@ public class Shipment extends javax.swing.JInternalFrame {
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 830, 510));
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextFieldCustomerId1.setEditable(false);
-        jTextFieldCustomerId1.setName("Customer ID"); // NOI18N
-        jTextFieldCustomerId1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustomerId1ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jTextFieldCustomerId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
-
-        jTextFieldCustomerName1.setName("Customer Name"); // NOI18N
-        jPanel5.add(jTextFieldCustomerName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, -1));
-
-        jLabel8.setText("Customer ID");
-        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 52, -1, -1));
-
-        jLabel13.setText("Customer Name");
-        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
-
-        jButton7.setText("Reset All");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 390, -1, -1));
-
-        jLabel15.setText("Company Name");
-        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-
-        jTextFieldCompanyName1.setName("Company name"); // NOI18N
-        jPanel5.add(jTextFieldCompanyName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 110, -1));
-
-        jLabel16.setText("Phone");
-        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
-
-        jTextFieldPhone1.setName("Phone number"); // NOI18N
-        jPanel5.add(jTextFieldPhone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 110, -1));
-
-        jLabel17.setText("E-Mail");
-        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
-
-        jTextFieldEmail1.setName("Email"); // NOI18N
-        jPanel5.add(jTextFieldEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 110, -1));
-
-        jLabel18.setText("Address");
-        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
-
-        jTextFieldAddress1.setName("Address"); // NOI18N
-        jPanel5.add(jTextFieldAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 210, -1));
-
-        jButton3.setText("Delete");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 390, -1, -1));
-
-        jButton2.setText("Edit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
-
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 410, 520));
-
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Reports", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
-        jTabbedPane1.getAccessibleContext().setAccessibleName("ADD Shipment");
+        jTabbedPane1.getAccessibleContext().setAccessibleName("ADD Discription");
 
         getAccessibleContext().setAccessibleName("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTextFieldSearchCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSearchCustomerNameActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-    
-    clearSearch();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jTextFieldCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerId1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-    clearSearch();        
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         
-       
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-    
-    }//GEN-LAST:event_jTable2MouseClicked
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
- 
-    }//GEN-LAST:event_jButton5ActionPerformed
-
-    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-    
-    }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
@@ -464,73 +340,46 @@ public class Shipment extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        AddShipment();
+        //AddShipment();
     }//GEN-LAST:event_jButton1ActionPerformed
-    private void generate_shipid(){
-    AutoIdGenerator aid = new AutoIdGenerator();
-    jTextField1.setText(aid.generate("shpmnt",Integer.toString(MainWindow.userid)));
-    }
-    
 
-    
-    private void clearSearch(){
-        jTextField1.setText("");
-        jTextField5.setText("");
-        jTextField6.setText("");
-        jTextField7.setText("");
-        jComboBox1.getSelectedItem();
-        //datePicker.setText(Sdate);
-        //jTextField1.setText(ID);
-        jTextField3.setText("");
-        jTextField4.setText("");
-    }
-    
-    public void AddShipment()
-    {
-        int row=jTable1.getSelectedRow();
-        String ID=jTable1.getValueAt(row,0).toString();
-       String supplier=jTable1.getValueAt(row,1).toString();
-       String address=jTable1.getValueAt(row,2).toString();
-       String phone=jTable1.getValueAt(row,3).toString();
-        String from=jTable1.getValueAt(row,4).toString();
-        String Shipped_date=jTable1.getValueAt(row,5).toString();
-        String Delivered_date=jTable1.getValueAt(row,6).toString();
-        String recieved=jTable1.getValueAt(row,7).toString();
-        String discription=jTable1.getValueAt(row,0).toString();
-        
-        
-        jTextField1.setText(ID);
-        jTextField5.setText(supplier);
-        jTextField6.setText(address);
-        jTextField7.setText(phone);
-        jComboBox1.getSelectedItem();
-        //datePicker.setText(Sdate);
-        //jTextField1.setText(ID);
-        jTextField3.setText(recieved);
-        jTextField4.setText(discription);
-   }
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTextFieldSearchCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSearchCustomerNameActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+
+    }//GEN-LAST:event_jButton10ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
@@ -539,13 +388,11 @@ public class Shipment extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanelcustomerSearch;
     private javax.swing.JScrollPane jScrollPane1;
@@ -559,12 +406,6 @@ public class Shipment extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextFieldAddress1;
-    private javax.swing.JTextField jTextFieldCompanyName1;
-    private javax.swing.JTextField jTextFieldCustomerId1;
-    private javax.swing.JTextField jTextFieldCustomerName1;
-    private javax.swing.JTextField jTextFieldEmail1;
-    private javax.swing.JTextField jTextFieldPhone1;
     private javax.swing.JTextField jTextFieldSearchCustomerId;
     private javax.swing.JTextField jTextFieldSearchCustomerName;
     // End of variables declaration//GEN-END:variables
