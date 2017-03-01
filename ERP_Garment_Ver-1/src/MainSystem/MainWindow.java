@@ -10,8 +10,7 @@ import Distribution.Shipmentnew;
 import Distribution.Vehicle;
 import Distribution.Fuel1;
 import Distribution.maintanance1;
-import Finance.CreateProductCostingOther;
-import Finance.ProductCosting;
+
 import HumanResource.Department;
 import HumanResource.Employee;
 import HumanResource.Leave;
@@ -784,16 +783,7 @@ public static AutoGetImage autogetimage;
     }//GEN-LAST:event_jButton37ActionPerformed
 
     private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
-    ProductCosting productcosting = new ProductCosting();
-                productcosting.setVisible(true);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.add(productcosting);
-        try {
-           productcosting.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-       productcosting.setMaximizable(false); 
+    
     
     }//GEN-LAST:event_jButton45ActionPerformed
 
@@ -816,16 +806,7 @@ public static AutoGetImage autogetimage;
     }//GEN-LAST:event_jButton47ActionPerformed
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
-        CreateProductCostingOther createproductcostingother=new CreateProductCostingOther();
-        createproductcostingother.setVisible(true);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.add(createproductcostingother);
-        try {
-            createproductcostingother.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        createproductcostingother.setMaximizable(false);
+       
     }//GEN-LAST:event_jButton44ActionPerformed
 
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
