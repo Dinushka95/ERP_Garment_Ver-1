@@ -111,7 +111,7 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         datePicker2.setName(""); // NOI18N
-        jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, -1, -1));
+        jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
 
         jButtonADD.setText("ADD ");
         jButtonADD.addActionListener(new java.awt.event.ActionListener() {
@@ -130,16 +130,16 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         jPanel2.add(jButtonResetAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, -1));
 
         jLabel4.setText("Department");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jTextFieldDepartment.setName("Company name"); // NOI18N
-        jPanel2.add(jTextFieldDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 110, -1));
+        jPanel2.add(jTextFieldDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 110, -1));
 
-        jLabel5.setText("Machine Part ");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        jLabel5.setText("Machine part ");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         jTextFieldMachinePart.setName("Phone number"); // NOI18N
-        jPanel2.add(jTextFieldMachinePart, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 110, -1));
+        jPanel2.add(jTextFieldMachinePart, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 110, -1));
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 510, 520));
@@ -339,6 +339,7 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
 
     private void jTextFieldMaintenancesIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMaintenancesIDActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jTextFieldMaintenancesIDActionPerformed
 
     private void jButtonADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADDActionPerformed

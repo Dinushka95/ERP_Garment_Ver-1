@@ -1,5 +1,10 @@
 
 package Maintance;
+import MainSystem.AutoIdGenerator;
+import static MainSystem.AutoSQLQuery.db_con;
+import MainSystem.DB_Connect;
+import MainSystem.MainWindow;
+import net.proteanit.sql.DbUtils;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 
@@ -13,9 +18,13 @@ public class OrderParts extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form SalesDesignInquiry
-     */
-    public OrderParts() {
+     */ 
+    public  OrderParts() {
         initComponents();
+        generate_mac_prtid();
+        TableLoad();
+        
+        datePicker2.setDateToToday();
 
     }
 
@@ -40,7 +49,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
         dateSettings.setFormatForDatesCommonEra("yyyy/MM/dd");
         dateSettings.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings);
-        jButtonADDCustomer = new javax.swing.JButton();
+        jButtonADD = new javax.swing.JButton();
         jButtonResetAll = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTextFieldCompanyName = new javax.swing.JTextField();
@@ -50,6 +59,8 @@ public class OrderParts extends javax.swing.JInternalFrame {
         jTextFieldTechnicianID = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextFieldTechnicianName = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -65,6 +76,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
         jButton9 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jTextFieldCustomerId1 = new javax.swing.JTextField();
         jTextFieldCustomerName1 = new javax.swing.JTextField();
@@ -104,33 +116,32 @@ public class OrderParts extends javax.swing.JInternalFrame {
                 jTextFieldOrderIdActionPerformed(evt);
             }
         });
-        jPanel2.add(jTextFieldOrderId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
+        jPanel2.add(jTextFieldOrderId, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 50, 110, -1));
         jTextFieldOrderId.getAccessibleContext().setAccessibleName("");
 
         jTextFieldDescription.setName("Customer Name"); // NOI18N
-        jPanel2.add(jTextFieldDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, -1));
+        jPanel2.add(jTextFieldDescription, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 110, -1));
         jTextFieldDescription.getAccessibleContext().setAccessibleName("");
 
         jLabel2.setText("Order ID");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 52, -1, -1));
 
         jLabel3.setText("Description");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
 
         jLabel7.setText("Date");
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
 
         datePicker2.setName(""); // NOI18N
-        jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, -1, -1));
+        jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
 
-        jButtonADDCustomer.setText("ADD ");
-        jButtonADDCustomer.setActionCommand("ADD ");
-        jButtonADDCustomer.addActionListener(new java.awt.event.ActionListener() {
+        jButtonADD.setText("ADD ");
+        jButtonADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonADDCustomerActionPerformed(evt);
+                jButtonADDActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonADDCustomer, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 320, -1, -1));
+        jPanel2.add(jButtonADD, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, -1, -1));
 
         jButtonResetAll.setText("Reset All");
         jButtonResetAll.addActionListener(new java.awt.event.ActionListener() {
@@ -138,37 +149,52 @@ public class OrderParts extends javax.swing.JInternalFrame {
                 jButtonResetAllActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonResetAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, -1));
+        jPanel2.add(jButtonResetAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, -1, -1));
 
         jLabel4.setText("Company Name");
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
 
         jTextFieldCompanyName.setName("Company name"); // NOI18N
-        jPanel2.add(jTextFieldCompanyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 110, -1));
+        jPanel2.add(jTextFieldCompanyName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 110, -1));
         jTextFieldCompanyName.getAccessibleContext().setAccessibleName("");
 
         jLabel5.setText("Amount");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         jTextFieldAmount.setName("Phone number"); // NOI18N
-        jPanel2.add(jTextFieldAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 110, -1));
+        jPanel2.add(jTextFieldAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 110, -1));
         jTextFieldAmount.getAccessibleContext().setAccessibleName("");
 
         jLabel6.setText("Technician ID(Recommend)");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
         jTextFieldTechnicianID.setName("Email"); // NOI18N
-        jPanel2.add(jTextFieldTechnicianID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 110, -1));
+        jPanel2.add(jTextFieldTechnicianID, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 110, -1));
         jTextFieldTechnicianID.getAccessibleContext().setAccessibleName("");
 
         jLabel12.setText("Technician Name");
-        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
 
         jTextFieldTechnicianName.setName("Address"); // NOI18N
-        jPanel2.add(jTextFieldTechnicianName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 210, -1));
+        jPanel2.add(jTextFieldTechnicianName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 210, -1));
         jTextFieldTechnicianName.getAccessibleContext().setAccessibleName("");
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 510, 520));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Order ID", "Title Description", "Company Name", "Technician ID", "Technician Name", "Date"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, -1, 100));
 
         jTabbedPane1.addTab("ADD ", jPanel1);
 
@@ -210,15 +236,13 @@ public class OrderParts extends javax.swing.JInternalFrame {
         jPanelcustomerSearch.add(jTextFieldSearchCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 60, -1));
         jPanelcustomerSearch.add(jTextFieldSearchCustomerPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 60, -1));
         jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
-
-        jLabel9.setText("Customer ID");
         jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jLabel10.setText("Customer name");
+        jLabel10.setText("Company Name");
         jPanelcustomerSearch.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
 
-        jLabel11.setText("Customer phone");
-        jPanelcustomerSearch.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
+        jLabel11.setText("Amount");
+        jPanelcustomerSearch.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 60, -1));
 
         jButton8.setText("View All");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -251,6 +275,9 @@ public class OrderParts extends javax.swing.JInternalFrame {
             }
         });
         jPanelcustomerSearch.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
+
+        jLabel1.setText("Order ID");
+        jPanelcustomerSearch.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 830, 510));
 
@@ -337,9 +364,11 @@ public class OrderParts extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonADDCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADDCustomerActionPerformed
- 
-    }//GEN-LAST:event_jButtonADDCustomerActionPerformed
+    private void jButtonADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADDActionPerformed
+      Add ();
+      TableLoad();
+    
+    }//GEN-LAST:event_jButtonADDActionPerformed
 
     private void jTextFieldOrderIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldOrderIdActionPerformed
         // TODO add your handling code here:
@@ -394,6 +423,78 @@ public class OrderParts extends javax.swing.JInternalFrame {
      // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
+      private void TableLoad()
+    {
+
+    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `Order_Part`.`OrderID`,\n" +
+    "    `Order_Part`.`OrderID`,\n" +
+    "    `Order_Part`.`Description`,\n" +
+    "    `Order_Part`.`Amount`,\n" +
+    "    `Order_Part`.`TechnicianID`,\n" +
+    "    `Order_Part`.`TechnicianName`,\n"+        
+    "    `Order_Part`.`Date`\n" +
+    "FROM `garmentsystem`.`Order_Part`;");
+     jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+
+    }
+  
+    private void TextBoxClear(){
+            
+            jTextFieldOrderId.setText("");
+            jTextFieldDescription.setText("");
+            jTextFieldCompanyName.setText("");
+            jTextFieldAmount.setText("");
+            jTextFieldTechnicianID.setText("");
+            jTextFieldTechnicianName.setText("");
+            datePicker2.setDateToToday();
+    }
+            public void Add()
+    {
+        String ID = jTextFieldOrderId.getText();
+        String Description = jTextFieldDescription.getText();
+        String C_Name = jTextFieldCompanyName.getText();
+        float Amount = Float.parseFloat(jTextFieldAmount.getText());
+        String T_ID= jTextFieldTechnicianID.getText();
+        String T_Name= jTextFieldTechnicianName.getText();
+        String date = datePicker2.getText();
+    
+        
+         boolean x = db_con.execute("INSERT INTO `garmentsystem`.`Order_Part`\n" +
+"(`OrderID`,\n" +
+"`Description`,\n" +
+"`Amount`,\n" +
+"`TechnicianID`,\n" +
+"`TechnicianName`,\n" +
+"`Date`)\n" +
+"VALUES\n" +
+"('"+ID+"',\n" +
+"'"+Description+"',\n" +
+"'"+C_Name+"',\n" +
+""+Amount+",\n" +
+"'"+T_ID+"',\n" +
+"'"+T_Name+"',\n" +
+"'"+date+"');");
+    
+         
+            try
+        {
+            if(x==true)
+            {
+                TableLoad();
+                TextBoxClear();
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+            
+             private void generate_mac_prtid()
+    {
+        AutoIdGenerator aid = new AutoIdGenerator();
+        jTextFieldOrderId.setText(aid.generate("CONT",Integer.toString(MainWindow.userid)));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
@@ -405,8 +506,9 @@ public class OrderParts extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JButton jButtonADDCustomer;
+    private javax.swing.JButton jButtonADD;
     private javax.swing.JButton jButtonResetAll;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -429,8 +531,10 @@ public class OrderParts extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanelcustomerSearch;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextFieldAddress1;
     private javax.swing.JTextField jTextFieldAmount;
