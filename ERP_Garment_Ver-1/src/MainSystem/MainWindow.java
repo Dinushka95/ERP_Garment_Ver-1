@@ -641,7 +641,7 @@ public static AutoGetImage autogetimage;
             .addGap(0, 730, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, -1, -1));
 
         getAccessibleContext().setAccessibleDescription("");
 
