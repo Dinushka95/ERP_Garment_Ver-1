@@ -431,6 +431,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField1.setText(aid.generate("SUP",Integer.toString(MainWindow.userid)));
     }
+    
     private void MainTableLoad()
     {
         DB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
