@@ -602,6 +602,7 @@ public class Machinery extends javax.swing.JInternalFrame {
             {
                 clear();
                 TableLoad2();
+                
             }
         }
         catch (Exception ex){
@@ -802,9 +803,9 @@ public class Machinery extends javax.swing.JInternalFrame {
         asstid1.setText("");
         typefield1.setText("");
         costfield1.setText("");
-        deprate.setText("");
-        dpp.setText("");
-        accdep.setText("");
+        deprate1.setText("");
+        dpp1.setText("");
+        accdep1.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
