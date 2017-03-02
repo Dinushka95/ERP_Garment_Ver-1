@@ -45,8 +45,10 @@ import Maintance.OrderParts;
 import ManufacturingPlanning.CuttingSchedule;
 import ManufacturingPlanning.SewingSchedule;
 import ManufacturingPlanning.WashingSchedule;
+import Procurements.SupplierPortfolio;
 import Sample.Sample_Approval;
 import Sample.Sample_Costing;
+
 
 /**
  *
@@ -365,6 +367,11 @@ public static AutoGetImage autogetimage;
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton25.setText("Supplier portfolio");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 11, -1, -1));
 
         jButton26.setText("Purchasing ");
@@ -1156,6 +1163,20 @@ public static AutoGetImage autogetimage;
         }
         pen.setMaximizable(false);
     }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        
+         SupplierPortfolio sup = new SupplierPortfolio();
+        sup.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(sup);
+        try {
+            sup.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        sup.setMaximizable(false);
+    }//GEN-LAST:event_jButton25ActionPerformed
 
     
     /**
