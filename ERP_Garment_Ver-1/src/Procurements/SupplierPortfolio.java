@@ -434,7 +434,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     private void MainTableLoad()
     {
         DB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
-        jTable.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+        jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
     }
     
     private void TableLoad()
