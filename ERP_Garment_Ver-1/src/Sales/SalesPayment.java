@@ -5,10 +5,16 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.autogetimage;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableModel;
 import net.proteanit.sql.DbUtils;
 
 
@@ -18,15 +24,18 @@ import net.proteanit.sql.DbUtils;
  */
 
 public class SalesPayment extends javax.swing.JInternalFrame {
+DefaultTableModel Paymentmodel;
 String SalesInvoiceId;
 String CustomerID;
 String CustomerName;
 SalesPaymentModel salesPaymentModel;
+
     /**
      * Creates new form SalesDesignInquiry
      */
     public SalesPayment() {
         initComponents();
+        Paymentmodel=(DefaultTableModel) jTablePayment.getModel();
         salesPaymentModel = new SalesPaymentModel();
         generate_spi();
         datePickerSalesPayment.setDateToToday();
@@ -67,7 +76,8 @@ SalesPaymentModel salesPaymentModel;
         jLabel11 = new javax.swing.JLabel();
         jTextFieldDueAmount = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jTablePayment = new javax.swing.JTable();
+        jButton2 = new javax.swing.JButton();
         jPanelSalesInvoiceSearch = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTablesSalesInvoice = new javax.swing.JTable();
@@ -177,6 +187,15 @@ SalesPaymentModel salesPaymentModel;
 
         jLabel10.setText("Payment Amount");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+
+        jTextFieldPaymentAmount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldPaymentAmountKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldPaymentAmountKeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextFieldPaymentAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 250, 60, -1));
 
         jLabel11.setText("Due Amount");
@@ -185,20 +204,25 @@ SalesPaymentModel salesPaymentModel;
         jTextFieldDueAmount.setEditable(false);
         jPanel2.add(jTextFieldDueAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 60, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        jTablePayment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "PaymentID","Date","Total-Payable","Paid-Amount","Due-Amount"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(jTablePayment);
 
-        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, 320, 250));
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 430, 250));
+
+        jButton2.setText("Calculate");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 750, 510));
 
@@ -288,7 +312,16 @@ SalesPaymentModel salesPaymentModel;
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+ boolean result=salesPaymentModel.AddSPI(jTextFieldSalesPaymentId,jTextFieldCustomerID,jTextFieldSalesInvoiceID,datePickerSalesPayment,jComboBoxPaymentType,jTextFieldTotalPayable,jTextFieldPaymentAmount,jTextFieldDueAmount);
+        if(result){
+            JOptionPane.showMessageDialog(null,"Successfully To Added Sales payment", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+        
+        
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Failed To Added Sales Payment", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+        
+        } 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTablesSalesInvoiceMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablesSalesInvoiceMouseClicked
@@ -308,7 +341,8 @@ SalesPaymentModel salesPaymentModel;
     }//GEN-LAST:event_jTablesSalesInvoiceMouseClicked
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
- jTablesSalesInvoice.setModel(DbUtils.resultSetToTableModel(salesPaymentModel.ViewAllSalesInvoice()));
+ 
+        jTablesSalesInvoice.setModel(DbUtils.resultSetToTableModel(salesPaymentModel.ViewAllSalesInvoice()));
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -335,7 +369,67 @@ SalesPaymentModel salesPaymentModel;
         Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
     }
     jTextFieldCustomerName.setText(CustomerName);
+    
+    //get past payment details
+    DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchSelected(new String[]{"salesPaymentId","date","totalPayable","paymentAmount","dueAmount"},"d_salesPayment_table","salesInvoiceId",SalesInvoiceId );
+
+   
+    TableModel  cc=DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet);
+
+    try {
+        if (DB_Connect.DB_ResultSet.first())
+        
+        {jTablePayment.setModel(cc);
+         DB_Connect.DB_ResultSet.last();
+        jTextFieldTotalPayable.setText(DB_Connect.DB_ResultSet.getString("dueAmount"));
+        }
+        
+        else {
+        
+            DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchSelected(new String[]{"GrandTotal"},"d_salesInvoice_table","salesInvoiceId",SalesInvoiceId );
+             
+        try {
+                 
+                 DB_Connect.DB_ResultSet.next();
+                 jTextFieldTotalPayable.setText(DB_Connect.DB_ResultSet.getString("GrandTotal"));
+             
+             } catch (SQLException ex) {
+                 Logger.getLogger(SalesPayment.class.getName()).log(Level.SEVERE, null, ex);
+             }
+        }    
+    } catch (SQLException ex) {
+        Logger.getLogger(SalesPayment.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    
+
+
+    
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTextFieldPaymentAmountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPaymentAmountKeyTyped
+     
+    }//GEN-LAST:event_jTextFieldPaymentAmountKeyTyped
+
+    private void jTextFieldPaymentAmountKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldPaymentAmountKeyReleased
+       if(jTextFieldPaymentAmount.getText().equals("")){jTextFieldDueAmount.setText("");}
+       else{
+       int tem =Integer.parseInt(jTextFieldTotalPayable.getText());
+       int tem1=Integer.parseInt(jTextFieldPaymentAmount.getText());
+       int tem2=tem-tem1;
+       jTextFieldDueAmount.setText(Integer.toString(tem2)); 
+       }
+       
+    }//GEN-LAST:event_jTextFieldPaymentAmountKeyReleased
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       if(jTextFieldPaymentAmount.getText().equals("")){jTextFieldDueAmount.setText("");}
+       else{
+       int tem =Integer.parseInt(jTextFieldTotalPayable.getText());
+       int tem1=Integer.parseInt(jTextFieldPaymentAmount.getText());
+       int tem2=tem-tem1;
+       jTextFieldDueAmount.setText(Integer.toString(tem2)); 
+       }
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     private void generate_spi(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -345,6 +439,7 @@ SalesPaymentModel salesPaymentModel;
     private com.github.lgooddatepicker.components.DatePicker datePickerSalesPayment;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -370,7 +465,7 @@ SalesPaymentModel salesPaymentModel;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTablePayment;
     private javax.swing.JTable jTablesSalesInvoice;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldCustomerID;
