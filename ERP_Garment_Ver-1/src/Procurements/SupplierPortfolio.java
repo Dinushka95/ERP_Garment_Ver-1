@@ -23,6 +23,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         generate_Supid();
         
         TableLoad();
+        TableLoad2();
     }
 
     /**
@@ -38,9 +39,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel34 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jTextField29 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         jLabel1 = new javax.swing.JLabel();
@@ -76,10 +75,10 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jButton5 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
         jTextField17 = new javax.swing.JTextField();
@@ -89,8 +88,6 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         jTextField19 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jTextField20 = new javax.swing.JTextField();
-        jLabel26 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
         jTextField22 = new javax.swing.JTextField();
         jLabel28 = new javax.swing.JLabel();
@@ -108,12 +105,11 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
 
         setResizable(true);
         setTitle("Product Costing Material");
@@ -121,6 +117,8 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -135,40 +133,11 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel34.setText("View by");
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 48, 1315, 483));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Country", "ID", "Name", " " }));
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(58, 58, 58)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(200, 200, 200)
-                        .addComponent(jLabel34)
-                        .addGap(41, 41, 41)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28)
-                        .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(698, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel34)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(49, 49, 49)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
-        );
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel8.setText("Supplier Details");
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jTabbedPane1.addTab("View supplier details", jPanel3);
 
@@ -242,7 +211,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(226, 486, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 490, -1, -1));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -264,200 +233,118 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, 770, 520));
 
+        jButton5.setText("Resel All");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, -1));
+
         jTabbedPane1.addTab("Add new supplier", jPanel1);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel20.setText("Supplier");
-
-        jLabel21.setText("ID");
+        jLabel20.setText("Supplier ID");
+        jPanel4.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 55, -1));
 
         jLabel22.setText("Name");
+        jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        jPanel4.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 110, -1));
+        jPanel4.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 110, -1));
 
         jLabel23.setText("Propreitor");
+        jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+        jPanel4.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 110, -1));
 
         jLabel24.setText("Website");
+        jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+        jPanel4.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 110, -1));
 
         jLabel25.setText("Address 1");
-
-        jLabel26.setText("Address 2");
+        jPanel4.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+        jPanel4.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 110, -1));
 
         jLabel27.setText("City");
+        jPanel4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        jPanel4.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 110, -1));
 
         jLabel28.setText("Country");
+        jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+        jPanel4.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 110, -1));
 
         jLabel29.setText("Postal code");
+        jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+        jPanel4.add(jTextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 110, -1));
 
         jLabel30.setText("Tel No");
+        jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+        jPanel4.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 110, -1));
 
         jLabel31.setText("E-mail");
+        jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
+        jPanel4.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 110, -1));
 
         jLabel32.setText("Fax");
+        jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+        jPanel4.add(jTextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 110, -1));
 
         jLabel33.setText("Account No");
+        jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
+        jPanel4.add(jTextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 110, -1));
 
         jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
 
         jButton3.setText("Delete");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, -1, -1));
 
-        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
-        jPanel4.setLayout(jPanel4Layout);
-        jPanel4Layout.setHorizontalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(99, 99, 99)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addComponent(jLabel33)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jLabel21)
-                                        .addGap(41, 41, 41))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGap(26, 26, 26)
-                                        .addComponent(jLabel22))))
-                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                                                .addComponent(jLabel30)
-                                                .addGap(43, 43, 43))
-                                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jLabel29)
-                                                    .addComponent(jLabel31)
-                                                    .addComponent(jLabel32))
-                                                .addGap(18, 18, 18)))
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jTextField24, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                                            .addGroup(jPanel4Layout.createSequentialGroup()
-                                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                    .addComponent(jTextField27, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
-                                                    .addComponent(jTextField25, javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addComponent(jTextField26, javax.swing.GroupLayout.Alignment.LEADING))
-                                                .addGap(0, 0, Short.MAX_VALUE))))
-                                    .addGroup(jPanel4Layout.createSequentialGroup()
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel23)
-                                            .addComponent(jLabel24)
-                                            .addComponent(jLabel25)
-                                            .addComponent(jLabel27))
-                                        .addGap(25, 25, 25)
-                                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextField18)
-                                            .addComponent(jTextField19)
-                                            .addComponent(jTextField20)
-                                            .addComponent(jTextField22, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))))
-                                .addGap(45, 45, 45)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel26)
-                                    .addComponent(jLabel28))
-                                .addGap(34, 34, 34)
-                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField21)
-                                    .addComponent(jTextField23, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))))
-                        .addGap(149, 149, 149))))
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(220, 220, 220)
-                .addComponent(jButton2)
-                .addGap(55, 55, 55)
-                .addComponent(jButton3)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
-        jPanel4Layout.setVerticalGroup(
-            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(7, 7, 7)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jLabel22))
-                .addGap(15, 15, 15)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel20)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(jTextField18, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel24)
-                    .addComponent(jTextField19, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel26)
-                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel27)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel29)
-                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel30)
-                    .addComponent(jTextField25, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField26, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel31))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel32))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel33)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3))
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
+        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 10, 300, 520));
 
-        jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 64, -1, -1));
-
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel18.setText("ID");
-        jPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
-        jPanel6.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 40, 73, -1));
-
-        jLabel17.setText("Supplier");
-        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
-
         jLabel19.setText("Name");
-        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
-        jPanel6.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 126, -1));
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        jPanel6.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 210, -1));
 
         jButton4.setText("Search");
-        jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, -1, -1));
+        jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
 
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 10, 610, 520));
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTable3);
+
+        jPanel6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 970, -1));
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 1000, 520));
 
         jTabbedPane1.addTab("Update/Delete supplier details", jPanel2);
 
@@ -473,19 +360,148 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         AddSupplier();
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        
+        TextBoxClear();
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        
+        int row =jTable3.getSelectedRow();
+        
+        String id = jTable3.getValueAt(row,0).toString();
+        String name = jTable3.getValueAt(row,1).toString();
+        String propreiter = jTable3.getValueAt(row,2).toString();
+        String web = jTable3.getValueAt(row,3).toString();
+        String address = jTable3.getValueAt(row,4).toString();
+        String city = jTable3.getValueAt(row,5).toString();
+        String country = jTable3.getValueAt(row,6).toString();
+        String post = jTable3.getValueAt(row,7).toString();
+        String telephone = jTable3.getValueAt(row,8).toString();
+        String mail = jTable3.getValueAt(row,9).toString();
+        String fax = jTable3.getValueAt(row,10).toString();
+        String acc = jTable3.getValueAt(row,11).toString();
+        
+        
+        jTextField16.setText(id);
+        jTextField17.setText(name);
+        jTextField18.setText(propreiter);
+        jTextField19.setText(web);
+        jTextField20.setText(address);
+        jTextField22.setText(city);
+        jTextField23.setText(country);
+        jTextField24.setText(post);
+        jTextField25.setText(telephone);
+        jTextField26.setText(mail);
+        jTextField27.setText(fax);
+        jTextField28.setText(acc);
+
+        
+        
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        SupplierEdit();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        
+        String id = jTextField16.getText();
+        
+        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`Supplier`\n" +
+"WHERE Supplier_id = '"+id+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                TextBoxClear2();
+                TableLoad2();
+                TableLoad();
+                MainTableLoad();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
     private void generate_Supid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField1.setText(aid.generate("SUP",Integer.toString(MainWindow.userid)));
     }
+    private void MainTableLoad()
+    {
+        DB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
+        jTable.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+    }
+    
     private void TableLoad()
     {
         DB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
         jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
     }
     
+    private void TableLoad2()
+    {
+        DB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
+        jTable3.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+    }
+    
+    private void SupplierEdit()
+    {
+        String id = jTextField16.getText();
+        String name = jTextField17.getText();
+        String propreiter = jTextField18.getText();
+        String web = jTextField19.getText();
+        String address = jTextField20.getText();
+        String city = jTextField22.getText();
+        String country = jTextField23.getText();
+        String post = jTextField24.getText();
+        String phone = jTextField25.getText();
+        String mail = jTextField26.getText();
+        String fax = jTextField27.getText();
+        String account = jTextField28.getText();
+        
+        boolean x = db_con.execute("UPDATE `garmentsystem`.`Supplier`\n" +
+"SET\n" +
+"`Supplier_id` = '"+id+"',\n" +
+"`Supplier_name` = '"+name+"',\n" +
+"`Propreiter` = '"+propreiter+"',\n" +
+"`Supplier_WebSite` = '"+web+"',\n" +
+"`Address` = '"+address+"',\n" +
+"`City` = '"+city+"',\n" +
+"`Country` = '"+country+"',\n" +
+"`Post_Code` = '"+post+"',\n" +
+"`Telephone` = '"+phone+"',\n" +
+"`Email` = '"+mail+"',\n" +
+"`Fax` = '"+fax+"',\n" +
+"`Account_Number` = '"+account+"'\n" +
+"WHERE `Supplier_id` = '"+id+"';");
+        
+        
+        try
+        {
+            if(x==true)
+            {
+                TableLoad();
+                TableLoad2();
+                TextBoxClear2();
+                MainTableLoad();
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+    }
+    
+    
     private void TextBoxClear(){
         generate_Supid();
-        jTextField1.setText("");
+        
         jTextField2.setText("");
         jTextField3.setText("");
         jTextField4.setText("");
@@ -500,6 +516,24 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
 
             
     }
+    private void TextBoxClear2(){
+        
+        jTextField16.setText("");
+        jTextField17.setText("");
+        jTextField18.setText("");
+        jTextField19.setText("");
+        jTextField20.setText("");
+        jTextField22.setText("");
+        jTextField23.setText("");
+        jTextField24.setText("");
+        jTextField25.setText("");
+        jTextField26.setText("");
+        jTextField27.setText("");
+        jTextField28.setText("");
+
+            
+    }
+    
     
     private void AddSupplier()
     {
@@ -548,7 +582,9 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
             if(x==true)
             {
                 TableLoad();
+                TableLoad2();
                 TextBoxClear();
+                MainTableLoad();
             }
         }
         catch(Exception ex)
@@ -565,7 +601,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -574,17 +610,13 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
@@ -593,11 +625,11 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -607,16 +639,17 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
@@ -626,7 +659,6 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
     private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField24;
@@ -634,7 +666,6 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField26;
     private javax.swing.JTextField jTextField27;
     private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
