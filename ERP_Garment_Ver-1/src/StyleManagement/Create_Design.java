@@ -11,6 +11,7 @@ import static MainSystem.MainWindow.userid;
 import static MainSystem.MainWindow.validation;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 /**
  *
@@ -37,6 +38,7 @@ public class Create_Design extends javax.swing.JInternalFrame {
       datePicker1.setDateToToday();
       FillTextCombo2();
       FillTextCombo();
+      AddNewItemToComboBox();
         
         
         
@@ -362,6 +364,11 @@ public class Create_Design extends javax.swing.JInternalFrame {
         jLabel11.setText("Add New Colour");
 
         jButton1.setText("Add Colour");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Reset");
 
@@ -668,8 +675,13 @@ public class Create_Design extends javax.swing.JInternalFrame {
             }
         ));
         jTable2.setColumnSelectionAllowed(true);
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTable2);
-        jTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 
         jButton9.setText("UPDATE ");
         jButton9.setBackground(new java.awt.Color(255, 255, 0));
@@ -1336,6 +1348,21 @@ public class Create_Design extends javax.swing.JInternalFrame {
         FillTextCombo();
     }//GEN-LAST:event_jComboBox5ActionPerformed
 
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        AddNewItemToComboBox();
+        clear();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
         private void generate_stlid(){
     AutoIdGenerator sid = new AutoIdGenerator();
@@ -1450,6 +1477,7 @@ public class Create_Design extends javax.swing.JInternalFrame {
         jRadioButton12.setSelected(false);
         jRadioButton13.setSelected(false);
         jRadioButton14.setSelected(false);
+        jTextField3.setText("");
         
         
     }
@@ -1575,11 +1603,10 @@ public class Create_Design extends javax.swing.JInternalFrame {
         ("SELECT `T_Bill_Of_Material_Table`.`Date`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleID`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleDesc`,\n" +
-"    `T_Bill_Of_Material_Table`.`Accessories`,\n" +
-"    `T_Bill_Of_Material_Table`.`Quantity`,\n" +
-"    `T_Bill_Of_Material_Table`.`Colour`,\n" +
-"    `T_Bill_Of_Material_Table`.`Cost`,\n" +
-"    `T_Bill_Of_Material_Table`.`Final_Cost`\n" +
+"    `T_Bill_Of_Material_Table`.`Total_Accessories`,\n" +
+"    `T_Bill_Of_Material_Table`.`Total_Quantity`,\n" +
+"    `T_Bill_Of_Material_Table`.`Total_Cost`,\n" +
+"    `T_Bill_Of_Material_Table`.`Total_Of_Final_Cost`\n" +
 "FROM `garmentsystem`.`T_Bill_Of_Material_Table`;");
             jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
@@ -1610,15 +1637,21 @@ public class Create_Design extends javax.swing.JInternalFrame {
         ("SELECT `T_Bill_Of_Material_Table`.`Date`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleID`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleDesc`,\n" +
-"    `T_Bill_Of_Material_Table`.`Accessories`,\n" +
-"    `T_Bill_Of_Material_Table`.`Quantity`,\n" +
-"    `T_Bill_Of_Material_Table`.`Colour`,\n" +
-"    `T_Bill_Of_Material_Table`.`Cost`,\n" +
-"    `T_Bill_Of_Material_Table`.`Final_Cost`\n" +
+"    `T_Bill_Of_Material_Table`.`Total_Accessories`,\n" +
+"    `T_Bill_Of_Material_Table`.`Total_Quantity`,\n" +
+"    `T_Bill_Of_Material_Table`.`Total_Cost`,\n" +
+"    `T_Bill_Of_Material_Table`.`Total_Of_Final_Cost`\n" +
 "FROM `garmentsystem`.`T_Bill_Of_Material_Table`;");
             jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
 
     }
+        public void AddNewItemToComboBox(){
+            
+            String colour=jTextField3.getText();
+            jComboBox4.addItem(colour);
+            
+            
+        }
     
       
         

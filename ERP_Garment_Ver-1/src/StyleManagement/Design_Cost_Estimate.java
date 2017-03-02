@@ -70,8 +70,8 @@ int RowCountjTable2;
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldCost = new javax.swing.JTextField();
+        jTextFieldFinalCost = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -203,6 +203,11 @@ int RowCountjTable2;
             }
         ));
         jTable3.setColumnSelectionAllowed(true);
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTable3);
         jTable3.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
@@ -218,7 +223,7 @@ int RowCountjTable2;
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTextFieldFinalCost, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
@@ -229,7 +234,7 @@ int RowCountjTable2;
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jTextFieldCost, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jTextFieldColour, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextFieldQuantatiy, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(32, 32, 32)
@@ -266,19 +271,18 @@ int RowCountjTable2;
                                 .addGap(11, 11, 11)))
                         .addGap(12, 12, 12)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addGroup(jPanel6Layout.createSequentialGroup()
+                                    .addGap(27, 27, 27)
+                                    .addComponent(jButton9)))
                             .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel2)
-                                    .addGroup(jPanel6Layout.createSequentialGroup()
-                                        .addGap(27, 27, 27)
-                                        .addComponent(jButton9)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel3))
-                            .addGroup(jPanel6Layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextFieldCost, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(74, 74, 74))
+                                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jTextFieldFinalCost, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3))))
+                        .addContainerGap(37, Short.MAX_VALUE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
@@ -450,7 +454,7 @@ int RowCountjTable2;
                                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel4)))))
                     .addGroup(jPanel8Layout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(2, 2, 2)))
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel8Layout.createSequentialGroup()
@@ -718,11 +722,11 @@ int RowCountjTable2;
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-       model.addRow(new Object[]{ jComboBox1.getSelectedItem().toString(),jTextFieldQuantatiy.getText(),jTextFieldColour.getText(),jTextField1.getText().toString()});
+       model.addRow(new Object[]{ jComboBox1.getSelectedItem().toString(),jTextFieldQuantatiy.getText(),jTextFieldColour.getText(),jTextFieldCost.getText().toString()});
          jComboBox1.setSelectedItem("Select Size");
          jTextFieldQuantatiy.setText("");
          jTextFieldColour.setText("");
-         jTextField1.setText("");
+         jTextFieldCost.setText("");
          
          
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -774,6 +778,24 @@ int RowCountjTable2;
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+        int row =jTable3.getSelectedRow();
+        String Accessories = jTable3.getValueAt(row,0).toString();
+        String Quantity  = jTable3.getValueAt(row,1).toString();
+        String Colour  = jTable3.getValueAt(row,1).toString();
+        String cost = jTable3.getValueAt(row,2).toString();
+        String Finalcost = jTable3.getValueAt(row,3).toString();
+       
+        
+        jComboBox1.addItem(Accessories);
+        jTextFieldFinalCost.setText(Finalcost);
+        jTextFieldColour.setText(Colour);
+        jTextFieldCost.setText(cost);
+        jTextFieldQuantatiy.setText(Quantity);
+       
+    }//GEN-LAST:event_jTable3MouseClicked
     
         public void AddRow(){
             String Accessories = jComboBox1.getSelectedItem().toString();
@@ -782,9 +804,9 @@ int RowCountjTable2;
         
             String color = jTextFieldColour.getText();
         
-            String Cost2=jTextField1.getText().toString();
+            String Cost2=jTextFieldCost.getText().toString();
         
-            String Final_Cost2 =jTextField2.getText().toString();
+            String Final_Cost2 =jTextFieldFinalCost.getText().toString();
             
         }
     
@@ -855,7 +877,6 @@ int RowCountjTable2;
 "    `T_Bill_Of_Material_Table`.`StyleDesc`,\n" +
 "    `T_Bill_Of_Material_Table`.`Accessories`,\n" +
 "    `T_Bill_Of_Material_Table`.`Quantity`,\n" +
-"    `T_Bill_Of_Material_Table`.`Colour`,\n" +
 "    `T_Bill_Of_Material_Table`.`Cost`,\n" +
 "    `T_Bill_Of_Material_Table`.`Final_Cost`\n" +
 "FROM `garmentsystem`.`T_Bill_Of_Material_Table`;");
@@ -865,7 +886,7 @@ int RowCountjTable2;
    
     private void TextBoxClear(){
             jComboBox2.setSelectedIndex(0);
-            jTextField1.setText("");
+            jTextFieldCost.setText("");
             
             
             
@@ -975,7 +996,6 @@ int RowCountjTable2;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
@@ -984,7 +1004,6 @@ int RowCountjTable2;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
@@ -992,6 +1011,8 @@ int RowCountjTable2;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextFieldColour;
+    private javax.swing.JTextField jTextFieldCost;
+    private javax.swing.JTextField jTextFieldFinalCost;
     private javax.swing.JTextField jTextFieldQuantatiy;
     // End of variables declaration//GEN-END:variables
 }
