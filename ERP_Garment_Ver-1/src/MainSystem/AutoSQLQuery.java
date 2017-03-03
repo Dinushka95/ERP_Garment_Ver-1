@@ -1,8 +1,16 @@
+/*
+This class was developed to eliminate the need to type SQL statements, because even a small error in typeing can cause a error.
+it was written to mySQL. 
+you can ADD,update(edit),delete and even files can be added such as images
+###VERY IMPORTANT #######This class needs 'AutoDBConnect' class to work properly 
+Author -Dinushka95@yahoo.com
+3/3/2017
+*/
 
 package MainSystem;
 
-import static MainSystem.DB_Connect.DB_PreparedStatement;
-import static MainSystem.DB_Connect.DB_connection;
+import static MainSystem.AutoDB_Connect.DB_PreparedStatement;
+import static MainSystem.AutoDB_Connect.DB_connection;
 import Sales.SalesDesignInquiry;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -23,25 +31,28 @@ import javax.swing.ImageIcon;
  *
  * @author Dinushka
  */
-public class AutoSQLQuery  extends DB_Connect{
+//###VERY IMPORTANT #######This class needs 'AutoDBConnect' class to work properly 
+public class AutoSQLQuery  extends AutoDB_Connect{
     
-    public static DB_Connect db_con;
+    public static AutoDB_Connect db_con;
+    String DB_Name;
     
-    public AutoSQLQuery() {
-       db_con= new DB_Connect();
+    public AutoSQLQuery(String DatabaseName) {
+       db_con= new AutoDB_Connect();
        db_con.connect(); 
+       DB_Name=DatabaseName;
     }
     
     
-     // used to return value from a search query
-  // returns all values
+    // used to return value from a search query
+    // returns all values
     public ResultSet executeAutoViewAll(String TableName)
     {
-        return db_con.executeQuery("SELECT * FROM garmentsystem."+TableName+";");
+        return db_con.executeQuery("SELECT * FROM "+DB_Name+"."+TableName+";");
     }
   
-  // used to return value from a search query
-  // returns only selected values
+    // used to return value from a search query
+    // returns only selected values
     public ResultSet executeAutoViewSelected(String SQL_String[],String TableName)
     {
         int length=SQL_String.length;
@@ -56,24 +67,24 @@ public class AutoSQLQuery  extends DB_Connect{
                 {ArraySelect= ArraySelect+",`"+SQL_String[count]+"`";}
             count++;
         }
-        ArraySelect="select "+ArraySelect+" FROM `garmentsystem`.`"+TableName+"`";
+        ArraySelect="select "+ArraySelect+" FROM `"+DB_Name+"`.`"+TableName+"`";
             
         return db_con.executeQuery(ArraySelect);        
     }
     
-  // used to return value from a search query with a key
-  // returns all values 
+    // used to return value from a search query with a key
+    // returns all values 
     public ResultSet executeAutoSearchAll(String TableName,String KeyName,String Key)
     {
         String ArraySelect="";
                     
-        ArraySelect="SELECT * FROM garmentsystem."+TableName+" where "+KeyName+" = '"+Key+"'";
+        ArraySelect="SELECT * FROM "+DB_Name+"."+TableName+" where "+KeyName+" = '"+Key+"'";
         
         return db_con.executeQuery(ArraySelect);
     }
   
-  // used to return value from a search query with a key
-  // returns all values
+    // used to return value from a search query with a key
+    // returns all values
     public ResultSet executeAutoSearchSelected(String SQL_String[],String TableName,String KeyName,String Key)
     {
         int length=SQL_String.length;
@@ -88,12 +99,20 @@ public class AutoSQLQuery  extends DB_Connect{
                 {ArraySelect= ArraySelect+",`"+SQL_String[count]+"`";}
             count++;
         }
-        ArraySelect="select "+ArraySelect+" FROM `garmentsystem`.`"+TableName+"`where "+KeyName+" = '"+Key+"'";
+        ArraySelect="select "+ArraySelect+" FROM `"+DB_Name+"`.`"+TableName+"`where "+KeyName+" = '"+Key+"'";
         
         return db_con.executeQuery(ArraySelect);
     }
    
-  // used to ADD values 
+    //auto search data ranges
+    public ResultSet executeAutoSearchDateRange(String TableName,String KeyName,String DateFrom,String DateTo)
+    {
+            String ArraySelect="";
+            ArraySelect="SELECT  * FROM  "+DB_Name+"."+TableName+" WHERE  "+KeyName+" >= '"+DateFrom+"' AND "+KeyName+" <= '"+DateTo+"'" ;
+        return db_con.executeQuery(ArraySelect);
+    }
+        
+    // used to ADD values 
     public boolean executeAutoADD(String SQL_String[],String TableName)
     {
         int length=SQL_String.length;
@@ -141,12 +160,12 @@ public class AutoSQLQuery  extends DB_Connect{
         }
         
         //System.out.println(ArraySelect);
-        ArraySelect="INSERT INTO `garmentsystem`.`"+TableName+"`("+ArraySelect11+") VALUES ("+ArraySelect22+")";   
+        ArraySelect="INSERT INTO `"+DB_Name+"`.`"+TableName+"`("+ArraySelect11+") VALUES ("+ArraySelect22+")";   
         return db_con.execute(ArraySelect);  
     }
     
    
-   
+    // this method is used to edit values 
     public boolean executeAutoEdit(String SQL_String[],String TableName,String KeyName,String Key)
     {
     
@@ -177,21 +196,19 @@ public class AutoSQLQuery  extends DB_Connect{
                 {ArraySelect11= ArraySelect11+",`"+ArraySelect1[count]+"` ='"+ArraySelect2[count]+"'";}
             count++;
         }
-        
-        
-
-        
         //System.out.println(ArraySelect);
-        ArraySelect="UPDATE `garmentsystem`.`"+TableName+"` SET "+ArraySelect11+" WHERE "+KeyName+" = "+Key;   
+        ArraySelect="UPDATE `"+DB_Name+"`.`"+TableName+"` SET "+ArraySelect11+" WHERE "+KeyName+" = '"+Key+"'";   
         return db_con.execute(ArraySelect);   
     }
     
+    // used to delete values from the table
     public boolean executeAutoDelete(String TableName,String KeyName,String Key)
     {
-        String ArraySelect="DELETE FROM `garmentsystem`.`"+TableName+"` WHERE "+KeyName+" = "+Key;   
+        String ArraySelect="DELETE FROM `"+DB_Name+"`.`"+TableName+"` WHERE "+KeyName+" = '"+Key+"'";   
         return db_con.execute(ArraySelect); 
     }
-
+    
+    // used to add Images into the DB (.jpe)
     public boolean executeAutoAddImage(String FileNameId,File ImageFile)
     {
         
@@ -215,13 +232,14 @@ public class AutoSQLQuery  extends DB_Connect{
         return true;
     } 
     
+    //used to retrive images from the DB
     public ImageIcon executeAutoGetImage(String FileNameId)
     {       
-        ImageIcon icon = null;
-        DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `image_Table`.`img_data`\n" +"FROM `garmentsystem`.`image_Table` where `image_Table`.`img_title` ='"+FileNameId+"';");
+    ImageIcon icon = null;
+    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `image_Table`.`img_data`\n" +"FROM `"+DB_Name+"`.`image_Table` where `image_Table`.`img_title` ='"+FileNameId+"';");
     try {
-        DB_Connect.DB_ResultSet.next();
-        Blob imageBlob=DB_Connect.DB_ResultSet.getBlob("img_data");
+        AutoDB_Connect.DB_ResultSet.next();
+        Blob imageBlob=AutoDB_Connect.DB_ResultSet.getBlob("img_data");
         InputStream binaryStream = imageBlob.getBinaryStream(1, imageBlob.length()); 
         Image myImage;
             try (ByteArrayOutputStream output = new ByteArrayOutputStream()) {

@@ -9,7 +9,7 @@ package MainSystem;
 import javax.swing.JOptionPane;
 import javax.swing.text.JTextComponent;
 
-public class Validation {
+public class AutoValidation {
     
 JTextComponent Textbox1;
 char TypeCheck1;

@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class DB_Connect {
+public class AutoDB_Connect {
     //Thses varriables are the main varriables ued in this and other class that's why 
     //it is public and Static because i  wanted it to be in globle level
     public static Connection DB_connection =null;
@@ -26,12 +26,12 @@ public class DB_Connect {
     public static String password="JS9sd56dss5";
    
     //Default Contructor 
-    public DB_Connect() {
+    public AutoDB_Connect() {
     
     }
     
     // this constructor can be used to change your connection settings
-    public DB_Connect(String Database_URL,int Port,String DatabaseName,String Username,String Password) {
+    public AutoDB_Connect(String Database_URL,int Port,String DatabaseName,String Username,String Password) {
         DB_Host="jdbc:mysql://"+Database_URL+":"+Port+"/"+DatabaseName+"";
         username=Username;
         password=Password;
@@ -59,7 +59,7 @@ public class DB_Connect {
         try {
             DB_connection.close();
         } catch (SQLException ex) {
-            Logger.getLogger(DB_Connect.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AutoDB_Connect.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -79,7 +79,7 @@ public class DB_Connect {
        
         } catch (SQLException ex) {
             System.out.println("***Fail***Excuted "+SQL_String);
-            Logger.getLogger(DB_Connect.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AutoDB_Connect.class.getName()).log(Level.SEVERE, null, ex);
             
             return false;
         }
@@ -100,7 +100,7 @@ public class DB_Connect {
             
         } catch (SQLException ex) {
             System.out.println("***Fail***Excuted "+SQL_String);
-            Logger.getLogger(DB_Connect.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AutoDB_Connect.class.getName()).log(Level.SEVERE, null, ex);
             return null;
         }
             

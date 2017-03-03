@@ -22,6 +22,7 @@ import InventoryManagement.FinishedProducts;
 import InventoryManagement.Machine_Parts;
 import InventoryManagement.Machinery;
 import InventoryManagement.RawMaterials;
+import static MainSystem.AutoDB_Connect.DB_connection;
 import Marketing.MarketDesignInquiry;
 import Marketing.MarketDesignInquiryApproval;
 import Sales.SalesDesignInquiry;
@@ -58,9 +59,10 @@ public class MainWindow extends javax.swing.JFrame {
 public static int  userid=1;
 public static String  username="test";
 public static AutoSQLQuery autoSqlQuery;
-public static Validation validation;
+public static AutoValidation validation;
 public static AutoGetImage autogetimage;
 public static AutoIdGenerator aid;
+public static AutoReport autoReport;
 
 //public static DB_Connect db_con;
     /**
@@ -72,10 +74,11 @@ public static AutoIdGenerator aid;
         setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
     //    db_con= new DB_Connect();
     //   db_con.connect();
-           autoSqlQuery=new AutoSQLQuery();
-           validation =new Validation();
+           autoSqlQuery=new AutoSQLQuery("garmentsystem");
+           validation =new AutoValidation();
            autogetimage=new AutoGetImage();
            aid = new AutoIdGenerator();
+           autoReport=new AutoReport(DB_connection);
            
        
  
@@ -182,61 +185,68 @@ public static AutoIdGenerator aid;
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("Sales Design Inquiry");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 11, -1, -1));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton2.setText("Customer");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 10, -1, -1));
+        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton3.setText("Sales Inquiry");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton4.setText("Sales Invoice");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
+        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 10, -1, -1));
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton5.setText("Sales Return");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, -1));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, -1, -1));
 
+        jButton37.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton37.setText("Sales Payment");
         jButton37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton37ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
+        jPanel1.add(jButton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 10, -1, -1));
 
+        jButton46.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton46.setText("Sales Design Inquiry Approval");
         jButton46.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton46ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton46, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
+        jPanel1.add(jButton46, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
         jTabbedPane1.addTab("Sales ", jPanel1);
 
