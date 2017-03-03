@@ -60,6 +60,7 @@ public static String  username="test";
 public static AutoSQLQuery autoSqlQuery;
 public static Validation validation;
 public static AutoGetImage autogetimage;
+public static AutoIdGenerator aid;
 
 //public static DB_Connect db_con;
     /**
@@ -74,6 +75,7 @@ public static AutoGetImage autogetimage;
            autoSqlQuery=new AutoSQLQuery();
            validation =new Validation();
            autogetimage=new AutoGetImage();
+           aid = new AutoIdGenerator();
            
        
  

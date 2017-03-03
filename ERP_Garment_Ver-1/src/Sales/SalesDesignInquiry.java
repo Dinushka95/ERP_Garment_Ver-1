@@ -9,6 +9,7 @@ import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.DB_Connect;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.aid;
 import static MainSystem.MainWindow.autoSqlQuery; 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
@@ -861,7 +862,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
     }//GEN-LAST:event_jButton28ActionPerformed
     private void generate_sdi(){
-    AutoIdGenerator aid = new AutoIdGenerator();
+    //AutoIdGenerator aid = new AutoIdGenerator();
     jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",Integer.toString(MainWindow.userid)));
     }
         private void clear(){
