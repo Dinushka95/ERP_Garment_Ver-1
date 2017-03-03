@@ -76,7 +76,7 @@ CustomerModel customerModel;
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Distribution Management");
+        setTitle("Maintanance Management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));

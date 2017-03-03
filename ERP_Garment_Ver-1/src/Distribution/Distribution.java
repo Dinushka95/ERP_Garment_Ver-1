@@ -1,10 +1,13 @@
 
 package Distribution;
 
+import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import static MainSystem.MainWindow.autoSqlQuery;
 import MainSystem.MainWindow;
+import com.github.lgooddatepicker.components.DatePickerSettings;
+
+
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -121,6 +124,8 @@ public class Distribution extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Distribution Milage");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+
+        jTextField1.setName("vid"); // NOI18N
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 130, -1));
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 130, -1));
         jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 130, -1));
@@ -270,11 +275,67 @@ public class Distribution extends javax.swing.JInternalFrame {
 
     private void generate_distributionid() {
        
-    
+       AutoIdGenerator aid = new AutoIdGenerator();
+        dis_id.setText(aid.generate("DIS",Integer.toString(MainWindow.userid)));
     }
 
     private void TabelLoad() {
-       DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.C_Distribution");
-        jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Distribution");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+       
+    }
+    
+        private void TextBoxClear()
+    {
+        dis_id.setText("");
+        jTextField1.setText("");
+        jTextField2.setText("");
+        jTextField5.setText("");
+        datePicker1.setText("");
+        jTextField3.setText("");
+        jTextField4.setText("");
+       
+        
+    }
+         private void AddDistribution()
+    {
+        String id =  dis_id.getText();
+        String VID = jTextField1.getText();
+        String DID = jTextField2.getText();
+        String HID = jTextField5.getText();
+        String date = datePicker1.getText();
+        String Dis_cost = jTextField3.getText();
+        String Milage = jTextField4.getText();
+        
+        boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Distribution`\n" +
+                "(`Shipment_id`,\n" +
+"`istributionID`,\n" +
+"`Adress`,\n" +
+"`Vehical_ID`,\n" +
+"`Driver's_ID`,\n" +
+"`Helper's_ID`,\n" +
+"`Date`,\n" +
+"`Distribution_cost`,\n" +
+"`Distribution_milage`)\n" +
+"VALUES\n" +
+"('"+id+"',\n" +
+"'"+VID+"',\n" +
+"'"+DID+"',\n" +
+"'"+HID+"',\n" +
+"'"+date+"',\n" +
+"'"+Dis_cost+"',\n" +
+"'"+Milage+"',\n" );   
+        try
+        {
+            if(x==true)
+            {
+                TabelLoad();
+                TextBoxClear();
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
     }
 }

@@ -83,7 +83,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Distribution Management");
+        setTitle("Shipment Management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));

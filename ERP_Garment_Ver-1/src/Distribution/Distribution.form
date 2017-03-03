@@ -169,6 +169,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="jTextField1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="vid" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="180" y="50" width="130" height="-1"/>

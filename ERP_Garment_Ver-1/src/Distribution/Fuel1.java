@@ -62,7 +62,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Distribution Management");
+        setTitle("Fuel Management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -153,7 +153,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 420, 530));
 
-        jTabbedPane1.addTab("ADD Distribution", jPanel1);
+        jTabbedPane1.addTab("ADD Fuel", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
