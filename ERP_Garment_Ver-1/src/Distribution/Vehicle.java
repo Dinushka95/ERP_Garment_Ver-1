@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 
 

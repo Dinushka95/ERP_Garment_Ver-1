@@ -4,7 +4,7 @@ package InventoryManagement;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
@@ -656,15 +656,15 @@ int RowCountjTable;
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
-            jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TextBoxClear(){
@@ -774,8 +774,8 @@ int RowCountjTable;
         public void MaterialNameSearch()
     {
             String matname = searchname.getText();
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_Name LIKE '"+matname+"%'");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_Name LIKE '"+matname+"%'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
     
     public void ChangeMaterialTableHeader()

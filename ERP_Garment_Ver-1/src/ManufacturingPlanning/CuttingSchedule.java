@@ -3,7 +3,7 @@ package ManufacturingPlanning;
  
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import com.github.lgooddatepicker.components.DateTimePicker;
 
@@ -457,14 +457,14 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     {
         try
         {
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
-            while(DB_Connect.DB_ResultSet.next())
+            while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = DB_Connect.DB_ResultSet.getString("StyleId");
+                String id = AutoDB_Connect.DB_ResultSet.getString("StyleId");
                 styleCombo.addItem(id);
                 
-                String color = DB_Connect.DB_ResultSet.getString("Color");
+                String color = AutoDB_Connect.DB_ResultSet.getString("Color");
                 
                 boolean exist = false;
                 

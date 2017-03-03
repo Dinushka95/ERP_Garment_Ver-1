@@ -7,7 +7,7 @@ package Sales;
 
 import static MainSystem.AutoSQLQuery.db_con;
 import Sales.*;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import java.awt.Color;
@@ -209,10 +209,10 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
     private void jTable5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable5MouseClicked
         int x=jTable5.getSelectedRow();
     String y=(String) jTable5.getValueAt(x,1);
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId = '"+y+"'");
+    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId = '"+y+"'");
     try {
-        DB_Connect.DB_ResultSet.next();
-        SalesDesignInquiryId=DB_Connect.DB_ResultSet.getString("SalesDesignInquiryId");
+        AutoDB_Connect.DB_ResultSet.next();
+        SalesDesignInquiryId=AutoDB_Connect.DB_ResultSet.getString("SalesDesignInquiryId");
         
         jTextFieldSalesDesignInquiryId.setText(SalesDesignInquiryId);
         

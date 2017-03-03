@@ -1,7 +1,7 @@
 
 package Sales;
 
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
@@ -378,12 +378,12 @@ DefaultTableModel modelSalesReturn;
         ProductName = null;
         ProductPrice = null;
         
-        DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("product_table","ProductId", Productid);
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("product_table","ProductId", Productid);
 
         try {
-            DB_Connect.DB_ResultSet.next();
-            ProductName=DB_Connect.DB_ResultSet.getString("ProductName");
-            ProductPrice=DB_Connect.DB_ResultSet.getString("Price");
+            AutoDB_Connect.DB_ResultSet.next();
+            ProductName=AutoDB_Connect.DB_ResultSet.getString("ProductName");
+            ProductPrice=AutoDB_Connect.DB_ResultSet.getString("Price");
 
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
@@ -396,25 +396,25 @@ DefaultTableModel modelSalesReturn;
         int x=jTablesSalesInvoice.getSelectedRow();
         String y=(String) jTablesSalesInvoice.getValueAt(x,0);
 
-        DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_salesInvoice_table","salesInvoiceId", y);
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_salesInvoice_table","salesInvoiceId", y);
 
         try {
-            DB_Connect.DB_ResultSet.next();
-            SalesInvoiceId=DB_Connect.DB_ResultSet.getString("salesInvoiceId");
-            CustomerID=DB_Connect.DB_ResultSet.getString("CustomerId");
-            DiscountGiven=DB_Connect.DB_ResultSet.getString("discount");
+            AutoDB_Connect.DB_ResultSet.next();
+            SalesInvoiceId=AutoDB_Connect.DB_ResultSet.getString("salesInvoiceId");
+            CustomerID=AutoDB_Connect.DB_ResultSet.getString("CustomerId");
+            DiscountGiven=AutoDB_Connect.DB_ResultSet.getString("discount");
 
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
-        DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId", CustomerID);
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId", CustomerID);
 
         try {
-            DB_Connect.DB_ResultSet.next();
+            AutoDB_Connect.DB_ResultSet.next();
            
-           CustomerName =DB_Connect.DB_ResultSet.getString("CustomerName");
+           CustomerName =AutoDB_Connect.DB_ResultSet.getString("CustomerName");
 
         } catch (SQLException ex) {
             Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
@@ -444,9 +444,9 @@ DefaultTableModel modelSalesReturn;
         jTextFieldCustomerName.setText(CustomerName);
         
         
-        DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_salesInvoice_table1","salesInvoiceId", SalesInvoiceId);
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_salesInvoice_table1","salesInvoiceId", SalesInvoiceId);
 
-        jTableSalesReturn2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+        jTableSalesReturn2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }//GEN-LAST:event_jButton1ActionPerformed
 

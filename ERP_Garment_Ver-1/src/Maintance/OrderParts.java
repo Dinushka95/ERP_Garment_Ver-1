@@ -2,7 +2,7 @@
 package Maintance;
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import net.proteanit.sql.DbUtils;
 
@@ -426,7 +426,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
       private void TableLoad()
     {
 
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `Order_Part`.`OrderID`,\n" +
+    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `Order_Part`.`OrderID`,\n" +
     "    `Order_Part`.`OrderID`,\n" +
     "    `Order_Part`.`Description`,\n" +
     "    `Order_Part`.`Amount`,\n" +
@@ -434,7 +434,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
     "    `Order_Part`.`TechnicianName`,\n"+        
     "    `Order_Part`.`Date`\n" +
     "FROM `garmentsystem`.`Order_Part`;");
-     jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+     jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
   

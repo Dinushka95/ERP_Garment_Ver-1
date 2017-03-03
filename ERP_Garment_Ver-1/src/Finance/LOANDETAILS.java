@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 
 
@@ -177,7 +177,7 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
    
       private void TableLoad()
   {
-      DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `F_LOANDETAILS`.`BankName`,\n" +
+      AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `F_LOANDETAILS`.`BankName`,\n" +
 "    `F_LOANDETAILS`.`BranchName`,\n" +
 "    `F_LOANDETAILS`.`AccNo`,\n" +
 "    `F_LOANDETAILS`.`Date`,\n" +

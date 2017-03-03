@@ -1,7 +1,7 @@
 
 package Sales;
 
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.aid;
 import static MainSystem.MainWindow.autoSqlQuery;
@@ -25,7 +25,7 @@ public class SalesReturnModel {
     }
     
     public ResultSet ViewAllSalesInvoice(){
-    return DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_salesInvoice_table");
+    return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_salesInvoice_table");
     }
     
     public boolean AddSRI(JTextField SRIID,JTextField CustomerId,JTextField SalesInvoiceID,DatePicker Date,JTable table,JTextField Total,JTextArea Notes ){

@@ -1,11 +1,11 @@
 
 package Sales;
 
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
-import MainSystem.Validation;
+import MainSystem.AutoValidation;
 import com.github.lgooddatepicker.components.DatePicker;
 import java.io.File;
 import java.sql.ResultSet;
@@ -26,7 +26,7 @@ public class SalesPaymentModel {
         
           //check for atleast one size value
 
-      validation =new Validation();
+      validation =new AutoValidation();
         
         if(validation.ValidationCheck(salesPaymentId, true,0,'@')&&
            validation.ValidationCheck(customerId, true,0,'@')&&
@@ -49,7 +49,7 @@ public class SalesPaymentModel {
     }
     
  public ResultSet ViewAllSalesInvoice(){
-    return DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_salesInvoice_table");
+    return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_salesInvoice_table");
     }
     
 }

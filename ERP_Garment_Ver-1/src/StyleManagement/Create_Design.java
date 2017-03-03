@@ -3,7 +3,7 @@ package StyleManagement;
 
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
@@ -1371,13 +1371,13 @@ public class Create_Design extends javax.swing.JInternalFrame {
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
-            jTable6.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            jTable6.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void Table2Load(){
-        DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
         
     }
     
@@ -1549,8 +1549,8 @@ public class Create_Design extends javax.swing.JInternalFrame {
          public void CreateDesignSearch()
     {
             String StyleId = jComboBox5.getSelectedItem().toString();
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table WHERE StyleId = '"+StyleId+"'");
-            jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table WHERE StyleId = '"+StyleId+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
      public void Validation(){
          
@@ -1566,11 +1566,11 @@ public class Create_Design extends javax.swing.JInternalFrame {
     {
         try
         {
-            DB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
-            while(DB_Connect.DB_ResultSet.next())
+            while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = DB_Connect.DB_ResultSet.getString("StyleId");
+                String id = AutoDB_Connect.DB_ResultSet.getString("StyleId");
                 jComboBox5.addItem(id);
             }
         }
@@ -1583,11 +1583,11 @@ public class Create_Design extends javax.swing.JInternalFrame {
     {
         try
         {
-            DB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
-            while(DB_Connect.DB_ResultSet.next())
+            while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = DB_Connect.DB_ResultSet.getString("StyleId");
+                String id = AutoDB_Connect.DB_ResultSet.getString("StyleId");
                 jComboBox6.addItem(id);
             }
         }
@@ -1599,7 +1599,7 @@ public class Create_Design extends javax.swing.JInternalFrame {
       private void TableLoad2()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery
         ("SELECT `T_Bill_Of_Material_Table`.`Date`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleID`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleDesc`,\n" +
@@ -1608,7 +1608,7 @@ public class Create_Design extends javax.swing.JInternalFrame {
 "    `T_Bill_Of_Material_Table`.`Total_Cost`,\n" +
 "    `T_Bill_Of_Material_Table`.`Total_Of_Final_Cost`\n" +
 "FROM `garmentsystem`.`T_Bill_Of_Material_Table`;");
-            jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
        private void DeleteDesigns()
@@ -1633,7 +1633,7 @@ public class Create_Design extends javax.swing.JInternalFrame {
         private void TableLoad3()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery
         ("SELECT `T_Bill_Of_Material_Table`.`Date`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleID`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleDesc`,\n" +
@@ -1642,7 +1642,7 @@ public class Create_Design extends javax.swing.JInternalFrame {
 "    `T_Bill_Of_Material_Table`.`Total_Cost`,\n" +
 "    `T_Bill_Of_Material_Table`.`Total_Of_Final_Cost`\n" +
 "FROM `garmentsystem`.`T_Bill_Of_Material_Table`;");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
         public void AddNewItemToComboBox(){

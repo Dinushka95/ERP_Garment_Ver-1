@@ -4,7 +4,7 @@ package InventoryManagement;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
@@ -588,15 +588,15 @@ int RowCountjTable;
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table");
-            jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TextBoxClear(){
@@ -692,11 +692,11 @@ int RowCountjTable;
     {
         try
         {
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Machine_Table");
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Machine_Table");
             
-            while(DB_Connect.DB_ResultSet.next())
+            while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = DB_Connect.DB_ResultSet.getString("Machine_id");
+                String id = AutoDB_Connect.DB_ResultSet.getString("Machine_id");
                 machineCombo.addItem(id);
             }
         }
@@ -709,8 +709,8 @@ int RowCountjTable;
         private void PartNameSearch()
     {
             String partname = searchname.getText();
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table WHERE part_name LIKE '"+partname+"%'");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table WHERE part_name LIKE '"+partname+"%'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
     
     public void ChangeMaterialTableHeader()

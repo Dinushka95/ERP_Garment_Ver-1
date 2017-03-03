@@ -3,7 +3,7 @@ package Finance;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
 
 
@@ -277,7 +277,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
   private void TableLoad1()
   {
-      DB_Connect.DB_ResultSet = db_con.executeQuery
+      AutoDB_Connect.DB_ResultSet = db_con.executeQuery
         ("SELECT `F_DEPOSIT DETAILS`.`Cheque No`,\n" +
 "    `F_DEPOSIT DETAILS`.`Customer ID`,\n" +
 "    `F_DEPOSIT DETAILS`.`Bank Name`,\n" +
@@ -285,20 +285,20 @@ public class BankDetail extends javax.swing.JInternalFrame {
 "    `F_DEPOSIT DETAILS`.`Deposit Date`,\n" +
 "    `F_DEPOSIT DETAILS`.`Amount`\n" +
 "FROM `garmentsystem`.`F_DEPOSIT DETAILS`;");
-            jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
   }
    
   private void TableLoad2()
   {
-      DB_Connect.DB_ResultSet = db_con.executeQuery
+      AutoDB_Connect.DB_ResultSet = db_con.executeQuery
         ("SELECT `F_WITHDRAW DETAILS`.`ChequeNo`,\n" +
 "    `F_WITHDRAW DETAILS`.`Bank Name`,\n" +
 "    `F_WITHDRAW DETAILS`.`Branch Name`,\n" +
 "    `F_WITHDRAW DETAILS`.`WithdrawDate`,\n" +
 "    `F_WITHDRAW DETAILS`.`Amount`\n" +
 "FROM `garmentsystem`.`F_WITHDRAW DETAILS`;");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
   }
   public void AddDeposit()
   {

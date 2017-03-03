@@ -5,7 +5,7 @@ import StyleManagement.*;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -434,20 +434,20 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     
     private void MainTableLoad()
     {
-        DB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
-        jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void TableLoad()
     {
-        DB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
-        jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
+        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void TableLoad2()
     {
-        DB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
-        jTable3.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void SupplierEdit()

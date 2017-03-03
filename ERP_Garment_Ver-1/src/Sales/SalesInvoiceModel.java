@@ -6,10 +6,10 @@
 package Sales;
 
 import MainSystem.AutoIdGenerator;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
-import MainSystem.Validation;
+import MainSystem.AutoValidation;
 import com.github.lgooddatepicker.components.DatePicker;
 import java.sql.ResultSet;
 import javax.swing.JComboBox;
@@ -44,7 +44,7 @@ public class SalesInvoiceModel {
         return false;
         }
         
-        Validation validation =new Validation();
+        AutoValidation validation =new AutoValidation();
         
         if(validation.ValidationCheck(SalesInvoiceId, true,0,'@')&&
            validation.ValidationCheck(CustomerId, true,0,'@')&&
@@ -100,17 +100,17 @@ public class SalesInvoiceModel {
     }
     
     public ResultSet ViewAllCustomer(){
-    return DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_customer_table");
+    return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_customer_table");
     }
     
      public ResultSet ViewAllProducts(){
     
-        return DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("product_table");
+        return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("product_table");
     }
      
     public ResultSet ViewAllInquiry(){
     
-        return DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_salesInquiry_table");
+        return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_salesInquiry_table");
     }
     
     

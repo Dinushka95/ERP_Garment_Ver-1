@@ -2,7 +2,7 @@
 package Finance;
 
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
 
 
@@ -173,14 +173,14 @@ public class Expences1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
  private void Tableload()
  {
-        DB_Connect.DB_ResultSet = db_con.executeQuery
+        AutoDB_Connect.DB_ResultSet = db_con.executeQuery
         ("SELECT `F_EXPENES`.`Bill No`,\n" +
 "    `F_EXPENES`.`Expences Type`,\n" +
 "    `F_EXPENES`.`Date`,\n" +
 "    `F_EXPENES`.`Discription`,\n" +
 "    `F_EXPENES`.`Amount`\n" +
 "FROM `garmentsystem`.`F_EXPENES`;");
-            jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
  }
  public void AddExpences()
  {

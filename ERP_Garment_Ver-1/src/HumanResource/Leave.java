@@ -5,8 +5,8 @@
  */
 package HumanResource;
 
-import MainSystem.DB_Connect;
-import static MainSystem.DB_Connect.DB_connection;
+import MainSystem.AutoDB_Connect;
+import static MainSystem.AutoDB_Connect.DB_connection;
 import HumanResource.Util.DBObject;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -30,11 +30,11 @@ public class Leave extends javax.swing.JInternalFrame {
     Connection con;
     Calendar cals = Calendar.getInstance();
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-    DB_Connect conn = new DB_Connect();
+    AutoDB_Connect conn = new AutoDB_Connect();
     public Leave() {
         
         initComponents();
-        con = DB_Connect.DB_connection;
+        con = AutoDB_Connect.DB_connection;
         Populate();
         txtRequstedDate.setText(dateFormat.format(cals.getTime()));
     }

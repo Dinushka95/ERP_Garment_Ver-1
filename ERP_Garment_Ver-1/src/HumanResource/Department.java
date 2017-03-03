@@ -5,7 +5,7 @@
  */
 package HumanResource;
 
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import HumanResource.Util.DBObject;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -26,7 +26,7 @@ public class Department extends javax.swing.JInternalFrame {
     Connection con;
     public Department() {
         initComponents();
-        con = DB_Connect.DB_connection;
+        con = AutoDB_Connect.DB_connection;
         Populate();
     }
  

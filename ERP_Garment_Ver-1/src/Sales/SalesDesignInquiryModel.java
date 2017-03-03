@@ -2,12 +2,12 @@
 package Sales;
 
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import com.github.lgooddatepicker.components.DatePicker;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
  
-import MainSystem.Validation;
+import MainSystem.AutoValidation;
 import java.io.File;
 import java.sql.ResultSet;
 import javax.swing.JTable;
@@ -36,7 +36,7 @@ public class SalesDesignInquiryModel {
         return false;
         }
         
-        Validation validation =new Validation();
+        AutoValidation validation =new AutoValidation();
         
         if(validation.ValidationCheck(SDIID, true,0,'@')&&
            validation.ValidationCheck(CustomerId, true,0,'@')&&
@@ -95,34 +95,34 @@ public class SalesDesignInquiryModel {
 
     
     public ResultSet ViewAll(){
-    DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_designinquiry_table");
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_designinquiry_table");
             
 
-    return DB_Connect.DB_ResultSet;
+    return AutoDB_Connect.DB_ResultSet;
     }
     
     public ResultSet ViewAllCustomer(){
-    return DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_customer_table");
+    return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_customer_table");
     }
     
     public ResultSet SearchSDIID(String Key){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId='"+Key+"';");
+    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId='"+Key+"';");
 
-    return DB_Connect.DB_ResultSet;
+    return AutoDB_Connect.DB_ResultSet;
     }
       
    
 public ResultSet SearchCustomerID(String Key){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where customer_table_CustomerId='"+Key+"';");
+    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where customer_table_CustomerId='"+Key+"';");
 
-    return DB_Connect.DB_ResultSet;
+    return AutoDB_Connect.DB_ResultSet;
     }
          
 public ResultSet SearchCustomerName(String Key){
-   DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where customer_table_CustomerId=(SELECT `customer_table`.`CustomerId`\n" +
+   AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where customer_table_CustomerId=(SELECT `customer_table`.`CustomerId`\n" +
 "FROM `garmentsystem`.`customer_table` where CustomerName='"+Key+"');");
 
-    return DB_Connect.DB_ResultSet;
+    return AutoDB_Connect.DB_ResultSet;
     }
 
 public boolean DeleteSDI(String SDIId){

@@ -5,7 +5,7 @@
  */
 package HumanResource;
 
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import HumanResource.Util.DBObject;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -31,7 +31,7 @@ public class Employee extends javax.swing.JInternalFrame {
     private Connection con;
     public Employee() {
         initComponents();
-        con = DB_Connect.DB_connection;
+        con = AutoDB_Connect.DB_connection;
         Populate();
     }
     

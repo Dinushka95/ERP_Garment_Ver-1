@@ -7,7 +7,7 @@ package Sales;
 
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.aid;
 import static MainSystem.MainWindow.autoSqlQuery; 
@@ -743,12 +743,12 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     int x=jTable3.getSelectedRow();
     String y=(String) jTable3.getValueAt(x,0);
     
-    DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId", y);
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId", y);
     
     try {
-        DB_Connect.DB_ResultSet.next();
-        CustomerId=DB_Connect.DB_ResultSet.getString("CustomerId");
-        CustomerName=DB_Connect.DB_ResultSet.getString("CustomerName");
+        AutoDB_Connect.DB_ResultSet.next();
+        CustomerId=AutoDB_Connect.DB_ResultSet.getString("CustomerId");
+        CustomerName=AutoDB_Connect.DB_ResultSet.getString("CustomerName");
 
         
        
@@ -800,8 +800,8 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     String y=(String) jTable2.getValueAt(x,0);
     jTextFieldSearchSDIID.setText(y);
        
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM `garmentsystem`.`salesdesigninquiry_table1` where salesdesigninquiry_table_SalesDesignInquiryId='"+y+"';");
-     jTable4.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet)); 
+    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM `garmentsystem`.`salesdesigninquiry_table1` where salesdesigninquiry_table_SalesDesignInquiryId='"+y+"';");
+     jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); 
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed

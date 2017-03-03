@@ -1,7 +1,7 @@
 
 package Sales;
 
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
@@ -780,12 +780,12 @@ int RowCountjTable1;
     int x=jTableSCustomer.getSelectedRow();
     String y=(String) jTableSCustomer.getValueAt(x,0);
     
-    DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId", y);
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId", y);
     
     try {
-        DB_Connect.DB_ResultSet.next();
-        CustomerId=DB_Connect.DB_ResultSet.getString("CustomerId");
-        CustomerName=DB_Connect.DB_ResultSet.getString("CustomerName");
+        AutoDB_Connect.DB_ResultSet.next();
+        CustomerId=AutoDB_Connect.DB_ResultSet.getString("CustomerId");
+        CustomerName=AutoDB_Connect.DB_ResultSet.getString("CustomerName");
 
         
        
@@ -916,14 +916,14 @@ int RowCountjTable1;
     int x=jTablesProduct.getSelectedRow();
     String y=(String) jTablesProduct.getValueAt(x,0);
     
-    DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("product_table","ProductId", y);
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("product_table","ProductId", y);
     
     try {
-        DB_Connect.DB_ResultSet.next();
-        ProductID=DB_Connect.DB_ResultSet.getString("ProductId");
-        ProductName=DB_Connect.DB_ResultSet.getString("ProductName");
-        Price=DB_Connect.DB_ResultSet.getString("Price");
-        Quantity=DB_Connect.DB_ResultSet.getString("Quantity");
+        AutoDB_Connect.DB_ResultSet.next();
+        ProductID=AutoDB_Connect.DB_ResultSet.getString("ProductId");
+        ProductName=AutoDB_Connect.DB_ResultSet.getString("ProductName");
+        Price=AutoDB_Connect.DB_ResultSet.getString("Price");
+        Quantity=AutoDB_Connect.DB_ResultSet.getString("Quantity");
         
     } catch (SQLException ex) {
         Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);

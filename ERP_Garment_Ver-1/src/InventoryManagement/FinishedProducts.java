@@ -4,7 +4,7 @@ package InventoryManagement;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
@@ -737,15 +737,15 @@ File Image;
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table");
-            jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TextBoxClear(){
@@ -770,11 +770,11 @@ File Image;
     {
         try
         {
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
-            while(DB_Connect.DB_ResultSet.next())
+            while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = DB_Connect.DB_ResultSet.getString("StyleId");
+                String id = AutoDB_Connect.DB_ResultSet.getString("StyleId");
                 ComboDesignID.addItem(id);
             }
         }
@@ -897,8 +897,8 @@ File Image;
         public void ProductNameSearch()
     {
             String proname = searchProduct.getText();
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table WHERE ProductName LIKE '"+proname+"%'");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table WHERE ProductName LIKE '"+proname+"%'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
     
     

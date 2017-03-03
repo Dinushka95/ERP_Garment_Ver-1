@@ -3,7 +3,7 @@ package StyleManagement;
 
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
@@ -757,11 +757,11 @@ int RowCountjTable2;
         
         try
         {
-            DB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
-            while(DB_Connect.DB_ResultSet.next())
+            while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String des = DB_Connect.DB_ResultSet.getString("StyleDesc");
+                String des = AutoDB_Connect.DB_ResultSet.getString("StyleDesc");
                 jTextArea1.setText(des);
             }
         }
@@ -871,7 +871,7 @@ int RowCountjTable2;
     private void TableLoad()
     {
 
-            DB_Connect.DB_ResultSet = db_con.executeQuery
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery
         ("SELECT `T_Bill_Of_Material_Table`.`Date`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleID`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleDesc`,\n" +
@@ -880,7 +880,7 @@ int RowCountjTable2;
 "    `T_Bill_Of_Material_Table`.`Cost`,\n" +
 "    `T_Bill_Of_Material_Table`.`Final_Cost`\n" +
 "FROM `garmentsystem`.`T_Bill_Of_Material_Table`;");
-            jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
    
@@ -901,11 +901,11 @@ int RowCountjTable2;
     {
         try
         {
-            DB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
-            while(DB_Connect.DB_ResultSet.next())
+            while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = DB_Connect.DB_ResultSet.getString("StyleId");
+                String id = AutoDB_Connect.DB_ResultSet.getString("StyleId");
                 jComboBox2.addItem(id);
             }
         }

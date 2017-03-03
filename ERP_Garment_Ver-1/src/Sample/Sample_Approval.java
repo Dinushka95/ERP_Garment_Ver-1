@@ -5,35 +5,19 @@
  */
 package Sample;
 
-import StyleManagement.*;
-import Marketing.*;
-import Sales.*;
-import MainSystem.AutoIdGenerator;
-import MainSystem.MainWindow;
-import com.github.lgooddatepicker.components.DatePickerSettings;
-import javax.swing.table.DefaultTableModel;
-
+ 
 /**
  *
  * @author Dinushka
  */
 public class Sample_Approval extends javax.swing.JInternalFrame {
-DefaultTableModel model;
-DefaultTableModel model2;
-DefaultTableModel model3;
-int RowCountjTable1;
-CustomerModel customerModeSDI;
-String CustomerId;
-String CustomerName;
-SalesDesignInquiryModel salesDesignInquiryModel;
+ 
     /**
      * Creates new form SalesDesignInquiry
      */
     public Sample_Approval() {
         initComponents();
-        generate_sdi();
-        datePicker1.setDateToToday();
-
+ 
     }
 
     /**
@@ -298,10 +282,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private void generate_sdi(){
-    AutoIdGenerator aid = new AutoIdGenerator();
-    /*jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",Integer.toString(MainWindow.userid)));*/
-    }
+ 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

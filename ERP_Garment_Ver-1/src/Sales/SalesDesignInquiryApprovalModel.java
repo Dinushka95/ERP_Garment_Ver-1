@@ -6,7 +6,7 @@
 package Sales;
 
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
  
 import com.github.lgooddatepicker.components.DatePicker;
@@ -18,9 +18,9 @@ import java.sql.ResultSet;
  */
 public class SalesDesignInquiryApprovalModel {
         public ResultSet ViewAllSDI(){
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where MarketDesignInquiryId IS NULL ORDER BY AddedDate desc;");
+    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where MarketDesignInquiryId IS NULL ORDER BY AddedDate desc;");
 
-    return DB_Connect.DB_ResultSet;
+    return AutoDB_Connect.DB_ResultSet;
     }
     
         

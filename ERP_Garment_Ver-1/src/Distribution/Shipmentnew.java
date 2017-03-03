@@ -3,7 +3,7 @@ package Distribution;
 
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import net.proteanit.sql.DbUtils;
@@ -404,8 +404,8 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     
     private void TabelLoad()
     {
-        DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.C_Shipment");
-        jTable1.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));
+        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.C_Shipment");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void TextBoxClear()

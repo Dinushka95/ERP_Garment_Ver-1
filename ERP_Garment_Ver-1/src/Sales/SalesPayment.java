@@ -2,7 +2,7 @@
 package Sales;
 
 import MainSystem.AutoIdGenerator;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.autogetimage;
@@ -328,12 +328,12 @@ SalesPaymentModel salesPaymentModel;
         int x=jTablesSalesInvoice.getSelectedRow();
     String y=(String) jTablesSalesInvoice.getValueAt(x,0);
     
-    DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_salesInvoice_table","salesInvoiceId", y);
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_salesInvoice_table","salesInvoiceId", y);
     
     try {
-        DB_Connect.DB_ResultSet.next();
-        SalesInvoiceId=DB_Connect.DB_ResultSet.getString("salesInvoiceId");
-        CustomerID=DB_Connect.DB_ResultSet.getString("CustomerId");
+        AutoDB_Connect.DB_ResultSet.next();
+        SalesInvoiceId=AutoDB_Connect.DB_ResultSet.getString("salesInvoiceId");
+        CustomerID=AutoDB_Connect.DB_ResultSet.getString("CustomerId");
 
     } catch (SQLException ex) {
         Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
@@ -358,12 +358,12 @@ SalesPaymentModel salesPaymentModel;
          jTextFieldSalesInvoiceID.setText(SalesInvoiceId);
          jTextFieldCustomerID.setText(CustomerID);
          
-         DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId",CustomerID );
+         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId",CustomerID );
     
     try {
-        DB_Connect.DB_ResultSet.next();
+        AutoDB_Connect.DB_ResultSet.next();
         //SalesInvoiceId=DB_Connect.DB_ResultSet.getString("salesInvoiceId");
-        CustomerName=DB_Connect.DB_ResultSet.getString("CustomerName");
+        CustomerName=AutoDB_Connect.DB_ResultSet.getString("CustomerName");
 
     } catch (SQLException ex) {
         Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
@@ -371,27 +371,27 @@ SalesPaymentModel salesPaymentModel;
     jTextFieldCustomerName.setText(CustomerName);
     
     //get past payment details
-    DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchSelected(new String[]{"salesPaymentId","date","totalPayable","paymentAmount","dueAmount"},"d_salesPayment_table","salesInvoiceId",SalesInvoiceId );
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchSelected(new String[]{"salesPaymentId","date","totalPayable","paymentAmount","dueAmount"},"d_salesPayment_table","salesInvoiceId",SalesInvoiceId );
 
    
-    TableModel  cc=DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet);
+    TableModel  cc=DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet);
 
     try {
-        if (DB_Connect.DB_ResultSet.first())
+        if (AutoDB_Connect.DB_ResultSet.first())
         
         {jTablePayment.setModel(cc);
-         DB_Connect.DB_ResultSet.last();
-        jTextFieldTotalPayable.setText(DB_Connect.DB_ResultSet.getString("dueAmount"));
+         AutoDB_Connect.DB_ResultSet.last();
+        jTextFieldTotalPayable.setText(AutoDB_Connect.DB_ResultSet.getString("dueAmount"));
         }
         
         else {
         
-            DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchSelected(new String[]{"GrandTotal"},"d_salesInvoice_table","salesInvoiceId",SalesInvoiceId );
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchSelected(new String[]{"GrandTotal"},"d_salesInvoice_table","salesInvoiceId",SalesInvoiceId );
              
         try {
                  
-                 DB_Connect.DB_ResultSet.next();
-                 jTextFieldTotalPayable.setText(DB_Connect.DB_ResultSet.getString("GrandTotal"));
+                 AutoDB_Connect.DB_ResultSet.next();
+                 jTextFieldTotalPayable.setText(AutoDB_Connect.DB_ResultSet.getString("GrandTotal"));
              
              } catch (SQLException ex) {
                  Logger.getLogger(SalesPayment.class.getName()).log(Level.SEVERE, null, ex);

@@ -8,7 +8,7 @@ package Marketing;
 import Sales.*;
 import MainSystem.AutoIdGenerator;
 import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
@@ -534,8 +534,8 @@ MarketDesignInquiryModel marketDesignInquiryModel;
     String y=(String) jTable2.getValueAt(x,0);
     jTextFieldSearchSDIID.setText(y);
        
-    DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM `garmentsystem`.`salesdesigninquiry_table1` where salesdesigninquiry_table_SalesDesignInquiryId='"+y+"';");
-     jTable4.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet)); 
+    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM `garmentsystem`.`salesdesigninquiry_table1` where salesdesigninquiry_table_SalesDesignInquiryId='"+y+"';");
+     jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); 
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -584,10 +584,10 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         private void getEmployeeid(){
         String tem=Integer.toString(MainWindow.userid);
         String tem1=null;
-        DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT Employee_Name_tablecol FROM garmentsystem.employee_table where EmployeeId='"+tem+"';");
+        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT Employee_Name_tablecol FROM garmentsystem.employee_table where EmployeeId='"+tem+"';");
             try {
-                DB_Connect.DB_ResultSet.next();
-                 tem1=(DB_Connect.DB_ResultSet.getString("Employee_Name_tablecol"));
+                AutoDB_Connect.DB_ResultSet.next();
+                 tem1=(AutoDB_Connect.DB_ResultSet.getString("Employee_Name_tablecol"));
                  System.err.println(tem1);
             } catch (SQLException ex) {
                 Logger.getLogger(SalesDesignInquiryModel.class.getName()).log(Level.SEVERE, null, ex);

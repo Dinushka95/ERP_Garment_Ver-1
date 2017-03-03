@@ -1,10 +1,10 @@
 package Sales;
 
 import MainSystem.AutoIdGenerator;
-import MainSystem.DB_Connect;
+import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
-import MainSystem.Validation;
+import MainSystem.AutoValidation;
 import com.github.lgooddatepicker.components.DatePicker;
 import java.io.File;
 import java.sql.ResultSet;
@@ -26,11 +26,11 @@ public class SalesInquiryModel {
     
     public ResultSet ViewAllProducts(){
     
-        return DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("product_table");
+        return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("product_table");
     }
     
     public ResultSet ViewAllCustomer(){
-    return DB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_customer_table");
+    return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_customer_table");
     }
     
     public boolean AddSII(JTextField SalesInquiryId,JTextField CustomerId,DatePicker SalesInquiry,DatePicker PurchaseDue,JTextArea Note,JTextField Total,JComboBox DiscountRate,JTextField GrandTotal,JTable SalesInquiryTable){
@@ -49,7 +49,7 @@ public class SalesInquiryModel {
         return false;
         }
         
-        Validation validation =new Validation();
+        AutoValidation validation =new AutoValidation();
         
         if(validation.ValidationCheck(SalesInquiryId, true,0,'@')&&
            validation.ValidationCheck(CustomerId, true,0,'@')&&
