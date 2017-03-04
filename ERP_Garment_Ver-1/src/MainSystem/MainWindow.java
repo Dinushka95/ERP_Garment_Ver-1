@@ -697,7 +697,7 @@ public static AutoReport autoReport;
         } catch (PropertyVetoException ex) {
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
-        customer.setMaximizable(false);        // TODO add your handling code here:
+        customer.setMaximizable(false);       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
