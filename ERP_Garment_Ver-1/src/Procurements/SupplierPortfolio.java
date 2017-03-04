@@ -464,8 +464,8 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         private void SupplierNameSearch()
     {
             String name = jTextField15.getText();
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Supplier WHERE Supplier_id LIKE '"+name+"%'");
-            jTable3.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
+            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Supplier WHERE Supplier_id LIKE '"+name+"%'");
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
     
     private void SupplierEdit()
