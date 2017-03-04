@@ -112,7 +112,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         jTable3 = new javax.swing.JTable();
 
         setResizable(true);
-        setTitle("Product Costing Material");
+        setTitle("Suppliers");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -322,6 +322,11 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         jPanel6.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 210, -1));
 
         jButton4.setText("Search");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -427,6 +432,12 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        
+        SupplierNameSearch();
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
     private void generate_Supid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField1.setText(aid.generate("SUP",Integer.toString(MainWindow.userid)));
@@ -448,6 +459,13 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     {
         AutoDB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
         jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    }
+    
+        private void SupplierNameSearch()
+    {
+            String name = jTextField15.getText();
+            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Supplier WHERE Supplier_id LIKE '"+name+"%'");
+            jTable3.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
     }
     
     private void SupplierEdit()
