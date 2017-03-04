@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `garmentsystem`;
--- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: garmentsystem
+-- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
 -- ------------------------------------------------------
--- Server version	5.7.15-log
+-- Server version	5.6.27-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,35 +16,33 @@ USE `garmentsystem`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `design_table`
+-- Table structure for table `Accessory_Table`
 --
 
-DROP TABLE IF EXISTS `design_table`;
+DROP TABLE IF EXISTS `Accessory_Table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `design_table` (
-  `ID` int(11) NOT NULL AUTO_INCREMENT,
-  `designID` varchar(45) DEFAULT NULL,
-  `MarketDesignInquiryId` varchar(45) DEFAULT NULL,
-  `SalesDesignInquiryId` varchar(45) DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `designname` varchar(45) DEFAULT NULL,
-  `designercreatorsname` varchar(45) DEFAULT NULL,
-  `note` varchar(500) DEFAULT NULL,
-  `description` varchar(500) DEFAULT NULL,
-  `image` mediumblob,
-  `patten` mediumblob,
-  PRIMARY KEY (`ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE `Accessory_Table` (
+  `accessory_id` varchar(45) NOT NULL,
+  `accessory_name` varchar(45) DEFAULT NULL,
+  `accessory_cost` varchar(45) DEFAULT NULL,
+  `accessory_qty` varchar(45) DEFAULT NULL,
+  `accessory_value` varchar(45) DEFAULT NULL,
+  `accessory_type` varchar(45) DEFAULT NULL,
+  `Accessory_reorder` varchar(45) DEFAULT NULL,
+  `accessory_date` date DEFAULT NULL,
+  PRIMARY KEY (`accessory_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `design_table`
+-- Dumping data for table `Accessory_Table`
 --
 
-LOCK TABLES `design_table` WRITE;
-/*!40000 ALTER TABLE `design_table` DISABLE KEYS */;
-/*!40000 ALTER TABLE `design_table` ENABLE KEYS */;
+LOCK TABLES `Accessory_Table` WRITE;
+/*!40000 ALTER TABLE `Accessory_Table` DISABLE KEYS */;
+INSERT INTO `Accessory_Table` VALUES ('ACC17080db4c','pins','7','567','3969.0','pin','200','2017-02-24');
+/*!40000 ALTER TABLE `Accessory_Table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -58,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-17 14:03:02
+-- Dump completed on 2017-03-04 12:05:34

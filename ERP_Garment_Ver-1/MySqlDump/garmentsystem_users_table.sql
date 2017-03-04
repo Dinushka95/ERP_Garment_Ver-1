@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `garmentsystem`;
--- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
--- Host: localhost    Database: garmentsystem
+-- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
 -- ------------------------------------------------------
--- Server version	5.7.15-log
+-- Server version	5.6.27-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -28,12 +26,12 @@ CREATE TABLE `users_table` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
   `UserName` varchar(45) NOT NULL,
   `Password` varchar(45) NOT NULL,
-  `employee_table_EmployeeId` int(11) NOT NULL,
-  PRIMARY KEY (`userId`),
+  `emp_table_emp_id` int(11) NOT NULL,
+  PRIMARY KEY (`userId`,`emp_table_emp_id`),
   UNIQUE KEY `userId_UNIQUE` (`userId`),
-  KEY `fk_users_table_employee_table1_idx` (`employee_table_EmployeeId`),
-  CONSTRAINT `fk_users_table_employee_table1` FOREIGN KEY (`employee_table_EmployeeId`) REFERENCES `employee_table` (`EmployeeId`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+  KEY `fk_users_table_emp_table1_idx` (`emp_table_emp_id`),
+  CONSTRAINT `fk_users_table_emp_table1` FOREIGN KEY (`emp_table_emp_id`) REFERENCES `emp_table` (`emp_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +40,7 @@ CREATE TABLE `users_table` (
 
 LOCK TABLES `users_table` WRITE;
 /*!40000 ALTER TABLE `users_table` DISABLE KEYS */;
-INSERT INTO `users_table` VALUES (1,'admin','admin',1);
+INSERT INTO `users_table` VALUES (1,'admin','admin',0),(2,'sss','sss',0),(3,'sss','sss',0);
 /*!40000 ALTER TABLE `users_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-01-17 14:03:01
+-- Dump completed on 2017-03-04 12:05:16
