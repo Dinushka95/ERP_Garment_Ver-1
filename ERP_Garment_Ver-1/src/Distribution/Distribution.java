@@ -5,7 +5,6 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import static MainSystem.MainWindow.autoSqlQuery;
 import MainSystem.MainWindow;
-import com.github.lgooddatepicker.components.DatePickerSettings;
 
 
 import net.proteanit.sql.DbUtils;

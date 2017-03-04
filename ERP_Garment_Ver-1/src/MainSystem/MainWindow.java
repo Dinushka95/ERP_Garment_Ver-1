@@ -6,9 +6,9 @@
 package MainSystem;
 
 import Distribution.Distribution;
+import Distribution.Fuel1;
 import Distribution.Shipmentnew;
 import Distribution.Vehicle;
-import Distribution.Fuel1;
 import Distribution.maintanance1;
 import Maintance.Contactor;
 import Finance.BankDetail;
@@ -961,8 +961,10 @@ public static AutoReport autoReport;
         jDesktopPane1.add(vehicle);
         try {
            vehicle.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
         }
         vehicle.setMaximizable(false); 
     }//GEN-LAST:event_jButton53ActionPerformed
