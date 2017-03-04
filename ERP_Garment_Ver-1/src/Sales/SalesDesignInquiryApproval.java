@@ -5,8 +5,6 @@
  */
 package Sales;
 
-import static MainSystem.AutoSQLQuery.db_con;
-import Sales.*;
 import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
@@ -14,7 +12,7 @@ import java.awt.Color;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import static MainSystem.MainWindow.autoSqlQuery;
 
 
 /**
@@ -209,7 +207,7 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
     private void jTable5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable5MouseClicked
         int x=jTable5.getSelectedRow();
     String y=(String) jTable5.getValueAt(x,1);
-    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId = '"+y+"'");
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId = '"+y+"'");
     try {
         AutoDB_Connect.DB_ResultSet.next();
         SalesDesignInquiryId=AutoDB_Connect.DB_ResultSet.getString("SalesDesignInquiryId");

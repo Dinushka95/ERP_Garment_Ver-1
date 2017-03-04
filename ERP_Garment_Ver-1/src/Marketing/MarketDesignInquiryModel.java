@@ -5,7 +5,6 @@
  */
 package Marketing;
 
-import static MainSystem.AutoSQLQuery.db_con;
 import Sales.*;
 import MainSystem.AutoDB_Connect;
 import com.github.lgooddatepicker.components.DatePicker;
@@ -18,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JTable;
 import javax.swing.JTextField;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 /**
  *
@@ -45,7 +45,7 @@ public class MarketDesignInquiryModel {
         AutoValidation validation =new AutoValidation();
         
         if(validation.ValidationCheck(MDIID, true,0,'@')&&validation.ValidationCheck(CustomerId, true,0,'@')&&validation.ValidationCheck(Description, true,0,'@')){
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table`\n" +
+        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`designinquiry_table`\n" +
 "(\n" +
 "`MarketDesignInquiryId`,\n" +
 "" +
@@ -73,7 +73,7 @@ public class MarketDesignInquiryModel {
 ");");  
         
         int id=0;
-        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table ;");
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.designinquiry_table ;");
             try {
                 AutoDB_Connect.DB_ResultSet.next();
                  id=Integer.parseInt(AutoDB_Connect.DB_ResultSet.getString("ID"));
@@ -99,7 +99,7 @@ public class MarketDesignInquiryModel {
             // System.out.println(x1+"GGGGGGG"+y1);
             c++;
             System.err.println(id);
-            x3 = db_con.execute("INSERT INTO `garmentsystem`.`designinquiry_table1`\n" +
+            x3 = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`designinquiry_table1`\n" +
 "(`Size`,\n" +
 "`Quantity`,\n" +
 "`designinquiry_table_ID`,`Colour`,`status-DesignCreated`)\n" +
@@ -116,34 +116,34 @@ public class MarketDesignInquiryModel {
     }
     
     public ResultSet ViewAll(){
-    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId IS NULL ORDER BY AddedDate desc;");
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId IS NULL ORDER BY AddedDate desc;");
 
     return AutoDB_Connect.DB_ResultSet;
     }
     
     public ResultSet SearchSDIID(String Key){
-    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where SalesDesignInquiryId='"+Key+"';");
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where SalesDesignInquiryId='"+Key+"';");
 
     return AutoDB_Connect.DB_ResultSet;
     }
       
    
 public ResultSet SearchCustomerID(String Key){
-    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where customer_table_CustomerId='"+Key+"';");
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where customer_table_CustomerId='"+Key+"';");
 
     return AutoDB_Connect.DB_ResultSet;
     }
          
 public ResultSet SearchCustomerName(String Key){
-   AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where customer_table_CustomerId=(SELECT `customer_table`.`CustomerId`\n" +
+   AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.salesdesigninquiry_table where customer_table_CustomerId=(SELECT `customer_table`.`CustomerId`\n" +
 "FROM `garmentsystem`.`customer_table` where CustomerName='"+Key+"');");
 
     return AutoDB_Connect.DB_ResultSet;
     }
 
 public boolean DeleteSDI(String SDIId){
-    boolean x = db_con.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table1`WHERE salesdesigninquiry_table_SalesDesignInquiryId='"+SDIId+"';"); 
-    boolean y = db_con.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table`WHERE SalesDesignInquiryId='"+SDIId+"';"); 
+    boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table1`WHERE salesdesigninquiry_table_SalesDesignInquiryId='"+SDIId+"';"); 
+    boolean y = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`salesdesigninquiry_table`WHERE SalesDesignInquiryId='"+SDIId+"';"); 
       
          return x;
         }

@@ -42,7 +42,7 @@ public class AutoReport {
         try {
             JasperReport jr =JasperCompileManager.compileReport(FileLocation);
             JasperPrint jp =JasperFillManager.fillReport(jr,null,DB_connection);
-            JasperViewer.viewReport(jp);
+            JasperViewer.viewReport(jp,false);
         }
         catch(Exception ex){
             System.out.println(ex);
@@ -58,7 +58,7 @@ public class AutoReport {
             jd.setQuery(newQuery);          
             JasperReport jr =JasperCompileManager.compileReport(jd);
             JasperPrint jp =JasperFillManager.fillReport(jr,null,DB_connection);
-            JasperViewer.viewReport(jp);
+            JasperViewer.viewReport(jp, false);
         }
         catch(Exception ex){
             System.out.println(ex);

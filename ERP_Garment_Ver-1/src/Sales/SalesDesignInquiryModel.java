@@ -1,7 +1,6 @@
 
 package Sales;
 
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
 import com.github.lgooddatepicker.components.DatePicker;
 import MainSystem.MainWindow;
@@ -106,28 +105,28 @@ public class SalesDesignInquiryModel {
     }
     
     public ResultSet SearchSDIID(String Key){
-    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId='"+Key+"';");
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where SalesDesignInquiryId='"+Key+"';");
 
     return AutoDB_Connect.DB_ResultSet;
     }
       
    
 public ResultSet SearchCustomerID(String Key){
-    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where customer_table_CustomerId='"+Key+"';");
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where customer_table_CustomerId='"+Key+"';");
 
     return AutoDB_Connect.DB_ResultSet;
     }
          
 public ResultSet SearchCustomerName(String Key){
-   AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where customer_table_CustomerId=(SELECT `customer_table`.`CustomerId`\n" +
+   AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.designinquiry_table where customer_table_CustomerId=(SELECT `customer_table`.`CustomerId`\n" +
 "FROM `garmentsystem`.`customer_table` where CustomerName='"+Key+"');");
 
     return AutoDB_Connect.DB_ResultSet;
     }
 
 public boolean DeleteSDI(String SDIId){
-    boolean x = db_con.execute("DELETE FROM garmentsystem.designinquiry_table`WHERE salesdesigninquiry_table_SalesDesignInquiryId='"+SDIId+"';"); 
-    boolean y = db_con.execute("DELETE FROM garmentsystem.designinquiry_table`WHERE SalesDesignInquiryId='"+SDIId+"';"); 
+    boolean x = autoSqlQuery.execute("DELETE FROM garmentsystem.designinquiry_table`WHERE salesdesigninquiry_table_SalesDesignInquiryId='"+SDIId+"';"); 
+    boolean y = autoSqlQuery.execute("DELETE FROM garmentsystem.designinquiry_table`WHERE SalesDesignInquiryId='"+SDIId+"';"); 
       
          return x;
         }

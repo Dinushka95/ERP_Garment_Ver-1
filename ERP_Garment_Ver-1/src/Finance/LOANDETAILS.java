@@ -1,18 +1,9 @@
 
 package Finance;
 
-import Sales.*;
-import com.github.lgooddatepicker.components.DatePickerSettings;
-import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
+
 import MainSystem.AutoDB_Connect;
-import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 
 /**
@@ -177,7 +168,7 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
    
       private void TableLoad()
   {
-      AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `F_LOANDETAILS`.`BankName`,\n" +
+      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT `F_LOANDETAILS`.`BankName`,\n" +
 "    `F_LOANDETAILS`.`BranchName`,\n" +
 "    `F_LOANDETAILS`.`AccNo`,\n" +
 "    `F_LOANDETAILS`.`Date`,\n" +
@@ -198,7 +189,7 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         String inter = jTextField6.getText();
         String payment = jTextField7.getText();
         
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`F_LOANDETAILS`\n" +
+        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_LOANDETAILS`\n" +
 "(`BankName`,\n" +
 "`BranchName`,\n" +
 "`AccNo`,\n" +

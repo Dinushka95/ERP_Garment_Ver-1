@@ -7,13 +7,13 @@ package Marketing;
 
 import Sales.*;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
 import java.sql.SQLException;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -534,7 +534,7 @@ MarketDesignInquiryModel marketDesignInquiryModel;
     String y=(String) jTable2.getValueAt(x,0);
     jTextFieldSearchSDIID.setText(y);
        
-    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM `garmentsystem`.`salesdesigninquiry_table1` where salesdesigninquiry_table_SalesDesignInquiryId='"+y+"';");
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`salesdesigninquiry_table1` where salesdesigninquiry_table_SalesDesignInquiryId='"+y+"';");
      jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); 
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -584,7 +584,7 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         private void getEmployeeid(){
         String tem=Integer.toString(MainWindow.userid);
         String tem1=null;
-        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT Employee_Name_tablecol FROM garmentsystem.employee_table where EmployeeId='"+tem+"';");
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Employee_Name_tablecol FROM garmentsystem.employee_table where EmployeeId='"+tem+"';");
             try {
                 AutoDB_Connect.DB_ResultSet.next();
                  tem1=(AutoDB_Connect.DB_ResultSet.getString("Employee_Name_tablecol"));

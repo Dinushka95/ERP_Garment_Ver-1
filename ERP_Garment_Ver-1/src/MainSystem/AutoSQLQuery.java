@@ -34,7 +34,7 @@ import javax.swing.ImageIcon;
 //###VERY IMPORTANT #######This class needs 'AutoDBConnect' class to work properly 
 public class AutoSQLQuery  extends AutoDB_Connect{
     
-    public static AutoDB_Connect db_con;
+    private static AutoDB_Connect db_con;
     String DB_Name;
     
     public AutoSQLQuery(String DatabaseName) {

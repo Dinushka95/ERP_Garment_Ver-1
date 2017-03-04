@@ -3,10 +3,10 @@ package StyleManagement;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 /**
  *
@@ -411,14 +411,14 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private void TableLoad()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT StyleId,StyleDesc,Size,Gender,Type,Collection,Color,Status FROM `garmentsystem`.`T_Design_table`;");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT StyleId,StyleDesc,Size,Gender,Type,Collection,Color,Status FROM `garmentsystem`.`T_Design_table`;");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT StyleId,StyleDesc,Size,Gender,Type,Collection,Color,Status FROM `garmentsystem`.`T_Design_table`;");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT StyleId,StyleDesc,Size,Gender,Type,Collection,Color,Status FROM `garmentsystem`.`T_Design_table`;");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
@@ -454,7 +454,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         
         
         
-       boolean  x = db_con.execute("INSERT INTO `garmentsystem`.`T_Design_Approval_Table`\n" +
+       boolean  x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`T_Design_Approval_Table`\n" +
 "(`ApprovalId`,\n" +
 "`ApprovedBy`,\n" +
 "`StyleId`,\n" +
@@ -490,7 +490,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
@@ -509,7 +509,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
      public void CreateDesignSearch()
     {
             String StyleId = jComboBox1.getSelectedItem().toString();
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table WHERE StyleId = '"+StyleId+"'");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table WHERE StyleId = '"+StyleId+"'");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
     
@@ -521,7 +521,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         public void MaterialNameSearch()
     {
             String matname = searchname.getText();
-            DB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_Name LIKE '"+matname+"%'");
+            DB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_Name LIKE '"+matname+"%'");
             jTable2.setModel(DbUtils.resultSetToTableModel(DB_Connect.DB_ResultSet));       
     }
     

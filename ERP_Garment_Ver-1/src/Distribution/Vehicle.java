@@ -2,17 +2,7 @@
 package Distribution;
 
 import Sales.*;
-import com.github.lgooddatepicker.components.DatePickerSettings;
-import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-import net.proteanit.sql.DbUtils;
-import MainSystem.AutoDB_Connect;
-import MainSystem.MainWindow;
 
 
 /**

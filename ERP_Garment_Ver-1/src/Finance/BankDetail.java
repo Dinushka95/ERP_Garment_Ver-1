@@ -2,8 +2,8 @@
 package Finance;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
+import static MainSystem.MainWindow.autoSqlQuery;
 import net.proteanit.sql.DbUtils;
 
 
@@ -277,7 +277,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
   private void TableLoad1()
   {
-      AutoDB_Connect.DB_ResultSet = db_con.executeQuery
+      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT `F_DEPOSIT DETAILS`.`Cheque No`,\n" +
 "    `F_DEPOSIT DETAILS`.`Customer ID`,\n" +
 "    `F_DEPOSIT DETAILS`.`Bank Name`,\n" +
@@ -291,7 +291,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
    
   private void TableLoad2()
   {
-      AutoDB_Connect.DB_ResultSet = db_con.executeQuery
+      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT `F_WITHDRAW DETAILS`.`ChequeNo`,\n" +
 "    `F_WITHDRAW DETAILS`.`Bank Name`,\n" +
 "    `F_WITHDRAW DETAILS`.`Branch Name`,\n" +
@@ -310,7 +310,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
       float amount =Float.parseFloat(jTextField10amt.getText());
   
 
-  boolean x = db_con.execute("INSERT INTO `garmentsystem`.`F_DEPOSIT DETAILS`\n" +
+  boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_DEPOSIT DETAILS`\n" +
 "(`Cheque No`,\n" +
 "`Customer ID`,\n" +
 "`Bank Name`,\n" +
@@ -358,7 +358,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
       String w_date = datePicker2date.getText() ;
       float amount =Float.parseFloat(jTextField6amt.getText());
       
-      boolean x = db_con.execute("INSERT INTO `garmentsystem`.`F_WITHDRAW DETAILS`\n" +
+      boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_WITHDRAW DETAILS`\n" +
 "(`ChequeNo`,\n" +
 "`Bank Name`,\n" +
 "`Branch Name`,\n" +

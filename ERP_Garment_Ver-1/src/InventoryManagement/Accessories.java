@@ -3,11 +3,11 @@ package InventoryManagement;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 /**
  *
@@ -711,14 +711,14 @@ int RowCountjTable;
     private void TableLoad()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Accessory_Table");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Accessory_Table");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Accessory_Table");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Accessory_Table");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
@@ -747,7 +747,7 @@ int RowCountjTable;
         String reordr = reorderfield.getText();
         String date = datePicker2.getText();
         
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`Accessory_Table`\n" +
+        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Accessory_Table`\n" +
 "(`accessory_id`,\n" +
 "`accessory_name`,\n" +
 "`accessory_cost`,\n" +
@@ -797,7 +797,7 @@ int RowCountjTable;
         String reorder = reorder1.getText();
         String date = datePicker3.getText();
         
-        boolean x = db_con.execute("UPDATE `garmentsystem`.`Accessory_Table`\n" +
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Accessory_Table`\n" +
 "SET\n" +
 "`accessory_id` = '"+id+"',\n" +
 "`accessory_name` = '"+name+"',\n" +
@@ -830,7 +830,7 @@ int RowCountjTable;
     {
         String id = idfield1.getText();
         
-        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`Accessory_Table`\n" +
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Accessory_Table`\n" +
 "WHERE accessory_id = '"+id+"';");
         
         try
@@ -852,7 +852,7 @@ int RowCountjTable;
         public void AccessoryNameSearch()
     {
             String accname = searchAccessory.getText();
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Accessory_Table WHERE accessory_name LIKE '"+accname+"%'");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Accessory_Table WHERE accessory_name LIKE '"+accname+"%'");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
     

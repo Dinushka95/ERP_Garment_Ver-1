@@ -1,13 +1,10 @@
 
 package StyleManagement;
 
-import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
-import MainSystem.MainWindow;
-
+import static MainSystem.MainWindow.autoSqlQuery;
 /**
  *
  * @author Dinushka
@@ -757,7 +754,7 @@ int RowCountjTable2;
         
         try
         {
-            AutoDB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
@@ -832,7 +829,7 @@ int RowCountjTable2;
         
         
         
-        boolean  x = db_con.execute("INSERT INTO `garmentsystem`.`T_Bill_Of_Material_Table`\n" +
+        boolean  x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`T_Bill_Of_Material_Table`\n" +
 "(`Date`,\n" +
 "`StyleID`,\n" +
 "`StyleDesc`,\n" +
@@ -871,7 +868,7 @@ int RowCountjTable2;
     private void TableLoad()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT `T_Bill_Of_Material_Table`.`Date`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleID`,\n" +
 "    `T_Bill_Of_Material_Table`.`StyleDesc`,\n" +
@@ -901,7 +898,7 @@ int RowCountjTable2;
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet=db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {

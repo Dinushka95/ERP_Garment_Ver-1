@@ -3,11 +3,11 @@ package InventoryManagement;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 /**
  *
@@ -626,7 +626,7 @@ int RowCountjTable;
         // TODO add your handling code here:
         String id = jTextField1.getText();
         
-        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
 "WHERE Material_id = '"+id+"';");
         
         try
@@ -641,7 +641,7 @@ int RowCountjTable;
             System.out.println(ex);
         }
         
-//        DB_Connect.DB_ResultSet = db_con.executeQuery("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
+//        DB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
 //"WHERE Material_id = '"+id+"';");
         
 
@@ -656,14 +656,14 @@ int RowCountjTable;
     private void TableLoad()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
@@ -699,7 +699,7 @@ int RowCountjTable;
         String reorder = reorderfield.getText();
         String date = datePicker2.getText();
         
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
+        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
 "(`Material_id`,\n" +
 "`Material_Name`,\n" +
 "`Material_cost`,\n" +
@@ -743,7 +743,7 @@ int RowCountjTable;
         reorder=jTextField6.getText();
         date=datePicker1.getText();
         
-        boolean x = db_con.execute("UPDATE `garmentsystem`.`Raw_Materials`\n" +
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Raw_Materials`\n" +
 "SET\n" +
 "`Material_id` = '"+id+"',\n" +
 "`Material_Name` = '"+name+"',\n" +
@@ -774,7 +774,7 @@ int RowCountjTable;
         public void MaterialNameSearch()
     {
             String matname = searchname.getText();
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_Name LIKE '"+matname+"%'");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_Name LIKE '"+matname+"%'");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
     

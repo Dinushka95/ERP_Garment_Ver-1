@@ -2,11 +2,10 @@
 package Maintance;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
-import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 /**
  *
@@ -401,7 +400,7 @@ public class Contactor extends javax.swing.JInternalFrame {
     private void TableLoad()
     {
 
-    AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT `Contactor`.`Contactor_ID`,\n" +
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT `Contactor`.`Contactor_ID`,\n" +
 "    `Contactor`.`Contactor_Name`,\n" +
 "    `Contactor`.`Phone`,\n" +
 "    `Contactor`.`Email`,\n" +
@@ -435,7 +434,7 @@ public class Contactor extends javax.swing.JInternalFrame {
         
         
         
- boolean x = db_con.execute("INSERT INTO `garmentsystem`.`Contactor`\n" +
+ boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Contactor`\n" +
 "(`Contactor_ID`,\n" +
 "`Contactor_Name`,\n" +
 "`Phone`,\n" +

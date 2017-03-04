@@ -2,10 +2,9 @@
 package ManufacturingPlanning;
  
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
-import com.github.lgooddatepicker.components.DateTimePicker;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 
 
@@ -416,7 +415,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
        Integer widthPerSample=Integer.parseInt(jTextField32.getText());
        String availability=myGroup.getSelection().toString();
        
-       boolean x = db_con.execute("INSERT INTO `garmentsystem`.`r_Cutting_Schedule_table`\n" +
+       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Cutting_Schedule_table`\n" +
 "(`Shedule_ID`,\n" +
 "`Style_ID`,\n" +
 "`Material_ID`,\n" +
@@ -457,7 +456,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {

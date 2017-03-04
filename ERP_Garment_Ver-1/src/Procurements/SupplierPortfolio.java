@@ -1,15 +1,11 @@
 
 package Procurements;
 
-import StyleManagement.*;
-import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 
 /**
@@ -414,7 +410,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         
         String id = jTextField16.getText();
         
-        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`Supplier`\n" +
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Supplier`\n" +
 "WHERE Supplier_id = '"+id+"';");
         
         try
@@ -445,26 +441,26 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     
     private void MainTableLoad()
     {
-        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("Select * from Supplier");
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void TableLoad()
     {
-        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("Select * from Supplier");
         jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void TableLoad2()
     {
-        AutoDB_Connect.DB_ResultSet = db_con.executeQuery("Select * from Supplier");
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("Select * from Supplier");
         jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
         private void SupplierNameSearch()
     {
             String name = jTextField15.getText();
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.Supplier WHERE Supplier_id LIKE '"+name+"%'");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Supplier WHERE Supplier_id LIKE '"+name+"%'");
             jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
     
@@ -483,7 +479,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         String fax = jTextField27.getText();
         String account = jTextField28.getText();
         
-        boolean x = db_con.execute("UPDATE `garmentsystem`.`Supplier`\n" +
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Supplier`\n" +
 "SET\n" +
 "`Supplier_id` = '"+id+"',\n" +
 "`Supplier_name` = '"+name+"',\n" +
@@ -569,7 +565,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         String fax = jTextField13.getText();
         String account = jTextField14.getText();
         
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`Supplier`\n" +
+        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Supplier`\n" +
 "(`Supplier_id`,\n" +
 "`Supplier_name`,\n" +
 "`Propreiter`,\n" +

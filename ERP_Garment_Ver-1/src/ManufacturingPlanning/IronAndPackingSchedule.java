@@ -1,10 +1,5 @@
 
 package ManufacturingPlanning;
- 
-import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
-import MainSystem.AutoDB_Connect;
-import MainSystem.MainWindow;
 
 
 

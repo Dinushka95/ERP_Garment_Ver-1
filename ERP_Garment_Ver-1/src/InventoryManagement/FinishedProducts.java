@@ -3,15 +3,12 @@ package InventoryManagement;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
 import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
-import static MainSystem.MainWindow.autoSqlQuery;
 import java.io.File;
-import javax.swing.ImageIcon;
-import javax.swing.JFileChooser;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 import javax.swing.JOptionPane;
 import static MainSystem.MainWindow.autogetimage;
@@ -737,14 +734,14 @@ File Image;
     private void TableLoad()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.product_table");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.product_table");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
@@ -770,7 +767,7 @@ File Image;
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
@@ -799,7 +796,7 @@ File Image;
         String price = sellingPrice.getText();
         String date = datePicker2.getText();
         
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`product_table`\n" +
+        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`product_table`\n" +
 "(`ProductId`,\n" +
 "`ProductName`,\n" +
 "`DesignId`,\n" +
@@ -855,7 +852,7 @@ File Image;
         String price = sellingPrice1.getText();
         String date = datePicker3.getText();
         
-        boolean x =db_con.execute("UPDATE `garmentsystem`.`product_table`\n" +
+        boolean x =autoSqlQuery.execute("UPDATE `garmentsystem`.`product_table`\n" +
 "SET\n" +
 "`ProductId` = '"+id+"',\n" +
 "`ProductName` = '"+name+"',\n" +
@@ -875,7 +872,7 @@ File Image;
     {
         String id = idfield1.getText();
         
-        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`product_table`\n" +
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`product_table`\n" +
 "WHERE ProductId = '"+id+"';");
         
         try
@@ -897,7 +894,7 @@ File Image;
         public void ProductNameSearch()
     {
             String proname = searchProduct.getText();
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.product_table WHERE ProductName LIKE '"+proname+"%'");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.product_table WHERE ProductName LIKE '"+proname+"%'");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
     

@@ -3,11 +3,12 @@ package InventoryManagement;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.AutoSQLQuery.db_con;
+
 import MainSystem.AutoDB_Connect;
-import javax.swing.table.DefaultTableModel;
+
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
 
 /**
  *
@@ -593,7 +594,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         String id1 = macid1.getText();
         String id2 = asstid1.getText();
         
-        boolean x = db_con.execute("DELETE FROM `garmentsystem`.`F_FIXASSETS`\n" +
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_FIXASSETS`\n" +
 "WHERE AssetID = '"+id1+"' and FixAssetsID = '"+id2+"';");
         
         try
@@ -661,14 +662,14 @@ public class Machinery extends javax.swing.JInternalFrame {
     private void TableLoad()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     private void TableLoad2()
     {
 
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
@@ -699,7 +700,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         
         
         
-        boolean x = db_con.execute("INSERT INTO `garmentsystem`.`F_FIXASSETS`\n" +
+        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_FIXASSETS`\n" +
 "(`Date`,\n" +
 "`FixAssetsID`,\n" +
 "`FixAssetType`,\n" +
@@ -745,7 +746,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         String dppr = dpp1.getText();
         String accmdep = accdep1.getText();
         
-        boolean x = db_con.execute("UPDATE `garmentsystem`.`F_FIXASSETS`\n" +
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`F_FIXASSETS`\n" +
 "SET\n" +
 "`Date` = '"+date+"',\n" +
 "`FixAssetsID` = '"+asst_id+"',\n" +
@@ -778,7 +779,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         private void MachineIDSearch()
     {
             String machineid = searchname.getText();
-            AutoDB_Connect.DB_ResultSet = db_con.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS WHERE FixAssetsID LIKE '"+machineid+"%'");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS WHERE FixAssetsID LIKE '"+machineid+"%'");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
     
