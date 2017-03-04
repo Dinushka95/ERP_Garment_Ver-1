@@ -5,6 +5,9 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -23,6 +26,8 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         initComponents();
         generate_cdi();
         FillCombo();
+        FillComboMaterial();
+        FillComboSupervisor();
       
    
     }
@@ -31,7 +36,27 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         //String
     
     }
-     private void generate_cdi(){
+     private void FillComboMaterial()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String matid = AutoDB_Connect.DB_ResultSet.getString("Material_id");
+                jComboBox2.addItem(matid);
+                                       
+             
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
+    private void generate_cdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField28.setText(aid.generate("CUT-SHI",Integer.toString(MainWindow.userid)));
     }
@@ -63,7 +88,6 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         jLabel37 = new javax.swing.JLabel();
         jTextField29 = new javax.swing.JTextField();
         jLabel38 = new javax.swing.JLabel();
-        colorCombo = new javax.swing.JComboBox<>();
         jPanel10 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
         datePicker7 = new com.github.lgooddatepicker.components.DatePicker();
@@ -91,8 +115,9 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         jLabel50 = new javax.swing.JLabel();
         jTextField35 = new javax.swing.JTextField();
         jLabel51 = new javax.swing.JLabel();
-        jTextField36 = new javax.swing.JTextField();
         styleCombo = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jTextField1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -184,8 +209,6 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         jLabel38.setText("Colour");
         jPanel9.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, -1, -1));
 
-        jPanel9.add(colorCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 110, -1));
-
         jPanel10.setBorder(javax.swing.BorderFactory.createTitledBorder("Days"));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -216,8 +239,12 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         jLabel43.setText("Size");
         jPanel9.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel9.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 110, -1));
+        jComboBox2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox2MouseClicked(evt);
+            }
+        });
+        jPanel9.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 110, -1));
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder("Availability"));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -262,7 +289,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
         jLabel49.setText("Material ID");
         jPanel9.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
-        jPanel9.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 110, -1));
+        jPanel9.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 110, -1));
 
         jLabel50.setText("Material Name");
         jPanel9.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
@@ -270,9 +297,16 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
         jLabel51.setText("Supervisor ID");
         jPanel9.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
-        jPanel9.add(jTextField36, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 110, -1));
 
+        styleCombo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                styleComboMouseClicked(evt);
+            }
+        });
         jPanel9.add(styleCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 110, -1));
+
+        jPanel9.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 110, -1));
+        jPanel9.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 160, 110, -1));
 
         jPanel5.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 1260, 520));
 
@@ -402,10 +436,10 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
        String scheduleID=jTextField28.getText();
        String styleNo=styleCombo.getSelectedItem().toString();
-       String  colour=colorCombo.getSelectedItem().toString();//update
+       String  colour=jTextField1.getText();//update
        String size=jComboBox2.getSelectedItem().toString();//update
        String materialID=jTextField34.getText();
-       String supervisorID=jTextField36.getText();
+       String supervisorID=jComboBox1.getSelectedItem().toString();
        Integer noOfLabourers=Integer.parseInt(jTextField26.getText());
        String RoomNo=jTextField27.getText();
        Integer noOfLines=Integer.parseInt(jTextField23.getText());
@@ -463,22 +497,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
                 String id = AutoDB_Connect.DB_ResultSet.getString("StyleId");
                 styleCombo.addItem(id);
                 
-                String color = AutoDB_Connect.DB_ResultSet.getString("Color");
-                
-                boolean exist = false;
-                
-                for(int i=0;i<colorCombo.getItemCount()&& !exist; i++)
-                {
-                    if(color.equals(colorCombo.getItemAt(i)))
-                    {
-                        exist =true;
-                    }
-                    
-                }
-                if(!exist)
-                    {
-                        colorCombo.addItem(color);
-                    }
+               
             }
         }
         catch (Exception ex)
@@ -486,7 +505,25 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
-    
+        private void FillComboSupervisor()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table WHERE depid='cutting' ");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
+                jComboBox1.addItem(id);
+                
+               
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
     
     
     private void jTextField31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField31ActionPerformed
@@ -500,12 +537,45 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void styleComboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_styleComboMouseClicked
+        
+       String size="";
+        String color="";
+        String style = styleCombo.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Size,Color FROM garmentsystem.T_Design_table WHERE StyleId ='"+style+"'");
+       
+        try {
+            
+            AutoDB_Connect.DB_ResultSet.next();
+            size=AutoDB_Connect.DB_ResultSet.getString("Size");
+            color=AutoDB_Connect.DB_ResultSet.getString("color");
+        } catch (SQLException ex) {
+            Logger.getLogger(CuttingSchedule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTextField34.setText(size);
+        jTextField1.setText(color);
+    }//GEN-LAST:event_styleComboMouseClicked
+
+    private void jComboBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox2MouseClicked
+        String name="";
+        String matid = jComboBox2.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Material_Name FROM garmentsystem.Raw_Materials WHERE Material_id ='"+matid+"'");
+         try {
+            
+            AutoDB_Connect.DB_ResultSet.next();
+            name=AutoDB_Connect.DB_ResultSet.getString("Material_Name");
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CuttingSchedule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        jTextField35.setText(name);
+    }//GEN-LAST:event_jComboBox2MouseClicked
     
  
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> colorCombo;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker4;
     private com.github.lgooddatepicker.components.DatePicker datePicker7;
@@ -513,6 +583,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel10;
@@ -567,6 +638,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
@@ -586,7 +658,6 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField33;
     private javax.swing.JTextField jTextField34;
     private javax.swing.JTextField jTextField35;
-    private javax.swing.JTextField jTextField36;
     private javax.swing.JTextField jTextField37;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;

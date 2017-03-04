@@ -43,7 +43,9 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static MainSystem.MainWindow.autoSqlQuery;
 import Maintance.OrderParts;
+import Manufacturing.IronAndPacking;
 import ManufacturingPlanning.CuttingSchedule;
+import ManufacturingPlanning.IronAndPacking1;
 import ManufacturingPlanning.SewingSchedule;
 import ManufacturingPlanning.WashingSchedule;
 import Procurements.SupplierPortfolio;
@@ -356,6 +358,11 @@ public static AutoReport autoReport;
         jPanel3.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
         jButton11.setText("Iron & Packing Planning");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
         jTabbedPane1.addTab("Manufacturing Planning", jPanel3);
@@ -1189,6 +1196,19 @@ public static AutoReport autoReport;
         }
         sup.setMaximizable(false);
     }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        IronAndPacking1 ironAndPacking = new IronAndPacking1();
+        ironAndPacking.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(ironAndPacking);
+        try {
+            ironAndPacking.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            System.out.println(ex);
+        }
+        ironAndPacking.setMaximizable(false);
+    }//GEN-LAST:event_jButton11ActionPerformed
 
     
     /**

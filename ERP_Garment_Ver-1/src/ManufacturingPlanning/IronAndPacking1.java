@@ -1,5 +1,8 @@
 
 package ManufacturingPlanning;
+ 
+import MainSystem.AutoIdGenerator;
+import MainSystem.MainWindow;
 
 
 
@@ -7,16 +10,17 @@ package ManufacturingPlanning;
  *
  * @author Dinushka
  */
-public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
+public class IronAndPacking1 extends javax.swing.JInternalFrame {
 
 
 
     /**
      * Creates new form SalesDesignInquiry
      */
-    public IronAndPackingSchedule() {
+    public IronAndPacking1() {
         initComponents();
-      
+        generate_cdi();
+       
       
    
     }
@@ -25,7 +29,12 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
         //String
     
     }
+     
     
+    private void generate_cdi(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField6.setText(aid.generate("IAP-SHI",Integer.toString(MainWindow.userid)));
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -41,32 +50,43 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jLabel15 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jButton7 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        jTextField25 = new javax.swing.JTextField();
+        jButton9 = new javax.swing.JButton();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        datePicker3 = new com.github.lgooddatepicker.components.DatePicker();
-        jLabel12 = new javax.swing.JLabel();
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
-        jLabel23 = new javax.swing.JLabel();
+        datePicker7 = new com.github.lgooddatepicker.components.DatePicker();
+        jLabel34 = new javax.swing.JLabel();
+        datePicker8 = new com.github.lgooddatepicker.components.DatePicker();
+        jLabel35 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jTextField17 = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
+        jPanel12 = new javax.swing.JPanel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        datePicker4 = new com.github.lgooddatepicker.components.DatePicker();
+        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jTextField7 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
@@ -92,16 +112,6 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
         jTextField13 = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jTextField14 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jComboBox2 = new javax.swing.JComboBox<>();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
-        datePicker4 = new com.github.lgooddatepicker.components.DatePicker();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -121,8 +131,8 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("Style ID");
-        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
+        jLabel8.setText("Style ID");
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 100, -1, -1));
 
         jLabel7.setText("No of Lines");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 370, -1, -1));
@@ -135,20 +145,20 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 430, -1, -1));
 
-        jLabel15.setText("No of Labourers");
-        jPanel2.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+        jLabel33.setText("No of Labourers");
+        jPanel2.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
         jLabel16.setText("Room No");
         jPanel2.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 330, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 110, -1));
+        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 370, 110, -1));
         jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 110, -1));
         jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 290, 110, -1));
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 110, -1));
+        jPanel2.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 110, -1));
 
-        jButton7.setText("View cutting Details");
-        jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 20, -1));
+        jButton9.setText("View cutting Details");
+        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 90, 20, -1));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -159,9 +169,9 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        jScrollPane4.setViewportView(jTable4);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 410, 140));
+        jPanel2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, 410, 140));
 
         jLabel1.setText("Schedule ID");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
@@ -172,14 +182,14 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
 
         jLabel13.setText("End Date");
         jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-        jPanel7.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
+        jPanel7.add(datePicker7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
 
-        jLabel12.setText("Start Date");
-        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
-        jPanel7.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
+        jLabel34.setText("Start Date");
+        jPanel7.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jPanel7.add(datePicker8, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
 
-        jLabel23.setText("No of Days per Sample");
-        jPanel7.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+        jLabel35.setText("No of Days per Sample");
+        jPanel7.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
         jPanel7.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 110, -1));
 
         jLabel24.setText("Total No of Days");
@@ -194,8 +204,8 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
 
         jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 170, 350, 180));
 
-        jLabel3.setText("Iron type");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, -1, -1));
+        jLabel36.setText("Iron type");
+        jPanel2.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 130, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No ironing/ pressing", "Minimuum ironing/ pressing", "Under ironing/ pressing", "Final ironinng/ pressing", "Permanent ironing/ pressing", " " }));
         jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, -1, -1));
@@ -205,6 +215,44 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
         jTabbedPane1.addTab("ADD Cutting schedule", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel12.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
+
+        jPanel12.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, 280));
+        jPanel12.add(datePicker4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
+        jPanel12.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No ironing/ pressing", "Minimuum ironing/ pressing", "Under ironing/ pressing", "Final ironinng/ pressing", "Permanent ironing/ pressing", " " }));
+        jPanel12.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 80, -1));
+        jPanel12.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 80, -1));
+
+        jLabel4.setText("Schedule ID");
+        jPanel12.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
+
+        jLabel5.setText("Type");
+        jPanel12.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
+
+        jLabel6.setText("Start Date");
+        jPanel12.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
+
+        jLabel9.setText("End Date");
+        jPanel12.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 50, -1));
+
+        jPanel3.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 560, 500));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -265,39 +313,6 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 60, 470, 470));
 
-        jLabel4.setText("Schedule ID");
-        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, -1, -1));
-        jPanel3.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, 80, -1));
-
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "No ironing/ pressing", "Minimuum ironing/ pressing", "Under ironing/ pressing", "Final ironinng/ pressing", "Permanent ironing/ pressing", " " }));
-        jPanel3.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 60, 80, -1));
-
-        jLabel5.setText("Type");
-        jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 60, -1, -1));
-
-        jLabel6.setText("Start Date");
-        jPanel3.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, -1, -1));
-        jPanel3.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, -1, -1));
-        jPanel3.add(datePicker4, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
-
-        jLabel9.setText("End Date");
-        jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, 50, -1));
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-
-        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, 280));
-
         jTabbedPane1.addTab("Search &  Delete", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -313,32 +328,29 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
         //  boolean result=customerModel.AddCustomer(jTextFieldCustomerId, jTextFieldCustomerName, jTextFieldCompanyName,jTextFieldPhone,jTextFieldEmail,datePicker2);
-    
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField17ActionPerformed
 
-    
-    
-    
+   
     
         
  
 
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
-    private com.github.lgooddatepicker.components.DatePicker datePicker3;
     private com.github.lgooddatepicker.components.DatePicker datePicker4;
     private com.github.lgooddatepicker.components.DatePicker datePicker5;
     private com.github.lgooddatepicker.components.DatePicker datePicker6;
+    private com.github.lgooddatepicker.components.DatePicker datePicker7;
+    private com.github.lgooddatepicker.components.DatePicker datePicker8;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
@@ -346,41 +358,41 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
@@ -389,8 +401,9 @@ public class IronAndPackingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
