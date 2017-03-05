@@ -170,6 +170,10 @@
                   </Constraints>
                 </Component>
                 <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker1">
+                  <AuxValues>
+                    <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(dateSettings2)"/>
+                    <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings dateSettings2 = new DatePickerSettings();&#xa;dateSettings2.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;dateSettings2.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
+                  </AuxValues>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="180" y="320" width="-1" height="-1"/>
@@ -184,6 +188,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="jTextField4">
+                  <Events>
+                    <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField4KeyReleased"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="180" y="240" width="130" height="-1"/>

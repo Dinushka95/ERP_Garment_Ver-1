@@ -5,6 +5,7 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import static MainSystem.MainWindow.autoSqlQuery;
 import MainSystem.MainWindow;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 
 
 import net.proteanit.sql.DbUtils;
@@ -23,6 +24,7 @@ public class Distribution extends javax.swing.JInternalFrame {
         initComponents();
         generate_distributionid();
         TabelLoad();
+        datePicker1.setDateToToday();
 
     }
 
@@ -51,7 +53,10 @@ public class Distribution extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         dis_id = new javax.swing.JTextField();
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings dateSettings1 = new DatePickerSettings();
+        dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jLabel5 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -319,10 +324,8 @@ public class Distribution extends javax.swing.JInternalFrame {
         String Milage = jTextField4.getText();
         
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Distribution`\n" +
-                "(`Shipment_id`,\n" +
-"`istributionID`,\n" +
-"`Adress`,\n" +
-"`Vehical_ID`,\n" +
+"(`DistributionID`,\n" +
+"`VehicalId`,\n" +
 "`Driver's_ID`,\n" +
 "`Helper's_ID`,\n" +
 "`Date`,\n" +
@@ -335,7 +338,7 @@ public class Distribution extends javax.swing.JInternalFrame {
 "'"+HID+"',\n" +
 "'"+date+"',\n" +
 "'"+Dis_cost+"',\n" +
-"'"+Milage+"',\n" );   
+"'"+Milage+"');");   
         try
         {
             if(x==true)

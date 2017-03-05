@@ -306,13 +306,12 @@ DefaultTableModel model;
         String serDueration = jTextField8.getText();
           
         
-        boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Vehicle`\n" +
-                
-"(`VehicleID`,\n" +
+        boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Vehiclel`\n" +
+"(`VehicalID`,\n" +
 "`Type`,\n" +
 "`LysonNum`,\n" +
 "`Milage`,\n" +
-"`Driver_ID`,\n" +
+"`DriverID`,\n" +
 "`DriverName`,\n" +
 "`Engine_num`,\n" +
 "`Service_duration`)\n" +
@@ -323,8 +322,8 @@ DefaultTableModel model;
 "'"+Milage+"',\n" +
 "'"+DID+"',\n" +
 "'"+Dname+"',\n" +
-  "'"+engNum+"',\n" +
-   "'"+serDueration+"');");   
+"'"+engNum+"',\n" +
+"'"+serDueration+"');");   
         try
         {
             if(x==true)

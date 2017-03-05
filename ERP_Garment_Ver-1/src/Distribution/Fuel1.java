@@ -5,6 +5,7 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -40,7 +41,10 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jPanel5 = new javax.swing.JPanel();
         jButton4 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings dateSettings2 = new DatePickerSettings();
+        dateSettings2.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
         jTextField7 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
@@ -133,6 +137,12 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
         jPanel5.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
         jPanel5.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 130, -1));
+
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextField4KeyReleased(evt);
+            }
+        });
         jPanel5.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 130, -1));
         jPanel5.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 130, -1));
         jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 130, -1));
@@ -251,6 +261,17 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         TextBoxClear();
         generate_FuelID();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+        
+        double unitp = Double.parseDouble(jTextField6.getText());
+        double unit = Double.parseDouble(jTextField4.getText());
+        
+        double cost = unitp * unit;
+        
+        jTextField7.setText(Double.toString(cost));
+        
+    }//GEN-LAST:event_jTextField4KeyReleased
  private void generate_FuelID(){
     AutoIdGenerator aid = new AutoIdGenerator();
      jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));
@@ -258,7 +279,16 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     
     private void TabelLoad()
     {
-        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel");
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT `C-Fuel`.`Fuel-ID`,\n" +
+"    `C-Fuel`.`Vehical_ID`,\n" +
+"    `C-Fuel`.`Driver-ID`,\n" +
+"    `C-Fuel`.`Fuel_StationName`,\n" +
+"    `C-Fuel`.`BillNum`,\n" +
+"    `C-Fuel`.`Unit_price`,\n" +
+"    `C-Fuel`.`Units`,\n" +
+"    `C-Fuel`.`Cost`,\n" +
+"    `C-Fuel`.`date`\n" +
+"FROM `garmentsystem`.`C-Fuel`;");
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
@@ -285,12 +315,13 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         String BillNum = jTextField3.getText();
         String Uprice = jTextField6.getText();
         String Units = jTextField4.getText();
+        String cost = jTextField7.getText();
          String date = datePicker1.getText();
         
-        boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Fuel`\n" +
+        boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C-Fuel`\n" +
 "(`Fuel-ID`,\n" +
-"`Vehival_ID`,\n" +
-"`Driver_ID`,\n" +
+"`Vehical_ID`,\n" +
+"`Driver-ID`,\n" +
 "`Fuel_StationName`,\n" +
 "`BillNum`,\n" +
 "`Unit_Price`,\n" +
@@ -305,7 +336,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
 "'"+BillNum+"',\n" +
 "'"+Uprice+"',\n" +
 "'"+Units+"',\n" +
-//"'"+rcvd+"',\n" +
+"'"+cost+"',\n" +
 "'"+date+"');");
         
         try
