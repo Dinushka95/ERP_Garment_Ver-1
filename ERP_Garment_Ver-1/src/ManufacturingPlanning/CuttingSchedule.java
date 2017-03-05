@@ -8,6 +8,7 @@ import static MainSystem.MainWindow.autoSqlQuery;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ButtonGroup;
 
 
 
@@ -214,6 +215,12 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
         jLabel39.setText("End Date");
         jPanel10.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+
+        datePicker7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                datePicker7MouseExited(evt);
+            }
+        });
         jPanel10.add(datePicker7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
 
         jLabel40.setText("Start Date");
@@ -222,6 +229,12 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
         jLabel41.setText("No of Days per Sample");
         jPanel10.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jTextField30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField30MouseExited(evt);
+            }
+        });
         jPanel10.add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 110, -1));
 
         jLabel42.setText("Total No of Days");
@@ -251,6 +264,15 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
         jLabel44.setText("Width per sample");
         jPanel11.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jTextField32.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField32MouseExited(evt);
+            }
+            public void mouseReleased(java.awt.event.MouseEvent evt) {
+                jTextField32MouseReleased(evt);
+            }
+        });
         jPanel11.add(jTextField32, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 110, -1));
 
         jLabel45.setText("meters");
@@ -258,6 +280,12 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
         jLabel46.setText("Total width needed");
         jPanel11.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
+
+        jTextField33.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                jTextField33PropertyChange(evt);
+            }
+        });
         jPanel11.add(jTextField33, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 110, -1));
 
         jLabel47.setText("meters");
@@ -437,8 +465,8 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
        String scheduleID=jTextField28.getText();
        String styleNo=styleCombo.getSelectedItem().toString();
        String  colour=jTextField1.getText();//update
-       String size=jComboBox2.getSelectedItem().toString();//update
-       String materialID=jTextField34.getText();
+       String size=jTextField34.getText();//update
+       String materialID=jComboBox2.getSelectedItem().toString();
        String supervisorID=jComboBox1.getSelectedItem().toString();
        Integer noOfLabourers=Integer.parseInt(jTextField26.getText());
        String RoomNo=jTextField27.getText();
@@ -448,7 +476,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
        String EndDate=datePicker8.getDate().toString();
        Integer widthPerSample=Integer.parseInt(jTextField32.getText());
        String availability=myGroup.getSelection().toString();
-       
+       try{
        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Cutting_Schedule_table`\n" +
 "(`Shedule_ID`,\n" +
 "`Style_ID`,\n" +
@@ -475,6 +503,10 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 "'"+EndDate+"',\n" +
 "'"+widthPerSample+"',\n" +
 "'"+availability+"');");
+       }
+       catch(Exception e){
+           System.out.println(e);
+       }
                
                
                
@@ -534,46 +566,111 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField11ActionPerformed
 
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
     private void styleComboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_styleComboMouseClicked
         
-       String size="";
-        String color="";
+        //String size="";
+        //String color="";
         String style = styleCombo.getSelectedItem().toString();
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Size,Color FROM garmentsystem.T_Design_table WHERE StyleId ='"+style+"'");
        
         try {
             
             AutoDB_Connect.DB_ResultSet.next();
-            size=AutoDB_Connect.DB_ResultSet.getString("Size");
-            color=AutoDB_Connect.DB_ResultSet.getString("color");
+            String size=AutoDB_Connect.DB_ResultSet.getString("Size");
+            String color=AutoDB_Connect.DB_ResultSet.getString("color");
+            jTextField34.setText(size);
+            jTextField1.setText(color);
         } catch (SQLException ex) {
             Logger.getLogger(CuttingSchedule.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jTextField34.setText(size);
-        jTextField1.setText(color);
+        
     }//GEN-LAST:event_styleComboMouseClicked
 
     private void jComboBox2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox2MouseClicked
-        String name="";
+        //String name="";
         String matid = jComboBox2.getSelectedItem().toString();
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Material_Name FROM garmentsystem.Raw_Materials WHERE Material_id ='"+matid+"'");
          try {
             
             AutoDB_Connect.DB_ResultSet.next();
-            name=AutoDB_Connect.DB_ResultSet.getString("Material_Name");
+            String name=AutoDB_Connect.DB_ResultSet.getString("Material_Name");
+            jTextField35.setText(name);
             
         } catch (SQLException ex) {
             Logger.getLogger(CuttingSchedule.class.getName()).log(Level.SEVERE, null, ex);
         }
-        jTextField35.setText(name);
+        
     }//GEN-LAST:event_jComboBox2MouseClicked
+
+    private void jTextField30MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField30MouseExited
+        
+        try{
+        Integer qty=Integer.parseInt(jTextField29.getText());
+        Integer sample=Integer.parseInt(jTextField30.getText());
+        Integer days=qty*sample;
+        jTextField31.setText(days.toString());
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        
+    }//GEN-LAST:event_jTextField30MouseExited
+
+    private void datePicker7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_datePicker7MouseExited
+        
+    }//GEN-LAST:event_datePicker7MouseExited
+
+    private void jTextField32MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField32MouseExited
+       
+        try{
+        Integer qty=Integer.parseInt(jTextField29.getText());
+        Integer sample=Integer.parseInt(jTextField32.getText());
+        Integer width=qty*sample;
+        jTextField33.setText(width.toString());
+        
+         
+                
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+        
+         
+    }//GEN-LAST:event_jTextField32MouseExited
+
+    private void jTextField33PropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_jTextField33PropertyChange
+        
+    }//GEN-LAST:event_jTextField33PropertyChange
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jTextField32MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField32MouseReleased
+            String matid=jComboBox2.getSelectedItem().toString();
+            try{
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_id='"+matid+"' ");
+            
+            Integer rolls =Integer.parseInt( AutoDB_Connect.DB_ResultSet.getString("Material_qty"));
+            Integer need=Integer.parseInt(jTextField33.getText())/100;
+            
+            ButtonGroup group=new ButtonGroup();
+            group.add(jRadioButton1);
+            group.add(jRadioButton2);
+            if(rolls>=need)
+            {
+                
+                jRadioButton2.setSelected(true);
+            }
+            else
+                jRadioButton1.setSelected(true);
+        }
+            catch(Exception e){
+                System.out.println(e);
+            }
+    }//GEN-LAST:event_jTextField32MouseReleased
     
  
-
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
