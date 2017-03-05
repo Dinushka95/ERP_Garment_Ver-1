@@ -51,7 +51,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
              
             }
         }
-        catch (Exception ex)
+        catch (SQLException ex)
         {
             System.out.println(ex);
         }
@@ -463,17 +463,15 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
        String scheduleID=jTextField28.getText();
-       String styleNo=styleCombo.getSelectedItem().toString();
-       String  colour=jTextField1.getText();//update
-       String size=jTextField34.getText();//update
+       String styleNo=(String) styleCombo.getSelectedItem();
        String materialID=jComboBox2.getSelectedItem().toString();
        String supervisorID=jComboBox1.getSelectedItem().toString();
        Integer noOfLabourers=Integer.parseInt(jTextField26.getText());
        String RoomNo=jTextField27.getText();
        Integer noOfLines=Integer.parseInt(jTextField23.getText());
        Integer noOfDaysPerSample=Integer.parseInt(jTextField30.getText());
-       String startDate=datePicker7.getDate().toString();
-       String EndDate=datePicker8.getDate().toString();
+       String startDate=datePicker7.getText();
+       String EndDate=datePicker8.getText();
        Integer widthPerSample=Integer.parseInt(jTextField32.getText());
        String availability=myGroup.getSelection().toString();
        try{
@@ -532,7 +530,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
                
             }
         }
-        catch (Exception ex)
+        catch (SQLException ex)
         {
             System.out.println(ex);
         }
@@ -551,7 +549,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
                
             }
         }
-        catch (Exception ex)
+        catch (SQLException ex)
         {
             System.out.println(ex);
         }
@@ -631,7 +629,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
          
                 
         }
-        catch(Exception e){
+        catch(NumberFormatException e){
             System.out.println(e);
         }
         
@@ -665,7 +663,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
             else
                 jRadioButton1.setSelected(true);
         }
-            catch(Exception e){
+            catch(NumberFormatException | SQLException e){
                 System.out.println(e);
             }
     }//GEN-LAST:event_jTextField32MouseReleased
