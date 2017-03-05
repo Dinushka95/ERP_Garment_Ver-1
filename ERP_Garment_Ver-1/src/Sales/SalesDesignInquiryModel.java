@@ -220,12 +220,7 @@ public class SalesDesignInquiryModel {
         return SearchCustomerID(temn);
     }
 
-    public boolean DeleteSDI(String SDIId){
-    boolean x = autoSqlQuery.execute("DELETE FROM garmentsystem.designinquiry_table`WHERE salesdesigninquiry_table_SalesDesignInquiryId='"+SDIId+"';"); 
-    boolean y = autoSqlQuery.execute("DELETE FROM garmentsystem.designinquiry_table`WHERE SalesDesignInquiryId='"+SDIId+"';"); 
-      
-    return x;
-    }
+
     
 
     

@@ -836,7 +836,8 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
-        jTable3.setModel(DbUtils.resultSetToTableModel(customerModeSDI.SearchID(jTextFieldSDICustomerId.getText()))); 
+        jTable3.setModel(DbUtils.resultSetToTableModel(customerModeSDI.SearchID(jTextFieldSDICustomerId.getText())));  
+        clearSearch();
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
