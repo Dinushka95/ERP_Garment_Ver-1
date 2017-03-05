@@ -556,7 +556,10 @@ public class Customer extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        String FileLocation="C:\\Users\\Dinu-Laptop\\Documents\\NetBeansProjects\\ERP_Garment_Ver-1\\ERP_Garment_Ver-1\\src\\Sales\\Reports\\CustomerDateRange.jrxml";
+        //String x=System.getProperty("user.dir");
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\CustomerDateRange.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.d_customer_table";
         autoReport.Query2Report(FileLocation, SQL); 
     }//GEN-LAST:event_jButton13ActionPerformed
@@ -566,7 +569,7 @@ public class Customer extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
-        String FileLocation="C:\\Users\\Dinu-Laptop\\Documents\\NetBeansProjects\\ERP_Garment_Ver-1\\ERP_Garment_Ver-1\\src\\Sales\\Reports\\CustomerDateRange.jrxml";
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\CustomerDateRange.jrxml";
         autoReport.Table2Report(FileLocation, jTablesCustomer);
     }//GEN-LAST:event_jButton14ActionPerformed
 

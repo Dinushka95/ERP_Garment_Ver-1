@@ -57,6 +57,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         jTextFieldSalesDesignInquiryId1 = new javax.swing.JTextField();
         jButton28 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -212,6 +213,14 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
 
         jButton28.setText("Select to edit");
         jPanel8.add(jButton28, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 460, -1, -1));
+
+        jButton3.setText("jButton3");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, -1, -1));
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1310, 520));
 
@@ -870,6 +879,11 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     private void jTableSalesInuiryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSalesInuiryMouseClicked
         RowCountjTable=jTableSalesInuiry.getSelectedRow();
     }//GEN-LAST:event_jTableSalesInuiryMouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        System.err.println();
+    }//GEN-LAST:event_jButton3ActionPerformed
     
     public void getSubTotal(){
      
@@ -954,6 +968,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;

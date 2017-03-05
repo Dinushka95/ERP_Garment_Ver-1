@@ -1,6 +1,7 @@
 
-package Sales;
+package Marketing;
 
+import Sales.*;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
@@ -13,7 +14,7 @@ import javax.swing.JTextField;
  *
  * @author Dinushka
  */
-public class SalesDesignInquiryApprovalModel {
+public class MarketDesignInquiryApprovalModel {
     
     public ResultSet ViewAllSDI(){
     return autoSqlQuery.executeAutoViewAll("d_designinquiry_table order by 'AddedDate' desc");

@@ -993,18 +993,18 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     }//GEN-LAST:event_jButton26ActionPerformed
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        String FileLocation="C:\\Users\\Dinu-Laptop\\Documents\\NetBeansProjects\\ERP_Garment_Ver-1\\ERP_Garment_Ver-1\\src\\Sales\\Reports\\SDII.jrxml";
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SDII.jrxml";
         String SQL="SELECT * FROM garmentsystem.d_designinquiry_table";
         autoReport.Query2Report(FileLocation, SQL);
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-        String FileLocation="C:\\Users\\Dinu-Laptop\\Documents\\NetBeansProjects\\ERP_Garment_Ver-1\\ERP_Garment_Ver-1\\src\\Sales\\Reports\\SDII.jrxml";
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SDII.jrxml";
         autoReport.Table2Report(FileLocation, jTable2);
     }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        String FileLocation="C:\\Users\\Dinu-Laptop\\Documents\\NetBeansProjects\\ERP_Garment_Ver-1\\ERP_Garment_Ver-1\\src\\Sales\\Reports\\SDII.jrxml";
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SDII.jrxml";
         String SQL="SELECT * FROM garmentsystem.d_designinquiry_table where DesignInquiryId ='"+jTextFieldSearchTSDIID.getText()+"'";
         autoReport.Query2Report(FileLocation, SQL);
         String FileLocation1="C:\\Users\\Dinu-Laptop\\Documents\\NetBeansProjects\\ERP_Garment_Ver-1\\ERP_Garment_Ver-1\\src\\Sales\\Reports\\SDII2.jrxml";
