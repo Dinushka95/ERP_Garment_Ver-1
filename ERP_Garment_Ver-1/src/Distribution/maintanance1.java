@@ -1,7 +1,7 @@
-
 package Distribution;
 
-import Sales.*;
+
+
 import javax.swing.table.DefaultTableModel;
 
 
@@ -11,17 +11,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class maintanance1 extends javax.swing.JInternalFrame {
 DefaultTableModel model;
-int RowCountjTable2;
-CustomerModel customerModel;
 
-
-        String LogNo;
-        String CustomerId;
-        String CustomerName;
-        String CustomerCompanyName;
-        String CustomerPhone;
-        String CustomerEmail;
-        String CustomerAddres;
 
 
     /**

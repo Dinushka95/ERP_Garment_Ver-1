@@ -1,6 +1,12 @@
 
 package Distribution;
 
+import MainSystem.AutoDB_Connect;
+import MainSystem.AutoIdGenerator;
+import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Dinushka
@@ -13,7 +19,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
      */
     public Fuel1() {
         initComponents();
-
+        generate_FuelID();
+        TabelLoad();
     }
 
     /**
@@ -110,9 +117,19 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton4.setText("Clear All");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
 
         jButton1.setText("ADD");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
         jPanel5.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 320, -1, -1));
         jPanel5.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 130, -1));
@@ -225,6 +242,86 @@ public class Fuel1 extends javax.swing.JInternalFrame {
    
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        AddFuel();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+          
+        TextBoxClear();
+        generate_FuelID();
+    }//GEN-LAST:event_jButton4ActionPerformed
+ private void generate_FuelID(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+     jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));
+    }
+    
+    private void TabelLoad()
+    {
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    }
+    
+    private void TextBoxClear()
+    {
+        jTextField8.setText("");
+         jTextField1.setText("");
+         jTextField2.setText("");
+         jTextField5.setText("");
+         jTextField3.setText("");
+         jTextField6.setText("");
+         jTextField4.setText("");
+         jTextField7.setText("");
+          datePicker1.setText("");
+        
+    }
+    
+    private void AddFuel()
+    {
+        String fid = jTextField8.getText();
+        String VID = jTextField1.getText();
+        String DID = jTextField2.getText();
+        String Fname = jTextField5.getText();
+        String BillNum = jTextField3.getText();
+        String Uprice = jTextField6.getText();
+        String Units = jTextField4.getText();
+         String date = datePicker1.getText();
+        
+        boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Fuel`\n" +
+"(`Fuel-ID`,\n" +
+"`Vehival_ID`,\n" +
+"`Driver_ID`,\n" +
+"`Fuel_StationName`,\n" +
+"`BillNum`,\n" +
+"`Unit_Price`,\n" +
+"`Units`,\n" +
+"`Cost`,\n" +
+"`Date`)\n" +
+"VALUES\n" +
+"('"+fid+"',\n" +
+"'"+VID+"',\n" +
+"'"+DID+"',\n" +
+"'"+Fname+"',\n" +
+"'"+BillNum+"',\n" +
+"'"+Uprice+"',\n" +
+"'"+Units+"',\n" +
+//"'"+rcvd+"',\n" +
+"'"+date+"');");
+        
+        try
+        {
+            if(x==true)
+            {
+                TabelLoad();
+                TextBoxClear();
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JButton jButton1;
@@ -262,4 +359,6 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextFieldSearchCustomerId;
     // End of variables declaration//GEN-END:variables
+
+  
 }
