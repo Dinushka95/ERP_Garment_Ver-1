@@ -6,9 +6,9 @@
 package MainSystem;
 
 import Distribution.Distribution;
-import Distribution.Shipmentnew;
-import Distribution.Vehicle;
 import Distribution.Fuel1;
+import Distribution.Shipmentnew;
+import Distribution.Vehicle1;
 import Distribution.maintanance1;
 import Maintance.Contactor;
 import Finance.BankDetail;
@@ -955,16 +955,18 @@ public static AutoReport autoReport;
     }//GEN-LAST:event_jButton56ActionPerformed
 
     private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
-          Vehicle  vehicle=new  Vehicle();
-        vehicle.setVisible(true);
+          Vehicle1  vehicle1=new  Vehicle1();
+        vehicle1.setVisible(true);
         jDesktopPane1.removeAll();
-        jDesktopPane1.add(vehicle);
+        jDesktopPane1.add(vehicle1);
         try {
-           vehicle.setMaximum(true);
-        } catch (PropertyVetoException ex) {
-            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+           vehicle1.setMaximum(true);
         }
-        vehicle.setMaximizable(false); 
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+        vehicle1.setMaximizable(false); 
     }//GEN-LAST:event_jButton53ActionPerformed
 
     private void jButton57ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton57ActionPerformed

@@ -1,7 +1,7 @@
 
 package Distribution;
 
-import Sales.*;
+
 import javax.swing.table.DefaultTableModel;
 
 
@@ -11,7 +11,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Vehicle extends javax.swing.JInternalFrame {
 DefaultTableModel model;
-int RowCountjTable2;
+
 
 
 
@@ -139,6 +139,11 @@ int RowCountjTable2;
         jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 170, 20));
 
         jButton1.setText("ADD");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 390, -1, -1));
 
         jButton4.setText("Clear All");
@@ -223,6 +228,10 @@ int RowCountjTable2;
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

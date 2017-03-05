@@ -5,7 +5,6 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import static MainSystem.MainWindow.autoSqlQuery;
 import MainSystem.MainWindow;
-import com.github.lgooddatepicker.components.DatePickerSettings;
 
 
 import net.proteanit.sql.DbUtils;
@@ -139,10 +138,17 @@ public class Distribution extends javax.swing.JInternalFrame {
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
         jButton4.setText("Clear All");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 300, -1, -1));
 
         jLabel8.setText("Distribution ID");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        dis_id.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel1.add(dis_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 130, -1));
         jPanel1.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
@@ -237,8 +243,13 @@ public class Distribution extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        AddDistribution();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+         TextBoxClear();
+        generate_distributionid();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
