@@ -5,6 +5,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -91,9 +92,15 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         jLabel38 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jLabel39 = new javax.swing.JLabel();
-        datePicker7 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings dateSettings = new DatePickerSettings();
+        dateSettings.setFormatForDatesCommonEra("yyyy/MM/dd");
+        dateSettings.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        datePicker7 = new com.github.lgooddatepicker.components.DatePicker(dateSettings);
         jLabel40 = new javax.swing.JLabel();
-        datePicker8 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings dateSettings1 = new DatePickerSettings();
+        dateSettings1.setFormatForDatesCommonEra("yyyy/MM/dd");
+        dateSettings1.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        datePicker8 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jLabel41 = new javax.swing.JLabel();
         jTextField30 = new javax.swing.JTextField();
         jLabel42 = new javax.swing.JLabel();
@@ -313,7 +320,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
         jPanel11.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 240, 30));
 
-        jPanel9.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 350, 130));
+        jPanel9.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 280, 450, 130));
 
         jLabel49.setText("Material ID");
         jPanel9.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
@@ -463,17 +470,20 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
 
        String scheduleID=jTextField28.getText();
-       String styleNo=(String) styleCombo.getSelectedItem();
-       String materialID=jComboBox2.getSelectedItem().toString();
-       String supervisorID=jComboBox1.getSelectedItem().toString();
-       Integer noOfLabourers=Integer.parseInt(jTextField26.getText());
        String RoomNo=jTextField27.getText();
-       Integer noOfLines=Integer.parseInt(jTextField23.getText());
-       Integer noOfDaysPerSample=Integer.parseInt(jTextField30.getText());
        String startDate=datePicker7.getText();
        String EndDate=datePicker8.getText();
-       Integer widthPerSample=Integer.parseInt(jTextField32.getText());
-       String availability=myGroup.getSelection().toString();
+       
+       String styleNo=(String) styleCombo.getSelectedItem();
+       String materialID=(String) jComboBox2.getSelectedItem();
+       String supervisorID=(String) jComboBox1.getSelectedItem();
+       String availability=myGroup.getSelection().getActionCommand(); 
+       
+       int widthPerSample=Integer.valueOf(jTextField32.getText());
+       int noOfLabourers=Integer.valueOf(jTextField26.getText());
+       int noOfLines=Integer.valueOf(jTextField3.getText());
+       int noOfDaysPerSample=Integer.valueOf(jTextField30.getText());
+      
        try{
        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Cutting_Schedule_table`\n" +
 "(`Shedule_ID`,\n" +
@@ -603,10 +613,10 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     private void jTextField30MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField30MouseExited
         
         try{
-        Integer qty=Integer.parseInt(jTextField29.getText());
-        Integer sample=Integer.parseInt(jTextField30.getText());
-        Integer days=qty*sample;
-        jTextField31.setText(days.toString());
+        int qty=Integer.parseInt(jTextField29.getText());
+        int sample=Integer.parseInt(jTextField30.getText());
+        int days=qty*sample;
+        jTextField31.setText( Integer.toString(days));
         }
         catch(Exception e){
             System.out.println(e);
@@ -619,19 +629,19 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_datePicker7MouseExited
 
     private void jTextField32MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField32MouseExited
-       
+      
         try{
-        Integer qty=Integer.parseInt(jTextField29.getText());
-        Integer sample=Integer.parseInt(jTextField32.getText());
-        Integer width=qty*sample;
-        jTextField33.setText(width.toString());
+        int qty=Integer.valueOf(jTextField29.getText());
+        int sample=Integer.valueOf(jTextField32.getText());
+        int width=qty*sample;
+        jTextField33.setText( Integer.toString(width));
         
          
                 
         }
         catch(NumberFormatException e){
             System.out.println(e);
-        }
+        }       
         
          
     }//GEN-LAST:event_jTextField32MouseExited
@@ -645,12 +655,12 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void jTextField32MouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField32MouseReleased
-            String matid=jComboBox2.getSelectedItem().toString();
+ String matid=(String) jComboBox2.getSelectedItem();
             try{
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_id='"+matid+"' ");
             
-            Integer rolls =Integer.parseInt( AutoDB_Connect.DB_ResultSet.getString("Material_qty"));
-            Integer need=Integer.parseInt(jTextField33.getText())/100;
+            int rolls =Integer.valueOf(AutoDB_Connect.DB_ResultSet.getString("Material_qty"));
+            int need=Integer.valueOf(jTextField33.getText())/100;
             
             ButtonGroup group=new ButtonGroup();
             group.add(jRadioButton1);
@@ -665,7 +675,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         }
             catch(NumberFormatException | SQLException e){
                 System.out.println(e);
-            }
+            }           
     }//GEN-LAST:event_jTextField32MouseReleased
     
  
