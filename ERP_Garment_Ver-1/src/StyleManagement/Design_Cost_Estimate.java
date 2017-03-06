@@ -880,6 +880,23 @@ int RowCountjTable2;
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
+    
+    private void TableLoad2()
+    {
+
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT `Accessory_Table`.`accessory_id`,\n" +
+"    `Accessory_Table`.`accessory_name`,\n" +
+"    `Accessory_Table`.`accessory_cost`,\n" +
+"    `Accessory_Table`.`accessory_qty`,\n" +
+"    `Accessory_Table`.`accessory_value`,\n" +
+"    `Accessory_Table`.`accessory_type`,\n" +
+"    `Accessory_Table`.`Accessory_reorder`,\n" +
+"    `Accessory_Table`.`accessory_date`\n" +
+"FROM `garmentsystem`.`Accessory_Table`;");
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
    
     private void TextBoxClear(){
             jComboBox2.setSelectedIndex(0);
