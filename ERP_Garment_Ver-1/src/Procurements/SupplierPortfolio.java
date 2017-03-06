@@ -18,6 +18,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         initComponents();
         generate_Supid();
         
+        MainTableLoad();
         TableLoad();
         TableLoad2();
     }
