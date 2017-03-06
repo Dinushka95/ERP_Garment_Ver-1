@@ -48,6 +48,7 @@ import ManufacturingPlanning.CuttingSchedule;
 import ManufacturingPlanning.IronAndPacking1;
 import ManufacturingPlanning.SewingSchedule;
 import ManufacturingPlanning.WashingSchedule;
+import Procurements.Purchasing;
 import Procurements.SupplierPortfolio;
 import Sample.Sample_Approval;
 import Sample.Sample_Costing;
@@ -394,6 +395,11 @@ public static AutoReport autoReport;
         jPanel5.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 11, -1, -1));
 
         jButton26.setText("Purchasing ");
+        jButton26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton26ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         jButton27.setText("Return goods (to supplier)");
@@ -1211,6 +1217,19 @@ public static AutoReport autoReport;
         }
         ironAndPacking.setMaximizable(false);
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton26ActionPerformed
+        Purchasing pur = new Purchasing();
+        pur.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(pur);
+        try {
+            pur.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        pur.setMaximizable(false);
+    }//GEN-LAST:event_jButton26ActionPerformed
 
     
     /**
