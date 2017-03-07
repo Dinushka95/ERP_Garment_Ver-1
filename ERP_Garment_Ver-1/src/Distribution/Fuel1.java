@@ -22,6 +22,10 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         initComponents();
         generate_FuelID();
         TabelLoad();
+        
+          TabelLoad();
+        datePicker1.setDateToToday();
+
     }
 
     /**
