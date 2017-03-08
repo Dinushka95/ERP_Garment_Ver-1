@@ -32,7 +32,7 @@ import Sales.SalesDesignInquiryApproval;
 import Sales.SalesInquiry;
 import Sales.SalesPayment;
 import Sales.SalesReturn;
-import StyleManagement.Create_Design;
+import StyleManagement.CreateDesign;
 import StyleManagement.Design_Cost_Estimate;
 import StyleManagement.Design_Approval;
 import java.awt.Dimension;
@@ -52,6 +52,8 @@ import Procurements.Purchasing;
 import Procurements.SupplierPortfolio;
 import Sample.Sample_Approval;
 import Sample.Sample_Costing;
+import StyleManagement.CreateDesign;
+import StyleManagement.Update_Delete_Designs;
 
 
 /**
@@ -119,6 +121,7 @@ public static AutoReport autoReport;
         jButton6 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
         jButton42 = new javax.swing.JButton();
+        jButton23 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jButton12 = new javax.swing.JButton();
         jButton28 = new javax.swing.JButton();
@@ -281,7 +284,7 @@ public static AutoReport autoReport;
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 11, -1, -1));
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jButton14.setText("Design Cost Estimate");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -289,7 +292,7 @@ public static AutoReport autoReport;
                 jButton14ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
+        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
 
         jButton42.setText("Design Approval");
         jButton42.addActionListener(new java.awt.event.ActionListener() {
@@ -297,7 +300,15 @@ public static AutoReport autoReport;
                 jButton42ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
+        jPanel2.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
+
+        jButton23.setText("Update||Delete");
+        jButton23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton23ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         jTabbedPane1.addTab("Style Management", jPanel2);
 
@@ -760,7 +771,7 @@ public static AutoReport autoReport;
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
        
-        Create_Design createdesign =new Create_Design();
+        CreateDesign createdesign =new CreateDesign();
         createdesign.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(createdesign);
@@ -1231,6 +1242,23 @@ public static AutoReport autoReport;
         pur.setMaximizable(false);
     }//GEN-LAST:event_jButton26ActionPerformed
 
+    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
+        // TODO add your handling code here:
+        
+         Update_Delete_Designs design =new Update_Delete_Designs();
+        design.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(design);
+        try {
+           design.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        design.setMaximizable(false); 
+        
+        
+    }//GEN-LAST:event_jButton23ActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -1288,6 +1316,7 @@ public static AutoReport autoReport;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
+    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
