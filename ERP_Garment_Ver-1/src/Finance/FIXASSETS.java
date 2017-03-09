@@ -3,6 +3,14 @@ package Finance;
 
 //import Sales.*;
 
+import MainSystem.AutoDB_Connect;
+import MainSystem.AutoIdGenerator;
+import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
+import com.github.lgooddatepicker.components.DatePickerSettings;
+import net.proteanit.sql.DbUtils;
+
+
 /**
  *
  * @author Dinushka
@@ -18,8 +26,15 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
      */
     public FIXASSETS() {
       
-        
-        
+      initComponents();  
+       
+      
+       generate_Asstid();
+       generate_landid();
+       generate_vehicleid();
+       TableLoad();
+       
+        datePicker1.setDateToToday();
     }
 
     /**
@@ -42,20 +57,26 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        Cost = new javax.swing.JTextField();
+        rate1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        dep1 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        Fixass = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        accdep = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        Assetid = new javax.swing.JTextField();
+        DatePickerSettings dateSettings1 = new DatePickerSettings();
+        dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
+        ADDjButton1 = new javax.swing.JButton();
+        EditjButton2 = new javax.swing.JButton();
+        DeletejButton3 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Expences");
@@ -102,16 +123,31 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jLabel4.setText("Date");
         jPanel11.add(jLabel4);
         jLabel4.setBounds(10, 40, 60, 14);
-        jPanel11.add(jTextField2);
-        jTextField2.setBounds(180, 110, 140, 20);
-        jPanel11.add(jTextField3);
-        jTextField3.setBounds(180, 140, 140, 20);
+        jPanel11.add(Cost);
+        Cost.setBounds(180, 110, 140, 20);
 
-        jLabel8.setText("Accumulate Depreaciation");
+        rate1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                rate1KeyReleased(evt);
+            }
+        });
+        jPanel11.add(rate1);
+        rate1.setBounds(180, 140, 140, 20);
+
+        jLabel8.setText("Depreaciation ");
         jPanel11.add(jLabel8);
         jLabel8.setBounds(10, 180, 140, 14);
-        jPanel11.add(jTextField5);
-        jTextField5.setBounds(180, 170, 140, 20);
+
+        dep1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                dep1KeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                dep1KeyReleased(evt);
+            }
+        });
+        jPanel11.add(dep1);
+        dep1.setBounds(180, 170, 140, 20);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,24 +168,51 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jLabel9.setText("Fix Asset ID");
         jPanel11.add(jLabel9);
         jLabel9.setBounds(10, 70, 70, 14);
-        jPanel11.add(jTextField6);
-        jTextField6.setBounds(180, 70, 140, 20);
+        jPanel11.add(Fixass);
+        Fixass.setBounds(180, 70, 140, 20);
         jPanel11.add(jLabel10);
         jLabel10.setBounds(540, 110, 90, 20);
 
-        jLabel11.setText("Next year Cost");
+        jLabel11.setText("Accumulate Depreciation");
         jPanel11.add(jLabel11);
-        jLabel11.setBounds(10, 220, 90, 14);
-        jPanel11.add(jTextField8);
-        jTextField8.setBounds(180, 210, 140, 20);
+        jLabel11.setBounds(10, 220, 140, 14);
+        jPanel11.add(accdep);
+        accdep.setBounds(180, 210, 140, 20);
 
         jLabel12.setText("ID");
         jPanel11.add(jLabel12);
         jLabel12.setBounds(570, 70, 40, 14);
-        jPanel11.add(jTextField7);
-        jTextField7.setBounds(620, 70, 90, 20);
+        jPanel11.add(Assetid);
+        Assetid.setBounds(620, 70, 90, 20);
         jPanel11.add(datePicker1);
         datePicker1.setBounds(180, 40, 139, 20);
+
+        ADDjButton1.setText("ADD");
+        ADDjButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ADDjButton1ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(ADDjButton1);
+        ADDjButton1.setBounds(350, 230, 73, 23);
+
+        EditjButton2.setText("EDIT");
+        EditjButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditjButton2ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(EditjButton2);
+        EditjButton2.setBounds(440, 230, 55, 23);
+
+        DeletejButton3.setText("DELETE");
+        DeletejButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletejButton3ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(DeletejButton3);
+        DeletejButton3.setBounds(520, 230, 69, 23);
 
         jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 830, 470));
 
@@ -161,10 +224,189 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
 
+    private void dep1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dep1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dep1KeyReleased
+
+    private void dep1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dep1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dep1KeyPressed
+
+    private void ADDjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDjButton1ActionPerformed
+        // TODO add your handling code here:
+        AddFIXASSETS();
+        TableLoad();
+        TextBoxClear();
+        
+    }//GEN-LAST:event_ADDjButton1ActionPerformed
+
+    private void EditjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditjButton2ActionPerformed
+        // TODO add your handling code here:
+        EditFIXASSETS();
+        TableLoad();
+        TextBoxClear();
+    }//GEN-LAST:event_EditjButton2ActionPerformed
+
+    private void DeletejButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton3ActionPerformed
+        // TODO add your handling code here:
+          String Fixid = Fixass.getText();
+          String  assid = Assetid.getText();
+        
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_FIXASSETS`\n" +
+"WHERE Fixid ;");
+        
+        try
+        {
+            if (x==true)
+            {
+                TextBoxClear();
+                TableLoad();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+        
+    }//GEN-LAST:event_DeletejButton3ActionPerformed
+
+    private void rate1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rate1KeyReleased
+        // TODO add your handling code here:
+        
+        
+         float cst = Float.parseFloat(Cost.getText());
+        
+        float rate = Float.parseFloat(rate1.getText());
+        
+        float depreciation = cst*(rate/100);
+        
+        dep1.setText(Double.toString(depreciation));
+        
+        float acc = cst-depreciation;
+        
+        accdep.setText(Double.toString(acc));
+        
+    }//GEN-LAST:event_rate1KeyReleased
+     private void generate_Asstid(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    Fixass.setText(aid.generate("ASST",Integer.toString(MainWindow.userid)));
+    }
+    
+    private void generate_landid(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    Assetid.setText(aid.generate("LAN",Integer.toString(MainWindow.userid)));
+    }
+     private void generate_vehicleid(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    Assetid.setText(aid.generate("VEHI",Integer.toString(MainWindow.userid)));
+    }
+     public void AddFIXASSETS()
+     {
+         String date = datePicker1.getText();
+         String Fixid = Fixass.getText();
+         String type = jComboBox1.getSelectedItem().toString();
+         String assid = Assetid.getText();
+        float cost = Float.parseFloat(Cost.getText());
+         String rate = rate1.getText();
+         float dep = Float.parseFloat(dep1.getText());
+        float Adep = Float.parseFloat(accdep.getText() );
+                 
+         
+         
+          boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_FIXASSETS`\n" +
+"(`Date`,\n" +
+"`FixAssetsID`,\n" +
+"`FixAssetType`,\n" +
+"`AssetID`,\n" +
+"`Cost`,\n" +
+"`Rate`,\n" +
+"`Depreaciation`,\n" +
+"`Accumulate Depreaciation`)\n" +
+"VALUES\n" +
+"'"+date+"',\n" +
+"'"+Fixid+"',\n" +
+"'"+type+"',\n" +
+"'"+assid+"',\n" +
+""+cost+",\n" +
+"'"+rate+"',\n" +
+""+dep+",\n" +
+""+Adep+");");
+          
+             try
+        {
+            if(x==true)
+            {
+                TableLoad();
+                TextBoxClear();
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+     }
+ private void TableLoad()
+    {
+
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`F_FIXASSETS`");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
+ private void  TextBoxClear()
+ {
+         datePicker1.setDateToToday();
+         Fixass.setText("");
+         jComboBox1.setSelectedIndex(0);
+         Assetid.setText("");
+         Cost.setText("");
+         rate1.setText("");
+         dep1.setText("");
+         accdep.setText("");
+ }
+ public void  EditFIXASSETS()
+ {
+      String date = datePicker1.getText();
+         String Fixid = Fixass.getText();
+         String type = jComboBox1.getSelectedItem().toString();
+         String assid = Assetid.getText();
+         String cost = Cost.getText();
+         String rate = rate1.getText();
+         String dep = dep1.getText();
+         String Adep = accdep.getText();
+         
+           boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`F_FIXASSETS`\n" +
+"SET\n" +
+"`Date` = '"+date+"',\n" +
+"`FixAssetsID` = '"+Fixid+"',\n" +
+"`FixAssetType` = '"+type+"',\n" +
+"`AssetID` = '"+assid+"',\n" +
+"`Cost` = "+cost+",\n" +
+"`Rate` = '"+rate+"',\n" +
+"`Depreaciation` = "+dep+",\n" +
+"`Accumulate Depreaciation` = "+Adep+"\n" +
+"WHERE `FixAssetsID` = '"+Fixid+"' AND `AssetID` = '"+assid+"';");
+              try
+        {
+            if (x==true)
+            {
+               TextBoxClear();
+               TableLoad();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+ }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ADDjButton1;
+    private javax.swing.JTextField Assetid;
+    private javax.swing.JTextField Cost;
+    private javax.swing.JButton DeletejButton3;
+    private javax.swing.JButton EditjButton2;
+    private javax.swing.JTextField Fixass;
+    private javax.swing.JTextField accdep;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private javax.swing.JTextField dep1;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -183,11 +425,13 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField rate1;
     // End of variables declaration//GEN-END:variables
-}
+
+ 
+    }
+
+    
+
+  
+

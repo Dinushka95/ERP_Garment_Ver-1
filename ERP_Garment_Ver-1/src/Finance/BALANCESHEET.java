@@ -95,7 +95,7 @@ public class BALANCESHEET extends javax.swing.JInternalFrame {
         jTextField21 = new javax.swing.JTextField();
 
         setResizable(true);
-        setTitle("Expences");
+        setTitle("Balance Sheet");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -260,7 +260,7 @@ public class BALANCESHEET extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 730, 550));
 
-        jTabbedPane1.addTab("Fix Assets", jPanel1);
+        jTabbedPane1.addTab("Balance Sheet", jPanel1);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 

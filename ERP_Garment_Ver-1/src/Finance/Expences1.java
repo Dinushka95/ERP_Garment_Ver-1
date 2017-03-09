@@ -3,6 +3,7 @@ package Finance;
 
 import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
+import com.github.lgooddatepicker.components.DatePickerSettings;
 import net.proteanit.sql.DbUtils;
 
 
@@ -51,7 +52,10 @@ public class Expences1 extends javax.swing.JInternalFrame {
         jTextArea1description = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
         jTextField2amt = new javax.swing.JTextField();
-        datePicker1date = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings dateSettings1 = new DatePickerSettings();
+        dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker1date = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jPanel11 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jTextField15 = new javax.swing.JTextField();
@@ -99,7 +103,7 @@ public class Expences1 extends javax.swing.JInternalFrame {
         jLabel19.setText("Expences Type");
         jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 80, -1));
 
-        jComboBox3type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Description Expences", "Administration Expences", "Other Expences", "Financial Expences", " ", " " }));
+        jComboBox3type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Expence", "Description Expences", "Administration Expences", "Other Expences", "Financial Expences", " ", " " }));
         jPanel10.add(jComboBox3type, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 140, -1));
 
         jLabel1.setText("Bill No");

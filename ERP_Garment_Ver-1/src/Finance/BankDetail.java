@@ -44,10 +44,10 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jTextField6Branch = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jTextField10amt = new javax.swing.JTextField();
-        jButton4 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton12 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        ADDjButton4 = new javax.swing.JButton();
+        EDITjButton11 = new javax.swing.JButton();
+        SEARCHjButton12 = new javax.swing.JButton();
+        DELETEjButton6 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextField1Cus = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -59,6 +59,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker1date = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jLabel3 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -77,9 +78,9 @@ public class BankDetail extends javax.swing.JInternalFrame {
         dateSettings2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker2date = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        EditjButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        DeletejButton5 = new javax.swing.JButton();
         jComboBox1bank = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -115,26 +116,36 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel7.add(jTextField10amt);
         jTextField10amt.setBounds(130, 240, 180, 30);
 
-        jButton4.setText("ADD");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        ADDjButton4.setText("ADD");
+        ADDjButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                ADDjButton4ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton4);
-        jButton4.setBounds(20, 280, 53, 23);
+        jPanel7.add(ADDjButton4);
+        ADDjButton4.setBounds(20, 280, 53, 23);
 
-        jButton11.setText("EDIT");
-        jPanel7.add(jButton11);
-        jButton11.setBounds(110, 280, 55, 23);
+        EDITjButton11.setText("EDIT");
+        EDITjButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EDITjButton11ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(EDITjButton11);
+        EDITjButton11.setBounds(110, 280, 55, 23);
 
-        jButton12.setText("SEARH");
-        jPanel7.add(jButton12);
-        jButton12.setBounds(190, 280, 73, 23);
+        SEARCHjButton12.setText("SEARH");
+        jPanel7.add(SEARCHjButton12);
+        SEARCHjButton12.setBounds(190, 280, 73, 23);
 
-        jButton6.setText("DELETE");
-        jPanel7.add(jButton6);
-        jButton6.setBounds(310, 280, 80, 23);
+        DELETEjButton6.setText("DELETE");
+        DELETEjButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DELETEjButton6ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(DELETEjButton6);
+        DELETEjButton6.setBounds(310, 280, 80, 23);
 
         jLabel8.setText("Customer ID");
         jPanel7.add(jLabel8);
@@ -164,6 +175,15 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel7.add(jLabel3);
         jLabel3.setBounds(10, 40, 80, 14);
 
+        jButton7.setText("Reset All");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton7);
+        jButton7.setBounds(563, 280, 90, 23);
+
         jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 670, 320));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -180,6 +200,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 640, 100));
@@ -189,7 +214,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel3.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setText("WIDTHDROW DETAILS");
+        jLabel2.setText("WITHDRAWAL  DETAILS");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel9.setText("Cheque No ");
@@ -219,14 +244,24 @@ public class BankDetail extends javax.swing.JInternalFrame {
         });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
-        jButton2.setText("EDIT");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
+        EditjButton2.setText("EDIT");
+        EditjButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditjButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(EditjButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
 
         jButton3.setText("SEARH");
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 260, -1, -1));
 
-        jButton5.setText("DELETE");
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, -1, -1));
+        DeletejButton5.setText("DELETE");
+        DeletejButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeletejButton5ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(DeletejButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 260, -1, -1));
 
         jComboBox1bank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Bank", "BOC", "Peoples Bank", "HNB ", "UNION", " " }));
         jPanel3.add(jComboBox1bank, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, 180, -1));
@@ -247,6 +282,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable2);
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 110));
@@ -264,10 +304,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void ADDjButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDjButton4ActionPerformed
         AddDeposit();
         TableLoad1();
-    }//GEN-LAST:event_jButton4ActionPerformed
+        
+    }//GEN-LAST:event_ADDjButton4ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -275,6 +316,103 @@ public class BankDetail extends javax.swing.JInternalFrame {
         TableLoad2();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void EDITjButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITjButton11ActionPerformed
+        // TODO add your handling code here:
+        EditDeposit();
+        TextBoxClear1();
+        TableLoad1();
+        
+    }//GEN-LAST:event_EDITjButton11ActionPerformed
+
+    private void EditjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditjButton2ActionPerformed
+        // TODO add your handling code here:
+        EditWithraw();
+         TextBoxClear2();
+        TableLoad2();
+    }//GEN-LAST:event_EditjButton2ActionPerformed
+
+    private void DELETEjButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEjButton6ActionPerformed
+        // TODO add your handling code here:
+          String cno = jTextField5CheNo.getText();
+        
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_DEPOSIT DETAILS`\n" +
+"WHERE Cheque No LIKE '"+cno+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                TextBoxClear1();
+                TableLoad1();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+        
+    }//GEN-LAST:event_DELETEjButton6ActionPerformed
+
+
+    private void DeletejButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton5ActionPerformed
+        // TODO add your handling code here:
+         String cno = jTextField2cno.getText();
+        
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_WITHDRAW DETAILS`\n" +
+"WHERE ChequeNo ='"+cno+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                TextBoxClear2();
+                TableLoad2();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_DeletejButton5ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+        
+           int row =jTable1.getSelectedRow();
+        String cno = jTable1.getValueAt(row,0).toString();
+        String cusid = jTable1.getValueAt(row,1).toString();
+        String b_name = jTable1.getValueAt(row,2).toString();
+        String br_name = jTable1.getValueAt(row,3).toString();
+        String date = jTable1.getValueAt(row,4).toString();
+        String amount = jTable1.getValueAt(row,5).toString();
+        
+        jTextField5CheNo.setText(cno);
+      jTextField1Cus.setText(cusid);
+      jComboBox2b_name.setSelectedItem(b_name);
+
+      
+      jTextField6Branch.setText(br_name);
+      datePicker1date.setText(date); 
+      jTextField10amt.setText(amount);
+        
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        
+         int row =jTable2.getSelectedRow();
+        String cno = jTable2.getValueAt(row,0).toString();
+        String b_name = jTable2.getValueAt(row,1).toString();
+        String br_name = jTable2.getValueAt(row,2).toString();
+        String w_date = jTable2.getValueAt(row,3).toString();
+        String amount = jTable2.getValueAt(row,4).toString();
+       
+        
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    
   private void TableLoad1()
   {
       AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
@@ -392,17 +530,76 @@ public class BankDetail extends javax.swing.JInternalFrame {
       datePicker2date.setDateToToday();
       jTextField6amt.setText("");
   }
+  public void  EditDeposit()
+  {
+      String cno = jTextField5CheNo.getText();
+      String cusid = jTextField1Cus.getText();
+      String b_name = jComboBox2b_name.getSelectedItem().toString();
+      String br_name = jTextField6Branch.getText();
+      String date = datePicker1date.getText() ;
+      float amount =Float.parseFloat(jTextField10amt.getText());
+      
+       boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`F_DEPOSIT DETAILS`\n" +
+"SET\n" +
+"`Cheque No` = '"+cno+"',\n" +
+"`Customer ID` = '"+cusid+"',\n" +
+"`Bank Name` = '"+b_name+"',\n" +
+"`Branch Name` = '"+br_name+"',\n" +
+"`Deposit Date` = '"+date+"',\n" +
+"`Amount` = "+amount+"\n" +
+"WHERE `Cheque No` = '"+cno+"';");
+         try
+        {
+            if (x==true)
+            {
+               TextBoxClear1();
+               TableLoad1();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+  }
+     public void EditWithraw()
+     {
+          String cno = jTextField2cno.getText();
+      String b_name = jComboBox1bank.getSelectedItem().toString();
+      String br_name = jTextField5brname.getText();
+      String w_date = datePicker2date.getText() ;
+      float amount =Float.parseFloat(jTextField6amt.getText());
+      
+       boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`F_WITHDRAW DETAILS`\n" +
+"SET\n" +
+"`ChequeNo` = '"+cno+"',\n" +
+"`Bank Name` = '"+b_name+"',\n" +
+"`Branch Name` = '"+br_name+"',\n" +
+"`WithdrawDate` = '"+w_date+"',\n" +
+"`Amount` = "+amount+"\n" +
+"WHERE `ChequeNo` = '"+cno+"';");
+        try
+        {
+            if (x==true)
+            {
+               TextBoxClear2();
+               TableLoad2();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton ADDjButton4;
+    private javax.swing.JButton DELETEjButton6;
+    private javax.swing.JButton DeletejButton5;
+    private javax.swing.JButton EDITjButton11;
+    private javax.swing.JButton EditjButton2;
+    private javax.swing.JButton SEARCHjButton12;
     private com.github.lgooddatepicker.components.DatePicker datePicker1date;
     private com.github.lgooddatepicker.components.DatePicker datePicker2date;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox1bank;
     private javax.swing.JComboBox<String> jComboBox2b_name;
     private javax.swing.JLabel jLabel1;
@@ -437,4 +634,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField6Branch;
     private javax.swing.JTextField jTextField6amt;
     // End of variables declaration//GEN-END:variables
+
+  
+
+   
 }

@@ -4,6 +4,7 @@ package Finance;
 
 import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
+import net.proteanit.sql.DbUtils;
 
 
 /**
@@ -19,7 +20,12 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
      */
     public LOANDETAILS() {
         initComponents();
-
+        
+         TableLoad();
+         TextBoxClear();
+         
+         
+        datePicker1.setDateToToday();
     }
 
     /**
@@ -45,12 +51,12 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         jTextField3 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        amt1 = new javax.swing.JTextField();
+        Mrate = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        payamt = new javax.swing.JTextField();
+        AddjButton1 = new javax.swing.JButton();
+        EditjButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -92,42 +98,58 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
 
         jLabel16.setText("Month Interrest");
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, -1, -1));
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 120, -1));
-        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 120, -1));
+        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 60, 150, -1));
+        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, 150, -1));
 
         jLabel1.setText("Loan period");
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 120, -1));
-        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 120, -1));
-        jPanel3.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 120, -1));
+        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 150, -1));
+
+        amt1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                amt1KeyReleased(evt);
+            }
+        });
+        jPanel3.add(amt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 180, 150, -1));
+        jPanel3.add(Mrate, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 150, -1));
 
         jLabel2.setText("Payment for Month");
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
-        jPanel3.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 120, -1));
+        jPanel3.add(payamt, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 150, -1));
 
-        jButton1.setText("ADD");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        AddjButton1.setText("ADD");
+        AddjButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                AddjButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+        jPanel3.add(AddjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
-        jButton2.setText("EDIT");
-        jPanel3.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
+        EditjButton2.setText("EDIT");
+        EditjButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EditjButton2ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(EditjButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 290, -1, -1));
 
         jButton3.setText("SEARCH");
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 290, -1, -1));
 
         jButton4.setText("DELETE");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Bank", "BOC", "Peoples Bank", "HNB ", "UNION" }));
-        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 120, -1));
+        jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 150, -1));
 
         jLabel3.setText("Date");
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-        jPanel3.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, -1, -1));
+        jPanel3.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 120, 150, -1));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 480, 380));
 
@@ -144,6 +166,11 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5", "Title 6", "Title 7"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 770, 110));
@@ -161,10 +188,51 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void AddjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddjButton1ActionPerformed
         // TODO add your handling code here:
         AddLoan();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        TableLoad();
+    }//GEN-LAST:event_AddjButton1ActionPerformed
+
+    private void amt1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_amt1KeyReleased
+        // TODO add your handling code here:
+        
+        float amount = Float.parseFloat(amt1.getText());
+        
+        float rate = Float.parseFloat(Mrate.getText());
+        
+        float depreciation = amount*(rate/100);
+        
+        
+        float mopay = amount-depreciation;
+        
+        payamt.setText(Double.toString(mopay));
+        
+    }//GEN-LAST:event_amt1KeyReleased
+
+    private void EditjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditjButton2ActionPerformed
+        // TODO add your handling code here:
+        EditLoan();
+        TableLoad();
+    }//GEN-LAST:event_EditjButton2ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+           int row =jTable1.getSelectedRow(); 
+        String b_name = jTable1.getValueAt(row,0).toString();
+        String br_name = jTable1.getValueAt(row,1).toString();
+        String acc_no = jTable1.getValueAt(row,2).toString();
+        String date = jTable1.getValueAt(row,3).toString();
+        String period = jTable1.getValueAt(row,4).toString();
+        String amt = jTable1.getValueAt(row,5).toString();
+        String inter = jTable1.getValueAt(row,6).toString();
+        String payment = jTable1.getValueAt(row,7).toString();
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton4ActionPerformed
    
       private void TableLoad()
   {
@@ -177,6 +245,7 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
 "    `F_LOANDETAILS`.`Month Interest`,\n" +
 "    `F_LOANDETAILS`.`Payment`\n" +
 "FROM `garmentsystem`.`F_LOANDETAILS`;");
+       jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
   }
     public void AddLoan()
     {
@@ -185,9 +254,9 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         String acc_no = jTextField3.getText();
         String date = datePicker1.getText();
         String period = jTextField4.getText();
-        String amt = jTextField5.getText();
-        String inter = jTextField6.getText();
-        String payment = jTextField7.getText();
+        String amt = amt1.getText();
+        String inter = Mrate.getText();
+        String payment = payamt.getText();
         
         boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_LOANDETAILS`\n" +
 "(`BankName`,\n" +
@@ -229,14 +298,50 @@ private void TextBoxClear()
         jTextField3.setText("");
         datePicker1.setDateToToday();
         jTextField4.setText("");
-        jTextField5.setText("");
-        jTextField6.setText("");
-        jTextField7.setText("");
+        amt1.setText("");
+        Mrate.setText("");
+        payamt.setText("");
+}
+public void EditLoan()
+{
+     String b_name = jComboBox1.getSelectedItem().toString();
+        String br_name = jTextField2.getText();
+        String acc_no = jTextField3.getText();
+        String date = datePicker1.getText();
+        String period = jTextField4.getText();
+        String amt = amt1.getText();
+        String inter = Mrate.getText();
+        String payment = payamt.getText();
+        
+         boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`F_LOANDETAILS`\n" +
+"SET\n" +
+"`BankName` = '"+b_name+"',\n" +
+"`BranchName` = '"+br_name+"',\n" +
+"`AccNo` = '"+acc_no+"',\n" +
+"`Date` = '"+date+"',\n" +
+"`Period` = '"+period+"',\n" +
+"`Ammount` = "+amt+",\n" +
+"`Month Interest` = '"+inter+"',\n" +
+"`Payment` = '"+payment+"'\n" +
+"WHERE `AccNo` = '"+acc_no+"',\n;");
+          try
+        {
+            if (x==true)
+            {
+               TextBoxClear();
+               TableLoad();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddjButton1;
+    private javax.swing.JButton EditjButton2;
+    private javax.swing.JTextField Mrate;
+    private javax.swing.JTextField amt1;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
@@ -259,8 +364,8 @@ private void TextBoxClear()
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField payamt;
     // End of variables declaration//GEN-END:variables
+
+  
 }

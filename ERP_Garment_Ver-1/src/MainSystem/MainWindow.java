@@ -13,6 +13,7 @@ import Distribution.maintanance1;
 import Maintance.Contactor;
 import Finance.BankDetail;
 import Finance.Expences1;
+import Finance.FIXASSETS;
 import Finance.LOANDETAILS;
 import HumanResource.Department;
 import HumanResource.Employee;
@@ -162,7 +163,6 @@ public static AutoReport autoReport;
         jButton58 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jButton29 = new javax.swing.JButton();
-        jButton30 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
         jButton33 = new javax.swing.JButton();
@@ -555,7 +555,7 @@ public static AutoReport autoReport;
 
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton29.setText("Bank");
+        jButton29.setText("Bank Details");
         jButton29.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton29ActionPerformed(evt);
@@ -563,22 +563,19 @@ public static AutoReport autoReport;
         });
         jPanel8.add(jButton29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, -1, -1));
 
-        jButton30.setText("Cash ");
-        jPanel8.add(jButton30, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
-
         jButton31.setText("Expenses");
         jButton31.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton31ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+        jPanel8.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jButton32.setText("Income");
-        jPanel8.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
+        jPanel8.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, -1, -1));
 
         jButton33.setText("Cash flow");
-        jPanel8.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 10, -1, -1));
+        jPanel8.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
         jButton44.setText("Profit & Loss");
         jButton44.addActionListener(new java.awt.event.ActionListener() {
@@ -586,7 +583,7 @@ public static AutoReport autoReport;
                 jButton44ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton44, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 10, -1, -1));
+        jPanel8.add(jButton44, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
 
         jButton45.setText("Loans");
         jButton45.addActionListener(new java.awt.event.ActionListener() {
@@ -594,7 +591,7 @@ public static AutoReport autoReport;
                 jButton45ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton45, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, -1, -1));
+        jPanel8.add(jButton45, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
 
         jButton47.setText("Fixed Assets");
         jButton47.addActionListener(new java.awt.event.ActionListener() {
@@ -602,7 +599,7 @@ public static AutoReport autoReport;
                 jButton47ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton47, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
+        jPanel8.add(jButton47, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         jTabbedPane1.addTab("Finance ", jPanel8);
 
@@ -868,6 +865,16 @@ public static AutoReport autoReport;
 
     private void jButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton47ActionPerformed
         // TODO add your handling code here:
+          FIXASSETS  fix =new FIXASSETS();
+         fix .setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(fix);
+        try {
+           fix .setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+          fix .setMaximizable(false);
     }//GEN-LAST:event_jButton47ActionPerformed
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
@@ -1324,7 +1331,6 @@ public static AutoReport autoReport;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton30;
     private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;

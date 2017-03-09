@@ -152,13 +152,14 @@
                     <Component class="javax.swing.JComboBox" name="jComboBox3type">
                       <Properties>
                         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-                          <StringArray count="6">
-                            <StringItem index="0" value="Description Expences"/>
-                            <StringItem index="1" value="Administration Expences"/>
-                            <StringItem index="2" value="Other Expences"/>
-                            <StringItem index="3" value="Financial Expences"/>
-                            <StringItem index="4" value=" "/>
+                          <StringArray count="7">
+                            <StringItem index="0" value="Select Expence"/>
+                            <StringItem index="1" value="Description Expences"/>
+                            <StringItem index="2" value="Administration Expences"/>
+                            <StringItem index="3" value="Other Expences"/>
+                            <StringItem index="4" value="Financial Expences"/>
                             <StringItem index="5" value=" "/>
+                            <StringItem index="6" value=" "/>
                           </StringArray>
                         </Property>
                       </Properties>
@@ -246,6 +247,10 @@
                       </Constraints>
                     </Component>
                     <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker1date">
+                      <AuxValues>
+                        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(dateSettings1)"/>
+                        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings dateSettings1 = new DatePickerSettings();&#xa;dateSettings1.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;dateSettings1.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
+                      </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="140" y="120" width="-1" height="-1"/>
