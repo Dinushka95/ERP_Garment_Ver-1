@@ -33,7 +33,6 @@ import Sales.SalesDesignInquiryApproval;
 import Sales.SalesInquiry;
 import Sales.SalesPayment;
 import Sales.SalesReturn;
-import StyleManagement.CreateDesign;
 import StyleManagement.Design_Cost_Estimate;
 import StyleManagement.Design_Approval;
 import java.awt.Dimension;
@@ -44,7 +43,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static MainSystem.MainWindow.autoSqlQuery;
 import Maintance.OrderParts;
-import Manufacturing.IronAndPacking;
 import ManufacturingPlanning.CuttingSchedule;
 import ManufacturingPlanning.IronAndPacking1;
 import ManufacturingPlanning.SewingSchedule;
@@ -53,7 +51,7 @@ import Procurements.Purchasing;
 import Procurements.SupplierPortfolio;
 import Sample.Sample_Approval;
 import Sample.Sample_Costing;
-import StyleManagement.CreateDesign;
+import StyleManagement.Create_Design;
 import StyleManagement.Update_Delete_Designs;
 
 
@@ -768,7 +766,7 @@ public static AutoReport autoReport;
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
        
-        CreateDesign createdesign =new CreateDesign();
+        Create_Design createdesign =new Create_Design();
         createdesign.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(createdesign);
