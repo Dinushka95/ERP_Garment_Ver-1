@@ -47,6 +47,12 @@ public class CreateDesign extends javax.swing.JInternalFrame {
 
         GenderButtonGroup = new javax.swing.ButtonGroup();
         Status = new javax.swing.ButtonGroup();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel4 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTable6 = new javax.swing.JTable();
         jPanel14 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -79,9 +85,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         AddDesign = new javax.swing.JButton();
         ResetAll = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        jTabbedPane2 = new javax.swing.JTabbedPane();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -93,6 +97,31 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTabbedPane1.addTab("Add Requestions", jPanel3);
+
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)));
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Style ID", "Style Description", "Style Size", "Gender", "Type", "Collection", "Color", "Designer", "Status", "Date"
+            }
+        ));
+        jTable6.setColumnSelectionAllowed(true);
+        jScrollPane9.setViewportView(jTable6);
+
+        jPanel1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 598, 234));
+
+        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 620, 260));
 
         jPanel14.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 153, 255)));
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -122,12 +151,10 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jLabel6.setText("Gender");
         jPanel14.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
 
-        GenderButtonGroup.add(jRadioButton1);
         jRadioButton1.setText("Male");
         jRadioButton1.setToolTipText("Click Me");
         jPanel14.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 230, 30));
 
-        GenderButtonGroup.add(jRadioButton2);
         jRadioButton2.setText("Female");
         jRadioButton2.setToolTipText("Click Me");
         jPanel14.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 230, 30));
@@ -146,25 +173,22 @@ public class CreateDesign extends javax.swing.JInternalFrame {
 
         jPanel14.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 230, 110));
 
+        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setToolTipText("System Generated ID");
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         jPanel14.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 230, 30));
 
         jLabel8.setText("Status");
         jPanel14.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
 
-        Status.add(jRadioButton3);
         jRadioButton3.setText("Start");
         jRadioButton3.setToolTipText("Click Me");
         jPanel14.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 130, 30));
 
-        Status.add(jRadioButton4);
         jRadioButton4.setText("In Progress");
         jRadioButton4.setToolTipText("Click Me");
         jPanel14.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 110, 30));
 
-        Status.add(jRadioButton5);
         jRadioButton5.setText("Finished");
         jRadioButton5.setToolTipText("Click Me");
         jPanel14.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 80, 30));
@@ -209,29 +233,9 @@ public class CreateDesign extends javax.swing.JInternalFrame {
 
         jButton5.setText("Generate");
         jPanel14.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, -1, -1));
+        jPanel14.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -20, -1, -1));
 
-        getContentPane().add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 670, 530));
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Style ID", "Style Description", "Style Size", "Gender", "Type", "Collection", "Color", "Designer", "Status", "Date"
-            }
-        ));
-        jTable6.setColumnSelectionAllowed(true);
-        jScrollPane9.setViewportView(jTable6);
-
-        jPanel1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 598, 234));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 620, 260));
+        jPanel4.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 670, 530));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -249,7 +253,11 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 620, 250));
+        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 620, 250));
+
+        jTabbedPane1.addTab("Create Designs", jPanel4);
+
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 580));
 
         getAccessibleContext().setAccessibleName("");
 
@@ -262,7 +270,6 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         AddDesign();
         TableLoad();
         TextBoxClear2();
-
     }//GEN-LAST:event_AddDesignActionPerformed
 
     private void ResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetAllActionPerformed
@@ -273,10 +280,8 @@ public class CreateDesign extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+
         AddNewItemToComboBox();
-        
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
         
@@ -437,6 +442,8 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
@@ -444,6 +451,8 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane9;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable6;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
