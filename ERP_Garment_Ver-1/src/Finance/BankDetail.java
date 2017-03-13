@@ -135,6 +135,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
         EDITjButton11.setBounds(110, 280, 55, 23);
 
         SEARCHjButton12.setText("SEARH");
+        SEARCHjButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SEARCHjButton12ActionPerformed(evt);
+            }
+        });
         jPanel7.add(SEARCHjButton12);
         SEARCHjButton12.setBounds(190, 280, 73, 23);
 
@@ -340,7 +345,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
           String cno = jTextField5CheNo.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_DEPOSIT DETAILS`\n" +
-"WHERE Cheque No LIKE '"+cno+"';");
+"WHERE Cheque_No LIKE '"+cno+"';");
         
         try
         {
@@ -362,7 +367,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
          String cno = jTextField2cno.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_WITHDRAW DETAILS`\n" +
-"WHERE ChequeNo ='"+cno+"';");
+"WHERE ChequeNo LIKE '"+cno+"';");
         
         try
         {
@@ -388,11 +393,9 @@ public class BankDetail extends javax.swing.JInternalFrame {
         String date = jTable1.getValueAt(row,4).toString();
         String amount = jTable1.getValueAt(row,5).toString();
         
-        jTextField5CheNo.setText(cno);
+      jTextField5CheNo.setText(cno);
       jTextField1Cus.setText(cusid);
       jComboBox2b_name.setSelectedItem(b_name);
-
-      
       jTextField6Branch.setText(br_name);
       datePicker1date.setText(date); 
       jTextField10amt.setText(amount);
@@ -408,15 +411,27 @@ public class BankDetail extends javax.swing.JInternalFrame {
         String br_name = jTable2.getValueAt(row,2).toString();
         String w_date = jTable2.getValueAt(row,3).toString();
         String amount = jTable2.getValueAt(row,4).toString();
+        
+      jTextField2cno.setText(cno);
+      jComboBox1bank.setSelectedItem(b_name);
+      jTextField5brname.setText(cno);
+      jTextField6Branch.setText(br_name);
+      datePicker2date.setText(w_date); 
+      jTextField6amt.setText(amount);
        
         
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void SEARCHjButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCHjButton12ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_SEARCHjButton12ActionPerformed
 
     
   private void TableLoad1()
   {
       AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT `F_DEPOSIT DETAILS`.`Cheque No`,\n" +
+        ("SELECT `F_DEPOSIT DETAILS`.`Cheque_No`,\n" +
 "    `F_DEPOSIT DETAILS`.`Customer ID`,\n" +
 "    `F_DEPOSIT DETAILS`.`Bank Name`,\n" +
 "    `F_DEPOSIT DETAILS`.`Branch Name`,\n" +
@@ -449,7 +464,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
   
 
   boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_DEPOSIT DETAILS`\n" +
-"(`Cheque No`,\n" +
+"(`Cheque_No`,\n" +
 "`Customer ID`,\n" +
 "`Bank Name`,\n" +
 "`Branch Name`,\n" +
@@ -541,7 +556,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
       
        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`F_DEPOSIT DETAILS`\n" +
 "SET\n" +
-"`Cheque No` = '"+cno+"',\n" +
+"`Cheque_No` = '"+cno+"',\n" +
 "`Customer ID` = '"+cusid+"',\n" +
 "`Bank Name` = '"+b_name+"',\n" +
 "`Branch Name` = '"+br_name+"',\n" +
