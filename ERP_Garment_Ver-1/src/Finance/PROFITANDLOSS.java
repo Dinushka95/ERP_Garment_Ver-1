@@ -69,6 +69,9 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel26 = new javax.swing.JLabel();
         jTextField20 = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
 
         setResizable(true);
         setTitle("Profit And Loss");
@@ -77,64 +80,73 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(1365, 620));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel6.setLayout(null);
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel4.setText("Sales");
         jPanel6.add(jLabel4);
-        jLabel4.setBounds(10, 50, 70, 14);
+        jLabel4.setBounds(10, 50, 70, 17);
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel5.setText("(-)Sales Returns");
         jPanel6.add(jLabel5);
-        jLabel5.setBounds(10, 80, 90, 14);
+        jLabel5.setBounds(10, 80, 130, 17);
 
+        jLabel6.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel6.setText("Date");
         jPanel6.add(jLabel6);
-        jLabel6.setBounds(250, 10, 34, 14);
+        jLabel6.setBounds(260, 10, 34, 17);
 
+        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel8.setText("To");
         jPanel6.add(jLabel8);
-        jLabel8.setBounds(380, 10, 20, 14);
+        jLabel8.setBounds(450, 10, 16, 17);
         jPanel6.add(jTextField5);
         jTextField5.setBounds(360, 40, 130, 20);
         jPanel6.add(jTextField6);
         jTextField6.setBounds(360, 70, 130, 20);
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel9.setText("Cost Of Sales");
         jPanel6.add(jLabel9);
-        jLabel9.setBounds(10, 110, 90, 14);
+        jLabel9.setBounds(10, 110, 130, 17);
 
+        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel10.setText("Opening Stock");
         jPanel6.add(jLabel10);
-        jLabel10.setBounds(10, 140, 80, 14);
+        jLabel10.setBounds(10, 140, 140, 17);
 
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel11.setText("Cost Of Goods Available For Sale ");
         jPanel6.add(jLabel11);
-        jLabel11.setBounds(10, 230, 200, 14);
+        jLabel11.setBounds(10, 230, 200, 17);
 
+        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel13.setText("Purchase Returns");
         jPanel6.add(jLabel13);
-        jLabel13.setBounds(10, 200, 100, 14);
+        jLabel13.setBounds(10, 200, 100, 17);
 
+        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel16.setText("(+)Purchases");
         jPanel6.add(jLabel16);
-        jLabel16.setBounds(10, 170, 80, 14);
+        jLabel16.setBounds(10, 170, 80, 17);
 
+        jLabel17.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel17.setText("(-)Closing Stock");
         jPanel6.add(jLabel17);
-        jLabel17.setBounds(10, 260, 100, 14);
+        jLabel17.setBounds(10, 260, 100, 17);
         jPanel6.add(jTextField10);
         jTextField10.setBounds(210, 260, 130, 20);
 
+        jButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton1.setText("ADD");
         jPanel6.add(jButton1);
-        jButton1.setBounds(170, 480, 53, 23);
+        jButton1.setBounds(170, 500, 61, 25);
         jPanel6.add(jTextField1);
         jTextField1.setBounds(360, 100, 130, 20);
         jPanel6.add(jTextField3);
@@ -146,53 +158,70 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jPanel6.add(jTextField8);
         jTextField8.setBounds(210, 230, 130, 20);
 
+        jLabel19.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel19.setText("Cost Of Sales");
         jPanel6.add(jLabel19);
-        jLabel19.setBounds(10, 320, 90, 14);
+        jLabel19.setBounds(10, 320, 90, 17);
         jPanel6.add(jTextField9);
-        jTextField9.setBounds(370, 310, 110, 20);
+        jTextField9.setBounds(370, 310, 130, 20);
 
+        jLabel20.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel20.setText("Gross Profit/Loss");
         jPanel6.add(jLabel20);
-        jLabel20.setBounds(10, 340, 100, 14);
+        jLabel20.setBounds(10, 340, 130, 17);
         jPanel6.add(jTextField12);
-        jTextField12.setBounds(370, 340, 110, 20);
+        jTextField12.setBounds(370, 340, 130, 20);
 
+        jLabel21.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel21.setText("Expences");
         jPanel6.add(jLabel21);
-        jLabel21.setBounds(10, 370, 70, 14);
+        jLabel21.setBounds(10, 370, 70, 17);
         jPanel6.add(jTextField13);
         jTextField13.setBounds(210, 370, 130, 20);
 
+        jLabel22.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel22.setText("Net Profit/Loss");
         jPanel6.add(jLabel22);
-        jLabel22.setBounds(10, 400, 90, 14);
+        jLabel22.setBounds(10, 400, 90, 17);
         jPanel6.add(jTextField17);
-        jTextField17.setBounds(370, 390, 120, 20);
+        jTextField17.setBounds(370, 390, 130, 20);
 
+        jLabel23.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel23.setText("Shipping Cost");
         jPanel6.add(jLabel23);
-        jLabel23.setBounds(10, 290, 90, 14);
+        jLabel23.setBounds(10, 290, 90, 17);
         jPanel6.add(jTextField18);
         jTextField18.setBounds(210, 290, 130, 20);
 
+        jLabel24.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel24.setText("10% of IncomeTax");
         jPanel6.add(jLabel24);
-        jLabel24.setBounds(10, 420, 92, 14);
+        jLabel24.setBounds(10, 420, 111, 17);
         jPanel6.add(jTextField19);
-        jTextField19.setBounds(370, 420, 120, 20);
+        jTextField19.setBounds(370, 420, 130, 20);
 
+        jLabel26.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jLabel26.setText("Net Profit/Loss Per Year");
         jPanel6.add(jLabel26);
-        jLabel26.setBounds(10, 450, 130, 14);
+        jLabel26.setBounds(10, 450, 170, 17);
         jPanel6.add(jTextField20);
-        jTextField20.setBounds(370, 450, 120, 20);
+        jTextField20.setBounds(370, 450, 130, 20);
 
+        jButton11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
         jButton11.setText("Genarate a Report");
         jPanel6.add(jButton11);
-        jButton11.setBounds(240, 480, 123, 23);
+        jButton11.setBounds(240, 500, 135, 25);
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 650, 520));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jButton2.setText("Demo");
+        jPanel6.add(jButton2);
+        jButton2.setBounds(560, 500, 69, 25);
+        jPanel6.add(datePicker1);
+        datePicker1.setBounds(289, 0, 150, 30);
+        jPanel6.add(datePicker2);
+        datePicker2.setBounds(489, 0, 150, 30);
+
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 650, 550));
 
         jTabbedPane1.addTab("PROFIT AND LOSS", jPanel1);
 
@@ -207,8 +236,11 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
