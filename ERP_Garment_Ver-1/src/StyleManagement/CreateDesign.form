@@ -44,6 +44,11 @@
   </Layout>
   <SubComponents>
     <Container class="javax.swing.JTabbedPane" name="jTabbedPane1">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+      </Properties>
       <Constraints>
         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
           <AbsoluteConstraints x="0" y="0" width="1350" height="580"/>
@@ -251,6 +256,9 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton1">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="GenderButtonGroup"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Male"/>
                     <Property name="toolTipText" type="java.lang.String" value="Click Me"/>
                   </Properties>
@@ -262,6 +270,9 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton2">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="GenderButtonGroup"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Female"/>
                     <Property name="toolTipText" type="java.lang.String" value="Click Me"/>
                   </Properties>
@@ -361,6 +372,9 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton3">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="Status"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Start"/>
                     <Property name="toolTipText" type="java.lang.String" value="Click Me"/>
                   </Properties>
@@ -372,6 +386,9 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton4">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="Status"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="In Progress"/>
                     <Property name="toolTipText" type="java.lang.String" value="Click Me"/>
                   </Properties>
@@ -383,6 +400,9 @@
                 </Component>
                 <Component class="javax.swing.JRadioButton" name="jRadioButton5">
                   <Properties>
+                    <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                      <ComponentRef name="Status"/>
+                    </Property>
                     <Property name="text" type="java.lang.String" value="Finished"/>
                     <Property name="toolTipText" type="java.lang.String" value="Click Me"/>
                   </Properties>

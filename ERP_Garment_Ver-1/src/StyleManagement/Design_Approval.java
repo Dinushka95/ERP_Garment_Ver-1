@@ -189,7 +189,6 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         datePicker1.setName("");
-        datePicker1.setEnabled(false);
         jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
 
         jLabel3.setText("StyleId");
@@ -290,15 +289,15 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 
         jLabel14.setText("Approval ID");
         jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 158, -1, 21));
-        jPanel4.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 158, 157, 30));
+        jPanel4.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 157, 30));
 
         jLabel5.setText("StyleId");
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 337, -1, -1));
-        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 337, 157, 28));
+        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 157, 28));
 
         jLabel6.setText("Approval Name");
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 199, -1, 26));
-        jPanel4.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, 157, 26));
+        jPanel4.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 157, 26));
 
         jLabel17.setText("Status");
         jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 249, -1, -1));
@@ -307,17 +306,17 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 288, -1, -1));
 
         datePicker2.setEnabled(false);
-        jPanel4.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 288, 157, -1));
+        jPanel4.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 157, -1));
 
         jLabel18.setText("Comment");
-        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, -1, -1));
+        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane4.setViewportView(jTextArea2);
 
         jPanel4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 180, 110));
-        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 242, 157, 28));
+        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 157, 28));
 
         jButton10.setText("Delete");
         jButton10.addActionListener(new java.awt.event.ActionListener() {
@@ -596,8 +595,10 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         String comment =  jTextArea2.getText();
         String date = datePicker2.getText();
         
+        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
         
-        
+          if (reply == JOptionPane.YES_OPTION){
         
         
         
@@ -616,14 +617,18 @@ public class Design_Approval extends javax.swing.JInternalFrame {
             {
                 TextBoxClear2();
                 TableLoad();
-                JOptionPane.showConfirmDialog(null,"Are you sure?");
+                
+              
+    {
+        
+    }
             }
         }
         catch (Exception ex){
             System.out.println(ex);
         }
       
-    
+          }
         
        
         
@@ -634,6 +639,14 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     {
         String id =jTextField9.getText();
         
+        
+       int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+        if (reply == JOptionPane.YES_OPTION){
+            
+            
+        
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`T_Design_Approval_Table`\n" +
 "WHERE ApprovalId = '"+id+"';");
         
@@ -643,12 +656,18 @@ public class Design_Approval extends javax.swing.JInternalFrame {
             {
                 TextBoxClear2();
                 TableLoad2();
-                JOptionPane.showConfirmDialog(null,"Are you sure?");
+                
+                
+    {
+        
+    }
+            
             }
         }
         catch (Exception ex){
             System.out.println(ex);
         }
+    }
     }
          public void Reset(){
         jTextField7.setText("");

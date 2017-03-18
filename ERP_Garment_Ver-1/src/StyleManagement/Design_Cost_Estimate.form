@@ -230,7 +230,6 @@
                     </Component>
                     <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker1">
                       <Properties>
-                        <Property name="enabled" type="boolean" value="false"/>
                         <Property name="toolTipText" type="java.lang.String" value="Enter the Date"/>
                       </Properties>
                       <AuxValues>

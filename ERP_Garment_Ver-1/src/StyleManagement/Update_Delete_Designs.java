@@ -27,7 +27,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         
       initComponents();
      
-      TableLoad2();
+      
       generate_stlid();
       datePicker2.setDateToToday();
       datePicker3.setDateToToday();
@@ -132,7 +132,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         ResetViewUpdateDesign = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setResizable(true);
@@ -326,10 +325,13 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 255)));
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setText("Search by");
+        jPanel8.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 22, -1, -1));
 
         jLabel15.setText("Style ID");
+        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 48, -1));
 
         jButton6.setText("ViewAll");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -337,49 +339,25 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
                 jButton6ActionPerformed(evt);
             }
         });
+        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 56, -1, -1));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6)
-                .addContainerGap(142, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jLabel14)
-                .addGap(20, 20, 20)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jButton6))
-                .addContainerGap(103, Short.MAX_VALUE))
-        );
-
-        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 180));
 
         jLabel20.setText("Style ID");
-        jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
+        jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
         jLabel21.setText("Style Description");
-        jPanel7.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 67, -1, -1));
+        jPanel7.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane7.setViewportView(jTextArea2);
 
-        jPanel7.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 57, -1, -1));
+        jPanel7.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
         jLabel22.setText("Designer");
-        jPanel7.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 174, -1, -1));
-        jPanel7.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(418, 173, 166, -1));
+        jPanel7.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
+        jPanel7.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 166, 30));
 
         jLabel34.setText("Categories");
         jPanel7.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(602, 101, -1, -1));
@@ -394,16 +372,16 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel7.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 64, -1, -1));
 
         jLabel39.setText("Status");
-        jPanel7.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 16, -1, -1));
+        jPanel7.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, -1, -1));
 
         jLabel40.setText("Date");
         jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(631, 156, -1, -1));
 
         jLabel41.setText("Collection");
-        jPanel7.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 78, -1, -1));
+        jPanel7.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 80, -1, -1));
 
         jLabel42.setText("Colour Information");
-        jPanel7.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 146, -1, -1));
+        jPanel7.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 150, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -453,13 +431,9 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jButton19.setText("Print");
         jPanel7.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 300, -1, -1));
 
-        jLabel18.setToolTipText("You Can't Delete");
         jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
-        jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 18, 166, 33));
-
-        jLabel19.setToolTipText("You Can't Delete");
-        jLabel19.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
-        jPanel7.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 18, 166, 33));
+        jLabel18.setToolTipText("You Can't Delete");
+        jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 166, 33));
 
         jLabel1.setToolTipText("Style ID");
         jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 160, 30));
@@ -503,14 +477,14 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
     private void ResetViewUpdateDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetViewUpdateDesignActionPerformed
         // TODO add your handling code here:
-        clear();
+        clearDeleteDesign();
     }//GEN-LAST:event_ResetViewUpdateDesignActionPerformed
 
     private void EditbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditbtnActionPerformed
         // TODO add your handling code here:
 
         UpdateAddedDesigns();
-        clear();
+        clearUpdateDesign();
         TableLoad3();
     }//GEN-LAST:event_EditbtnActionPerformed
 
@@ -563,12 +537,13 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         Table2Load();
+        
     }//GEN-LAST:event_ViewAll_DeleteActionPerformed
 
     private void Editbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editbtn1ActionPerformed
         // TODO add your handling code here:
         DeleteDesigns();
-        TableLoad2();
+        Table2Load();
         
     }//GEN-LAST:event_Editbtn1ActionPerformed
 
@@ -591,6 +566,10 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         collection=jTextField18.getText();
         colour=jTextField19.getText();
         
+         int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
 
         boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`T_Design_table`\n" +
 "SET\n" +
@@ -609,14 +588,16 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         try
         {
             if (x==true)
-            {
-                clear();
-                TableLoad2();
+            {   TableLoad3();
+                clearUpdateDesign();
+               
             }
         }
         catch (Exception ex){
             System.out.println(ex);
         }
+        }
+          
         }
 
         private void generate_stlid(){
@@ -640,9 +621,9 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     
    
     
-    public void clear(){
+    public void clearUpdateDesign(){
         
-        jLabel1.setText("");
+        jLabel18.setText("");
         jTextArea2.setText("");
         jTextField8.setText("");
         jTextField15.setText("");
@@ -654,29 +635,18 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         
         
     }
-  
-      
+    public void clearDeleteDesign(){
         
-
-    
-    
-     
-    
-      
-      private void TableLoad2()
-    {
-
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT `T_Bill_Of_Material_Table`.`Date`,\n" +
-"    `T_Bill_Of_Material_Table`.`StyleID`,\n" +
-"    `T_Bill_Of_Material_Table`.`StyleDesc`,\n" +
-"    `T_Bill_Of_Material_Table`.`Total_Accessories`,\n" +
-"    `T_Bill_Of_Material_Table`.`Total_Quantity`,\n" +
-"    `T_Bill_Of_Material_Table`.`Total_Cost`,\n" +
-"    `T_Bill_Of_Material_Table`.`Total_Of_Final_Cost`\n" +
-"FROM `garmentsystem`.`T_Bill_Of_Material_Table`;");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
-
+        jLabel16.setText("");
+        styleDes1.setText("");
+        jTextField4.setText("");
+        jTextField5.setText("");
+        jTextField10.setText("");
+        jTextField6.setText("");
+        jTextField12.setText("");
+        jTextField11.setText("");
+        jTextField9.setText("");
+        
     }
        private void DeleteDesigns()
     {
@@ -689,37 +659,14 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         {
             if (x==true)
             {
-                clear();
-                TableLoad2();
+                clearDeleteDesign();
+                Table2Load();
             }
         }
         catch (Exception ex){
             System.out.println(ex);
         }
     }
-        private void Table3Load()
-    {
-
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT `T_Bill_Of_Material_Table`.`Date`,\n" +
-"    `T_Bill_Of_Material_Table`.`StyleID`,\n" +
-"    `T_Bill_Of_Material_Table`.`StyleDesc`,\n" +
-"    `T_Bill_Of_Material_Table`.`Total_Accessories`,\n" +
-"    `T_Bill_Of_Material_Table`.`Total_Quantity`,\n" +
-"    `T_Bill_Of_Material_Table`.`Total_Cost`,\n" +
-"    `T_Bill_Of_Material_Table`.`Total_Of_Final_Cost`\n" +
-"FROM `garmentsystem`.`T_Bill_Of_Material_Table`;");
-            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
-
-    }
-       
-        
-    
-       
-
-    
-   
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DeleteCreateDesign;
@@ -747,7 +694,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;

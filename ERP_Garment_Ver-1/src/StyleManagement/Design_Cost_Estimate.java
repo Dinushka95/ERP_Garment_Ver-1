@@ -2,9 +2,9 @@
 package StyleManagement;
 
 import MainSystem.AutoDB_Connect;
+import static MainSystem.MainWindow.autoSqlQuery;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
-import static MainSystem.MainWindow.autoSqlQuery;
 import javax.swing.JOptionPane;
 /**
  *
@@ -168,7 +168,6 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jButton5.setText("OK");
         jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1465, 265, -1, -1));
 
-        datePicker1.setEnabled(false);
         datePicker1.setToolTipText("Enter the Date");
         jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 51, 179, -1));
 
@@ -434,7 +433,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
 
         try
         {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM 'garmentsystem'.'T_Bill_Of_Material_Table'");
 
             while(AutoDB_Connect.DB_ResultSet.next())
             {
@@ -519,18 +518,15 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         String date = datePicker1.getText();
         
         
-        
-        
-        
-        boolean  x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`T_Bill_Of_Material_Table`\n" +
+         boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`T_Bill_Of_Material_Table`\n" +
 "(`Date`,\n" +
 "`StyleID`,\n" +
 "`StyleDesc`,\n" +
-"`Accessories`,\n" +
-"`Quantity`,\n" +
-"`Colour`,\n" +
-"`Cost`,\n" +
-"`Final_Cost`)\n" +
+"`Total_Accessories`,\n" +
+"`Total_Quantity`,\n" +
+"`Color`,\n" +
+"`Total_Cost`,\n" +
+"`Total_Of_Final_Cost`)\n" +
 "VALUES\n" +
 "('"+date+"',\n" +
 "'"+id+"',\n" +
@@ -540,7 +536,9 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
 "'"+Color+"',\n" +
 "'"+Cost+"',\n" +
 "'"+Final_Cost+"');");
+
         
+      
         try
         {
             if(x==true)
@@ -561,17 +559,14 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private void TableLoad()
     {
 
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT * FROM garmentsystem.T_Bill_Of_Material_Table");
-            jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`T_Bill_Of_Material_Table`");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     
     private void TableLoad2()
     {
-
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT* FROM garmentsystem.T_Billing_Add_Designs;");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`T_Bill_Of_Material_Table`");
             jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
@@ -593,7 +588,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM 'garmentsystem'.'T_Design_table'");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {

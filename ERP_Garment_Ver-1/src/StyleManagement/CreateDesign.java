@@ -98,6 +98,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(1365, 620));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jTabbedPane1.addTab("Add Requestions", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -151,10 +152,12 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jLabel6.setText("Gender");
         jPanel14.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
 
+        GenderButtonGroup.add(jRadioButton1);
         jRadioButton1.setText("Male");
         jRadioButton1.setToolTipText("Click Me");
         jPanel14.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 230, 30));
 
+        GenderButtonGroup.add(jRadioButton2);
         jRadioButton2.setText("Female");
         jRadioButton2.setToolTipText("Click Me");
         jPanel14.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 230, 30));
@@ -181,14 +184,17 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jLabel8.setText("Status");
         jPanel14.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
 
+        Status.add(jRadioButton3);
         jRadioButton3.setText("Start");
         jRadioButton3.setToolTipText("Click Me");
         jPanel14.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 130, 30));
 
+        Status.add(jRadioButton4);
         jRadioButton4.setText("In Progress");
         jRadioButton4.setToolTipText("Click Me");
         jPanel14.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 110, 30));
 
+        Status.add(jRadioButton5);
         jRadioButton5.setText("Finished");
         jRadioButton5.setToolTipText("Click Me");
         jPanel14.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 80, 30));
@@ -282,6 +288,9 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
 
         AddNewItemToComboBox();
+        TextBoxClear2();
+        JOptionPane.showMessageDialog(null,"Successfully Added your Colour");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
         
@@ -292,7 +301,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     private void TableLoad()
     {
 
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`T_Design_table`");
             jTable6.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
@@ -335,7 +344,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jRadioButton2.setActionCommand("Female");
         
         
-        String gender = GenderButtonGroup.getSelection().getActionCommand();
+        String gender =GenderButtonGroup.getSelection().getActionCommand();
         
         jRadioButton3.setActionCommand("Start");
         jRadioButton4.setActionCommand("In Progress");
