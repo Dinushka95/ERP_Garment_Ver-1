@@ -51,7 +51,7 @@ import Procurements.Purchasing;
 import Procurements.SupplierPortfolio;
 import Sample.Sample_Approval;
 import Sample.Sample_Costing;
-import StyleManagement.Create_Design;
+import StyleManagement.CreateDesign;
 import StyleManagement.Update_Delete_Designs;
 
 
@@ -766,7 +766,7 @@ public static AutoReport autoReport;
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
        
-        Create_Design createdesign =new Create_Design();
+        CreateDesign createdesign =new CreateDesign();
         createdesign.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(createdesign);
@@ -950,6 +950,18 @@ public static AutoReport autoReport;
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
+     /*   
+        Request_CreateSample RCS = new Request_CreateSample ();
+        RCS.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(RCS);
+        try {
+           RCS.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        RCS.setMaximizable(false);
+       */ 
         
     }//GEN-LAST:event_jButton28ActionPerformed
 
