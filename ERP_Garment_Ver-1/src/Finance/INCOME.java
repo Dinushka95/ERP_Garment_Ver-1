@@ -11,14 +11,14 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Dinushka
  */
-public class Expences1 extends javax.swing.JInternalFrame {
+public class INCOME extends javax.swing.JInternalFrame {
 
 
 
     /**
      * Creates new form SalesDesignInquiry
      */
-    public Expences1() {
+    public INCOME() {
        initComponents();
        datePicker1date.setDateToToday();
        Tableload();
@@ -64,7 +64,7 @@ public class Expences1 extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
 
         setResizable(true);
-        setTitle("Expences");
+        setTitle("Income");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -108,11 +108,11 @@ public class Expences1 extends javax.swing.JInternalFrame {
         });
         jPanel10.add(DeletejButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
 
-        jLabel19.setText("Expences Type");
+        jLabel19.setText("Income Type");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, -1));
 
-        jComboBox3type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Expence", "Description Expences", "Administration Expences", "Other Expences", "Financial Expences", " ", " " }));
+        jComboBox3type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Income", "Earned Income", "Passive Income", "Portfolio Income", " " }));
         jComboBox3type.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jComboBox3type, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 170, 30));
 
@@ -187,7 +187,7 @@ public class Expences1 extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jTabbedPane1.addTab("Expences", jPanel1);
+        jTabbedPane1.addTab("Income", jPanel1);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 

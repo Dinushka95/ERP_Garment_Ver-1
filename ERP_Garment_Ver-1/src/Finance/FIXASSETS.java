@@ -86,7 +86,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(1365, 620));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -94,43 +94,43 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jPanel10.setLayout(null);
 
         jLabel5.setText("Machinary ");
-        jLabel5.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel5);
-        jLabel5.setBounds(10, 20, 100, 17);
+        jLabel5.setBounds(10, 20, 100, 15);
 
-        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 470));
+        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 470));
 
         jPanel11.setLayout(null);
 
         jLabel6.setText("Other Fix Assets");
-        jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel6);
-        jLabel6.setBounds(10, 0, 120, 17);
+        jLabel6.setBounds(10, 0, 120, 15);
 
         jLabel7.setText("Fix Assets Type");
-        jLabel7.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel7);
         jLabel7.setBounds(370, 60, 100, 30);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Items", "Land And Building", "Vehicals" }));
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jComboBox1);
         jComboBox1.setBounds(470, 60, 160, 30);
 
         jLabel1.setText("Cost");
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel1);
-        jLabel1.setBounds(10, 110, 26, 17);
+        jLabel1.setBounds(10, 110, 80, 15);
 
         jLabel2.setText("Depreaciation Rate");
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel2);
-        jLabel2.setBounds(10, 150, 110, 17);
+        jLabel2.setBounds(10, 150, 110, 15);
 
         jLabel4.setText("Date");
-        jLabel4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel4);
-        jLabel4.setBounds(10, 30, 60, 17);
+        jLabel4.setBounds(10, 30, 60, 15);
         jPanel11.add(Cost);
         Cost.setBounds(180, 100, 180, 30);
 
@@ -143,9 +143,9 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         rate1.setBounds(180, 140, 180, 30);
 
         jLabel8.setText("Depreaciation ");
-        jLabel8.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel8);
-        jLabel8.setBounds(10, 190, 140, 17);
+        jLabel8.setBounds(10, 190, 140, 15);
 
         dep1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -175,66 +175,66 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jScrollPane1.setBounds(10, 270, 810, 90);
 
         jLabel9.setText("Fix Asset ID");
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel9);
-        jLabel9.setBounds(10, 70, 100, 17);
+        jLabel9.setBounds(10, 70, 100, 15);
         jPanel11.add(Fixass);
         Fixass.setBounds(180, 60, 180, 30);
         jPanel11.add(jLabel10);
         jLabel10.setBounds(540, 110, 90, 20);
 
         jLabel11.setText("Accumulate Depreciation");
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel11);
-        jLabel11.setBounds(10, 230, 160, 17);
+        jLabel11.setBounds(10, 230, 160, 15);
         jPanel11.add(accdep);
         accdep.setBounds(180, 220, 180, 30);
 
         jLabel12.setText("ID");
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel12);
         jLabel12.setBounds(640, 60, 50, 30);
         jPanel11.add(Assetid);
-        Assetid.setBounds(690, 60, 130, 30);
+        Assetid.setBounds(680, 60, 130, 30);
         jPanel11.add(datePicker1);
         datePicker1.setBounds(180, 20, 180, 30);
 
         ADDjButton1.setText("ADD");
-        ADDjButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        ADDjButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ADDjButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ADDjButton1ActionPerformed(evt);
             }
         });
         jPanel11.add(ADDjButton1);
-        ADDjButton1.setBounds(450, 240, 73, 25);
+        ADDjButton1.setBounds(450, 240, 73, 23);
 
         EditjButton2.setText("EDIT");
-        EditjButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        EditjButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         EditjButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditjButton2ActionPerformed(evt);
             }
         });
         jPanel11.add(EditjButton2);
-        EditjButton2.setBounds(530, 240, 65, 25);
+        EditjButton2.setBounds(530, 240, 61, 23);
 
         DeletejButton3.setText("DELETE");
-        DeletejButton3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        DeletejButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         DeletejButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DeletejButton3ActionPerformed(evt);
             }
         });
         jPanel11.add(DeletejButton3);
-        DeletejButton3.setBounds(610, 240, 83, 25);
+        DeletejButton3.setBounds(610, 240, 77, 23);
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Demo");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jButton1);
-        jButton1.setBounds(750, 240, 69, 25);
+        jButton1.setBounds(740, 240, 67, 23);
 
-        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 830, 470));
+        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 850, 470));
 
         jTabbedPane1.addTab("Fix Assets", jPanel1);
 

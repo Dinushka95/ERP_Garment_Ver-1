@@ -74,7 +74,7 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         setPreferredSize(new java.awt.Dimension(1365, 620));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -83,33 +83,33 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setText("BANK LOAN DETAILS");
-        jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jLabel10.setText("Bank Name");
-        jLabel10.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jLabel11.setText("Branch Name");
-        jLabel11.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
 
         jLabel12.setText("Account No");
-        jLabel12.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         jLabel13.setText("Loan Amount");
-        jLabel13.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         jLabel16.setText("Month Interrest");
-        jLabel16.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 150, 30));
         jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 150, 30));
 
         jLabel1.setText("Loan period");
-        jLabel1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
         jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 150, 30));
 
@@ -122,12 +122,12 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         jPanel3.add(Mrate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 150, 30));
 
         jLabel2.setText("Payment for Month");
-        jLabel2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, -1));
         jPanel3.add(payamt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, 150, 30));
 
         AddjButton1.setText("ADD");
-        AddjButton1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        AddjButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         AddjButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddjButton1ActionPerformed(evt);
@@ -136,7 +136,7 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         jPanel3.add(AddjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
         EditjButton2.setText("EDIT");
-        EditjButton2.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        EditjButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         EditjButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditjButton2ActionPerformed(evt);
@@ -145,11 +145,11 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         jPanel3.add(EditjButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
         jButton3.setText("SEARCH");
-        jButton3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
 
         jButton4.setText("DELETE");
-        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -158,16 +158,16 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Bank", "BOC", "Peoples Bank", "HNB ", "UNION" }));
-        jComboBox1.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 150, -1));
 
         jLabel3.setText("Date");
-        jLabel3.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
         jPanel3.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 150, 30));
 
-        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton1.setText("Demo");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, -1, -1));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 480, 380));
