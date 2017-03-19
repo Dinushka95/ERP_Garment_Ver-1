@@ -95,6 +95,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         Editbtn1 = new javax.swing.JButton();
         ResetViewUpdateDesign1 = new javax.swing.JButton();
         jButton20 = new javax.swing.JButton();
+        jButton21 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -133,6 +134,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jButton19 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jButton22 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Update||Delete Designs");
@@ -150,54 +152,54 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel23.setText("Style ID");
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 24, -1, -1));
 
         jLabel24.setText("Style Description");
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 82, -1, -1));
 
         styleDes1.setColumns(20);
         styleDes1.setRows(5);
         jScrollPane3.setViewportView(styleDes1);
 
-        jPanel10.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 94, 170, 100));
+        jPanel10.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 170, 100));
 
         jLabel25.setText("Designer");
-        jLabel25.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 204, -1, -1));
         jPanel10.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 196, 131, 30));
 
         jLabel26.setText("Categories");
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 24, -1, -1));
 
         jLabel27.setText("Size");
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(481, 24, -1, -1));
 
         jLabel28.setText("Gender");
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(729, 24, -1, -1));
 
         jLabel29.setText("Type");
-        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(1012, 24, -1, -1));
 
         jLabel30.setText("COLOR");
-        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(476, 126, -1, -1));
 
         jLabel31.setText("Color Information");
-        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel10.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 126, -1, -1));
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel10.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, -1, -1));
 
         jLabel32.setText("Collection");
-        jLabel32.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(729, 126, -1, -1));
 
         jLabel33.setText("Status");
-        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(1012, 80, -1, -1));
 
         jButton8.setText("SEARCH");
@@ -245,7 +247,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel10.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(954, 759, -1, -1));
 
         jLabel36.setText("Date");
-        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(729, 204, -1, -1));
 
         jButton12.setText("DELETE");
@@ -274,6 +276,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel10.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 490, -1, -1));
 
         ViewAll_Delete.setText("View All");
+        ViewAll_Delete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ViewAll_Delete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewAll_DeleteActionPerformed(evt);
@@ -290,11 +293,12 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         datePicker2.setEnabled(false);
         jPanel10.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 203, -1, -1));
 
-        jLabel16.setToolTipText("You Can't Delete");
         jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
-        jPanel10.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(111, 18, 166, 33));
+        jLabel16.setToolTipText("You Can't Delete");
+        jPanel10.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 166, 33));
 
         Editbtn1.setText("Delete");
+        Editbtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Editbtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Editbtn1ActionPerformed(evt);
@@ -303,6 +307,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel10.add(Editbtn1, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 450, -1, -1));
 
         ResetViewUpdateDesign1.setText("Reset");
+        ResetViewUpdateDesign1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ResetViewUpdateDesign1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetViewUpdateDesign1ActionPerformed(evt);
@@ -310,8 +315,13 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         });
         jPanel10.add(ResetViewUpdateDesign1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 450, -1, -1));
 
-        jButton20.setText("Print");
-        jPanel10.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 450, -1, -1));
+        jButton20.setText("Demo");
+        jButton20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel10.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 450, -1, -1));
+
+        jButton21.setText("Print");
+        jButton21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel10.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 450, -1, -1));
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -328,10 +338,12 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel14.setText("Search by");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 22, -1, -1));
 
         jLabel15.setText("Style ID");
-        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 48, -1));
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 55, 60, 20));
 
         jButton6.setText("ViewAll");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -339,14 +351,16 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(72, 56, -1, -1));
+        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 180));
 
         jLabel20.setText("Style ID");
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, -1, -1));
 
         jLabel21.setText("Style Description");
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, -1, -1));
 
         jTextArea2.setColumns(20);
@@ -356,31 +370,40 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel7.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
         jLabel22.setText("Designer");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
         jPanel7.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 166, 30));
 
         jLabel34.setText("Categories");
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(602, 101, -1, -1));
 
         jLabel43.setText("Size");
+        jLabel43.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel43, new org.netbeans.lib.awtextra.AbsoluteConstraints(672, 101, -1, -1));
 
         jLabel37.setText("Gender");
+        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 19, -1, -1));
 
         jLabel38.setText("Type");
+        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(629, 64, -1, -1));
 
         jLabel39.setText("Status");
+        jLabel39.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 20, -1, -1));
 
         jLabel40.setText("Date");
+        jLabel40.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(631, 156, -1, -1));
 
         jLabel41.setText("Collection");
+        jLabel41.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 80, -1, -1));
 
         jLabel42.setText("Colour Information");
+        jLabel42.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 150, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -413,23 +436,26 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel7.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 154, 140, 30));
 
         Editbtn.setText("Update");
+        Editbtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Editbtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EditbtnActionPerformed(evt);
             }
         });
-        jPanel7.add(Editbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 300, -1, -1));
+        jPanel7.add(Editbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 440, -1, -1));
 
         ResetViewUpdateDesign.setText("Reset");
+        ResetViewUpdateDesign.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ResetViewUpdateDesign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetViewUpdateDesignActionPerformed(evt);
             }
         });
-        jPanel7.add(ResetViewUpdateDesign, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 300, -1, -1));
+        jPanel7.add(ResetViewUpdateDesign, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 440, -1, -1));
 
-        jButton19.setText("Print");
-        jPanel7.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(1220, 300, -1, -1));
+        jButton19.setText("Demo");
+        jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel7.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 440, -1, -1));
 
         jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         jLabel18.setToolTipText("You Can't Delete");
@@ -437,6 +463,10 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
         jLabel1.setToolTipText("Style ID");
         jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 160, 30));
+
+        jButton22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton22.setText("Print");
+        jPanel7.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 440, -1, -1));
 
         jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1295, 501));
 
@@ -686,6 +716,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton20;
+    private javax.swing.JButton jButton21;
+    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;

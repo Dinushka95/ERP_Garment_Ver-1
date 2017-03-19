@@ -73,6 +73,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -81,7 +82,6 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -99,6 +99,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jTextArea2 = new javax.swing.JTextArea();
         jTextField3 = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
 
         setResizable(true);
@@ -116,6 +118,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("View Design");
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -124,6 +127,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Design ID" }));
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 14, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -150,12 +154,15 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel15.setText("Status");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
         jLabel4.setText("Approval Name");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, 26));
 
         jLabel13.setText("Approval ID");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 21));
 
         Approval.add(jRadioButton1);
@@ -176,6 +183,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
         jLabel16.setText("Comment");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 80, -1, -1));
 
         jTextArea1.setColumns(20);
@@ -186,12 +194,14 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 70, -1, -1));
 
         jLabel2.setText("Date");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         datePicker1.setName("");
         jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
 
         jLabel3.setText("StyleId");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
         jPanel8.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 166, 33));
 
@@ -211,37 +221,50 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         });
         jPanel8.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 210, -1, -1));
 
+        jButton5.setText("Demo");
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 70, -1));
+
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 700, 300));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Approved ID");
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 20, -1, -1));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", " " }));
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
             }
         });
-        jPanel4.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(91, 17, 99, -1));
+        jPanel4.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 99, -1));
 
         jButton1.setText("View");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 16, -1, -1));
+        jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
 
         jButton3.setText("View All");
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(273, 16, -1, -1));
+        jPanel4.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -272,6 +295,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 45, 523, 107));
 
         jButton4.setText("Update");
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -279,46 +303,45 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         });
         jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(169, 403, -1, -1));
 
-        jButton5.setText("Reset");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 403, 65, -1));
-
         jLabel14.setText("Approval ID");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 158, -1, 21));
-        jPanel4.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 160, 157, 30));
+        jPanel4.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 157, 30));
 
         jLabel5.setText("StyleId");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 337, -1, -1));
-        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, 157, 28));
+        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 157, 28));
 
         jLabel6.setText("Approval Name");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 199, -1, 26));
-        jPanel4.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 200, 157, 26));
+        jPanel4.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 157, 26));
 
         jLabel17.setText("Status");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 249, -1, -1));
 
         jLabel7.setText("Date");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 288, -1, -1));
 
         datePicker2.setEnabled(false);
-        jPanel4.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 290, 157, -1));
+        jPanel4.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 290, 157, -1));
 
         jLabel18.setText("Comment");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane4.setViewportView(jTextArea2);
 
-        jPanel4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 180, 180, 110));
-        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 157, 28));
+        jPanel4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 180, 110));
+        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 157, 28));
 
         jButton10.setText("Delete");
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -326,9 +349,28 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         });
         jPanel4.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 403, -1, -1));
 
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton6.setText("Reset");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 403, 70, -1));
+
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.setText("Demo");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 70, -1));
+
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(736, 14, 570, 500));
 
         jButton9.setText("ViewAll");
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -436,6 +478,14 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         Reset();
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton11ActionPerformed
 
 
         private void generate_Aid(){
@@ -690,10 +740,12 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;

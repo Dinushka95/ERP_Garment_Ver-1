@@ -90,6 +90,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jLabel11 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Creating Designs");
@@ -118,6 +119,11 @@ public class CreateDesign extends javax.swing.JInternalFrame {
             }
         ));
         jTable6.setColumnSelectionAllowed(true);
+        jTable6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable6MouseClicked(evt);
+            }
+        });
         jScrollPane9.setViewportView(jTable6);
 
         jPanel1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 598, 234));
@@ -128,78 +134,94 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Style ID");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jLabel2.setText("Style Description");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         jLabel3.setText("Designer");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
         jTextField2.setToolTipText("Who is the Designer?");
-        jPanel14.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 210, 230, 30));
+        jPanel14.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 230, 30));
 
         jLabel4.setText("Categories");
-        jPanel14.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel14.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
 
         jLabel5.setText("Size");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "MS", "M", "L", "XL", "2XL", "3XL", "4XL" }));
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox1.setToolTipText("Size Please");
-        jPanel14.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 230, 30));
+        jPanel14.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 230, 30));
 
         jLabel6.setText("Gender");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
 
         GenderButtonGroup.add(jRadioButton1);
+        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButton1.setText("Male");
         jRadioButton1.setToolTipText("Click Me");
-        jPanel14.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, 230, 30));
+        jPanel14.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 230, 30));
 
         GenderButtonGroup.add(jRadioButton2);
+        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButton2.setText("Female");
         jRadioButton2.setToolTipText("Click Me");
-        jPanel14.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 390, 230, 30));
+        jPanel14.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 230, 30));
 
         jLabel7.setText("Type");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type", "Shirt", "Trouser", "Short", "Blouse", "Skirt", "Elephant Pant", "Frock", "Three Quater", " " }));
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox2.setToolTipText("Type Please");
-        jPanel14.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 440, 220, 30));
+        jPanel14.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 220, 30));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jTextArea1.setToolTipText("Description Please");
         jScrollPane1.setViewportView(jTextArea1);
 
-        jPanel14.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 230, 110));
+        jPanel14.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 230, 110));
 
         jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setToolTipText("System Generated ID");
-        jPanel14.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 230, 30));
+        jPanel14.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 230, 30));
 
         jLabel8.setText("Status");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
 
         Status.add(jRadioButton3);
+        jRadioButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButton3.setText("Start");
         jRadioButton3.setToolTipText("Click Me");
         jPanel14.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 130, 30));
 
         Status.add(jRadioButton4);
+        jRadioButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButton4.setText("In Progress");
         jRadioButton4.setToolTipText("Click Me");
         jPanel14.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 110, 30));
 
         Status.add(jRadioButton5);
+        jRadioButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButton5.setText("Finished");
         jRadioButton5.setToolTipText("Click Me");
         jPanel14.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 80, 30));
 
         jLabel13.setText("Date");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, 30, 20));
 
         datePicker1.setName("");
@@ -208,20 +230,25 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jPanel14.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 340, 160, 30));
 
         jLabel9.setText("Collection");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Collection", "Men", "Women", "Teenagers", "Children", " " }));
+        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox3.setToolTipText("Collection Please");
         jPanel14.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 160, 30));
 
         jLabel10.setText("Colour Information");
-        jPanel14.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, -1, -1));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel14.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Color", "Red", "Blood Red", "Magenta", "Blue", "Light Blue", "Sky Blue", "Peacock Blue", "Green", "Tamil Green", "Light Green", "Orange", "Light Orange", "Pink", "Rose Pink", "Beige", "Brown", "Desert Brown" }));
+        jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox4.setToolTipText("Color Please");
         jPanel14.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 160, 30));
 
         AddDesign.setText("Add Design");
+        AddDesign.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         AddDesign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddDesignActionPerformed(evt);
@@ -230,6 +257,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jPanel14.add(AddDesign, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 490, -1, -1));
 
         ResetAll.setText("Reset All");
+        ResetAll.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ResetAll.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetAllActionPerformed(evt);
@@ -238,6 +266,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jPanel14.add(ResetAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, -1, -1));
 
         jButton5.setText("Generate");
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, -1, -1));
         jPanel14.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -20, -1, -1));
 
@@ -246,18 +275,24 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setText("Add a New Color");
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 45, -1, -1));
 
         jTextField1.setToolTipText("New Colour");
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(108, 42, 170, 30));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 170, 30));
 
         jButton1.setText("Add A New Colour");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("Demo");
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 213, 80, -1));
 
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 620, 250));
 
@@ -292,6 +327,11 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null,"Successfully Added your Colour");
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable6MouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTable6MouseClicked
 
         
         private void generate_stlid(){
@@ -430,6 +470,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     private javax.swing.ButtonGroup Status;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;

@@ -89,6 +89,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jTable3 = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jButton18 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -118,6 +119,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jButton1 = new javax.swing.JButton();
         jButton23 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
+        jButton19 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -139,16 +141,19 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
 
         jLabel1.setText("BILLING INFORMATION FOR FINISHED DESIGN ITEM");
         jLabel1.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 390, -1));
 
         jLabel13.setText("Date");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 53, -1, -1));
 
         jLabel15.setText("Style ID");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 95, -1, -1));
 
         jLabel16.setText("Style Description");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
         jTextArea1.setColumns(20);
@@ -172,38 +177,46 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 51, 179, -1));
 
         jLabel4.setText("Accessories");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 69, -1));
         jPanel8.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 247, 178, -1));
 
         jLabel7.setText("Quantity");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 291, -1, -1));
 
         jLabel8.setText("Colour");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 322, -1, -1));
 
         jLabel9.setText("Cost");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 360, -1, -1));
 
         jLabel10.setText("Final Cost");
-        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 398, 57, -1));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 398, 70, 20));
         jPanel8.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 288, 178, -1));
         jPanel8.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 319, 178, -1));
         jPanel8.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 357, 178, -1));
         jPanel8.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 395, 178, -1));
 
         jButton15.setText("ADD");
+        jButton15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton15ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(83, 445, -1, -1));
+        jPanel8.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 440, -1, -1));
 
-        jButton16.setText("RESET");
-        jPanel8.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 445, -1, -1));
+        jButton16.setText("Reset");
+        jButton16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 440, -1, -1));
 
-        jButton17.setText("PRINT");
-        jPanel8.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(254, 445, -1, -1));
+        jButton17.setText("DEMO");
+        jButton17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 300, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -220,7 +233,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTable2);
         jTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 828, 150));
+        jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 290, 800, 150));
 
         jComboBox2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jComboBox2.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -239,6 +252,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("Add  Row");
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -247,13 +261,16 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(709, 27, 90, -1));
 
         jLabel5.setText("Accessories");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 64, -1));
 
         jLabel6.setText("Quantity");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, -1, -1));
         jPanel6.add(jTextFieldQuantatiy, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 70, -1));
 
         jButton3.setText("Delete Row");
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -262,6 +279,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(709, 97, 90, -1));
 
         jButton9.setText("Clear");
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
@@ -271,15 +289,19 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel6.add(jTextFieldColour, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 70, -1));
 
         jLabel17.setText("Colour");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 140, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Zippers", "Buttons", "Lace", "Sequences", "Threads", "Pins", "Ribbon", "Elastics", "Ornaments", "Collars", "Buckels", "Brooch", "Neckline", "Badge" }));
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, 70, 30));
 
         jLabel2.setText("Cost");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 170, -1, -1));
 
         jLabel3.setText("Final Cost");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 64, -1));
         jPanel6.add(jTextFieldCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 70, -1));
         jPanel6.add(jTextFieldFinalCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 70, -1));
@@ -305,10 +327,15 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 17, 437, 208));
 
         jLabel12.setText("Number");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, -1));
         jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 70, 30));
 
         jPanel8.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 890, 240));
+
+        jButton18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton18.setText("Print");
+        jPanel8.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 440, -1, -1));
 
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 36, 1260, 490));
 
@@ -321,17 +348,19 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 255)));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPanel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel30.setText("View Detail");
-        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 12, -1, -1));
 
         jLabel31.setText("Style ID");
-        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         jButton24.setText("Print");
+        jButton24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(873, 379, -1, -1));
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
@@ -351,16 +380,19 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel5.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 83, 806, 195));
 
         jLabel14.setText("Date");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 72, -1, -1));
 
         datePicker2.setEnabled(false);
         jPanel5.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 70, 179, -1));
 
         jLabel18.setText("Style ID");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 111, -1, -1));
         jPanel5.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 108, 179, -1));
 
         jLabel19.setText("Style Description");
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 156, -1, -1));
 
         jTextArea2.setColumns(20);
@@ -370,41 +402,54 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel5.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 182, 179, -1));
 
         jLabel11.setText("Accessories");
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 292, 69, -1));
         jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 289, 178, -1));
 
         jLabel20.setText("Quantity");
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 344, -1, -1));
         jPanel5.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 341, 178, -1));
 
         jLabel21.setText("Colour");
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 383, -1, -1));
         jPanel5.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 380, 178, -1));
 
         jLabel22.setText("Cost");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 29, -1, -1));
         jPanel5.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 26, 179, -1));
 
         jLabel23.setText("Final Cost");
-        jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(685, 29, 57, -1));
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(662, 29, 80, 20));
 
         jButton4.setText("ViewAll");
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, 170, 20));
+        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 170, 30));
         jPanel5.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(752, 26, 179, -1));
 
         jButton1.setText("Update");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 379, -1, -1));
 
         jButton23.setText("Delete");
-        jPanel5.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(661, 379, 71, -1));
+        jButton23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 380, 71, -1));
 
         jButton11.setText("Reset");
-        jPanel5.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(769, 379, -1, -1));
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, -1, -1));
+
+        jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton19.setText("Demo");
+        jPanel5.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 380, -1, -1));
 
         jPanel9.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, 1232, 430));
 
@@ -588,7 +633,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM 'garmentsystem'.'T_Design_table'");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`T_Design_table`");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
@@ -703,6 +748,8 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
+    private javax.swing.JButton jButton18;
+    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
