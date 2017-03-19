@@ -27,6 +27,10 @@ int RowCountjTable2;
     public Request_CreateSample() {
         initComponents();
         generate_SAMID();
+        TableLoad();
+        TableLoad1();
+        TableLoad2();
+        datePicker2.setDateToToday();
         
     }
 
@@ -42,6 +46,18 @@ int RowCountjTable2;
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel22 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
+        jButton15 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -54,7 +70,6 @@ int RowCountjTable2;
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
@@ -75,7 +90,8 @@ int RowCountjTable2;
         dateSettings123.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings123.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings123);
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jTextField2 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -121,6 +137,89 @@ int RowCountjTable2;
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 560, 400));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel22.setText("View all Approved Designs");
+        jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
+
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton4.setText("Add_Sample");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 460, -1, -1));
+
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.setText("Demo");
+        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 460, -1, -1));
+
+        jButton12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton12.setText("Reset");
+        jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 460, -1, -1));
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(jTable3);
+
+        jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 50, 560, 390));
+
+        jButton13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton13.setText("View");
+        jButton13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton13ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, -1));
+
+        jButton14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton14.setText("Reset");
+        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, -1, -1));
+
+        jButton15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton15.setText("Demo");
+        jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, -1, -1));
+
+        jButton16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton16.setText("View");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 460, -1, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 1300, 530));
 
         jTabbedPane1.addTab("ADD Requesition  of Samples", jPanel1);
@@ -169,13 +268,10 @@ int RowCountjTable2;
 
         jTextField1.setEditable(false);
         jTextField1.setToolTipText("AutoGeneratedID");
-        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 13, 171, 30));
-
-        jTextField2.setToolTipText("Type Sample Name");
-        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 51, 171, 30));
+        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 171, 30));
 
         jTextField3.setToolTipText("Autofill");
-        jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 89, 171, 30));
+        jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 171, 30));
 
         jTextField4.setToolTipText("Sample Designer");
         jPanel5.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 171, 30));
@@ -281,10 +377,9 @@ int RowCountjTable2;
         datePicker2.setName("");
         jPanel5.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 170, 30));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox1.setToolTipText("Select Me");
-        jPanel5.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 290, 171, 28));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Sample", "Sketch Sample", "Photo Sample" }));
+        jPanel5.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 160, 30));
+        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 170, 30));
 
         jTabbedPane1.addTab("Create Sample", jPanel5);
 
@@ -440,7 +535,7 @@ int RowCountjTable2;
             jTextField3.setText("des");
             jTextArea1.setText("Sampletype");
             jTextField5.setText("Samplesize");
-            jComboBox1.setSelectedItem("Samplegroup");
+            jComboBox4.setSelectedItem("Samplegroup");
             jTextField15.setText("Sampledesigner");
             jTextField4.setText("Nosample");
             jTextField7.setText("Samplegiven");
@@ -470,11 +565,11 @@ int RowCountjTable2;
        
 
             jTextField1.setText(id);
-            jTextField2.setText("name");
+            jTextField2.setText("SampleName");
             jTextField3.setText("des");
             jTextArea1.setText("Sampletype");
             jTextField5.setText("Samplesize");
-            jComboBox1.setSelectedItem("Samplegroup");
+            jComboBox4.setSelectedItem("Samplegroup");
             jTextField15.setText("Sampledesigner");
             jTextField4.setText("Nosample");
             jTextField7.setText("Samplegiven");
@@ -482,6 +577,39 @@ int RowCountjTable2;
         
         
     }//GEN-LAST:event_jTable4MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        
+       
+       
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+         TableLoad1();
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        // TODO add your handling code here:
+        
+         int row =jTable3.getSelectedRow();
+        String name = jTable3.getValueAt(row,0).toString();
+        String stid = jTable3.getValueAt(row,1).toString();
+        String type = jTable3.getValueAt(row,1).toString();
+        String size = jTable3.getValueAt(row,1).toString();
+       
+        jTextField3.setText(name);
+        jTextField2.setText(stid);
+        jTextField15.setText(type);
+        jTextField5.setText(size);
+        
+   
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton16ActionPerformed
     private void generate_SAMID(){
     AutoIdGenerator sid = new AutoIdGenerator();
     jTextField1.setText(sid.generate("SAMID",Integer.toString(MainWindow.userid)));
@@ -494,6 +622,23 @@ int RowCountjTable2;
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
+     
+      private void TableLoad1()//Table Load for Approved designs
+    {
+
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`T_Design_Approval_Table`");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
+      private void TableLoad2()
+    {
+
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT StyleId,Size,Type,Collection FROM `garmentsystem`.`T_Design_table`;");
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
+      
+      
     
     private void clearSearch(){
             jTextField1.setText("");
@@ -501,7 +646,7 @@ int RowCountjTable2;
             jTextField3.setText("");
             jTextArea1.setText("");
             jTextField5.setText("");
-            jComboBox1.setSelectedItem("");
+            jComboBox4.setSelectedItem("");
             jTextField15.setText("");
             jTextField4.setText("");
             jTextField7.setText("");
@@ -514,12 +659,12 @@ int RowCountjTable2;
         
         
         String id = jTextField1.getText();
-        String name = jTextField2.getText();
+        String name =jTextField2.getText();
         String stid =jTextField3.getText();
         String des=jTextArea1.getText();
         String Sampletype =jTextField5.getText();
         String samplesize =jTextField15.getText();
-        String samplegroup = jComboBox1.getSelectedItem().toString();
+        String samplegroup = jComboBox4.getSelectedItem().toString();
         String sampledesigner =jTextField4.getText();
         String Nosample =jTextField7.getText();
         String samplegiven=jTextField6.getText();
@@ -566,20 +711,28 @@ int RowCountjTable2;
         
       
     }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
+    private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -594,6 +747,7 @@ int RowCountjTable2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -609,12 +763,16 @@ int RowCountjTable2;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextArea jTextArea2;
