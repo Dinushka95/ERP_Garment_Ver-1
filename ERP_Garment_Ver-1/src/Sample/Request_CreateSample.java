@@ -149,6 +149,11 @@ int RowCountjTable2;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 560, 400));
@@ -389,61 +394,61 @@ int RowCountjTable2;
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setText("Sample ID");
-        jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 16, -1, -1));
+        jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jLabel12.setText("Sample Name");
-        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 63, -1, -1));
-        jPanel8.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 60, 166, -1));
+        jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
+        jPanel8.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 130, 30));
 
         jLabel13.setText("StyleID");
-        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 103, -1, -1));
-        jPanel8.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 100, 166, -1));
+        jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
+        jPanel8.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 130, 30));
 
         jLabel14.setText("Style Description");
-        jPanel8.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 63, -1, -1));
+        jPanel8.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
         jScrollPane4.setViewportView(jTextArea2);
 
-        jPanel8.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 38, -1, -1));
+        jPanel8.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 140, 90));
 
         jLabel15.setText("Sample Type");
-        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(432, 15, -1, -1));
-        jPanel8.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(516, 12, 166, -1));
+        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+        jPanel8.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 130, 30));
 
         jLabel16.setText("Sample Group");
         jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 50, -1, -1));
 
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel8.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(843, 53, 166, -1));
+        jPanel8.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 60, 130, 30));
 
         jLabel17.setText("Select Size");
-        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1027, 16, -1, -1));
+        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, -1, -1));
 
         jLabel18.setText("Sample Designer");
         jPanel8.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(714, 16, -1, -1));
-        jPanel8.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(843, 13, 166, -1));
+        jPanel8.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 130, 30));
 
         jLabel19.setText("Number of Samples");
-        jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 101, -1, -1));
+        jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
 
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField13ActionPerformed(evt);
             }
         });
-        jPanel8.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(843, 98, 166, -1));
+        jPanel8.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, 130, 30));
 
         jLabel20.setText("Sample Given to");
-        jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 143, -1, -1));
-        jPanel8.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(843, 140, 166, -1));
+        jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 70, -1, -1));
+        jPanel8.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 70, 130, 30));
 
         jButton5.setText("ViewAll");
-        jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+        jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
         jButton6.setText("Reset");
-        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, -1, -1));
+        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 60, -1));
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -476,7 +481,7 @@ int RowCountjTable2;
 
         jButton10.setText("Report");
         jPanel8.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 482, -1, -1));
-        jPanel8.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1096, 12, 135, 23));
+        jPanel8.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1135, 20, 130, 30));
 
         jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1290, 520));
 
@@ -596,8 +601,8 @@ int RowCountjTable2;
          int row =jTable3.getSelectedRow();
         String name = jTable3.getValueAt(row,0).toString();
         String stid = jTable3.getValueAt(row,1).toString();
-        String type = jTable3.getValueAt(row,1).toString();
-        String size = jTable3.getValueAt(row,1).toString();
+        String type = jTable3.getValueAt(row,2).toString();
+        String size = jTable3.getValueAt(row,3).toString();
        
         jTextField3.setText(name);
         jTextField2.setText(stid);
@@ -610,6 +615,10 @@ int RowCountjTable2;
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
     private void generate_SAMID(){
     AutoIdGenerator sid = new AutoIdGenerator();
     jTextField1.setText(sid.generate("SAMID",Integer.toString(MainWindow.userid)));
@@ -633,7 +642,7 @@ int RowCountjTable2;
       private void TableLoad2()
     {
 
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT StyleId,Size,Type,Collection FROM `garmentsystem`.`T_Design_table`;");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Type,StyleId,Collection,Size FROM `garmentsystem`.`T_Design_table`;");
             jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
