@@ -574,6 +574,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         DeleteDesigns();
         Table2Load();
+        clearDeleteDesign();
         
     }//GEN-LAST:event_Editbtn1ActionPerformed
 
@@ -680,6 +681,10 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     }
        private void DeleteDesigns()
     {
+        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
         String id =jLabel16.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`T_Design_table`\n" +
@@ -696,6 +701,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         catch (Exception ex){
             System.out.println(ex);
         }
+    }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
