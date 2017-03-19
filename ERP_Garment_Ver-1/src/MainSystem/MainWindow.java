@@ -50,6 +50,7 @@ import ManufacturingPlanning.SewingSchedule;
 import ManufacturingPlanning.WashingSchedule;
 import Procurements.Purchasing;
 import Procurements.SupplierPortfolio;
+import Sample.Request_CreateSample;
 import Sample.Sample_Approval;
 import Sample.Sample_Costing;
 import StyleManagement.CreateDesign;
@@ -309,7 +310,7 @@ public static AutoReport autoReport;
         });
         jPanel2.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
-        jTabbedPane1.addTab("Style Management", jPanel2);
+        jTabbedPane1.addTab("Design Management", jPanel2);
 
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -951,7 +952,7 @@ public static AutoReport autoReport;
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
         // TODO add your handling code here:
-     /*   
+        
         Request_CreateSample RCS = new Request_CreateSample ();
         RCS.setVisible(true);
         jDesktopPane1.removeAll();
@@ -962,7 +963,7 @@ public static AutoReport autoReport;
             Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
         }
         RCS.setMaximizable(false);
-       */ 
+       
         
     }//GEN-LAST:event_jButton28ActionPerformed
 
