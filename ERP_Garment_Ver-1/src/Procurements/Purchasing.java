@@ -28,6 +28,9 @@ public class Purchasing extends javax.swing.JInternalFrame {
         FillCombo2();
         
         
+        
+        
+        
     }
     
     
@@ -61,10 +64,10 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        DatePickerSettings dateSettings1 = new DatePickerSettings();
-        dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
-        dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
+        DatePickerSettings dateSettings01 = new DatePickerSettings();
+        dateSettings01.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings01.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings01);
         jButton2 = new javax.swing.JButton();
         spp = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
@@ -99,6 +102,64 @@ public class Purchasing extends javax.swing.JInternalFrame {
         spp1 = new javax.swing.JComboBox<>();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel20 = new javax.swing.JLabel();
+        TypeCombo = new javax.swing.JComboBox<>();
+        jPanel7 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable4 = new javax.swing.JTable();
+        jLabel25 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jPanel6 = new javax.swing.JPanel();
+        materialPanel = new javax.swing.JPanel();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        namefield = new javax.swing.JTextField();
+        costfield = new javax.swing.JTextField();
+        quantityfield = new javax.swing.JTextField();
+        reorderfield = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        valuefield = new javax.swing.JTextField();
+        DatePickerSettings dateSettings4 = new DatePickerSettings();
+        dateSettings4.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings4.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker3 = new com.github.lgooddatepicker.components.DatePicker(dateSettings4);
+        jButton9 = new javax.swing.JButton();
+        accessoryPanel = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        valuefield1 = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
+        DatePickerSettings dateSettings5 = new DatePickerSettings();
+        dateSettings5.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings5.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker4 = new com.github.lgooddatepicker.components.DatePicker(dateSettings5);
+        jLabel24 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        typefield = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        namefield1 = new javax.swing.JTextField();
+        reorderfield1 = new javax.swing.JTextField();
+        costfield1 = new javax.swing.JTextField();
+        quantityfield1 = new javax.swing.JTextField();
+        machinepartPanel = new javax.swing.JPanel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        qtyfield = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        valuefield2 = new javax.swing.JTextField();
+        namefield2 = new javax.swing.JTextField();
+        machineCombo = new javax.swing.JComboBox<>();
+        DatePickerSettings dateSettings1 = new DatePickerSettings();
+        dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker5 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
 
         setTitle("Purchases");
         setMaximumSize(new java.awt.Dimension(1366, 768));
@@ -235,7 +296,7 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jLabel3.setText("Order No");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
-        jLabel4.setText("Purchase Description");
+        jLabel4.setText("Purchase Item Name");
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
         jPanel2.add(odno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 210, -1));
         jPanel2.add(des1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 210, -1));
@@ -314,6 +375,11 @@ public class Purchasing extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jPanel4.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 20, 750, 600));
@@ -332,12 +398,244 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jPanel2.add(spp1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 310, 210, -1));
 
         jButton7.setText("Update");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 440, -1, -1));
 
         jButton8.setText("Delete");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 440, -1, -1));
 
         jTabbedPane1.addTab("Foriegn Purchases", jPanel2);
+
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel20.setText("Purchased Item Type");
+        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        TypeCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Raw Materials", "Accessories", "Machine Parts" }));
+        TypeCombo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TypeComboMouseClicked(evt);
+            }
+        });
+        TypeCombo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TypeComboActionPerformed(evt);
+            }
+        });
+        jPanel5.add(TypeCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 10, 160, -1));
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable4.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable4MouseClicked(evt);
+            }
+        });
+        jScrollPane4.setViewportView(jTable4);
+
+        jPanel7.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 20, 850, 600));
+
+        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 890, 640));
+        jPanel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
+        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 50, 210, -1));
+
+        jPanel6.setLayout(new java.awt.CardLayout());
+
+        materialPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel26.setText("Re-Order Quantity");
+        materialPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel21.setText("Date");
+        materialPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+        materialPanel.add(namefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 140, -1));
+        materialPanel.add(costfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 140, -1));
+
+        quantityfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantityfieldActionPerformed(evt);
+            }
+        });
+        quantityfield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantityfieldKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                quantityfieldKeyTyped(evt);
+            }
+        });
+        materialPanel.add(quantityfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 140, -1));
+        materialPanel.add(reorderfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 140, -1));
+
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel27.setText("Material Name");
+        materialPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel28.setText("Material Cost Per Unit");
+        materialPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel29.setText("Value");
+        materialPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel30.setText("Quantity");
+        materialPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+
+        valuefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valuefield.setEnabled(false);
+        valuefield.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                valuefieldKeyReleased(evt);
+            }
+        });
+        materialPanel.add(valuefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 140, -1));
+
+        datePicker3.setEnabled(false);
+        datePicker3.setName(""); // NOI18N
+        materialPanel.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 340, -1, -1));
+
+        jButton9.setText("Add Material");
+        materialPanel.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 400, -1, -1));
+
+        jPanel6.add(materialPanel, "card2");
+
+        accessoryPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setText("Stock Value");
+        accessoryPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel22.setText("Accessory Name");
+        accessoryPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
+
+        valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valuefield1.setEnabled(false);
+        valuefield1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                valuefield1KeyReleased(evt);
+            }
+        });
+        accessoryPanel.add(valuefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 140, -1));
+
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel23.setText("Cost Per Unit");
+        accessoryPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+
+        datePicker4.setEnabled(false);
+        datePicker4.setName(""); // NOI18N
+        accessoryPanel.add(datePicker4, new org.netbeans.lib.awtextra.AbsoluteConstraints(205, 360, 140, -1));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel24.setText("Quantity");
+        accessoryPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+
+        jLabel31.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel31.setText("Accessory Type");
+        accessoryPanel.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+
+        jLabel32.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel32.setText("Date");
+        accessoryPanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
+
+        typefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        accessoryPanel.add(typefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 250, 140, -1));
+
+        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel33.setText("Re-Order Level");
+        accessoryPanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+        accessoryPanel.add(namefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 140, -1));
+
+        reorderfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        accessoryPanel.add(reorderfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 140, -1));
+        accessoryPanel.add(costfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 140, -1));
+
+        quantityfield1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantityfield1ActionPerformed(evt);
+            }
+        });
+        quantityfield1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                quantityfield1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                quantityfield1KeyTyped(evt);
+            }
+        });
+        accessoryPanel.add(quantityfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 160, 140, -1));
+
+        jPanel6.add(accessoryPanel, "card3");
+
+        machinepartPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel34.setText("Machine Part Name");
+        machinepartPanel.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel35.setText("Machine Number");
+        machinepartPanel.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel36.setText("Part Value");
+        machinepartPanel.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
+
+        jLabel37.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel37.setText("Quantity");
+        machinepartPanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, -1, -1));
+
+        qtyfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        machinepartPanel.add(qtyfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 150, -1));
+
+        jLabel38.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel38.setText("Purchased Date");
+        machinepartPanel.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, -1, -1));
+
+        valuefield2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        machinepartPanel.add(valuefield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 50, -1));
+
+        namefield2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        machinepartPanel.add(namefield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 150, -1));
+
+        machineCombo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        machinepartPanel.add(machineCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 140, 150, -1));
+
+        datePicker5.setEnabled(false);
+        datePicker5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        datePicker5.setName(""); // NOI18N
+        machinepartPanel.add(datePicker5, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, -1, -1));
+
+        jPanel6.add(machinepartPanel, "card4");
+
+        jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 430, 490));
+
+        jTabbedPane1.addTab("Recieved Purchases", jPanel5);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1390, 690));
 
@@ -451,9 +749,166 @@ public class Purchasing extends javax.swing.JInternalFrame {
         datePicker1.setDateToToday();
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void PurchaseTypeCheck()
+    {
+        if(TypeCombo.getSelectedItem().equals("Raw Materials"))
+        {
+            jLabel25.setText("Material ID");
+            generate_mid();
+            materialPanel.setVisible(true);
+            accessoryPanel.setVisible(false);
+            machinepartPanel.setVisible(false);
+        }
+        else if(TypeCombo.getSelectedItem().equals("Accessories"))
+        {
+            jLabel25.setText("Accessory  ID");
+            generate_accid();
+            materialPanel.setVisible(false);
+            accessoryPanel.setVisible(true);
+            machinepartPanel.setVisible(false);
+        }
+        else if(TypeCombo.getSelectedItem().equals("Machine Parts"))
+        {
+            jLabel25.setText("Machine Part ID");
+            generate_mac_prtid();
+            materialPanel.setVisible(false);
+            accessoryPanel.setVisible(false);
+            machinepartPanel.setVisible(true);
+            
+        }
+        
+        
+        
+    }
+    
+    private void generate_mac_prtid(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1.setText(aid.generate("MAC_PRT",Integer.toString(MainWindow.userid)));
+    }
+    
+    
+    private void generate_accid(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1.setText(aid.generate("ACC",Integer.toString(MainWindow.userid)));
+    }
+    
+    private void generate_mid(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1.setText(aid.generate("MAT",Integer.toString(MainWindow.userid)));
+    }
+    
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         DeleteOrder();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        ForeignUpdate();
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        
+        ForeignDelete();
+        
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        
+        int row = jTable2.getSelectedRow();
+        String id = jTable2.getValueAt(row,0).toString();
+        String description = jTable2.getValueAt(row,1).toString();
+        String quantity = jTable2.getValueAt(row,3).toString();
+        String unitprice = jTable2.getValueAt(row,4).toString();
+        String total = jTable2.getValueAt(row,5).toString();
+        String advance = jTable2.getValueAt(row,6).toString();
+        String paymenttype = jTable2.getValueAt(row,7).toString();
+        String spplier = jTable2.getValueAt(row,8).toString();
+        String date = jTable2.getValueAt(row,9).toString();
+        
+        
+        odno1.setText(id);
+        des1.setText(description);
+        qty1.setText(quantity);
+        unit1.setText(unitprice);
+        tot1.setText(total);
+        adv1.setText(advance);
+        
+        
+        jRadioButton3.setActionCommand("Credit");
+        jRadioButton4.setActionCommand("Cash");
+        
+        if("Credit".equals(paymenttype))
+        {
+            jRadioButton3.setSelected(true);
+        }
+        else if("Cash".equals(paymenttype))
+        {
+            jRadioButton4.setSelected(true);
+        }
+        
+        
+        
+        spp1.setSelectedItem(spplier);
+        datePicker2.setDateToToday();
+        
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable4MouseClicked
+
+    private void TypeComboMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TypeComboMouseClicked
+        
+    }//GEN-LAST:event_TypeComboMouseClicked
+
+    private void quantityfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityfieldActionPerformed
+
+    private void quantityfieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfieldKeyReleased
+        // TODO add your handling code here:
+        double qty = Double.parseDouble(quantityfield.getText());
+        double perunit = Double.parseDouble(costfield.getText());
+
+        double val = perunit * qty;
+
+        valuefield.setText(Double.toString(val));
+    }//GEN-LAST:event_quantityfieldKeyReleased
+
+    private void quantityfieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfieldKeyTyped
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_quantityfieldKeyTyped
+
+    private void valuefieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_valuefieldKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valuefieldKeyReleased
+
+    private void valuefield1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_valuefield1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_valuefield1KeyReleased
+
+    private void quantityfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityfield1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantityfield1ActionPerformed
+
+    private void quantityfield1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfield1KeyReleased
+        // TODO add your handling code here:
+        double qty = Double.parseDouble(quantityfield.getText());
+        double perunit = Double.parseDouble(costfield.getText());
+
+        double val = perunit * qty;
+
+        valuefield.setText(Double.toString(val));
+    }//GEN-LAST:event_quantityfield1KeyReleased
+
+    private void quantityfield1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfield1KeyTyped
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_quantityfield1KeyTyped
+
+    private void TypeComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TypeComboActionPerformed
+        PurchaseTypeCheck();
+    }//GEN-LAST:event_TypeComboActionPerformed
 
 
     private void TextBoxClear()
@@ -544,6 +999,77 @@ public class Purchasing extends javax.swing.JInternalFrame {
     
     }
     
+    private void ForeignUpdate()
+    {
+        String id = odno1.getText();
+        String description = des1.getText();
+        
+        String type = "Foreign";
+        
+        String quantity = qty1.getText();
+        double prc = Double.parseDouble(unit1.getText());
+        double total = Double.parseDouble(tot1.getText());
+        double advance = Double.parseDouble(adv1.getText());
+        
+        jRadioButton3.setActionCommand("Credit");
+        jRadioButton4.setActionCommand("Cash");
+        
+        String method = buttonGroup1.getSelection().getActionCommand();
+        
+        String supplier = spp1.getSelectedItem().toString();
+        String delivery = datePicker2.getText();
+        
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Purchasing`\n" +
+"SET\n" +
+"`Order_ID` = '"+id+"',\n" +
+"`Description` = '"+description+"',\n" +
+"`Type` = '"+type+"',\n" +
+"`Quantity` = '"+quantity+"',\n" +
+"`Unit_Price` = '"+prc+"',\n" +
+"`Total` = '"+total+"',\n" +
+"`Advance` = '"+advance+"',\n" +
+"`Payment_type` = '"+method+"',\n" +
+"`Supplier` = '"+supplier+"',\n" +
+"`Est_Delivery` = '"+delivery+"'\n" +
+"WHERE `Order_ID` = '"+id+"';");
+        
+        
+        try
+        {
+            if(x==true)
+            {
+                TableLoad2();
+                TextBoxClear2();
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
+    private void ForeignDelete()
+    {
+        String id = odno1.getText();
+        
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Purchasing`\n" +
+"WHERE Order_ID='"+id+"';");
+        
+        try
+        {
+            if(x==true)
+            {
+                TableLoad2();
+                TextBoxClear2();
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
+    
     private void FillCombo()
     {
         try
@@ -599,6 +1125,12 @@ public class Purchasing extends javax.swing.JInternalFrame {
     private void TableLoad2()
     {
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * from `garmentsystem`.`Purchasing` where Type='Foreign'");
+        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    }
+    
+    private void AllTableLoad()
+    {
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * from `garmentsystem`.`Purchasing`");
         jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
@@ -735,11 +1267,18 @@ public class Purchasing extends javax.swing.JInternalFrame {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> TypeCombo;
+    private javax.swing.JPanel accessoryPanel;
     private javax.swing.JTextField adv;
     private javax.swing.JTextField adv1;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JTextField costfield;
+    private javax.swing.JTextField costfield1;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
+    private com.github.lgooddatepicker.components.DatePicker datePicker3;
+    private com.github.lgooddatepicker.components.DatePicker datePicker4;
+    private com.github.lgooddatepicker.components.DatePicker datePicker5;
     private javax.swing.JTextField des;
     private javax.swing.JTextField des1;
     private javax.swing.JButton jButton1;
@@ -750,6 +1289,7 @@ public class Purchasing extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -762,8 +1302,28 @@ public class Purchasing extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -772,25 +1332,46 @@ public class Purchasing extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable4;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> machineCombo;
+    private javax.swing.JPanel machinepartPanel;
+    private javax.swing.JPanel materialPanel;
+    private javax.swing.JTextField namefield;
+    private javax.swing.JTextField namefield1;
+    private javax.swing.JTextField namefield2;
     private javax.swing.JTextField odno;
     private javax.swing.JTextField odno1;
     private javax.swing.ButtonGroup paymentMethodGroup;
     private javax.swing.JTextField qty;
     private javax.swing.JTextField qty1;
+    private javax.swing.JTextField qtyfield;
+    private javax.swing.JTextField quantityfield;
+    private javax.swing.JTextField quantityfield1;
+    private javax.swing.JTextField reorderfield;
+    private javax.swing.JTextField reorderfield1;
     private javax.swing.JComboBox<String> spp;
     private javax.swing.JComboBox<String> spp1;
     private javax.swing.JTextField tot;
     private javax.swing.JTextField tot1;
+    private javax.swing.JTextField typefield;
     private javax.swing.JTextField unit;
     private javax.swing.JTextField unit1;
+    private javax.swing.JTextField valuefield;
+    private javax.swing.JTextField valuefield1;
+    private javax.swing.JTextField valuefield2;
     // End of variables declaration//GEN-END:variables
 }
