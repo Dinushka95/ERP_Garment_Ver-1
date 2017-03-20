@@ -7,12 +7,14 @@ package HumanResource;
 
 import MainSystem.AutoDB_Connect;
 import HumanResource.Util.DBObject;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -185,7 +187,7 @@ public class Department extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int row = jTable1.getSelectedRow();
-        
+        ClearAll();
         txtDepartmentId.setText(jTable1.getValueAt(row, 0).toString());
         txtDepartmentName.setText(jTable1.getValueAt(row, 1).toString());
     }//GEN-LAST:event_jTable1MouseClicked
@@ -280,6 +282,15 @@ public class Department extends javax.swing.JInternalFrame {
                 stmnt.close();
             } catch (SQLException ex) {
                 Logger.getLogger(Department.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    void ClearAll() {
+        for(Component c : jPanel1.getComponents()) {
+            if(c instanceof JTextField){
+                JTextField f = (JTextField) c;
+                f.setText("");
             }
         }
     }

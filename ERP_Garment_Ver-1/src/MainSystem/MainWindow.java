@@ -18,6 +18,7 @@ import Finance.LOANDETAILS;
 import HumanResource.Department;
 import HumanResource.Employee;
 import HumanResource.Leave;
+import HumanResource.Salary;
 import InventoryManagement.Accessories;
 import InventoryManagement.FinishedProducts;
 import InventoryManagement.Machine_Parts;
@@ -1063,7 +1064,16 @@ public static AutoReport autoReport;
     }//GEN-LAST:event_btnEmployeeActionPerformed
 
     private void btnPayrollActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayrollActionPerformed
-
+        Salary empIns = new Salary(); 
+        empIns.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(empIns);
+        try {
+            empIns.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            System.out.println(ex);
+        }
+        empIns.setMaximizable(false);
     }//GEN-LAST:event_btnPayrollActionPerformed
 
     private void btnLeavesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeavesActionPerformed

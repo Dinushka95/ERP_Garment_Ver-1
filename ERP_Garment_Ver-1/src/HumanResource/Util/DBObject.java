@@ -71,6 +71,9 @@ public abstract class DBObject {
                     case java.sql.Types.INTEGER:
                         row[i] = rs.getInt(cols[i].columnName);
                         break;
+                    case java.sql.Types.DOUBLE:
+                        row[i] = rs.getDouble(cols[i].columnName);
+                        break;
                     case java.sql.Types.NUMERIC:
                         row[i] = rs.getInt(cols[i].columnName);
                         break;

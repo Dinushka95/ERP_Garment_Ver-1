@@ -7,6 +7,7 @@ package HumanResource;
 
 import MainSystem.AutoDB_Connect;
 import HumanResource.Util.DBObject;
+import java.awt.Component;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,6 +19,7 @@ import java.util.logging.Logger;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
 
 /**
  *
@@ -46,7 +48,7 @@ public class Employee extends javax.swing.JInternalFrame {
             ResultSet rs = stmnt.executeQuery("SELECT depid FROM emp_table");
             while(rs.next())
             {
-                String dep_id = rs.getString("dep_id");
+                String dep_id = rs.getString("depid");
                 model.addElement(dep_id);
             }
             cmbDepId.setModel(model);
@@ -128,7 +130,16 @@ public class Employee extends javax.swing.JInternalFrame {
             Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-
+    
+    void ClearAll() {
+        for(Component c : jPanel1.getComponents()) {
+            if(c instanceof JTextField){
+                JTextField f = (JTextField) c;
+                f.setText("");
+            }
+        }
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -397,6 +408,8 @@ public class Employee extends javax.swing.JInternalFrame {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         int row = jTable2.getSelectedRow();
+        
+        ClearAll();
         
         txtEmployeeId.setText(jTable2.getValueAt(row, 0).toString());
         txtFirstName.setText(jTable2.getValueAt(row, 1).toString());
