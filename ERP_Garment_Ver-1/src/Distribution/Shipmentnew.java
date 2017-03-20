@@ -76,9 +76,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jTextFieldSearchCustomerName = new javax.swing.JTextField();
         jTextFieldSearchCustomerId = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
@@ -86,6 +83,26 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jButton9 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        fromCombo2 = new javax.swing.JComboBox<>();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        shipid1 = new javax.swing.JTextField();
+        supplier1 = new javax.swing.JTextField();
+        address1 = new javax.swing.JTextField();
+        phone1 = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        descriptionarea1 = new javax.swing.JTextField();
+        recieved1 = new javax.swing.JTextField();
+        phone2 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -110,65 +127,81 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 shipidActionPerformed(evt);
             }
         });
-        jPanel6.add(shipid, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 25, 219, -1));
+        jPanel6.add(shipid, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 219, -1));
 
         jLabel2.setText("Shipment ID");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 29, -1, -1));
-        jPanel6.add(startdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 209, -1, -1));
+
+        startdate.setEnabled(false);
+        jPanel6.add(startdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 230, -1));
 
         jLabel3.setText("Shipped Date");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 211, -1, -1));
 
         jLabel4.setText("Delivery Date");
-        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 242, -1, -1));
-        jPanel6.add(enddate, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 240, -1, -1));
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
+
+        enddate.setEnabled(false);
+        jPanel6.add(enddate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 230, -1));
 
         jLabel5.setText("From");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 180, -1, -1));
 
         jLabel6.setText("Recieved By");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 286, -1, -1));
-        jPanel6.add(recieved, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 283, 121, -1));
+        jPanel6.add(recieved, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 230, -1));
 
         jLabel7.setText("Discription");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 321, -1, -1));
         jPanel6.add(descriptionarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 321, 254, 50));
 
         fromCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "USA", "UK", "India", "Pakisthan", " " }));
+        fromCombo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         fromCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fromComboActionPerformed(evt);
             }
         });
-        jPanel6.add(fromCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 172, 121, 31));
+        jPanel6.add(fromCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 121, 31));
 
         jLabel14.setText("Suplier ");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 64, -1, -1));
 
         jLabel19.setText("Address");
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 105, -1, -1));
-        jPanel6.add(supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 64, 121, -1));
-        jPanel6.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 102, 121, -1));
+        jPanel6.add(supplier, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 70, 220, -1));
+        jPanel6.add(address, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 220, -1));
 
         jLabel20.setText("Phone");
-        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 132, -1, -1));
-        jPanel6.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 126, 121, -1));
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 40, -1));
+        jPanel6.add(phone, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 220, -1));
 
         AddButton.setText("ADD");
+        AddButton.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         AddButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AddButtonActionPerformed(evt);
             }
         });
-        jPanel6.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 392, -1, -1));
+        jPanel6.add(AddButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 410, -1, -1));
 
         jButton4.setText("Clear All");
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(313, 392, -1, -1));
+        jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 530, 480));
 
@@ -212,73 +245,141 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
 
         jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelcustomerSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTable2);
-
-        jPanelcustomerSearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 770, 330));
-
-        jTextFieldSearchCustomerName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSearchCustomerNameActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 60, -1));
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
+        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 100, -1));
 
         jLabel9.setText("Shipment ID");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel10.setText("country");
-        jPanelcustomerSearch.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 20));
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelcustomerSearch.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 60, 20));
 
         jButton8.setText("View All");
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 20, 90, -1));
 
         jButton9.setText("Reset All");
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, -1, -1));
+        jPanelcustomerSearch.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
 
         jButton5.setText("Search");
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
         jButton10.setText("Search");
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
+        jPanelcustomerSearch.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));
 
-        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 830, 510));
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(jTable3);
 
-        jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
+        jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 580, 320));
+
+        fromCombo2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        fromCombo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "USA", "UK", "India", "Pakisthan", " " }));
+        fromCombo2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fromCombo2ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch.add(fromCombo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 121, 31));
+
+        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 530));
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setText("Shipment ID");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 29, -1, -1));
+
+        shipid1.setEditable(false);
+        shipid1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        shipid1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shipid1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(shipid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 25, 219, -1));
+        jPanel5.add(supplier1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 64, 121, -1));
+        jPanel5.add(address1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 102, 121, -1));
+        jPanel5.add(phone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 121, -1));
+
+        jLabel15.setText("Suplier ");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 64, -1, -1));
+
+        jLabel21.setText("Address");
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 105, -1, -1));
+
+        jLabel22.setText("Phone");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 132, -1, -1));
+
+        jLabel11.setText("From");
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+
+        jLabel12.setText("Shipped Date");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 211, -1, -1));
+
+        jLabel13.setText("Delivery Date");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 242, -1, -1));
+
+        jLabel16.setText("Recieved By");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 286, -1, -1));
+
+        jLabel17.setText("Discription");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 321, -1, -1));
+
+        descriptionarea1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                descriptionarea1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(descriptionarea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 321, 254, 50));
+        jPanel5.add(recieved1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 283, 121, -1));
+        jPanel5.add(phone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 126, 121, -1));
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 560, 530));
+
+        jTabbedPane1.addTab("Search & Update || Delete", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Reports", jPanel4);
@@ -305,14 +406,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_AddButtonActionPerformed
 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-
-    }//GEN-LAST:event_jTable2MouseClicked
-
-    private void jTextFieldSearchCustomerNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchCustomerNameActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSearchCustomerNameActionPerformed
-
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
 
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -336,6 +429,18 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         generate_shipmentid();
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void shipid1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shipid1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_shipid1ActionPerformed
+
+    private void descriptionarea1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionarea1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_descriptionarea1ActionPerformed
+
+    private void fromCombo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromCombo2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_fromCombo2ActionPerformed
 
      private void generate_shipmentid(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -413,9 +518,12 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JTextField address;
+    private javax.swing.JTextField address1;
     private javax.swing.JTextField descriptionarea;
+    private javax.swing.JTextField descriptionarea1;
     private com.github.lgooddatepicker.components.DatePicker enddate;
     private javax.swing.JComboBox<String> fromCombo;
+    private javax.swing.JComboBox<String> fromCombo2;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
@@ -423,33 +531,47 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanelcustomerSearch;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextFieldSearchCustomerId;
-    private javax.swing.JTextField jTextFieldSearchCustomerName;
     private javax.swing.JTextField phone;
+    private javax.swing.JTextField phone1;
+    private javax.swing.JTextField phone2;
     private javax.swing.JTextField recieved;
+    private javax.swing.JTextField recieved1;
     private javax.swing.JTextField shipid;
+    private javax.swing.JTextField shipid1;
     private com.github.lgooddatepicker.components.DatePicker startdate;
     private javax.swing.JTextField supplier;
+    private javax.swing.JTextField supplier1;
     // End of variables declaration//GEN-END:variables
 }

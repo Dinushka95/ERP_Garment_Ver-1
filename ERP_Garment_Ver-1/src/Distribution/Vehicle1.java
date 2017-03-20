@@ -64,12 +64,31 @@ DefaultTableModel model;
         jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch2 = new javax.swing.JPanel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
         jTextFieldSearchCustomerId = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField9 = new javax.swing.JTextField();
+        jTextField10 = new javax.swing.JTextField();
+        jTextField11 = new javax.swing.JTextField();
+        jTextField12 = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
+        jTextField14 = new javax.swing.JTextField();
+        jTextField15 = new javax.swing.JTextField();
+        jTextField16 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -125,45 +144,54 @@ DefaultTableModel model;
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 30, 160, -1));
+        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 170, -1));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Vehicle ID");
-        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
+        jPanel5.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 100, -1));
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Type");
-        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 50, 20));
+        jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 90, 20));
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Lyson No");
-        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 100, -1));
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Milage");
-        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 40, -1));
+        jPanel5.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 80, -1));
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Driver ID");
-        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 50, -1));
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 90, -1));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Driver's name");
-        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 70, -1));
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 110, -1));
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Engine no");
-        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 60, -1));
+        jPanel5.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 100, -1));
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("Servise Duration");
-        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 90, -1));
-        jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 170, -1));
+        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 130, -1));
+        jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 300, 170, -1));
 
         jTextField7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField7ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, 170, -1));
-        jPanel5.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 170, 20));
-        jPanel5.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 170, -1));
-        jPanel5.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 170, 20));
-        jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 160, -1));
-        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 70, 160, -1));
+        jPanel5.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 170, -1));
+        jPanel5.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 170, 20));
+        jPanel5.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 170, -1));
+        jPanel5.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 170, 20));
+        jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 170, -1));
+        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 170, -1));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("ADD");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -172,6 +200,7 @@ DefaultTableModel model;
         });
         jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, -1, -1));
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("Clear All");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -188,28 +217,13 @@ DefaultTableModel model;
 
         jPanelcustomerSearch2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelcustomerSearch2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable4MouseClicked(evt);
-            }
-        });
-        jScrollPane4.setViewportView(jTable4);
-
-        jPanelcustomerSearch2.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 770, 330));
         jPanelcustomerSearch2.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Vehical ID");
         jPanelcustomerSearch2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton8.setText("View All");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -218,6 +232,7 @@ DefaultTableModel model;
         });
         jPanelcustomerSearch2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.setText("Search");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -226,9 +241,90 @@ DefaultTableModel model;
         });
         jPanelcustomerSearch2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
-        jPanel3.add(jPanelcustomerSearch2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 830, 510));
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
 
-        jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
+        jPanelcustomerSearch2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 450, 330));
+
+        jPanel3.add(jPanelcustomerSearch2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 560, 460));
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("Vehicle ID");
+        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, 100, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("Type");
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 90, 20));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setText("Lyson No");
+        jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 90, -1));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setText("Milage");
+        jPanel6.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 80, -1));
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel14.setText("Driver ID");
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 90, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setText("Driver's name");
+        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, 110, -1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setText("Engine no");
+        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 100, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("Servise Duration");
+        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 130, -1));
+        jPanel6.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 300, 170, -1));
+
+        jTextField10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField10ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 260, 170, -1));
+        jPanel6.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 230, 170, 20));
+        jPanel6.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 190, 170, -1));
+        jPanel6.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 170, 20));
+        jPanel6.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 170, -1));
+        jPanel6.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, 170, -1));
+
+        jTextField16.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jTextField16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField16ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 170, -1));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("Update");
+        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setText("Delete");
+        jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
+
+        jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, 460, 460));
+
+        jTabbedPane1.addTab("Search & Update|| Delete", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Reports", jPanel4);
@@ -248,10 +344,6 @@ DefaultTableModel model;
         AddVehicle();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
-
-    }//GEN-LAST:event_jTable4MouseClicked
-
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
 
     }//GEN-LAST:event_jButton8ActionPerformed
@@ -268,6 +360,14 @@ DefaultTableModel model;
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField10ActionPerformed
+
+    private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField16ActionPerformed
      private void generate_vehicleID() {
        
        AutoIdGenerator aid = new AutoIdGenerator();
@@ -343,30 +443,48 @@ DefaultTableModel model;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanelcustomerSearch2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable4;
+    private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField10;
+    private javax.swing.JTextField jTextField11;
+    private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
+    private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -374,6 +492,7 @@ DefaultTableModel model;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
+    private javax.swing.JTextField jTextField9;
     private javax.swing.JTextField jTextFieldSearchCustomerId;
     // End of variables declaration//GEN-END:variables
        
