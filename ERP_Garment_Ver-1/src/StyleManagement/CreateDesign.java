@@ -6,6 +6,7 @@ import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.autogetimage;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
@@ -51,8 +52,12 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
         jScrollPane9 = new javax.swing.JScrollPane();
         jTable6 = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        jLabelImage = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jPanel14 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -91,6 +96,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Creating Designs");
@@ -105,7 +111,9 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 255)));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(new java.awt.CardLayout());
+
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable6.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,7 +134,25 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         });
         jScrollPane9.setViewportView(jTable6);
 
-        jPanel1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 12, 598, 234));
+        jPanel6.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(5, 5, 610, 250));
+
+        jPanel1.add(jPanel6, "card4");
+
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabelImage.setText("Selected Image will be Displayed here");
+        jLabelImage.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jPanel5.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 340, 240));
+
+        jButton4.setText("Select an Image");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 100, -1, -1));
+
+        jPanel1.add(jPanel5, "card3");
 
         jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, 620, 260));
 
@@ -294,6 +320,15 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jButton2.setText("Demo");
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 213, 80, -1));
 
+        jButton3.setText("Add Image");
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
+
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 620, 250));
 
         jTabbedPane1.addTab("Create Designs", jPanel4);
@@ -311,6 +346,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         AddDesign();
         TableLoad();
         TextBoxClear2();
+        jPanel1.setVisible(true);
     }//GEN-LAST:event_AddDesignActionPerformed
 
     private void ResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetAllActionPerformed
@@ -332,6 +368,18 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_jTable6MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        autogetimage.load();
+       jLabelImage.setIcon(autogetimage.getImageIcon());  
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        jPanel6.setVisible(false);
+        jPanel5.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
         
         private void generate_stlid(){
@@ -471,6 +519,8 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -489,11 +539,14 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    private javax.swing.JLabel jLabelImage;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
