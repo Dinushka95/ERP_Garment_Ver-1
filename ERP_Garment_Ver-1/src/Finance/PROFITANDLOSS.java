@@ -85,141 +85,104 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel6.setLayout(null);
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setText("Sales");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel4);
-        jLabel4.setBounds(10, 50, 80, 15);
+        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 80, -1));
 
         jLabel5.setText("(-)Sales Returns");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel5);
-        jLabel5.setBounds(10, 80, 140, 15);
+        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 140, -1));
 
         jLabel6.setText("Date");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel6);
-        jLabel6.setBounds(260, 10, 40, 15);
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 40, -1));
 
         jLabel8.setText("To");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel8);
-        jLabel8.setBounds(450, 10, 30, 15);
-        jPanel6.add(jTextField5);
-        jTextField5.setBounds(360, 40, 130, 20);
-        jPanel6.add(jTextField6);
-        jTextField6.setBounds(360, 70, 130, 20);
+        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 30, -1));
+        jPanel6.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 130, -1));
+        jPanel6.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 130, -1));
 
         jLabel9.setText("Cost Of Sales");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel9);
-        jLabel9.setBounds(10, 110, 140, 15);
+        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 140, -1));
 
         jLabel10.setText("Opening Stock");
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel10);
-        jLabel10.setBounds(10, 140, 150, 15);
+        jPanel6.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 150, -1));
 
         jLabel11.setText("Cost Of Goods Available For Sale ");
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel11);
-        jLabel11.setBounds(10, 230, 210, 15);
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 210, -1));
 
         jLabel13.setText("Purchase Returns");
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel13);
-        jLabel13.setBounds(10, 200, 110, 15);
+        jPanel6.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 110, -1));
 
         jLabel16.setText("(+)Purchases");
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel16);
-        jLabel16.setBounds(10, 170, 90, 15);
+        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 90, -1));
 
         jLabel17.setText("(-)Closing Stock");
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel17);
-        jLabel17.setBounds(10, 260, 110, 15);
-        jPanel6.add(jTextField10);
-        jTextField10.setBounds(210, 260, 130, 20);
+        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 110, -1));
+        jPanel6.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 130, -1));
 
         jButton1.setText("ADD");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jButton1);
-        jButton1.setBounds(170, 500, 70, 23);
-        jPanel6.add(jTextField1);
-        jTextField1.setBounds(360, 100, 130, 20);
-        jPanel6.add(jTextField3);
-        jTextField3.setBounds(210, 140, 130, 20);
-        jPanel6.add(jTextField4);
-        jTextField4.setBounds(210, 170, 130, 20);
-        jPanel6.add(jTextField7);
-        jTextField7.setBounds(210, 200, 130, 20);
-        jPanel6.add(jTextField8);
-        jTextField8.setBounds(210, 230, 130, 20);
+        jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 70, -1));
+        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 130, -1));
+        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 130, -1));
+        jPanel6.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 130, -1));
+        jPanel6.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 130, -1));
+        jPanel6.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 130, -1));
 
         jLabel19.setText("Cost Of Sales");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel19);
-        jLabel19.setBounds(10, 320, 100, 15);
-        jPanel6.add(jTextField9);
-        jTextField9.setBounds(370, 310, 130, 20);
+        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 100, -1));
+        jPanel6.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 130, -1));
 
         jLabel20.setText("Gross Profit/Loss");
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel20);
-        jLabel20.setBounds(10, 350, 140, 15);
-        jPanel6.add(jTextField12);
-        jTextField12.setBounds(370, 340, 130, 20);
+        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 140, -1));
+        jPanel6.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 130, -1));
 
         jLabel21.setText("Expences");
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel21);
-        jLabel21.setBounds(10, 370, 80, 15);
-        jPanel6.add(jTextField13);
-        jTextField13.setBounds(210, 370, 130, 20);
+        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 80, -1));
+        jPanel6.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 130, -1));
 
         jLabel22.setText("Net Profit/Loss");
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel22);
-        jLabel22.setBounds(10, 400, 100, 15);
-        jPanel6.add(jTextField17);
-        jTextField17.setBounds(370, 390, 130, 20);
+        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 100, -1));
+        jPanel6.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 130, -1));
 
         jLabel23.setText("Shipping Cost");
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel23);
-        jLabel23.setBounds(10, 290, 100, 15);
-        jPanel6.add(jTextField18);
-        jTextField18.setBounds(210, 290, 130, 20);
+        jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 100, -1));
+        jPanel6.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 130, -1));
 
         jLabel24.setText("10% of IncomeTax");
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel24);
-        jLabel24.setBounds(10, 430, 120, 15);
-        jPanel6.add(jTextField19);
-        jTextField19.setBounds(370, 420, 130, 20);
+        jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 120, -1));
+        jPanel6.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 130, -1));
 
         jLabel26.setText("Net Profit/Loss Per Year");
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel26);
-        jLabel26.setBounds(10, 460, 180, 15);
-        jPanel6.add(jTextField20);
-        jTextField20.setBounds(370, 450, 130, 20);
+        jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 180, -1));
+        jPanel6.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 130, -1));
 
         jButton11.setText("Genarate a Report");
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jButton11);
-        jButton11.setBounds(260, 500, 150, 23);
+        jPanel6.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 150, -1));
 
         jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("Demo");
-        jPanel6.add(jButton2);
-        jButton2.setBounds(560, 500, 69, 25);
-        jPanel6.add(datePicker1);
-        datePicker1.setBounds(289, 0, 150, 30);
-        jPanel6.add(datePicker2);
-        datePicker2.setBounds(489, 0, 150, 30);
+        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, -1, -1));
+        jPanel6.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 0, 150, 30));
+        jPanel6.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 0, 150, 30));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 650, 550));
 
