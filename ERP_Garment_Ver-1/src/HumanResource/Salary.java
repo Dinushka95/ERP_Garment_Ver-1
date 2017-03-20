@@ -36,7 +36,6 @@ public class Salary extends javax.swing.JInternalFrame {
     public Salary() {
         initComponents();
         con = AutoDB_Connect.DB_connection;
-        ClearAll();
         Populate();
     }
     
@@ -54,8 +53,6 @@ public class Salary extends javax.swing.JInternalFrame {
         btnInsert = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         txtBasicSal = new javax.swing.JTextField();
@@ -75,6 +72,8 @@ public class Salary extends javax.swing.JInternalFrame {
         txtNetSal = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtOTRate = new javax.swing.JTextField();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -109,21 +108,6 @@ public class Salary extends javax.swing.JInternalFrame {
                 btnDeleteActionPerformed(evt);
             }
         });
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null}
-            },
-            new String [] {
-                "Title 1"
-            }
-        ));
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTable2);
 
         jLabel7.setText("Net Salary:");
 
@@ -233,6 +217,24 @@ public class Salary extends javax.swing.JInternalFrame {
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(jTable3);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -247,9 +249,9 @@ public class Salary extends javax.swing.JInternalFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnDelete))
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(93, 93, 93))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 7, Short.MAX_VALUE)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 419, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,14 +259,16 @@ public class Salary extends javax.swing.JInternalFrame {
                 .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(55, 55, 55)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(btnInsert)
                             .addComponent(btnUpdate)
-                            .addComponent(btnDelete)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(287, Short.MAX_VALUE))
+                            .addComponent(btnDelete))
+                        .addContainerGap(27, Short.MAX_VALUE))))
         );
 
         pack();
@@ -272,7 +276,7 @@ public class Salary extends javax.swing.JInternalFrame {
 
     private void Populate() {
         try {
-            jTable1.setModel(DBObject.GetTable(con, DBObject.GetAll(con, "leaves_table")));
+            jTable3.setModel(DBObject.GetTable(con, DBObject.GetAll(con, "salary_table")));
         } catch (SQLException ex) {
             Logger.getLogger(Leave.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -371,20 +375,24 @@ public class Salary extends javax.swing.JInternalFrame {
         Remove();
     }//GEN-LAST:event_btnDeleteActionPerformed
     
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        int row = jTable2.getSelectedRow();
-        String salId = jTable2.getValueAt(row, 0).toString();
-        String basicSal = jTable2.getValueAt(row, 1).toString();
-        String otRate = jTable2.getValueAt(row, 2).toString();
-        String netSal = jTable2.getValueAt(row, 3).toString();
-        String etf = jTable2.getValueAt(row, 4).toString();
-        String allowance = jTable2.getValueAt(row, 5).toString();
-        String empId = jTable2.getValueAt(row, 6).toString();
-        String otHours = jTable2.getValueAt(row, 7).toString();
-        String epf = jTable2.getValueAt(row, 8).toString();
+    private void txtSalIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalIdActionPerformed
         
+    }//GEN-LAST:event_txtSalIdActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        int row = jTable3.getSelectedRow();
+        String salId = jTable3.getValueAt(row, 0).toString();
+        String basicSal = jTable3.getValueAt(row, 1).toString();
+        String otRate = jTable3.getValueAt(row, 2).toString();
+        String netSal = jTable3.getValueAt(row, 3).toString();
+        String etf = jTable3.getValueAt(row, 4).toString();
+        String allowance = jTable3.getValueAt(row, 5).toString();
+        String empId = jTable3.getValueAt(row, 6).toString();
+        String otHours = jTable3.getValueAt(row, 7).toString();
+        String epf = jTable3.getValueAt(row, 8).toString();
+
         ClearAll();
-        
+
         if(!salId.isEmpty()) {
             txtSalId.setText(salId);
         }
@@ -412,11 +420,7 @@ public class Salary extends javax.swing.JInternalFrame {
         if(!epf.isEmpty()) {
             txtEPF.setText(epf);
         }
-    }//GEN-LAST:event_jTable2MouseClicked
-
-    private void txtSalIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalIdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtSalIdActionPerformed
+    }//GEN-LAST:event_jTable3MouseClicked
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -434,9 +438,9 @@ public class Salary extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField txtAllowance;
     private javax.swing.JTextField txtBasicSal;
     private javax.swing.JTextField txtEPF;
