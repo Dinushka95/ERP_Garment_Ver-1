@@ -100,7 +100,6 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jTextField3 = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
 
         setResizable(true);
@@ -167,6 +166,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 
         Approval.add(jRadioButton1);
         jRadioButton1.setText("Approve");
+        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButton1.setToolTipText("Click Me");
         jPanel8.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
@@ -179,6 +179,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 
         Approval.add(jRadioButton2);
         jRadioButton2.setText("Not Approved");
+        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jRadioButton2.setToolTipText("Click Me");
         jPanel8.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
@@ -206,6 +207,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 166, 33));
 
         jButton7.setText("Add Approve");
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -214,6 +216,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, -1, -1));
 
         jButton8.setText("Reset");
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -349,23 +352,14 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         });
         jPanel4.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 403, -1, -1));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton6.setText("Reset");
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
         jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 403, 70, -1));
-
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton11.setText("Demo");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
-            }
-        });
-        jPanel4.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 400, 70, -1));
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(736, 14, 570, 500));
 
@@ -482,10 +476,6 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
 
 
         private void generate_Aid(){
@@ -740,7 +730,6 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
