@@ -723,6 +723,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
+     
 
     
         

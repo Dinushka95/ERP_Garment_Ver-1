@@ -525,6 +525,7 @@
                             </LineBorder>
                           </Border>
                         </Property>
+                        <Property name="enabled" type="boolean" value="false"/>
                         <Property name="toolTipText" type="java.lang.String" value="You Can&apos;t Delete"/>
                       </Properties>
                       <Constraints>

@@ -268,10 +268,10 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="Approval"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Approve"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="12" style="1"/>
                         </Property>
+                        <Property name="text" type="java.lang.String" value="Approve"/>
                         <Property name="toolTipText" type="java.lang.String" value="Click Me"/>
                       </Properties>
                       <Constraints>
@@ -306,10 +306,10 @@
                         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
                           <ComponentRef name="Approval"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Not Approved"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="12" style="1"/>
                         </Property>
+                        <Property name="text" type="java.lang.String" value="Not Approved"/>
                         <Property name="toolTipText" type="java.lang.String" value="Click Me"/>
                       </Properties>
                       <Constraints>

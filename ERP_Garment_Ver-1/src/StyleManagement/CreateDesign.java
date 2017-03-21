@@ -3,6 +3,7 @@ package StyleManagement;
 
 import MainSystem.AutoIdGenerator;
 import MainSystem.AutoDB_Connect;
+import MainSystem.AutoValidation;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoReport;
@@ -17,8 +18,9 @@ import javax.swing.JOptionPane;
  */
 public class CreateDesign extends javax.swing.JInternalFrame {
 
-
-
+AutoValidation val = new AutoValidation();
+Validation val1=new Validation();
+boolean result;
 
 
 
@@ -28,12 +30,15 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     public CreateDesign() {
         
     initComponents();
+        
     TableLoad();
     TableLoad1();
     TableLoad2();
     generate_stlid();
+    FillTextCombo1();
+    FillTextComboDesigner();
     datePicker1.setDateToToday();
-    AddNewItemToComboBox();
+    
         
         
         
@@ -56,13 +61,8 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel14 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
-        jLabel15 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -75,7 +75,6 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
@@ -104,6 +103,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         ResetAll = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
+        jComboBox5 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -133,32 +133,18 @@ public class CreateDesign extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable1);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 52, 511, 161));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 52, 680, 161));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setText("View Designs Request by a Customer");
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 19, -1, -1));
-
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable2);
-
-        jPanel3.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 230, 512, 150));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setText("View Designs Request by Marketing Department");
-        jPanel3.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(916, 19, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -173,22 +159,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         ));
         jScrollPane4.setViewportView(jTable3);
 
-        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 231, 511, 161));
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane5.setViewportView(jTable4);
-
-        jPanel3.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 60, 512, 150));
+        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 231, 680, 161));
 
         jTabbedPane1.addTab("Add Requestions", jPanel3);
 
@@ -255,9 +226,6 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
 
-        jTextField2.setToolTipText("Who is the Designer?");
-        jPanel14.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, 230, 30));
-
         jLabel4.setText("Categories");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 270, -1, -1));
@@ -298,6 +266,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
+        jTextArea1.setName("StyleDescription"); // NOI18N
         jTextArea1.setToolTipText("Description Please");
         jScrollPane1.setViewportView(jTextArea1);
 
@@ -355,6 +324,11 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Color", "Red", "Blood Red", "Magenta", "Blue", "Light Blue", "Sky Blue", "Peacock Blue", "Green", "Tamil Green", "Light Green", "Orange", "Light Orange", "Pink", "Rose Pink", "Beige", "Brown", "Desert Brown" }));
         jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox4.setToolTipText("Color Please");
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
         jPanel14.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 160, 30));
 
         AddDesign.setText("Add Design");
@@ -385,6 +359,15 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jPanel14.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, -1, -1));
         jPanel14.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -20, -1, -1));
 
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Designer" }));
+        jComboBox5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox5ActionPerformed(evt);
+            }
+        });
+        jPanel14.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 230, 30));
+
         jPanel4.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 670, 530));
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -405,8 +388,13 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Demo");
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 213, 80, -1));
 
         jButton3.setText("Add Image");
@@ -431,7 +419,10 @@ public class CreateDesign extends javax.swing.JInternalFrame {
 
     private void AddDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDesignActionPerformed
         // TODO add your handling code here:
-
+        result= val.ValidationCheck(jTextArea1,true,0,'@');
+       
+        //val1.ValidationCheck(jComboBox5,true,0,'@');
+         
         AddDesign();
         TableLoad();
         TextBoxClear2();
@@ -446,10 +437,17 @@ public class CreateDesign extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
-        AddNewItemToComboBox();
+        boolean result = val.ValidationCheck(jTextField1,true,0,'@');
+        AddNewColour();
         TextBoxClear2();
-        JOptionPane.showMessageDialog(null,"Successfully Added your Colour");
+        if(result==true){
+            
+            JOptionPane.showMessageDialog(null,"Successfully Added a new colour");
+        }else
+        {
+            JOptionPane.showMessageDialog(null,"Please Add a new colour");
+        }
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -478,6 +476,30 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         autoReport.Query2Report(FileLocation, SQL);
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+        //To load new colours from db
+        FillTextCombo1();
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+        // TODO add your handling code here:
+        //Employees from EMP table to select StyleDesigner
+        FillTextComboDesigner();
+    }//GEN-LAST:event_jComboBox5ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        //Demo Button to load data
+        
+        jTextArea1.setText("Summer");
+       jRadioButton1.setSelected(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
         
         private void generate_stlid(){
     AutoIdGenerator sid = new AutoIdGenerator();
@@ -503,7 +525,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     {
 
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`d_designinquiry_table`");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     
@@ -514,7 +536,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         generate_stlid();
         jLabel12.setText("");
         jTextArea1.setText("");
-        jTextField2.setText("");
+        jComboBox2.setSelectedItem("Select Designer");
         jComboBox1.setSelectedItem("Select Size");
         jRadioButton1.setSelected(false);
         jRadioButton2.setSelected(false);
@@ -537,7 +559,7 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         
         String id = jLabel12.getText();
         String des =  jTextArea1.getText();
-        String designer =   jTextField2.getText();
+        String designer = jComboBox5.getSelectedItem().toString();
         String size = jComboBox1.getSelectedItem().toString();
         String Type =  jComboBox2.getSelectedItem().toString();
         
@@ -561,7 +583,14 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         
         String color = jComboBox4.getSelectedItem().toString();
         
-        
+        if(result==false)
+                    {
+                        
+            JOptionPane.showMessageDialog(null,"You can't Add without Style Description!!");  
+            
+                    }
+            
+            else{
         boolean x =autoSqlQuery.executeAutoADD(new String[]  {"StyleId="+id,
                                                             "StyleDesc="+des,
                                                             "Size="+size,
@@ -573,15 +602,48 @@ public class CreateDesign extends javax.swing.JInternalFrame {
                                                             "Status="+status,
                                                             "Date="+date,
                                                            }, "T_Design_table");
-        
+        if(x==true)
+            {
+               JOptionPane.showMessageDialog(null,"Successfully Added");
+            }
   
         
-                        
+            }
+        try
+        {
+            
+                    
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+        
+        
+      
+    }
+            
+             public void AddNewColour()
+    {
+        
+        
+        String colour = jTextField1.getText();
+        
+        
+        
+       boolean  x = autoSqlQuery.execute( "INSERT INTO `garmentsystem`.`T_New_Colour_table`\n" +
+"(`NewColour`)\n" +
+"VALUES\n" +
+"('"+colour+"');");
+      
         try
         {
             if(x==true)
             {
-               JOptionPane.showMessageDialog(null,"Successfully Added");
+                
+                TextBoxClear3();
+                JOptionPane.showMessageDialog(null,"Successfully Added");
             }
         }
         catch(Exception ex)
@@ -593,18 +655,56 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         
       
     }
-    
-    
-            public void AddNewItemToComboBox(){
+             
+             private void FillTextCombo1()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_New_Colour_table");
             
-            String colour=jTextField1.getText();
-            jComboBox4.addItem(colour);
-            
-            
-            
-            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String colour = AutoDB_Connect.DB_ResultSet.getString("NewColour");
+                jComboBox4.addItem(colour);
+            }
         }
-    
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+        
+        
+    }
+             
+             private void FillTextComboDesigner()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String designer = AutoDB_Connect.DB_ResultSet.getString("f_name");
+                jComboBox5.addItem(designer);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+        
+        
+    }
+    private void TextBoxClear3()
+    {
+       
+        jTextField1.setText("");
+       
+        
+       
+    }
     
     
     
@@ -639,13 +739,13 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -669,20 +769,15 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable6;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 
     //private void AddDesign() {

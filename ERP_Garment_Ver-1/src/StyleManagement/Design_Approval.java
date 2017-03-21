@@ -591,16 +591,18 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     }
      public void CreateDesignSearch()
     {
-            String StyleId = jComboBox1.getSelectedItem().toString();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table WHERE StyleId = '"+StyleId+"'");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
+        String StyleId = jComboBox1.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * "
+         + "FROM garmentsystem.T_Design_table WHERE StyleId = '"+StyleId+"'");
+   jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
      
         private void FillTextCombo1()
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *FROM `garmentsystem`.`T_Design_Approval_Table`;");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
+                    + "FROM `garmentsystem`.`T_Design_Approval_Table`;");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
@@ -621,8 +623,10 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         private void TableLoad4()
     {
 
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECt * FROM `garmentsystem`.`T_Design_Approval_Table`;");
-            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECt * "
+             + "FROM `garmentsystem`.`T_Design_Approval_Table`;");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.
+                    DB_ResultSet));
 
     }
         
@@ -635,7 +639,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         String comment =  jTextArea2.getText();
         String date = datePicker2.getText();
         
-        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to Update?", "Update?", 
+        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want"
+                + " to Update?", "Update?", 
                             JOptionPane.YES_NO_OPTION);
         
           if (reply == JOptionPane.YES_OPTION){

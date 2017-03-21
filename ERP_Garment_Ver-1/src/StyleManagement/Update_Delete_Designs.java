@@ -294,11 +294,12 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel10.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 203, -1, -1));
 
         jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
+        jLabel16.setEnabled(false);
         jLabel16.setToolTipText("You Can't Delete");
         jPanel10.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 166, 33));
 
-        Editbtn1.setText("Delete");
         Editbtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Editbtn1.setText("Delete");
         Editbtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Editbtn1ActionPerformed(evt);
@@ -538,7 +539,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         String status = jTable2.getValueAt(row,8).toString();
         String date = jTable2.getValueAt(row,9).toString();
 
-        jLabel1.setText(id);
+        jLabel16.setText(id);
         styleDes1.setText(des);
         jTextField4.setText(size);
         jTextField5.setText(colour);
