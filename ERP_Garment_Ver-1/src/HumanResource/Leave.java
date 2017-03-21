@@ -382,15 +382,45 @@ public class Leave extends javax.swing.JInternalFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         int row = jTable1.getSelectedRow();
         ClearAll();
-        txtLeaveId.setText(jTable1.getValueAt(row, 0).toString());
-        txtEmployeeId.setText(jTable1.getValueAt(row, 1).toString());
-        dtpStartDate.setDate((Date)jTable1.getValueAt(row, 2));
-        dtpEndDate.setDate((Date)jTable1.getValueAt(row, 3));
-        txtRequstedDate.setText(jTable1.getValueAt(row, 4).toString());
-        txtType1.setText(jTable1.getValueAt(row, 5).toString());
-        txtApproval.setText(jTable1.getValueAt(row, 6).toString());
-        txtNoofDays.setText(jTable1.getValueAt(row, 7).toString());
-        txtReason.setText(jTable1.getValueAt(row, 8).toString());
+        
+        String leaveId = jTable1.getValueAt(row, 0).toString();
+        String empId = jTable1.getValueAt(row, 1).toString();
+        Date startDate = (Date)jTable1.getValueAt(row, 2);
+        Date endDate = (Date)jTable1.getValueAt(row, 3);
+        String reqDate = jTable1.getValueAt(row, 4).toString();
+        String type = jTable1.getValueAt(row, 5).toString();
+        String approval = jTable1.getValueAt(row, 6).toString();
+        String numfDays = jTable1.getValueAt(row, 7).toString();
+        String reason = jTable1.getValueAt(row, 8).toString();
+        
+        if(!leaveId.isEmpty()) {
+            txtLeaveId.setText(leaveId);
+        }
+        if(!empId.isEmpty()) {
+            txtEmployeeId.setText(empId);
+        }
+        if(!startDate.toString().isEmpty()) {
+            dtpStartDate.setDate(startDate);
+        }
+        if(!endDate.toString().isEmpty()) {
+            dtpEndDate.setDate(endDate);
+        }
+        if(!reqDate.isEmpty()) {
+            txtRequstedDate.setText(reqDate);
+        }
+        if(!type.isEmpty()) {
+            txtType1.setText(type);
+        }
+        if(!approval.isEmpty()) {
+            txtApproval.setText(approval);
+        }
+        if(!numfDays.isEmpty()) {
+            txtNoofDays.setText(numfDays);
+        }
+        if(!reason.isEmpty()) {
+            txtReason.setText(reason);
+        } 
+       
     }//GEN-LAST:event_jTable1MouseClicked
 
 
