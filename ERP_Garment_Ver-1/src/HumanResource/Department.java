@@ -5,6 +5,7 @@
  */
 package HumanResource;
 
+import HumanResource.Util.Common;
 import MainSystem.AutoDB_Connect;
 import HumanResource.Util.DBObject;
 import java.awt.Component;
@@ -174,7 +175,9 @@ public class Department extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Insert();
+        if(Common.CheckNull(jPanel1)) {
+            Insert();
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
@@ -193,7 +196,9 @@ public class Department extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Update();
+        if(Common.CheckNull(jPanel1)) {
+            Update();
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 

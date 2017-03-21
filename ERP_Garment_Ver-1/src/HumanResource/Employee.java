@@ -5,6 +5,7 @@
  */
 package HumanResource;
 
+import HumanResource.Util.Common;
 import MainSystem.AutoDB_Connect;
 import HumanResource.Util.DBObject;
 import java.awt.Component;
@@ -389,7 +390,9 @@ public class Employee extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        Save();
+        if(Common.CheckNull(jPanel1)) {
+            Save();
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -397,7 +400,9 @@ public class Employee extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-        Insert();
+        if(Common.CheckNull(jPanel1)) {
+            Insert();
+        }
         
     }//GEN-LAST:event_btnInsertActionPerformed
 

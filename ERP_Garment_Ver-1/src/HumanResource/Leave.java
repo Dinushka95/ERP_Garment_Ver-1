@@ -5,6 +5,7 @@
  */
 package HumanResource;
 
+import HumanResource.Util.Common;
 import MainSystem.AutoDB_Connect;
 import static MainSystem.AutoDB_Connect.DB_connection;
 import HumanResource.Util.DBObject;
@@ -126,6 +127,17 @@ public class Leave extends javax.swing.JInternalFrame {
         }
     }
     
+    boolean CheckDates() {
+        if(dtpStartDate.getDate().before(dtpEndDate.getDate())) {
+            JOptionPane.showMessageDialog(this, "Start date cannot be greater than end date");
+            return false;
+        }
+        if(cals.getTime().before(dtpStartDate.getDate())) {
+            JOptionPane.showMessageDialog(this, "Start date cannot be less than current date");
+            return false;
+        }
+        return true;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -368,11 +380,15 @@ public class Leave extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtLeaveIdActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-        Insert();
+        if(Common.CheckNull(jPanel1)) {
+            Insert();
+        }
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        Update();
+        if(Common.CheckNull(jPanel1)) {
+            Update();
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed

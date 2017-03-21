@@ -5,6 +5,7 @@
  */
 package HumanResource;
 
+import HumanResource.Util.Common;
 import HumanResource.Util.DBObject;
 import MainSystem.AutoDB_Connect;
 import java.awt.*;
@@ -155,9 +156,8 @@ public class Salary extends javax.swing.JInternalFrame {
                         .addComponent(jLabel3)
                         .addComponent(jLabel6)
                         .addComponent(jLabel4)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2)))
+                        .addComponent(jLabel1)
+                        .addComponent(jLabel2))
                     .addGap(196, 196, 196)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jLabel5)
@@ -364,11 +364,15 @@ public class Salary extends javax.swing.JInternalFrame {
     }
     
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-        Insert();
+        if(Common.CheckNull(jPanel1)) {
+            Insert();
+        }
     }//GEN-LAST:event_btnInsertActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        Save();
+        if(Common.CheckNull(jPanel1)) {
+            Save();
+        }
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
