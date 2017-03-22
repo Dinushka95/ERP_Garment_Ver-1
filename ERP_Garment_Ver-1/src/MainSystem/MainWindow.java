@@ -49,6 +49,7 @@ import ManufacturingPlanning.IronAndPacking1;
 import ManufacturingPlanning.SewingSchedule;
 import ManufacturingPlanning.WashingSchedule;
 import Procurements.Purchasing;
+import Procurements.ReturnGoods;
 import Procurements.SupplierPortfolio;
 import Sample.Request_CreateSample;
 import Sample.Sample_Approval;
@@ -414,6 +415,11 @@ public static AutoReport autoReport;
         jPanel5.add(jButton26, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 10, -1, -1));
 
         jButton27.setText("Return goods (to supplier)");
+        jButton27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton27ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
         jTabbedPane1.addTab("Procurements ", jPanel5);
@@ -1286,6 +1292,22 @@ public static AutoReport autoReport;
         
         
     }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+
+        ReturnGoods rtn =new ReturnGoods();
+        rtn.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(rtn);
+        try {
+           rtn.setMaximum(true);
+        } catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+        rtn.setMaximizable(false);
+        
+    }//GEN-LAST:event_jButton27ActionPerformed
 
     
     /**
