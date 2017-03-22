@@ -22,6 +22,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         initComponents();
         TableLoad1();
         TableLoad2();
+        FillTextCombo1();
         datePicker1date.setDateToToday(); 
         datePicker2date.setDateToToday();
     }
@@ -61,6 +62,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -230,6 +232,15 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jButton2.setText("Demo");
         jPanel7.add(jButton2);
         jButton2.setBounds(590, 280, 69, 25);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cheque NO" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jComboBox2);
+        jComboBox2.setBounds(440, 40, 110, 20);
 
         jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 670, 320));
 
@@ -469,6 +480,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+       TextBoxClear1();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void EDITjButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITjButton11ActionPerformed
@@ -570,19 +582,19 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
     private void SEARCHjButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCHjButton12ActionPerformed
         // TODO add your handling code here:
-        ChequeNoSearch();
+       FillTextCombo1();
+       ChequeNoSearch();
         
     }//GEN-LAST:event_SEARCHjButton12ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
-   public void ChequeNoSearch()
-    {
-            String chequeno = jTextField5CheNo.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_DEPOSIT DETAILS WHERE Cheque_No LIKE '"+chequeno+"%'");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
-    }
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+  
     
     
   private void TableLoad1()
@@ -719,7 +731,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 "`Branch Name` = '"+br_name+"',\n" +
 "`Deposit Date` = '"+date+"',\n" +
 "`Amount` = "+amount+"\n" +
-"WHERE `Cheque No` = '"+cno+"';");
+"WHERE `Cheque_No` = '"+cno+"';");
          try
         {
             if (x==true)
@@ -760,6 +772,29 @@ public class BankDetail extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
      }
+      private void FillTextCombo1()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *FROM `garmentsystem`.`F_DEPOSIT DETAILS`;");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
+                jComboBox2.addItem(cno);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+      public void ChequeNoSearch()
+      {
+           String cno = jComboBox1.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_DEPOSIT DETAILS WHERE Cheque_No = '"+cno+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+      }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADDjButton4;
     private javax.swing.JButton DELETEjButton6;
@@ -783,6 +818,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox1bank;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox2b_name;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
