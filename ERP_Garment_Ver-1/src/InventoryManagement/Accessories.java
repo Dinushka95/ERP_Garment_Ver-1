@@ -69,9 +69,9 @@ int RowCountjTable;
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jLabel3 = new javax.swing.JLabel();
-        typefield = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         reorderfield = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -191,12 +191,13 @@ int RowCountjTable;
         jLabel3.setText("Accessory Type");
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
-        typefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
         jLabel7.setText("Re-Order Level");
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         reorderfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Zippers", "Buttons", "Lace", "Sequences", "Threads", "Pins", "Ribbon", "Elastics", "Ornaments", "Collars", "Buckels", "Brooch", "Neckline", "Badge" }));
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -227,10 +228,10 @@ int RowCountjTable;
                             .addComponent(costfield)
                             .addComponent(quantityfield)
                             .addComponent(valuefield)
-                            .addComponent(typefield)
                             .addComponent(idfield)
                             .addComponent(datePicker2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(reorderfield))))
+                            .addComponent(reorderfield)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGap(58, 58, 58))
         );
         jPanel6Layout.setVerticalGroup(
@@ -256,10 +257,10 @@ int RowCountjTable;
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(valuefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel3)
-                    .addComponent(typefield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(36, 36, 36)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
@@ -728,7 +729,7 @@ int RowCountjTable;
         costfield.setText("");
         quantityfield.setText("");
         valuefield.setText("");
-        typefield.setText("");
+        jComboBox1.setSelectedIndex(0);
         reorderfield.setText("");
         datePicker2.setDateToToday();
     }
@@ -743,7 +744,7 @@ int RowCountjTable;
         String cost =  costfield.getText();
         String qty = quantityfield.getText();
         String value = valuefield.getText();
-        String type = typefield.getText();
+        String type = jComboBox1.getSelectedItem().toString();
         String reordr = reorderfield.getText();
         String date = datePicker2.getText();
         
@@ -888,6 +889,7 @@ int RowCountjTable;
     private javax.swing.JTextField idfield;
     private javax.swing.JTextField idfield1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -924,7 +926,6 @@ int RowCountjTable;
     private javax.swing.JTextField reorder1;
     private javax.swing.JTextField reorderfield;
     private javax.swing.JTextField searchAccessory;
-    private javax.swing.JTextField typefield;
     private javax.swing.JTextField typefield1;
     private javax.swing.JTextField valuefield;
     private javax.swing.JTextField valuefield1;

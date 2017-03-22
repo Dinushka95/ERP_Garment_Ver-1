@@ -693,11 +693,11 @@ int RowCountjTable;
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Machine_Table");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS where FixAssetType like 'Machinery'");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = AutoDB_Connect.DB_ResultSet.getString("Machine_id");
+                String id = AutoDB_Connect.DB_ResultSet.getString("AssetID");
                 machineCombo.addItem(id);
             }
         }
