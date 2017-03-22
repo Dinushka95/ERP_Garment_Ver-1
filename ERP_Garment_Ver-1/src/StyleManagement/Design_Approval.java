@@ -29,6 +29,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         TableLoad();
         FillTextCombo();
         FillTextCombo1();
+        FillTextComboApprover();
         TableLoad2();
         TableLoad4();
         generate_Aid();
@@ -59,7 +60,6 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jLabel13 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel16 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -74,6 +74,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
@@ -101,6 +102,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jButton10 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
 
         setResizable(true);
         setTitle("Design Approval Form");
@@ -127,7 +130,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Design ID" }));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(172, 14, -1, -1));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -165,8 +168,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 21));
 
         Approval.add(jRadioButton1);
-        jRadioButton1.setText("Approve");
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jRadioButton1.setText("Approve");
         jRadioButton1.setToolTipText("Click Me");
         jPanel8.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
@@ -174,12 +177,9 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jTextField7.setToolTipText("System Generated AID");
         jPanel8.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 129, 28));
 
-        jTextField8.setToolTipText("Who is the Approver");
-        jPanel8.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 130, 30));
-
         Approval.add(jRadioButton2);
-        jRadioButton2.setText("Not Approved");
         jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jRadioButton2.setText("Not Approved");
         jRadioButton2.setToolTipText("Click Me");
         jPanel8.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
@@ -199,15 +199,19 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
         datePicker1.setName("");
+        datePicker1.setEnabled(false);
         jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
 
         jLabel3.setText("StyleId");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
+
+        jTextField1.setToolTipText("StyleID fills");
         jPanel8.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, 166, 33));
 
         jButton7.setText("Add Approve");
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton7.setToolTipText("");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -232,6 +236,12 @@ public class Design_Approval extends javax.swing.JInternalFrame {
             }
         });
         jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 70, -1));
+
+        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Approver" }));
+        jComboBox3.setToolTipText("Approver Please");
+        jPanel8.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 130, 30));
+        jComboBox3.getAccessibleContext().setAccessibleDescription("");
 
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 700, 300));
 
@@ -309,16 +319,22 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jLabel14.setText("Approval ID");
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 158, -1, 21));
+
+        jTextField9.setToolTipText("No need to type fill here");
         jPanel4.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 157, 30));
 
         jLabel5.setText("StyleId");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 337, -1, -1));
+
+        jTextField2.setToolTipText("No need to type fill here");
         jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 157, 28));
 
         jLabel6.setText("Approval Name");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 199, -1, 26));
+
+        jTextField10.setToolTipText("No need to type fill here");
         jPanel4.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 157, 26));
 
         jLabel17.setText("Status");
@@ -338,9 +354,12 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
+        jTextArea2.setToolTipText("No need to type fill here");
         jScrollPane4.setViewportView(jTextArea2);
 
         jPanel4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 180, 110));
+
+        jTextField3.setToolTipText("No need to type fill here");
         jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 157, 28));
 
         jButton10.setText("Delete");
@@ -370,7 +389,12 @@ public class Design_Approval extends javax.swing.JInternalFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(327, 13, -1, -1));
+        jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
+
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.setText("View Cost");
+        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 130, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1330, 530));
 
@@ -441,6 +465,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         String id = jTable1.getValueAt(row,0).toString();
         
          jTextField1.setText(id);
+         jTextField4.setText(id);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -458,7 +483,11 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        TextBoxClear2();
+        //Load data by usingg Demo
+        
+        jTextArea1.setText("Approved Start your woork");
+       jRadioButton1.setSelected(true);
+        jComboBox3.setSelectedItem("tiny");
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -471,10 +500,14 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
         Reset();
+        //generate AID again
+        generate_Aid();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         // TODO add your handling code here:
+        //Reset update and delete added approve
+        TextBoxClear2();
     }//GEN-LAST:event_jButton6ActionPerformed
 
 
@@ -500,7 +533,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private void TextBoxClear(){
             
             jTextField7.setText("");
-            jTextField8.setText("");
+           jComboBox3.setSelectedItem("");
             jTextArea1.setText("");
             jRadioButton1.setSelected(false);
             jRadioButton2.setSelected(false);
@@ -522,7 +555,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         
         
         String id = jTextField7.getText();
-        String name = jTextField8.getText();
+        String name = jComboBox3.getSelectedItem().toString();
         String StyleId = jTextField1.getText();
         String comment =  jTextArea1.getText();
         
@@ -662,6 +695,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
             {
                 TextBoxClear2();
                 TableLoad();
+                JOptionPane.showMessageDialog(null,"Successfully Updated");
                 
               
     {
@@ -701,6 +735,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
             {
                 TextBoxClear2();
                 TableLoad2();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
                 
                 
     {
@@ -716,13 +751,34 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     }
          public void Reset(){
         jTextField7.setText("");
-        jTextField8.setText("");
+        jComboBox3.setSelectedItem("");
         jTextField1.setText("");
         jTextArea1.setText("");
         jRadioButton1.setSelected(false);
         jRadioButton2.setSelected(false);
         datePicker1.setText("");
          }
+         
+         private void FillTextComboApprover()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String approver = AutoDB_Connect.DB_ResultSet.getString("f_name");
+                jComboBox3.addItem(approver);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+        
+        
+    }
     
    
     
@@ -735,6 +791,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -745,6 +802,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -777,8 +835,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 
