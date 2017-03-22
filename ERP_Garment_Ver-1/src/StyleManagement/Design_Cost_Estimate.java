@@ -73,6 +73,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jTable3 = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
         jButton18 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -208,7 +209,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 100, -1));
+        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 23, 110, 30));
 
         jLabel5.setText("Accessories");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -226,7 +227,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 100, 110, 20));
+        jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 73, 110, 30));
 
         jButton9.setText("Clear");
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -235,7 +236,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 110, -1));
+        jPanel6.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 110, 30));
         jPanel6.add(jTextFieldColour, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 130, 70, -1));
 
         jLabel17.setText("Colour");
@@ -253,6 +254,12 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jLabel3.setText("Final Cost");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 200, 64, -1));
+
+        jTextFieldCost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCostActionPerformed(evt);
+            }
+        });
         jPanel6.add(jTextFieldCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 160, 70, -1));
         jPanel6.add(jTextFieldFinalCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 190, 70, -1));
 
@@ -271,6 +278,9 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable3MouseClicked(evt);
             }
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTable3MousePressed(evt);
+            }
         });
         jScrollPane4.setViewportView(jTable3);
 
@@ -280,6 +290,10 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, -1));
         jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 70, 30));
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton6.setText("Update");
+        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 110, 30));
 
         jPanel8.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 890, 240));
 
@@ -503,6 +517,8 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jTextFieldColour.setText(Colour);
         jTextFieldCost.setText(cost);
         jTextFieldQuantatiy.setText(Quantity);
+        
+       
     }//GEN-LAST:event_jTable3MouseClicked
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -536,6 +552,18 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         
         TextBoxClear();
     }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jTable3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MousePressed
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jTable3MousePressed
+
+    private void jTextFieldCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCostActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextFieldCostActionPerformed
+    
     
        
     
@@ -754,6 +782,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
