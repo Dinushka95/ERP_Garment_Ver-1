@@ -187,6 +187,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="costfield">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="Material cost per unit" noResource="true"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="261" y="231" width="139" height="-1"/>
@@ -194,6 +197,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="quantityfield">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="Quantity" noResource="true"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quantityfieldActionPerformed"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="quantityfieldKeyReleased"/>
@@ -361,6 +367,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="14" style="1"/>
                     </Property>
+                    <Property name="name" type="java.lang.String" value="Selling Price" noResource="true"/>
                   </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

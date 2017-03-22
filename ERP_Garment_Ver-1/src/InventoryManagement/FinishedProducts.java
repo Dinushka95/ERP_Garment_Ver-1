@@ -12,6 +12,7 @@ import static MainSystem.MainWindow.autoSqlQuery;
 
 import javax.swing.JOptionPane;
 import static MainSystem.MainWindow.autogetimage;
+import static MainSystem.MainWindow.validation;
 /**
  *
  * @author Dinushka
@@ -178,8 +179,11 @@ File Image;
         idfield.setEditable(false);
         jPanel6.add(idfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 43, 139, -1));
         jPanel6.add(namefield, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 84, 139, -1));
+
+        costfield.setName("Material cost per unit"); // NOI18N
         jPanel6.add(costfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 231, 139, -1));
 
+        quantityfield.setName("Quantity"); // NOI18N
         quantityfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantityfieldActionPerformed(evt);
@@ -254,6 +258,7 @@ File Image;
         jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 353, 129, -1));
 
         sellingPrice.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        sellingPrice.setName("Selling Price"); // NOI18N
         jPanel6.add(sellingPrice, new org.netbeans.lib.awtextra.AbsoluteConstraints(261, 350, 139, -1));
 
         jLabel16.setText("* Product Type");
@@ -784,7 +789,7 @@ File Image;
     public void AddProduct()
     {
         
-        
+       if(validation.ValidationCheck(costfield, true,0,'a')&&validation.ValidationCheck(costfield, true,0,'1')&&validation.ValidationCheck(quantityfield, true,0,'1')&&validation.ValidationCheck(sellingPrice, true,0,'1')){ 
         String id = idfield.getText();
         String name = namefield.getText();
         String designID = ComboDesignID.getSelectedItem().toString();
@@ -836,7 +841,7 @@ File Image;
         
         
         
-      
+       }
     }
     
     private void EditProduct()
