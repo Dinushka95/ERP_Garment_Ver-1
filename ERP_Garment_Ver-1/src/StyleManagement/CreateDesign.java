@@ -431,8 +431,15 @@ boolean result;
 
     private void ResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetAllActionPerformed
         // TODO add your handling code here:
-
         TextBoxClear2();
+        
+        //regenerate a new number
+        generate_stlid();
+        
+        //reset jRadiobutton loaded by Demo
+        jRadioButton1.setSelected(false);
+        jRadioButton1.setSelected(false);
+        
     }//GEN-LAST:event_ResetAllActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -496,8 +503,14 @@ boolean result;
         // TODO add your handling code here:
         //Demo Button to load data
         
-        jTextArea1.setText("Summer");
+        jTextArea1.setText("Winter");
        jRadioButton1.setSelected(true);
+        jComboBox5.setSelectedItem("tiny");
+        jComboBox1.setSelectedItem("XL");
+        jComboBox3.setSelectedItem("Men");
+        jComboBox4.setSelectedItem("Red");
+        jRadioButton3.setSelected(true);
+         jComboBox5.setSelectedItem("Shirt");
     }//GEN-LAST:event_jButton2ActionPerformed
 
         
@@ -536,7 +549,7 @@ boolean result;
         generate_stlid();
         jLabel12.setText("");
         jTextArea1.setText("");
-        jComboBox2.setSelectedItem("Select Designer");
+        jComboBox5.setSelectedItem("Select Designer");
         jComboBox1.setSelectedItem("Select Size");
         jRadioButton1.setSelected(false);
         jRadioButton2.setSelected(false);

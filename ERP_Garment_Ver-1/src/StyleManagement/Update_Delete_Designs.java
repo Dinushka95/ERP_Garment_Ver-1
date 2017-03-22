@@ -28,7 +28,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
       initComponents();
      
       
-      generate_stlid();
+     
       datePicker2.setDateToToday();
       datePicker3.setDateToToday();
      
@@ -94,7 +94,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         Editbtn1 = new javax.swing.JButton();
         ResetViewUpdateDesign1 = new javax.swing.JButton();
-        jButton20 = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
@@ -131,7 +130,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(dateSettings3);
         Editbtn = new javax.swing.JButton();
         ResetViewUpdateDesign = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jButton22 = new javax.swing.JButton();
@@ -316,10 +314,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         });
         jPanel10.add(ResetViewUpdateDesign1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 450, -1, -1));
 
-        jButton20.setText("Demo");
-        jButton20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 450, -1, -1));
-
         jButton21.setText("Print");
         jButton21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 450, -1, -1));
@@ -454,10 +448,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         });
         jPanel7.add(ResetViewUpdateDesign, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 440, -1, -1));
 
-        jButton19.setText("Demo");
-        jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel7.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 440, -1, -1));
-
         jLabel18.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
         jLabel18.setToolTipText("You Can't Delete");
         jPanel7.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 166, 33));
@@ -494,7 +484,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         String status = jTable1.getValueAt(row,8).toString();
         String date = jTable1.getValueAt(row,9).toString();
 
-        jLabel16.setText(id);
+        jLabel1.setText(id);
         jTextArea2.setText(des);
         jTextField8.setText(designer);
         jTextField15.setText(gender);
@@ -507,8 +497,10 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void ResetViewUpdateDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetViewUpdateDesignActionPerformed
-        // TODO add your handling code here:
-        clearDeleteDesign();
+        // TODO add your handling code here: 
+        
+        //Reset all text fields of update designs
+        clearUpdateDesign();
     }//GEN-LAST:event_ResetViewUpdateDesignActionPerformed
 
     private void EditbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditbtnActionPerformed
@@ -581,6 +573,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
     private void ResetViewUpdateDesign1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetViewUpdateDesign1ActionPerformed
         // TODO add your handling code here:
+        //Reset all textfields of delete designs
+         clearDeleteDesign();
     }//GEN-LAST:event_ResetViewUpdateDesign1ActionPerformed
 
         public void UpdateAddedDesigns(){
@@ -622,6 +616,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
             if (x==true)
             {   TableLoad3();
                 clearUpdateDesign();
+                JOptionPane.showMessageDialog(null,"Successfully Updated");
                
             }
         }
@@ -632,11 +627,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
           
         }
 
-        private void generate_stlid(){
-    AutoIdGenerator sid = new AutoIdGenerator();
-    jLabel1.setText(sid.generate("STY",Integer.toString(MainWindow.userid)));
-    }
-    
+       
     private void Table2Load(){
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Design_table");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
@@ -655,7 +646,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     
     public void clearUpdateDesign(){
         
-        jLabel18.setText("");
+        jLabel1.setText("");
         jTextArea2.setText("");
         jTextField8.setText("");
         jTextField15.setText("");
@@ -697,6 +688,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
             {
                 clearDeleteDesign();
                 Table2Load();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
             }
         }
         catch (Exception ex){
@@ -721,8 +713,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton19;
-    private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton6;

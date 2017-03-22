@@ -22,6 +22,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         initComponents();
         TableLoad1();
         TableLoad2();
+        FillTextCombo1();
         datePicker1date.setDateToToday(); 
         datePicker2date.setDateToToday();
     }
@@ -61,6 +62,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton7 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -88,6 +90,27 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jPanel5 = new javax.swing.JPanel();
+        jPanel8 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jLabel10 = new javax.swing.JLabel();
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        jLabel17 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jPanel9 = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
+        jButton11 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Bank Details");
@@ -209,6 +232,15 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jButton2.setText("Demo");
         jPanel7.add(jButton2);
         jButton2.setBounds(590, 280, 69, 25);
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cheque NO" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jComboBox2);
+        jComboBox2.setBounds(440, 40, 110, 20);
 
         jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 670, 320));
 
@@ -342,6 +374,91 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Cheque", jPanel1);
 
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setText("Section");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Section", "Deposit", "Withdraw", "Expences" }));
+        jPanel8.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 180, 30));
+
+        jLabel6.setText("Cheque No");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+        jPanel8.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 180, 30));
+
+        jLabel7.setText("Description");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane3.setViewportView(jTextArea1);
+
+        jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 180, -1));
+
+        jLabel10.setText("Return Date");
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
+        jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 180, 30));
+
+        jLabel17.setText("Amount");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+        jPanel8.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 180, 30));
+
+        jButton6.setText("ADD");
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
+
+        jButton8.setText("EDIT");
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+
+        jButton9.setText("SEARH");
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
+
+        jButton10.setText("DELETE");
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
+
+        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
+            }
+        ));
+        jScrollPane4.setViewportView(jTable3);
+
+        jPanel9.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 590, 170));
+
+        jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 10, 630, 210));
+
+        jButton11.setText("Demo");
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, -1, -1));
+
+        jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
+        jTabbedPane1.addTab("Return Cheques", jPanel5);
+
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
         getAccessibleContext().setAccessibleName("");
@@ -363,6 +480,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
+       TextBoxClear1();
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void EDITjButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITjButton11ActionPerformed
@@ -464,15 +582,19 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
     private void SEARCHjButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCHjButton12ActionPerformed
         // TODO add your handling code here:
-        ChequeNoSearch();
+       FillTextCombo1();
+       ChequeNoSearch();
         
     }//GEN-LAST:event_SEARCHjButton12ActionPerformed
-   public void ChequeNoSearch()
-    {
-            String chequeno = jTextField5CheNo.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_DEPOSIT DETAILS WHERE Cheque_No LIKE '"+chequeno+"%'");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
-    }
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+  
     
     
   private void TableLoad1()
@@ -609,7 +731,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 "`Branch Name` = '"+br_name+"',\n" +
 "`Deposit Date` = '"+date+"',\n" +
 "`Amount` = "+amount+"\n" +
-"WHERE `Cheque No` = '"+cno+"';");
+"WHERE `Cheque_No` = '"+cno+"';");
          try
         {
             if (x==true)
@@ -650,6 +772,29 @@ public class BankDetail extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
      }
+      private void FillTextCombo1()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *FROM `garmentsystem`.`F_DEPOSIT DETAILS`;");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
+                jComboBox2.addItem(cno);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+      public void ChequeNoSearch()
+      {
+           String cno = jComboBox1.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_DEPOSIT DETAILS WHERE Cheque_No = '"+cno+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+      }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADDjButton4;
     private javax.swing.JButton DELETEjButton6;
@@ -657,42 +802,64 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private javax.swing.JButton EDITjButton11;
     private javax.swing.JButton EditjButton2;
     private javax.swing.JButton SEARCHjButton12;
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker1date;
     private com.github.lgooddatepicker.components.DatePicker datePicker2date;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox1bank;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox2b_name;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
+    private javax.swing.JPanel jPanel8;
+    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10amt;
     private javax.swing.JTextField jTextField1Cus;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField2cno;
     private javax.swing.JTextField jTextField5CheNo;
     private javax.swing.JTextField jTextField5brname;
