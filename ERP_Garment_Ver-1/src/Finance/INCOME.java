@@ -97,6 +97,11 @@ public class INCOME extends javax.swing.JInternalFrame {
 
         SEARHjButton4.setText("SEARH");
         SEARHjButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        SEARHjButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SEARHjButton4ActionPerformed(evt);
+            }
+        });
         jPanel10.add(SEARHjButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
 
         DeletejButton7.setText("DELETE");
@@ -198,36 +203,37 @@ public class INCOME extends javax.swing.JInternalFrame {
 
     private void ADDjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDjButton2ActionPerformed
         // TODO add your handling code here:
-        AddExpences();
+        AddIncome();
         Tableload();
     }//GEN-LAST:event_ADDjButton2ActionPerformed
  private void Tableload()
  {
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT `F_EXPENES`.`Bill No`,\n" +
-"    `F_EXPENES`.`Expences Type`,\n" +
-"    `F_EXPENES`.`Date`,\n" +
-"    `F_EXPENES`.`Discription`,\n" +
-"    `F_EXPENES`.`Amount`\n" +
-"FROM `garmentsystem`.`F_EXPENES`;");
+        ("SELECT `INCOME`.`Bill No`,\n" +
+"    `INCOME`.`Income Type`,\n" +
+"    `INCOME`.`Date`,\n" +
+"    `INCOME`.`Discription`,\n" +
+"    `INCOME`.`Amount`\n" +
+"FROM `garmentsystem`.`INCOME`;");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
  }
- public void AddExpences()
+ public void AddIncome()
  {
      String Billno = jTextField1bill.getText();
-     String exType = jComboBox3type.getSelectedItem().toString();
+     String inType = jComboBox3type.getSelectedItem().toString();
      String date = datePicker1date.getText();
      String desc = jTextArea1description.getText();
      float amt = Float.parseFloat(jTextField2amt.getText());
      
-     boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_EXPENES`\n" +
+     boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`INCOME`\n" +
 "(`Bill No`,\n" +
-"`Expences Type`,\n" +
+"`Income Type`,\n" +
 "`Date`,\n" +
 "`Discription`,\n" +
 "`Amount`)\n" +
+"VALUES\n" +
 "('"+Billno+"',\n" +
-"'"+exType+"',\n" +
+"'"+inType+"',\n" +
 "'"+date+"',\n" +
 "'"+desc+"',\n" +
 ""+amt+");");
@@ -257,8 +263,8 @@ public class INCOME extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
            String bill = jTextField1bill.getText();
         
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_EXPENES`\n" +
-"WHERE Billno LIKE '"+bill+"';");
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`INCOME`\n" +
+"WHERE '"+bill+"';");
         
         try
         {
@@ -287,26 +293,36 @@ public class INCOME extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-         int row =jTable1.getSelectedRow();
+        int row =jTable1.getSelectedRow();
         String Billno = jTable1.getValueAt(row,0).toString();
-        String exType = jTable1.getValueAt(row,1).toString();
+        String inType = jTable1.getValueAt(row,1).toString();
         String date = jTable1.getValueAt(row,2).toString();
         String desc = jTable1.getValueAt(row,3).toString();
         String amt = jTable1.getValueAt(row,4).toString();
         
       jTextField1bill.setText(Billno);
-      jComboBox3type.setSelectedItem(exType);
+      jComboBox3type.setSelectedItem(inType);
       datePicker1date.setText(date);
       jTextArea1description.setText(desc);
       jTextField2amt.setText(amt); 
      
         
     }//GEN-LAST:event_jTable1MouseClicked
-  
+
+    private void SEARHjButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARHjButton4ActionPerformed
+        // TODO add your handling code here:
+        IncomeSearch();
+    }//GEN-LAST:event_SEARHjButton4ActionPerformed
+   public void ChequeNoSearch()
+    {
+            String Billno = jTextField1bill.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.INCOME WHERE Bill No LIKE '"+Billno+"%'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
+    }
      public void  EditExp()
   {
       String Billno = jTextField1bill.getText();
-      String exType = jComboBox3type.getSelectedItem().toString();
+      String InType = jComboBox3type.getSelectedItem().toString();
       String date = datePicker1date.getText();
       String desc = jTextArea1description.getText();
       float amt =Float.parseFloat(jTextField2amt.getText());
@@ -314,7 +330,7 @@ public class INCOME extends javax.swing.JInternalFrame {
        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`F_EXPENES`\n" +
 "SET\n" +
 "`Bill No` = '"+Billno+"',\n" +
-"`Expences Type` = '"+exType+"',\n" +
+"`Expences Type` = '"+InType+"',\n" +
 "`Date` = '"+date+"',\n" +
 "`Discription` = '"+desc+"',\n" +
 "`Amount` = "+amt+"\n" +
@@ -358,6 +374,12 @@ public class INCOME extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField1bill;
     private javax.swing.JTextField jTextField2amt;
     // End of variables declaration//GEN-END:variables
+
+    private void IncomeSearch() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+   
 
    
     
