@@ -7,6 +7,7 @@ import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 /**
  *
  * @author Dinushka
@@ -27,6 +28,8 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         TableLoad2();
         datePicker1.setDateToToday();
         FillTextCombo();
+        AccessoryIDFillCombo();
+        AutoFill();
       
     }
 
@@ -72,8 +75,8 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
         jButton6 = new javax.swing.JButton();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jButton18 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -289,11 +292,13 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jLabel12.setText("Number");
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, -1));
-        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 70, 30));
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton6.setText("Update");
         jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 110, 30));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel6.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 100, -1));
 
         jPanel8.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 890, 240));
 
@@ -503,24 +508,88 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         // TODO add your handling code here:
+        
+        if(SwingUtilities.isRightMouseButton(evt))
+        {
+            
         int row =jTable3.getSelectedRow();
         String Num=jTable3.getValueAt(row,0).toString();
-        String Accessories = jTable3.getValueAt(row,1).toString();
-        String Quantity  = jTable3.getValueAt(row,2).toString();
-        String Colour  = jTable3.getValueAt(row,3).toString();
-        String cost = jTable3.getValueAt(row,4).toString();
-        String Finalcost = jTable3.getValueAt(row,5).toString();
+        String Accessories = jTable3.getValueAt(row,2).toString();
+        String Quantity  = jTable3.getValueAt(row,3).toString();
+        String colour = jTable3.getValueAt(row,4).toString();
+        String cost = jTable3.getValueAt(row,5).toString();
+        String finalcost = jTable3.getValueAt(row,6).toString();
 
-        jTextField1.setText(Num);
+        jComboBox3.addItem(Num);
         jComboBox1.addItem(Accessories);
-        jTextFieldFinalCost.setText(Finalcost);
-        jTextFieldColour.setText(Colour);
+        jTextFieldFinalCost.setText(finalcost);
+        jTextFieldColour.setText(colour);
         jTextFieldCost.setText(cost);
         jTextFieldQuantatiy.setText(Quantity);
+        
+        }
+        else if(SwingUtilities.isLeftMouseButton(evt))
+        {
+            int row =jTable3.getSelectedRow();
+            String Num=jTable3.getValueAt(row,0).toString();
+            String Accessories = jTable3.getValueAt(row,2).toString();
+            String Quantity  = jTable3.getValueAt(row,3).toString();
+            String colour = jTable3.getValueAt(row,4).toString();
+            String cost = jTable3.getValueAt(row,5).toString();
+            String finalcost = jTable3.getValueAt(row,6).toString();
+            
+            jTextField3.setText(Num);
+            jTextField4.setText(Accessories);
+            jTextField5.setText(Quantity);
+            jTextField6.setText(colour);
+            jTextField7.setText(cost);
+            jTextField2.setText(finalcost);
+        
+        
+        }
         
        
     }//GEN-LAST:event_jTable3MouseClicked
 
+    private void AccessoryIDFillCombo()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Accessory_Table`");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String id = AutoDB_Connect.DB_ResultSet.getString("accessory_id");
+                jComboBox3.addItem(id);
+                
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
+    private void AutoFill()
+    {
+        String id = jComboBox1.getSelectedItem().toString();
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Accessory_Table` where accessory_id like '"+id+"'");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String cost = AutoDB_Connect.DB_ResultSet.getString("accessory_cost");
+                String type = AutoDB_Connect.DB_ResultSet.getString("accessory_type");
+                jComboBox1.setSelectedItem(type);
+                jTextFieldCost.setText(cost);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
 
     TextBoxClearacc();
@@ -572,7 +641,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     
     {
         
-        String Number=jTextField1.getText();
+        String Number=jComboBox3.getSelectedItem().toString();
         String id = jComboBox2.getSelectedItem().toString();
         String acc = jComboBox1.getSelectedItem().toString();
         String Qty=jTextFieldQuantatiy.getText();
@@ -644,7 +713,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     }
     
      private void TextBoxClearacc(){
-            jTextField1.setText("");
+            jComboBox3.setSelectedIndex(0);
             jComboBox1.setSelectedIndex(0);
             jTextFieldColour.setText("");
             jTextFieldQuantatiy.setText("");
@@ -683,7 +752,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     
     {
         
-        String Num = jTextField1.getText();
+        String Num = jComboBox3.getSelectedItem().toString();
         String stid =jComboBox2.getSelectedItem().toString();
         String acc = jComboBox1.getSelectedItem().toString();
         String Qty=jTextFieldQuantatiy.getText();
@@ -731,7 +800,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     }
      private void DeleteBilling()
     {
-        String Num =jTextField1.getText();
+        String Num =jComboBox3.getSelectedItem().toString();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`T_Design_table`\n" +
 "WHERE StyleId = '"+Num+"';");
@@ -786,6 +855,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -831,7 +901,6 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;

@@ -6,6 +6,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import javax.swing.JOptionPane;
 
@@ -101,6 +102,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jTextField3 = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
@@ -237,8 +239,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         });
         jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 210, 70, -1));
 
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Approver" }));
+        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox3.setToolTipText("Approver Please");
         jPanel8.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 130, 30));
         jComboBox3.getAccessibleContext().setAccessibleDescription("");
@@ -380,6 +382,15 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         });
         jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 403, 70, -1));
 
+        jButton12.setText("Report");
+        jButton12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 350, -1, -1));
+
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(736, 14, 570, 500));
 
         jButton9.setText("ViewAll");
@@ -391,9 +402,9 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton11.setText("View Cost");
-        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
         jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 130, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1330, 530));
@@ -487,7 +498,9 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         
         jTextArea1.setText("Approved Start your woork");
        jRadioButton1.setSelected(true);
-        jComboBox3.setSelectedItem("tiny");
+        jComboBox3.setSelectedItem("dinu");
+        datePicker1.setDateToToday();
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
@@ -509,6 +522,12 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         //Reset update and delete added approve
         TextBoxClear2();
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+
+        String FileLocation=System.getProperty("user.dir")+"\\src\\StyleManagement\\Reports\\Approval.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+    }//GEN-LAST:event_jButton12ActionPerformed
 
 
         private void generate_Aid(){
@@ -533,7 +552,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private void TextBoxClear(){
             
             jTextField7.setText("");
-           jComboBox3.setSelectedItem("");
+            jComboBox3.setSelectedItem("");
             jTextArea1.setText("");
             jRadioButton1.setSelected(false);
             jRadioButton2.setSelected(false);
@@ -751,6 +770,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     }
          public void Reset(){
         jTextField7.setText("");
+        jTextField4.setText("");
         jComboBox3.setSelectedItem("");
         jTextField1.setText("");
         jTextArea1.setText("");
@@ -792,6 +812,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;

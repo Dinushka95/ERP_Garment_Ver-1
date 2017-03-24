@@ -421,7 +421,7 @@ boolean result;
         // TODO add your handling code here:
         result= val.ValidationCheck(jTextArea1,true,0,'@');
        
-        //val1.ValidationCheck(jComboBox5,true,0,'@');
+        val1.ValidationCheck(jComboBox5,true,0,'@');
          
         AddDesign();
         TableLoad();
@@ -478,9 +478,8 @@ boolean result;
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
         
-        String FileLocation=System.getProperty("user.dir")+"\\src\\StyleManagement\\Reports\\SDII.jrxml";
-        String SQL="SELECT * FROM garmentsystem.T_Design_table";
-        autoReport.Query2Report(FileLocation, SQL);
+        String FileLocation=System.getProperty("user.dir")+"\\src\\StyleManagement\\Reports\\CreateDesign.jrxml";
+        autoReport.Table2Report(FileLocation, jTable6);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
