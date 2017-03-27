@@ -50,13 +50,11 @@ int RowCountjTable2;
         jTable1 = new javax.swing.JTable();
         jLabel22 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jButton13 = new javax.swing.JButton();
         jButton14 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -84,6 +82,7 @@ int RowCountjTable2;
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jTextField15 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         DatePickerSettings dateSettings123 = new DatePickerSettings();
@@ -105,7 +104,6 @@ int RowCountjTable2;
         jLabel15 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
         jLabel17 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
         jTextField12 = new javax.swing.JTextField();
@@ -122,6 +120,7 @@ int RowCountjTable2;
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jTextField16 = new javax.swing.JTextField();
+        jTextField17 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -171,10 +170,6 @@ int RowCountjTable2;
         });
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 460, -1, -1));
 
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton11.setText("Demo");
-        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 460, -1, -1));
-
         jButton12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton12.setText("Reset");
         jPanel2.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 460, -1, -1));
@@ -211,10 +206,6 @@ int RowCountjTable2;
         jButton14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton14.setText("Reset");
         jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, -1, -1));
-
-        jButton15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton15.setText("Demo");
-        jPanel2.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 470, -1, -1));
 
         jButton16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton16.setText("View");
@@ -325,9 +316,11 @@ int RowCountjTable2;
 
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton3.setText("Report");
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
         jButton2.setText("Reset");
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -336,6 +329,7 @@ int RowCountjTable2;
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, -1, -1));
 
         jButton1.setText("Add");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -344,32 +338,13 @@ int RowCountjTable2;
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
-        jPanel7.setLayout(jPanel7Layout);
-        jPanel7Layout.setHorizontalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addGap(28, 28, 28)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel7Layout.setVerticalGroup(
-            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.setText("Demo");
+        jPanel7.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
-        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(498, 459, -1, -1));
+        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 459, 380, 60));
 
         jTextField15.setToolTipText("Size please");
         jPanel5.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 171, 30));
@@ -394,18 +369,22 @@ int RowCountjTable2;
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel11.setText("Sample ID");
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
         jLabel12.setText("Sample Name");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
         jPanel8.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 130, 30));
 
         jLabel13.setText("StyleID");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 100, -1, -1));
         jPanel8.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, 130, 30));
 
         jLabel14.setText("Style Description");
-        jPanel8.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, -1, -1));
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, -1, -1));
 
         jTextArea2.setColumns(20);
         jTextArea2.setRows(5);
@@ -414,23 +393,25 @@ int RowCountjTable2;
         jPanel8.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 60, 140, 90));
 
         jLabel15.setText("Sample Type");
-        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
         jPanel8.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, 130, 30));
 
         jLabel16.setText("Sample Group");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(713, 50, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jPanel8.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 60, 130, 30));
-
         jLabel17.setText("Select Size");
-        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 30, -1, -1));
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 30, -1, -1));
 
         jLabel18.setText("Sample Designer");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(714, 16, -1, -1));
-        jPanel8.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 130, 30));
+        jPanel8.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 60, 130, 30));
 
         jLabel19.setText("Number of Samples");
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, -1, -1));
 
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
@@ -441,14 +422,17 @@ int RowCountjTable2;
         jPanel8.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 110, 130, 30));
 
         jLabel20.setText("Sample Given to");
-        jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 70, -1, -1));
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 70, -1, -1));
         jPanel8.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 70, 130, 30));
 
         jButton5.setText("ViewAll");
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
         jButton6.setText("Reset");
-        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 60, -1));
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 80, -1));
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -471,17 +455,22 @@ int RowCountjTable2;
         jPanel8.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(11, 178, 1259, 268));
 
         jButton7.setText("Update");
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 482, -1, -1));
 
         jButton8.setText("Delete");
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 482, -1, -1));
 
         jButton9.setText("Reset");
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 482, -1, -1));
 
         jButton10.setText("Report");
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 482, -1, -1));
-        jPanel8.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1135, 20, 130, 30));
+        jPanel8.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, 130, 30));
+        jPanel8.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 130, 30));
 
         jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1290, 520));
 
@@ -730,7 +719,6 @@ int RowCountjTable2;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -740,7 +728,6 @@ int RowCountjTable2;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -793,6 +780,7 @@ int RowCountjTable2;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
