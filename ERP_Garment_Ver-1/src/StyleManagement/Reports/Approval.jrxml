@@ -55,7 +55,7 @@ FROM
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[Approved Detais]]></text>
+					<text><![CDATA[Approved Details]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="b9f913c6-e903-472c-8ab5-7ec2d2763521"/>
