@@ -420,8 +420,10 @@ boolean result;
     private void AddDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDesignActionPerformed
         // TODO add your handling code here:
         result= val.ValidationCheck(jTextArea1,true,0,'@');
+        
        
         val1.ValidationCheck(jComboBox5,true,0,'@');
+        val1.ValidationCheck(jComboBox1,true,0,'@');
          
         AddDesign();
         TableLoad();
@@ -447,13 +449,7 @@ boolean result;
         boolean result = val.ValidationCheck(jTextField1,true,0,'@');
         AddNewColour();
         TextBoxClear2();
-        if(result==true){
-            
-            JOptionPane.showMessageDialog(null,"Successfully Added a new colour");
-        }else
-        {
-            JOptionPane.showMessageDialog(null,"Please Add a new colour");
-        }
+       
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -477,8 +473,9 @@ boolean result;
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        
-        String FileLocation=System.getProperty("user.dir")+"\\src\\StyleManagement\\Reports\\CreateDesign.jrxml";
+        //Report generating code
+        String FileLocation=System.getProperty
+        ("user.dir")+"\\src\\StyleManagement\\Reports\\CreatedDesigns.jrxml";
         autoReport.Table2Report(FileLocation, jTable6);
     }//GEN-LAST:event_jButton5ActionPerformed
 
@@ -504,12 +501,12 @@ boolean result;
         
         jTextArea1.setText("Winter");
        jRadioButton1.setSelected(true);
-        jComboBox5.setSelectedItem("tiny");
+        jComboBox5.setSelectedItem("Surosh Chavi");
         jComboBox1.setSelectedItem("XL");
         jComboBox3.setSelectedItem("Men");
         jComboBox4.setSelectedItem("Red");
         jRadioButton3.setSelected(true);
-         jComboBox5.setSelectedItem("Shirt");
+        jComboBox2.setSelectedItem("Trouser");
     }//GEN-LAST:event_jButton2ActionPerformed
 
         
@@ -520,24 +517,27 @@ boolean result;
     private void TableLoad()
     {
 
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`T_Design_table`");
-            jTable6.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`T_Design_table`");
+   jTable6.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     
     private void TableLoad1()
     {
 
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`d_designinquiry_table1`");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`d_designinquiry_table1`");
+   jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     
     private void TableLoad2()
     {
 
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`d_designinquiry_table`");
-            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`d_designinquiry_table`");
+   jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
     
@@ -598,23 +598,24 @@ boolean result;
         if(result==false)
                     {
                         
-            JOptionPane.showMessageDialog(null,"You can't Add without Style Description!!");  
+            JOptionPane.showMessageDialog(null,
+                    "You can't Add without Style Description!!");  
             
                     }
             
             else{
-        boolean x =autoSqlQuery.executeAutoADD(new String[]  {"StyleId="+id,
+        boolean x =autoSqlQuery.executeAutoADD(new String[]{"StyleId="+id,
                                                             "StyleDesc="+des,
                                                             "Size="+size,
                                                             "Gender="+gender,
                                                             "Type="+Type,
-                                                            "Collection="+collection,
+                                                       "Collection="+collection,
                                                             "Color="+color,
-                                                            "Designer="+designer,
+                                                          "Designer="+designer,
                                                             "Status="+status,
                                                             "Date="+date,
-                                                           }, "T_Design_table");
-        if(x==true)
+                                                          }, "T_Design_table");
+        if(result==true)
             {
                JOptionPane.showMessageDialog(null,"Successfully Added");
             }
@@ -638,16 +639,20 @@ boolean result;
             
              public void AddNewColour()
     {
-        
-        
+         if(result==false){
+            
+            JOptionPane.showMessageDialog(null,"Please Add a new colour");
+        }
+         
+         else
+        {
         String colour = jTextField1.getText();
         
-        
-        
-       boolean  x = autoSqlQuery.execute( "INSERT INTO `garmentsystem`.`T_New_Colour_table`\n" +
-"(`NewColour`)\n" +
-"VALUES\n" +
-"('"+colour+"');");
+        boolean  x = autoSqlQuery.execute( "INSERT INTO `garmentsystem`."
+               + "`T_New_Colour_table`\n" +
+                "(`NewColour`)\n" +
+                "VALUES\n" +
+                "('"+colour+"');");
       
         try
         {
@@ -662,7 +667,7 @@ boolean result;
         {
             System.out.println(ex);
         }
-        
+        }
         
         
       

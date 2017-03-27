@@ -202,7 +202,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 
         datePicker1.setName("");
         datePicker1.setEnabled(false);
-        jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, -1, -1));
+        jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 200, -1, -1));
 
         jLabel3.setText("StyleId");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -245,7 +245,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 130, 30));
         jComboBox3.getAccessibleContext().setAccessibleDescription("");
 
-        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 700, 300));
+        jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 700, 310));
 
         jPanel4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
