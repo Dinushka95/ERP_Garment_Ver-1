@@ -26,7 +26,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     public Update_Delete_Designs() {
         
       initComponents();
-     
+      
+       Table2Load();
       
      
       datePicker2.setDateToToday();
@@ -80,7 +81,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         DeleteCreateDesign = new javax.swing.JButton();
         Reset = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
-        ViewAll_Delete = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
@@ -272,15 +272,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
         jButton16.setText("Report");
         jPanel10.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 490, -1, -1));
-
-        ViewAll_Delete.setText("View All");
-        ViewAll_Delete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ViewAll_Delete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewAll_DeleteActionPerformed(evt);
-            }
-        });
-        jPanel10.add(ViewAll_Delete, new org.netbeans.lib.awtextra.AbsoluteConstraints(994, 261, -1, -1));
         jPanel10.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 18, 131, 29));
         jPanel10.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 121, 131, 27));
         jPanel10.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 121, 104, 27));
@@ -296,8 +287,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jLabel16.setToolTipText("You Can't Delete");
         jPanel10.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 166, 33));
 
-        Editbtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Editbtn1.setText("Delete");
+        Editbtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Editbtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 Editbtn1ActionPerformed(evt);
@@ -556,13 +547,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
       
     }//GEN-LAST:event_ResetActionPerformed
 
-    private void ViewAll_DeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAll_DeleteActionPerformed
-        // TODO add your handling code here:
-
-        Table2Load();
-        
-    }//GEN-LAST:event_ViewAll_DeleteActionPerformed
-
     private void Editbtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Editbtn1ActionPerformed
         // TODO add your handling code here:
         DeleteDesigns();
@@ -706,7 +690,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private javax.swing.JButton ResetViewUpdateDesign;
     private javax.swing.JButton ResetViewUpdateDesign1;
     private javax.swing.ButtonGroup Status;
-    private javax.swing.JButton ViewAll_Delete;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
     private javax.swing.JButton jButton10;
