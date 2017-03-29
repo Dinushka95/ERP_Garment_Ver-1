@@ -30,6 +30,7 @@ int RowCountjTable2;
         TableLoad();
         TableLoad1();
         TableLoad2();
+        FillTextCombo();
         datePicker2.setDateToToday();
         
     }
@@ -69,7 +70,6 @@ int RowCountjTable2;
         jLabel10 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -91,6 +91,7 @@ int RowCountjTable2;
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings123);
         jComboBox4 = new javax.swing.JComboBox<>();
         jTextField2 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
@@ -269,11 +270,8 @@ int RowCountjTable2;
         jTextField3.setToolTipText("Autofill");
         jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, 171, 30));
 
-        jTextField4.setToolTipText("Sample Designer");
-        jPanel5.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 171, 30));
-
         jTextField5.setToolTipText("Sample type");
-        jPanel5.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, 171, 28));
+        jPanel5.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 250, 171, 30));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -347,7 +345,7 @@ int RowCountjTable2;
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 459, 380, 60));
 
         jTextField15.setToolTipText("Size please");
-        jPanel5.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 171, 30));
+        jPanel5.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 350, 170, 30));
 
         jLabel21.setText("Date");
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -358,8 +356,13 @@ int RowCountjTable2;
         jPanel5.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 170, 30));
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Sample", "Sketch Sample", "Photo Sample" }));
-        jPanel5.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 160, 30));
+        jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 170, 30));
         jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 170, 30));
+
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Designer" }));
+        jPanel5.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 400, 170, 30));
 
         jTabbedPane1.addTab("Create Sample", jPanel5);
 
@@ -428,11 +431,11 @@ int RowCountjTable2;
 
         jButton5.setText("ViewAll");
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
 
         jButton6.setText("Reset");
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 80, -1));
+        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 80, -1));
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -493,6 +496,7 @@ int RowCountjTable2;
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         clearSearch();//Reset button of add sample
+        generate_SAMID();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -531,7 +535,7 @@ int RowCountjTable2;
             jTextField5.setText("Samplesize");
             jComboBox4.setSelectedItem("Samplegroup");
             jTextField15.setText("Sampledesigner");
-            jTextField4.setText("Nosample");
+            jComboBox1.setSelectedItem("NoOfSample");
             jTextField7.setText("Samplegiven");
             jTextField6.setText("date");
 
@@ -565,7 +569,7 @@ int RowCountjTable2;
             jTextField5.setText("Samplesize");
             jComboBox4.setSelectedItem("Samplegroup");
             jTextField15.setText("Sampledesigner");
-            jTextField4.setText("Nosample");
+            jComboBox1.setSelectedItem("NoOfSample");
             jTextField7.setText("Samplegiven");
             jTextField6.setText("date");
         
@@ -593,10 +597,10 @@ int RowCountjTable2;
         String type = jTable3.getValueAt(row,2).toString();
         String size = jTable3.getValueAt(row,3).toString();
        
-        jTextField3.setText(name);
-        jTextField2.setText(stid);
-        jTextField15.setText(type);
-        jTextField5.setText(size);
+        jTextField2.setText(name);
+        jTextField3.setText(stid);
+        jTextField5.setText(type);
+        jTextField15.setText(size);
         
    
     }//GEN-LAST:event_jTable3MouseClicked
@@ -646,7 +650,7 @@ int RowCountjTable2;
             jTextField5.setText("");
             jComboBox4.setSelectedItem("");
             jTextField15.setText("");
-            jTextField4.setText("");
+            jComboBox1.setSelectedItem("");
             jTextField7.setText("");
             jTextField6.setText("");
     }
@@ -663,7 +667,7 @@ int RowCountjTable2;
         String Sampletype =jTextField5.getText();
         String samplesize =jTextField15.getText();
         String samplegroup = jComboBox4.getSelectedItem().toString();
-        String sampledesigner =jTextField4.getText();
+        String sampledesigner =jComboBox1.getSelectedItem().toString();
         String Nosample =jTextField7.getText();
         String samplegiven=jTextField6.getText();
         String date = datePicker2.getText();
@@ -710,6 +714,28 @@ int RowCountjTable2;
       
     }
     
+    private void FillTextCombo()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
+                    + " FROM garmentsystem.emp_table");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String id = AutoDB_Connect.DB_ResultSet.getString("SampleDesigner");
+                jComboBox1.addItem(id);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+        
+        
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
@@ -728,6 +754,7 @@ int RowCountjTable2;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -783,7 +810,6 @@ int RowCountjTable2;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
