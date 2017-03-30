@@ -789,7 +789,7 @@ File Image;
     public void AddProduct()
     {
         
-       if(validation.ValidationCheck(costfield, true,0,'a')&&validation.ValidationCheck(costfield, true,0,'1')&&validation.ValidationCheck(quantityfield, true,0,'1')&&validation.ValidationCheck(sellingPrice, true,0,'1')){ 
+       if(validation.ValidationCheck(costfield, true,0,'1')&&validation.ValidationCheck(costfield, true,0,'1')&&validation.ValidationCheck(quantityfield, true,0,'1')&&validation.ValidationCheck(sellingPrice, true,0,'1')){ 
         String id = idfield.getText();
         String name = namefield.getText();
         String designID = ComboDesignID.getSelectedItem().toString();
@@ -836,7 +836,7 @@ File Image;
         }
         catch(Exception ex)
         {
-            System.out.println(ex);
+            System.out.println("Errr : "+ex);
         }
         
         
