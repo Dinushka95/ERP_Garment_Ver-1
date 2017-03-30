@@ -439,6 +439,14 @@ boolean st;
     r5 =val1.ValidationCheck(stylecollection,true,0,'@');
     rb=GenderButtonGroup.getSelection()==null;
     st=Status.getSelection()==null;
+    
+    if(GenderButtonGroup.getSelection()==null){
+        rb=false;
+    }
+    if(GenderButtonGroup.getSelection()==null){
+        //JOptionPane.showMessageDialog(null,"Null Gender");
+        st=false;
+    }
          
         AddDesign();
         TableLoad();
@@ -634,6 +642,7 @@ boolean st;
         if(result==true&&r1==true&&r2==true&&r3==true&&r4==true&&r5==true&&
                 rb==true&&st==true)
             {
+               autoSqlQuery.executeAutoAddImage(id, autogetimage.getFile());
                TextBoxClear2();
                JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
             }
