@@ -9,6 +9,7 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.autogetimage;
+import java.io.File;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
@@ -17,10 +18,19 @@ import javax.swing.JOptionPane;
  * @author Dinushka
  */
 public class CreateDesign extends javax.swing.JInternalFrame {
+    
+    
 
 AutoValidation val = new AutoValidation();
 Validation val1=new Validation();
 boolean result;
+boolean r1;
+boolean r2;
+boolean r3;
+boolean r4;
+boolean r5;
+boolean rb;
+boolean st;
 
 
 
@@ -77,36 +87,36 @@ boolean result;
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        stylesize = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        male = new javax.swing.JRadioButton();
+        female = new javax.swing.JRadioButton();
         jLabel7 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        styletype = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Styledes = new javax.swing.JTextArea();
         jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
+        start = new javax.swing.JRadioButton();
+        inprogress = new javax.swing.JRadioButton();
+        finished = new javax.swing.JRadioButton();
         jLabel13 = new javax.swing.JLabel();
         DatePickerSettings dateSettings1 = new DatePickerSettings();
         dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jLabel9 = new javax.swing.JLabel();
-        jComboBox3 = new javax.swing.JComboBox<>();
+        stylecollection = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        stylecolour = new javax.swing.JComboBox<>();
         AddDesign = new javax.swing.JButton();
         ResetAll = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
-        jComboBox5 = new javax.swing.JComboBox<>();
+        styledesigner = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        addnewcolour = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -234,41 +244,41 @@ boolean result;
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "MS", "M", "L", "XL", "2XL", "3XL", "4XL" }));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox1.setToolTipText("Size Please");
-        jPanel14.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 230, 30));
+        stylesize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "MS", "M", "L", "XL", "2XL", "3XL", "4XL" }));
+        stylesize.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        stylesize.setToolTipText("Size Please");
+        jPanel14.add(stylesize, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, 230, 30));
 
         jLabel6.setText("Gender");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 360, -1, -1));
 
-        GenderButtonGroup.add(jRadioButton1);
-        jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton1.setText("Male");
-        jRadioButton1.setToolTipText("Click Me");
-        jPanel14.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 230, 30));
+        GenderButtonGroup.add(male);
+        male.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        male.setText("Male");
+        male.setToolTipText("Click Me");
+        jPanel14.add(male, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 230, 30));
 
-        GenderButtonGroup.add(jRadioButton2);
-        jRadioButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton2.setText("Female");
-        jRadioButton2.setToolTipText("Click Me");
-        jPanel14.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 230, 30));
+        GenderButtonGroup.add(female);
+        female.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        female.setText("Female");
+        female.setToolTipText("Click Me");
+        jPanel14.add(female, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 390, 230, 30));
 
         jLabel7.setText("Type");
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 450, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type", "Shirt", "Trouser", "Short", "Blouse", "Skirt", "Elephant Pant", "Frock", "Three Quater", " " }));
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox2.setToolTipText("Type Please");
-        jPanel14.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 220, 30));
+        styletype.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type", "Shirt", "Trouser", "Short", "Blouse", "Skirt", "Elephant Pant", "Frock", "Three Quater", " " }));
+        styletype.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        styletype.setToolTipText("Type Please");
+        jPanel14.add(styletype, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 440, 220, 30));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setName("StyleDescription"); // NOI18N
-        jTextArea1.setToolTipText("Description Please");
-        jScrollPane1.setViewportView(jTextArea1);
+        Styledes.setColumns(20);
+        Styledes.setRows(5);
+        Styledes.setName("StyleDescription"); // NOI18N
+        Styledes.setToolTipText("Description Please");
+        jScrollPane1.setViewportView(Styledes);
 
         jPanel14.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 230, 110));
 
@@ -281,23 +291,23 @@ boolean result;
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 30, -1, -1));
 
-        Status.add(jRadioButton3);
-        jRadioButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton3.setText("Start");
-        jRadioButton3.setToolTipText("Click Me");
-        jPanel14.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 130, 30));
+        Status.add(start);
+        start.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        start.setText("Start");
+        start.setToolTipText("Click Me");
+        jPanel14.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 130, 30));
 
-        Status.add(jRadioButton4);
-        jRadioButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton4.setText("In Progress");
-        jRadioButton4.setToolTipText("Click Me");
-        jPanel14.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 110, 30));
+        Status.add(inprogress);
+        inprogress.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        inprogress.setText("In Progress");
+        inprogress.setToolTipText("Click Me");
+        jPanel14.add(inprogress, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 70, 110, 30));
 
-        Status.add(jRadioButton5);
-        jRadioButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jRadioButton5.setText("Finished");
-        jRadioButton5.setToolTipText("Click Me");
-        jPanel14.add(jRadioButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 80, 30));
+        Status.add(finished);
+        finished.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        finished.setText("Finished");
+        finished.setToolTipText("Click Me");
+        jPanel14.add(finished, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 120, 80, 30));
 
         jLabel13.setText("Date");
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -312,24 +322,24 @@ boolean result;
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 180, -1, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Collection", "Men", "Women", "Teenagers", "Children", " " }));
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox3.setToolTipText("Collection Please");
-        jPanel14.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 160, 30));
+        stylecollection.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Collection", "Men", "Women", "Teenagers", "Children", " " }));
+        stylecollection.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        stylecollection.setToolTipText("Collection Please");
+        jPanel14.add(stylecollection, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 180, 160, 30));
 
         jLabel10.setText("Colour Information");
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel14.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 250, -1, -1));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Color", "Red", "Blood Red", "Magenta", "Blue", "Light Blue", "Sky Blue", "Peacock Blue", "Green", "Tamil Green", "Light Green", "Orange", "Light Orange", "Pink", "Rose Pink", "Beige", "Brown", "Desert Brown" }));
-        jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox4.setToolTipText("Color Please");
-        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+        stylecolour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Color", "Red", "Blood Red", "Magenta", "Blue", "Light Blue", "Sky Blue", "Peacock Blue", "Green", "Tamil Green", "Light Green", "Orange", "Light Orange", "Pink", "Rose Pink", "Beige", "Brown", "Desert Brown" }));
+        stylecolour.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        stylecolour.setToolTipText("Color Please");
+        stylecolour.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox4ActionPerformed(evt);
+                stylecolourActionPerformed(evt);
             }
         });
-        jPanel14.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 160, 30));
+        jPanel14.add(stylecolour, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, 160, 30));
 
         AddDesign.setText("Add Design");
         AddDesign.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -359,14 +369,15 @@ boolean result;
         jPanel14.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, -1, -1));
         jPanel14.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -20, -1, -1));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Designer" }));
-        jComboBox5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+        styledesigner.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Designer" }));
+        styledesigner.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        styledesigner.setToolTipText("Name of the Designer");
+        styledesigner.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox5ActionPerformed(evt);
+                styledesignerActionPerformed(evt);
             }
         });
-        jPanel14.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 230, 30));
+        jPanel14.add(styledesigner, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 220, 230, 30));
 
         jPanel4.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 670, 530));
 
@@ -376,8 +387,9 @@ boolean result;
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 45, -1, -1));
 
-        jTextField1.setToolTipText("New Colour");
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 170, 30));
+        addnewcolour.setName("NewColour"); // NOI18N
+        addnewcolour.setToolTipText("New Colour");
+        jPanel2.add(addnewcolour, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 40, 170, 30));
 
         jButton1.setText("Add A New Colour");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -419,11 +431,14 @@ boolean result;
 
     private void AddDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDesignActionPerformed
         // TODO add your handling code here:
-        result= val.ValidationCheck(jTextArea1,true,0,'@');
-        
-       
-        val1.ValidationCheck(jComboBox5,true,0,'@');
-        val1.ValidationCheck(jComboBox1,true,0,'@');
+    result= val.ValidationCheck(Styledes,true,0,'@');
+    r1 = val1.ValidationCheck(styledesigner,true,0,'@');
+    r2 = val1.ValidationCheck(stylesize,true,0,'@');
+    r3 = val1.ValidationCheck(styletype,true,0,'@');
+    r4 =val1.ValidationCheck(stylecolour,true,0,'@');
+    r5 =val1.ValidationCheck(stylecollection,true,0,'@');
+    rb=GenderButtonGroup.getSelection()==null;
+    st=Status.getSelection()==null;
          
         AddDesign();
         TableLoad();
@@ -439,14 +454,14 @@ boolean result;
         generate_stlid();
         
         //reset jRadiobutton loaded by Demo
-        jRadioButton1.setSelected(false);
-        jRadioButton1.setSelected(false);
+        male.setSelected(false);
+        male.setSelected(false);
         
     }//GEN-LAST:event_ResetAllActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        boolean result = val.ValidationCheck(jTextField1,true,0,'@');
+        boolean result = val.ValidationCheck(addnewcolour,true,0,'@');
         AddNewColour();
         TextBoxClear2();
        
@@ -483,30 +498,30 @@ boolean result;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+    private void stylecolourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stylecolourActionPerformed
         // TODO add your handling code here:
         //To load new colours from db
         FillTextCombo1();
-    }//GEN-LAST:event_jComboBox4ActionPerformed
+    }//GEN-LAST:event_stylecolourActionPerformed
 
-    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+    private void styledesignerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_styledesignerActionPerformed
         // TODO add your handling code here:
         //Employees from EMP table to select StyleDesigner
         FillTextComboDesigner();
-    }//GEN-LAST:event_jComboBox5ActionPerformed
+    }//GEN-LAST:event_styledesignerActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         //Demo Button to load data
         
-        jTextArea1.setText("Winter");
-       jRadioButton1.setSelected(true);
-        jComboBox5.setSelectedItem("Surosh Chavi");
-        jComboBox1.setSelectedItem("XL");
-        jComboBox3.setSelectedItem("Men");
-        jComboBox4.setSelectedItem("Red");
-        jRadioButton3.setSelected(true);
-        jComboBox2.setSelectedItem("Trouser");
+        Styledes.setText("Winter");
+        male.setSelected(true);
+        styledesigner.setSelectedItem("Surosh Chavi");
+        stylesize.setSelectedItem("XL");
+        stylecollection.setSelectedItem("Men");
+        stylecolour.setSelectedItem("Red");
+        start.setSelected(true);
+        styletype.setSelectedItem("Trouser");
     }//GEN-LAST:event_jButton2ActionPerformed
 
         
@@ -547,19 +562,19 @@ boolean result;
     {
         generate_stlid();
         jLabel12.setText("");
-        jTextArea1.setText("");
-        jComboBox5.setSelectedItem("Select Designer");
-        jComboBox1.setSelectedItem("Select Size");
-        jRadioButton1.setSelected(false);
-        jRadioButton2.setSelected(false);
-        jComboBox2.setSelectedItem("Select Type");
-        jRadioButton3.setSelected(false);
-        jRadioButton4.setSelected(false);
-        jRadioButton5.setSelected(false);
+        Styledes.setText("");
+        styledesigner.setSelectedItem("Select Designer");
+        stylesize.setSelectedItem("Select Size");
+        male.setSelected(false);
+        female.setSelected(false);
+        styletype.setSelectedItem("Select Type");
+        start.setSelected(false);
+        inprogress.setSelected(false);
+        finished.setSelected(false);
         datePicker1.setText("");
-        jComboBox3.setSelectedItem("Select Collection");
-        jComboBox4.setSelectedItem("Select Color");
-        jTextField1.setText("");
+        stylecollection.setSelectedItem("Select Collection");
+        stylecolour.setSelectedItem("Select Color");
+        addnewcolour.setText("");
        
         
        
@@ -570,36 +585,37 @@ boolean result;
         
         
         String id = jLabel12.getText();
-        String des =  jTextArea1.getText();
-        String designer = jComboBox5.getSelectedItem().toString();
-        String size = jComboBox1.getSelectedItem().toString();
-        String Type =  jComboBox2.getSelectedItem().toString();
+        String des =  Styledes.getText();
+        String designer = styledesigner.getSelectedItem().toString();
+        String size = stylesize.getSelectedItem().toString();
+        String Type =  styletype.getSelectedItem().toString();
         
-        jRadioButton1.setActionCommand("Male");
-        jRadioButton2.setActionCommand("Female");
+        male.setActionCommand("Male");
+        female.setActionCommand("Female");
         
         
         String gender =GenderButtonGroup.getSelection().getActionCommand();
         
-        jRadioButton3.setActionCommand("Start");
-        jRadioButton4.setActionCommand("In Progress");
-        jRadioButton5.setActionCommand("Finished");
+        start.setActionCommand("Start");
+        inprogress.setActionCommand("In Progress");
+        finished.setActionCommand("Finished");
                 
         String status = Status.getSelection().getActionCommand();
         
         
         String date = datePicker1.getText();
         
-        String collection = jComboBox3.getSelectedItem().toString();
+        String collection = stylecollection.getSelectedItem().toString();
         
         
-        String color = jComboBox4.getSelectedItem().toString();
+        String color = stylecolour.getSelectedItem().toString();
         
-        if(result==false)
+        if(result==false||r1==false||r2==false||r3==false||r4==false||
+                r5==false||rb==false||st==false)
                     {
                         
             JOptionPane.showMessageDialog(null,
-                    "You can't Add without Style Description!!");  
+                    "WARNING CAN'T ADD NULL VALUES!!");  
             
                     }
             
@@ -615,9 +631,11 @@ boolean result;
                                                             "Status="+status,
                                                             "Date="+date,
                                                           }, "T_Design_table");
-        if(result==true)
+        if(result==true&&r1==true&&r2==true&&r3==true&&r4==true&&r5==true&&
+                rb==true&&st==true)
             {
-               JOptionPane.showMessageDialog(null,"Successfully Added");
+               TextBoxClear2();
+               JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
             }
   
         
@@ -646,7 +664,7 @@ boolean result;
          
          else
         {
-        String colour = jTextField1.getText();
+        String colour = addnewcolour.getText();
         
         boolean  x = autoSqlQuery.execute( "INSERT INTO `garmentsystem`."
                + "`T_New_Colour_table`\n" +
@@ -677,12 +695,14 @@ boolean result;
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_New_Colour_table");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery
+        ("SELECT * FROM garmentsystem.T_New_Colour_table");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String colour = AutoDB_Connect.DB_ResultSet.getString("NewColour");
-                jComboBox4.addItem(colour);
+                String colour = AutoDB_Connect.DB_ResultSet.getString
+        ("NewColour");
+                stylecolour.addItem(colour);
             }
         }
         catch(Exception ex)
@@ -698,12 +718,14 @@ boolean result;
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery
+        ("SELECT * FROM garmentsystem.emp_table");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String designer = AutoDB_Connect.DB_ResultSet.getString("f_name");
-                jComboBox5.addItem(designer);
+                String designer = AutoDB_Connect.DB_ResultSet.getString
+        ("f_name");
+                styledesigner.addItem(designer);
             }
         }
         catch(Exception ex)
@@ -717,7 +739,7 @@ boolean result;
     private void TextBoxClear3()
     {
        
-        jTextField1.setText("");
+        addnewcolour.setText("");
        
         
        
@@ -746,17 +768,17 @@ boolean result;
     private javax.swing.ButtonGroup GenderButtonGroup;
     private javax.swing.JButton ResetAll;
     private javax.swing.ButtonGroup Status;
+    private javax.swing.JTextArea Styledes;
+    private javax.swing.JTextField addnewcolour;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private javax.swing.JRadioButton female;
+    private javax.swing.JRadioButton finished;
+    private javax.swing.JRadioButton inprogress;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox3;
-    private javax.swing.JComboBox<String> jComboBox4;
-    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -779,11 +801,6 @@ boolean result;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane4;
@@ -793,8 +810,13 @@ boolean result;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable6;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JRadioButton male;
+    private javax.swing.JRadioButton start;
+    private javax.swing.JComboBox<String> stylecollection;
+    private javax.swing.JComboBox<String> stylecolour;
+    private javax.swing.JComboBox<String> styledesigner;
+    private javax.swing.JComboBox<String> stylesize;
+    private javax.swing.JComboBox<String> styletype;
     // End of variables declaration//GEN-END:variables
 
     //private void AddDesign() {
