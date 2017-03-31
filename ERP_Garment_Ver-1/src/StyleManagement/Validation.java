@@ -11,7 +11,7 @@ import javax.swing.text.JTextComponent;
 
 /**
  *
- * @author Little_Lux
+ * @author Dinushka95@yahoo.com
  */
 public class Validation {
     JTextComponent jComboBox;

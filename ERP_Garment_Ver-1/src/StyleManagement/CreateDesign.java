@@ -9,8 +9,7 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.autogetimage;
-import java.io.File;
-
+import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
 /**
@@ -24,13 +23,8 @@ public class CreateDesign extends javax.swing.JInternalFrame {
 AutoValidation val = new AutoValidation();
 Validation val1=new Validation();
 boolean result;
-boolean r1;
-boolean r2;
-boolean r3;
-boolean r4;
-boolean r5;
-boolean rb;
-boolean st;
+
+
 
 
 
@@ -255,6 +249,7 @@ boolean st;
 
         GenderButtonGroup.add(male);
         male.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        male.setSelected(true);
         male.setText("Male");
         male.setToolTipText("Click Me");
         jPanel14.add(male, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 230, 30));
@@ -293,6 +288,7 @@ boolean st;
 
         Status.add(start);
         start.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        start.setSelected(true);
         start.setText("Start");
         start.setToolTipText("Click Me");
         jPanel14.add(start, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 130, 30));
@@ -431,23 +427,9 @@ boolean st;
 
     private void AddDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDesignActionPerformed
         // TODO add your handling code here:
-    result= val.ValidationCheck(Styledes,true,0,'@');
-    r1 = val1.ValidationCheck(styledesigner,true,0,'@');
-    r2 = val1.ValidationCheck(stylesize,true,0,'@');
-    r3 = val1.ValidationCheck(styletype,true,0,'@');
-    r4 =val1.ValidationCheck(stylecolour,true,0,'@');
-    r5 =val1.ValidationCheck(stylecollection,true,0,'@');
-    rb=GenderButtonGroup.getSelection()==null;
-    st=Status.getSelection()==null;
-    
-    if(GenderButtonGroup.getSelection()==null){
-        rb=false;
-    }
-    if(GenderButtonGroup.getSelection()==null){
-        //JOptionPane.showMessageDialog(null,"Null Gender");
-        st=false;
-    }
-         
+        //Validation Part
+      
+           
         AddDesign();
         TableLoad();
         TextBoxClear2();
@@ -460,16 +442,16 @@ boolean st;
         
         //regenerate a new number
         generate_stlid();
+        datePicker1.setDateToToday();
         
         //reset jRadiobutton loaded by Demo
-        male.setSelected(false);
-        male.setSelected(false);
+       
         
     }//GEN-LAST:event_ResetAllActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        boolean result = val.ValidationCheck(addnewcolour,true,0,'@');
+//        boolean result = val.ValidationCheck(addnewcolour,true,0,'@');
         AddNewColour();
         TextBoxClear2();
        
@@ -530,6 +512,7 @@ boolean st;
         stylecolour.setSelectedItem("Red");
         start.setSelected(true);
         styletype.setSelectedItem("Trouser");
+        datePicker1.setDateToToday();
     }//GEN-LAST:event_jButton2ActionPerformed
 
         
@@ -592,42 +575,41 @@ boolean st;
     {
         
         
+        //Assigning values
         String id = jLabel12.getText();
         String des =  Styledes.getText();
         String designer = styledesigner.getSelectedItem().toString();
         String size = stylesize.getSelectedItem().toString();
         String Type =  styletype.getSelectedItem().toString();
-        
         male.setActionCommand("Male");
         female.setActionCommand("Female");
-        
-        
         String gender =GenderButtonGroup.getSelection().getActionCommand();
-        
         start.setActionCommand("Start");
         inprogress.setActionCommand("In Progress");
-        finished.setActionCommand("Finished");
-                
+        finished.setActionCommand("Finished");        
         String status = Status.getSelection().getActionCommand();
-        
-        
         String date = datePicker1.getText();
-        
         String collection = stylecollection.getSelectedItem().toString();
+        String color = stylecolour.getSelectedItem().toString();  
         
-        
-        String color = stylecolour.getSelectedItem().toString();
-        
-        if(result==false||r1==false||r2==false||r3==false||r4==false||
-                r5==false||rb==false||st==false)
-                    {
-                        
-            JOptionPane.showMessageDialog(null,
-                    "WARNING CAN'T ADD NULL VALUES!!");  
+        if(des.isEmpty()||designer.isEmpty()||size.isEmpty()||Type.
+        isEmpty()||gender.isEmpty()||status.isEmpty()||date.isEmpty()
+        ||collection.isEmpty()||color.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        if(des.length()>10){
             
-                    }
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE STYLE DESCRIPTION FIELD");
             
-            else{
+            
+        }
+        
+        //Sql Query
+        else{
+             try
+        {  
+        
         boolean x =autoSqlQuery.executeAutoADD(new String[]{"StyleId="+id,
                                                             "StyleDesc="+des,
                                                             "Size="+size,
@@ -639,40 +621,36 @@ boolean st;
                                                             "Status="+status,
                                                             "Date="+date,
                                                           }, "T_Design_table");
-        if(result==true&&r1==true&&r2==true&&r3==true&&r4==true&&r5==true&&
-                rb==true&&st==true)
-            {
-               autoSqlQuery.executeAutoAddImage(id, autogetimage.getFile());
+            
+             
+             if(x==true){
                TextBoxClear2();
                JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
-            }
-  
-        
-            }
-        try
-        {
-            
-                    
+             }
+             else
+             {
+              
+              
+             }
         }
+        
         catch(Exception ex)
         {
             System.out.println(ex);
         }
         
-        
-        
-      
-    }
-            
-             public void AddNewColour()
-    {
-         if(result==false){
-            
-            JOptionPane.showMessageDialog(null,"Please Add a new colour");
-        }
          
-         else
-        {
+       
+    }
+    }
+    
+    
+        public void AddNewColour()
+    {
+        
+        if(validation.ValidationCheck(addnewcolour, true,0,'1')){
+            
+        
         String colour = addnewcolour.getText();
         
         boolean  x = autoSqlQuery.execute( "INSERT INTO `garmentsystem`."
@@ -694,10 +672,8 @@ boolean st;
         {
             System.out.println(ex);
         }
+        
         }
-        
-        
-      
     }
              
              private void FillTextCombo1()
