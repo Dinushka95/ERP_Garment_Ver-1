@@ -85,11 +85,11 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jTable2 = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        Appid = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        Appstid = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        Appname = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         DatePickerSettings dateSettings11 = new DatePickerSettings();
@@ -98,8 +98,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings11);
         jLabel18 = new javax.swing.JLabel();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jTextField3 = new javax.swing.JTextField();
+        Appcomment = new javax.swing.JTextArea();
+        Appstatus = new javax.swing.JTextField();
         jButton10 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
@@ -322,22 +322,22 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 158, -1, 21));
 
-        jTextField9.setToolTipText("No need to type fill here");
-        jPanel4.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 157, 30));
+        Appid.setToolTipText("No need to type fill here");
+        jPanel4.add(Appid, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 157, 30));
 
         jLabel5.setText("StyleId");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 337, -1, -1));
 
-        jTextField2.setToolTipText("No need to type fill here");
-        jPanel4.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 157, 28));
+        Appstid.setToolTipText("No need to type fill here");
+        jPanel4.add(Appstid, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 330, 157, 28));
 
         jLabel6.setText("Approval Name");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 199, -1, 26));
 
-        jTextField10.setToolTipText("No need to type fill here");
-        jPanel4.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 157, 26));
+        Appname.setToolTipText("No need to type fill here");
+        jPanel4.add(Appname, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 200, 157, 26));
 
         jLabel17.setText("Status");
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -354,15 +354,15 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, -1, -1));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setToolTipText("No need to type fill here");
-        jScrollPane4.setViewportView(jTextArea2);
+        Appcomment.setColumns(20);
+        Appcomment.setRows(5);
+        Appcomment.setToolTipText("No need to type fill here");
+        jScrollPane4.setViewportView(Appcomment);
 
         jPanel4.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 180, 180, 110));
 
-        jTextField3.setToolTipText("No need to type fill here");
-        jPanel4.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 157, 28));
+        Appstatus.setToolTipText("No need to type fill here");
+        jPanel4.add(Appstatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, 157, 28));
 
         jButton10.setText("Delete");
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -458,11 +458,11 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         String comment = jTable2.getValueAt(row,4).toString();
         String date = jTable2.getValueAt(row,5).toString();
 
-        jTextField9.setText(id);
-        jTextField10.setText(by);
-        jTextArea2.setText(comment);
-        jTextField3.setText(status);
-        jTextField2.setText(stid);
+        Appid.setText(id);
+        Appname.setText(by);
+        Appcomment.setText(comment);
+        Appstatus.setText(status);
+        Appstid.setText(stid);
         datePicker2.setText(date);
 
         
@@ -496,7 +496,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         //Load data by usingg Demo
         
-        jTextArea1.setText("Approved Start your woork");
+        jTextArea1.setText("Approved");
        jRadioButton1.setSelected(true);
         jComboBox3.setSelectedItem("dinu");
         datePicker1.setDateToToday();
@@ -560,11 +560,11 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     }
      private void TextBoxClear2(){
             
-            jTextField9.setText("");
-            jTextField10.setText("");
-            jTextField2.setText("");
-            jTextField3.setText("");
-            jTextArea2.setText("");
+            Appid.setText("");
+            Appname.setText("");
+            Appstid.setText("");
+            Appstatus.setText("");
+            Appcomment.setText("");
     }
     
    
@@ -586,6 +586,21 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         
         String date = datePicker1.getText();
         
+        if(id.isEmpty()||name.isEmpty()||StyleId.isEmpty()||comment.
+        isEmpty()||status.isEmpty()||date.isEmpty())
+        {
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        if(comment.length()>10){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE STYLE DESCRIPTION FIELD");
+            
+            
+        }
+        else{
+            try
+        {
         
         
        boolean  x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`T_Design_Approval_Table`\n" +
@@ -603,18 +618,18 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 "'"+comment+"',\n" +
 "'"+date+"');");
         
-        try
-        {
+        
             if(x==true)
             {
                 TableLoad2();
                 TextBoxClear2();
-                JOptionPane.showMessageDialog(null,"Successfully Added");
+                JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
             }
         }
         catch(Exception ex)
         {
             System.out.println(ex);
+        }
         }
         
         
@@ -684,20 +699,35 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         
         public void EditApprovedDesigns()
     {
-        String id = jTextField9.getText();
-        String by =   jTextField10.getText();
-        String stid = jTextField2.getText();
-        String status = jTextField3.getText();
-        String comment =  jTextArea2.getText();
+        String id = Appid.getText();
+        String by =   Appname.getText();
+        String stid = Appstid.getText();
+        String status = Appstatus.getText();
+        String comment =  Appcomment.getText();
         String date = datePicker2.getText();
+        
+         if(id.isEmpty()||by.isEmpty()||stid.isEmpty()||status.
+        isEmpty()||comment.isEmpty()||date.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        
+        else if(comment.length()>10){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE STYLE DESCRIPTION FIELD");
+            
+            
+        }
+        else{
+             try
+        {
+        
         
         int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want"
                 + " to Update?", "Update?", 
                             JOptionPane.YES_NO_OPTION);
         
           if (reply == JOptionPane.YES_OPTION){
-        
-        
         
         boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`T_Design_Approval_Table`\n" +
 "SET\n" +
@@ -708,58 +738,53 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 "`Comment` = '"+comment+"',\n" +
 "`Date` = '"+date+"'\n" +
 "WHERE `ApprovalId` = '"+id+"'");
-        try
-        {
-            if (x==true)
-            {
-                TextBoxClear2();
-                TableLoad();
-                JOptionPane.showMessageDialog(null,"Successfully Updated");
-                
+       
+            if(x==true){
+               Reset();
+               JOptionPane.showMessageDialog(null,"SUCCESSFULLY UPDATED");
+             }
+             else
+             {
               
-    {
-        
-    }
-            }
+              
+             }
         }
+            }
+            
+       
         catch (Exception ex){
             System.out.println(ex);
         }
       
           }
-        
        
-        
-        
 
     }
          private void DeleteApprovedDesigns()
     {
-        String id =jTextField9.getText();
-        
-        
+        String id =Appid.getText();
+         if(id.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+         else{
+             try
+        {
+         
        int reply = JOptionPane.showConfirmDialog(null, "Are you sure you want to Delete?", "Delete?", 
                             JOptionPane.YES_NO_OPTION);
         
-        if (reply == JOptionPane.YES_OPTION){
-            
-            
+        if (reply == JOptionPane.YES_OPTION){ 
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`T_Design_Approval_Table`\n" +
 "WHERE ApprovalId = '"+id+"';");
         
-        try
-        {
+        
             if (x==true)
             {
                 TextBoxClear2();
                 TableLoad2();
                 JOptionPane.showMessageDialog(null,"Successfully Deleted");
-                
-                
-    {
-        
-    }
+            }
             
             }
         }
@@ -806,7 +831,12 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Appcomment;
+    private javax.swing.JTextField Appid;
+    private javax.swing.JTextField Appname;
     private javax.swing.ButtonGroup Approval;
+    private javax.swing.JTextField Appstatus;
+    private javax.swing.JTextField Appstid;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
@@ -851,14 +881,9 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 
     private void generate_Sid() {
