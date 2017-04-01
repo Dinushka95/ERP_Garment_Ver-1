@@ -240,7 +240,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -264,7 +264,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
+        jPanelcustomerSearch.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 630, 500));
 

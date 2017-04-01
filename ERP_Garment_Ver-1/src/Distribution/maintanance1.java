@@ -7,6 +7,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -50,7 +51,6 @@ DefaultTableModel model;
         jPanel2 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -112,6 +112,7 @@ DefaultTableModel model;
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,70 +127,47 @@ DefaultTableModel model;
         ));
         jScrollPane3.setViewportView(jTable3);
 
-        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
-        jPanel5.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(133, 133, 133))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(73, Short.MAX_VALUE))
-        );
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 28, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 760, 530));
 
+        jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Maintaince ID");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jLabel2.setText("Vehical ID");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         jLabel4.setText("Garaj Name");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jLabel5.setText("Address");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         jLabel6.setText("Phone");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 50, 20));
 
         jLabel3.setText("Maintaince Discription");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         jLabel7.setText("Cost");
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
         jLabel11.setText("Date");
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         jButton1.setText("ADD");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -198,6 +176,7 @@ DefaultTableModel model;
         jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 360, -1, -1));
 
         jButton4.setText("Clear All");
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -238,9 +217,11 @@ DefaultTableModel model;
         jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 130, -1));
 
         jLabel9.setText("Fuel Station Name");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jButton8.setText("View All");
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
@@ -249,6 +230,7 @@ DefaultTableModel model;
         jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
 
         jButton5.setText("Search");
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -269,7 +251,7 @@ DefaultTableModel model;
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanelcustomerSearch.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
+        jPanelcustomerSearch.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 490, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 830, 510));
 
@@ -277,27 +259,35 @@ DefaultTableModel model;
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel12.setText("Date");
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
 
         jLabel8.setText("Cost");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
         jLabel10.setText("Maintaince Discription");
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
 
         jLabel13.setText("Phone");
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 50, 20));
 
         jLabel14.setText("Address");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
 
         jLabel15.setText("Garaj Name");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
 
         jLabel16.setText("Vehical ID");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         jLabel17.setText("Maintaince ID");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
@@ -379,7 +369,7 @@ DefaultTableModel model;
                 vehicleCombo.addItem(id);
             }
         }
-        catch (Exception ex)
+        catch (SQLException ex)
         {
             System.out.println(ex);
         }
@@ -483,7 +473,6 @@ DefaultTableModel model;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanelcustomerSearch;

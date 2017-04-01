@@ -62,13 +62,16 @@ public class Distribution extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jPanelcustomerSearch = new javax.swing.JPanel();
-        jTextFieldSearchCustomerId = new javax.swing.JTextField();
+        jSearchDIS = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        DatePickerSettings dateSettings2 = new DatePickerSettings();
+        dateSettings2.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         dis_id1 = new javax.swing.JTextField();
@@ -201,13 +204,12 @@ public class Distribution extends javax.swing.JInternalFrame {
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanelcustomerSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 100, -1));
+        jSearchDIS.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jSearchDIS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setText("Fuel Station Name");
+        jLabel9.setText("Distribution Date");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jSearchDIS.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jButton8.setText("View All");
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -216,7 +218,7 @@ public class Distribution extends javax.swing.JInternalFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, -1));
+        jSearchDIS.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, -1, -1));
 
         jButton5.setText("Search");
         jButton5.setFocusable(false);
@@ -226,7 +228,7 @@ public class Distribution extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
+        jSearchDIS.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -241,9 +243,10 @@ public class Distribution extends javax.swing.JInternalFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        jPanelcustomerSearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 450, 320));
+        jSearchDIS.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 450, 320));
+        jSearchDIS.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
-        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 470));
+        jPanel3.add(jSearchDIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 680, 470));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -327,7 +330,7 @@ public class Distribution extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-   
+       search();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -353,6 +356,7 @@ public class Distribution extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JTextField dis_id;
     private javax.swing.JTextField dis_id1;
     private javax.swing.JButton jButton1;
@@ -381,9 +385,9 @@ public class Distribution extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanelcustomerSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPanel jSearchDIS;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
@@ -398,7 +402,6 @@ public class Distribution extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField jTextFieldSearchCustomerId;
     // End of variables declaration//GEN-END:variables
 
     private void generate_distributionid() {
@@ -464,4 +467,11 @@ public class Distribution extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
+ private void search()
+ {
+     String date=datePicker2.getText();
+
+        jTable2.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Distribution","Date", date)));
+ 
+ }
 }

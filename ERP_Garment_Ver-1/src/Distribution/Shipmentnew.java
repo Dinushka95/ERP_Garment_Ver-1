@@ -75,8 +75,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
-        jPanelcustomerSearch = new javax.swing.JPanel();
-        jTextFieldSearchCustomerId = new javax.swing.JTextField();
+        jPanelShipSearch = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
@@ -86,6 +85,10 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         fromCombo2 = new javax.swing.JComboBox<>();
+        DatePickerSettings dateSettings3 = new DatePickerSettings();
+        dateSettings3.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings3.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings3);
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         shipid1 = new javax.swing.JTextField();
@@ -243,26 +246,25 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanelcustomerSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 100, -1));
+        jPanelShipSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelShipSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel9.setText("Shipment ID");
+        jLabel9.setText("Shipment Date");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanelShipSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jLabel10.setText("country");
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelcustomerSearch.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 60, 20));
+        jPanelShipSearch.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 60, 20));
 
-        jButton8.setText("View All");
+        jButton8.setText("Reset All");
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(381, 20, 90, -1));
+        jPanelShipSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 90, -1));
 
         jButton9.setText("Reset All");
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -271,7 +273,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
+        jPanelShipSearch.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, -1, -1));
 
         jButton5.setText("Search");
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -280,7 +282,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jPanelShipSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
 
         jButton10.setText("Search");
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -289,7 +291,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, -1, -1));
+        jPanelShipSearch.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -304,18 +306,19 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         ));
         jScrollPane3.setViewportView(jTable3);
 
-        jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 580, 320));
+        jPanelShipSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 580, 320));
 
-        fromCombo2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         fromCombo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "USA", "UK", "India", "Pakisthan", " " }));
+        fromCombo2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         fromCombo2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fromCombo2ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(fromCombo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, 121, 31));
+        jPanelShipSearch.add(fromCombo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 121, 31));
+        jPanelShipSearch.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
-        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 530));
+        jPanel3.add(jPanelShipSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 530));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -415,11 +418,11 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
+            search();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-
+        search1();
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -513,12 +516,25 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
-    
+     private void search()
+ {
+        String frm=fromCombo2.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Shipment WHERE C_Shipment.From='"+frm+"'");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+ }
+      private void search1()
+      {
+           String strtdate=datePicker1.getText();
+
+        jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("_Shipment","Shipped_date", strtdate)));
+      }
+  
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;
     private javax.swing.JTextField address;
     private javax.swing.JTextField address1;
+    private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JTextField descriptionarea;
     private javax.swing.JTextField descriptionarea1;
     private com.github.lgooddatepicker.components.DatePicker enddate;
@@ -556,13 +572,12 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanelcustomerSearch;
+    private javax.swing.JPanel jPanelShipSearch;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextFieldSearchCustomerId;
     private javax.swing.JTextField phone;
     private javax.swing.JTextField phone1;
     private javax.swing.JTextField phone2;
