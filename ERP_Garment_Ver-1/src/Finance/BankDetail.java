@@ -25,7 +25,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         TableLoad2();
         FillTextCombo1();
         FillTextCombo2();
-        ReturnChequeCombo();
+        
         
         datePicker1date.setDateToToday(); 
         datePicker2date.setDateToToday();
@@ -119,6 +119,10 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jButton11 = new javax.swing.JButton();
+        jPanel10 = new javax.swing.JPanel();
+        jPanel11 = new javax.swing.JPanel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jPanel12 = new javax.swing.JPanel();
         jComboBox3 = new javax.swing.JComboBox<>();
 
         setResizable(true);
@@ -406,8 +410,13 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Section", "Deposit", "Withdraw", "Expences" }));
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 180, 30));
 
         jLabel6.setText("Cheque No");
@@ -479,14 +488,44 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, -1, -1));
 
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel10.setLayout(new java.awt.CardLayout());
+
+        jComboBox5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cheque No" }));
+        jComboBox5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox5ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+
+        jPanel10.add(jPanel11, "card3");
+
+        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cheque No" }));
+        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
             }
         });
-        jPanel8.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 120, -1));
+        jPanel12.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -10, 140, 40));
+
+        jPanel10.add(jPanel12, "card4");
+
+        jPanel8.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 140, 30));
 
         jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1310, -1));
 
@@ -557,6 +596,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
     private void ReturnChequeCombo()
     {
+        
         try
         {
             AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
@@ -565,6 +605,31 @@ public class BankDetail extends javax.swing.JInternalFrame {
             while(AutoDB_Connect.DB_ResultSet.next())
             {
                 String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
+                jComboBox5.addItem(cno);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    
+    }
+    
+    
+    
+    private void ReturnChequeCombo1()
+    {
+        
+        
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
+                    + "FROM `garmentsystem`.`F_DEPOSIT DETAILS`;");
+        
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
                 jComboBox3.addItem(cno);
             }
         }
@@ -754,6 +819,29 @@ public class BankDetail extends javax.swing.JInternalFrame {
         }
         
     }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+        
+        if(jComboBox1.getSelectedItem().equals("Deposit"))
+        {
+            jPanel12.setVisible(true);
+            jPanel11.setVisible(false);
+            ReturnChequeCombo1();
+            
+        }
+        else if(jComboBox1.getSelectedItem().equals("Withdraw"))
+        {
+            jPanel12.setVisible(false);
+            jPanel11.setVisible(true);
+            ReturnChequeCombo();
+        }
+            
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox5ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox5ActionPerformed
   
     
     
@@ -1004,6 +1092,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox2b_name;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1023,6 +1112,9 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel10;
+    private javax.swing.JPanel jPanel11;
+    private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
