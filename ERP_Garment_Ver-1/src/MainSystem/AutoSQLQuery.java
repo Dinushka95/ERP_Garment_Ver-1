@@ -111,6 +111,14 @@ public class AutoSQLQuery  extends AutoDB_Connect{
             ArraySelect="SELECT  * FROM  "+DB_Name+"."+TableName+" WHERE  "+KeyName+" >= '"+DateFrom+"' AND "+KeyName+" <= '"+DateTo+"'" ;
         return db_con.executeQuery(ArraySelect);
     }
+    
+    //auto search data ranges
+    public ResultSet executeAutoSearchDate(String TableName,String KeyName,String Date)
+    {
+            String ArraySelect="";
+            ArraySelect="SELECT  * FROM  "+DB_Name+"."+TableName+" WHERE  "+KeyName+" = '"+Date+"'" ;
+        return db_con.executeQuery(ArraySelect);
+    }
         
     // used to ADD values 
     public boolean executeAutoADD(String SQL_String[],String TableName)
