@@ -9,6 +9,7 @@ import HumanResource.Util.Common;
 import MainSystem.AutoDB_Connect;
 import static MainSystem.AutoDB_Connect.DB_connection;
 import HumanResource.Util.DBObject;
+import static MainSystem.MainWindow.autoSqlQuery;
 import java.awt.Component;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -20,6 +21,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import java.util.*;
 import javax.swing.JTextField;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -43,11 +45,8 @@ public class Leave extends javax.swing.JInternalFrame {
     }
 
     private void Populate() {
-        try {
-            jTable1.setModel(DBObject.GetTable(con, DBObject.GetAll(con, "leaves_table")));
-        } catch (SQLException ex) {
-            Logger.getLogger(Leave.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from leaves_table");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void Insert() {

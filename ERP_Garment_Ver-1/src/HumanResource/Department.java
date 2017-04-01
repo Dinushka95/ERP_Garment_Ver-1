@@ -8,6 +8,7 @@ package HumanResource;
 import HumanResource.Util.Common;
 import MainSystem.AutoDB_Connect;
 import HumanResource.Util.DBObject;
+import static MainSystem.MainWindow.autoSqlQuery;
 import java.awt.Component;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -16,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -220,11 +222,8 @@ public class Department extends javax.swing.JInternalFrame {
 
     private void Populate()
     {
-        try {
-            jTable1.setModel(DBObject.GetTable(con, DBObject.GetAll(con, "department_table")));
-        } catch (SQLException ex) {
-            Logger.getLogger(Department.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from department_table");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
         
     }
     

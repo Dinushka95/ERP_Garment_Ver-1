@@ -8,6 +8,7 @@ package HumanResource;
 import HumanResource.Util.Common;
 import MainSystem.AutoDB_Connect;
 import HumanResource.Util.DBObject;
+import static MainSystem.MainWindow.autoSqlQuery;
 import java.awt.Component;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -21,6 +22,7 @@ import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -41,7 +43,8 @@ public class Employee extends javax.swing.JInternalFrame {
     private void Populate()
     {
         try {
-            jTable2.setModel(DBObject.GetTable(con, DBObject.GetAll(con, "emp_table")));
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from emp_table");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
             
             DefaultComboBoxModel model = new DefaultComboBoxModel();
             
@@ -267,7 +270,7 @@ public class Employee extends javax.swing.JInternalFrame {
                                 .addComponent(cmbDepId, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
                                 .addComponent(jLabel8)
-                                .addGap(0, 175, Short.MAX_VALUE))
+                                .addGap(0, 165, Short.MAX_VALUE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel11)
                                 .addGap(28, 28, 28)
@@ -356,13 +359,6 @@ public class Employee extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2)
-                        .addGap(4, 4, 4))))
-            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(btnUpdate)
                 .addGap(3, 3, 3)
@@ -371,6 +367,12 @@ public class Employee extends javax.swing.JInternalFrame {
                 .addComponent(btnInsert)
                 .addGap(9, 9, 9)
                 .addComponent(btnUpdate1))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -384,7 +386,7 @@ public class Employee extends javax.swing.JInternalFrame {
                     .addComponent(btnInsert)
                     .addComponent(btnUpdate1))
                 .addGap(11, 11, 11)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 306, Short.MAX_VALUE)
                 .addContainerGap())
         );
 

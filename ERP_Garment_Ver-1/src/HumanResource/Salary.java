@@ -8,6 +8,7 @@ package HumanResource;
 import HumanResource.Util.Common;
 import HumanResource.Util.DBObject;
 import MainSystem.AutoDB_Connect;
+import static MainSystem.MainWindow.autoSqlQuery;
 import java.awt.*;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -18,6 +19,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
@@ -277,11 +279,8 @@ public class Salary extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Populate() {
-        try {
-            jTable3.setModel(DBObject.GetTable(con, DBObject.GetAll(con, "salary_table")));
-        } catch (SQLException ex) {
-            Logger.getLogger(Leave.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from salary_table");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void Save()
