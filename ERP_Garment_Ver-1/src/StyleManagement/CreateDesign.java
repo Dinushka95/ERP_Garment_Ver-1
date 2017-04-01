@@ -89,7 +89,7 @@ boolean result;
         styletype = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         Styledes = new javax.swing.JTextArea();
-        jLabel12 = new javax.swing.JLabel();
+        D_stid = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         start = new javax.swing.JRadioButton();
         inprogress = new javax.swing.JRadioButton();
@@ -105,14 +105,14 @@ boolean result;
         stylecolour = new javax.swing.JComboBox<>();
         AddDesign = new javax.swing.JButton();
         ResetAll = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        Generate = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         styledesigner = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         addnewcolour = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Demo = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
 
         setResizable(true);
@@ -277,10 +277,10 @@ boolean result;
 
         jPanel14.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 230, 110));
 
-        jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
-        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel12.setToolTipText("System Generated ID");
-        jPanel14.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 230, 30));
+        D_stid.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
+        D_stid.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        D_stid.setToolTipText("System Generated ID");
+        jPanel14.add(D_stid, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 230, 30));
 
         jLabel8.setText("Status");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -355,14 +355,14 @@ boolean result;
         });
         jPanel14.add(ResetAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, -1, -1));
 
-        jButton5.setText("Generate");
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        Generate.setText("Generate");
+        Generate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Generate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                GenerateActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, -1, -1));
+        jPanel14.add(Generate, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, -1, -1));
         jPanel14.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -20, -1, -1));
 
         styledesigner.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Designer" }));
@@ -396,14 +396,14 @@ boolean result;
         });
         jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 40, -1, -1));
 
-        jButton2.setText("Demo");
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Demo.setText("Demo");
+        Demo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Demo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                DemoActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 213, 80, -1));
+        jPanel2.add(Demo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 213, 80, -1));
 
         jButton3.setText("Add Image");
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -432,13 +432,13 @@ boolean result;
            
         AddDesign();
         TableLoad();
-        TextBoxClear2();
+        TextBoxClear2CreateDesign();
         jPanel1.setVisible(true);
     }//GEN-LAST:event_AddDesignActionPerformed
 
     private void ResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetAllActionPerformed
         // TODO add your handling code here:
-        TextBoxClear2();
+        TextBoxClear2CreateDesign();
         
         //regenerate a new number
         generate_stlid();
@@ -453,7 +453,7 @@ boolean result;
         // TODO add your handling code here:
 //        boolean result = val.ValidationCheck(addnewcolour,true,0,'@');
         AddNewColour();
-        TextBoxClear2();
+        TextBoxClear2CreateDesign();
        
         
         
@@ -476,13 +476,13 @@ boolean result;
         jPanel5.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void GenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateActionPerformed
         // TODO add your handling code here:
         //Report generating code
         String FileLocation=System.getProperty
         ("user.dir")+"\\src\\StyleManagement\\Reports\\CreatedDesigns.jrxml";
         autoReport.Table2Report(FileLocation, jTable6);
-    }//GEN-LAST:event_jButton5ActionPerformed
+    }//GEN-LAST:event_GenerateActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -500,7 +500,7 @@ boolean result;
         FillTextComboDesigner();
     }//GEN-LAST:event_styledesignerActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void DemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DemoActionPerformed
         // TODO add your handling code here:
         //Demo Button to load data
         
@@ -513,12 +513,12 @@ boolean result;
         start.setSelected(true);
         styletype.setSelectedItem("Trouser");
         datePicker1.setDateToToday();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_DemoActionPerformed
 
         
         private void generate_stlid(){
     AutoIdGenerator sid = new AutoIdGenerator();
-    jLabel12.setText(sid.generate("STY",Integer.toString(MainWindow.userid)));
+    D_stid.setText(sid.generate("STY",Integer.toString(MainWindow.userid)));
     }
     private void TableLoad()
     {
@@ -549,10 +549,10 @@ boolean result;
     
     
     
-    private void TextBoxClear2()
+    private void TextBoxClear2CreateDesign()
     {
         generate_stlid();
-        jLabel12.setText("");
+        D_stid.setText("");
         Styledes.setText("");
         styledesigner.setSelectedItem("Select Designer");
         stylesize.setSelectedItem("Select Size");
@@ -576,7 +576,7 @@ boolean result;
         
         
         //Assigning values
-        String id = jLabel12.getText();
+        String id = D_stid.getText();
         String des =  Styledes.getText();
         String designer = styledesigner.getSelectedItem().toString();
         String size = stylesize.getSelectedItem().toString();
@@ -594,19 +594,26 @@ boolean result;
         
         if(des.isEmpty()||designer.isEmpty()||size.isEmpty()||Type.
         isEmpty()||gender.isEmpty()||status.isEmpty()||date.isEmpty()
-        ||collection.isEmpty()||color.isEmpty()){
+       ||collection.isEmpty()||color.isEmpty()){
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        
         }
-        if(des.length()>10){
+        
+        else{
+                if(des.length()>10){
             
             JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
                     + "IN THE STYLE DESCRIPTION FIELD");
-            
-            
-        }
-        
-        //Sql Query
-        else{
+                }
+                else if(!des.matches("[a-zA-Z]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS");
+                    
+                }
+                
+                else{
+         //Sql Query
              try
         {  
         
@@ -624,7 +631,7 @@ boolean result;
             
              
              if(x==true){
-               TextBoxClear2();
+               TextBoxClear2CreateDesign();
                JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
              }
              else
@@ -641,14 +648,15 @@ boolean result;
         
          
        
-    }
+                }
+            }
     }
     
     
         public void AddNewColour()
     {
         
-        if(validation.ValidationCheck(addnewcolour, true,0,'1')){
+        if(validation.ValidationCheck(addnewcolour, true,0,'a')){
             
         
         String colour = addnewcolour.getText();
@@ -750,7 +758,10 @@ boolean result;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddDesign;
+    private javax.swing.JLabel D_stid;
+    private javax.swing.JButton Demo;
     private javax.swing.ButtonGroup GenderButtonGroup;
+    private javax.swing.JButton Generate;
     private javax.swing.JButton ResetAll;
     private javax.swing.ButtonGroup Status;
     private javax.swing.JTextArea Styledes;
@@ -760,14 +771,11 @@ boolean result;
     private javax.swing.JRadioButton finished;
     private javax.swing.JRadioButton inprogress;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;

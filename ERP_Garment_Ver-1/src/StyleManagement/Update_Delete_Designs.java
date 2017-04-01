@@ -31,7 +31,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
        Table2Load();
       
      
-      datePicker2.setDateToToday();
+      date.setDateToToday();
       datePicker3.setDateToToday();
      
       
@@ -62,7 +62,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         styleDes1 = new javax.swing.JTextArea();
         jLabel25 = new javax.swing.JLabel();
-        updatedesigner = new javax.swing.JTextField();
+        deletedesigner = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
@@ -82,20 +82,19 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         DeleteCreateDesign = new javax.swing.JButton();
         Reset = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
-        updatesize = new javax.swing.JTextField();
-        updatecolour = new javax.swing.JTextField();
-        updatecollection = new javax.swing.JTextField();
-        updategender = new javax.swing.JTextField();
-        updatetype = new javax.swing.JTextField();
-        updatestatus = new javax.swing.JTextField();
+        deletesize = new javax.swing.JTextField();
+        deletecolour = new javax.swing.JTextField();
+        deletecollection = new javax.swing.JTextField();
+        deletegender = new javax.swing.JTextField();
+        deletetype = new javax.swing.JTextField();
+        deletestatus = new javax.swing.JTextField();
         DatePickerSettings dateSettings12= new DatePickerSettings();
         dateSettings12.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings12.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
-        datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings12);
-        jLabel16 = new javax.swing.JLabel();
+        date = new com.github.lgooddatepicker.components.DatePicker(dateSettings12);
+        id16 = new javax.swing.JLabel();
         Editbtn1 = new javax.swing.JButton();
         ResetViewUpdateDesign1 = new javax.swing.JButton();
-        jButton21 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -133,7 +132,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         ResetViewUpdateDesign = new javax.swing.JButton();
         stid = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jButton22 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Update||Delete Designs");
@@ -167,7 +165,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jLabel25.setText("Designer");
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 204, -1, -1));
-        jPanel10.add(updatedesigner, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 196, 131, 30));
+        jPanel10.add(deletedesigner, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 196, 131, 30));
 
         jLabel26.setText("Categories");
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -273,20 +271,20 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
         jButton16.setText("Report");
         jPanel10.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 490, -1, -1));
-        jPanel10.add(updatesize, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 18, 131, 29));
-        jPanel10.add(updatecolour, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 121, 131, 27));
-        jPanel10.add(updatecollection, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 121, 104, 27));
-        jPanel10.add(updategender, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 18, 104, 29));
-        jPanel10.add(updatetype, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 18, 93, 29));
-        jPanel10.add(updatestatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 72, 93, 32));
+        jPanel10.add(deletesize, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 18, 131, 29));
+        jPanel10.add(deletecolour, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 121, 131, 27));
+        jPanel10.add(deletecollection, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 121, 104, 27));
+        jPanel10.add(deletegender, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 18, 104, 29));
+        jPanel10.add(deletetype, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 18, 93, 29));
+        jPanel10.add(deletestatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 72, 93, 32));
 
-        datePicker2.setEnabled(false);
-        jPanel10.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 203, -1, -1));
+        date.setEnabled(false);
+        jPanel10.add(date, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 203, -1, -1));
 
-        jLabel16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
-        jLabel16.setEnabled(false);
-        jLabel16.setToolTipText("You Can't Delete");
-        jPanel10.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 166, 33));
+        id16.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 255, 255)));
+        id16.setEnabled(false);
+        id16.setToolTipText("You Can't Delete");
+        jPanel10.add(id16, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 166, 33));
 
         Editbtn1.setText("Delete");
         Editbtn1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -305,10 +303,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
             }
         });
         jPanel10.add(ResetViewUpdateDesign1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 450, -1, -1));
-
-        jButton21.setText("Print");
-        jButton21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 450, -1, -1));
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -447,10 +441,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jLabel1.setToolTipText("Style ID");
         jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 160, 30));
 
-        jButton22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton22.setText("Print");
-        jPanel7.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 440, -1, -1));
-
         jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1295, 501));
 
         jTabbedPane1.addTab("View || Update Designs", jPanel4);
@@ -523,16 +513,16 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         String status = jTable2.getValueAt(row,8).toString();
         String date = jTable2.getValueAt(row,9).toString();
 
-        jLabel16.setText(id);
+        id16.setText(id);
         styleDes1.setText(des);
-        updatesize.setText(size);
-        updatecolour.setText(colour);
-        updatedesigner.setText(designer);
-        updategender.setText(gender);
-        updatecollection.setText(collection);
-        updatetype.setText(type);
-        updatestatus.setText(status);
-        datePicker2.setText(date);
+        deletesize.setText(size);
+        deletecolour.setText(colour);
+        deletedesigner.setText(designer);
+        deletegender.setText(gender);
+        deletecollection.setText(collection);
+        deletetype.setText(type);
+        deletestatus.setText(status);
+        
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void DeleteCreateDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCreateDesignActionPerformed
@@ -680,32 +670,54 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     }
     public void clearDeleteDesign(){
         
-        jLabel16.setText("");
+        id16.setText("");
         styleDes1.setText("");
-        updatesize.setText("");
-        updatecolour.setText("");
-        updategender.setText("");
-        updatedesigner.setText("");
-        updatestatus.setText("");
-        updatetype.setText("");
-        updatecollection.setText("");
+        deletesize.setText("");
+        deletecolour.setText("");
+        deletegender.setText("");
+        deletedesigner.setText("");
+        deletestatus.setText("");
+        deletetype.setText("");
+        deletecollection.setText("");
         
     }
        private void DeleteDesigns()
     {
+        
+        String id,des,designer,gender,type,size,date,status,collection,colour;
+        id=id16.getText();
+        des=styleDes1.getText();
+        designer=deletedesigner.getText();
+        gender=deletegender.getText();
+        type=deletetype.getText();
+        size=deletesize.getText();
+        date=this.date.getText();
+        status=deletestatus.getText();
+        collection=deletecollection.getText();
+        colour=deletecolour.getText();
+        
+         if(id.isEmpty()||des.isEmpty()||designer.isEmpty()||size.isEmpty()||type.
+        isEmpty()||gender.isEmpty()||status.isEmpty()||date.isEmpty()
+        ||collection.isEmpty()||colour.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+         else{
+             try{
+        
                 int reply = JOptionPane.showConfirmDialog(null, 
                 "Are you sure you want to Delete?", "Delete?", 
                             JOptionPane.YES_NO_OPTION);
         
           if (reply == JOptionPane.YES_OPTION){
-        String id =jLabel16.getText();
+              
+        id =id16.getText();
         
         boolean x = autoSqlQuery.execute
         ("DELETE FROM `garmentsystem`.`T_Design_table`\n" +
            "WHERE StyleId = '"+id+"';");
         
-        try
-        {
+        
+        
             if (x==true)
             {
                 clearDeleteDesign();
@@ -713,6 +725,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null,"Successfully Deleted");
             }
         }
+             }
         catch (Exception ex){
             System.out.println(ex);
         }
@@ -731,23 +744,28 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea Style_txt;
     private javax.swing.JTextField collection_txt;
     private javax.swing.JTextField colour_txt;
-    private com.github.lgooddatepicker.components.DatePicker datePicker2;
+    private com.github.lgooddatepicker.components.DatePicker date;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
+    private javax.swing.JTextField deletecollection;
+    private javax.swing.JTextField deletecolour;
+    private javax.swing.JTextField deletedesigner;
+    private javax.swing.JTextField deletegender;
+    private javax.swing.JTextField deletesize;
+    private javax.swing.JTextField deletestatus;
+    private javax.swing.JTextField deletetype;
     private javax.swing.JTextField designer_txt;
     private javax.swing.JTextField gender_txt;
+    private javax.swing.JLabel id16;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton21;
-    private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -790,13 +808,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private javax.swing.JLabel stid;
     private javax.swing.JTextArea styleDes1;
     private javax.swing.JTextField type_txt;
-    private javax.swing.JTextField updatecollection;
-    private javax.swing.JTextField updatecolour;
-    private javax.swing.JTextField updatedesigner;
-    private javax.swing.JTextField updategender;
-    private javax.swing.JTextField updatesize;
-    private javax.swing.JTextField updatestatus;
-    private javax.swing.JTextField updatetype;
     // End of variables declaration//GEN-END:variables
 
     //private void AddDesign() {
