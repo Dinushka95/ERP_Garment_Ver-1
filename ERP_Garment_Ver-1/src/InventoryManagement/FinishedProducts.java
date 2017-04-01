@@ -415,6 +415,13 @@ File Image;
         jLabel20.setText("Product Name");
         jLabel20.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        namefield1.setName("Product Name"); // NOI18N
+        namefield1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                namefield1ActionPerformed(evt);
+            }
+        });
+
         typeBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Shirt", "Trouser", "Socks" }));
         typeBox1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -433,9 +440,12 @@ File Image;
         jLabel26.setText("Material Cost Per Unit");
         jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        costfield1.setName("Material Cost Per Unit"); // NOI18N
+
         jLabel27.setText("Quantity");
         jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        quantityfield1.setName("Quantity"); // NOI18N
         quantityfield1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantityfield1ActionPerformed(evt);
@@ -465,6 +475,7 @@ File Image;
         jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         sellingPrice1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        sellingPrice1.setName("Selling Price"); // NOI18N
 
         jLabel30.setText("Date");
         jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -670,7 +681,6 @@ File Image;
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         // TODO add your handling code here:
         EditProduct();
-        clear();
         TableLoad2();
     }//GEN-LAST:event_EditButtonActionPerformed
 
@@ -732,6 +742,10 @@ File Image;
        jLabelImage.setIcon(autogetimage.getImageIcon());
      
     }//GEN-LAST:event_jButton23ActionPerformed
+
+    private void namefield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namefield1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_namefield1ActionPerformed
     private void generate_finid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     idfield.setText(aid.generate("FGD",Integer.toString(MainWindow.userid)));
@@ -789,7 +803,7 @@ File Image;
     public void AddProduct()
     {
         
-       if(validation.ValidationCheck(costfield, true,0,'1')&&validation.ValidationCheck(costfield, true,0,'1')&&validation.ValidationCheck(quantityfield, true,0,'1')&&validation.ValidationCheck(sellingPrice, true,0,'1')){ 
+       if(validation.ValidationCheck(namefield, true,0,'a')&&validation.ValidationCheck(designName, true,0,'a')&&validation.ValidationCheck(costfield, true,0,'1')&&validation.ValidationCheck(quantityfield, true,0,'1')&&validation.ValidationCheck(sellingPrice, true,0,'1')){ 
         String id = idfield.getText();
         String name = namefield.getText();
         String designID = ComboDesignID.getSelectedItem().toString();
@@ -846,7 +860,9 @@ File Image;
     
     private void EditProduct()
     {
-        String id = idfield1.getText();
+        if(validation.ValidationCheck(namefield1, true,0,'a')&&validation.ValidationCheck(costfield1, true,0,'1')&&validation.ValidationCheck(quantityfield1, true,0,'1')&&validation.ValidationCheck(sellingPrice1, true,0,'1'))
+        {
+            String id = idfield1.getText();
         String name = namefield1.getText();
         String designID = ComboDesignID.getSelectedItem().toString();
         String designame = designName1.getText();
@@ -870,6 +886,8 @@ File Image;
 "`Price` = '"+price+"',\n" +
 "`Date` = '"+date+"'\n" +
 "WHERE `ProductId` = '"+id+"';");
+        }
+        
     }
     
     
@@ -898,9 +916,13 @@ File Image;
     
         public void ProductNameSearch()
     {
+        if(validation.ValidationCheck(searchProduct, true,0 , 'a'))
+        {
             String proname = searchProduct.getText();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.product_table WHERE ProductName LIKE '"+proname+"%'");
-            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));            
+        }
+       
     }
     
     

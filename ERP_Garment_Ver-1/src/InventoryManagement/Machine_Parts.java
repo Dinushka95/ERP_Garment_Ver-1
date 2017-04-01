@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.validation;
 
 /**
  *
@@ -31,6 +32,7 @@ int RowCountjTable;
         TableLoad();
         TableLoad2();
         FillCombo();
+        FillCombo2();
         
         
         generate_mac_prtid();
@@ -96,7 +98,7 @@ int RowCountjTable;
         dateSettings2.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
-        machinenumber = new javax.swing.JTextField();
+        machineCombo1 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -153,10 +155,13 @@ int RowCountjTable;
         jLabel13.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         qtyfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        qtyfield.setName("Quantity"); // NOI18N
 
         valuefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valuefield.setName("Part Value"); // NOI18N
 
         namefield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        namefield.setName("Machine Part Name"); // NOI18N
 
         machineCombo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
@@ -277,6 +282,8 @@ int RowCountjTable;
         jLabel12.setText("Part Name");
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        searchname.setName("Part Name"); // NOI18N
+
         ViewAll.setText("View All");
         ViewAll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         ViewAll.addActionListener(new java.awt.event.ActionListener() {
@@ -378,6 +385,7 @@ int RowCountjTable;
             }
         });
 
+        idfield1.setEnabled(false);
         idfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jLabel14.setText("Machine Part ID");
@@ -387,6 +395,7 @@ int RowCountjTable;
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         namefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        namefield1.setName("Machine Part Name"); // NOI18N
 
         jLabel16.setText("Machine Number");
         jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -395,8 +404,10 @@ int RowCountjTable;
         jLabel17.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valuefield1.setName("Part Value"); // NOI18N
 
         qtyfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        qtyfield1.setName("Quantity"); // NOI18N
 
         jLabel18.setText("Quantity");
         jLabel18.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -408,7 +419,7 @@ int RowCountjTable;
         datePicker3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         datePicker3.setName(""); // NOI18N
 
-        machinenumber.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        machineCombo1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -441,8 +452,8 @@ int RowCountjTable;
                             .addComponent(valuefield1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(namefield1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(idfield1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 188, Short.MAX_VALUE)
-                            .addComponent(machinenumber)
-                            .addComponent(datePicker3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(datePicker3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(machineCombo1, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -456,11 +467,11 @@ int RowCountjTable;
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel15)
                     .addComponent(namefield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(58, 58, 58)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16)
-                    .addComponent(machinenumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(59, 59, 59)
+                    .addComponent(machineCombo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(56, 56, 56)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel17)
                     .addComponent(valuefield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -541,7 +552,7 @@ int RowCountjTable;
         
         idfield1.setText(id);
         namefield1.setText(name);
-        machinenumber.setText(macnum);
+        machineCombo1.setSelectedItem(macnum);
         valuefield1.setText(value);
         qtyfield1.setText(qty);
         datePicker3.setText(date);
@@ -551,7 +562,6 @@ int RowCountjTable;
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         // TODO add your handling code here:
         EditMaterials();
-        clear();
         TableLoad2();
     }//GEN-LAST:event_EditButtonActionPerformed
 
@@ -602,7 +612,6 @@ int RowCountjTable;
     }
     private void TextBoxClear(){
             generate_mac_prtid();
-            idfield.setText("");
             namefield.setText("");
             machineCombo.setSelectedIndex(0);
             valuefield.setText("");
@@ -614,7 +623,9 @@ int RowCountjTable;
     
     public void AddPart()
     {
-        String id = idfield.getText();
+        if(validation.ValidationCheck(namefield, true, 0, 'a')&&validation.ValidationCheck(valuefield, true,0,'1')&&validation.ValidationCheck(qtyfield, true,0,'1'))
+        {
+            String id = idfield.getText();
         String name = namefield.getText();
         String machineid = machineCombo.getSelectedItem().toString();
         String value = valuefield.getText();
@@ -651,14 +662,18 @@ int RowCountjTable;
         {
             System.out.println(ex);
         }
+        }
+        
       
     }
     
     public void EditMaterials()
     {
-        String id = idfield1.getText();
+        if(validation.ValidationCheck(namefield1, true, 0, 'a')&&validation.ValidationCheck(valuefield1, true,0,'1')&&validation.ValidationCheck(qtyfield1, true,0,'1'))
+        {
+            String id = idfield1.getText();
         String name = namefield1.getText();
-        String machineid = machinenumber.getText();
+        String machineid = machineCombo1.getSelectedItem().toString();
         String value = valuefield1.getText();
         String qty = qtyfield1.getText();
         String date = datePicker3.getText();
@@ -684,6 +699,8 @@ int RowCountjTable;
         catch (Exception ex){
             System.out.println(ex);
         }
+        }
+        
         
         
 
@@ -707,11 +724,33 @@ int RowCountjTable;
         }
     }
     
+    private void FillCombo2()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS where FixAssetType like 'Machinery'");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String id = AutoDB_Connect.DB_ResultSet.getString("AssetID");
+                machineCombo1.addItem(id);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
         private void PartNameSearch()
     {
+        if(validation.ValidationCheck(searchname, true, 0,'a'))
+        {
             String partname = searchname.getText();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.MachineParts_Table WHERE part_name LIKE '"+partname+"%'");
-            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));            
+        }
+       
     }
     
     public void ChangeMaterialTableHeader()
@@ -732,7 +771,7 @@ int RowCountjTable;
         searchname.setText("");
         idfield1.setText("");
         namefield1.setText("");
-        machinenumber.setText("");
+        machineCombo1.setSelectedIndex(0);
         valuefield1.setText("");
         qtyfield1.setText("");
         datePicker3.setText("");
@@ -776,7 +815,7 @@ int RowCountjTable;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JComboBox<String> machineCombo;
-    private javax.swing.JTextField machinenumber;
+    private javax.swing.JComboBox<String> machineCombo1;
     private javax.swing.JTextField namefield;
     private javax.swing.JTextField namefield1;
     private javax.swing.JTextField qtyfield;

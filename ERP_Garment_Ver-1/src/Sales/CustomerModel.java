@@ -18,7 +18,7 @@ public class CustomerModel {
     public boolean AddCustomer(JTextField CustomerId,JTextField CustomerName,JTextField CompanyName,JTextField Phone,JTextField Email,JTextField Address,DatePicker Date){
         
         if( validation.ValidationCheck(CustomerId, true,0,'@')&&
-            validation.ValidationCheck(CustomerName, true,0,'@')&&
+            validation.ValidationCheck(CustomerName, true,0,'s')&&
             validation.ValidationCheck(CompanyName, true,0,'@')&&
             validation.ValidationCheck(Phone, true,0,'1')&&
             validation.ValidationCheck(Email, false,0,'@')&&

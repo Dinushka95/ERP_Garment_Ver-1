@@ -833,6 +833,12 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="namefield1">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="Product Name" noResource="true"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="namefield1ActionPerformed"/>
+                  </Events>
                 </Component>
                 <Component class="javax.swing.JComboBox" name="typeBox1">
                   <Properties>
@@ -892,6 +898,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="costfield1">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="Material Cost Per Unit" noResource="true"/>
+                  </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel27">
                   <Properties>
@@ -902,6 +911,9 @@
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JTextField" name="quantityfield1">
+                  <Properties>
+                    <Property name="name" type="java.lang.String" value="Quantity" noResource="true"/>
+                  </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quantityfield1ActionPerformed"/>
                     <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="quantityfield1KeyReleased"/>
@@ -940,6 +952,7 @@
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="14" style="1"/>
                     </Property>
+                    <Property name="name" type="java.lang.String" value="Selling Price" noResource="true"/>
                   </Properties>
                 </Component>
                 <Component class="javax.swing.JLabel" name="jLabel30">

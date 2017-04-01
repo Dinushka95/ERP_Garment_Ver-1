@@ -1306,12 +1306,12 @@ public static AutoReport autoReport;
         
             splash.setProgress(15, "Initializing");
             Thread.sleep(1000);
-            splash.setProgress(20, "Creating Database Connection");
+            splash.setProgress(20, "Connecting to Database Connection");
             Thread.sleep(3000);
-            splash.setProgress(40, "Creating Interface");
-            Thread.sleep(2000);
-            splash.setProgress(60, "Starting Report Generator Engine");
+            splash.setProgress(40, "Initializing Libraries");
             Thread.sleep(2500);
+            splash.setProgress(60, "Creating Interface");
+            Thread.sleep(2000);
             splash.setProgress(80, "Appling Configs");
             Thread.sleep(1500);
             splash.setProgress(100, "Stating Application");

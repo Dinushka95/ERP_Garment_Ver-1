@@ -8,6 +8,8 @@ import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.validation;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -134,6 +136,11 @@ int RowCountjTable;
 
         idfield.setEditable(false);
 
+        namefield.setName("Material Name"); // NOI18N
+
+        costfield.setName("Material Cost Per Unit"); // NOI18N
+
+        quantityfield.setName("Quantity"); // NOI18N
         quantityfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantityfieldActionPerformed(evt);
@@ -147,6 +154,8 @@ int RowCountjTable;
                 quantityfieldKeyTyped(evt);
             }
         });
+
+        reorderfield.setName("Re-Order Quantity"); // NOI18N
 
         AddButton.setText("Add Material");
         AddButton.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -237,12 +246,11 @@ int RowCountjTable;
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel20)
                             .addComponent(reorderfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(58, 58, 58))
+                        .addGap(38, 38, 38)
+                        .addComponent(datePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel21)
-                            .addComponent(datePicker2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(jLabel21)))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddButton)
@@ -294,6 +302,8 @@ int RowCountjTable;
 
         jLabel12.setText("Material Name");
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+
+        searchname.setName("searchname"); // NOI18N
 
         ViewAll.setText("View All");
         ViewAll.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -385,6 +395,7 @@ int RowCountjTable;
 
         jLabel5.setText("Material Name");
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel5.setName("Material Name"); // NOI18N
 
         jLabel6.setText("Material Cost Per Unit");
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -397,6 +408,7 @@ int RowCountjTable;
 
         jLabel9.setText("Re-Order Quantity");
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel9.setName("Re-Order Quantity"); // NOI18N
 
         jLabel10.setText("Date");
         jLabel10.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -405,19 +417,24 @@ int RowCountjTable;
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField2.setName(""); // NOI18N
 
         jTextField3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField3.setName("Material Cost Per Unit"); // NOI18N
 
         jTextField4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField4.setName("Quantity"); // NOI18N
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 jTextField4KeyReleased(evt);
             }
         });
 
+        jTextField5.setEnabled(false);
         jTextField5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         jTextField6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jTextField6.setName("Re-Order Quantity"); // NOI18N
 
         datePicker1.setName(""); // NOI18N
         datePicker1.setEnabled(false);
@@ -509,6 +526,8 @@ int RowCountjTable;
                     .addComponent(DeleteButton))
                 .addGap(32, 32, 32))
         );
+
+        jTextField6.getAccessibleContext().setAccessibleName("Re-Order Quantity");
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, 600, 530));
 
@@ -605,7 +624,7 @@ int RowCountjTable;
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         // TODO add your handling code here:
         EditMaterials();
-        TextBoxClear2();
+        
         TableLoad2();
     }//GEN-LAST:event_EditButtonActionPerformed
 
@@ -691,16 +710,17 @@ int RowCountjTable;
     public void AddMaterial()
     {
         
+        if(validation.ValidationCheck(namefield, true, 0, 'a')&&validation.ValidationCheck(costfield, true, 0, '1')&&validation.ValidationCheck(quantityfield, true, 0, '1')&&validation.ValidationCheck(reorderfield, true, 0, '1'))
+        {
+            String id = idfield.getText();
+            String name = namefield.getText();
+            String cost =  costfield.getText();
+            String qty = quantityfield.getText();
+            String value = valuefield.getText();
+            String reorder = reorderfield.getText();
+            String date = datePicker2.getText();
         
-        String id = idfield.getText();
-        String name = namefield.getText();
-        String cost =  costfield.getText();
-        String qty = quantityfield.getText();
-        String value = valuefield.getText();
-        String reorder = reorderfield.getText();
-        String date = datePicker2.getText();
-        
-        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
+            boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
 "(`Material_id`,\n" +
 "`Material_Name`,\n" +
 "`Material_cost`,\n" +
@@ -718,33 +738,37 @@ int RowCountjTable;
 "'"+date+"');");
         
         
-        try
-        {
-            if(x==true)
+            try
             {
-                TableLoad();
-                TextBoxClear();
+                if(x==true)
+                {
+                    TableLoad();
+                    TextBoxClear();
+                }
+            }
+            catch(Exception ex)
+            {
+                System.out.println(ex);
             }
         }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
+        
       
     }
     
     public void EditMaterials()
     {
-        String id,name,cost,qty,value,reorder,date;
-        id=jTextField1.getText();
-        name=jTextField2.getText();
-        cost=jTextField3.getText();
-        qty=jTextField4.getText();
-        value=jTextField5.getText();
-        reorder=jTextField6.getText();
-        date=datePicker1.getText();
+        if(validation.ValidationCheck(jTextField2, true, 0, 'a')&&validation.ValidationCheck(jTextField3, true, 0, '1')&&validation.ValidationCheck(jTextField4, true, 0, '1')&&validation.ValidationCheck(jTextField6, true, 0, '1'))
+        {
+            String id,name,cost,qty,value,reorder,date;
+            id=jTextField1.getText();
+            name=jTextField2.getText();
+            cost=jTextField3.getText();
+            qty=jTextField4.getText();
+            value=jTextField5.getText();
+            reorder=jTextField6.getText();
+            date=datePicker1.getText();
         
-        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Raw_Materials`\n" +
+            boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Raw_Materials`\n" +
 "SET\n" +
 "`Material_id` = '"+id+"',\n" +
 "`Material_Name` = '"+name+"',\n" +
@@ -766,6 +790,12 @@ int RowCountjTable;
         catch (Exception ex){
             System.out.println(ex);
         }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Update Failed");
+        }
+        
         
         
 
@@ -774,9 +804,13 @@ int RowCountjTable;
     
         public void MaterialNameSearch()
     {
+        if(validation.ValidationCheck(searchname, true, 0, 'a'))
+        {
             String matname = searchname.getText();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_Name LIKE '"+matname+"%'");
-            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        }
+                   
     }
     
     public void ChangeMaterialTableHeader()
@@ -794,7 +828,14 @@ int RowCountjTable;
     
     private void clearSearch()
     {
-        searchname.setText("");
+            searchname.setText("");
+            jTextField1.setText("");
+            jTextField2.setText("");
+            jTextField3.setText("");
+            jTextField4.setText("");
+            jTextField5.setText("");
+            jTextField6.setText("");
+            datePicker1.setText("");
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

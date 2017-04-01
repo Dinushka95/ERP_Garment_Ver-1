@@ -9,6 +9,8 @@ import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.validation;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -142,6 +144,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 60, 150, -1));
 
         deprate.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        deprate.setName("Depreaciation Rate    %"); // NOI18N
         deprate.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 deprateKeyReleased(evt);
@@ -150,6 +153,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         jPanel6.add(deprate, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 60, 188, -1));
 
         costfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        costfield.setName("Cost"); // NOI18N
         jPanel6.add(costfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 20, 188, -1));
 
         jLabel1.setText("Cost");
@@ -385,11 +389,13 @@ public class Machinery extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         costfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        costfield1.setName("Cost"); // NOI18N
 
         jLabel15.setText("Depreaciation Rate    %");
         jLabel15.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         deprate1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        deprate1.setName("Depreaciation Rate %"); // NOI18N
         deprate1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 deprate1KeyReleased(evt);
@@ -533,7 +539,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         AddMachine();
         TableLoad();
         TableLoad2();
-        TextBoxClear();
+        
         
         
         
@@ -585,7 +591,7 @@ public class Machinery extends javax.swing.JInternalFrame {
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         // TODO add your handling code here:
         EditMachinery();
-        clear();
+        
         TableLoad2();
     }//GEN-LAST:event_EditButtonActionPerformed
 
@@ -689,7 +695,9 @@ public class Machinery extends javax.swing.JInternalFrame {
     
     public void AddMachine()
     {
-        String date = datePicker2.getText();
+        if(validation.ValidationCheck(costfield, true, 0, '1')&&validation.ValidationCheck(deprate, true, 0, '1'))
+        {
+            String date = datePicker2.getText();
         String mac_id = macid.getText();
         String asst_id = asstid.getText();
         String type = typefield.getText();
@@ -732,12 +740,20 @@ public class Machinery extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Machine Add Failed");
+        }
+        
       
     }
     
     public void EditMachinery()
     {
-        String date = datePicker3.getText();
+        if(validation.ValidationCheck(costfield1, true, 0, '1')&&validation.ValidationCheck(deprate1, true, 0, '1'))
+        {
+            String date = datePicker3.getText();
         String mac_id = macid1.getText();
         String asst_id = asstid1.getText();
         String type = typefield1.getText();
@@ -769,6 +785,12 @@ public class Machinery extends javax.swing.JInternalFrame {
         catch (Exception ex){
             System.out.println(ex);
         }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Update Failed");
+        }
+        
         
         
 
@@ -778,9 +800,13 @@ public class Machinery extends javax.swing.JInternalFrame {
     
         private void MachineIDSearch()
     {
+        if(validation.ValidationCheck(searchname, true, 0, 'a'))
+        {
             String machineid = searchname.getText();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_FIXASSETS WHERE FixAssetsID LIKE '"+machineid+"%'");
-            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));            
+        }
+       
     }
     
     public void ChangeMaterialTableHeader()

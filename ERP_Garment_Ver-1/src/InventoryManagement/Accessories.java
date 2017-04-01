@@ -8,6 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.validation;
 
 /**
  *
@@ -98,7 +99,6 @@ int RowCountjTable;
         dateSettings2.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
-        typefield1 = new javax.swing.JTextField();
         valuefield1 = new javax.swing.JTextField();
         quantityfield1 = new javax.swing.JTextField();
         costfield1 = new javax.swing.JTextField();
@@ -106,6 +106,7 @@ int RowCountjTable;
         idfield1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         reorder1 = new javax.swing.JTextField();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -144,6 +145,11 @@ int RowCountjTable;
 
         idfield.setEditable(false);
 
+        namefield.setName("Accessory Name"); // NOI18N
+
+        costfield.setName("Cost Per Unit"); // NOI18N
+
+        quantityfield.setName("Quantity"); // NOI18N
         quantityfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantityfieldActionPerformed(evt);
@@ -195,8 +201,9 @@ int RowCountjTable;
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         reorderfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        reorderfield.setName("Re-Order Level"); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Zippers", "Buttons", "Lace", "Sequences", "Threads", "Pins", "Ribbon", "Elastics", "Ornaments", "Collars", "Buckels", "Brooch", "Neckline", "Badge" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zippers", "Buttons", "Lace", "Sequences", "Threads", "Pins", "Ribbon", "Elastics", "Ornaments", "Collars", "Buckels", "Brooch", "Neckline", "Badge" }));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -446,8 +453,6 @@ int RowCountjTable;
         datePicker3.setEnabled(false);
         datePicker3.setName(""); // NOI18N
 
-        typefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-
         valuefield1.setEnabled(false);
         valuefield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         valuefield1.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -456,6 +461,7 @@ int RowCountjTable;
             }
         });
 
+        quantityfield1.setName("Quantity"); // NOI18N
         quantityfield1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantityfield1ActionPerformed(evt);
@@ -470,6 +476,9 @@ int RowCountjTable;
             }
         });
 
+        costfield1.setName("Cost Per Unit"); // NOI18N
+
+        namefield1.setName("Accessory Name"); // NOI18N
         namefield1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 namefield1ActionPerformed(evt);
@@ -482,6 +491,10 @@ int RowCountjTable;
         jLabel8.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
         reorder1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        reorder1.setName("Re-Order Level"); // NOI18N
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zippers", "Buttons", "Lace", "Sequences", "Threads", "Pins", "Ribbon", "Elastics", "Ornaments", "Collars", "Buckels", "Brooch", "Neckline", "Badge" }));
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -495,7 +508,7 @@ int RowCountjTable;
                         .addComponent(EditButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
                         .addComponent(DeleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(98, 98, 98))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -514,11 +527,11 @@ int RowCountjTable;
                             .addComponent(costfield1)
                             .addComponent(quantityfield1)
                             .addComponent(valuefield1)
-                            .addComponent(typefield1)
                             .addComponent(idfield1)
                             .addComponent(datePicker3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(reorder1))))
-                .addGap(30, 30, 30))
+                            .addComponent(reorder1)
+                            .addComponent(jComboBox2, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(30, 30, 30))))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -543,10 +556,10 @@ int RowCountjTable;
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel5)
                     .addComponent(valuefield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(39, 39, 39)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel6)
-                    .addComponent(typefield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
@@ -596,7 +609,7 @@ int RowCountjTable;
         // TODO add your handling code here;
         
         AddAccessory();
-        TextBoxClear();
+        
         generate_accid();
         
         
@@ -649,7 +662,7 @@ int RowCountjTable;
         costfield1.setText(cost);
         quantityfield1.setText(qty);
         valuefield1.setText(value);
-        typefield1.setText(type);
+        jComboBox2.setSelectedItem(type);
         reorder1.setText(roder);
         datePicker3.setText(date);
         
@@ -661,7 +674,6 @@ int RowCountjTable;
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         // TODO add your handling code here:
         EditAccessory();
-        clear();
         TableLoad2();
     }//GEN-LAST:event_EditButtonActionPerformed
 
@@ -738,8 +750,9 @@ int RowCountjTable;
     public void AddAccessory()
     {
         
-        
-        String id = idfield.getText();
+        if(validation.ValidationCheck(namefield, true, 0, 'a')&&validation.ValidationCheck(costfield, true,0,'1')&&validation.ValidationCheck(quantityfield, true,0,'1')&&validation.ValidationCheck(reorderfield, true,0,'1'))
+        {
+            String id = idfield.getText();
         String name = namefield.getText();
         String cost =  costfield.getText();
         String qty = quantityfield.getText();
@@ -781,6 +794,8 @@ int RowCountjTable;
         {
             System.out.println(ex);
         }
+        }
+        
         
         
         
@@ -789,12 +804,14 @@ int RowCountjTable;
     
     private void EditAccessory()
     {
-        String id = idfield1.getText();
+        if(validation.ValidationCheck(namefield1, true, 45, 'a')&&validation.ValidationCheck(costfield1, true,0,'1')&&validation.ValidationCheck(quantityfield1, true,0,'1')&&validation.ValidationCheck(reorder1, true,0,'1'))
+        {
+            String id = idfield1.getText();
         String name = namefield1.getText();
         String cost =  costfield1.getText();
         String qty = quantityfield1.getText();
         String value = valuefield1.getText();
-        String type = typefield1.getText();
+        String type = jComboBox2.getSelectedItem().toString();
         String reorder = reorder1.getText();
         String date = datePicker3.getText();
         
@@ -823,6 +840,8 @@ int RowCountjTable;
         {
             System.out.println(ex);
         }
+        }
+        
         
     }
     
@@ -852,9 +871,13 @@ int RowCountjTable;
     
         public void AccessoryNameSearch()
     {
+        if(validation.ValidationCheck(searchAccessory, true, 45, 'a'))
+        {
             String accname = searchAccessory.getText();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Accessory_Table WHERE accessory_name LIKE '"+accname+"%'");
-            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        }
+                   
     }
     
     
@@ -869,7 +892,7 @@ int RowCountjTable;
         costfield1.setText("");
         quantityfield1.setText("");
         valuefield1.setText("");
-        typefield1.setText("");
+        jComboBox2.setSelectedIndex(0);
         reorder1.setText("");
         datePicker3.setText("");
         
@@ -890,6 +913,7 @@ int RowCountjTable;
     private javax.swing.JTextField idfield1;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -926,7 +950,6 @@ int RowCountjTable;
     private javax.swing.JTextField reorder1;
     private javax.swing.JTextField reorderfield;
     private javax.swing.JTextField searchAccessory;
-    private javax.swing.JTextField typefield1;
     private javax.swing.JTextField valuefield;
     private javax.swing.JTextField valuefield1;
     // End of variables declaration//GEN-END:variables
