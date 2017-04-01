@@ -158,6 +158,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
         styleDes1.setColumns(20);
         styleDes1.setRows(5);
+        styleDes1.setToolTipText("Description please");
         jScrollPane3.setViewportView(styleDes1);
 
         jPanel10.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 90, 170, 100));
@@ -165,6 +166,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jLabel25.setText("Designer");
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 204, -1, -1));
+
+        deletedesigner.setToolTipText("Who is designer?");
         jPanel10.add(deletedesigner, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 196, 131, 30));
 
         jLabel26.setText("Categories");
@@ -189,7 +192,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
         jLabel31.setText("Color Information");
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 130, -1, -1));
+        jPanel10.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, -1));
 
         jLabel32.setText("Collection");
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -271,11 +274,23 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
         jButton16.setText("Report");
         jPanel10.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 490, -1, -1));
+
+        deletesize.setToolTipText("Size?");
         jPanel10.add(deletesize, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 18, 131, 29));
+
+        deletecolour.setToolTipText("Colour?");
         jPanel10.add(deletecolour, new org.netbeans.lib.awtextra.AbsoluteConstraints(524, 121, 131, 27));
+
+        deletecollection.setToolTipText("Collection?");
         jPanel10.add(deletecollection, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 121, 104, 27));
+
+        deletegender.setToolTipText("Gender?");
         jPanel10.add(deletegender, new org.netbeans.lib.awtextra.AbsoluteConstraints(799, 18, 104, 29));
+
+        deletetype.setToolTipText("Clothe Type?");
         jPanel10.add(deletetype, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 18, 93, 29));
+
+        deletestatus.setToolTipText("Status?");
         jPanel10.add(deletestatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(1065, 72, 93, 32));
 
         date.setEnabled(false);
@@ -346,6 +361,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
         Style_txt.setColumns(20);
         Style_txt.setRows(5);
+        Style_txt.setToolTipText("Description Please");
         jScrollPane7.setViewportView(Style_txt);
 
         jPanel7.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
@@ -353,6 +369,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jLabel22.setText("Designer");
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
+
+        designer_txt.setToolTipText("Who is Designer");
         jPanel7.add(designer_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 170, 166, 30));
 
         jLabel34.setText("Categories");
@@ -406,11 +424,23 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(jTable1);
 
         jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 211, 1010, 184));
+
+        type_txt.setToolTipText("Clothe Type?");
         jPanel7.add(type_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 61, 139, -1));
+
+        gender_txt.setToolTipText("Gender");
         jPanel7.add(gender_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 13, 139, -1));
+
+        size_txt.setToolTipText("Size?");
         jPanel7.add(size_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(724, 98, 139, -1));
+
+        status_txt.setToolTipText("Status?");
         jPanel7.add(status_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1079, 13, 112, -1));
+
+        collection_txt.setToolTipText("Collection?");
         jPanel7.add(collection_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1079, 75, 112, -1));
+
+        colour_txt.setToolTipText("Colour?");
         jPanel7.add(colour_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1084, 143, 107, -1));
 
         datePicker3.setEnabled(false);
@@ -573,15 +603,33 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
         
-        else if(des.length()>10){
+        else{
+                if(des.length()>10){
             
             JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
                     + "IN THE STYLE DESCRIPTION FIELD");
+                }
+                else if(!des.matches("[a-zA-Z]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS");
+                    
+                }
+                
+                else{
+                if(des.length()>10){
             
-            
-        }
-       
-        else{
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE STYLE DESCRIPTION FIELD");
+                }
+                else if(!des.matches("[a-zA-Z]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS");
+                    
+                }
+                
+                //else{
             
             try{
             
@@ -631,6 +679,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
        
     }
     }
+        }
     
 
        

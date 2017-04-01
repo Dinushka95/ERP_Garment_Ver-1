@@ -134,6 +134,7 @@
                           <Properties>
                             <Property name="columns" type="int" value="20"/>
                             <Property name="rows" type="int" value="5"/>
+                            <Property name="toolTipText" type="java.lang.String" value="Description please"/>
                           </Properties>
                         </Component>
                       </SubComponents>
@@ -152,6 +153,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="deletedesigner">
+                      <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value="Who is designer?"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="524" y="196" width="131" height="30"/>
@@ -232,7 +236,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="350" y="130" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="350" y="110" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -445,6 +449,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="deletesize">
+                      <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value="Size?"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="524" y="18" width="131" height="29"/>
@@ -452,6 +459,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="deletecolour">
+                      <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value="Colour?"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="524" y="121" width="131" height="27"/>
@@ -459,6 +469,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="deletecollection">
+                      <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value="Collection?"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="799" y="121" width="104" height="27"/>
@@ -466,6 +479,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="deletegender">
+                      <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value="Gender?"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="799" y="18" width="104" height="29"/>
@@ -473,6 +489,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="deletetype">
+                      <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value="Clothe Type?"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="1065" y="18" width="93" height="29"/>
@@ -480,6 +499,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="deletestatus">
+                      <Properties>
+                        <Property name="toolTipText" type="java.lang.String" value="Status?"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="1065" y="72" width="93" height="32"/>
@@ -690,6 +712,7 @@
                       <Properties>
                         <Property name="columns" type="int" value="20"/>
                         <Property name="rows" type="int" value="5"/>
+                        <Property name="toolTipText" type="java.lang.String" value="Description Please"/>
                       </Properties>
                     </Component>
                   </SubComponents>
@@ -708,6 +731,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="designer_txt">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Who is Designer"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="350" y="170" width="166" height="30"/>
@@ -857,6 +883,9 @@
                   </SubComponents>
                 </Container>
                 <Component class="javax.swing.JTextField" name="type_txt">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Clothe Type?"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="724" y="61" width="139" height="-1"/>
@@ -864,6 +893,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="gender_txt">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Gender"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="724" y="13" width="139" height="-1"/>
@@ -871,6 +903,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="size_txt">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Size?"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="724" y="98" width="139" height="-1"/>
@@ -878,6 +913,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="status_txt">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Status?"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="1079" y="13" width="112" height="-1"/>
@@ -885,6 +923,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="collection_txt">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Collection?"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="1079" y="75" width="112" height="-1"/>
@@ -892,6 +933,9 @@
                   </Constraints>
                 </Component>
                 <Component class="javax.swing.JTextField" name="colour_txt">
+                  <Properties>
+                    <Property name="toolTipText" type="java.lang.String" value="Colour?"/>
+                  </Properties>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="1084" y="143" width="107" height="-1"/>

@@ -21,7 +21,6 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     
 
 AutoValidation val = new AutoValidation();
-Validation val1=new Validation();
 boolean result;
 
 

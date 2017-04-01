@@ -101,7 +101,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         Appcomment = new javax.swing.JTextArea();
         Appstatus = new javax.swing.JTextField();
         Deletebtn = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        ResetDelUpdate = new javax.swing.JButton();
         Reportbtn = new javax.swing.JButton();
         Refresh = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
@@ -379,14 +379,14 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         });
         jPanel4.add(Deletebtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 403, -1, -1));
 
-        jButton6.setText("Reset");
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        ResetDelUpdate.setText("Reset");
+        ResetDelUpdate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ResetDelUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                ResetDelUpdateActionPerformed(evt);
             }
         });
-        jPanel4.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 403, 70, -1));
+        jPanel4.add(ResetDelUpdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(268, 403, 70, -1));
 
         Reportbtn.setText("Report");
         Reportbtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -411,6 +411,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jButton11.setText("View Cost");
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
+
+        stidcost_txt.setToolTipText("Styleid Auto fills");
         jPanel2.add(stidcost_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 130, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1330, 530));
@@ -435,6 +437,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         AddDesignApproval();
         TableLoad2();
+        TextBoxClearApproveDesign();
     }//GEN-LAST:event_AddApprovebtnActionPerformed
 
     private void RefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshActionPerformed
@@ -504,7 +507,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         
         Approvecomment.setText("Approved");
        Approvestatus.setSelected(true);
-        ApproverName.setSelectedItem("dinu");
+        ApproverName.setSelectedItem("Bhagya");
         datePicker1.setDateToToday();
         
     }//GEN-LAST:event_DemobtnActionPerformed
@@ -523,11 +526,11 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         generate_Aid();
     }//GEN-LAST:event_ResetbtnActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void ResetDelUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetDelUpdateActionPerformed
         // TODO add your handling code here:
         //Reset update and delete added approve
         TextBoxClearApproveDesign();
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_ResetDelUpdateActionPerformed
 
     private void ReportbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportbtnActionPerformed
 
@@ -604,14 +607,21 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         {
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         
-        if(comment.length()>10){
+        }
+        
+        else{
+                if(comment.length()>10){
             
             JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
                     + "IN THE STYLE DESCRIPTION FIELD");
-            
-            
-        }
-        }
+                }
+                else if(!comment.matches("[a-zA-Z]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS");
+                    
+                }
+                
         
         //SQL Query
         else{
@@ -650,7 +660,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         }
         
         
-        
+        }
       
     }
     
@@ -873,6 +883,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private javax.swing.JButton Refresh;
     private javax.swing.JButton Refreshbtn;
     private javax.swing.JButton Reportbtn;
+    private javax.swing.JButton ResetDelUpdate;
     private javax.swing.JButton Resetbtn;
     private javax.swing.JButton Updatebtn;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
@@ -880,7 +891,6 @@ public class Design_Approval extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;

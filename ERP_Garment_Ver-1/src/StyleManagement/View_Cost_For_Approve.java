@@ -5,13 +5,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoValidation;
 import net.proteanit.sql.DbUtils;
-import MainSystem.MainWindow;
-import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
-import static MainSystem.MainWindow.autogetimage;
-
-import com.github.lgooddatepicker.components.DatePickerSettings;
-import javax.swing.JOptionPane;
 /**
  *
  * @author Dinushka
@@ -19,7 +13,6 @@ import javax.swing.JOptionPane;
 public class View_Cost_For_Approve extends javax.swing.JInternalFrame {
 
 AutoValidation val = new AutoValidation();
-Validation val1=new Validation();
 boolean result;
 
 
