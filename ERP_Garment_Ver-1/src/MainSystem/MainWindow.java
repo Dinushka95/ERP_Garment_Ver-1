@@ -1312,7 +1312,7 @@ public static AutoReport autoReport;
             Thread.sleep(2000);
             splash.setProgress(60, "Starting Report Generator Engine");
             Thread.sleep(2500);
-            splash.setProgress(80, "Applibg Configs");
+            splash.setProgress(80, "Appling Configs");
             Thread.sleep(1500);
             splash.setProgress(100, "Stating Application");
             Thread.sleep(2000);
@@ -1371,7 +1371,7 @@ public static AutoReport autoReport;
         //</editor-fold>
         //</editor-fold>
 
-        DisplaySplash();
+       // DisplaySplash();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
