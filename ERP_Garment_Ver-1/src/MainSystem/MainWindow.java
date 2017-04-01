@@ -56,6 +56,9 @@ import Sample.Sample_Approval;
 import Sample.Sample_Costing;
 import StyleManagement.CreateDesign;
 import StyleManagement.Update_Delete_Designs;
+import com.thehowtotutorial.splashscreen.JSplash;
+import java.awt.Color;
+import java.awt.SplashScreen;
 
 
 /**
@@ -78,6 +81,7 @@ public static AutoReport autoReport;
     public MainWindow() {
         initComponents();
         centerLocation();
+        
         setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
     //    db_con= new DB_Connect();
     //   db_con.connect();
@@ -1293,6 +1297,34 @@ public static AutoReport autoReport;
         
     }//GEN-LAST:event_jButton23ActionPerformed
 
+    public static void DisplaySplash()
+    {
+        try
+        {
+            JSplash splash = new JSplash(MainWindow.class.getResource("cover.png"), true, true, false, "1.0", null, Color.BLACK, Color.BLACK);
+            splash.splashOn();
+        
+            splash.setProgress(15, "Initializing");
+            Thread.sleep(1000);
+            splash.setProgress(20, "Creating Database Connection");
+            Thread.sleep(3000);
+            splash.setProgress(40, "Creating Interface");
+            Thread.sleep(2000);
+            splash.setProgress(60, "Starting Report Generator Engine");
+            Thread.sleep(2500);
+            splash.setProgress(80, "Applibg Configs");
+            Thread.sleep(1500);
+            splash.setProgress(100, "Stating Application");
+            Thread.sleep(2000);
+            
+            splash.splashOff();
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
 
         ReturnGoods rtn =new ReturnGoods();
@@ -1314,6 +1346,7 @@ public static AutoReport autoReport;
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -1338,6 +1371,7 @@ public static AutoReport autoReport;
         //</editor-fold>
         //</editor-fold>
 
+        DisplaySplash();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
