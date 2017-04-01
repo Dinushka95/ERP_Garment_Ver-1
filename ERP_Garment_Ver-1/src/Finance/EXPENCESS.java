@@ -22,6 +22,7 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         initComponents();
        datePicker1date.setDateToToday();
        Tableload();
+     
     }
 
     /**
@@ -227,11 +228,12 @@ private void Tableload()
      float amt = Float.parseFloat(jTextField2amt.getText());
      
      boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_EXPENES`\n" +
-"(`Bill No`,\n" +
-"`Expences Type`,\n" +
+"(`Bill_No`,\n" +
+"`Expences_Type`,\n" +
 "`Date`,\n" +
 "`Discription`,\n" +
 "`Amount`)\n" +
+"VALUES\n" +
 "('"+Billno+"',\n" +
 "'"+exType+"',\n" +
 "'"+date+"',\n" +
@@ -265,7 +267,7 @@ private void Tableload()
          String bill = jTextField1bill.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_EXPENES`\n" +
-"WHERE Billno LIKE '"+bill+"';");
+"WHERE Bill_No LIKE '"+bill+"';");
         
         try
         {
@@ -314,12 +316,12 @@ private void Tableload()
       
        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`F_EXPENES`\n" +
 "SET\n" +
-"`Bill No` = '"+Billno+"',\n" +
-"`Expences Type` = '"+exType+"',\n" +
+"`Bill_No` = '"+Billno+"',\n" +
+"`Expences_Type` = '"+exType+"',\n" +
 "`Date` = '"+date+"',\n" +
 "`Discription` = '"+desc+"',\n" +
 "`Amount` = "+amt+"\n" +
-"WHERE `Bill No` = '"+Billno+"';");
+"WHERE `Bill_No` = '"+Billno+"';");
          try
         {
             if (x==true)

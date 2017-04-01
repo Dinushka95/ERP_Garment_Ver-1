@@ -16,6 +16,7 @@ import Finance.EXPENCESS;
 import Finance.FIXASSETS;
 import Finance.LOANDETAILS;
 import Finance.PROFITANDLOSS;
+import Finance.income1;
 import HumanResource.Department;
 import HumanResource.Employee;
 import HumanResource.Leave;
@@ -574,6 +575,11 @@ public static AutoReport autoReport;
         jPanel8.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jButton32.setText("Income");
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, -1, -1));
 
         jButton33.setText("Cash flow");
@@ -1338,6 +1344,22 @@ public static AutoReport autoReport;
         rtn.setMaximizable(false);
         
     }//GEN-LAST:event_jButton27ActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+        // TODO add your handling code here:
+         income1 in = new income1();
+        in.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(in);
+        try {
+            in.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        in.setMaximizable(false);
+        
+        
+    }//GEN-LAST:event_jButton32ActionPerformed
 
     
     /**
