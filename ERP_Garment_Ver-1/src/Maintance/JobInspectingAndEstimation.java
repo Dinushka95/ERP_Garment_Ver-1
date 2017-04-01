@@ -5,10 +5,7 @@ import Sales.*;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author Dinushka
- */
+
 public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
 DefaultTableModel model;
 int RowCountjTable2;
@@ -24,9 +21,6 @@ CustomerModel customerModel;
         String CustomerAddres;
 
 
-    /**
-     * Creates new form SalesDesignInquiry
-     */
     public JobInspectingAndEstimation() {
         initComponents();
 

@@ -165,7 +165,6 @@ public static AutoReport autoReport;
         jButton54 = new javax.swing.JButton();
         jButton55 = new javax.swing.JButton();
         jButton56 = new javax.swing.JButton();
-        jButton58 = new javax.swing.JButton();
         jPanel8 = new javax.swing.JPanel();
         jButton29 = new javax.swing.JButton();
         jButton31 = new javax.swing.JButton();
@@ -527,9 +526,9 @@ public static AutoReport autoReport;
                 jButton48ActionPerformed(evt);
             }
         });
-        jPanel13.add(jButton48, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
+        jPanel13.add(jButton48, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 10, -1, -1));
 
-        jButton54.setText("Job Request");
+        jButton54.setText("Maintenances Request");
         jButton54.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton54ActionPerformed(evt);
@@ -543,7 +542,7 @@ public static AutoReport autoReport;
                 jButton55ActionPerformed(evt);
             }
         });
-        jPanel13.add(jButton55, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
+        jPanel13.add(jButton55, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 10, -1, -1));
 
         jButton56.setText("Job Inspecting And Estimation ");
         jButton56.addActionListener(new java.awt.event.ActionListener() {
@@ -551,15 +550,7 @@ public static AutoReport autoReport;
                 jButton56ActionPerformed(evt);
             }
         });
-        jPanel13.add(jButton56, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
-
-        jButton58.setText("Job Out-Source");
-        jButton58.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton58ActionPerformed(evt);
-            }
-        });
-        jPanel13.add(jButton58, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+        jPanel13.add(jButton56, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         jTabbedPane1.addTab("Maintenances", jPanel13);
 
@@ -1044,10 +1035,6 @@ public static AutoReport autoReport;
                                      
     }//GEN-LAST:event_jButton43ActionPerformed
 
-    private void jButton58ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton58ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton58ActionPerformed
-
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
         RawMaterials raw = new RawMaterials();
         raw.setVisible(true);
@@ -1431,7 +1418,6 @@ public static AutoReport autoReport;
     private javax.swing.JButton jButton55;
     private javax.swing.JButton jButton56;
     private javax.swing.JButton jButton57;
-    private javax.swing.JButton jButton58;
     private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton60;
