@@ -11,18 +11,17 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Dinushka
  */
-public class Expences1 extends javax.swing.JInternalFrame {
+public class EXPENCESS extends javax.swing.JInternalFrame {
 
 
 
     /**
      * Creates new form SalesDesignInquiry
      */
-    public Expences1() {
-       initComponents();
+    public EXPENCESS() {
+        initComponents();
        datePicker1date.setDateToToday();
        Tableload();
-        
     }
 
     /**
@@ -64,7 +63,7 @@ public class Expences1 extends javax.swing.JInternalFrame {
         jTable1 = new javax.swing.JTable();
 
         setResizable(true);
-        setTitle("Expences");
+        setTitle("Bank Details");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -77,8 +76,8 @@ public class Expences1 extends javax.swing.JInternalFrame {
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ADDjButton2.setText("ADD");
         ADDjButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ADDjButton2.setText("ADD");
         ADDjButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ADDjButton2ActionPerformed(evt);
@@ -197,21 +196,28 @@ public class Expences1 extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ADDjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDjButton2ActionPerformed
-        // TODO add your handling code here:
         AddExpences();
-        Tableload();
+        Tableload();        // TODO add your handling code here:
+        
     }//GEN-LAST:event_ADDjButton2ActionPerformed
- private void Tableload()
+
+    private void EDITjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITjButton3ActionPerformed
+         EditExp();
+        TextBoxClear();
+        Tableload();
+    }//GEN-LAST:event_EDITjButton3ActionPerformed
+private void Tableload()
  {
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT `F_EXPENES`.`Bill No`,\n" +
-"    `F_EXPENES`.`Expences Type`,\n" +
+        ("SELECT `F_EXPENES`.`Bill_No`,\n" +
+"    `F_EXPENES`.`Expences_Type`,\n" +
 "    `F_EXPENES`.`Date`,\n" +
 "    `F_EXPENES`.`Discription`,\n" +
 "    `F_EXPENES`.`Amount`\n" +
 "FROM `garmentsystem`.`F_EXPENES`;");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
  }
+
  public void AddExpences()
  {
      String Billno = jTextField1bill.getText();
@@ -245,6 +251,7 @@ public class Expences1 extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }    
  }
+ 
   private void TextBoxClear()
   {
       jTextField1bill.setText("");
@@ -255,7 +262,7 @@ public class Expences1 extends javax.swing.JInternalFrame {
   }
     private void DeletejButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton7ActionPerformed
         // TODO add your handling code here:
-           String bill = jTextField1bill.getText();
+         String bill = jTextField1bill.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_EXPENES`\n" +
 "WHERE Billno LIKE '"+bill+"';");
@@ -272,18 +279,13 @@ public class Expences1 extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
         
+        
+
     }//GEN-LAST:event_DeletejButton7ActionPerformed
 
     private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField15ActionPerformed
-
-    private void EDITjButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITjButton3ActionPerformed
-        // TODO add your handling code here:
-          EditExp();
-        TextBoxClear();
-        Tableload();
-    }//GEN-LAST:event_EDITjButton3ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -299,11 +301,10 @@ public class Expences1 extends javax.swing.JInternalFrame {
       datePicker1date.setText(date);
       jTextArea1description.setText(desc);
       jTextField2amt.setText(amt); 
-     
-        
+       
     }//GEN-LAST:event_jTable1MouseClicked
-  
-     public void  EditExp()
+
+   public void  EditExp()
   {
       String Billno = jTextField1bill.getText();
       String exType = jComboBox3type.getSelectedItem().toString();
@@ -330,7 +331,9 @@ public class Expences1 extends javax.swing.JInternalFrame {
         catch (Exception ex){
             System.out.println(ex);
         }
+      
   }
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADDjButton2;
     private javax.swing.JButton DeletejButton7;
@@ -360,7 +363,9 @@ public class Expences1 extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
    
-    
+  
+
+  
 
    
 }

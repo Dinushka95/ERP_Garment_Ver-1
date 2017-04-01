@@ -12,9 +12,10 @@ import Distribution.Vehicle1;
 import Distribution.maintanance1;
 import Maintance.Contactor;
 import Finance.BankDetail;
-import Finance.Expences1;
+import Finance.EXPENCESS;
 import Finance.FIXASSETS;
 import Finance.LOANDETAILS;
+import Finance.PROFITANDLOSS;
 import HumanResource.Department;
 import HumanResource.Employee;
 import HumanResource.Leave;
@@ -880,6 +881,16 @@ public static AutoReport autoReport;
 
     private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
        
+          PROFITANDLOSS fix =new PROFITANDLOSS();
+         fix .setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(fix);
+        try {
+           fix .setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+          fix .setMaximizable(false);
     }//GEN-LAST:event_jButton44ActionPerformed
 
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
@@ -1215,7 +1226,7 @@ public static AutoReport autoReport;
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
         // TODO add your handling code here:
-         Expences1 pen = new Expences1();
+         EXPENCESS pen = new EXPENCESS();
         pen.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(pen);

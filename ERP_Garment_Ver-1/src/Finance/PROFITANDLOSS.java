@@ -1,7 +1,7 @@
 
 package Finance;
 
-//import Sales.*;
+
 
 
 /**
@@ -10,17 +10,14 @@ package Finance;
  */
 public class PROFITANDLOSS extends javax.swing.JInternalFrame {
 
-      
-       
 
 
     /**
      * Creates new form SalesDesignInquiry
      */
     public PROFITANDLOSS() {
+        initComponents();
       
-        
-        
     }
 
     /**
@@ -74,7 +71,7 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
 
         setResizable(true);
-        setTitle("Profit And Loss");
+        setTitle("Bank Details");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -194,10 +191,12 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-   
-    
-  
 
+ 
+ 
+ 
+  
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
@@ -240,4 +239,11 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
+
+   
+  
+
+  
+
+   
 }
