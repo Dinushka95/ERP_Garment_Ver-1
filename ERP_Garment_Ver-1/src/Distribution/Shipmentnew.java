@@ -526,7 +526,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
       {
            String strtdate=datePicker1.getText();
 
-        jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("_Shipment","Shipped_date", strtdate)));
+        jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Shipment","Shipped_date", strtdate)));
       }
   
     
