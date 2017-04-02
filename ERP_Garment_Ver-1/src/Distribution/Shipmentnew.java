@@ -79,7 +79,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
@@ -259,23 +258,14 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanelShipSearch.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 60, 20));
 
-        jButton8.setText("Reset All");
+        jButton8.setText("View All");
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelShipSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, 90, -1));
-
-        jButton9.setText("Reset All");
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton9ActionPerformed(evt);
-            }
-        });
-        jPanelShipSearch.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 70, -1, -1));
+        jPanelShipSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 90, -1));
 
         jButton5.setText("Search");
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -420,12 +410,8 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_AddButtonActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-
+        tableLoad();
     }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
             search();
@@ -538,6 +524,14 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
 
         jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Shipment","Shipped_date", strtdate)));
       }
+      private void tableLoad(){
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM garmentsystem.C_Shipment");
+            jTable3.setModel(DbUtils.resultSetToTableModel
+        (AutoDB_Connect.DB_ResultSet));
+
+        
+    }
   
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -556,7 +550,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

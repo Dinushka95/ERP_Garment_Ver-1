@@ -350,7 +350,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         
+        
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -395,7 +395,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     {
         
            
-        jTable1.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoViewAll("C_Fuel")));
+     AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void TextBoxClear()

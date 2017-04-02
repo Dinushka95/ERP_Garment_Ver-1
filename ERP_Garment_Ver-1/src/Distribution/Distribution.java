@@ -241,6 +241,11 @@ public class Distribution extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jSearchDIS.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 450, 320));
@@ -325,7 +330,7 @@ public class Distribution extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         
+        tableLoad();
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -353,6 +358,20 @@ public class Distribution extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+       
+        /*try{
+            int r=jTable2.getSelectedRow();
+            String id=dis_id.getValueAt(r, 0).tostring();
+        
+        }
+        
+         catch(Exception ex)
+        {
+            System.out.println(ex);
+        }*/
+    }//GEN-LAST:event_jTable2MouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
@@ -474,4 +493,12 @@ public class Distribution extends javax.swing.JInternalFrame {
         jTable2.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Distribution","Date", date)));
  
  }
+    private void tableLoad(){
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM garmentsystem.C_Distribution");
+            jTable2.setModel(DbUtils.resultSetToTableModel
+        (AutoDB_Connect.DB_ResultSet));
+
+        
+    }
 }
