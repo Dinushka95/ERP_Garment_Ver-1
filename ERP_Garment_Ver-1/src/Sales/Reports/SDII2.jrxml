@@ -46,19 +46,12 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="cebad598-da5e-452f-8397-d6bd9f625049"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="ed806199-a0b7-4511-931d-4253cb7ba717"/>
+					<reportElement style="Title" x="0" y="0" width="477" height="66" uuid="ed806199-a0b7-4511-931d-4253cb7ba717"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[Cherry Title]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="36aac47a-ccb2-401e-98ec-97770410575c"/>
-					<textElement textAlignment="Right">
-						<font size="22" isBold="false"/>
-					</textElement>
-					<text><![CDATA[Cherry SubTitle]]></text>
+					<text><![CDATA[Sales Design Report]]></text>
 				</staticText>
 			</frame>
 			<frame>

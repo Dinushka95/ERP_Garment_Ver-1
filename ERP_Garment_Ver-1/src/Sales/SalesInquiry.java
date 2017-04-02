@@ -6,6 +6,8 @@ import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -31,8 +33,9 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
  String ProductName;
  String Price;
  String Quantity="";
- String  CustomerId;
- String  CustomerName;
+ String Quantityo;
+ String CustomerId;
+ String CustomerName;
  String CustomerNameE;
  String x1Cust;
  String x1Dis = null;
@@ -41,8 +44,10 @@ String ProductID1;
 String ProductName1;
 String Price1;
 String Quantity1;
-     
- int RowCountjTable;
+
+
+int RowCountjTable;
+int RowCountjTable1;
  
     public SalesInquiry() {
         initComponents();
@@ -50,7 +55,7 @@ String Quantity1;
         jTextFieldSalesInquiryId.setText(salesinquirymodel.generate_sii());
         jPanelcustomerSearch4.setVisible(false);
         jPanelproductSearch.setVisible(false);
-   //     jPanelEdit.setVisible(false); 
+   //   jPanelEdit.setVisible(false); 
         datePickerSalesInquiry.setDateToToday();
         ProductModel = (DefaultTableModel) jTableSalesInuiry.getModel();
        
@@ -117,6 +122,8 @@ String Quantity1;
         jButton17 = new javax.swing.JButton();
         jLabelsProductPreview = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
         jPanelcustomerSearch4 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         jTablesCustomer = new javax.swing.JTable();
@@ -130,7 +137,6 @@ String Quantity1;
         jButton20 = new javax.swing.JButton();
         jButton21 = new javax.swing.JButton();
         jButton22 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
         jButton24 = new javax.swing.JButton();
         jButton26 = new javax.swing.JButton();
         jPanelSDISearch = new javax.swing.JPanel();
@@ -241,6 +247,7 @@ String Quantity1;
                 "Product ID", "Product Name", "Price", "Quantity","SubTotal"
             }
         ));
+        jTableSalesInuiry.setEnabled(false);
         jTableSalesInuiry.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 jTableSalesInuiryComponentAdded(evt);
@@ -282,7 +289,7 @@ String Quantity1;
 
         jTextFieldCustomerId.setEditable(false);
         jTextFieldCustomerId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextFieldCustomerId.setName("Customer Name"); // NOI18N
+        jTextFieldCustomerId.setName("Customer ID"); // NOI18N
         jTextFieldCustomerId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldCustomerIdActionPerformed(evt);
@@ -293,7 +300,7 @@ String Quantity1;
 
         jTextFieldCustomerName.setEditable(false);
         jTextFieldCustomerName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextFieldCustomerName.setName("Company name"); // NOI18N
+        jTextFieldCustomerName.setName("Customer Name"); // NOI18N
         jPanel6.add(jTextFieldCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 110, -1));
         jTextFieldCustomerName.getAccessibleContext().setAccessibleName("");
 
@@ -307,7 +314,7 @@ String Quantity1;
 
         jTextFieldSalesInquiryId.setEditable(false);
         jTextFieldSalesInquiryId.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextFieldSalesInquiryId.setName("Customer ID"); // NOI18N
+        jTextFieldSalesInquiryId.setName("Sales Inquiry ID"); // NOI18N
         jTextFieldSalesInquiryId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldSalesInquiryIdActionPerformed(evt);
@@ -334,12 +341,14 @@ String Quantity1;
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, -1, -1));
 
+        LocalDate today = LocalDate.now();
+        dateSettings1.setDateRangeLimits(today.plusDays(1), today.plusDays(90));
         datePickerPurchaseDue.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanel6.add(datePickerPurchaseDue, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 50, -1, -1));
+        jPanel6.add(datePickerPurchaseDue, new org.netbeans.lib.awtextra.AbsoluteConstraints(939, 50, 170, -1));
 
         jPanelMainSI.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 1200, 100));
 
-        jButton4.setText("ADD Invoice ");
+        jButton4.setText("ADD Inquiry");
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -357,8 +366,13 @@ String Quantity1;
         });
         jPanelMainSI.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 200, 80, -1));
 
-        jButton18.setText("Delete");
+        jButton18.setText("Clear");
         jButton18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
         jPanelMainSI.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 240, 80, -1));
 
         jTextAreaNote.setColumns(20);
@@ -378,6 +392,12 @@ String Quantity1;
 
         jTextFieldTotal.setEditable(false);
         jTextFieldTotal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextFieldTotal.setName("Total"); // NOI18N
+        jTextFieldTotal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldTotalActionPerformed(evt);
+            }
+        });
         jPanelMainSI.add(jTextFieldTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 370, 100, -1));
 
         jLabel17.setText("Discount Rate");
@@ -399,6 +419,7 @@ String Quantity1;
 
         jTextFieldGrandTotal.setEditable(false);
         jTextFieldGrandTotal.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextFieldGrandTotal.setName("Grand Total"); // NOI18N
         jPanelMainSI.add(jTextFieldGrandTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 430, 100, -1));
 
         jComboBoxDiscountRate.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"","2.5", "5", "7.5", "10","12.5","15" }));
@@ -515,6 +536,11 @@ String Quantity1;
             }
         });
         jPanelproductSearch.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 100, -1));
+        jPanelproductSearch.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 490, 90, -1));
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel28.setText("Quantity");
+        jPanelproductSearch.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 490, -1, 20));
 
         jPanel1.add(jPanelproductSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 1020, 530));
 
@@ -605,15 +631,6 @@ String Quantity1;
             }
         });
         jPanelcustomerSearch4.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 60, 90, -1));
-
-        jButton23.setText("New Customer");
-        jButton23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton23.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton23ActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch4.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 20, 130, -1));
 
         jButton24.setText("View All");
         jButton24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -729,8 +746,8 @@ String Quantity1;
         jPanelSearchEditDeleteReportM.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelSearchEditDeleteReportM.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton34.setText("View All");
+        jButton34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton34.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton34ActionPerformed(evt);
@@ -756,8 +773,8 @@ String Quantity1;
         });
         jPanelSearchEditDeleteReportM.add(jButton36, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 70, 210, -1));
 
-        jButton37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton37.setText("Reset All");
+        jButton37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton37ActionPerformed(evt);
@@ -765,8 +782,8 @@ String Quantity1;
         });
         jPanelSearchEditDeleteReportM.add(jButton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 100, 210, -1));
 
-        jButton38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton38.setText("Search");
+        jButton38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton38.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton38ActionPerformed(evt);
@@ -783,8 +800,8 @@ String Quantity1;
         });
         jPanelSearchEditDeleteReportM.add(jButtonSearchCustomerID, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 120, -1));
 
-        jButton39.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton39.setText("Search");
+        jButton39.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton39.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton39ActionPerformed(evt);
@@ -792,8 +809,8 @@ String Quantity1;
         });
         jPanelSearchEditDeleteReportM.add(jButton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 120, -1));
 
-        jButton40.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton40.setText("Search");
+        jButton40.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton40.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton40ActionPerformed(evt);
@@ -960,6 +977,11 @@ String Quantity1;
 
         jButton32.setText("Delete");
         jButton32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton32.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton32ActionPerformed(evt);
+            }
+        });
         jPanelMainSI1.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 240, 80, -1));
 
         jTextAreaNote1.setColumns(20);
@@ -1044,8 +1066,8 @@ String Quantity1;
 
         jPanelproductSearch1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 950, 250));
 
-        jButton25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton25.setText("Select");
+        jButton25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton25.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton25ActionPerformed(evt);
@@ -1141,12 +1163,13 @@ String Quantity1;
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
               boolean result=salesinquirymodel.AddSII(jTextFieldSalesInquiryId,jTextFieldCustomerId,datePickerSalesInquiry,datePickerPurchaseDue,jTextAreaNote,jTextFieldTotal,jComboBoxDiscountRate,jTextFieldGrandTotal, jTableSalesInuiry);
         if(result){
-            JOptionPane.showMessageDialog(null,"Successfully To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Successfully To Added Inquiry", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
              salesinquirymodel.generate_sii();
-             //clear();
+             CS();
+             ProductModel.setRowCount(0);
         }
         else{
-            JOptionPane.showMessageDialog(null,"Failed To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Failed To Added Inquiry", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
         
         } 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -1156,7 +1179,7 @@ String Quantity1;
     }//GEN-LAST:event_jTextFieldSalesInquiryIdActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
+        CS();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -1177,7 +1200,7 @@ String Quantity1;
         ProductID=AutoDB_Connect.DB_ResultSet.getString("ProductId");
         ProductName=AutoDB_Connect.DB_ResultSet.getString("ProductName");
         Price=AutoDB_Connect.DB_ResultSet.getString("Price");
-        //Quantity=DB_Connect.DB_ResultSet.getString("ProductId");
+        Quantityo=AutoDB_Connect.DB_ResultSet.getString("Quantity");
         
     } catch (SQLException ex) {
         Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
@@ -1186,9 +1209,19 @@ String Quantity1;
     }//GEN-LAST:event_jTablesProductMouseClicked
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
-        ProductModel.addRow(new Object[]{ ProductID,ProductName,Price,Quantity});
+        int Q=Integer.parseInt(Quantityo);
+        int W=Integer.parseInt(jTextField1.getText());
+        if(W<Q){
+        ProductModel.addRow(new Object[]{ ProductID,ProductName,Price,jTextField1.getText()});
         jPanelproductSearch.setVisible(false);
         jPanelMainSI.setVisible(true);
+        jTextField1.setText("");
+        }
+        else
+        {
+        JOptionPane.showMessageDialog(null,"Exceed Stock Quantitiy", "InfoBox", JOptionPane.ERROR);
+        }
+        
         
         
     }//GEN-LAST:event_jButton12ActionPerformed
@@ -1237,10 +1270,6 @@ String Quantity1;
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
         jTablesCustomer.setModel(DbUtils.resultSetToTableModel(salesinquirymodel.ViewAllCustomer()));
     }//GEN-LAST:event_jButton24ActionPerformed
-
-    private void jButton23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton23ActionPerformed
-
-    }//GEN-LAST:event_jButton23ActionPerformed
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
     jTablesCustomer.setModel(DbUtils.resultSetToTableModel(salesinquirymodel.SearchID(jTextFieldSDICustomerId1.getText()))); 
@@ -1306,11 +1335,11 @@ String Quantity1;
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
-        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SDII.jrxml";
-        String SQL="SELECT * FROM garmentsystem.d_designinquiry_table where DesignInquiryId ='"+jTextFieldSearchTSDIID.getText()+"'";
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SII.jrxml";
+        String SQL="SELECT * FROM garmentsystem.d_salesInquiry_table where SalesInquiryId ='"+jTextFieldSearchTSDIID.getText()+"'";
         autoReport.Query2Report(FileLocation, SQL);
-        String FileLocation1="C:\\Users\\Dinu-Laptop\\Documents\\NetBeansProjects\\ERP_Garment_Ver-1\\ERP_Garment_Ver-1\\src\\Sales\\Reports\\SDII2.jrxml";
-        String SQL1="SELECT * FROM garmentsystem.d_designinquiry_table1 where DesignInquiryId ='"+jTextFieldSearchTSDIID.getText()+"'";
+        String FileLocation1=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SII2.jrxml";
+        String SQL1="SELECT * FROM garmentsystem.d_salesInquiry_table1 where SalesInquiryId ='"+jTextFieldSearchTSDIID.getText()+"'";
         autoReport.Query2Report(FileLocation1, SQL1);
     }//GEN-LAST:event_jButton27ActionPerformed
 
@@ -1428,28 +1457,33 @@ String Quantity1;
 
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
         clearSearch();
-   //     clearTable();
+        cs1();
+        clearTable();
     }//GEN-LAST:event_jButton37ActionPerformed
 
     private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
         jTable3.setModel(DbUtils.resultSetToTableModel(salesinquirymodel.SearchSIID(jTextFieldSearchSDIID.getText())));
         clearSearch();
+        cs1();
     }//GEN-LAST:event_jButton38ActionPerformed
 
     private void jButtonSearchCustomerIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchCustomerIDActionPerformed
         jTable3.setModel(DbUtils.resultSetToTableModel(salesinquirymodel.SearchCustomerID(jTextFieldSearchCustomerID.getText())));
         clearSearch();
+        cs1();
     }//GEN-LAST:event_jButtonSearchCustomerIDActionPerformed
 
     private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
         jTable3.setModel(DbUtils.resultSetToTableModel(salesinquirymodel.SearchCustomerName(jTextFieldSearchCustomerName1.getText())));
         clearSearch();
+        cs1();
 
     }//GEN-LAST:event_jButton39ActionPerformed
 
     private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
         jTable3.setModel(DbUtils.resultSetToTableModel(salesinquirymodel.SearchCusPhone(jTextFieldSearchDesignName.getText())));
         clearSearch();
+        cs1();
     }//GEN-LAST:event_jButton40ActionPerformed
 
     private void jTextFieldSearchSDIIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchSDIIDActionPerformed
@@ -1465,7 +1499,7 @@ String Quantity1;
     }//GEN-LAST:event_jTableSalesInuiry1ComponentAdded
 
     private void jTableSalesInuiry1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSalesInuiry1MouseClicked
-        // TODO add your handling code here:
+      RowCountjTable1=jTableSalesInuiry.getSelectedRow();
     }//GEN-LAST:event_jTableSalesInuiry1MouseClicked
 
     private void jTableSalesInuiry1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableSalesInuiry1KeyTyped
@@ -1482,6 +1516,11 @@ String Quantity1;
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
     jTabbedPane1.setSelectedIndex(1);
+    jPanelSearchEditDeleteReportM.setVisible(true);
+    jPanelSearchEditDeleteReportM1.setVisible(true);
+        clearSearch();
+        cs1();
+        clearTable();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
@@ -1490,14 +1529,27 @@ String Quantity1;
     }//GEN-LAST:event_jButton31ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-
         getSubTotalE();
         getTotalE();
         getGrandTotalE();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        boolean result=salesinquirymodel.EditSII(jTextFieldSalesInquiryId1,jTextFieldCustomerId1,datePickerSalesInquiry1,datePickerPurchaseDue1,jTextAreaNote1,jTextFieldTotal1,jComboBoxDiscountRate1,jTextFieldGrandTotal1,jTableSalesInuiry1);
+        if(result){
+            JOptionPane.showMessageDialog(null,"Successfully To Edit Inquiry", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
        jTabbedPane1.setSelectedIndex(1);
+       jPanelSearchEditDeleteReportM.setVisible(true);
+       jPanelSearchEditDeleteReportM1.setVisible(true);
+        clearSearch();
+        cs1();
+        clearTable();
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"Failed To Edit Inquiriy", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+        
+        } 
+       
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jTablesProduct1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablesProduct1MouseClicked
@@ -1551,6 +1603,43 @@ String Quantity1;
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+    
+        while(ProductModel.getRowCount()>0){ProductModel.removeRow(RowCountjTable);}
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void jTextFieldTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTotalActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldTotalActionPerformed
+
+    private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
+    ProductModel1.removeRow(RowCountjTable);
+    }//GEN-LAST:event_jButton32ActionPerformed
+    
+    private void CS(){
+        jTextFieldCustomerId.setText("");
+        jTextFieldCustomerName.setText("");
+        datePickerPurchaseDue.setText("");
+        jTextAreaNote.setText("");
+        jTextFieldGrandTotal.setText("");
+        jComboBoxDiscountRate.setSelectedIndex(0);
+        jTextFieldTotal.setText("");
+        
+
+
+
+    }
+    
+    private void cs1(){
+        jTextFieldSearchSDIID.setText("");
+        jTextFieldSearchCustomerID.setText("");
+        jTextFieldSearchCustomerName1.setText("");
+        jTextFieldSearchDesignName.setText("");
+        jTextFieldSearchTSDIID.setText("");
+
+
+    }
     private void clearSearch(){
         jTextFieldSDICustomerId1.setText("");
         jTextField12.setText("");
@@ -1711,7 +1800,6 @@ String Quantity1;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton22;
-    private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
@@ -1762,6 +1850,7 @@ String Quantity1;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
@@ -1808,6 +1897,7 @@ String Quantity1;
     private javax.swing.JTable jTablesProduct1;
     private javax.swing.JTextArea jTextAreaNote;
     private javax.swing.JTextArea jTextAreaNote1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextFieldCustomerId;

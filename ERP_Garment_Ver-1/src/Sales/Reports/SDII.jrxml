@@ -64,25 +64,18 @@ FROM
 	<title>
 		<band height="102" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="441e1b11-513d-49ea-a4c2-eb0eeb279780"/>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="441e1b11-513d-49ea-a4c2-eb0eeb279780"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="29706bb4-652d-421d-8d54-c1ea786eecb6"/>
+					<reportElement style="Title" x="0" y="0" width="475" height="66" uuid="29706bb4-652d-421d-8d54-c1ea786eecb6"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[Cherry Title]]></text>
-				</staticText>
-				<staticText>
-					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="5d6f0991-0644-4f51-9e1d-b583e44f549a"/>
-					<textElement textAlignment="Right">
-						<font size="22" isBold="false"/>
-					</textElement>
-					<text><![CDATA[Cherry SubTitle]]></text>
+					<text><![CDATA[Sales Design Report]]></text>
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="53d088b5-a13b-42c5-b40e-91a1b1b9297e"/>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="53d088b5-a13b-42c5-b40e-91a1b1b9297e"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="7d627dc6-1d4d-435f-a04e-d00f78da6912"/>
 					<textElement textAlignment="Right">
