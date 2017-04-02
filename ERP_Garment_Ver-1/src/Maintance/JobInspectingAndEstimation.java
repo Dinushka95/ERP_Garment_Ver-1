@@ -1,4 +1,3 @@
-
 package Maintance;
 
 import MainSystem.AutoDB_Connect;
@@ -12,10 +11,7 @@ import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 import javax.swing.JTextField;
 
-
 public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
-
-
 
     public JobInspectingAndEstimation() {
         initComponents();
@@ -25,6 +21,9 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         TextBoxClear2();
         datePicker2.setDateToToday();
         datePicker3.setDateToToday();
+        generate_Machine_ID();
+        generate_Technician_ID();
+        FillTextCombo1();
     }
 
     /**
@@ -51,16 +50,15 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jButtonADDCustomer = new javax.swing.JButton();
         jButtonResetAll = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
-        jTextFieldDepartment = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jTextFieldMchinePart = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jTextFieldTechnicianID = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextFieldTechnicianName = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox();
+        jComboBox2 = new javax.swing.JComboBox();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jTextFieldDescription1 = new javax.swing.JTextField();
@@ -88,6 +86,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jButton9 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
         setTitle("Job Inspecting And Estimation ");
@@ -154,17 +153,9 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
-        jTextFieldDepartment.setName("Company name"); // NOI18N
-        jPanel2.add(jTextFieldDepartment, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 110, -1));
-        jTextFieldDepartment.getAccessibleContext().setAccessibleName("");
-
         jLabel5.setText("Machine Part");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
-
-        jTextFieldMchinePart.setName("Phone number"); // NOI18N
-        jPanel2.add(jTextFieldMchinePart, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 110, -1));
-        jTextFieldMchinePart.getAccessibleContext().setAccessibleName("");
 
         jLabel6.setText("Technician ID");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -181,6 +172,11 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jTextFieldTechnicianName.setName("Address"); // NOI18N
         jPanel2.add(jTextFieldTechnicianName, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 210, -1));
         jTextFieldTechnicianName.getAccessibleContext().setAccessibleName("");
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Inventory", "Maintenance", "Finance" }));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 130, -1));
+
+        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 120, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 510, 520));
 
@@ -205,9 +201,6 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 470, 90));
 
         jTabbedPane1.addTab("ADD ", jPanel1);
-
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -336,6 +329,9 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jTabbedPane1.addTab("Reports", jPanel4);
+
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
         getAccessibleContext().setAccessibleName("");
@@ -344,10 +340,12 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonADDCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADDCustomerActionPerformed
-    JobInspectionAdd();
-    TableLoad1();
-    generate_Machine_ID();
-    generate_Machine_ID1();
+        JobInspectionAdd();
+        TableLoad1();
+        generate_Machine_ID();
+        generate_Technician_ID();
+        FillTextCombo1();
+
     }//GEN-LAST:event_jButtonADDCustomerActionPerformed
 
     private void jTextFieldMachineIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMachineIDActionPerformed
@@ -355,16 +353,16 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextFieldMachineIDActionPerformed
 
     private void jButtonResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAllActionPerformed
-    TextBoxClear1();          
+        TextBoxClear1();
     }//GEN-LAST:event_jButtonResetAllActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         TextBoxClear2();
-     
+        TextBoxClear2();
+
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-           // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
@@ -372,7 +370,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        EditJobInspection ();
+        EditJobInspection();
         TableLoad2();
 
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -383,219 +381,195 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonADD1ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        int row =jTable1.getSelectedRow();
-        String m_id = jTable1.getValueAt(row,0).toString();
-        String description = jTable1.getValueAt(row,1).toString();
-        String dep = jTable1.getValueAt(row,2).toString();
-        String m_pa = jTable1.getValueAt(row,3).toString();
-        String t_id = jTable1.getValueAt(row,4).toString();
-        String t_name = jTable1.getValueAt(row,5).toString();
-        String date = jTable1.getValueAt(row,6).toString();
-    
-        
-      jTextFieldMachineID.setText(m_id);
-      jTextFieldDescription.setText(description);
-      jTextFieldDepartment.setText(dep);
-      jTextFieldMchinePart.setText(m_pa);
-      jTextFieldTechnicianID.setText(t_id);
-      jTextFieldTechnicianName.setText(t_name);
-      datePicker3.setText(date); 
+        int row = jTable1.getSelectedRow();
+        String m_id = jTable1.getValueAt(row, 0).toString();
+        String description = jTable1.getValueAt(row, 1).toString();
+        String dep = jTable1.getValueAt(row, 2).toString();
+        String m_pa = jTable1.getValueAt(row, 3).toString();
+        String t_id = jTable1.getValueAt(row, 4).toString();
+        String t_name = jTable1.getValueAt(row, 5).toString();
+        String date = jTable1.getValueAt(row, 6).toString();
+
+        jTextFieldMachineID.setText(m_id);
+        jTextFieldDescription.setText(description);
+        jComboBox1.setSelectedItem(dep);
+        jComboBox2.setSelectedItem(m_pa);
+        jTextFieldTechnicianID.setText(t_id);
+        jTextFieldTechnicianName.setText(t_name);
+        datePicker3.setText(date);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-           int row =jTable3.getSelectedRow();
-        String m_id = jTable3.getValueAt(row,0).toString();
-        String description = jTable3.getValueAt(row,1).toString();
-        String dep = jTable3.getValueAt(row,2).toString();
-        String m_pa = jTable3.getValueAt(row,3).toString();
-        String t_id = jTable3.getValueAt(row,4).toString();
-        String t_name = jTable3.getValueAt(row,5).toString();
-        String date = jTable3.getValueAt(row,6).toString();
-    
-        
-      jTextFieldSearchCustomerId.setText(m_id);
-      jTextFieldDescription1.setText(description);
-      jTextFieldDepartment1.setText(dep);
-      jTextFieldMchinePart1.setText(m_pa);
-      jTextFieldTechnicianID1.setText(t_id);
-      jTextFieldTechnicianName1.setText(t_name);
-      datePicker3.setText(date); 
+        int row = jTable3.getSelectedRow();
+        String m_id = jTable3.getValueAt(row, 0).toString();
+        String description = jTable3.getValueAt(row, 1).toString();
+        String dep = jTable3.getValueAt(row, 2).toString();
+        String m_pa = jTable3.getValueAt(row, 3).toString();
+        String t_id = jTable3.getValueAt(row, 4).toString();
+        String t_name = jTable3.getValueAt(row, 5).toString();
+        String date = jTable3.getValueAt(row, 6).toString();
+
+        jTextFieldSearchCustomerId.setText(m_id);
+        jTextFieldDescription1.setText(description);
+        jTextFieldDepartment1.setText(dep);
+        jTextFieldMchinePart1.setText(m_pa);
+        jTextFieldTechnicianID1.setText(t_id);
+        jTextFieldTechnicianName1.setText(t_name);
+        datePicker3.setText(date);
     }//GEN-LAST:event_jTable3MouseClicked
-    
-     private void generate_Machine_ID(){
-    AutoIdGenerator m_id = new AutoIdGenerator();
-    jTextFieldMachineID.setText(m_id.generate("ACC",Integer.toString(MainWindow.userid)));
+
+    private void generate_Machine_ID() {
+        AutoIdGenerator m_id = new AutoIdGenerator();
+        jTextFieldMachineID.setText(m_id.generate("ACC", Integer.toString(MainWindow.userid)));
     }
-     
-     
-    
-      private void TableLoad1()
-  {
-      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`JobIspection_Estimation`");
-      
-      jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
-  }
-      
-       
-      private void TableLoad2()
-  {
-      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`JobIspection_Estimation`");
-      
-      jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    private void generate_Technician_ID() {
+        AutoIdGenerator t_id = new AutoIdGenerator();
+        jTextFieldTechnicianID.setText(t_id.generate("ACC", Integer.toString(MainWindow.userid)));
+    }
 
-  }
-      
-     public void JobInspectionAdd(){
-    
-      String m_id = jTextFieldMachineID.getText();
-      String description = jTextFieldDescription.getText();
-      String dep = jTextFieldDepartment.getText();
-      String m_pa = jTextFieldMchinePart.getText();
-      String t_id = jTextFieldTechnicianID.getText();
-      String t_name = jTextFieldTechnicianName.getText();
-      String date = datePicker3.getText();
-      
-       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`JobIspection_Estimation`\n"+
- 
-"(`MachineID`,\n" +
-"`Description`,\n" +
-"`Department`,\n" +
-"`MachinePart`,\n" +
-"`TechnianID`,\n" +
-"`TechnicianName`," +
-"`Date`)\n" +
- "('"+m_id+"',\n" +
-"'"+description+"',\n" +
-"'"+dep+"',\n" +
-""+m_pa+",\n" +
-"'"+t_id+"',\n" +
-"'"+t_name+"',\n" +
-"'"+date+"');");              
-      
-        try
-        {
-            if(x==true)
-            {
+    private void TableLoad1() {
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`JobIspection_Estimation`");
+
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
+
+    private void TableLoad2() {
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`JobIspection_Estimation`");
+
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
+
+    public void JobInspectionAdd() {
+
+        String m_id = jTextFieldMachineID.getText();
+        String description = jTextFieldDescription.getText();
+        String dep = jComboBox1.getSelectedItem().toString();
+        String m_pa = jComboBox2.getSelectedItem().toString();
+        String t_id = jTextFieldTechnicianID.getText();
+        String t_name = jTextFieldTechnicianName.getText();
+        String date = datePicker3.getText();
+
+        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`JobIspection_Estimation` \n"
+                + "(`MachineID`,\n"
+                + "`Description`,\n"
+                + "`Department`,\n"
+                + "`MachinePart`,\n"
+                + "`TechnianID`,\n"
+                + "`TechnicianName`,"
+                + "`Date`) values \n"
+                + "('" + m_id + "',\n"
+                + "'" + description + "',\n"
+                + "'" + dep + "',\n"
+                + "'" + m_pa + "',\n"
+                + "'" + t_id + "',\n"
+                + "'" + t_name + "',\n"
+                + "'" + date + "');");
+
+        try {
+            if (x == true) {
                 TableLoad1();
-               TextBoxClear1();
-                JOptionPane.showMessageDialog(null,"Susseccfuly Added");
-                
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        
-    
-        }}
-     
-        private void DeleteJobInspection()
-    {
-        String m_id = jTextFieldSearchCustomerId.getText();
-        
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`JobIspection_Estimation`\n" +
-"WHERE Description = '"+m_id+"';");
-        
-        try
-        {
-            if (x==true)
-            {
-                TextBoxClear2();
-                TableLoad2();
-                JOptionPane.showMessageDialog(null,"Susseccfuly Deleted");
-            }
-        }
-        catch (Exception ex){
-            System.out.println(ex);
-        }
-    }
-     
-        
-        public void EditJobInspection(){
-    
-      String m_id = jTextFieldSearchCustomerId.getText();
-      String description = jTextFieldDescription1.getText();
-      String dep = jTextFieldDepartment1.getText();
-      String m_pa = jTextFieldMchinePart1.getText();
-      String t_id = jTextFieldTechnicianID1.getText();
-      String t_name = jTextFieldTechnicianName1.getText();
-      String date = datePicker3.getText();
-        
-        
-         boolean x = autoSqlQuery.execute("Update `garmentsystem`.`JobIspection_Estimation`\n"+
- 
-"(`MachineID`,\n" +
-"`Description`,\n" +
-"`Department`,\n" +
-"`MachinePart`,\n" +
-"`TechnianID`,\n" +
-"`TechnicianName`," +
-"`Date`)\n" +
- "('"+m_id+"',\n" +
-"'"+description+"',\n" +
-"'"+dep+"',\n" +
-""+m_pa+",\n" +
-"'"+t_id+"',\n" +
-"'"+t_name+"',\n" +
-"'"+date+"');");              
-      
-        try
-        {
-            if(x==true)
-            {
-                TableLoad2();
-                TextBoxClear2();
-                JOptionPane.showMessageDialog(null,"Susseccfuly Update");
-                
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        
-    
-        }}
-        
-        
-        private void TextBoxClear1(){
-     
-         jTextFieldMachineID.setText("");
-         jTextFieldDescription.setText("");
-         jTextFieldDepartment.setText("");
-         
-         jTextFieldMchinePart.setText("");
-         jTextFieldTechnicianID.setText("");
-         jTextFieldTechnicianName.setText("");
-         datePicker2.setDateToToday();
-     }
-        
-        
-          
-        private void TextBoxClear2(){
-     
-         jTextFieldSearchCustomerId.setText("");
-         jTextFieldDescription1.setText("");
-         jTextFieldDepartment1.setText("");
-         
-         jTextFieldMchinePart1.setText("");
-         jTextFieldTechnicianID1.setText("");
-         jTextFieldTechnicianName1.setText("");
-         datePicker3.setDateToToday();
-     }
-        
-        
-        
+                TextBoxClear1();
+                JOptionPane.showMessageDialog(null, "Susseccfuly Added");
 
- private void generate_Machine_ID1(){
-    AutoIdGenerator m_id = new AutoIdGenerator();
-    jTextFieldSearchCustomerId.setText(m_id.generate("ACC",Integer.toString(MainWindow.userid)));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+
+        }
     }
-     
-     
-     
-    
-    
+
+    private void DeleteJobInspection() {
+        String m_id = jTextFieldSearchCustomerId.getText();
+
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`JobIspection_Estimation`\n"
+                + "WHERE Description = '" + m_id + "';");
+
+        try {
+            if (x == true) {
+                TextBoxClear2();
+                TableLoad2();
+                JOptionPane.showMessageDialog(null, "Susseccfuly Deleted");
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+    }
+
+    public void EditJobInspection() {
+
+        String m_id = jTextFieldSearchCustomerId.getText();
+        String description = jTextFieldDescription1.getText();
+        String dep = jTextFieldDepartment1.getText();
+        String m_pa = jTextFieldMchinePart1.getText();
+        String t_id = jTextFieldTechnicianID1.getText();
+        String t_name = jTextFieldTechnicianName1.getText();
+        String date = datePicker3.getText();
+
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`JobIspection_Estimation`\n"
+                + "SET\n"
+                + "`MachineID` = '" + m_id + "',\n"
+                + "`Description` = '" + description + "',\n"
+                + "`Department` = '" + dep + "',\n"
+                + "`MachinePart` = '" + m_pa + "',\n"
+                + "`TechnianID` = '" + t_id + "',\n"
+                + "`TechnicianName` = '" + t_name + "',\n"
+                + "`Date` = '" + date + "',\n"
+                + "WHERE `accessory_id` = '" + m_id + "';");
+
+        try {
+            if (x == true) {
+                TableLoad2();
+                TextBoxClear2();
+                JOptionPane.showMessageDialog(null, "Susseccfuly Update");
+
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+
+        }
+    }
+
+    private void FillTextCombo1() {
+        try {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select  part_id from MachineParts_Table   ");
+
+            while (AutoDB_Connect.DB_ResultSet.next()) {
+                String m_pa = AutoDB_Connect.DB_ResultSet.getString("part_id");
+                jComboBox2.addItem(m_pa);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+    }
+
+    private void TextBoxClear1() {
+
+        jTextFieldMachineID.setText("");
+        jTextFieldDescription.setText("");
+         //jComboBox1.setSelectedIndex(0);
+
+        // jComboBox2.setSelectedIndex(0);
+        jTextFieldTechnicianID.setText("");
+        jTextFieldTechnicianName.setText("");
+        datePicker2.setDateToToday();
+    }
+
+    private void TextBoxClear2() {
+
+        jTextFieldSearchCustomerId.setText("");
+        jTextFieldDescription1.setText("");
+        jTextFieldDepartment1.setText("");
+
+        jTextFieldMchinePart1.setText("");
+        jTextFieldTechnicianID1.setText("");
+        jTextFieldTechnicianName1.setText("");
+        datePicker3.setDateToToday();
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
@@ -607,6 +581,8 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonADD1;
     private javax.swing.JButton jButtonADDCustomer;
     private javax.swing.JButton jButtonResetAll;
+    private javax.swing.JComboBox jComboBox1;
+    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
@@ -632,12 +608,10 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextFieldDepartment;
     private javax.swing.JTextField jTextFieldDepartment1;
     private javax.swing.JTextField jTextFieldDescription;
     private javax.swing.JTextField jTextFieldDescription1;
     private javax.swing.JTextField jTextFieldMachineID;
-    private javax.swing.JTextField jTextFieldMchinePart;
     private javax.swing.JTextField jTextFieldMchinePart1;
     private javax.swing.JTextField jTextFieldSearchCustomerId;
     private javax.swing.JTextField jTextFieldTechnicianID;
@@ -646,5 +620,4 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextFieldTechnicianName1;
     // End of variables declaration//GEN-END:variables
 
-   
 }

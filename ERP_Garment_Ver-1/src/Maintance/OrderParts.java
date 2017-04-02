@@ -1,6 +1,4 @@
-
 package Maintance;
-
 
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
@@ -10,32 +8,35 @@ import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
-import javax.swing.JTextField;
 
+//import java.util.HashMap;
+//import java.util.Map;
+//
+//import net.sf.jasperreports.engine.JasperCompileManager;
+//import net.sf.jasperreports.engine.JasperFillManager;
+//import net.sf.jasperreports.engine.JasperPrint;
+//import net.sf.jasperreports.engine.JasperReport;
+//import net.sf.jasperreports.engine.data.JRTableModelDataSource;
+//import net.sf.jasperreports.engine.design.JasperDesign;
+//import net.sf.jasperreports.engine.xml.JRXmlLoader;
+//import net.sf.jasperreports.view.JasperViewer;
 
 public class OrderParts extends javax.swing.JInternalFrame {
-   //private String description;
+    //private String description;
 
-
-
-
-    public  OrderParts() {
+    public OrderParts() {
         initComponents();
         TableLoad1();
         TableLoad2();
         TextBoxClear1();
         TextBoxClear2();
         generate_Oder_ID();
-        
 
         FillTextCombo1();
-       // FillTextCombo2();
+        // FillTextCombo2();
         FillTextCombo3();
         datePicker3.setDateToToday();
         datePicker2.setDateToToday();
-       
-  
-       
 
     }
 
@@ -182,6 +183,11 @@ public class OrderParts extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         jTextFieldAmount.setName("Amount"); // NOI18N
+        jTextFieldAmount.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAmountKeyTyped(evt);
+            }
+        });
         jPanel2.add(jTextFieldAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 130, -1));
         jTextFieldAmount.getAccessibleContext().setAccessibleName("");
 
@@ -363,46 +369,44 @@ public class OrderParts extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADDActionPerformed
-    OrderAdd();
-    TableLoad1();
-    
-    
-    
+        OrderAdd();
+        TableLoad1();
+
+
     }//GEN-LAST:event_jButtonADDActionPerformed
 
     private void jButtonResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAllActionPerformed
-           TextBoxClear1();
-                       
+        TextBoxClear1();
+
     }//GEN-LAST:event_jButtonResetAllActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-                
-      
+
+
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void SearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchActionPerformed
         TechSearch();
-        
+
     }//GEN-LAST:event_SearchActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        int row =jTable2.getSelectedRow();
-        String o_id = jTable2.getValueAt(row,0).toString();
-        String description = jTable2.getValueAt(row,1).toString();
-        String c_name = jTable2.getValueAt(row,2).toString();
-        String amount = jTable2.getValueAt(row,3).toString();
-        String t_id = jTable2.getValueAt(row,4).toString();
-        String t_name = jTable2.getValueAt(row,5).toString();
-        String date = jTable2.getValueAt(row,6).toString();
-    
-        
-      jTextField.setText(o_id);
-      jTextFieldDescription1.setText(description);
-      jComboBox5.setSelectedItem(c_name);
-      jTextFieldAmount1.setText(amount);
-      jComboBox3.setSelectedItem(t_id);
-      jTextField3.setText(t_name);
-      datePicker3.setText(date); 
+        int row = jTable2.getSelectedRow();
+        String o_id = jTable2.getValueAt(row, 0).toString();
+        String description = jTable2.getValueAt(row, 1).toString();
+        String c_name = jTable2.getValueAt(row, 2).toString();
+        String amount = jTable2.getValueAt(row, 3).toString();
+        String t_id = jTable2.getValueAt(row, 4).toString();
+        String t_name = jTable2.getValueAt(row, 5).toString();
+        String date = jTable2.getValueAt(row, 6).toString();
+
+        jTextField.setText(o_id);
+        jTextFieldDescription1.setText(description);
+        jComboBox5.setSelectedItem(c_name);
+        jTextFieldAmount1.setText(amount);
+        jComboBox3.setSelectedItem(t_id);
+        jTextField3.setText(t_name);
+        datePicker3.setText(date);
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButtonADD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADD1ActionPerformed
@@ -411,44 +415,43 @@ public class OrderParts extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonADD1ActionPerformed
 
     private void ResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButton1ActionPerformed
-      TextBoxClear2();
-   
+        TextBoxClear2();
+
 
     }//GEN-LAST:event_ResetButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-       EditOder_Parts ();
+        EditOder_Parts();
         TableLoad2();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-    int row =jTable1.getSelectedRow();
-        String o_id = jTable1.getValueAt(row,0).toString();
-        String description = jTable1.getValueAt(row,1).toString();
-        String c_name = jTable1.getValueAt(row,2).toString();
-        String amount = jTable1.getValueAt(row,3).toString();
-        String t_id = jTable1.getValueAt(row,3).toString();
-        String t_name = jTable1.getValueAt(row,3).toString();
-        String date = jTable1.getValueAt(row,4).toString();
-    
-        
-      jTextField1.setText(o_id);
-      jTextFieldDescription.setText(description);
-      jComboBox6.setSelectedItem(c_name);
-      jTextFieldAmount.setText(amount);
-      jComboBox1.setSelectedItem(t_id);
-      jTextField2.setText(t_name);
-      datePicker2.setText(date); 
-   
+        int row = jTable1.getSelectedRow();
+        String o_id = jTable1.getValueAt(row, 0).toString();
+        String description = jTable1.getValueAt(row, 1).toString();
+        String c_name = jTable1.getValueAt(row, 2).toString();
+        String amount = jTable1.getValueAt(row, 3).toString();
+        String t_id = jTable1.getValueAt(row, 4).toString();
+        String t_name = jTable1.getValueAt(row, 5).toString();
+        String date = jTable1.getValueAt(row, 6).toString();
+
+        jTextField1.setText(o_id);
+        jTextFieldDescription.setText(description);
+        jComboBox6.setSelectedItem(c_name);
+        jTextFieldAmount.setText(amount);
+        jComboBox1.setSelectedItem(t_id);
+        jTextField2.setText(t_name);
+        datePicker2.setText(date);
+
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-         FillTextCombo1();
-          
+        FillTextCombo1();
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
-       FillTextCombo2();
+        FillTextCombo2();
     }//GEN-LAST:event_jComboBox1ItemStateChanged
 
     private void jTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldActionPerformed
@@ -459,266 +462,205 @@ public class OrderParts extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-     private void generate_Oder_ID(){
-    AutoIdGenerator o_id = new AutoIdGenerator();
-    jTextField1.setText(o_id.generate("ACC",Integer.toString(MainWindow.userid)));
+    private void jTextFieldAmountKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAmountKeyTyped
+        
+        
+        
+         if (!Character.isDigit(evt.getKeyChar()) && evt.getKeyChar()!='.'  ) {
+            evt.consume();
+        }
+    }//GEN-LAST:event_jTextFieldAmountKeyTyped
+
+    private void generate_Oder_ID() {
+        AutoIdGenerator o_id = new AutoIdGenerator();
+        jTextField1.setText(o_id.generate("ACC", Integer.toString(MainWindow.userid)));
     }
-    
-    
-     
-     
-    
-      private void TableLoad1()
-  {
-      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Order_Part`");
-      
-      jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
-  }
-    
-       private void TableLoad2 ()
-  {
-      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Order_Part`");
-      
-      jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    private void TableLoad1() {
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Order_Part`");
 
-  }
-      
-    
-public void OrderAdd(){
-    
-      if(validation.ValidationCheck(jTextField1, true, 0, '@')
-              &&validation.ValidationCheck(jTextFieldDescription, true,0,'@')
-              &&validation.ValidationCheck(jTextFieldAmount, true,0,'1')
-              &&validation.ValidationCheck(jTextField2, true,0,'@'))
-      {
-      String o_id = jTextField1.getText();
-      String description = jTextFieldDescription.getText();
-      String c_name = jComboBox6.getSelectedItem().toString();
-      float amount = Float.parseFloat(jTextFieldAmount.getText());
-      String t_id = jComboBox1.getSelectedItem().toString();
-      String t_name = jTextField2.getText();
-      String date = datePicker2.getText();
-      
-      
-     
-    
-      boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Order_Part`\n" +
-"(`OrderID`,\n" +
-"`Description`,\n" +
-"`CompanyName`,\n" +
-"`Amount`,\n" +
-"`TechnicianID`,\n" +
-"`TechnicianName`,\n" +
-"`Date`)\n" +
-"VALUES\n" +
-"('"+o_id+"',\n" +
-"'"+description+"',\n" +
-"'"+c_name+"',\n" +
-""+amount+",\n" +
-"'"+t_id+"',\n" +
-"'"+t_name+"',\n" +
-"'"+date+"');");
-    
-         try
-        {
-            if(x==true)
-            {
-                TableLoad1();
-               TextBoxClear1();
-                JOptionPane.showMessageDialog(null,"Susseccfuly Added");
-                
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
+
+    private void TableLoad2() {
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Order_Part`");
+
+        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
+
+    public void OrderAdd() {
+
+        if (validation.ValidationCheck(jTextField1, true, 0, '@')
+                && validation.ValidationCheck(jTextFieldDescription, true, 0, '@')
+                && validation.ValidationCheck(jTextFieldAmount, true, 0, '1')
+                && validation.ValidationCheck(jTextField2, true, 0, '@')) {
+
+            String o_id = jTextField1.getText();
+            String description = jTextFieldDescription.getText();
+            String c_name = jComboBox6.getSelectedItem().toString();
+            float amount = Float.parseFloat(jTextFieldAmount.getText());
+            String t_id = jComboBox1.getSelectedItem().toString();
+            String t_name = jTextField2.getText();
+            String date = datePicker2.getText();
+
+            boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Order_Part`\n"
+                    + "(`OrderID`,\n"
+                    + "`Description`,\n"
+                    + "`CompanyName`,\n"
+                    + "`Amount`,\n"
+                    + "`TechnicianID`,\n"
+                    + "`TechnicianName`,\n"
+                    + "`Date`)\n"
+                    + "VALUES\n"
+                    + "('" + o_id + "',\n"
+                    + "'" + description + "',\n"
+                    + "'" + c_name + "',\n"
+                    + "" + amount + ",\n"
+                    + "'" + t_id + "',\n"
+                    + "'" + t_name + "',\n"
+                    + "'" + date + "');");
+
+            try {
+                if (x == true) {
+                    TableLoad1();
+                    TextBoxClear1();
+                    JOptionPane.showMessageDialog(null, "Susseccfuly Added");
+
+                }
+            } catch (Exception ex) {
+                System.out.println(ex);
+
             }
         }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        
-        }
-        }}
+    }
 
-
-    private void DeleteOder_Parts()
-    {
+    private void DeleteOder_Parts() {
         String o_id = jTextField.getText();
-        
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Order_Part`\n" +
-"WHERE OrderID LIKE '"+o_id+"';");
-        
-        try
-        {
-            if (x==true)
-            {
+
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Order_Part`\n"
+                + "WHERE OrderID LIKE '" + o_id + "';");
+
+        try {
+            if (x == true) {
                 TextBoxClear2();
                 TableLoad2();
-                JOptionPane.showMessageDialog(null,"Susseccfuly Deleted");
+                JOptionPane.showMessageDialog(null, "Susseccfuly Deleted");
             }
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex);
         }
     }
-    
-    
-    
-    public void TechSearch()
-    {
+
+    public void TechSearch() {
         {
-            String t_id = jTextField.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Order_Part WHERE TechnicianID LIKE '"+t_id+"'");
+            String o_id = jTextField.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Order_Part WHERE OrderID = '" + o_id + "'");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
         }
-                   
+
     }
 
+    private void EditOder_Parts() {
 
+        String o_id = jTextField.getText();
+        String description = jTextFieldDescription1.getText();
+        String c_name = jComboBox5.getSelectedItem().toString();
+        float amount = Float.parseFloat(jTextFieldAmount1.getText());
+        String t_id = jComboBox3.getSelectedItem().toString();
+        String t_name = jTextField3.getText();
+        String date = datePicker3.getText();
 
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Order_Part`\n"
+                + "SET \n"
+                + "`Description` = '" + description + "',\n"
+                + "`CompanyName` = '" + c_name + "',\n"
+                + "`Amount` = '" + amount + "',\n"
+                + "`TechnicianID` = '" + t_id + "',\n"
+                + "`TechnicianName` = '" + t_name + "',\n"
+                + "`Date` = '" + date + "' \n"
+                + "WHERE `OrderID` = '" + o_id + "';");
 
+        try {
+            if (x == true) {
+                TableLoad2();
+                TextBoxClear2();
+                JOptionPane.showMessageDialog(null, "Susseccfuly Update");
 
-private void EditOder_Parts(){
-
-    if(validation.ValidationCheck(jTextField1, true, 0, 'a')&&validation.ValidationCheck(jTextFieldDescription, true,0,'1')&&validation.ValidationCheck(jTextFieldAmount, true,0,'1')&&validation.ValidationCheck(jTextField2, true,0,'1'))
-      {
-    
-   String o_id = jTextField.getText();
-   String description = jTextFieldDescription1.getText();
-   String c_name = jComboBox5.getSelectedItem().toString();
-   float amount = Float.parseFloat(jTextFieldAmount1.getText());
-   String t_id = jComboBox3.getSelectedItem().toString();
-   String t_name = jTextField3.getText();
-   String date = datePicker3.getText();
-      
-    boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Order_Part`\n" +
-"(`OrderID`,\n" +
-"`Description`,\n" +
-"`CompanyName`,\n" +
-"`Amount`,\n" +
-"`TechnicianID`,\n" +
-"`TechnicianName`,\n" +
-"`Date`)\n" +
-"VALUES\n" +
-"('"+o_id+"',\n" +
-"'"+description+"',\n" +
-"'"+c_name+"',\n" +
-""+amount+",\n" +
-"'"+t_id+"',\n" +
-"'"+t_name+"',\n" +
-"'"+date+"');");
-          
-      try
-        {
-            if(x==true)
-            {
-               TableLoad2();
-               TextBoxClear2();
-               JOptionPane.showMessageDialog(null,"Susseccfuly Update");
-                
             }
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println(ex);
+
         }
-        
-    
-        }}
-     
-      
-     
-    
-    
-    
-     private void TextBoxClear1(){
-     
-         jTextField1.setText("");
-         jTextFieldDescription.setText("");
-         //jComboBox6.setSelectedIndex(0);
-         
-         jTextFieldAmount.setText("");
-         //jComboBox1.setSelectedIndex(0);
-         jTextField2.setText("");
-         datePicker2.setDateToToday();
-     }
-  
-      private void TextBoxClear2(){
-     
-         jTextField.setText("");
-         jTextFieldDescription1.setText("");
-         //jComboBox5.setSelectedIndex(0);
-         
-         jTextFieldAmount1.setText("");
-         //jComboBox1.setSelectedIndex(0);
-         jTextField3.setText("");
-         datePicker3.setDateToToday();
-     }
-     
-          private void FillTextCombo1()
-    {
-        try
-        {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("select * from emp_table  where position = 'Technician'");
-            
-            while(AutoDB_Connect.DB_ResultSet.next())
-            {
+    }
+
+    private void TextBoxClear1() {
+
+        jTextField1.setText("");
+        jTextFieldDescription.setText("");
+        //jComboBox6.setSelectedIndex(0);
+
+        jTextFieldAmount.setText("");
+        //jComboBox1.setSelectedIndex(0);
+        jTextField2.setText("");
+        datePicker2.setDateToToday();
+    }
+
+    private void TextBoxClear2() {
+
+        jTextField.setText("");
+        jTextFieldDescription1.setText("");
+        //jComboBox5.setSelectedIndex(0);
+
+        jTextFieldAmount1.setText("");
+        //jComboBox1.setSelectedIndex(0);
+        jTextField3.setText("");
+        datePicker3.setDateToToday();
+    }
+
+    private void FillTextCombo1() {
+        try {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from emp_table  where position = 'Technician'");
+
+            while (AutoDB_Connect.DB_ResultSet.next()) {
                 String t_id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
                 jComboBox1.addItem(t_id);
             }
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println(ex);
         }
-        
-        
-        
+
     }
-     
-       private void FillTextCombo2()
-    {
-        try
-        {
-            String id=jComboBox1.getSelectedItem().toString();
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("select * from emp_table  where emp_id = '"+id+"'");
-            
-           AutoDB_Connect.DB_ResultSet.next();
-                String t_name = AutoDB_Connect.DB_ResultSet.getString("f_name");
-                jTextField2.setText(t_name);
-            
-        }
-        catch(Exception ex)
-        {
+
+    private void FillTextCombo2() {
+        try {
+            String id = jComboBox1.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from emp_table  where emp_id = '" + id + "'");
+
+            AutoDB_Connect.DB_ResultSet.next();
+            String t_name = AutoDB_Connect.DB_ResultSet.getString("f_name");
+            jTextField2.setText(t_name);
+
+        } catch (Exception ex) {
             System.out.println(ex);
         }
-        
-        
-        
+
     }
-       
-        private void FillTextCombo3()
-    {
-        try
-        {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("select * from emp_table  where position = 'Technician'");
-            
-            while(AutoDB_Connect.DB_ResultSet.next())
-            {
+
+    private void FillTextCombo3() {
+        try {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from emp_table  where position = 'Technician'");
+
+            while (AutoDB_Connect.DB_ResultSet.next()) {
                 String t_id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
                 jComboBox3.addItem(t_id);
             }
-        }
-        catch(Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println(ex);
         }
-        
-        
-        
+
     }
-       
-       
-       
-       
-          
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -771,13 +713,4 @@ private void EditOder_Parts(){
     private javax.swing.JTextField jTextFieldDescription1;
     // End of variables declaration//GEN-END:variables
 
-    
-   
-
-    
-
-   
-   
-
-    
 }

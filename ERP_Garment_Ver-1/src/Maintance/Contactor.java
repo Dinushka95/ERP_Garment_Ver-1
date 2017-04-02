@@ -6,6 +6,7 @@ import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.validation;
 import javax.swing.JOptionPane;
 
 
@@ -21,7 +22,7 @@ public class Contactor extends javax.swing.JInternalFrame {
         TextBoxClear2();
        // FillTextCombo2()
         generate_Contractor_ID();
-        generate_Contractor_ID1();
+       
         datePicker2.setDateToToday();
         datePicker3.setDateToToday();
     }
@@ -314,7 +315,7 @@ public class Contactor extends javax.swing.JInternalFrame {
  TableLoad1();  
  EditContactor ();
  generate_Contractor_ID();
-  generate_Contractor_ID1();
+  
     }//GEN-LAST:event_jButtonADDActionPerformed
 
     private void jButtonResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAllActionPerformed
@@ -385,10 +386,7 @@ public class Contactor extends javax.swing.JInternalFrame {
     jTextField4.setText(c_id.generate("ACC",Integer.toString(MainWindow.userid)));
     }
     
-     private void generate_Contractor_ID1(){
-    AutoIdGenerator c_id = new AutoIdGenerator();
-    jTextField3.setText(c_id.generate("ACC",Integer.toString(MainWindow.userid)));
-    }
+    
     
     
     
@@ -435,6 +433,9 @@ public class Contactor extends javax.swing.JInternalFrame {
         
         
         public void ADDContactor(){
+            
+            
+   
     
       String c_id = jTextField4.getText();
       String c_name = jTextField1.getText();
@@ -474,10 +475,10 @@ public class Contactor extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         
-    
+        
         }}
 
-        
+
           public void EditContactor(){
     
       String c_id = jTextField3.getText();
@@ -487,23 +488,18 @@ public class Contactor extends javax.swing.JInternalFrame {
       String add = jTextFieldAddress2.getText();
       String date = datePicker3.getText();
 
+       boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Contactor`\n"
+                + "SET \n"
        
-   
+            
+                + "`Contactor_Name` = '" + c_name + "',\n"
+                + "`Phone` = '" + phone + "',\n"
+                + "`Email` = '" + em + "',\n"
+                + "`Address` = '" + add + "',\n"
+                + "`Date` = '" + date + "' \n"
+                + "WHERE `OrderID` = '" + c_id + "';");
+      
               
-    boolean x = autoSqlQuery.execute("Update `garmentsystem`.`Contactor`\n"+
-"(`Contactor_ID`,\n" +
-"`Contactor_Name`,\n" +
-"`Phone`,\n" +
-"`Email`,\n" +
-"`Address`,\n" +
-"`Date`)\n" +
-"VALUES\n" +
-"('"+c_id+"',\n" + 
-"'"+c_name+"',\n" +
-"'"+phone+"',\n" +
-"'"+em+"',\n" +
-"'"+add+"',\n" +
-"'"+date+"');"); 
     
          try
         {
@@ -563,6 +559,7 @@ public class Contactor extends javax.swing.JInternalFrame {
          jTextFieldAddress2.setText("");
          datePicker3.setDateToToday();
      }
+         
            
  //                private void FillTextCombo2()
   //  {

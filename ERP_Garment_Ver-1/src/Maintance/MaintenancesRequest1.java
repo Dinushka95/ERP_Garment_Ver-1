@@ -1,5 +1,5 @@
-
 package Maintance;
+
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
@@ -8,26 +8,25 @@ import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
-import javax.swing.JTextField; 
-        
+import javax.swing.JTextField;
+
 /**
  *
  * @author chethana
  */
 public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
 
-
     public MaintenancesRequest1() {
 
-    initComponents();
-    TableLoad1();
-    TableLoad2();
-    generate_MaintenancesID();
-    TextBoxClear2();
-    TextBoxClear1();
-    datePicker2.setDateToToday();
+        initComponents();
+        TableLoad1();
+        TableLoad2();
+        generate_MaintenancesID();
+        generate_MachinePart();
+        TextBoxClear2();
+        TextBoxClear1();
+        datePicker2.setDateToToday();
     }
-
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -307,8 +306,8 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-         
-  
+
+
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
@@ -317,19 +316,20 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
 
     private void jTextFieldMaintenancesIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMaintenancesIDActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_jTextFieldMaintenancesIDActionPerformed
 
     private void jButtonADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADDActionPerformed
         AddMaintenances();
         TableLoad1();
         generate_MaintenancesID();
-        generate_MaintenancesID1();
-        
+        generate_MachinePart();
+
+
     }//GEN-LAST:event_jButtonADDActionPerformed
 
     private void jButtonResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAllActionPerformed
-    
+
     }//GEN-LAST:event_jButtonResetAllActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -337,11 +337,11 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButtonADD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADD1ActionPerformed
-       DeleteMaintenance();
+        DeleteMaintenance();
     }//GEN-LAST:event_jButtonADD1ActionPerformed
 
     private void jButtonResetAll1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAll1ActionPerformed
-       EditMaintenance ();
+        EditMaintenance();
         TableLoad2();
     }//GEN-LAST:event_jButtonResetAll1ActionPerformed
 
@@ -350,182 +350,148 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-     int row =jTable1.getSelectedRow();
-        String m_id = jTable1.getValueAt(row,0).toString();
-        String des = jTable1.getValueAt(row,1).toString();
-        String dep = jTable1.getValueAt(row,2).toString();
-        String m_p = jTable1.getValueAt(row,3).toString();
-        String date = jTable1.getValueAt(row,6).toString();
-    
-        
-      jTextFieldMaintenancesID.setText(m_id);
-      jTextFieldDescription.setText(des);
-      jComboBox1.setSelectedItem(dep);
-      jTextFieldMachinePart.setText(m_p);
-      datePicker2.setText(date); 
+        int row = jTable1.getSelectedRow();
+        String m_id = jTable1.getValueAt(row, 0).toString();
+        String des = jTable1.getValueAt(row, 1).toString();
+        String dep = jTable1.getValueAt(row, 2).toString();
+        String m_p = jTable1.getValueAt(row, 3).toString();
+        String date = jTable1.getValueAt(row, 6).toString();
+
+        jTextFieldMaintenancesID.setText(m_id);
+        jTextFieldDescription.setText(des);
+        jComboBox1.setSelectedItem(dep);
+        jTextFieldMachinePart.setText(m_p);
+        datePicker2.setText(date);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable3MouseClicked
-    
-    public void AddMaintenances(){
-      String m_id = jTextFieldMaintenancesID.getText();
-      String des = jTextFieldDescription.getText();
-      String dep = jComboBox1.getSelectedItem().toString();
-      String m_p = jTextFieldMachinePart.getText();
-      String date = datePicker2.getText();
-      
- 
-      
-        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Maintanance_Request`\n" +
-"(`MaintenancesID`,\n" +
-"`Description`,\n" +
-"`Department`,\n" +
-"`MachineID`,\n" +
-"`Date`)\n" +
-"VALUES\n" +
-"('"+m_id+"',\n" +
-"'"+des+"',\n" +
-"'"+dep+"',\n" +
-""+m_p+",\n" +
-"'"+date+"');");
-    
-         try
-        {
-            if(x==true)
-            {
+
+    public void AddMaintenances() {
+        String m_id = jTextFieldMaintenancesID.getText();
+        String des = jTextFieldDescription.getText();
+        String dep = jComboBox1.getSelectedItem().toString();
+        String m_p = jTextFieldMachinePart.getText();
+        String date = datePicker2.getText();
+
+        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Maintanance_Request`\n"
+                + "(`MaintenancesID`,\n"
+                + "`Description`,\n"
+                + "`Department`,\n"
+                + "`MachineID`,\n"
+                + "`Date`)\n"
+                + "VALUES\n"
+                + "('" + m_id + "',\n"
+                + "'" + des + "',\n"
+                + "'" + dep + "',\n"
+                + "" + m_p + ",\n"
+                + "'" + date + "');");
+
+        try {
+            if (x == true) {
                 TableLoad1();
-               TextBoxClear1();
-                JOptionPane.showMessageDialog(null,"Susseccfuly Added");
-                
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        
-    
-        }}
-     private void TextBoxClear1(){
-     
-         jTextFieldMaintenancesID.setText("");
-         jTextFieldDescription.setText("");
-         jComboBox1.setSelectedIndex(0);
-         
-         jTextFieldMachinePart.setText("");
-         datePicker2.setDateToToday();
-     }
-     
-   
-         private void TableLoad1()
-  {
-      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Maintanance_Request`");
-      
-      jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+                TextBoxClear1();
+                JOptionPane.showMessageDialog(null, "Susseccfuly Added");
 
-  }
-      private void generate_MaintenancesID(){
-    AutoIdGenerator m_id = new AutoIdGenerator();
-    jTextFieldMaintenancesID.setText(m_id.generate("ACC",Integer.toString(MainWindow.userid)));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+
+        }
     }
-         
-     
-       
-private void EditMaintenance(){
 
-   String m_id = jTextFieldSearchMaintenancesID.getText();
-   String des = jTextFieldDescription1.getText();
-   String dep = jComboBox2.getSelectedItem().toString();
-   String m_p = jTextFieldMachinePart1.getText();
-   String date = datePicker3.getText();
-      
-    boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Maintanance_Request`\n" +
-"(`MaintenancesID`,\n" +
-"`Description`,\n" +
-"`Department`,\n" +
-"`MachineID`,\n" +
-"`Date`)\n" +
-"VALUES\n" +
-"('"+m_id+"',\n" +
-"'"+des+"',\n" +
-"'"+dep+"',\n" +
-""+m_p+",\n" +
-"'"+date+"');");
-          
-      try
-        {
-            if(x==true)
-            {
-               TableLoad2();
-               TextBoxClear2();
-               JOptionPane.showMessageDialog(null,"Susseccfuly Update");
-                
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        
-    
-        }}
-      
-      
-     
-    private void generate_MaintenancesID1(){
-    AutoIdGenerator m_id = new AutoIdGenerator();
-    jTextFieldSearchMaintenancesID.setText(m_id.generate("ACC",Integer.toString(MainWindow.userid)));
+    private void TextBoxClear1() {
+
+        jTextFieldMaintenancesID.setText("");
+        jTextFieldDescription.setText("");
+        jComboBox1.setSelectedIndex(0);
+
+        jTextFieldMachinePart.setText("");
+        datePicker2.setDateToToday();
+    }
+
+    private void TableLoad1() {
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Maintanance_Request`");
+
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
+
+    private void generate_MaintenancesID() {
+        AutoIdGenerator m_id = new AutoIdGenerator();
+        jTextFieldMaintenancesID.setText(m_id.generate("ACC", Integer.toString(MainWindow.userid)));
     }
     
+    private void generate_MachinePart(){
+            AutoIdGenerator m_p = new AutoIdGenerator();
+        jTextFieldMachinePart.setText(m_p.generate("ACC", Integer.toString(MainWindow.userid)));
     
-    
-    
-    private void TableLoad2()
-  {
-      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Maintanance_Request`");
-      
-      jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    }
 
-  }
-    
-       private void DeleteMaintenance()
-    {
+    private void EditMaintenance() {
+
+        String m_id = jTextFieldSearchMaintenancesID.getText();
+        String des = jTextFieldDescription1.getText();
+        String dep = jComboBox2.getSelectedItem().toString();
+        String m_p = jTextFieldMachinePart1.getText();
+        String date = datePicker3.getText();
+
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Maintanance_Request`\n"
+                + "SET\n"
+                + "`MaintenancesID` = '" + m_id + "',\n"
+                + "`Description` = '" + des + "',\n"
+                + "`Department` = '" + dep + "',\n"
+                + "`MachineID` = '" + m_p + "',\n"
+                + "`Date` = '" + date + "'\n"
+                + "WHERE `accessory_id` = '" + m_id + "';");
+
+        try {
+            if (x == true) {
+                TableLoad2();
+                TextBoxClear2();
+                JOptionPane.showMessageDialog(null, "Susseccfuly Update");
+
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+
+        }
+    }
+
+    private void TableLoad2() {
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Maintanance_Request`");
+
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
+
+    private void DeleteMaintenance() {
         String m_id = jButtonADD1.getText();
-        
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Maintanance_Request`\n" +
-        "WHERE Description = '"+m_id+"';");
-        
-        try
-        {
-            if (x==true)
-            {
+
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Maintanance_Request`\n"
+                + "WHERE Description = '" + m_id + "';");
+
+        try {
+            if (x == true) {
                 TextBoxClear2();
                 TableLoad2();
-                JOptionPane.showMessageDialog(null,"Susseccfuly Deleted");
+                JOptionPane.showMessageDialog(null, "Susseccfuly Deleted");
             }
-        }
-        catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex);
         }
     }
 
-       
-        private void TextBoxClear2(){
-     
-         jTextFieldSearchMaintenancesID.setText("");
-         jTextFieldDescription1.setText("");
-         jComboBox2.setSelectedIndex(0);
-         jTextFieldMachinePart1.setText("");
-         datePicker3.setDateToToday();
-     }
-      
-      
-    
-    
-    
-    
-            
-    
+    private void TextBoxClear2() {
+
+        jTextFieldSearchMaintenancesID.setText("");
+        jTextFieldDescription1.setText("");
+        jComboBox2.setSelectedIndex(0);
+        jTextFieldMachinePart1.setText("");
+        datePicker3.setDateToToday();
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
@@ -570,5 +536,4 @@ private void EditMaintenance(){
     private javax.swing.JTextField jTextFieldSearchMaintenancesID;
     // End of variables declaration//GEN-END:variables
 
-   
 }
