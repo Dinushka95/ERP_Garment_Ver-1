@@ -7,6 +7,7 @@ import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import javax.swing.JOptionPane;
@@ -81,6 +82,7 @@ int RowCountjTable;
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -101,7 +103,6 @@ int RowCountjTable;
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
         EditButton = new javax.swing.JButton();
         DeleteButton = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
         setTitle("Raw Materils");
@@ -347,17 +348,27 @@ int RowCountjTable;
             }
         });
 
+        jButton2.setText("Generate All Reports");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel12)
-                .addGap(142, 142, 142)
-                .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
-                .addComponent(jButton1)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel12)
+                        .addGap(142, 142, 142)
+                        .addComponent(searchname, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(28, 28, 28)
+                        .addComponent(jButton1))
+                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(ResetButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -380,9 +391,11 @@ int RowCountjTable;
                         .addComponent(ViewAll)
                         .addComponent(jButton1)))
                 .addGap(28, 28, 28)
-                .addComponent(ResetButton1)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(ResetButton1)
+                    .addComponent(jButton2))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 381, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -533,9 +546,6 @@ int RowCountjTable;
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
-
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
         getAccessibleContext().setAccessibleName("");
@@ -543,57 +553,54 @@ int RowCountjTable;
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
+    private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
         // TODO add your handling code here:
-        TextBoxClear();
-    }//GEN-LAST:event_ResetButtonActionPerformed
+        String id = jTextField1.getText();
 
-    private void quantityfieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfieldKeyTyped
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
+            "WHERE Material_id = '"+id+"';");
+
+        try
+        {
+            if (x==true)
+            {
+                TextBoxClear2();
+                TableLoad2();
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+
+        //        DB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
+            //"WHERE Material_id = '"+id+"';");
+
+    }//GEN-LAST:event_DeleteButtonActionPerformed
+
+    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         // TODO add your handling code here:
-        
-        
-        
-    }//GEN-LAST:event_quantityfieldKeyTyped
+        EditMaterials();
 
-    private void quantityfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityfieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_quantityfieldActionPerformed
-
-    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
-        // TODO add your handling code here;
-        
-        AddMaterial();
-        TableLoad();
         TableLoad2();
-        TextBoxClear();
-        
-        
-        
-    }//GEN-LAST:event_AddButtonActionPerformed
+    }//GEN-LAST:event_EditButtonActionPerformed
 
-
-    
-    private void quantityfieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfieldKeyReleased
+    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
         // TODO add your handling code here:
-        double qty = Double.parseDouble(quantityfield.getText());
-        double perunit = Double.parseDouble(costfield.getText());
-        
+        double perunit = Double.parseDouble(jTextField3.getText());
+        double qty = Double.parseDouble(jTextField4.getText());
+
         double val = perunit * qty;
-        
-        valuefield.setText(Double.toString(val));
-    }//GEN-LAST:event_quantityfieldKeyReleased
 
-    private void ViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAllActionPerformed
-        // TODO add your handling code here:
-        TableLoad2();
-    }//GEN-LAST:event_ViewAllActionPerformed
+        jTextField5.setText(Double.toString(val));
+    }//GEN-LAST:event_jTextField4KeyReleased
 
-    private void ResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButton1ActionPerformed
-        // TODO add your handling code here:
-        clearSearch();
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 
-        
-    }//GEN-LAST:event_ResetButton1ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\InventoryManagement\\Report\\AllMaterials.jrxml";
+        System.err.println(FileLocation);
+
+        autoReport.SimpleAllReport(FileLocation);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
@@ -610,7 +617,7 @@ int RowCountjTable;
         String value = jTable2.getValueAt(row,4).toString();
         String reorder = jTable2.getValueAt(row,5).toString();
         String date = jTable2.getValueAt(row,6).toString();
-        
+
         jTextField1.setText(id);
         jTextField2.setText(name);
         jTextField3.setText(cost);
@@ -618,57 +625,60 @@ int RowCountjTable;
         jTextField5.setText(value);
         jTextField6.setText(reorder);
         datePicker1.setText(date);
-        
+
     }//GEN-LAST:event_jTable2MouseClicked
 
-    private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
+    private void ResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButton1ActionPerformed
         // TODO add your handling code here:
-        EditMaterials();
-        
+        clearSearch();
+
+    }//GEN-LAST:event_ResetButton1ActionPerformed
+
+    private void ViewAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAllActionPerformed
+        // TODO add your handling code here:
         TableLoad2();
-    }//GEN-LAST:event_EditButtonActionPerformed
+    }//GEN-LAST:event_ViewAllActionPerformed
 
     private void valuefieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_valuefieldKeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_valuefieldKeyReleased
 
-    private void jTextField4KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyReleased
+    private void ResetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButtonActionPerformed
         // TODO add your handling code here:
-        double perunit = Double.parseDouble(jTextField3.getText());
-        double qty = Double.parseDouble(jTextField4.getText());
-        
+        TextBoxClear();
+    }//GEN-LAST:event_ResetButtonActionPerformed
+
+    private void AddButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddButtonActionPerformed
+        // TODO add your handling code here;
+
+        AddMaterial();
+        TableLoad();
+        TableLoad2();
+        TextBoxClear();
+
+    }//GEN-LAST:event_AddButtonActionPerformed
+
+    private void quantityfieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfieldKeyTyped
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_quantityfieldKeyTyped
+
+    private void quantityfieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantityfieldKeyReleased
+        // TODO add your handling code here:
+        double qty = Double.parseDouble(quantityfield.getText());
+        double perunit = Double.parseDouble(costfield.getText());
+
         double val = perunit * qty;
-        
-        jTextField5.setText(Double.toString(val));
-    }//GEN-LAST:event_jTextField4KeyReleased
 
-    private void DeleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteButtonActionPerformed
+        valuefield.setText(Double.toString(val));
+    }//GEN-LAST:event_quantityfieldKeyReleased
+
+    private void quantityfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantityfieldActionPerformed
         // TODO add your handling code here:
-        String id = jTextField1.getText();
-        
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
-"WHERE Material_id = '"+id+"';");
-        
-        try
-        {
-            if (x==true)
-            {
-                TextBoxClear2();
-                TableLoad2();
-            }
-        }
-        catch (Exception ex){
-            System.out.println(ex);
-        }
-        
-//        DB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("DELETE FROM `garmentsystem`.`Raw_Materials`\n" +
-//"WHERE Material_id = '"+id+"';");
-        
+    }//GEN-LAST:event_quantityfieldActionPerformed
 
 
         
-
-    }//GEN-LAST:event_DeleteButtonActionPerformed
     private void generate_mid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     idfield.setText(aid.generate("MAT",Integer.toString(MainWindow.userid)));
@@ -850,6 +860,7 @@ int RowCountjTable;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JTextField idfield;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -868,7 +879,6 @@ int RowCountjTable;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

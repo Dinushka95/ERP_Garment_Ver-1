@@ -4,6 +4,7 @@ package Procurements;
 import MainSystem.AutoIdGenerator;
 import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import net.proteanit.sql.DbUtils;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
@@ -108,6 +109,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         jButton4 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        jButton6 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Suppliers");
@@ -347,6 +349,14 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
 
         jPanel6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 970, -1));
 
+        jButton6.setText("Generate All Suppllier Portfolio Report");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
+
         jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, 1000, 520));
 
         jTabbedPane1.addTab("Update/Delete supplier details", jPanel2);
@@ -436,6 +446,13 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         SupplierNameSearch();
         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Procurements\\Reports\\Suppliers.jrxml";
+        System.err.println(FileLocation);
+        autoReport.SimpleAllReport(FileLocation);
+    }//GEN-LAST:event_jButton6ActionPerformed
     private void generate_Supid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField1.setText(aid.generate("SUP",Integer.toString(MainWindow.userid)));
@@ -627,6 +644,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -8,6 +8,7 @@ import MainSystem.AutoDB_Connect;
 
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import javax.swing.JOptionPane;
@@ -87,6 +88,7 @@ public class Machinery extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         EditButton = new javax.swing.JButton();
         DeleteButton = new javax.swing.JButton();
@@ -301,6 +303,13 @@ public class Machinery extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton2.setText("Print All Machine Report");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -320,6 +329,8 @@ public class Machinery extends javax.swing.JInternalFrame {
                 .addComponent(ViewAll, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ResetButton1)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
@@ -333,9 +344,10 @@ public class Machinery extends javax.swing.JInternalFrame {
                     .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ViewAll)
                         .addComponent(jButton1)
-                        .addComponent(ResetButton1)))
+                        .addComponent(ResetButton1)
+                        .addComponent(jButton2)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -654,6 +666,15 @@ public class Machinery extends javax.swing.JInternalFrame {
         accdep1.setText(Double.toString(acc));
         
     }//GEN-LAST:event_deprate1KeyReleased
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        String FileLocation=System.getProperty("user.dir")+"\\src\\InventoryManagement\\Report\\Machines.jrxml";
+        System.err.println(FileLocation);
+
+        String sql = "SELECT * FROM `garmentsystem`.`F_FIXASSETS` WHERE AssetID LIKE 'MAC%'";
+        autoReport.Query2Report(FileLocation, sql);
+    }//GEN-LAST:event_jButton2ActionPerformed
     private void generate_Asstid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     asstid.setText(aid.generate("ASST",Integer.toString(MainWindow.userid)));
@@ -855,6 +876,7 @@ public class Machinery extends javax.swing.JInternalFrame {
     private javax.swing.JTextField dpp;
     private javax.swing.JTextField dpp1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -7,6 +7,7 @@ import MainSystem.AutoDB_Connect;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import java.io.File;
 import static MainSystem.MainWindow.autoSqlQuery;
 
@@ -100,6 +101,7 @@ File Image;
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jLabelProductImageSED = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         EditButton = new javax.swing.JButton();
         DeleteButton = new javax.swing.JButton();
@@ -386,6 +388,14 @@ File Image;
 
         jLabelProductImageSED.setText("              Product Image");
         jPanel7.add(jLabelProductImageSED, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 160, 160));
+
+        jButton2.setText("All Products Report");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, -1, -1));
 
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 530));
 
@@ -746,6 +756,13 @@ File Image;
     private void namefield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_namefield1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_namefield1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        String FileLocation=System.getProperty("user.dir")+"\\src\\InventoryManagement\\Report\\Products.jrxml";
+        System.err.println(FileLocation);
+        autoReport.SimpleAllReport(FileLocation);
+    }//GEN-LAST:event_jButton2ActionPerformed
     private void generate_finid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     idfield.setText(aid.generate("FGD",Integer.toString(MainWindow.userid)));
@@ -961,6 +978,7 @@ File Image;
     private javax.swing.JTextField idfield;
     private javax.swing.JTextField idfield1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton23;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
