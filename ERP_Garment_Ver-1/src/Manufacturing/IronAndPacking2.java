@@ -366,7 +366,10 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         String damages=jTextFieldPhone1.getText();
         String pcs=jTextFieldEmail1.getText();
              
-                       
+        if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||damages.isEmpty()||pcs.isEmpty()){
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        else{               
         try
        {
         
@@ -383,6 +386,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         catch(Exception e){
                 System.out.println(e);
                 
+        }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -427,6 +431,10 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         String dmg=jTextField10.getText();
         String pcs=jTextField2.getText();
         
+        if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||dmg.isEmpty()||pcs.isEmpty()){
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        else{
         
         try{
        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`ironNpacking`\n" +
@@ -446,6 +454,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
        }
         catch(Exception e){
             System.out.println(e);
+        }
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 

@@ -496,8 +496,12 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         String length=jTextField12.getText();
         String wastages=jTextFieldEmail1.getText();
            
+        if(id.isEmpty()||cut_sch.isEmpty()||style.isEmpty()||qty.isEmpty()||length.isEmpty()||wastages.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         
-        
+        }
+        else{
         
         try
        {
@@ -517,6 +521,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
                 System.out.println(e);
                 
         }
+       }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -555,6 +560,10 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         String used=jTextField5.getText();
         String pcs=jTextField3.getText();
         
+        if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||tot.isEmpty()||waste.isEmpty()||used.isEmpty()||pcs.isEmpty()){
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        else{
         try{
        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`cutting`\n" +
 "(`Cutting_ID`,\n" +
@@ -580,6 +589,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
        catch(Exception e){
            System.out.println(e);
        }
+    }
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked

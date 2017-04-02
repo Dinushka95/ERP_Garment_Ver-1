@@ -385,6 +385,10 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         String damage=jTextFieldPhone1.getText();
         String pcs=jTextFieldEmail1.getText();
         
+         if(sewid.isEmpty()||style.isEmpty()||sch.isEmpty()||damage.isEmpty()||pcs.isEmpty()){
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        else{
          try
        {
         
@@ -402,6 +406,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
                 System.out.println(e);
                 
         }
+         }
        
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -444,6 +449,11 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         String tot=jTextField10.getText();
         String waste=jTextField2.getText();
                
+        
+         if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||tot.isEmpty()||waste.isEmpty()){
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        else{
         try{
        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`sewing`\n" +
 "(`Sewing_ID`,\n" +
@@ -465,6 +475,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
        catch(Exception e){
            System.out.println(e);
        }
+         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField11MouseClicked
