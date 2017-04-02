@@ -558,7 +558,12 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
            int r=jTable2.getSelectedRow();
            String qty=jTable2.getValueAt(r, 4).toString();
         
-    //System.err.print(stid);
+    if(id.isEmpty()||stid.isEmpty()||sewid.isEmpty()||sample.isEmpty()||stdate.isEmpty()||endate.isEmpty()||type.isEmpty())
+    {
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+    
+    }
+    else{
         try{
        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Washing_Schedule_table`\n" +
 "(`Schedule_ID`,\n" +
@@ -590,7 +595,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
             System.out.println(e); 
             
         }
-       
+    }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void FillComboSupervisor()
@@ -903,6 +908,14 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
          String sew=jTable3.getValueAt(r, 8).toString();
          
          System.err.print(sew);
+         
+         if(schid.isEmpty()||styleid.isEmpty()||(jTextField9.getText()).isEmpty()||stdate.isEmpty()||endate.isEmpty()||type.isEmpty()||(jTextField8.getText()).isEmpty()||sup.isEmpty())
+         {
+              JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+         
+         }
+         else{
+             
        try
        {
         
@@ -930,6 +943,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
        {
            System.out.println(ex);
        }
+         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed

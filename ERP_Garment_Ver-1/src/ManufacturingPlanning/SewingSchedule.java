@@ -339,12 +339,12 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
 
         jLabel16.setText("End Date");
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
+        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
         jPanel7.add(datePicker4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
 
         jLabel17.setText("Start Date");
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
         jPanel7.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
 
         jLabel24.setText("No of Minutes per Sample");
@@ -591,7 +591,22 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField19ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+      String schid=jTextField6.getText();
+      String style=jTextField4.getText();
+      String cutNo=jTextField2.getText();
+      String minutes=jTextField18.getText();
+      String days=jTextField19.getText();
+      String lab=jTextField11.getText();
+     
+      String room=jComboBox1.getSelectedItem().toString();
+      String lines=jComboBox1.getSelectedItem().toString();
+      
+        if(schid.isEmpty()||style.isEmpty()||cutNo.isEmpty()||minutes.isEmpty()||days.isEmpty()||lab.isEmpty()||room.equals("-select-")||lines.equals("-select-")){
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+       }
+       else{
         AddSewingSchedule();
+       }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -615,6 +630,15 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
          String line=jComboBox8.getSelectedItem().toString();
          int r=jTable2.getSelectedRow();
          String cut=jTable2.getValueAt(r, 9).toString();
+         
+        if(schid.isEmpty()||styleid.isEmpty()||lab.isEmpty()||(jTextField20.getText()).isEmpty()||(jTextField25.getText()).isEmpty()||room.equals("-select-")||line.equals("-select-"))
+        {
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        else
+        {     
+        
+            
        try
        {
         
@@ -643,6 +667,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
        {
            System.out.println(ex);
        }
+        }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

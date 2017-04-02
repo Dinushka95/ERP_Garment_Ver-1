@@ -1,6 +1,13 @@
 
 package Manufacturing;
  
+import MainSystem.AutoDB_Connect;
+import MainSystem.AutoIdGenerator;
+import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+
 
 
 
@@ -17,7 +24,7 @@ public class Washing1 extends javax.swing.JInternalFrame {
      */
     public Washing1() {
         initComponents();
-      
+        generate_cdi();
       
    
     }
@@ -73,7 +80,6 @@ public class Washing1 extends javax.swing.JInternalFrame {
         jTextFieldCustomerName1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jTextFieldCompanyName1 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -104,10 +110,16 @@ public class Washing1 extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Washing ID");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 80, -1));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 130, -1));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Item", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField4MouseClicked(evt);
+            }
+        });
         jPanel6.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 28, 120, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -116,6 +128,11 @@ public class Washing1 extends javax.swing.JInternalFrame {
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("Search");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, 80, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -129,13 +146,24 @@ public class Washing1 extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 61, 490, 190));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel19.setText("Sewing ID");
+        jLabel19.setText("Schedule ID");
         jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
+
+        jTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField5MouseClicked(evt);
+            }
+        });
         jPanel6.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 120, -1));
 
         jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 560, 270));
@@ -155,6 +183,11 @@ public class Washing1 extends javax.swing.JInternalFrame {
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton6.setText("Add");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 460, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 610, 520));
@@ -167,7 +200,12 @@ public class Washing1 extends javax.swing.JInternalFrame {
         jLabel20.setText("Search By");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 50, -1, -1));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Sewing ID", "Style ID", "Schedule ID" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Washing ID", "Style ID", "Schedule ID" }));
+        jComboBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox4ItemStateChanged(evt);
+            }
+        });
         jComboBox4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboBox4MouseClicked(evt);
@@ -186,6 +224,11 @@ public class Washing1 extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 150, 710, 330));
@@ -246,15 +289,6 @@ public class Washing1 extends javax.swing.JInternalFrame {
         jLabel13.setText("Style ID");
         jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 20));
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton7.setText("Reset All");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
-
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setText("Schedule ID");
         jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, 20));
@@ -283,7 +317,7 @@ public class Washing1 extends javax.swing.JInternalFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
+        jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 330, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Edit");
@@ -292,7 +326,7 @@ public class Washing1 extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 330, -1, -1));
 
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 80, 410, 450));
 
@@ -313,26 +347,209 @@ public class Washing1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox4MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+         try{
+        
+        if(jTextField7.getText()!=null)
+        {
+            String search=jTextField7.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.washing WHERE washing_ID ='"+search+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        if(jTextField13.getText()!=null)
+        {
+            String search=jTextField13.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.washing WHERE style_ID ='"+search+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        if(jTextField37.getText()!=null)
+        {
+            String search=jTextField37.getText();
+            System.err.print(search);
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.washing WHERE WashSchedule ='"+search+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        }
+        catch(Exception e){
+                System.out.println(e);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
     private void jTextFieldCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerId1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+        String id = jTextFieldCustomerId1.getText();
+        
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`washing`\n" +
+"WHERE washing_ID='"+id+"';");
+       if(x==true)
+            JOptionPane.showMessageDialog(null,"Successfully Deleted");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        String id=jTextFieldCustomerId1.getText();
+        String style=jTextFieldCustomerName1.getText();
+        String sch=jTextFieldCompanyName1.getText();
+        String damages=jTextFieldPhone1.getText();
+        String pcs=jTextFieldEmail1.getText();
+             
+                       
+        try
+       {
+        
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`washing`\n" +
+"SET\n" +
+"`style_ID` = '"+style+"',\n" +
+"`WashSchedule` = '"+sch+"',\n" +
+"`damages` = '"+damages+"',\n" +
+"`pcs` = '"+pcs+"'\n" +
+"WHERE `washing_ID` = '"+id+"';");
+        
+        JOptionPane.showMessageDialog(null, "Updated Successfully");
+       }
+        catch(Exception e){
+                System.out.println(e);
+                
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-   
+    private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
+                                              
+        jTextField5.setEnabled(false);
+        jTextField5.setText("");
+        jTextField4.setEnabled(true);
+    }//GEN-LAST:event_jTextField4MouseClicked
+
+    private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
+        jTextField4.setEnabled(false);
+        jTextField4.setText("");
+        jTextField5.setEnabled(true);
+    }//GEN-LAST:event_jTextField5MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+         try{
+        
+        if(jTextField4.getText()!=null)
+        {
+            String search=jTextField4.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE Style_ID ='"+search+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        if(jTextField5.getText()!=null)
+        {
+            String search=jTextField5.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE Schedule_ID ='"+search+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        }
+        catch(Exception e){
+                System.out.println(e);
+                
+         }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int r=jTable1.getSelectedRow();
+        
+        String schd=jTable1.getValueAt(r, 0).toString();
+        String styleID=jTable1.getValueAt(r, 1).toString();
+       
+        
+        
+        jTextField4.setText(styleID);
+        jTextField5.setText(schd);
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+         String id=jTextField1.getText();
+        String style=jTextField4.getText();
+        String sch=jTextField5.getText();
+        String dmg=jTextField10.getText();
+        String pcs=jTextField2.getText();
+        
+        
+        try{
+       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`washing`\n" +
+"(`washing_ID`,\n" +
+"`style_ID`,\n" +
+"`WashSchedule`,\n" +
+"`damages`,\n" +
+"`pcs`)\n"+
+"VALUES\n" +
+"('"+id+"',\n" +
+"'"+style+"',\n" +
+"'"+sch+"',\n" +
+"'"+dmg+"',\n" +
+"'"+pcs+"');");
+       
+       JOptionPane.showMessageDialog(null,"Successful");
+       }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
+        String search=jComboBox4.getSelectedItem().toString();
+        System.out.println(search);
+        if(search.equals("Washing ID"))
+        {
+            jLabel21.setEnabled(true);
+            jTextField7.setEnabled(true);
+            jButton1.setEnabled(true);
+            
+        }
+        
+        else if (search.equals("Style ID"))
+        {
+            jLabel26.setEnabled(true);
+            jTextField13.setEnabled(true);
+            jButton1.setEnabled(true);
+        }
+        else if (search.equals("Schedule ID"))
+        {
+            jLabel56.setEnabled(true);
+            jTextField37.setEnabled(true);
+            jButton1.setEnabled(true);
+        }
+        
+         else
+            JOptionPane.showMessageDialog(null, "Select a category");
+        
+    }//GEN-LAST:event_jComboBox4ItemStateChanged
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+         try{
+        int r=jTable2.getSelectedRow();
+        String schid=jTable2.getValueAt(r, 0).toString();
+        String cutid=jTable2.getValueAt(r, 1).toString();
+        String styleID=jTable2.getValueAt(r, 2).toString();
+        String qty=jTable2.getValueAt(r, 3).toString();
+        String length=jTable2.getValueAt(r, 4).toString();
+       
+        
+        
+        
+        jTextFieldCustomerId1.setText(schid);
+        jTextFieldCustomerName1.setText(cutid);
+        jTextFieldCompanyName1.setText(styleID);
+        jTextFieldPhone1.setText(qty);
+        jTextFieldEmail1.setText(length);
+        
+        
+        
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+                                    
+    }//GEN-LAST:event_jTable2MouseClicked
+
+   private void generate_cdi(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1.setText(aid.generate("WASH-",Integer.toString(MainWindow.userid)));
+    }
         
        
         
@@ -362,7 +579,6 @@ public class Washing1 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;

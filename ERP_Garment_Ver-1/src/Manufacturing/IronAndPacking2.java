@@ -1,6 +1,13 @@
 
 package Manufacturing;
  
+import MainSystem.AutoDB_Connect;
+import MainSystem.AutoIdGenerator;
+import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+
 
 
 
@@ -17,7 +24,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
      */
     public IronAndPacking2() {
         initComponents();
-      
+        generate_cdi();
       
    
     }
@@ -59,7 +66,6 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
-        jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jLabel21 = new javax.swing.JLabel();
@@ -74,7 +80,6 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jTextFieldCustomerName1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jTextFieldCompanyName1 = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
@@ -123,6 +128,11 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
 
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("Search");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 30, 80, 20));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -136,6 +146,11 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanel6.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 61, 540, 190));
@@ -168,6 +183,11 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton6.setText("Add");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 680, 520));
@@ -176,7 +196,12 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Cutting ID", "Style ID", "Schedule ID" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Iron And Packing ID", "Style ID", "Schedule ID" }));
+        jComboBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox4ItemStateChanged(evt);
+            }
+        });
         jComboBox4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jComboBox4MouseClicked(evt);
@@ -187,15 +212,6 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel20.setText("Search By");
         jPanel3.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton5.setText("OK");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 110, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -208,6 +224,11 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 710, 330));
@@ -238,6 +259,11 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, -1, -1));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -262,15 +288,6 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("Style ID");
         jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 20));
-
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton7.setText("Reset All");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setText("Schedule ID");
@@ -300,7 +317,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
+        jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 330, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Edit");
@@ -309,7 +326,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 330, -1, -1));
 
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 80, 440, 450));
 
@@ -329,24 +346,44 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jComboBox4MouseClicked
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
-    }//GEN-LAST:event_jButton5ActionPerformed
-
     private void jTextFieldCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerId1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+        String id = jTextFieldCustomerId1.getText();
+        
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`ironNpacking`\n" +
+"WHERE iNp='"+id+"';");
+       if(x==true)
+            JOptionPane.showMessageDialog(null,"Successfully Deleted");
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
+        String id=jTextFieldCustomerId1.getText();
+        String style=jTextFieldCustomerName1.getText();
+        String sch=jTextFieldCompanyName1.getText();
+        String damages=jTextFieldPhone1.getText();
+        String pcs=jTextFieldEmail1.getText();
+             
+                       
+        try
+       {
+        
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`ironNpacking`\n" +
+"SET\n" +
+"`style_ID` = '"+style+"',\n" +
+"`Schedule_ID` = '"+sch+"',\n" +
+"`damages` = '"+damages+"',\n" +
+"`pcs` = '"+pcs+"'\n" +
+"WHERE `iNp` = '"+id+"';");
+        
+        JOptionPane.showMessageDialog(null, "Updated Successfully");
+       }
+        catch(Exception e){
+                System.out.println(e);
+                
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
@@ -361,6 +398,148 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jTextField4.setEnabled(true);
     }//GEN-LAST:event_jTextField4MouseClicked
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        try{
+        
+        if(jTextField5.getText()!=null)
+        {
+            String search=jTextField5.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule WHERE Style_ID ='"+search+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        if(jTextField4.getText()!=null)
+        {
+            String search=jTextField4.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule WHERE Schedule_ID ='"+search+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        }
+        catch(Exception e){
+                System.out.println(e);
+                
+         }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String id=jTextField1.getText();
+        String style=jTextField5.getText();
+        String sch=jTextField4.getText();
+        String dmg=jTextField10.getText();
+        String pcs=jTextField2.getText();
+        
+        
+        try{
+       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`ironNpacking`\n" +
+"(`iNp`,\n" +
+"`style_ID`,\n" +
+"`Schedule_ID`,\n" +
+"`damages`,\n" +
+"`pcs`)\n"+
+"VALUES\n" +
+"('"+id+"',\n" +
+"'"+style+"',\n" +
+"'"+sch+"',\n" +
+"'"+dmg+"',\n" +
+"'"+pcs+"');");
+       
+       JOptionPane.showMessageDialog(null,"Successful");
+       }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+        int r=jTable1.getSelectedRow();
+        
+        String schd=jTable1.getValueAt(r, 0).toString();
+        String styleID=jTable1.getValueAt(r, 1).toString();
+       
+        
+        
+        jTextField5.setText(styleID);
+        jTextField4.setText(schd);
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
+        String search=jComboBox4.getSelectedItem().toString();
+        System.out.println(search);
+        if(search.equals("Iron And Packing ID"))
+        {
+            jLabel21.setEnabled(true);
+            jTextField7.setEnabled(true);
+            jButton1.setEnabled(true);
+            
+        }
+        
+        else if (search.equals("Style ID"))
+        {
+            jLabel26.setEnabled(true);
+            jTextField13.setEnabled(true);
+            jButton1.setEnabled(true);
+        }
+        else if (search.equals("Schedule ID"))
+        {
+            jLabel56.setEnabled(true);
+            jTextField37.setEnabled(true);
+            jButton1.setEnabled(true);
+        }
+        
+         else
+            JOptionPane.showMessageDialog(null, "Select a category");
+    }//GEN-LAST:event_jComboBox4ItemStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+          try{
+        
+        if(jTextField7.getText()!=null)
+        {
+            String search=jTextField7.getText();
+            System.out.println(search);
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.ironNpacking WHERE iNp ='"+search+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(jTextField13.getText()!=null)
+        {
+            String search=jTextField13.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.ironNpacking WHERE style_ID ='"+search+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(jTextField37.getText()!=null)
+        {
+            String search=jTextField37.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.ironNpacking WHERE Schedule_ID ='"+search+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        }
+        catch(Exception e){
+                System.out.println(e);
+    }//GEN-LAST:event_jButton1ActionPerformed
+    }
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+          
+        int r=jTable2.getSelectedRow();
+        String iNp=jTable2.getValueAt(r, 0).toString();
+        String styleID=jTable2.getValueAt(r, 1).toString();
+        String SchID=jTable2.getValueAt(r, 2).toString();
+        String dmgs=jTable2.getValueAt(r, 3).toString();
+        String pcs=jTable2.getValueAt(r, 4).toString();
+       
+        
+        
+        
+        jTextFieldCustomerId1.setText(iNp);
+        jTextFieldCustomerName1.setText(styleID);
+        jTextFieldCompanyName1.setText(SchID);
+        jTextFieldPhone1.setText(dmgs);
+        jTextFieldEmail1.setText(pcs);
+          
+    }//GEN-LAST:event_jTable2MouseClicked
+    
+    private void generate_cdi(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1.setText(aid.generate("INP-",Integer.toString(MainWindow.userid)));
+    }
    
         
        
@@ -390,9 +569,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;

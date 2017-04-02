@@ -6,6 +6,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -39,6 +40,8 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
     private void generate_cdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField6.setText(aid.generate("IAP-SHI",Integer.toString(MainWindow.userid)));
+    
+    
     }
 
     /**
@@ -118,9 +121,6 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         DatePickerSettings setting12 = new DatePickerSettings();
@@ -142,9 +142,10 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jLabel25 = new javax.swing.JLabel();
         jTextField13 = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        jTextField14 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jTextField5 = new javax.swing.JTextField();
+        jComboBox9 = new javax.swing.JComboBox<>();
+        jComboBox10 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -330,6 +331,11 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
         jPanel12.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 170, 700, 310));
@@ -412,12 +418,6 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jLabel18.setText("Room No");
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
-        jPanel6.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 140, -1));
-
-        jLabel11.setText("No of Lines");
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 360, -1, -1));
-        jPanel6.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 140, -1));
 
         jLabel14.setText("Start Date");
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -449,6 +449,11 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
 
         jButton6.setText("Edit");
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 410, -1, -1));
 
         jButton8.setText("Delete");
@@ -468,12 +473,16 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jLabel26.setText("Supervisor ID");
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
-        jPanel6.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 140, -1));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Minutes per Sample");
         jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
         jPanel6.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 140, -1));
+
+        jPanel6.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 140, -1));
+
+        jComboBox10.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-select-", "I001", "I002", "I003", "I004", "I005" }));
+        jPanel6.add(jComboBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 140, -1));
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, 470, 500));
 
@@ -642,7 +651,7 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
        
         else if(search=="Type")
         {
-            String schID=jComboBox3.getSelectedItem().toString();
+            String schID=jComboBox2.getSelectedItem().toString();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule WHERE Type ='"+schID+"'");
             jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
         }
@@ -652,6 +661,93 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
             System.out.println(e);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+         String schid=jTextField8.getText();
+         String styleid=jTextField12.getText();
+         int quantity =Integer.valueOf(jTextField13.getText());
+         int sample =Integer.valueOf(jTextField5.getText());
+         String stdate=datePicker5.getText();
+         String endate=datePicker6.getText();
+         String type=jComboBox4.getSelectedItem().toString();
+         String sup=jComboBox9.getSelectedItem().toString();
+         String lab=jTextField9.getText();
+         String roomNo=jComboBox10.getSelectedItem().toString();
+         
+         int r=jTable3.getSelectedRow();
+         String wash=jTable3.getValueAt(r, 10).toString();
+       try
+       {
+        
+            boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Iron_and_Packing_Schedule`\n" +
+"SET\n" +
+"`Style_ID` = '"+styleid+"',\n" +
+"`Type` = '"+type+"',\n" +
+"`Room_No` = '"+roomNo+"',\n" +
+"`No_of_Labourers` = '"+lab+"',\n" +
+"`Start_Date` = '"+stdate+"',\n" +
+"`End_Date` = '"+endate+"',\n" +
+"`Supervisor_ID` = '"+sup+"',\n" +
+"`Days_per_Sample` = '"+sample+"',\n" +
+"`Washing_ID` = '"+wash+"',\n" +
+"`Quantity` = '"+quantity+"'\n" +
+"WHERE `Schedule_ID` = '"+schid+"';");
+       
+           if(x==true)
+           {
+               //EditTableLoad();
+               //TextBoxClear();
+               JOptionPane.showMessageDialog(null, "Successfully updated");
+           }
+       }
+       catch(Exception ex)
+       {
+           System.out.println(ex);
+       }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        try{
+        int r=jTable3.getSelectedRow();
+        String schid=jTable3.getValueAt(r, 0).toString();
+        String styleID=jTable3.getValueAt(r, 1).toString();
+        String type = jTable3.getValueAt(r, 2).toString();
+        String roomNo=jTable3.getValueAt(r, 3).toString();
+        String Nolab=jTable3.getValueAt(r, 4).toString();
+        String stdate=jTable3.getValueAt(r, 5).toString();
+        String endDate=jTable3.getValueAt(r, 6).toString();
+        String supervisor=jTable3.getValueAt(r, 7).toString();
+        String days=jTable3.getValueAt(r, 8).toString();
+        String wasid=jTable3.getValueAt(r, 9).toString();
+       
+        
+        
+        
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE Schedule_ID ='"+wasid+"'");
+        AutoDB_Connect.DB_ResultSet.next();
+        String x =AutoDB_Connect.DB_ResultSet.getString("Qty");
+        
+        
+        jTextField8.setText(schid);
+        jTextField12.setText(styleID);
+        jTextField13.setText(x);
+        jTextField5.setText(days);
+        LocalDate Stdate = LocalDate.parse(stdate);
+        datePicker5.setDate(Stdate);
+        LocalDate ENDdate = LocalDate.parse(endDate);
+        datePicker6.setDate(ENDdate);
+        jComboBox4.setSelectedItem(type);
+        jComboBox9.setSelectedItem(supervisor);
+        jTextField9.setText(Nolab);
+        jComboBox10.setSelectedItem(roomNo);
+        
+        
+      
+    }catch(Exception e)
+    {
+        System.out.println(e);
+    }
+    }//GEN-LAST:event_jTable3MouseClicked
 
    private void FillComboSupervisor()
     {
@@ -663,7 +759,7 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
             {
                 String id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
                 jComboBox8.addItem(id);
-                              
+                jComboBox9.addItem(id);
             }
         }
         catch (Exception ex)
@@ -686,36 +782,36 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         String room=jComboBox6.getSelectedItem().toString();
         int line=Integer.parseInt(jComboBox7.getSelectedItem().toString());
         String sup=jComboBox8.getSelectedItem().toString();
-//        int r=jTable4.getSelectedRow();
-//        String qty=jTable4.getValueAt(r, 4).toString();
+        int r=jTable4.getSelectedRow();
+        String qty=jTable4.getValueAt(r, 4).toString();
         
         
         
         try{
-//       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Iron_and_Packing_Schedule`\n" +
-//"(`Schedule_ID`,\n" +
-//"`Style_ID`,\n" +
-//"`Type`,\n" +
-//"`Room_No`,\n" +
-//"`No_of_Sample`,\n" +
-//"`No_of_Labourers`,\n" +
-//"`Start_Date`,\n" +
-//"`End_Date`,\n" +
-//"`Supervisor_ID`,\n" +
-//"`Qty`,\n" +               
-//"`Washing_ID`)\n" +
-//"VALUES\n" +
-//"('"+id+"',\n" +
-//"'"+style+"',\n" +
-//"'"+type+"',\n" +
-//"'"+room+"',\n" +
-//"'"+sample+"',\n" +
-//"'"+lab+"',\n" +
-//"'"+stdate+"',\n" +
-//"'"+enddate+"',\n" +
-//"'"+sup+"',\n" +
-//"'"+qty+"',\n" +        
-//"'"+wshid+"');");
+       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Iron_and_Packing_Schedule`\n" +
+"(`Schedule_ID`,\n" +
+"`Style_ID`,\n" +
+"`Type`,\n" +
+"`Room_No`,\n" +
+"`No_of_Labourers`,\n" +
+"`Start_Date`,\n" +
+"`End_Date`,\n" +
+"`Supervisor_ID`,\n" +
+"`Days_per_Sample`,\n" +
+"`Quantity`,\n" +               
+"`Washing_ID`)\n" +
+"VALUES\n" +
+"('"+id+"',\n" +
+"'"+style+"',\n" +
+"'"+type+"',\n" +
+"'"+room+"',\n" +
+"'"+lab+"',\n" +
+"'"+stdate+"',\n" +
+"'"+enddate+"',\n" +
+"'"+sup+"',\n" +
+"'"+sample+"',\n" +
+"'"+qty+"',\n" +        
+"'"+wshid+"');");
        
        JOptionPane.showMessageDialog(null,"Successful");
         }
@@ -742,6 +838,7 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -749,9 +846,9 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -793,11 +890,8 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable4;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField2;
