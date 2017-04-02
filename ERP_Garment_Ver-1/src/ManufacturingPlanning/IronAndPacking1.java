@@ -523,16 +523,16 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
                                      
         try{
         
-        if(jTextField2.getText()!=null)
-        {
-            String search=jTextField2.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedule_ID,Style_ID,Start_Date,End_Date,Qty FROM garmentsystem.r_Washing_Schedule_table WHERE Style_ID ='"+search+"'");
-            jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
-        }
-        if(jTextField1.getText()!=null)
+        if(jTextField2.getText().equals(""))
         {
             String search=jTextField1.getText();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedule_ID,Style_ID,Start_Date,End_Date,Qty FROM garmentsystem.r_Washing_Schedule_table WHERE Schedule_ID ='"+search+"'");
+            jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        if(jTextField1.getText().equals(""))
+        {
+            String search=jTextField2.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedule_ID,Style_ID,Start_Date,End_Date,Qty FROM garmentsystem.r_Washing_Schedule_table WHERE Style_ID ='"+search+"'");
             jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
         }
         }
@@ -679,43 +679,43 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         String style=jTextField2.getText();
         String wshid=jTextField1.getText();
         String type=jComboBox1.getSelectedItem().toString();
-        int sample=Integer.valueOf(jTextField16.getText());
+        int sample=Integer.parseInt(jTextField16.getText());
         String stdate=datePicker7.getText();
         String enddate=datePicker8.getText();
-        int lab=Integer.valueOf(jTextField14.getText());
+        int lab=Integer.parseInt(jTextField4.getText());
         String room=jComboBox6.getSelectedItem().toString();
-        int line=Integer.valueOf(jComboBox7.getSelectedItem().toString());
+        int line=Integer.parseInt(jComboBox7.getSelectedItem().toString());
         String sup=jComboBox8.getSelectedItem().toString();
-        int r=jTable4.getSelectedRow();
-        String qty=jTable4.getValueAt(r, 4).toString();
+//        int r=jTable4.getSelectedRow();
+//        String qty=jTable4.getValueAt(r, 4).toString();
         
         
         
         try{
-       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Iron_and_Packing_Schedule`\n" +
-"(`Schedule_ID`,\n" +
-"`Style_ID`,\n" +
-"`Type`,\n" +
-"`Room_No`,\n" +
-"`No_of_Sample`,\n" +
-"`No_of_Labourers`,\n" +
-"`Start_Date`,\n" +
-"`End_Date`,\n" +
-"`Supervisor_ID`,\n" +
-"`Days_per_Sample`,\n" +               
-"`Washing_ID`)\n" +
-"VALUES\n" +
-"('"+id+"',\n" +
-"'"+style+"',\n" +
-"'"+type+"',\n" +
-"'"+room+"',\n" +
-"'"+sample+"',\n" +
-"'"+lab+"',\n" +
-"'"+stdate+"',\n" +
-"'"+enddate+"',\n" +
-"'"+sup+"',\n" +
-"'"+qty+"',\n" +        
-"'"+wshid+"');");
+//       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Iron_and_Packing_Schedule`\n" +
+//"(`Schedule_ID`,\n" +
+//"`Style_ID`,\n" +
+//"`Type`,\n" +
+//"`Room_No`,\n" +
+//"`No_of_Sample`,\n" +
+//"`No_of_Labourers`,\n" +
+//"`Start_Date`,\n" +
+//"`End_Date`,\n" +
+//"`Supervisor_ID`,\n" +
+//"`Qty`,\n" +               
+//"`Washing_ID`)\n" +
+//"VALUES\n" +
+//"('"+id+"',\n" +
+//"'"+style+"',\n" +
+//"'"+type+"',\n" +
+//"'"+room+"',\n" +
+//"'"+sample+"',\n" +
+//"'"+lab+"',\n" +
+//"'"+stdate+"',\n" +
+//"'"+enddate+"',\n" +
+//"'"+sup+"',\n" +
+//"'"+qty+"',\n" +        
+//"'"+wshid+"');");
        
        JOptionPane.showMessageDialog(null,"Successful");
         }
