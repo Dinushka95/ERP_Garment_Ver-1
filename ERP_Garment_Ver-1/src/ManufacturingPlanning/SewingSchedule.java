@@ -1,8 +1,19 @@
 
 package ManufacturingPlanning;
 
+import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
+import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.jaspersoft.ireport.designer.compiler.prompt.JDateTimePicker;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
 
 
 /**
@@ -19,16 +30,80 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     public SewingSchedule() {
         initComponents();
         generate_shi();
-      
+        FillComboSupervisor();
    
     }
     public void AddSewingSchedule(){
         String Schedule_ID=jTextField6.getText();
         String Style_ID=jTextField4.getText();
-        //String
+        String Cutting_ID=jTextField2.getText();
+        int sample=Integer.valueOf(jTextField18.getText());
+        String stDate=datePicker4.getText();
+        String endDate=datePicker2.getText();
+        String supid=jComboBox1.getSelectedItem().toString();
+        int labourers=Integer.valueOf(jTextField11.getText());
+        String roomNo=jComboBox3.getSelectedItem().toString();
+        int lines=Integer.valueOf(jComboBox2.getSelectedItem().toString());
+        
+        
+        int r=jTable3.getSelectedRow();
+        String quantity=jTable3.getValueAt(r, 5).toString();
     
+        try{
+       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Sewing_Schedule`\n" +
+"(`Schedue_ID`,\n" +
+"`Style_ID`,\n" +
+"`Minutes_per_Sample`,\n" +
+"`Start_Date`,\n" +
+"`End_Date`,\n" +
+"`Supervisor_ID`,\n" +
+"`No_of_Labourers`,\n" +
+"`No_of_Lines`,\n" +
+"`Room_No`,\n" +
+"`Qty`,\n" +               
+"`Cutting_ID`)\n" +
+"VALUES\n" +
+"('"+Schedule_ID+"',\n" +
+"'"+Style_ID+"',\n" +
+"'"+sample+"',\n" +
+"'"+stDate+"',\n" +
+"'"+endDate+"',\n" +
+"'"+supid+"',\n" +
+"'"+labourers+"',\n" +
+"'"+lines+"',\n" +
+"'"+roomNo+"',\n" +
+"'"+quantity+"',\n" +        
+"'"+Cutting_ID+"');");
+       
+       JOptionPane.showMessageDialog(null,"Successful");
+        }
+        catch(Exception e){
+            System.out.println(e); 
+            
+        
     }
-
+        
+    }
+ private void FillComboSupervisor()
+    {
+         try
+         {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table WHERE depid='sewing' ");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
+                jComboBox1.addItem(id);
+                jComboBox6.addItem(id);
+                jComboBox9.addItem(id);
+               
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,15 +121,12 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jTextField6 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jTextField4 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jTextField2 = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
         jLabel29 = new javax.swing.JLabel();
         jLabel28 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
@@ -64,9 +136,15 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jLabel7 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
-        datePicker4 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings setting1 = new DatePickerSettings();
+        setting1.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker4 = new com.github.lgooddatepicker.components.DatePicker(setting1);
         jLabel17 = new javax.swing.JLabel();
-        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings setting2 = new DatePickerSettings();
+        setting2.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker2 = new com.github.lgooddatepicker.components.DatePicker(setting2);
         jLabel24 = new javax.swing.JLabel();
         jTextField18 = new javax.swing.JTextField();
         jLabel30 = new javax.swing.JLabel();
@@ -74,22 +152,26 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextField11 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings setting3 = new DatePickerSettings();
+        setting3.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting3.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker1 = new com.github.lgooddatepicker.components.DatePicker(setting3);
         jLabel10 = new javax.swing.JLabel();
-        datePicker3 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings setting4 = new DatePickerSettings();
+        setting4.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting4.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        datePicker3 = new com.github.lgooddatepicker.components.DatePicker(setting4);
         jLabel11 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel8 = new javax.swing.JPanel();
@@ -102,17 +184,30 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jLabel21 = new javax.swing.JLabel();
         jTextField20 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        datePicker5 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings dateSettings9 = new DatePickerSettings();
+        dateSettings9.setFormatForDatesCommonEra("yyyy/MM/dd");
+        dateSettings9.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        datePicker5 = new com.github.lgooddatepicker.components.DatePicker(dateSettings9);
         jLabel25 = new javax.swing.JLabel();
-        datePicker6 = new com.github.lgooddatepicker.components.DatePicker();
+        DatePickerSettings dateSettings10 = new DatePickerSettings();
+        dateSettings10.setFormatForDatesCommonEra("yyyy/MM/dd");
+        dateSettings10.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        datePicker6 = new com.github.lgooddatepicker.components.DatePicker(dateSettings10);
         jLabel26 = new javax.swing.JLabel();
-        jTextField21 = new javax.swing.JTextField();
         jLabel27 = new javax.swing.JLabel();
-        jTextField22 = new javax.swing.JTextField();
         jLabel31 = new javax.swing.JLabel();
         jTextField23 = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        jTextField24 = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jTextField25 = new javax.swing.JTextField();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jComboBox8 = new javax.swing.JComboBox<>();
+        jComboBox9 = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -130,14 +225,16 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton4.setText("ADD schedule");
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, -1, -1));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 470, -1, -1));
 
         jLabel1.setText("Schedule ID");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         jTextField6.setEditable(false);
@@ -148,15 +245,31 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 130, -1));
 
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder("Item"));
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Item", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jPanel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextField4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField4MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTextField4MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField4MouseExited(evt);
+            }
+        });
+        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField4ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 28, 110, -1));
 
         jLabel14.setText("Style No");
-
-        jLabel19.setText("Quantity");
-
-        jLabel20.setText("Raw material");
-
-        jButton6.setText("jButton4");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 31, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -169,63 +282,42 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
-        jLabel4.setText("Size");
+        jPanel6.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 630, 260));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 329, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addComponent(jLabel14)
-                        .addGap(18, 18, 18)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel19)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createSequentialGroup()
-                            .addComponent(jLabel20)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jLabel4))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel6Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel19)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addContainerGap(45, Short.MAX_VALUE))
-        );
+        jLabel4.setText("Cutting ID");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, 20));
 
-        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 410, 350));
+        jTextField2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField2MouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jTextField2MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField2MouseExited(evt);
+            }
+        });
+        jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, 120, -1));
+
+        jButton3.setText("Search");
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 30, -1, -1));
+
+        jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 680, 370));
 
         jLabel29.setText("Room No");
         jPanel2.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 520, -1, -1));
@@ -242,22 +334,32 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jLabel7.setText("pcs");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 590, -1, -1));
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder("Days"));
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Days", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setText("End Date");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-        jPanel7.add(datePicker4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 100, -1, -1));
+        jPanel7.add(datePicker4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, -1, -1));
 
         jLabel17.setText("Start Date");
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
-        jPanel7.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, -1, -1));
+        jPanel7.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 120, -1, -1));
 
-        jLabel24.setText("No of Days per Sample");
+        jLabel24.setText("No of Minutes per Sample");
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
-        jPanel7.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 30, 110, -1));
+
+        jTextField18.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField18MouseExited(evt);
+            }
+        });
+        jPanel7.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, 140, -1));
 
         jLabel30.setText("Total No of Days");
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         jTextField19.addActionListener(new java.awt.event.ActionListener() {
@@ -265,25 +367,34 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
                 jTextField19ActionPerformed(evt);
             }
         });
-        jPanel7.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 60, 110, -1));
+        jPanel7.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 60, 140, -1));
 
-        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 90, 350, 170));
+        jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 90, 440, 170));
 
         jLabel5.setText("No of Labourers");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 310, -1, -1));
-        jPanel2.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 310, 100, -1));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 310, -1, -1));
+        jPanel2.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 310, 140, -1));
 
         jLabel6.setText("Room No");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 340, -1, -1));
-        jPanel2.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 340, 100, -1));
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 340, -1, -1));
 
         jLabel9.setText("No of Lines");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 370, -1, -1));
-        jPanel2.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 370, 100, -1));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 370, -1, -1));
 
         jLabel13.setText("Supervisor ID");
-        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 280, -1, -1));
-        jPanel2.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 280, 100, -1));
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 280, -1, -1));
+
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 280, 140, -1));
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-select-", "1", "2", "3", "4", "5", "6", " " }));
+        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 370, 140, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-select-", "S001", "S002", "S003", "S004", "S005" }));
+        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 340, 140, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 1260, 520));
 
@@ -292,24 +403,38 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setText("Schedule ID");
-        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 34, -1, 10));
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 90, -1));
+        jLabel2.setEnabled(false);
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 30, -1, 10));
+
+        jTextField1.setEnabled(false);
+        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 30, 140, -1));
 
         jLabel3.setText("Start Date");
-        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, -1, -1));
-        jPanel3.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 60, -1, -1));
+        jLabel3.setEnabled(false);
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel3.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
+
+        datePicker1.setEnabled(false);
+        jPanel3.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 60, -1, -1));
 
         jLabel10.setText("End Date");
-        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, -1, -1));
-        jPanel3.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
+        jLabel10.setEnabled(false);
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel3.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 90, -1, -1));
+
+        datePicker3.setEnabled(false);
+        jPanel3.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 90, -1, -1));
 
         jLabel11.setText("Room No");
-        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, -1, -1));
-        jPanel3.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 120, 90, -1));
+        jLabel11.setEnabled(false);
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
 
         jLabel12.setText("Supervisor ID");
-        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, -1, -1));
-        jPanel3.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 150, 90, -1));
+        jLabel12.setEnabled(false);
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -322,125 +447,132 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 190, -1, 310));
+        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 770, 310));
 
         jPanel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton7.setText("Edit");
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, -1, -1));
 
         jButton8.setText("Delete");
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
 
         jLabel15.setText("Schedule ID");
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 31, -1, -1));
+
+        jTextField14.setEnabled(false);
+        jPanel8.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 139, -1));
 
         jLabel18.setText("Style No");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 62, -1, -1));
+        jPanel8.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 139, -1));
 
         jLabel21.setText("Quantity");
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(102, 100, -1, -1));
+        jPanel8.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 100, 139, -1));
 
         jLabel23.setText("Start Date");
+        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 170, -1, -1));
+        jPanel8.add(datePicker5, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
 
         jLabel25.setText("End Date");
+        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 210, -1, -1));
+        jPanel8.add(datePicker6, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
         jLabel26.setText("Supervisor ID");
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 240, 110, -1));
 
         jLabel27.setText("Room No");
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 270, -1, -1));
 
         jLabel31.setText("No. of Labourers");
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, -1, -1));
+        jPanel8.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 310, 139, -1));
 
         jLabel32.setText("No of Lines");
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel32)
-                    .addComponent(jLabel31)
-                    .addComponent(jLabel27)
-                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel15)
-                                .addComponent(jLabel18)
-                                .addComponent(jLabel21)
-                                .addComponent(jLabel23)
-                                .addComponent(jLabel25))
-                            .addGap(59, 59, 59)
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextField14)
-                                .addComponent(jTextField15)
-                                .addComponent(jTextField20)
-                                .addComponent(datePicker5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(datePicker6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(jPanel8Layout.createSequentialGroup()
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jLabel26, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel8Layout.createSequentialGroup()
-                                    .addGap(22, 22, 22)
-                                    .addComponent(jButton7)))
-                            .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addGap(82, 82, 82)
-                                    .addComponent(jButton8))
-                                .addGroup(jPanel8Layout.createSequentialGroup()
-                                    .addGap(43, 43, 43)
-                                    .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jTextField22)
-                                        .addComponent(jTextField21)
-                                        .addComponent(jTextField23)
-                                        .addComponent(jTextField24)))))))
-                .addContainerGap(121, Short.MAX_VALUE))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel15)
-                    .addComponent(jTextField14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel18)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(jTextField20, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel23)
-                    .addComponent(datePicker5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel25)
-                    .addComponent(datePicker6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(jTextField21, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel27)
-                    .addComponent(jTextField22, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel31)
-                    .addComponent(jTextField23, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel32)
-                    .addComponent(jTextField24, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton7)
-                    .addComponent(jButton8))
-                .addGap(20, 20, 20))
-        );
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel33.setText("Minutes per Sample");
+        jPanel8.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 130, -1, -1));
+        jPanel8.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 139, -1));
 
-        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, 480, 430));
+        jComboBox7.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-select-", "S001", "S002", "S003", "S004", "S005" }));
+        jPanel8.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 270, 140, -1));
+
+        jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-select-", "1", "2", "3", "4", "5", "6", " " }));
+        jPanel8.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, 140, -1));
+
+        jPanel8.add(jComboBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 140, -1));
+
+        jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 60, 480, 440));
+
+        jLabel8.setText("Search By");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel3.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, -1, -1));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Schedule ID", "Start Date", "End Date", "Room No", "Supervisor ID" }));
+        jComboBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox4ItemStateChanged(evt);
+            }
+        });
+        jComboBox4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox4MouseClicked(evt);
+            }
+        });
+        jComboBox4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox4ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 110, -1));
+
+        jButton1.setText("Search");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 60, -1, -1));
+
+        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-select-", "S001", "S002", "S003", "S004", "S005" }));
+        jComboBox5.setEnabled(false);
+        jPanel3.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 120, 140, -1));
+
+        jComboBox6.setEnabled(false);
+        jPanel3.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 140, -1));
 
         jTabbedPane1.addTab("Search &  Delete", jPanel3);
 
@@ -465,12 +597,293 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
        
     }//GEN-LAST:event_jTextField6ActionPerformed
+
+    private void jComboBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox4MouseClicked
+
+    }//GEN-LAST:event_jComboBox4MouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String schid=jTextField14.getText();
+         String styleid=jTextField15.getText();
+         int quantity =Integer.valueOf(jTextField20.getText());
+         int sample =Integer.valueOf(jTextField25.getText());
+         String stdate=datePicker5.getText();
+         String endate=datePicker6.getText();
+         String supid=jComboBox9.getSelectedItem().toString();
+         String room=jComboBox7.getSelectedItem().toString();
+         String lab=jTextField23.getText();
+         String line=jComboBox8.getSelectedItem().toString();
+         int r=jTable2.getSelectedRow();
+         String cut=jTable2.getValueAt(r, 9).toString();
+       try
+       {
+        
+            boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Sewing_Schedule`\n" +
+"SET\n" +
+"`Style_ID` = '"+styleid+"',\n" +
+"`Minutes_per_Sample` = '"+sample+"',\n" +
+"`Start_Date` = '"+stdate+"',\n" +
+"`End_Date` = '"+endate+"',\n" +
+"`Supervisor_ID` = '"+supid+"',\n" +
+"`No_of_Labourers` = '"+lab+"',\n" +
+"`No_of_Lines` = '"+line+"',\n" +
+"`Room_No` = '"+room+"',\n" +
+"`Cutting_ID` = '"+cut+"',\n" +
+"`Qty` = '"+quantity+"'\n" +
+"WHERE `Schedue_ID` = '"+schid+"';");
+       
+           if(x==true)
+           {
+               //EditTableLoad();
+               //TextBoxClear();
+               JOptionPane.showMessageDialog(null, "Successfully updated");
+           }
+       }
+       catch(Exception ex)
+       {
+           System.out.println(ex);
+       }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        try{
+        
+        if(jTextField4.getText()!=null)
+        {
+            String search=jTextField4.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Shedule_ID,Style_ID,Material_ID,Start_Date,End_Date,Quantity FROM garmentsystem.r_Cutting_Schedule_table WHERE Style_ID ='"+search+"'");
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(jTextField2.getText()!=null)
+        {
+            String search=jTextField2.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Shedule_ID,Style_ID,Material_ID,Start_Date,End_Date,Quantity FROM garmentsystem.r_Cutting_Schedule_table WHERE Shedule_ID ='"+search+"'");
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        }
+        catch(Exception e){
+                System.out.println(e);
+                
+         }
+           
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
+
+        jTextField2.setEnabled(false);
+        jTextField2.setText("");
+        jTextField4.setEnabled(true);
+    }//GEN-LAST:event_jTextField4MouseClicked
+
+    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
+
+        jTextField2.setEnabled(true);
+        jTextField4.setEnabled(false);
+        jTextField4.setText("");
+        
+    }//GEN-LAST:event_jTextField2MouseClicked
+
+    private void jTextField4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseEntered
+        
+    }//GEN-LAST:event_jTextField4MouseEntered
+
+    private void jTextField2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseEntered
+        
+    }//GEN-LAST:event_jTextField2MouseEntered
+
+    private void jTextField4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseExited
+        
+    }//GEN-LAST:event_jTextField4MouseExited
+
+    private void jTextField2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseExited
+        
+    }//GEN-LAST:event_jTextField2MouseExited
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        try{
+        int r=jTable3.getSelectedRow();
+        String schid=jTable3.getValueAt(r, 0).toString();
+        String styleID=jTable3.getValueAt(r, 1).toString();
+        
+        jTextField2.setText(schid);
+        jTextField4.setText(styleID);
+        }
+        catch(Exception e)
+        {
+            System.out.println(e);
+        }
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jTextField18MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField18MouseExited
+        try{
+        int r=jTable3.getSelectedRow();
+        int qty=Integer.valueOf(jTable3.getValueAt(r,5).toString());
+        int sample=Integer.valueOf(jTextField18.getText());
+        int days=(qty*sample)/60;
+        //System.err.print(sample);
+        //System.err.print(days);
+        if(days<=24)
+            days=1;
+        else
+            days=days/24;
+        
+        jTextField19.setText(Integer.toString(days));
+        }catch(Exception e)
+        {
+            System.out.println(e);
+        }
+       
+        
+        
+    }//GEN-LAST:event_jTextField18MouseExited
+
+    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField4ActionPerformed
+
+    private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
+        String search=jComboBox4.getSelectedItem().toString();
+        System.out.println(search);
+        if(search.equals("Schedule ID"))
+        {
+            jLabel2.setEnabled(true);
+            jTextField1.setEnabled(true);
+            jButton1.setEnabled(true);
+            
+        }
+        
+        else if (search.equals("Start Date"))
+        {
+            jLabel3.setEnabled(true);
+            datePicker1.setEnabled(true);
+            jButton1.setEnabled(true);
+        }
+        else if (search=="End Date")
+        {
+            jLabel10.setEnabled(true);
+            datePicker3.setEnabled(true);
+            jButton1.setEnabled(true);
+        }
+        else  if(search=="Room No")
+        {
+            jLabel11.setEnabled(true);
+            jComboBox5.setEnabled(true);
+            jButton1.setEnabled(true);
+        }    
+        else if(search=="Supervisor ID")
+        {
+            jLabel11.setEnabled(true);
+            jComboBox6.setEnabled(true);
+            jButton1.setEnabled(true);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Select a category");
+       
+    }//GEN-LAST:event_jComboBox4ItemStateChanged
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            search();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        try{
+        int r=jTable2.getSelectedRow();
+        String schid=jTable2.getValueAt(r, 0).toString();
+        String styleID=jTable2.getValueAt(r, 1).toString();
+        String sample=jTable2.getValueAt(r, 2).toString();
+        String stDate=jTable2.getValueAt(r, 3).toString();
+        String endDate=jTable2.getValueAt(r, 4).toString();
+        String supid=jTable2.getValueAt(r, 5).toString();
+        String labour=jTable2.getValueAt(r, 6).toString();
+        String lines=jTable2.getValueAt(r, 7).toString();
+        String room=jTable2.getValueAt(r, 8).toString();
+        String cutid=jTable2.getValueAt(r, 9).toString();
+       
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Cutting_Schedule_table WHERE Shedule_ID ='"+cutid+"'");
+        AutoDB_Connect.DB_ResultSet.next();
+        String x =AutoDB_Connect.DB_ResultSet.getString("Quantity");
+        jTextField20.setText(x);
+       
+        
+        jTextField14.setText(schid);
+        jTextField15.setText(styleID);
+        jTextField25.setText(sample);
+        LocalDate Stdate = LocalDate.parse(stDate);
+        datePicker5.setDate(Stdate);
+        LocalDate ENDdate = LocalDate.parse(endDate);
+        datePicker6.setDate(ENDdate);
+        jComboBox9.setSelectedItem(supid);
+        jComboBox7.setSelectedItem(room);
+        jTextField23.setText(labour);
+        jComboBox8.setSelectedItem(lines);
+        
+      
+    }catch(Exception e)
+    {
+        System.out.println(e);
+    }
+        
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        String id = jTextField14.getText();
+        
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`r_Sewing_Schedule`\n" +
+"WHERE Schedue_ID='"+id+"';");
+       if(x==true)
+            JOptionPane.showMessageDialog(null,"Successfully Deleted");
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox4ActionPerformed
     
     private void generate_shi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField6.setText(aid.generate("SWG-SHI",Integer.toString(MainWindow.userid)));
     }
-
+    
+    private void search() {
+           try{
+        String search=jComboBox4.getSelectedItem().toString();
+        if(search=="Schedule ID")
+        {
+            String schID=jTextField1.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Schedue_ID ='"+schID+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(search=="Start Date")
+        {
+            String schID=datePicker1.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Start_Date ='"+schID+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(search=="End Date")
+        {
+            String schID=datePicker3.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE End_Date ='"+schID+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(search=="Room No")
+        {
+            String schID=jComboBox5.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Room_No ='"+schID+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(search=="Supervisor ID")
+        {
+            String schID=jComboBox6.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Supervisor_ID ='"+schID+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+  
+      
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
@@ -479,10 +892,20 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker4;
     private com.github.lgooddatepicker.components.DatePicker datePicker5;
     private com.github.lgooddatepicker.components.DatePicker datePicker6;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
+    private javax.swing.JComboBox<String> jComboBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -493,9 +916,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -509,10 +930,12 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -529,8 +952,6 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
@@ -539,15 +960,9 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
     private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField24;
+    private javax.swing.JTextField jTextField25;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
     // End of variables declaration//GEN-END:variables
 }
