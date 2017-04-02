@@ -4,6 +4,8 @@ package Finance;
 
 import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.validation;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 
@@ -119,6 +121,12 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
             }
         });
         jPanel3.add(amt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 150, 30));
+
+        Mrate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                MrateKeyReleased(evt);
+            }
+        });
         jPanel3.add(Mrate, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 250, 150, 30));
 
         jLabel2.setText("Payment for Month");
@@ -214,19 +222,7 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_AddjButton1ActionPerformed
 
     private void amt1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_amt1KeyReleased
-        // TODO add your handling code here:
-        
-        float amount = Float.parseFloat(amt1.getText());
-        
-        float rate = Float.parseFloat(Mrate.getText());
-        
-        float depreciation = amount*(rate/100);
-        
-        
-        float mopay = amount-depreciation;
-        
-        payamt.setText(Double.toString(mopay));
-        
+   
     }//GEN-LAST:event_amt1KeyReleased
 
     private void EditjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditjButton2ActionPerformed
@@ -246,12 +242,36 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         String amt = jTable1.getValueAt(row,5).toString();
         String inter = jTable1.getValueAt(row,6).toString();
         String payment = jTable1.getValueAt(row,7).toString();
+        
+         jComboBox1.setSelectedItem(b_name);
+        jTextField2.setText(br_name);
+        jTextField3.setText(acc_no);
+        datePicker1.setText(date);
+        jTextField4.setText(period);
+        amt1.setText(amt);
+        Mrate.setText(inter);
+        payamt.setText(payment);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-        
+         
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void MrateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MrateKeyReleased
+
+        float amount = Float.parseFloat(amt1.getText());
+        
+        float rate = Float.parseFloat(Mrate.getText());
+        
+        float depreciation = amount*(rate/100);
+        
+        
+        //float mopay = amount-depreciation;
+        
+        payamt.setText(Double.toString(depreciation));
+        
+    }//GEN-LAST:event_MrateKeyReleased
    
       private void TableLoad()
   {
@@ -268,6 +288,13 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
   }
     public void AddLoan()
     {
+        if(validation.ValidationCheck(jTextField2, true, 0, '@')
+        &&validation.ValidationCheck(jTextField3, true,0,'@')
+        &&validation.ValidationCheck(jTextField4, true,0,'1')
+        &&validation.ValidationCheck(amt1, true,0,'1')
+        &&validation.ValidationCheck(Mrate, true,0,'1')
+        &&validation.ValidationCheck(payamt, true,0,'1'))
+        {
         String b_name = jComboBox1.getSelectedItem().toString();
         String br_name = jTextField2.getText();
         String acc_no = jTextField3.getText();
@@ -303,12 +330,14 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
             {
                 TableLoad();
                 TextBoxClear();
+                JOptionPane.showMessageDialog(null,"Successfully Added");
             }
         }
         catch (Exception ex)
         {
             System.out.println(ex);
         }    
+    }
     }
 private void TextBoxClear()
 {
@@ -323,6 +352,13 @@ private void TextBoxClear()
 }
 public void EditLoan()
 {
+     if(validation.ValidationCheck(jTextField2, true, 0, '@')
+        &&validation.ValidationCheck(jTextField3, true,0,'@')
+        &&validation.ValidationCheck(jTextField4, true,0,'1')
+        &&validation.ValidationCheck(amt1, true,0,'1')
+        &&validation.ValidationCheck(Mrate, true,0,'1')
+        &&validation.ValidationCheck(payamt, true,0,'1'))
+     {
      String b_name = jComboBox1.getSelectedItem().toString();
         String br_name = jTextField2.getText();
         String acc_no = jTextField3.getText();
@@ -349,11 +385,13 @@ public void EditLoan()
             {
                TextBoxClear();
                TableLoad();
+               JOptionPane.showMessageDialog(null,"Successfully Updated");
             }
         }
         catch (Exception ex){
             System.out.println(ex);
         }
+}
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddjButton1;

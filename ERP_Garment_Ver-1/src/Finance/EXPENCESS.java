@@ -2,8 +2,12 @@
 package Finance;
 
 import MainSystem.AutoDB_Connect;
+import MainSystem.AutoIdGenerator;
+import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 
@@ -22,6 +26,9 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         initComponents();
        datePicker1date.setDateToToday();
        Tableload();
+       
+        
+       
      
     }
 
@@ -56,6 +63,7 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker1date = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -77,14 +85,14 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        ADDjButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ADDjButton2.setText("ADD");
+        ADDjButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ADDjButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ADDjButton2ActionPerformed(evt);
             }
         });
-        jPanel10.add(ADDjButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+        jPanel10.add(ADDjButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
         EDITjButton3.setText("EDIT");
         EDITjButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -93,11 +101,16 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
                 EDITjButton3ActionPerformed(evt);
             }
         });
-        jPanel10.add(EDITjButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
+        jPanel10.add(EDITjButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 340, -1, -1));
 
         SEARHjButton4.setText("SEARH");
         SEARHjButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(SEARHjButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
+        SEARHjButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SEARHjButton4ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(SEARHjButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
 
         DeletejButton7.setText("DELETE");
         DeletejButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -106,20 +119,25 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
                 DeletejButton7ActionPerformed(evt);
             }
         });
-        jPanel10.add(DeletejButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
+        jPanel10.add(DeletejButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
 
         jLabel19.setText("Expences Type");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, -1));
+        jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 120, -1));
 
         jComboBox3type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Expence", "Description Expences", "Administration Expences", "Other Expences", "Financial Expences", " ", " " }));
         jComboBox3type.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(jComboBox3type, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 170, 30));
+        jComboBox3type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3typeActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jComboBox3type, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 170, 30));
 
         jLabel1.setText("Bill No");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, -1));
-        jPanel10.add(jTextField1bill, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 170, 30));
+        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 70, -1));
+        jPanel10.add(jTextField1bill, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 170, 30));
 
         jLabel2.setText("Date");
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -144,6 +162,15 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Demo");
         jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("Reset All");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
 
         jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 550));
 
@@ -221,6 +248,9 @@ private void Tableload()
 
  public void AddExpences()
  {
+       if(validation.ValidationCheck(jTextField1bill, true, 0, '@')&&validation.ValidationCheck
+        (jTextArea1description, true,0,'@')&&validation.ValidationCheck(jTextField2amt, true,0,'1'))
+       {
      String Billno = jTextField1bill.getText();
      String exType = jComboBox3type.getSelectedItem().toString();
      String date = datePicker1date.getText();
@@ -246,12 +276,14 @@ private void Tableload()
             {
                 Tableload();
                 TextBoxClear();
+                JOptionPane.showMessageDialog(null,"Successfully Added");
             }
         }
         catch (Exception ex)
         {
             System.out.println(ex);
         }    
+ }
  }
  
   private void TextBoxClear()
@@ -275,6 +307,7 @@ private void Tableload()
             {
                 TextBoxClear();
                 Tableload();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
             }
         }
         catch (Exception ex){
@@ -306,8 +339,68 @@ private void Tableload()
        
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void SEARHjButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARHjButton4ActionPerformed
+        // TODO add your handling code here:
+        searchexpen();
+    }//GEN-LAST:event_SEARHjButton4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+         TextBoxClear();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox3typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3typeActionPerformed
+
+        if(jComboBox3type.getSelectedItem().equals("Description Expences"))
+        {
+            generate_Descriptoin();
+        }
+        else if(jComboBox3type.getSelectedItem().equals("Administration Expences"))
+        {
+            generate_Administration();
+        }
+        else if(jComboBox3type.getSelectedItem().equals("Other Expences"))
+        {
+            generate_Other();
+        }
+        else if(jComboBox3type.getSelectedItem().equals("Financial Expences"))
+        {
+            generate_Finacial();
+        }
+        
+
+
+    }//GEN-LAST:event_jComboBox3typeActionPerformed
+    
+     private void generate_Descriptoin(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1bill.setText(aid.generate("DES",Integer.toString(MainWindow.userid)));
+    }
+    
+    private void generate_Administration(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1bill.setText(aid.generate("ADM",Integer.toString(MainWindow.userid)));
+    }
+     private void generate_Other(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1bill.setText(aid.generate("OTH",Integer.toString(MainWindow.userid)));
+    }
+      private void generate_Finacial(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1bill.setText(aid.generate("FIN",Integer.toString(MainWindow.userid)));
+    }
+     
+    private void searchexpen()
+    {
+        String bill = jTextField1bill.getText();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_EXPENES WHERE Bill_No LIKE '"+bill+"%'");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+    }
    public void  EditExp()
   {
+      if(validation.ValidationCheck(jTextField1bill, true, 0, '@')&&validation.ValidationCheck
+        (jTextArea1description, true,0,'@')&&validation.ValidationCheck(jTextField2amt, true,0,'1'))
+      {
       String Billno = jTextField1bill.getText();
       String exType = jComboBox3type.getSelectedItem().toString();
       String date = datePicker1date.getText();
@@ -328,6 +421,7 @@ private void Tableload()
             {
                TextBoxClear();
                Tableload();
+               JOptionPane.showMessageDialog(null,"Successfully Updated");
             }
         }
         catch (Exception ex){
@@ -335,6 +429,7 @@ private void Tableload()
         }
       
   }
+  } 
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADDjButton2;
@@ -343,6 +438,7 @@ private void Tableload()
     private javax.swing.JButton SEARHjButton4;
     private com.github.lgooddatepicker.components.DatePicker datePicker1date;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox3type;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;

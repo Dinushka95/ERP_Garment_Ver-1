@@ -2,8 +2,12 @@
 package Finance;
 
 import MainSystem.AutoDB_Connect;
+import MainSystem.AutoIdGenerator;
+import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 
@@ -20,8 +24,11 @@ public class CashDetails extends javax.swing.JInternalFrame {
      * Creates new form SalesDesignInquiry
      */
     public CashDetails() {
-       Addcash();
+        initComponents();
        Tableload();
+       datePicker1.setDateToToday();
+       
+       
     }
 
     /**
@@ -57,6 +64,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
         dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
+        jButton1 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -84,22 +92,27 @@ public class CashDetails extends javax.swing.JInternalFrame {
         jPanel7.add(jLabel11);
         jLabel11.setBounds(10, 10, 140, 15);
 
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel18.setText("Cash Id");
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel18);
-        jLabel18.setBounds(10, 50, 46, 15);
+        jLabel18.setBounds(10, 100, 46, 15);
         jPanel7.add(jTextField3);
-        jTextField3.setBounds(170, 40, 180, 30);
+        jTextField3.setBounds(170, 90, 180, 30);
 
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setText("Cash Type");
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel19);
-        jLabel19.setBounds(10, 90, 70, 15);
+        jLabel19.setBounds(10, 50, 70, 15);
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Type", "Payabels", "Reservable", " " }));
+        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jComboBox2);
-        jComboBox2.setBounds(170, 90, 180, 30);
+        jComboBox2.setBounds(170, 40, 180, 30);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Description");
@@ -120,8 +133,8 @@ public class CashDetails extends javax.swing.JInternalFrame {
         jPanel7.add(jTextField1);
         jTextField1.setBounds(170, 280, 150, 30);
 
-        ADD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ADD.setText("ADD");
+        ADD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ADDActionPerformed(evt);
@@ -130,35 +143,35 @@ public class CashDetails extends javax.swing.JInternalFrame {
         jPanel7.add(ADD);
         ADD.setBounds(10, 380, 70, 23);
 
-        DELETE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         DELETE.setText("DELETE");
+        DELETE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         DELETE.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DELETEActionPerformed(evt);
             }
         });
         jPanel7.add(DELETE);
-        DELETE.setBounds(300, 380, 90, 23);
+        DELETE.setBounds(260, 380, 90, 23);
 
-        EDIT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         EDIT.setText("EDIT");
+        EDIT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         EDIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EDITActionPerformed(evt);
             }
         });
         jPanel7.add(EDIT);
-        EDIT.setBounds(110, 380, 70, 23);
+        EDIT.setBounds(90, 380, 70, 23);
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("SEARH");
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
         jPanel7.add(jButton4);
-        jButton4.setBounds(200, 380, 80, 23);
+        jButton4.setBounds(170, 380, 80, 23);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.setText("Demo");
@@ -171,6 +184,16 @@ public class CashDetails extends javax.swing.JInternalFrame {
         jLabel4.setBounds(10, 140, 60, 15);
         jPanel7.add(datePicker1);
         datePicker1.setBounds(170, 130, 180, 30);
+
+        jButton1.setText("Reset All");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jButton1);
+        jButton1.setBounds(360, 380, 110, 23);
 
         jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 540));
 
@@ -218,14 +241,14 @@ public class CashDetails extends javax.swing.JInternalFrame {
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
         
-           int row =jTable1.getSelectedRow();
+        int row =jTable1.getSelectedRow();
         String chno = jTable1.getValueAt(row,0).toString();
         String chtype = jTable1.getValueAt(row,1).toString();
         String date = jTable1.getValueAt(row,2).toString();
         String Des = jTable1.getValueAt(row,3).toString();
         String amount = jTable1.getValueAt(row,4).toString();
         
-      jTextField3.setText(chno);
+        jTextField3.setText(chno);
         jComboBox2.setSelectedItem(chtype);
         datePicker1.setText(date);
         jTextArea1.setText(Des);
@@ -252,7 +275,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
          String chno = jTextField3.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`CASH_DETAILS`\n" +
-"WHERE '"+chno+"';");
+"WHERE Cash_ID LIKE '"+chno+"';");
         
          try
         {
@@ -260,6 +283,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
             {
                Tableload();
                 TextBoxClear();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
             }
         }
         catch (Exception ex)
@@ -273,8 +297,41 @@ public class CashDetails extends javax.swing.JInternalFrame {
         CashIDSearch();
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        TextBoxClear();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+
+        if(jComboBox2.getSelectedItem().equals("Payabels"))
+        {
+            generate_Payabels();
+        }
+        else if(jComboBox2.getSelectedItem().equals("Reservable"))
+        {
+            generate_Resevable();
+        }
+        
+            
+
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+     private void generate_Payabels(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField3.setText(aid.generate("PAY",Integer.toString(MainWindow.userid)));
+    }
+      private void generate_Resevable(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField3.setText(aid.generate("RES",Integer.toString(MainWindow.userid)));
+    }
+    
   public void Addcash()
   {
+        if(validation.ValidationCheck(jTextField3, true, 0, '@')
+        &&validation.ValidationCheck(jTextArea1, true,0,'@')
+        &&validation.ValidationCheck(jTextField1, true,0,'1'))
+        {
       String chno= jTextField3.getText();
       String chtype = jComboBox2.getSelectedItem().toString();
       String date = datePicker1.getText();
@@ -301,12 +358,14 @@ public class CashDetails extends javax.swing.JInternalFrame {
             {
                Tableload();
                 TextBoxClear();
+                JOptionPane.showMessageDialog(null,"Successfully Added");
             }
         }
         catch (Exception ex)
         {
             System.out.println(ex);
         }    
+  }
   }
     
  public void TextBoxClear()
@@ -319,6 +378,10 @@ public class CashDetails extends javax.swing.JInternalFrame {
  }
   public void  Editcash()
   {
+       if(validation.ValidationCheck(jTextField3, true, 0, '@')
+        &&validation.ValidationCheck(jTextArea1, true,0,'@')
+        &&validation.ValidationCheck(jTextField1, true,0,'1'))
+       {
        String chno= jTextField3.getText();
       String chtype = jComboBox2.getSelectedItem().toString();
       String date = datePicker1.getText();
@@ -340,6 +403,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
             {
                Tableload();
                 TextBoxClear();
+                JOptionPane.showMessageDialog(null,"Successfully Updated");
             }
         }
         catch (Exception ex)
@@ -350,18 +414,31 @@ public class CashDetails extends javax.swing.JInternalFrame {
           
     
   }
+  }
    public void CashIDSearch()
     {
-            String chno = jTextField3.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem`.`CASH_DETAILS WHERE Cash_ID LIKE '"+chno+"%'");
+            String cash = jTextField3.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.CASH_DETAILS WHERE Cash_ID LIKE '"+cash+"%'");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
+   private void Tableload()
+   {
+         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT `CASH_DETAILS`.`Cash_ID`,\n" +
+"    `CASH_DETAILS`.`Type`,\n" +
+"    `CASH_DETAILS`.`Date`,\n" +
+"    `CASH_DETAILS`.`Description`,\n" +
+"    `CASH_DETAILS`.`Amount`\n" +
+"FROM `garmentsystem`.`CASH_DETAILS`;");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+   }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADD;
     private javax.swing.JButton DELETE;
     private javax.swing.JButton EDIT;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -387,12 +464,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
    
-    
-
-    private void Tableload() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
+ 
    
 
    
