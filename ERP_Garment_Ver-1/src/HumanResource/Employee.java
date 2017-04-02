@@ -18,6 +18,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.ParseException;
 import java.time.Instant;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -112,6 +113,11 @@ public class Employee extends javax.swing.JInternalFrame {
     
     private void Insert()
     {
+        if(!Validations())
+        {
+           
+            return;
+        }
         try {
             Statement stmnt = con.createStatement();
             
@@ -208,30 +214,42 @@ public class Employee extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
+        cmbGender.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
         cmbNationality.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sri" }));
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Employee ID:");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("First Name:");
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Last Name:");
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel4.setText("Gender:");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("NIC:");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Nationality:");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Address:");
 
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("DOB:");
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Dep ID:");
 
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel10.setText("E mail:");
 
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Mobile No:");
 
         txtEmployeeId.addActionListener(new java.awt.event.ActionListener() {
@@ -240,6 +258,7 @@ public class Employee extends javax.swing.JInternalFrame {
             }
         });
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Select Dept");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -294,7 +313,7 @@ public class Employee extends javax.swing.JInternalFrame {
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel9)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtDepID, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                .addComponent(txtDepID, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jButton1)
                                 .addGap(8, 8, 8)))))
@@ -348,6 +367,7 @@ public class Employee extends javax.swing.JInternalFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnInsert.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnInsert.setText("Insert");
         btnInsert.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -355,6 +375,7 @@ public class Employee extends javax.swing.JInternalFrame {
             }
         });
 
+        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -362,6 +383,7 @@ public class Employee extends javax.swing.JInternalFrame {
             }
         });
 
+        btnUpdate.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -369,6 +391,7 @@ public class Employee extends javax.swing.JInternalFrame {
             }
         });
 
+        btnUpdate1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnUpdate1.setText("Refresh");
         btnUpdate1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -408,7 +431,7 @@ public class Employee extends javax.swing.JInternalFrame {
                     .addComponent(btnInsert)
                     .addComponent(btnUpdate1))
                 .addGap(11, 11, 11)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -476,7 +499,36 @@ public class Employee extends javax.swing.JInternalFrame {
             txtDepID.setText(Integer.toString(dlg.depID));
     }//GEN-LAST:event_jButton1ActionPerformed
 
-
+    private boolean Validations(){
+        if(txtEmployeeId.getText()==null){
+              JOptionPane.showMessageDialog(this, "Employee ID id mandatory");
+              return false;
+        }
+        if(txtFirstName.getText()==null){
+              JOptionPane.showMessageDialog(this, "First Name Cannot be empty");
+              return false;
+        }
+        if(txtLastName.getText()==null){
+              JOptionPane.showMessageDialog(this, "Last Name Cannot be empty");
+              return false;
+        }
+        if(!(txtNic.getText().trim().matches("^[0-9]{9}[vVxX]$"))){
+                JOptionPane.showMessageDialog(null,"Invalid NIC ");
+                return false;
+        }
+        if (!txtEmail.getText().trim().matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")) {
+                JOptionPane.showMessageDialog(this, "Invalid email message");
+                return false;
+        }
+        if (!txtMobileNo.getText().trim().matches("^[0][1-9]{2}[0-9]{7}$")) {
+                JOptionPane.showMessageDialog(this, "Invalid phone number");
+                return false;
+        }
+        
+        return true;
+         
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
