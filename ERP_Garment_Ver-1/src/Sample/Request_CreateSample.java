@@ -29,6 +29,7 @@ int RowCountjTable2;
         generate_SAMID();
         TableLoad();
         TableLoad2();
+        TableLoad3();
         FillTextCombo();
         datePicker2.setDateToToday();
         
@@ -116,6 +117,7 @@ int RowCountjTable2;
         jTextField16 = new javax.swing.JTextField();
         jTextField17 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
+        jLabel23 = new javax.swing.JLabel();
 
         setResizable(true);
         setTitle("RequestAndCreateSample");
@@ -428,11 +430,14 @@ int RowCountjTable2;
         jPanel8.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 130, 30));
         jPanel8.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 130, 30));
 
+        jLabel23.setText("jLabel23");
+        jPanel8.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 130, -1, -1));
+
         jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1290, 520));
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1350, 590));
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1350, -1));
 
         getAccessibleContext().setAccessibleName("");
 
@@ -501,26 +506,27 @@ int RowCountjTable2;
         int row =jTable4.getSelectedRow();
         String id = jTable4.getValueAt(row,0).toString();
         String name = jTable4.getValueAt(row,1).toString();
-        String des = jTable4.getValueAt(row,2).toString();
-        String Sampletype = jTable4.getValueAt(row,3).toString();
-        String samplesize = jTable4.getValueAt(row,4).toString();
+        String stid = jTable4.getValueAt(row,2).toString();
+        String des = jTable4.getValueAt(row,3).toString();
+        String Sampletype = jTable4.getValueAt(row,5).toString();
+        String samplesize = jTable4.getValueAt(row,6).toString();
         String samplegroup = jTable4.getValueAt(row,5).toString();
-        String sampledesigner = jTable4.getValueAt(row,5).toString();
-        String Nosample = jTable4.getValueAt(row,5).toString();
-        String samplegiven = jTable4.getValueAt(row,5).toString();
+        String sampledesigner = jTable4.getValueAt(row,7).toString();
+        String Nosample = jTable4.getValueAt(row,8).toString();
+        String samplegiven = jTable4.getValueAt(row,9).toString();
         String date = jTable4.getValueAt(row,5).toString();
        
        
 
-            SampleID.setText(id);
-            Sample.setText("SampleName");
-            SampleStid.setText("des");
-            SampleDes.setText("Sampletype");
-            SType.setText("Samplesize");
-            samplegrp.setSelectedItem("Samplegroup");
-            S_Size.setText("Sampledesigner");
-            Sample_Designer.setSelectedItem("NoOfSample");
-            Nu_of_Samples.setText("Samplegiven");
+            jTextField9.setText(id);
+            jTextField15.setText("SampleName");
+            jTextField10.setText("stid");
+            jTextField11.setText("Sampletype");
+            jTextField16.setText("Samplesize");
+            jTextField12.setText("Samplegroup");
+            jTextField17.setText("Sampledesigner");
+            jTextField13.setText("NoOfSample");
+            jTextField14.setText("Samplegiven");
             Sample_Given.setText("date");
         
         
@@ -579,6 +585,15 @@ int RowCountjTable2;
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT Type,StyleId,Collection,Size FROM `garmentsystem`.`T_Design_table`;");
             jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+    }
+      
+       private void TableLoad3()
+    {
+
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`T_Request_Create_Sample_table`;");
+            jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
       
@@ -718,6 +733,7 @@ int RowCountjTable2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
