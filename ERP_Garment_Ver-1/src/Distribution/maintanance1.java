@@ -8,6 +8,7 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -315,8 +316,13 @@ DefaultTableModel model;
         jPanel7.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 140, -1));
         jPanel7.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 140, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Delete");
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -404,6 +410,12 @@ DefaultTableModel model;
             System.out.println(ex);
         }
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       DeleteDesigns();
+        tableLoad();
+        clearDeleteDesign();
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     private void FillCombo()
     {
@@ -507,6 +519,53 @@ DefaultTableModel model;
         (AutoDB_Connect.DB_ResultSet));
 
        }
+        /*private void tabelLoad(){
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM garmentsystem.C_Maintaince");
+            jTable1.setModel(DbUtils.resultSetToTableModel
+        (AutoDB_Connect.DB_ResultSet));
+
+        
+    }*/
+     private void DeleteDesigns()
+    {
+                int reply = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+        String Mid =jTextField2.getText();
+        
+        boolean x = autoSqlQuery.execute
+        ("DELETE FROM `garmentsystem`.`C_Maintaince` WHERE MaintainceID = '"+Mid+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                clearDeleteDesign();
+                tableLoad();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    }
+     public void clearDeleteDesign(){
+        
+        jTextField2.setText("");
+        jTextField14.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField11.setText("");
+        jTextField12.setText("");
+        jTextField15.setText("");
+       
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JButton jButton1;

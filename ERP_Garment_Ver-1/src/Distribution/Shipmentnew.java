@@ -6,6 +6,7 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -386,8 +387,13 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jPanel5.add(recieved1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 121, -1));
         jPanel5.add(phone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 126, 121, -1));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Delete");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -506,6 +512,12 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+          DeleteDesigns();
+          tableLoad();
+          clearDeleteDesign();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
      private void generate_shipmentid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     shipid.setText(aid.generate("SHPMT",Integer.toString(MainWindow.userid)));
@@ -597,7 +609,46 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
 
         
     }
-  
+     private void DeleteDesigns()
+    {
+                int reply = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+        String id =shipid1.getText();
+        
+        boolean x = autoSqlQuery.execute
+        ("DELETE FROM `garmentsystem`.`C_Shipment` WHERE Shipment_id = '"+id+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                clearDeleteDesign();
+                tableLoad();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    }
+     public void clearDeleteDesign(){
+        
+       shipid1.setText("");
+        supplier1.setText("");
+        address1.setText("");
+        phone2.setText("");
+        phone2.setText("");
+        jTextField1.setText("");
+        jTextField2.setText("");
+        recieved1.setText("");
+        descriptionarea1.setText("");
+       
+        
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddButton;

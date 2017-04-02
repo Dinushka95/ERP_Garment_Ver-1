@@ -6,6 +6,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -335,8 +336,13 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jButton2.setText("update");
         jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Delete");
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 30, 430, 500));
@@ -425,6 +431,12 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         DeleteDesigns();
+        TabelLoad();
+        clearDeleteDesign();
+    }//GEN-LAST:event_jButton3ActionPerformed
  private void generate_FuelID(){
     AutoIdGenerator aid = new AutoIdGenerator();
      jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));
@@ -504,7 +516,47 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel WHERE Fuel_StationName='"+Fname+"'");
         jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
  }
-    
+    private void DeleteDesigns()
+    {
+                int reply = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+        String fid =jTextField16.getText();
+        
+        boolean x = autoSqlQuery.execute
+        ("DELETE FROM `garmentsystem`.`C_Fuel` WHERE Fuel_ID = '"+fid+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                clearDeleteDesign();
+                TabelLoad();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    }
+     public void clearDeleteDesign(){
+        
+         jTextField16.setText("");
+        jTextField15.setText("");
+         jTextField14.setText("");
+         jTextField13.setText("");
+         jTextField12.setText("");
+         jTextField11.setText("");
+         jTextField10.setText("");
+         jTextField9.setText("");
+         jTextField17.setText("");
+         
+       
+        
+    } 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JButton jButton1;
