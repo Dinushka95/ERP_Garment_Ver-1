@@ -55,10 +55,10 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jTextField14 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
         jButton5 = new javax.swing.JButton();
-        jButton15 = new javax.swing.JButton();
+        Deletecost = new javax.swing.JButton();
         jButton16 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        T_bill_of_mat = new javax.swing.JTable();
         jPanel6 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
@@ -73,12 +73,12 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jTextFieldCost = new javax.swing.JTextField();
         jTextFieldFinalCost = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        T_3 = new javax.swing.JTable();
         jLabel12 = new javax.swing.JLabel();
-        jButton6 = new javax.swing.JButton();
+        Update = new javax.swing.JButton();
         AccNumber = new javax.swing.JComboBox<>();
-        jButton17 = new javax.swing.JButton();
         jTextFieldQuantatiy1 = new javax.swing.JTextField();
+        num222 = new javax.swing.JTextField();
         jButton18 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
@@ -100,36 +100,9 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         qty = new javax.swing.JTextField();
         clr = new javax.swing.JTextField();
         cost_ = new javax.swing.JTextField();
-        jPanel3 = new javax.swing.JPanel();
-        jPanel9 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel30 = new javax.swing.JLabel();
-        jLabel31 = new javax.swing.JLabel();
-        jButton24 = new javax.swing.JButton();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        jTable4 = new javax.swing.JTable();
-        jLabel14 = new javax.swing.JLabel();
-        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
-        jLabel19 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
-        jLabel11 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jLabel20 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
-        jLabel22 = new javax.swing.JLabel();
-        jTextField16 = new javax.swing.JTextField();
-        jLabel23 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
-        jTextField18 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton23 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jButton19 = new javax.swing.JButton();
+        stid11 = new javax.swing.JTextField();
+        AddCost1 = new javax.swing.JButton();
+        update = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("BILL_OF_MATERIAL FORM");
@@ -164,14 +137,15 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jButton5.setText("OK");
         jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1465, 265, -1, -1));
 
-        jButton15.setText("ADD");
-        jButton15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton15.addActionListener(new java.awt.event.ActionListener() {
+        Deletecost.setText("DELETE");
+        Deletecost.setActionCommand("DELETE");
+        Deletecost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Deletecost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton15ActionPerformed(evt);
+                DeletecostActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
+        jPanel8.add(Deletecost, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 450, -1, -1));
 
         jButton16.setText("Reset");
         jButton16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -180,9 +154,9 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 jButton16ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, -1, -1));
+        jPanel8.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 450, -1, -1));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        T_bill_of_mat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null},
@@ -193,9 +167,14 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 "Date", "StyleId", "StyleDes", "Accessories", "Quantity", "Colour", "Cost", "Final Cost"
             }
         ));
-        jTable2.setColumnSelectionAllowed(true);
-        jScrollPane3.setViewportView(jTable2);
-        jTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        T_bill_of_mat.setColumnSelectionAllowed(true);
+        T_bill_of_mat.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                T_bill_of_matMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(T_bill_of_mat);
+        T_bill_of_mat.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 290, 800, 150));
 
@@ -209,11 +188,11 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 23, 110, 30));
+        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 110, 30));
 
         jLabel5.setText("Accessories");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 64, -1));
+        jPanel6.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 60, 80, 20));
 
         jLabel6.setText("Quantity");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -229,7 +208,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 73, 110, 30));
+        jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 100, 110, 30));
 
         jButton9.setText("Clear");
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -238,7 +217,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 170, 110, 30));
+        jPanel6.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 180, 110, 30));
 
         jTextFieldColour.setToolTipText("Add Colour");
         jPanel6.add(jTextFieldColour, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 140, 100, 30));
@@ -264,9 +243,14 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel6.add(jTextFieldCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 180, 100, 30));
 
         jTextFieldFinalCost.setToolTipText("Auto calculate");
+        jTextFieldFinalCost.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextFieldFinalCostMouseExited(evt);
+            }
+        });
         jPanel6.add(jTextFieldFinalCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 100, 30));
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        T_3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
                 {null, null, null, null, null, null},
@@ -277,25 +261,30 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 "Number", "Accessories", "Quantity", "Colour", "Cost", "Final Cost"
             }
         ));
-        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+        T_3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable3MouseClicked(evt);
+                T_3MouseClicked(evt);
             }
             public void mousePressed(java.awt.event.MouseEvent evt) {
-                jTable3MousePressed(evt);
+                T_3MousePressed(evt);
             }
         });
-        jScrollPane4.setViewportView(jTable3);
+        jScrollPane4.setViewportView(T_3);
 
-        jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 17, 437, 208));
+        jPanel6.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 17, 440, 208));
 
         jLabel12.setText("Number");
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, -1, -1));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton6.setText("Update");
-        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 110, 30));
+        Update.setText("Update");
+        Update.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
+        jPanel6.add(Update, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 140, 110, 30));
 
         AccNumber.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         AccNumber.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -311,12 +300,9 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         });
         jPanel6.add(AccNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 100, 30));
 
-        jButton17.setText("DEMO");
-        jButton17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 210, 110, 30));
-
         jTextFieldQuantatiy1.setToolTipText("Add Quantity");
         jPanel6.add(jTextFieldQuantatiy1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 100, 30));
+        jPanel6.add(num222, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 110, 30));
 
         jPanel8.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 890, 270));
 
@@ -327,17 +313,17 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 jButton18ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, -1, -1));
+        jPanel8.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 450, -1, -1));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel13.setText("Date");
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
+        jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         datePicker1.setToolTipText("Enter the Date");
-        jPanel7.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 179, -1));
+        jPanel7.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 179, 30));
 
         jLabel15.setText("Style ID");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -354,11 +340,11 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 StyleidActionPerformed(evt);
             }
         });
-        jPanel7.add(Styleid, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 179, -1));
+        jPanel7.add(Styleid, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 179, 30));
 
         jLabel4.setText("Number");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
 
         jLabel7.setText("Accessories");
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -380,133 +366,38 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
         jPanel7.add(finalcost_, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 180, 30));
-        jPanel7.add(number, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 180, 30));
+        jPanel7.add(number, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 180, 30));
         jPanel7.add(acces, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 180, 30));
         jPanel7.add(qty, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 180, 30));
         jPanel7.add(clr, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 180, 30));
         jPanel7.add(cost_, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 180, 30));
+        jPanel7.add(stid11, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 180, 30));
 
         jPanel8.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 330, 410));
+
+        AddCost1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        AddCost1.setText("ADD");
+        AddCost1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AddCost1ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(AddCost1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
+
+        update.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        update.setText("UPDATE");
+        update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateActionPerformed(evt);
+            }
+        });
+        jPanel8.add(update, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 450, -1, -1));
 
         jPanel2.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 36, 1260, 490));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 1320, 540));
 
         jTabbedPane1.addTab("ADD Bill", jPanel1);
-
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 255)));
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel30.setText("View Detail");
-        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 12, -1, -1));
-
-        jLabel31.setText("Style ID");
-        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        jButton24.setText("Print");
-        jButton24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(873, 379, -1, -1));
-
-        jTable4.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
-            },
-            new String [] {
-                "Date", "StyleId", "StyleDes", "Accessories", "Quantity", "Colour", "Cost", "Final Cost"
-            }
-        ));
-        jScrollPane5.setViewportView(jTable4);
-        jTable4.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-
-        jPanel5.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(391, 83, 806, 195));
-
-        jLabel14.setText("Date");
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 72, -1, -1));
-
-        datePicker2.setEnabled(false);
-        jPanel5.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 70, 179, -1));
-
-        jLabel18.setText("Style ID");
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 111, -1, -1));
-        jPanel5.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 108, 179, -1));
-
-        jLabel19.setText("Style Description");
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 156, -1, -1));
-
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane6.setViewportView(jTextArea2);
-
-        jPanel5.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 182, 179, -1));
-
-        jLabel11.setText("Accessories");
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 292, 69, -1));
-        jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 289, 178, -1));
-
-        jLabel20.setText("Quantity");
-        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 344, -1, -1));
-        jPanel5.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 341, 178, -1));
-
-        jLabel21.setText("Colour");
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 383, -1, -1));
-        jPanel5.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(128, 380, 178, -1));
-
-        jLabel22.setText("Cost");
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 29, -1, -1));
-        jPanel5.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(453, 26, 179, -1));
-
-        jLabel23.setText("Final Cost");
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(662, 29, 80, 20));
-
-        jButton4.setText("ViewAll");
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 170, 30));
-        jPanel5.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(752, 26, 179, -1));
-
-        jButton1.setText("Update");
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 379, -1, -1));
-
-        jButton23.setText("Delete");
-        jButton23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 380, 71, -1));
-
-        jButton11.setText("Reset");
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 380, -1, -1));
-
-        jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton19.setText("Demo");
-        jPanel5.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 380, -1, -1));
-
-        jPanel9.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 21, 1232, 430));
-
-        jPanel3.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 1290, 510));
-
-        jTabbedPane1.addTab("Search & Update || Delete", jPanel3);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -524,46 +415,48 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
        
     }//GEN-LAST:event_StyleidMouseClicked
 
-    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+    private void DeletecostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletecostActionPerformed
         // TODO add your handling code here:
-
-        AddDesignCostMain();
+        DeleteMainBilling();
         TableLoad();
         TextBoxClear();
-    }//GEN-LAST:event_jButton15ActionPerformed
+    }//GEN-LAST:event_DeletecostActionPerformed
 
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+    private void T_3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T_3MouseClicked
         // TODO add your handling code here:
         
         if(SwingUtilities.isRightMouseButton(evt))
         {
             
-        int row =jTable3.getSelectedRow();
-        String Num=jTable3.getValueAt(row,0).toString();
-        String Accessories = jTable3.getValueAt(row,2).toString();
-        String Quantity  = jTable3.getValueAt(row,3).toString();
-        String colour = jTable3.getValueAt(row,4).toString();
-        String cost = jTable3.getValueAt(row,5).toString();
-        String finalcost = jTable3.getValueAt(row,6).toString();
+        int row =T_3.getSelectedRow();
+        String num=T_3.getValueAt(row,0).toString();
+        String Accessories = T_3.getValueAt(row,2).toString();
+        String Quantity  = T_3.getValueAt(row,3).toString();
+        String colour = T_3.getValueAt(row,4).toString();
+        String cost = T_3.getValueAt(row,5).toString();
+        String finalcost = T_3.getValueAt(row,6).toString();
 
-        AccNumber.addItem(Num);
+        num222.setText(num);
         Acce.setText(Accessories);
+        jTextFieldQuantatiy1.setText(Quantity);
         jTextFieldFinalCost.setText(finalcost);
         jTextFieldColour.setText(colour);
         jTextFieldCost.setText(cost);
-        Acce.setText(Quantity);
+        
         
         }
         else if(SwingUtilities.isLeftMouseButton(evt))
         {
-            int row =jTable3.getSelectedRow();
-            String Num=jTable3.getValueAt(row,0).toString();
-            String Accessories = jTable3.getValueAt(row,2).toString();
-            String Quantity  = jTable3.getValueAt(row,3).toString();
-            String colour = jTable3.getValueAt(row,4).toString();
-            String cost = jTable3.getValueAt(row,5).toString();
-            String finalcost = jTable3.getValueAt(row,6).toString();
+            int row =T_3.getSelectedRow();
+            String Num=T_3.getValueAt(row,0).toString();
+            String stid=T_3.getValueAt(row,1).toString();
+            String Accessories = T_3.getValueAt(row,2).toString();
+            String Quantity  = T_3.getValueAt(row,3).toString();
+            String colour = T_3.getValueAt(row,4).toString();
+            String cost = T_3.getValueAt(row,5).toString();
+            String finalcost = T_3.getValueAt(row,6).toString();
             
+            stid11.setText(stid);
             number.setText(Num);
             acces.setText(Accessories);
             qty.setText(Quantity);
@@ -575,7 +468,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         }
         
        
-    }//GEN-LAST:event_jTable3MouseClicked
+    }//GEN-LAST:event_T_3MouseClicked
 
     private void AccessoryIDFillCombo()
     {
@@ -626,23 +519,16 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        DeleteBilling();
+       DeleteBilling();
         TableLoad2();
         
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-        AddRowDesignCost();
+        AddDesignCostBilling();
         TableLoad2();
         
     }//GEN-LAST:event_jButton2ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        
-        
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
         // TODO add your handling code here:
@@ -650,11 +536,11 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         TextBoxClear();
     }//GEN-LAST:event_jButton16ActionPerformed
 
-    private void jTable3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MousePressed
+    private void T_3MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T_3MousePressed
         // TODO add your handling code here:
         
         
-    }//GEN-LAST:event_jTable3MousePressed
+    }//GEN-LAST:event_T_3MousePressed
 
     private void jTextFieldCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCostActionPerformed
         // TODO add your handling code here:
@@ -696,9 +582,71 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }//GEN-LAST:event_AccNumberActionPerformed
+
+    private void AddCost1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddCost1ActionPerformed
+        // TODO add your handling code here:
+        
+        AddDesignCostMain();
+        TableLoad();
+    }//GEN-LAST:event_AddCost1ActionPerformed
+
+    private void updateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateActionPerformed
+        // TODO add your handling code here:
+        
+        UpdateAddedDesignsMain();
+        TableLoad();
+        TextBoxClear();
+        
+    }//GEN-LAST:event_updateActionPerformed
+
+    private void T_bill_of_matMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_T_bill_of_matMouseClicked
+        // TODO add your handling code here:
+        
+         int row =T_bill_of_mat.getSelectedRow();
+        String date = T_bill_of_mat.getValueAt(row,7).toString();
+        String id = T_bill_of_mat.getValueAt(row,1).toString();
+        String num = T_bill_of_mat.getValueAt(row,0).toString();
+        String acc = T_bill_of_mat.getValueAt(row,2).toString();
+        String Qty = T_bill_of_mat.getValueAt(row,3).toString();
+        String color = T_bill_of_mat.getValueAt(row,4).toString();
+        String cost = T_bill_of_mat.getValueAt(row,5).toString();
+        String finalcost = T_bill_of_mat.getValueAt(row,6).toString();
+        
+       
+
+        datePicker1.setText(date);
+        stid11.setText(id);
+        number.setText(num);
+        acces.setText(acc);
+        qty.setText(Qty);
+        clr.setText(color);
+        cost_.setText(cost);
+        finalcost_.setText(finalcost);
+        
+                                     
+    }//GEN-LAST:event_T_bill_of_matMouseClicked
+
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
+        // TODO add your handling code here:
+        UpdateAddedDesignsBilling();
+        TableLoad2();
+    }//GEN-LAST:event_UpdateActionPerformed
+
+    private void jTextFieldFinalCostMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldFinalCostMouseExited
+        // TODO add your handling code here:
+        
+        String qty12=jTextFieldQuantatiy1.getText();
+        String cost12=jTextFieldCost.getText();
+        
+        int f_cost=Integer.parseInt(qty12)*Integer.parseInt(cost12);
+        
+        jTextFieldFinalCost.setText(Integer.toString(f_cost));
+        
+        
+    }//GEN-LAST:event_jTextFieldFinalCostMouseExited
     
     
-     public void AddDesignCost()
+     public void AddDesignCostBilling()
     
     {
         
@@ -709,10 +657,10 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         String Color=jTextFieldColour.getText();
         String cost=jTextFieldCost.getText();
         String FinalCost=jTextFieldFinalCost.getText();
-        String date = datePicker1.getText();
+        
         
         if(Number.isEmpty()||id.isEmpty()||acc.isEmpty()||Qty.
-        isEmpty()||Color.isEmpty()||cost.isEmpty()||date.isEmpty()
+        isEmpty()||Color.isEmpty()||cost.isEmpty()
        ||FinalCost.isEmpty()){
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         
@@ -726,15 +674,14 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         
         
          boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem"
-                 + "`.`T_Bill_Of_Material`\n" +
+                 + "`.`T_Billing_Add_Designs`\n" +
 "(`Number`,\n" +
 "`StyleID`,\n" +
 "`Accesories`,\n" +
 "`Quantity`,\n" +
 "`Colour`,\n" +
 "`Cost`,\n" +
-"`Final_Cost`,\n" +
-"`Date`)\n" +
+"`Final_Cost`)\n" +
 "VALUES\n" +
 "('"+Number+"',\n" +
 "'"+id+"',\n" +
@@ -742,8 +689,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
 "'"+Qty+"',\n" +
 "'"+Color+"',\n" +
 "'"+cost+"',\n" +
-"'"+FinalCost+"',\n" +
-"'"+date+"');");
+"'"+FinalCost+"');");
 
         
       
@@ -751,13 +697,13 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
             if(x==true)
             {
                 JOptionPane.showMessageDialog(null,"Successfully Added"
-                        + " to the Bill of Material");
+                        + " T_Billing_Add_Designs");
                 
             }
         }
         catch(Exception ex)
         {
-            System.out.println(ex);
+            System.out.println("Add1 : \t"+ex);
         }
         
                 }
@@ -827,7 +773,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         }
         catch(Exception ex)
         {
-            System.out.println(ex);
+            System.out.println("Add2 : \t"+ex);
         }
         
                 }
@@ -841,7 +787,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
 
              AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT * FROM `garmentsystem`.`T_Bill_Of_Material`");
-            jTable2.setModel(DbUtils.resultSetToTableModel
+            T_bill_of_mat.setModel(DbUtils.resultSetToTableModel
         (AutoDB_Connect.DB_ResultSet));
 
     }
@@ -850,7 +796,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     {
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT * FROM `garmentsystem`.`T_Billing_Add_Designs`");
-            jTable3.setModel(DbUtils.resultSetToTableModel
+            T_3.setModel(DbUtils.resultSetToTableModel
         (AutoDB_Connect.DB_ResultSet));
 
     }
@@ -858,6 +804,14 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private void TextBoxClear(){
             Styleid.setSelectedIndex(0);
             datePicker1.setText("");
+            number.setText("");
+            stid11.setText("");
+            acces.setText("");
+            qty.setText("");
+            clr.setText("");
+            cost_.setText("");
+            finalcost_.setText("");
+            
             
         
     }
@@ -865,8 +819,10 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
      private void TextBoxClearacc(){
             AccNumber.setSelectedIndex(0);
             jTextFieldColour.setText("");
+            num222.setText("");
             Acce.setText("");
             jTextFieldCost.setText("");
+            jTextFieldQuantatiy1.setText("");
             jTextFieldFinalCost.setText("");
             Styleid.setSelectedIndex(0);
             datePicker1.setText("");
@@ -890,87 +846,230 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         }
         catch(Exception ex)
         {
-            System.out.println(ex);
+            System.out.println("Add3 : \t"+ex);
         }
         
         
         
         
         
-    }
-    
-      
-    
-     public void AddRowDesignCost()
-    
-    {
-        
-        String Num = AccNumber.getSelectedItem().toString();
-        String stid =Styleid.getSelectedItem().toString();
-        String acc = Acce.getText();
-        String Qty=jTextFieldQuantatiy1.getText();
-        String Color=jTextFieldColour.getText();
-        String Cost=jTextFieldCost.getText();
-        String Final_Cost =jTextFieldFinalCost.getText();
-        
-        
-        
-        
-        
-        
-        boolean  x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`T_Billing_Add_Designs`\n" +
-"(`Number`,\n" +
-"`StyleID`,\n" +
-"`Accesories`,\n" +
-"`Quantity`,\n" +
-"`Colour`,\n" +
-"`Cost`,\n" +
-"`Final_Cost`)\n" +
-"VALUES\n" +
-"('"+Num+"',\n" +
-"'"+stid+"',\n" +
-"'"+acc+"',\n" +
-"'"+Qty+"',\n" +
-"'"+Color+"',\n" +
-"'"+Cost+"',\n" +
-"'"+Final_Cost+"');");
-        
-        try
-        {
-            if(x==true)
-            {
-                JOptionPane.showMessageDialog(null,"Successfully Added");
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-        
-        
-        
-      
     }
      private void DeleteBilling()
     {
-        String Num =AccNumber.getSelectedItem().toString();
+        String num,access,quantity,colour, cost_, F_cost;
+        num=num222.getText();
+        access=Acce.getText();
+        quantity=jTextFieldQuantatiy1.getText();
+        colour=jTextFieldColour.getText();
+        cost_=jTextFieldCost.getText();
+        F_cost=jTextFieldFinalCost.getText();
         
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`T_Design_table`\n" +
-"WHERE StyleId = '"+Num+"';");
         
-        try
-        {
+         if(num.isEmpty()||access.isEmpty()||quantity.isEmpty()||colour.isEmpty()
+         ||cost_.isEmpty()||F_cost.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+         else{
+             try{
+        
+                int reply = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+        num =num222.getText();
+        
+        boolean x = autoSqlQuery.execute
+        ("DELETE FROM `garmentsystem`.`T_Billing_Add_Designs`\n" +
+           "WHERE Number = '"+num+"';");
+        
+        
+        
             if (x==true)
             {
+                TextBoxClearacc();
                 TableLoad2();
-                JOptionPane.showConfirmDialog(null,"Are you sure?");
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
             }
         }
+             }
         catch (Exception ex){
             System.out.println(ex);
         }
     }
+    }
      
+     public void UpdateAddedDesignsBilling(){
+          
+            
+        String num,access,quantity,colour, cost_, F_cost;
+        num=num222.getText();
+        access=Acce.getText();
+        quantity=jTextFieldQuantatiy1.getText();
+        colour=jTextFieldColour.getText();
+        cost_=jTextFieldCost.getText();
+        F_cost=jTextFieldFinalCost.getText();
+        
+         if(num.isEmpty()||access.isEmpty()||quantity.isEmpty()||colour.isEmpty()
+         ||cost_.isEmpty()||F_cost.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+         else{
+             try{
+        
+                int reply = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to Update?", "Upadate?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+        num =num222.getText();
+        
+        boolean x = autoSqlQuery.execute
+        ("UPDATE `garmentsystem`.`T_Billing_Add_Designs`\n" +
+"SET\n" +
+"`Number` = '"+num+"',\n" +
+"`Accesories` = '"+access+"',\n" +
+"`Quantity` = '"+ quantity+"',\n" +
+"`Colour` = '"+colour+"',\n" +
+"`Cost` = '"+cost_+"',\n" +
+"`Final_Cost` = '"+F_cost+"'\n" +
+"WHERE `Number` = '"+num+"';");
+        
+        
+        
+            if (x==true)
+            {
+                TextBoxClearacc();
+                TableLoad2();
+                JOptionPane.showMessageDialog(null,"Successfully Updated");
+            }
+        }
+             }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+    }
+    }
+     
+     private void DeleteMainBilling()
+    {
+        String Nm, num,access,quantity,colour, cost_1, F_cost1;
+        Nm=number.getText();
+        num=stid11.getText();
+        access=acces.getText();
+        quantity=qty.getText();
+        colour=clr.getText();
+        cost_1=cost_.getText();
+        F_cost1=finalcost_.getText();
+        
+        
+         if(Nm.isEmpty()||num.isEmpty()||access.isEmpty()||quantity.isEmpty()||colour.isEmpty()
+         ||cost_1.isEmpty()||F_cost1.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+         else{
+             try{
+        
+                int reply = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+        num =number.getText();
+        
+        boolean x = autoSqlQuery.execute
+        ("DELETE FROM `garmentsystem`.`T_Bill_Of_Material`\n" +
+           "WHERE Number = '"+num+"';");
+        
+        
+        
+            if (x==true)
+            {
+                TextBoxClear();
+                TableLoad();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
+            }
+        }
+             }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+    }
+    }
+             public void UpdateAddedDesignsMain(){
+          
+            
+        String id, num,access,quantity,colour, cost_1, F_cost1;
+        id=stid11.getText();
+        num=number.getText();
+        access=acces.getText();
+        quantity=qty.getText();
+        colour=clr.getText();
+        cost_1=cost_.getText();
+        F_cost1=jTextFieldFinalCost.getText();
+        
+         if(num.isEmpty()||access.isEmpty()||quantity.isEmpty()||colour.isEmpty()
+         ||cost_1.isEmpty()||F_cost1.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+         else{
+             try{
+        
+                int reply = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to Update?", "Upadate?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+        num =number.getText();
+        
+        boolean x = autoSqlQuery.execute
+        ("UPDATE `garmentsystem`.`T_Bill_Of_Material`\n" +
+"SET\n" +
+"`Number` = '"+num+"',\n" +
+"`Accesories` = '"+access+"',\n" +
+"`Quantity` = '"+ quantity+"',\n" +
+"`Colour` = '"+colour+"',\n" +
+"`Cost` = '"+cost_1+"',\n" +
+"`Final_Cost` = '"+F_cost1+"'\n" +
+"WHERE `Number` = '"+num+"';");
+        
+        
+        
+            if (x==true)
+            {
+                TextBoxClearacc();
+                TableLoad();
+                JOptionPane.showMessageDialog(null,"Successfully Updated");
+            }
+        }
+             }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+    }
+    }
+        
+
+     
+     /*public void UpdateAddedDesigns(){
+          
+            
+        String id,des,designer,gender,type,size,date,status,collection,colour;
+        id=jLabel1.getText();
+        des=Style_txt.getText();
+        designer=designer_txt.getText();
+        gender=gender_txt.getText();
+        type=type_txt.getText();
+        size=size_txt.getText();
+        date=datePicker3.getText();
+        status=status_txt.getText();
+        collection=collection_txt.getText();
+        colour=colour_txt.getText();
+     */
 
     
         
@@ -990,50 +1089,35 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AccNumber;
     private javax.swing.JTextField Acce;
+    private javax.swing.JButton AddCost1;
+    private javax.swing.JButton Deletecost;
     private javax.swing.ButtonGroup Other;
     private javax.swing.JComboBox<String> Styleid;
+    private javax.swing.JTable T_3;
+    private javax.swing.JTable T_bill_of_mat;
+    private javax.swing.JButton Update;
     private javax.swing.JTextField acces;
     private javax.swing.JTextField clr;
     private javax.swing.JTextField cost_;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
-    private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JTextField finalcost_;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton16;
-    private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton23;
-    private javax.swing.JButton jButton24;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1042,34 +1126,22 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JScrollPane jScrollPane5;
-    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
-    private javax.swing.JTable jTable4;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextFieldColour;
     private javax.swing.JTextField jTextFieldCost;
     private javax.swing.JTextField jTextFieldFinalCost;
     private javax.swing.JTextField jTextFieldQuantatiy1;
+    private javax.swing.JTextField num222;
     private javax.swing.JTextField number;
     private javax.swing.JTextField qty;
+    private javax.swing.JTextField stid11;
+    private javax.swing.JButton update;
     // End of variables declaration//GEN-END:variables
 }
