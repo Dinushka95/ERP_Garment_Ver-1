@@ -89,7 +89,7 @@ int RowCountjTable2;
         dateSettings123.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings123.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings123);
-        jComboBox4 = new javax.swing.JComboBox<>();
+        samplegrp = new javax.swing.JComboBox<>();
         Sample = new javax.swing.JTextField();
         Sample_Designer = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
@@ -122,7 +122,6 @@ int RowCountjTable2;
         jTextField16 = new javax.swing.JTextField();
         jTextField17 = new javax.swing.JTextField();
         jTextField15 = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
         setTitle("RequestAndCreateSample");
@@ -338,8 +337,13 @@ int RowCountjTable2;
         });
         jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
 
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton11.setText("Demo");
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 20, -1, -1));
 
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(486, 459, 380, 60));
@@ -355,9 +359,9 @@ int RowCountjTable2;
         datePicker2.setName("");
         jPanel5.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 170, 30));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Sample", "Sketch Sample", "Photo Sample" }));
-        jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 170, 30));
+        samplegrp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Sample", "Sketch Sample", "Photo Sample" }));
+        samplegrp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel5.add(samplegrp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 170, 30));
         jPanel5.add(Sample, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 170, 30));
 
         Sample_Designer.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Designer" }));
@@ -476,9 +480,6 @@ int RowCountjTable2;
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
-
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1350, 590));
 
         getAccessibleContext().setAccessibleName("");
@@ -530,7 +531,7 @@ int RowCountjTable2;
             SampleStid.setText("des");
             SampleDes.setText("Sampletype");
             SType.setText("Samplesize");
-            jComboBox4.setSelectedItem("Samplegroup");
+            samplegrp.setSelectedItem("Samplegroup");
             S_Size.setText("Sampledesigner");
             Sample_Designer.setSelectedItem("NoOfSample");
             Nu_of_Samples.setText("Samplegiven");
@@ -564,7 +565,7 @@ int RowCountjTable2;
             SampleStid.setText("des");
             SampleDes.setText("Sampletype");
             SType.setText("Samplesize");
-            jComboBox4.setSelectedItem("Samplegroup");
+            samplegrp.setSelectedItem("Samplegroup");
             S_Size.setText("Sampledesigner");
             Sample_Designer.setSelectedItem("NoOfSample");
             Nu_of_Samples.setText("Samplegiven");
@@ -609,6 +610,16 @@ int RowCountjTable2;
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        
+            SampleDes.setText("Blah");
+            samplegrp.setSelectedItem("Photo Sample");
+            Sample_Designer.setSelectedItem("Surosh Chavi");
+            Nu_of_Samples.setText("2");
+            Sample_Given.setText("Customer");
+    }//GEN-LAST:event_jButton11ActionPerformed
     private void generate_SAMID(){
     AutoIdGenerator sid = new AutoIdGenerator();
     SampleID.setText(sid.generate("SAMID",Integer.toString(MainWindow.userid)));
@@ -619,7 +630,8 @@ int RowCountjTable2;
 
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT * FROM `garmentsystem`.`T_Request_Create_Sample_table`");
-            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            jTable2.setModel(DbUtils.resultSetToTableModel
+        (AutoDB_Connect.DB_ResultSet));
 
     }
      
@@ -628,7 +640,8 @@ int RowCountjTable2;
 
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT * FROM `garmentsystem`.`T_Design_Approval_Table`");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            jTable1.setModel(DbUtils.resultSetToTableModel
+        (AutoDB_Connect.DB_ResultSet));
 
     }
       private void TableLoad2()
@@ -648,7 +661,7 @@ int RowCountjTable2;
             SampleStid.setText("");
             SampleDes.setText("");
             SType.setText("");
-            jComboBox4.setSelectedItem("");
+            samplegrp.setSelectedItem("");
             S_Size.setText("");
             Sample_Designer.setSelectedItem("");
             Nu_of_Samples.setText("");
@@ -666,13 +679,14 @@ int RowCountjTable2;
         String des=SampleDes.getText();
         String Sampletype =SType.getText();
         String samplesize =S_Size.getText();
-        String samplegroup = jComboBox4.getSelectedItem().toString();
+        String samplegroup = samplegrp.getSelectedItem().toString();
         String sampledesigner =Sample_Designer.getSelectedItem().toString();
         String Nosample =Nu_of_Samples.getText();
         String samplegiven=Sample_Given.getText();
         String date = datePicker2.getText();
                 
-        boolean  x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`T_Request_Create_Sample_table`\n" +
+        boolean  x = autoSqlQuery.execute("INSERT INTO "
+                + "`garmentsystem`.`T_Request_Create_Sample_table`\n" +
 "(`SampleId`,\n" +
 "`SampleName`,\n" +
 "`StyleId`,\n" +
@@ -723,8 +737,9 @@ int RowCountjTable2;
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = AutoDB_Connect.DB_ResultSet.getString("SampleDesigner");
-                Sample_Designer.addItem(id);
+                 String designer = AutoDB_Connect.DB_ResultSet.getString
+                ("f_name");
+                Sample_Designer.addItem(designer);
             }
         }
         catch(Exception ex)
@@ -762,7 +777,6 @@ int RowCountjTable2;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -788,7 +802,6 @@ int RowCountjTable2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -814,5 +827,6 @@ int RowCountjTable2;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JComboBox<String> samplegrp;
     // End of variables declaration//GEN-END:variables
 }
