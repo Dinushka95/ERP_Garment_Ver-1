@@ -8,14 +8,14 @@ package Manufacturing;
  *
  * @author Dinushka
  */
-public class IronAndPacking1 extends javax.swing.JInternalFrame {
+public class IronAndPacking2 extends javax.swing.JInternalFrame {
 
 
 
     /**
      * Creates new form SalesDesignInquiry
      */
-    public IronAndPacking1() {
+    public IronAndPacking2() {
         initComponents();
       
       

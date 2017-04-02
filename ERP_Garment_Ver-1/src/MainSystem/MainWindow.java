@@ -47,6 +47,7 @@ import java.util.logging.Logger;
 import static MainSystem.MainWindow.autoSqlQuery;
 import Maintance.OrderParts;
 import Manufacturing.Cutting1;
+import Manufacturing.IronAndPacking2;
 import Manufacturing.Sewing1;
 import Manufacturing.Washing1;
 import ManufacturingPlanning.CuttingSchedule;
@@ -1420,7 +1421,7 @@ public static AutoReport autoReport;
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
-        IronAndPacking1 iro=new IronAndPacking1();
+       IronAndPacking2 iro=new IronAndPacking2();
         iro.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(iro);
