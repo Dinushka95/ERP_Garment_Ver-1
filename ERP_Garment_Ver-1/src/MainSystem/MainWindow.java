@@ -326,7 +326,7 @@ public static AutoReport autoReport;
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
+        jPanel14.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         jButton28.setText("Request_And_Create Sample");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
@@ -342,7 +342,7 @@ public static AutoReport autoReport;
                 jButton43ActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
+        jPanel14.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
         jTabbedPane1.addTab("Sampling Mgmt", jPanel14);
 
