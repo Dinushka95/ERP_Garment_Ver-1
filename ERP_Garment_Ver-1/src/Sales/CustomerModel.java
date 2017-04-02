@@ -18,11 +18,11 @@ public class CustomerModel {
     public boolean AddCustomer(JTextField CustomerId,JTextField CustomerName,JTextField CompanyName,JTextField Phone,JTextField Email,JTextField Address,DatePicker Date){
         
         if( validation.ValidationCheck(CustomerId, true,0,'@')&&
-            validation.ValidationCheck(CustomerName, true,0,'s')&&
-            validation.ValidationCheck(CompanyName, true,0,'@')&&
-            validation.ValidationCheck(Phone, true,0,'1')&&
-            validation.ValidationCheck(Email, false,0,'@')&&
-            validation.ValidationCheck(Address, false,0,'@')){
+            validation.ValidationCheck(CustomerName, true,-40,'s')&&
+            validation.ValidationCheck(CompanyName, true,-40,'@')&&
+            validation.ValidationCheck(Phone, true,-11,'1')&&
+            validation.isValidEmailAddress(Email.getText())&&
+            validation.ValidationCheck(Address, false,-40,'@')){
         
             boolean x =autoSqlQuery.executeAutoADD(new String[]  {"CustomerId="+CustomerId.getText(),
                                                             "Name="+CustomerName.getText(),
@@ -50,7 +50,7 @@ public class CustomerModel {
         if( validation.ValidationCheck(CustomerName, true,0,'@')&&
             validation.ValidationCheck(CompanyName, true,0,'@')&&
             validation.ValidationCheck(Phone, true,0,'1')&&
-            validation.ValidationCheck(Email, false,0,'@')&&
+            validation.isValidEmailAddress(Email.getText())&&
             validation.ValidationCheck(Address, false,0,'@')){
             
             boolean x =autoSqlQuery.executeAutoEdit(new String[]{  "Name="+CustomerName.getText(),

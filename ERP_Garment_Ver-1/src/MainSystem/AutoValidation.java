@@ -6,6 +6,8 @@ package MainSystem;
 // negative to postive number. for example negative -5 is less than five and 5 means  grater than five and zero means no length check
 // then the final check is type check it needs a char input if a number is input it will allow numbers only if letter is input then only letters
 // to accept any input use special character 
+import javax.mail.internet.AddressException;
+import javax.mail.internet.InternetAddress;
 import javax.swing.JOptionPane;
 import javax.swing.text.JTextComponent;
 
@@ -110,6 +112,19 @@ char TypeCheck1;
         
         }
     return true;
+    }
+  
+  
+    public boolean isValidEmailAddress(String email) {
+        boolean result = true;
+        try {
+        InternetAddress emailAddr = new InternetAddress(email);
+        emailAddr.validate();
+        } catch (AddressException ex) {
+        JOptionPane.showMessageDialog(null, "Invalid E-mail", "InfoBox: " + "titleBar",JOptionPane.ERROR_MESSAGE);   
+        result = false;
+        }
+        return result;
     }
 }
 
