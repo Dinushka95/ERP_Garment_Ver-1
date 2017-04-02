@@ -128,7 +128,6 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jButton23 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jButton19 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
         setTitle("BILL_OF_MATERIAL FORM");
@@ -497,9 +496,6 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel3.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 1290, 510));
 
         jTabbedPane1.addTab("Search & Update || Delete", jPanel3);
-
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -935,7 +931,6 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
