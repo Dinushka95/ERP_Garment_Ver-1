@@ -6,15 +6,24 @@ import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import javax.swing.JOptionPane;
 
 
 public class Contactor extends javax.swing.JInternalFrame {
 
 
     public Contactor() {
-        
-       
-      
+        initComponents();
+        TextBoxClear1();
+        TableLoad1();
+        //FillTextCombo1();
+        TableLoad2();
+        TextBoxClear2();
+       // FillTextCombo2()
+        generate_Contractor_ID();
+        generate_Contractor_ID1();
+        datePicker2.setDateToToday();
+        datePicker3.setDateToToday();
     }
 
     /**
@@ -45,19 +54,19 @@ public class Contactor extends javax.swing.JInternalFrame {
         jTextFieldAddress = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox();
-        jComboBox2 = new javax.swing.JComboBox();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch = new javax.swing.JPanel();
-        jTextFieldSearchCustomerId = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         ResetButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jTextField3 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         DatePickerSettings dateSettings1 = new DatePickerSettings();
@@ -74,7 +83,7 @@ public class Contactor extends javax.swing.JInternalFrame {
         jLabel20 = new javax.swing.JLabel();
         jTextFieldAddress2 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jComboBox4 = new javax.swing.JComboBox();
+        jTextField2 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -145,10 +154,8 @@ public class Contactor extends javax.swing.JInternalFrame {
         jLabel11.setText("Contactors Name");
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
-
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 140, -1));
-
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 210, -1));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 140, -1));
+        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 140, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 510, 520));
 
@@ -163,9 +170,14 @@ public class Contactor extends javax.swing.JInternalFrame {
                 "Contactor ID", "Contactor Name", "Phone", "Email", "Address", "Date"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
-        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 640, 90));
+        jPanel1.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 90, 640, 330));
 
         jTabbedPane1.addTab("ADD Contactor", jPanel1);
 
@@ -173,7 +185,6 @@ public class Contactor extends javax.swing.JInternalFrame {
 
         jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelcustomerSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 60, -1));
 
         jButton8.setText("View All");
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -197,8 +208,8 @@ public class Contactor extends javax.swing.JInternalFrame {
         jLabel2.setText("Contractors ID");
         jPanelcustomerSearch.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        ResetButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ResetButton1.setText("Reset All");
+        ResetButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ResetButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ResetButton1ActionPerformed(evt);
@@ -224,7 +235,8 @@ public class Contactor extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jPanelcustomerSearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
+        jPanelcustomerSearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
+        jPanelcustomerSearch.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 110, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 580, 510));
 
@@ -236,10 +248,10 @@ public class Contactor extends javax.swing.JInternalFrame {
         jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
 
         datePicker3.setName(""); // NOI18N
-        jPanel6.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
+        jPanel6.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 210, -1, -1));
 
-        jButtonADD1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButtonADD1.setText("Delete");
+        jButtonADD1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButtonADD1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonADD1ActionPerformed(evt);
@@ -247,8 +259,8 @@ public class Contactor extends javax.swing.JInternalFrame {
         });
         jPanel6.add(jButtonADD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 320, -1, -1));
 
-        jButtonResetAll1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButtonResetAll1.setText("Edit");
+        jButtonResetAll1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButtonResetAll1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonResetAll1ActionPerformed(evt);
@@ -276,13 +288,12 @@ public class Contactor extends javax.swing.JInternalFrame {
         jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
 
         jTextFieldAddress2.setName("Address"); // NOI18N
-        jPanel6.add(jTextFieldAddress2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 210, -1));
+        jPanel6.add(jTextFieldAddress2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 210, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setText("Contactors Name");
         jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jPanel6.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 210, -1));
+        jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 160, -1));
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 510, 520));
 
@@ -299,41 +310,283 @@ public class Contactor extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADDActionPerformed
-
-   
-        
+ ADDContactor();
+ TableLoad1();  
+ EditContactor ();
+ generate_Contractor_ID();
+  generate_Contractor_ID1();
     }//GEN-LAST:event_jButtonADDActionPerformed
 
     private void jButtonResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAllActionPerformed
-
+    TextBoxClear1();
     }//GEN-LAST:event_jButtonResetAllActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-
+        TableLoad2();
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void ResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButton1ActionPerformed
-        // TODO add your handling code here:
+         TextBoxClear2();
         
     }//GEN-LAST:event_ResetButton1ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-       
+   int row =jTable2.getSelectedRow();
+        String c_id = jTable2.getValueAt(row,0).toString();
+        String c_name = jTable2.getValueAt(row,1).toString();
+        String phone = jTable2.getValueAt(row,2).toString();
+        String em = jTable2.getValueAt(row,3).toString();
+        String add = jTable2.getValueAt(row,4).toString();
+        String date = jTable2.getValueAt(row,5).toString();
+    
+        
+      jTextField3.setText(c_id);
+      jTextField2.setText(c_name);
+      jTextFieldPhone2.setText(phone);
+      jTextFieldEmail2.setText(em);
+      jTextFieldAddress2.setText(add);
+      datePicker3.setText(date);       
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButtonADD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADD1ActionPerformed
-        // TODO add your handling code here:
+        DeleteContractor();
+        TextBoxClear2();
     }//GEN-LAST:event_jButtonADD1ActionPerformed
 
     private void jButtonResetAll1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAll1ActionPerformed
-        // TODO add your handling code here:
+        EditContactor();
+        TableLoad2();
     }//GEN-LAST:event_jButtonResetAll1ActionPerformed
 
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+       int row =jTable3.getSelectedRow();
+        String c_id = jTable3.getValueAt(row,0).toString();
+        String c_name = jTable3.getValueAt(row,1).toString();
+        String phone = jTable3.getValueAt(row,2).toString();
+        String em = jTable3.getValueAt(row,3).toString();
+        String add = jTable3.getValueAt(row,3).toString();
+        String date = jTable3.getValueAt(row,4).toString();
+    
+        
+      jTextField4.setText(c_id);
+      jTextField1.setText(c_name);
+      jTextFieldPhone.setText(phone);
+      jTextFieldEmail.setText(em);
+      jTextFieldAddress2.setText(add);
+      datePicker3.setText(date); 
+    }//GEN-LAST:event_jTable3MouseClicked
 
+     private void generate_Contractor_ID(){
+    AutoIdGenerator c_id = new AutoIdGenerator();
+    jTextField4.setText(c_id.generate("ACC",Integer.toString(MainWindow.userid)));
+    }
+    
+     private void generate_Contractor_ID1(){
+    AutoIdGenerator c_id = new AutoIdGenerator();
+    jTextField3.setText(c_id.generate("ACC",Integer.toString(MainWindow.userid)));
+    }
+    
+    
+    
+        private void TableLoad1()
+  {
+      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Contactor`");
+      
+      jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+  }
+        
+        
+        private void TableLoad2()
+  {
+      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Contactor`");
+      
+      jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+  }
+        
+        
+          private void DeleteContractor()
+    {
+        String c_id = jTextField3.getText();
+        
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Contactor`\n" +
+"WHERE Contactor_ID = '"+c_id+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                TextBoxClear2();
+                TableLoad2();
+                JOptionPane.showMessageDialog(null,"Susseccfuly Deleted");
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+    }
+        
+        
+        
+        
+        public void ADDContactor(){
+    
+      String c_id = jTextField4.getText();
+      String c_name = jTextField1.getText();
+      String phone = jTextFieldPhone.getText();
+      String em =  jTextFieldEmail.getText();
+      String add = jTextFieldAddress.getText();
+      String date = datePicker2.getText();
+
+       
+   
+              
+    boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Contactor`\n"+
+"(`Contactor_ID`,\n" +
+"`Contactor_Name`,\n" +
+"`Phone`,\n" +
+"`Email`,\n" +
+"`Address`,\n" +
+"`Date`)\n" +
+"VALUES\n" +
+"('"+c_id+"',\n" + 
+"'"+c_name+"',\n" +
+"'"+phone+"',\n" +
+"'"+em+"',\n" +
+"'"+add+"',\n" +
+"'"+date+"');"); 
+    
+         try
+        {
+            if(x==true)
+            {
+                TableLoad1();
+               TextBoxClear1();
+               JOptionPane.showMessageDialog(null,"Susseccfuly Added"); 
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        
+    
+        }}
+
+        
+          public void EditContactor(){
+    
+      String c_id = jTextField3.getText();
+      String c_name = jTextField2.getText();
+      String phone = jTextFieldPhone2.getText();
+      String em =  jTextFieldEmail2.getText();
+      String add = jTextFieldAddress2.getText();
+      String date = datePicker3.getText();
+
+       
+   
+              
+    boolean x = autoSqlQuery.execute("Update `garmentsystem`.`Contactor`\n"+
+"(`Contactor_ID`,\n" +
+"`Contactor_Name`,\n" +
+"`Phone`,\n" +
+"`Email`,\n" +
+"`Address`,\n" +
+"`Date`)\n" +
+"VALUES\n" +
+"('"+c_id+"',\n" + 
+"'"+c_name+"',\n" +
+"'"+phone+"',\n" +
+"'"+em+"',\n" +
+"'"+add+"',\n" +
+"'"+date+"');"); 
+    
+         try
+        {
+            if(x==true)
+            {
+                TableLoad2();
+               TextBoxClear2();
+               JOptionPane.showMessageDialog(null,"Susseccfuly Update"); 
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        
+    
+        }}
+        
+        
+           private void TextBoxClear1(){
+     
+         //jComboBox1.setSelectedIndex(0);
+         jTextField1.setText("");
+         jTextFieldPhone.setText("");
+         
+         jTextFieldEmail.setText("");
+         jTextFieldAddress.setText("");
+         datePicker2.setDateToToday();
+     }
+         
+           
+   //       private void FillTextCombo1()
+    //{
+      //  try
+        //{
+          //  AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("select * from Contactor");
+            
+            //while(AutoDB_Connect.DB_ResultSet.next())
+            //{
+              //  String c_id = AutoDB_Connect.DB_ResultSet.getString("Contactor_ID");
+                //jComboBox1.addItem(c_id);
+            //}
+        //}
+        //catch(Exception ex)
+        //{
+          //  System.out.println(ex);
+        //}
+    //}
+                 
+                 
+         private void TextBoxClear2(){
+     
+         jTextField3.setText("");
+         jTextField2.setText("");
+         jTextFieldPhone2.setText("");
+         
+         jTextFieldEmail2.setText("");
+         jTextFieldAddress2.setText("");
+         datePicker3.setDateToToday();
+     }
+           
+ //                private void FillTextCombo2()
+  //  {
+    //    try
+      //  {
+        //    AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("select * from Contactor");
+            
+          //  while(AutoDB_Connect.DB_ResultSet.next())
+            //{
+              //  String c_id = AutoDB_Connect.DB_ResultSet.getString("Contactor_ID");
+                //jTextField3.addText(c_id);
+            //}
+        //}
+        //catch(Exception ex)
+        //{
+          //  System.out.println(ex);
+        //}
+   // }
+                 
+                 
+                 
+    
+
+      
     
     
   
@@ -351,9 +604,6 @@ public class Contactor extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButtonADD1;
     private javax.swing.JButton jButtonResetAll;
     private javax.swing.JButton jButtonResetAll1;
-    private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
-    private javax.swing.JComboBox jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -379,12 +629,25 @@ public class Contactor extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextFieldAddress;
     private javax.swing.JTextField jTextFieldAddress2;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldEmail2;
     private javax.swing.JTextField jTextFieldPhone;
     private javax.swing.JTextField jTextFieldPhone2;
-    private javax.swing.JTextField jTextFieldSearchCustomerId;
     // End of variables declaration//GEN-END:variables
+
+    
+
+    
+
+   
+
+    
+
+ 
 }
