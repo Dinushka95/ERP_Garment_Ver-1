@@ -972,7 +972,9 @@ public class ReturnGoods extends javax.swing.JInternalFrame {
     
     private void DeleteOrder()
     {
-        String id = odno.getText();
+        
+        
+            String id = odno.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Purchasing`\n" +
 "WHERE Order_ID='"+id+"';");
@@ -989,6 +991,8 @@ public class ReturnGoods extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         }
+        
+        
     }
     
     private void TableLoad()

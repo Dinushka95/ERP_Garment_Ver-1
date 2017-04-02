@@ -6,8 +6,10 @@ import MainSystem.AutoIdGenerator;
 
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.ButtonModel;
+import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
 
@@ -26,6 +28,7 @@ public class Purchasing extends javax.swing.JInternalFrame {
         datePicker1.setDateToToday();
         datePicker2.setDateToToday();
         FillCombo();
+        FillCombo2();
         FillMachineCombo();
         TypeCombo.setSelectedIndex(0);
         
@@ -177,17 +180,25 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jLabel2.setText("Purchase Description");
+        jLabel2.setName("Purchase Description"); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
         jPanel1.add(odno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 210, -1));
+
+        des.setName("Purchase Description"); // NOI18N
         jPanel1.add(des, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 210, -1));
 
         jLabel6.setText("Quantity");
+        jLabel6.setName("Quantity"); // NOI18N
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        qty.setName("Quantity"); // NOI18N
         jPanel1.add(qty, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 210, -1));
 
         jLabel7.setText("Unit price");
+        jLabel7.setName("Unit price"); // NOI18N
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
+        unit.setName("Unit price"); // NOI18N
         unit.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 unitKeyReleased(evt);
@@ -216,7 +227,10 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jPanel1.add(tot, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 210, -1));
 
         jLabel12.setText("Advance");
+        jLabel12.setName("Advance"); // NOI18N
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+
+        adv.setName("Advance"); // NOI18N
         jPanel1.add(adv, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 210, -1));
 
         jLabel13.setText("Estimated delivery");
@@ -301,17 +315,23 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         jLabel4.setText("Purchase Item Name");
+        jLabel4.setName("Purchase Item Name"); // NOI18N
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
         jPanel2.add(odno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 210, -1));
+
+        des1.setName("Purchase Item Name"); // NOI18N
         jPanel2.add(des1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 210, -1));
 
         jLabel9.setText("Quantity");
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
+
+        qty1.setName("Quantity"); // NOI18N
         jPanel2.add(qty1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 210, -1));
 
         jLabel10.setText("Unit price");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
+        unit1.setName("Unit price"); // NOI18N
         unit1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 unit1KeyReleased(evt);
@@ -341,6 +361,8 @@ public class Purchasing extends javax.swing.JInternalFrame {
 
         jLabel17.setText("Advance");
         jPanel2.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
+
+        adv1.setName("Advance"); // NOI18N
         jPanel2.add(adv1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 210, -1));
 
         jLabel18.setText("Estimated delivery");
@@ -469,16 +491,21 @@ public class Purchasing extends javax.swing.JInternalFrame {
 
         materialPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel26.setText("Re-Order Quantity");
+        jLabel26.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         materialPanel.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel21.setText("Date");
         materialPanel.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+
+        reorder1.setName("Re-Order Quantity"); // NOI18N
         materialPanel.add(reorder1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, 180, -1));
+
+        matname.setName("Material Name"); // NOI18N
         materialPanel.add(matname, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, 180, -1));
 
+        quantityfield.setName("Quantity"); // NOI18N
         quantityfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantityfieldActionPerformed(evt);
@@ -493,22 +520,24 @@ public class Purchasing extends javax.swing.JInternalFrame {
             }
         });
         materialPanel.add(quantityfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 180, 180, -1));
+
+        unitfield.setName("Material Cost Per Unit"); // NOI18N
         materialPanel.add(unitfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 120, 180, -1));
 
-        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel27.setText("Material Name");
+        jLabel27.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         materialPanel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel28.setText("Material Cost Per Unit");
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         materialPanel.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         jLabel29.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel29.setText("Value");
         materialPanel.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
-        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel30.setText("Quantity");
+        jLabel30.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         materialPanel.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
 
         valuefield.setEnabled(false);
@@ -540,8 +569,8 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jLabel5.setText("Stock Value");
         accessoryPanel.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
-        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel22.setText("Accessory Name");
+        jLabel22.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         accessoryPanel.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 70, -1, -1));
 
         valuefield1.setEnabled(false);
@@ -553,16 +582,16 @@ public class Purchasing extends javax.swing.JInternalFrame {
         });
         accessoryPanel.add(valuefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 200, 140, -1));
 
-        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel23.setText("Cost Per Unit");
-        accessoryPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, -1));
+        jLabel23.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        accessoryPanel.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
 
         datePicker4.setEnabled(true);
         datePicker4.setName(""); // NOI18N
         accessoryPanel.add(datePicker4, new org.netbeans.lib.awtextra.AbsoluteConstraints(195, 360, 150, -1));
 
-        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel24.setText("Quantity");
+        jLabel24.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         accessoryPanel.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         jLabel31.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -573,15 +602,21 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jLabel32.setText("Date");
         accessoryPanel.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, -1, -1));
 
-        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel33.setText("Re-Order Level");
+        jLabel33.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         accessoryPanel.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 300, -1, -1));
+
+        namefield1.setName("Accessory Name"); // NOI18N
         accessoryPanel.add(namefield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, 140, -1));
 
         reorderfield1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        reorderfield1.setName("Re-Order Level"); // NOI18N
         accessoryPanel.add(reorderfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 310, 140, -1));
+
+        costfield1.setName("Cost Per Unit"); // NOI18N
         accessoryPanel.add(costfield1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 120, 140, -1));
 
+        quantityfield1.setName("Quantity"); // NOI18N
         quantityfield1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantityfield1ActionPerformed(evt);
@@ -613,8 +648,9 @@ public class Purchasing extends javax.swing.JInternalFrame {
 
         machinepartPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel34.setText("Machine Part Name");
+        jLabel34.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel34.setName("Machine Part Name"); // NOI18N
         machinepartPanel.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         jLabel35.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -623,13 +659,14 @@ public class Purchasing extends javax.swing.JInternalFrame {
 
         jLabel36.setText("Part Value");
         jLabel36.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        machinepartPanel.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
+        machinepartPanel.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 240, -1, -1));
 
         jLabel37.setText("Quantity");
         jLabel37.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         machinepartPanel.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
         qtyfield.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        qtyfield.setName("Quantity"); // NOI18N
         machinepartPanel.add(qtyfield, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 170, -1));
 
         jLabel38.setText("Purchased Date");
@@ -637,9 +674,11 @@ public class Purchasing extends javax.swing.JInternalFrame {
         machinepartPanel.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
         valuefield2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        valuefield2.setName("Part Value"); // NOI18N
         machinepartPanel.add(valuefield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 240, 170, -1));
 
         namefield2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        namefield2.setName("Machine Part Name"); // NOI18N
         machinepartPanel.add(namefield2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 170, -1));
 
         machineCombo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -971,25 +1010,26 @@ public class Purchasing extends javax.swing.JInternalFrame {
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
 
         AddRecivedMaterials();
-        AddMaterialClear();
+        
       
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
 
         AddRecievedAccessories();
-        AccessoryClear();
+        
         
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 
         AddRecievedPart();
-        ClearRecievedPart();
+        
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void ClearRecievedPart()
     {
+        
         generate_mac_prtid();
         namefield2.setText("");
         machineCombo.setSelectedIndex(0);
@@ -1000,7 +1040,9 @@ public class Purchasing extends javax.swing.JInternalFrame {
     
     private void AddRecievedPart()
     {
-        String id = jTextField1.getText();
+        if(validation.ValidationCheck(namefield2, true, 0, 'a')&&validation.ValidationCheck(qtyfield, true,0,'1')&&validation.ValidationCheck(valuefield2, true,0,'1'))
+        {
+            String id = jTextField1.getText();
         String name = namefield2.getText();
         String machineid = machineCombo.getSelectedItem().toString();
         String value = valuefield2.getText();
@@ -1030,12 +1072,17 @@ public class Purchasing extends javax.swing.JInternalFrame {
             if(x==true)
             {
                 TableLoad();
-                TextBoxClear();
+                ClearRecievedPart();
             }
         }
         catch(Exception ex)
         {
             System.out.println(ex);
+        }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Add Part Failed");
         }
       
     }
@@ -1043,8 +1090,9 @@ public class Purchasing extends javax.swing.JInternalFrame {
     public void AddRecievedAccessories()
     {
         
-        
-        String id = jTextField1.getText();
+        if(validation.ValidationCheck(namefield1, true, 0, 'a')&&validation.ValidationCheck(costfield1, true,0,'1')&&validation.ValidationCheck(quantityfield1, true,0,'1')&&validation.ValidationCheck(reorderfield1, true,0,'1'))
+        {
+            String id = jTextField1.getText();
         String name = namefield1.getText();
         String cost =  costfield1.getText();
         String qty = quantityfield1.getText();
@@ -1083,6 +1131,12 @@ public class Purchasing extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Add Accessory Failed");
+        }
+        
       
     }
     
@@ -1112,15 +1166,17 @@ public class Purchasing extends javax.swing.JInternalFrame {
     
     private void AddRecivedMaterials()
     {
-        String id = jTextField1.getText();
-        String name = matname.getText();
-        String cost =  unitfield.getText();
-        String qty = quantityfield.getText();
-        String value = valuefield.getText();
-        String reorder = reorder1.getText();
-        String date = datePicker3.getText();
+        if(validation.ValidationCheck(matname, true, 0, 'a')&&validation.ValidationCheck(unitfield, true, 0, '1')&&validation.ValidationCheck(quantityfield, true, 0, '1')&&validation.ValidationCheck(reorder1, true, 0, '1'))
+        {
+            String id = jTextField1.getText();
+            String name = matname.getText();
+            String cost =  unitfield.getText();
+            String qty = quantityfield.getText();
+            String value = valuefield.getText();
+            String reorder = reorder1.getText();
+            String date = datePicker3.getText();
         
-        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
+            boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Raw_Materials`\n" +
 "(`Material_id`,\n" +
 "`Material_Name`,\n" +
 "`Material_cost`,\n" +
@@ -1143,13 +1199,15 @@ public class Purchasing extends javax.swing.JInternalFrame {
             if(x==true)
             {
                 TableLoad();
-                TextBoxClear();
+                AddMaterialClear();
             }
         }
         catch(Exception ex)
         {
             System.out.println(ex);
         }
+        }
+        
     }
 
     private void TextBoxClear()
@@ -1183,7 +1241,9 @@ public class Purchasing extends javax.swing.JInternalFrame {
     
     private void ForeignAdd()
     {
-        String id = odno1.getText();
+        if(validation.ValidationCheck(des1, true, 0, 'a')&&validation.ValidationCheck(qty1, true, 0, '1')&&validation.ValidationCheck(unit1, true,0, '1')&&validation.ValidationCheck(adv1, true, 0, '1'))
+        {
+            String id = odno1.getText();
         String description = des1.getText();
         
         String type = "Foreign";
@@ -1236,31 +1296,35 @@ public class Purchasing extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         }
+        }
+        
         
     
     }
     
     private void ForeignUpdate()
     {
-        String id = odno1.getText();
-        String description = des1.getText();
+        if(validation.ValidationCheck(des1, true, 0, 'a')&&validation.ValidationCheck(qty1, true, 0, '1')&&validation.ValidationCheck(unit1, true,0, '1')&&validation.ValidationCheck(adv1, true, 0, '1'))
+        {
+            String id = odno1.getText();
+            String description = des1.getText();
         
-        String type = "Foreign";
+            String type = "Foreign";
         
-        String quantity = qty1.getText();
-        double prc = Double.parseDouble(unit1.getText());
-        double total = Double.parseDouble(tot1.getText());
-        double advance = Double.parseDouble(adv1.getText());
+            String quantity = qty1.getText();
+            double prc = Double.parseDouble(unit1.getText());
+            double total = Double.parseDouble(tot1.getText());
+            double advance = Double.parseDouble(adv1.getText());
         
-        jRadioButton3.setActionCommand("Credit");
-        jRadioButton4.setActionCommand("Cash");
+            jRadioButton3.setActionCommand("Credit");
+            jRadioButton4.setActionCommand("Cash");
         
-        String method = buttonGroup1.getSelection().getActionCommand();
+            String method = buttonGroup1.getSelection().getActionCommand();
         
-        String supplier = spp1.getSelectedItem().toString();
-        String delivery = datePicker2.getText();
+            String supplier = spp1.getSelectedItem().toString();
+            String delivery = datePicker2.getText();
         
-        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Purchasing`\n" +
+            boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Purchasing`\n" +
 "SET\n" +
 "`Order_ID` = '"+id+"',\n" +
 "`Description` = '"+description+"',\n" +
@@ -1287,6 +1351,8 @@ public class Purchasing extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         }
+        }
+        
     }
     
     private void ForeignDelete()
@@ -1321,6 +1387,24 @@ public class Purchasing extends javax.swing.JInternalFrame {
             {
                 String name = AutoDB_Connect.DB_ResultSet.getString("Supplier_name");
                 spp.addItem(name);
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
+    private void FillCombo2()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Supplier`");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String name = AutoDB_Connect.DB_ResultSet.getString("Supplier_name");
+                spp1.addItem(name);
             }
         }
         catch (Exception ex)
@@ -1385,25 +1469,27 @@ public class Purchasing extends javax.swing.JInternalFrame {
     
     private void AddOrder()
     {
-        String id = odno.getText();
-        String description = des.getText();
+        if(validation.ValidationCheck(des, true, 0, 'a')&&validation.ValidationCheck(qty, true, 0, '1')&&validation.ValidationCheck(unit, true,0, '1')&&validation.ValidationCheck(adv, true, 0, '1'))
+        {
+            String id = odno.getText();
+            String description = des.getText();
         
-        String type = "Local";
+            String type = "Local";
         
-        String quantity = qty.getText();
-        double prc = Double.parseDouble(unit.getText());
-        double total = Double.parseDouble(tot.getText());
-        double advance = Double.parseDouble(adv.getText());
+            String quantity = qty.getText();
+            double prc = Double.parseDouble(unit.getText());
+            double total = Double.parseDouble(tot.getText());
+            double advance = Double.parseDouble(adv.getText());
         
-        jRadioButton1.setActionCommand("Credit");
-        jRadioButton2.setActionCommand("Cash");
+            jRadioButton1.setActionCommand("Credit");
+            jRadioButton2.setActionCommand("Cash");
         
-        String method = paymentMethodGroup.getSelection().getActionCommand();
+            String method = paymentMethodGroup.getSelection().getActionCommand();
         
-        String supplier = spp.getSelectedItem().toString();
-        String delivery = datePicker1.getText();
+            String supplier = spp.getSelectedItem().toString();
+            String delivery = datePicker1.getText();
         
-        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Purchasing`\n" +
+            boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Purchasing`\n" +
 "(`Order_ID`,\n" +
 "`Description`,\n" +
 "`Type`,\n" +
@@ -1438,13 +1524,33 @@ public class Purchasing extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         }
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(this, "Purchase add failed");
+        }
+        
         
         
     }
-    
+    private void LocalPurchaseUpdateOrder()
+    {
+        odno.setText("");
+        des.setText("");
+        qty.setText("");
+        unit.setText("");
+        tot.setText("");
+        adv.setText("");
+        paymentMethodGroup.setSelected((ButtonModel) jRadioButton1, false);
+        paymentMethodGroup.setSelected((ButtonModel) jRadioButton2,false);
+        spp.setToolTipText("");
+        datePicker1.setText("");
+    }
     private void UpdateOrder()
     {
-        String id = odno.getText();
+        if(validation.ValidationCheck(des, true, 0, 'a')&&validation.ValidationCheck(qty, true, 0, '1')&&validation.ValidationCheck(unit, true,0, '1')&&validation.ValidationCheck(adv, true, 0, '1'))
+        {
+            String id = odno.getText();
         String description = des.getText();
         
         String type = "Local";
@@ -1482,13 +1588,15 @@ public class Purchasing extends javax.swing.JInternalFrame {
             if(x==true)
             {
                 TableLoad();
-                TextBoxClear();
+                LocalPurchaseUpdateOrder();
             }
         }
         catch(Exception ex)
         {
             System.out.println(ex);
         }
+        }
+        
         
     }
     

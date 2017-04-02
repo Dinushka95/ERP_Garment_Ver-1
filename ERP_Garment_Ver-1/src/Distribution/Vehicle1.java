@@ -5,6 +5,7 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
@@ -325,6 +326,11 @@ DefaultTableModel model;
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Delete");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 380, -1, -1));
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 20, 460, 460));
@@ -404,6 +410,12 @@ DefaultTableModel model;
             System.out.println(ex);
         }
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         DeleteDesigns();
+        tableLoad();
+        clearDeleteDesign();
+    }//GEN-LAST:event_jButton3ActionPerformed
      private void generate_vehicleID() {
        
        AutoIdGenerator aid = new AutoIdGenerator();
@@ -486,6 +498,53 @@ DefaultTableModel model;
             jTable2.setModel(DbUtils.resultSetToTableModel
         (AutoDB_Connect.DB_ResultSet));
 
+        
+    }
+      /*private void tabelLoad(){
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM garmentsystem.C_Vehiclel");
+            jTable2.setModel(DbUtils.resultSetToTableModel
+        (AutoDB_Connect.DB_ResultSet));
+
+        
+    }*/
+     private void DeleteDesigns()
+    {
+                int reply = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+        String Vid =jTextField16.getText();
+        
+        boolean x = autoSqlQuery.execute
+        ("DELETE FROM `garmentsystem`.`C_Vehiclel` WHERE VehicalID = '"+Vid+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                clearDeleteDesign();
+                tableLoad();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
+            }
+        }
+        catch (Exception e){
+            System.out.println(e);
+        }
+    }
+    }
+     public void clearDeleteDesign(){
+        
+        jTextField16.setText("");
+        jTextField15.setText("");
+        jTextField14.setText("");
+        jTextField13.setText("");
+        jTextField12.setText("");
+        jTextField11.setText("");
+        jTextField10.setText("");
+        jTextField9.setText("");
+       
         
     }
 

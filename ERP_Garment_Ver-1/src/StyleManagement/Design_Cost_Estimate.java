@@ -2,6 +2,8 @@
 package StyleManagement;
 
 import MainSystem.AutoDB_Connect;
+import MainSystem.AutoReport;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.table.DefaultTableModel;
@@ -92,12 +94,12 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
+        finalcost_ = new javax.swing.JTextField();
+        number = new javax.swing.JTextField();
+        acces = new javax.swing.JTextField();
+        qty = new javax.swing.JTextField();
+        clr = new javax.swing.JTextField();
+        cost_ = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel9 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
@@ -302,6 +304,11 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
                 AccNumberMouseClicked(evt);
             }
         });
+        AccNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AccNumberActionPerformed(evt);
+            }
+        });
         jPanel6.add(AccNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 100, 30));
 
         jButton17.setText("DEMO");
@@ -315,6 +322,11 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
 
         jButton18.setText("Print");
         jButton18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton18ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jButton18, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 450, -1, -1));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 255)));
@@ -324,7 +336,6 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        datePicker1.setEnabled(false);
         datePicker1.setToolTipText("Enter the Date");
         jPanel7.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 30, 179, -1));
 
@@ -368,12 +379,12 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jLabel16.setText("Cost");
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, -1, -1));
-        jPanel7.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 180, 30));
-        jPanel7.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 180, 30));
-        jPanel7.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 180, 30));
-        jPanel7.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 180, 30));
-        jPanel7.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 180, 30));
-        jPanel7.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 180, 30));
+        jPanel7.add(finalcost_, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 180, 30));
+        jPanel7.add(number, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 180, 30));
+        jPanel7.add(acces, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 180, 180, 30));
+        jPanel7.add(qty, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 180, 30));
+        jPanel7.add(clr, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 260, 180, 30));
+        jPanel7.add(cost_, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 300, 180, 30));
 
         jPanel8.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 330, 410));
 
@@ -516,7 +527,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
         // TODO add your handling code here:
 
-        AddDesignCost();
+        AddDesignCostMain();
         TableLoad();
         TextBoxClear();
     }//GEN-LAST:event_jButton15ActionPerformed
@@ -553,12 +564,12 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
             String cost = jTable3.getValueAt(row,5).toString();
             String finalcost = jTable3.getValueAt(row,6).toString();
             
-            jTextField3.setText(Num);
-            jTextField4.setText(Accessories);
-            jTextField5.setText(Quantity);
-            jTextField6.setText(colour);
-            jTextField7.setText(cost);
-            jTextField2.setText(finalcost);
+            number.setText(Num);
+            acces.setText(Accessories);
+            qty.setText(Quantity);
+            clr.setText(colour);
+            cost_.setText(cost);
+            finalcost_.setText(finalcost);
         
         
         }
@@ -655,12 +666,39 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_AccNumberMouseClicked
+
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+
+        String FileLocation=System.getProperty
+        ("user.dir")+"\\src\\StyleManagement\\Reports\\DesignCost.jrxml";
+        autoReport.SimpleAllReport(FileLocation);
+    }//GEN-LAST:event_jButton18ActionPerformed
+
+    private void AccNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccNumberActionPerformed
+
+        String id = AccNumber.getSelectedItem().toString();
+         try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Accessory_Table` WHERE accessory_id LIKE '"+id+"'");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String name = AutoDB_Connect.DB_ResultSet.getString("accessory_name");
+                Acce.setText(name);
+                
+                String cost = AutoDB_Connect.DB_ResultSet.getString("accessory_cost");
+                jTextFieldCost.setText(cost);
+                
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_AccNumberActionPerformed
     
     
-       
-    
-    
-      public void AddDesignCost()
+     public void AddDesignCost()
     
     {
         
@@ -671,6 +709,76 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         String Color=jTextFieldColour.getText();
         String cost=jTextFieldCost.getText();
         String FinalCost=jTextFieldFinalCost.getText();
+        String date = datePicker1.getText();
+        
+        if(Number.isEmpty()||id.isEmpty()||acc.isEmpty()||Qty.
+        isEmpty()||Color.isEmpty()||cost.isEmpty()||date.isEmpty()
+       ||FinalCost.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        
+        }
+        
+        
+                else{
+                    
+                 try
+                    {
+        
+        
+         boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem"
+                 + "`.`T_Bill_Of_Material`\n" +
+"(`Number`,\n" +
+"`StyleID`,\n" +
+"`Accesories`,\n" +
+"`Quantity`,\n" +
+"`Colour`,\n" +
+"`Cost`,\n" +
+"`Final_Cost`,\n" +
+"`Date`)\n" +
+"VALUES\n" +
+"('"+Number+"',\n" +
+"'"+id+"',\n" +
+"'"+acc+"',\n" +
+"'"+Qty+"',\n" +
+"'"+Color+"',\n" +
+"'"+cost+"',\n" +
+"'"+FinalCost+"',\n" +
+"'"+date+"');");
+
+        
+      
+       
+            if(x==true)
+            {
+                JOptionPane.showMessageDialog(null,"Successfully Added"
+                        + " to the Bill of Material");
+                
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+                }
+        
+    }
+      
+    
+       
+    
+    
+      public void AddDesignCostMain()
+    
+    {
+        
+        String Number=number.getText();
+        String id = Styleid.getSelectedItem().toString();
+        String acc = acces.getText();
+        String Qty=qty.getText();
+        String Color=clr.getText();
+        String cost=cost_.getText();
+        String FinalCost=finalcost_.getText();
         String date = datePicker1.getText();
         
         if(Number.isEmpty()||id.isEmpty()||acc.isEmpty()||Qty.
@@ -884,8 +992,12 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private javax.swing.JTextField Acce;
     private javax.swing.ButtonGroup Other;
     private javax.swing.JComboBox<String> Styleid;
+    private javax.swing.JTextField acces;
+    private javax.swing.JTextField clr;
+    private javax.swing.JTextField cost_;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
+    private javax.swing.JTextField finalcost_;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton15;
@@ -952,16 +1064,12 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextFieldColour;
     private javax.swing.JTextField jTextFieldCost;
     private javax.swing.JTextField jTextFieldFinalCost;
     private javax.swing.JTextField jTextFieldQuantatiy1;
+    private javax.swing.JTextField number;
+    private javax.swing.JTextField qty;
     // End of variables declaration//GEN-END:variables
 }

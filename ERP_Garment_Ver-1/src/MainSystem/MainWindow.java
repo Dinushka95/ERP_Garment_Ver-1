@@ -283,13 +283,13 @@ public static AutoReport autoReport;
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton6.setText("Request_And_Create Design");
+        jButton6.setText("Create_Design");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 10, -1, -1));
 
         jButton14.setText("Design Cost Estimate");
         jButton14.addActionListener(new java.awt.event.ActionListener() {
@@ -1453,7 +1453,9 @@ public static AutoReport autoReport;
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-     //  DisplaySplash();
+
+       //DisplaySplash();
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

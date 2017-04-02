@@ -35,8 +35,6 @@ boolean result;
     initComponents();
         
     TableLoad();
-    TableLoad1();
-    TableLoad2();
     generate_stlid();
     FillTextCombo1();
     FillTextComboDesigner();
@@ -60,12 +58,6 @@ boolean result;
         GenderButtonGroup = new javax.swing.ButtonGroup();
         Status = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel3 = new javax.swing.JPanel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jLabel14 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -112,7 +104,7 @@ boolean result;
         addnewcolour = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         Demo = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        AddImage = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Creating Designs");
@@ -122,49 +114,6 @@ boolean result;
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
-            }
-        });
-        jScrollPane2.setViewportView(jTable1);
-
-        jPanel3.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 52, 680, 161));
-
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel14.setText("View Designs Request by a Customer");
-        jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 19, -1, -1));
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane4.setViewportView(jTable3);
-
-        jPanel3.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(41, 231, 680, 161));
-
-        jTabbedPane1.addTab("Add Requestions", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -404,14 +353,14 @@ boolean result;
         });
         jPanel2.add(Demo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 213, 80, -1));
 
-        jButton3.setText("Add Image");
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AddImage.setText("Add Image");
+        AddImage.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        AddImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                AddImageActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
+        jPanel2.add(AddImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
 
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 620, 250));
 
@@ -464,16 +413,15 @@ boolean result;
     }//GEN-LAST:event_jTable6MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
         autogetimage.load();
-       jLabelImage.setIcon(autogetimage.getImageIcon());  
+        jLabelImage.setIcon(autogetimage.getImageIcon());  
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
+    private void AddImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddImageActionPerformed
+        
         jPanel6.setVisible(false);
         jPanel5.setVisible(true);
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_AddImageActionPerformed
 
     private void GenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateActionPerformed
         // TODO add your handling code here:
@@ -482,10 +430,6 @@ boolean result;
         ("user.dir")+"\\src\\StyleManagement\\Reports\\CreatedDesigns.jrxml";
         autoReport.Table2Report(FileLocation, jTable6);
     }//GEN-LAST:event_GenerateActionPerformed
-
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1MouseClicked
 
     private void stylecolourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stylecolourActionPerformed
         // TODO add your handling code here:
@@ -528,24 +472,9 @@ boolean result;
 
     }
     
-    private void TableLoad1()
-    {
-
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT * FROM `garmentsystem`.`d_designinquiry_table1`");
-   jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
-
-    }
+   
     
-    private void TableLoad2()
-    {
-
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT * FROM `garmentsystem`.`d_designinquiry_table`");
-   jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
-
-    }
-    
+   
     
     
     private void TextBoxClear2CreateDesign()
@@ -716,7 +645,7 @@ boolean result;
             while(AutoDB_Connect.DB_ResultSet.next())
             {
                 String designer = AutoDB_Connect.DB_ResultSet.getString
-        ("f_name");
+                ("f_name");
                 styledesigner.addItem(designer);
             }
         }
@@ -757,6 +686,7 @@ boolean result;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddDesign;
+    private javax.swing.JButton AddImage;
     private javax.swing.JLabel D_stid;
     private javax.swing.JButton Demo;
     private javax.swing.ButtonGroup GenderButtonGroup;
@@ -770,13 +700,11 @@ boolean result;
     private javax.swing.JRadioButton finished;
     private javax.swing.JRadioButton inprogress;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -789,18 +717,13 @@ boolean result;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTabbedPane jTabbedPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable6;
     private javax.swing.JRadioButton male;
     private javax.swing.JRadioButton start;

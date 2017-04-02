@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="34305306-bcb6-40d5-ba21-59a9824daa0a">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a07e1767-9d9b-48c1-8d68-638113c6f33f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -23,7 +26,7 @@
 FROM
      `T_Bill_Of_Material` T_Bill_Of_Material]]>
 	</queryString>
-	<field name="T_Bill_Of_Material_Number" class="java.lang.Integer"/>
+	<field name="T_Bill_Of_Material_Number" class="java.lang.String"/>
 	<field name="T_Bill_Of_Material_StyleID" class="java.lang.String"/>
 	<field name="T_Bill_Of_Material_Accesories" class="java.lang.String"/>
 	<field name="T_Bill_Of_Material_Quantity" class="java.lang.Integer"/>
@@ -36,32 +39,28 @@ FROM
 	</background>
 	<title>
 		<band height="102" splitType="Stretch">
-			<image>
-				<reportElement x="725" y="0" width="77" height="102" uuid="d1d100d8-0cf3-4865-9b8a-6fe5d86dbc98"/>
-				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
-			</image>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="eca017dc-ed29-40b5-aef1-564b0035fd27"/>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="a3f9cff1-760b-4542-aee7-2404a4530905"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="c535067f-27d4-4b68-88bf-204008085669"/>
+					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="3b0f359f-f379-4f57-b2b4-b6e10d422e8e"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[Cherry Title]]></text>
+					<text><![CDATA[Design_Cost]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="0fef259d-aa8a-4a1e-b923-c59770a2e9ed"/>
+					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="a5b169df-a7d6-4495-a7ad-a748a2aef517"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>
-					<text><![CDATA[Cherry SubTitle]]></text>
+					<text><![CDATA[Costing_Of_Materials]]></text>
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="a6ceed70-a71a-4d9d-b00c-a7543f000690"/>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="c4922e0f-5bc8-43f3-af01-eaa882e1a6d7"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="398fdf0a-4d36-4648-b068-86abfabf7e1b"/>
+					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="2b1d7724-bff5-46e1-8cbc-f996f3ded2f1"/>
 					<textElement textAlignment="Right">
 						<font size="12"/>
 					</textElement>
@@ -76,118 +75,118 @@ FROM
 	<columnHeader>
 		<band height="18" splitType="Stretch">
 			<staticText>
-				<reportElement style="Column header" x="0" y="0" width="99" height="18" forecolor="#000000" uuid="8b10255b-8c26-452a-967a-214c1b2a632f"/>
+				<reportElement style="Column header" x="0" y="0" width="99" height="18" forecolor="#000000" uuid="963312df-59ea-42a3-85d6-f0b735319d54"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[T_Bill_Of_Material_Number]]></text>
+				<text><![CDATA[Material_Number]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="99" y="0" width="99" height="18" forecolor="#000000" uuid="1159213f-8753-4e6d-83dd-2789092263fe"/>
+				<reportElement style="Column header" x="99" y="0" width="99" height="18" forecolor="#000000" uuid="ea8392a8-cf95-4d59-8094-a892da536e64"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[T_Bill_Of_Material_StyleID]]></text>
+				<text><![CDATA[StyleID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="198" y="0" width="99" height="18" forecolor="#000000" uuid="013b2d66-9fd7-4ef5-a97b-7cb1a596c2cd"/>
+				<reportElement style="Column header" x="198" y="0" width="99" height="18" forecolor="#000000" uuid="8af825de-1c37-4d32-9eaf-361dc28fea2a"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[T_Bill_Of_Material_Accesories]]></text>
+				<text><![CDATA[Accesories]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="297" y="0" width="99" height="18" forecolor="#000000" uuid="532873f8-c0c0-476d-a6c6-34ca8715e7bc"/>
+				<reportElement style="Column header" x="297" y="0" width="99" height="18" forecolor="#000000" uuid="1f517562-e083-414e-b024-5c0d7796380f"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[T_Bill_Of_Material_Quantity]]></text>
+				<text><![CDATA[Quantity]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="396" y="0" width="99" height="18" forecolor="#000000" uuid="1d7885e9-d602-4c26-8ba4-339b60d4db51"/>
+				<reportElement style="Column header" x="396" y="0" width="99" height="18" forecolor="#000000" uuid="bcfea5b0-0851-4994-829b-a433fc2c24d4"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[T_Bill_Of_Material_Colour]]></text>
+				<text><![CDATA[Colour]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="495" y="0" width="99" height="18" forecolor="#000000" uuid="00eac943-51bb-4361-a533-b8e5b4b6a45d"/>
+				<reportElement style="Column header" x="495" y="0" width="99" height="18" forecolor="#000000" uuid="62a0e8fd-b26f-4b9f-b179-9dd4623648f4"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[T_Bill_Of_Material_Cost]]></text>
+				<text><![CDATA[Cost]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="594" y="0" width="99" height="18" forecolor="#000000" uuid="89a3fc77-a3eb-4b21-a46a-f12fd00d20fa"/>
+				<reportElement style="Column header" x="594" y="0" width="99" height="18" forecolor="#000000" uuid="470a87db-bb8f-4880-a5fb-c8c2bb231e76"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[T_Bill_Of_Material_Final_Cost]]></text>
+				<text><![CDATA[Final_Cost]]></text>
 			</staticText>
 			<staticText>
-				<reportElement style="Column header" x="693" y="0" width="99" height="18" forecolor="#000000" uuid="6257de24-ca95-472c-b64b-c574b293d81c"/>
+				<reportElement style="Column header" x="693" y="0" width="99" height="18" forecolor="#000000" uuid="c52c4072-f57e-4e69-a4a3-38413cabe077"/>
 				<textElement>
 					<font isBold="false"/>
 				</textElement>
-				<text><![CDATA[T_Bill_Of_Material_Date]]></text>
+				<text><![CDATA[Date]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="18" splitType="Stretch">
 			<frame>
-				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="aed9f5be-c78e-4055-adfa-14e0e49919cb"/>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="797" height="18" uuid="b3e0323f-ec8c-42b0-8dea-e8957ee530c8"/>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="0" y="0" width="99" height="18" uuid="019fc6aa-73b5-45fd-8fb2-00a4f8f80ff9"/>
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="99" height="18" uuid="895848d1-e6cd-4cbd-a83f-58c94c94d2ba"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{T_Bill_Of_Material_Number}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="99" y="0" width="99" height="18" uuid="63b185cf-2c64-4b2c-aeb0-b17a1b92f7af"/>
+					<reportElement style="Detail" positionType="Float" x="99" y="0" width="99" height="18" uuid="c116088d-88b5-4dd5-919e-7a58fe6b76c5"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{T_Bill_Of_Material_StyleID}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="198" y="0" width="99" height="18" uuid="9a81467e-601b-415a-bba6-8f972ad4999c"/>
+					<reportElement style="Detail" positionType="Float" x="198" y="0" width="99" height="18" uuid="3f8ed7f1-ae28-4930-b910-e9bb6e3e0924"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{T_Bill_Of_Material_Accesories}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="297" y="0" width="99" height="18" uuid="6e996cab-af12-49f4-9979-af03d8a6d3f6"/>
+					<reportElement style="Detail" positionType="Float" x="297" y="0" width="99" height="18" uuid="235eb9d5-2c1a-43e5-b08a-dec86449778a"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{T_Bill_Of_Material_Quantity}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="396" y="0" width="99" height="18" uuid="fb57afac-56e4-4dae-9fcc-e4ccb6fd45b7"/>
+					<reportElement style="Detail" positionType="Float" x="396" y="0" width="99" height="18" uuid="3283f663-4836-4ac1-9606-a147e43bc01f"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{T_Bill_Of_Material_Colour}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="495" y="0" width="99" height="18" uuid="1e86435a-abd3-4179-94d6-49e758b9d9c6"/>
+					<reportElement style="Detail" positionType="Float" x="495" y="0" width="99" height="18" uuid="86baf124-90cf-401a-9fdc-58907b365d1c"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{T_Bill_Of_Material_Cost}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="594" y="0" width="99" height="18" uuid="87a8ab7d-ac75-49f0-8837-263ccf964b90"/>
+					<reportElement style="Detail" positionType="Float" x="594" y="0" width="99" height="18" uuid="74e2e3b8-9ea6-4b98-8881-81ab1c6e9492"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
 					<textFieldExpression><![CDATA[$F{T_Bill_Of_Material_Final_Cost}]]></textFieldExpression>
 				</textField>
 				<textField isStretchWithOverflow="true">
-					<reportElement style="Detail" positionType="Float" x="693" y="0" width="99" height="18" uuid="0fd2a79a-c86a-44ef-bf50-f18adbbd7f53"/>
+					<reportElement style="Detail" positionType="Float" x="693" y="0" width="99" height="18" uuid="c82f705d-6dc2-4dab-beff-0c18a00527c7"/>
 					<textElement>
 						<font size="14"/>
 					</textElement>
@@ -199,7 +198,7 @@ FROM
 	<columnFooter>
 		<band height="7" splitType="Stretch">
 			<line>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="dfea106f-ebc2-4f90-a09f-3a4677a1fe0f"/>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="8415a79c-15dc-4818-8252-902ee94b9257"/>
 				<graphicElement>
 					<pen lineWidth="0.5" lineColor="#999999"/>
 				</graphicElement>
@@ -209,23 +208,23 @@ FROM
 	<pageFooter>
 		<band height="25" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="28f38299-4c9b-4819-94f8-db3a895426fc"/>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="25" forecolor="#D0B48E" backcolor="#000000" uuid="fd9c05f6-b766-4aec-bfb9-5be67ffdf572"/>
 				<textField evaluationTime="Report">
-					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="c5d96a86-b8e8-489a-85f4-9e3d85112aab"/>
+					<reportElement style="Column header" x="757" y="3" width="40" height="20" forecolor="#FFFFFF" uuid="36e3a5e1-5450-49aa-a56c-772b463608be"/>
 					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
 				</textField>
 				<textField>
-					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="e996bebb-6adc-4494-b254-ee38faf518ed"/>
+					<reportElement style="Column header" x="677" y="3" width="80" height="20" forecolor="#FFFFFF" uuid="24fcd17b-2de2-4634-8c8b-dfb1fda3b57c"/>
 					<textElement textAlignment="Right" verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>
 					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
 				</textField>
 				<textField pattern="EEEEE dd MMMMM yyyy">
-					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="613e81c4-90d6-443e-ab18-92815ac92593"/>
+					<reportElement style="Column header" x="2" y="3" width="197" height="20" forecolor="#FFFFFF" uuid="95d24b29-11ad-4ce2-afc0-e3b84ff5860c"/>
 					<textElement verticalAlignment="Middle">
 						<font size="10" isBold="false"/>
 					</textElement>

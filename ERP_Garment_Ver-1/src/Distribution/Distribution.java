@@ -539,11 +539,10 @@ public class Distribution extends javax.swing.JInternalFrame {
                             JOptionPane.YES_NO_OPTION);
         
           if (reply == JOptionPane.YES_OPTION){
-        String id =dis_id.getText();
+        String id =dis_id1.getText();
         
         boolean x = autoSqlQuery.execute
-        ("DELETE FROM `garmentsystem`.`C_Distribution`\n" +
-           "DistributionID = '"+id+"';");
+        ("DELETE FROM `garmentsystem`.`C_Distribution` WHERE DistributionID = '"+id+"';");
         
         try
         {
@@ -554,8 +553,8 @@ public class Distribution extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null,"Successfully Deleted");
             }
         }
-        catch (Exception ex){
-            System.out.println(ex);
+        catch (Exception e){
+            System.out.println(e);
         }
     }
     }
