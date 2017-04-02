@@ -767,6 +767,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
             Styleid.setSelectedIndex(0);
             datePicker1.setText("");
             
+            
         
     }
     
