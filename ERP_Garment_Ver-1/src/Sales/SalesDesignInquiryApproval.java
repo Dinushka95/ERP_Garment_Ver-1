@@ -6,6 +6,7 @@ import net.proteanit.sql.DbUtils;
 import java.awt.Color;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.autogetimage;
+import static MainSystem.MainWindow.userid;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
 
@@ -23,6 +24,7 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
         salesdesigninquiryapprovalmodel=new SalesDesignInquiryApprovalModel();
         ViewAllSDI();
         datePicker1.setDateToToday();
+        jTextField2.setText(salesdesigninquiryapprovalmodel.SearchEmployeeById(userid));
     }
 
     @SuppressWarnings("unchecked")
@@ -125,6 +127,7 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(830, 21, 120, 20));
 
+        jTextField2.setEditable(false);
         jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -203,6 +206,7 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
             JOptionPane.showMessageDialog(null,"Successfully To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
             
              clear();
+             ViewAllSDI();
         }
         else{
             JOptionPane.showMessageDialog(null,"Failed To Added Customer", "InfoBox", JOptionPane.INFORMATION_MESSAGE);

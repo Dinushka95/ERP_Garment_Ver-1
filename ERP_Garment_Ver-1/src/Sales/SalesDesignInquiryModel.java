@@ -90,14 +90,15 @@ public class SalesDesignInquiryModel {
                                                             },"d_designinquiry_table1");
             }
         if(x&&x3){
-         return x;}
-        
-        if (checkbox.isSelected()){autoSqlQuery.executeAutoAddImage(SDIID.getText(),Image);}
+            if (checkbox.isSelected()){autoSqlQuery.executeAutoAddImage(SDIID.getText(),Image);}
+         return x;
+        }
         }
         return false;    
     }
     
-    //########################################################################
+    
+
         public boolean EditSDI(String ID,JTable table1,JTable table2){
         String y1=null;
         String x1=null;
@@ -185,6 +186,19 @@ public class SalesDesignInquiryModel {
     
     public ResultSet ViewAllCustomer(){
     return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_customer_table");
+    }
+    
+    public String SearchEmployeeById(int key)  {
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("emp_table","emp_id",String.valueOf(key));
+        try {
+            AutoDB_Connect.DB_ResultSet.next();
+            return AutoDB_Connect.DB_ResultSet.getString("f_name");
+        } catch (SQLException ex) {
+            Logger.getLogger(SalesDesignInquiryModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+   
+    return null;  
     }
     
     public ResultSet SearchCustomerTName(String key){
