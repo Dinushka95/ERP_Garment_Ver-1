@@ -106,6 +106,8 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         descriptionarea1 = new javax.swing.JTextField();
         recieved1 = new javax.swing.JTextField();
         phone2 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -380,6 +382,14 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jPanel5.add(recieved1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 283, 121, -1));
         jPanel5.add(phone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 126, 121, -1));
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("Delete");
+        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("Update");
+        jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, -1));
+
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 560, 530));
 
         jTabbedPane1.addTab("Search & Update || Delete", jPanel3);
@@ -540,7 +550,9 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker enddate;
     private javax.swing.JComboBox<String> fromCombo;
     private javax.swing.JComboBox<String> fromCombo2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;

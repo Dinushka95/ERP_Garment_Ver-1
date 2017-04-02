@@ -72,7 +72,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jButton5 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel9 = new javax.swing.JLabel();
+        jTextField18 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -231,7 +232,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, -1, -1));
 
         jButton5.setText("Search");
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -240,7 +241,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -257,14 +258,17 @@ public class Fuel1 extends javax.swing.JInternalFrame {
 
         jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 510, 310));
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fuel ID", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel9.setText("Fuel Station Name");
+        jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 130, 20));
+
+        jTextField18.setText(" ");
+        jTextField18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                jTextField18ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 20, -1, -1));
+        jPanelcustomerSearch.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 130, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 630, 500));
 
@@ -351,7 +355,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-   
+        search();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -379,9 +383,9 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10KeyReleased
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox1ActionPerformed
+    }//GEN-LAST:event_jTextField18ActionPerformed
  private void generate_FuelID(){
     AutoIdGenerator aid = new AutoIdGenerator();
      jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));
@@ -389,17 +393,9 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     
     private void TabelLoad()
     {
-        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT `C-Fuel`.`Fuel-ID`,\n" +
-"    `C-Fuel`.`Vehical_ID`,\n" +
-"    `C-Fuel`.`Driver-ID`,\n" +
-"    `C-Fuel`.`Fuel_StationName`,\n" +
-"    `C-Fuel`.`BillNum`,\n" +
-"    `C-Fuel`.`Unit_price`,\n" +
-"    `C-Fuel`.`Units`,\n" +
-"    `C-Fuel`.`Cost`,\n" +
-"    `C-Fuel`.`date`\n" +
-"FROM `garmentsystem`.`C-Fuel`;");
-        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
+           
+        jTable1.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoViewAll("C_Fuel")));
     }
     
     private void TextBoxClear()
@@ -428,8 +424,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         String cost = jTextField7.getText();
          String date = datePicker1.getText();
         
-        boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C-Fuel`\n" +
-"(`Fuel-ID`,\n" +
+        boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Fuel`\n" +
+"(`Fuel_ID`,\n" +
 "`Vehical_ID`,\n" +
 "`Driver-ID`,\n" +
 "`Fuel_StationName`,\n" +
@@ -462,6 +458,12 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
+      private void search()
+ {
+        String Fname=jTextField18.getText();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel WHERE Fuel_StationName='"+Fname+"'");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+ }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
@@ -471,7 +473,6 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -490,6 +491,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -511,6 +513,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
+    private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;

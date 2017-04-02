@@ -64,12 +64,12 @@ DefaultTableModel model;
         jButton4 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch2 = new javax.swing.JPanel();
-        jTextFieldSearchCustomerId = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
+        jTextField17 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -217,7 +217,6 @@ DefaultTableModel model;
 
         jPanelcustomerSearch2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelcustomerSearch2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanelcustomerSearch2.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Vehical ID");
@@ -255,6 +254,7 @@ DefaultTableModel model;
         jScrollPane2.setViewportView(jTable2);
 
         jPanelcustomerSearch2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 450, 330));
+        jPanelcustomerSearch2.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 90, -1));
 
         jPanel3.add(jPanelcustomerSearch2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 560, 460));
 
@@ -349,7 +349,7 @@ DefaultTableModel model;
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
+        search();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -437,6 +437,13 @@ DefaultTableModel model;
             System.out.println(ex);
         }
     }
+     private void search()
+     {
+         String Vid=jTextField17.getText();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel WHERE VehicalID='"+Vid+"'");
+        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+     
+     }
 
    
     
@@ -485,6 +492,7 @@ DefaultTableModel model;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
+    private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -493,7 +501,6 @@ DefaultTableModel model;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField jTextFieldSearchCustomerId;
     // End of variables declaration//GEN-END:variables
        
 }

@@ -75,12 +75,12 @@ DefaultTableModel model;
         jTextField1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch = new javax.swing.JPanel();
-        jTextFieldSearchCustomerId = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jTextField13 = new javax.swing.JTextField();
         jPanel7 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -98,6 +98,8 @@ DefaultTableModel model;
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -214,9 +216,8 @@ DefaultTableModel model;
 
         jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelcustomerSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 130, -1));
 
-        jLabel9.setText("Fuel Station Name");
+        jLabel9.setText("Maintaince ID");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
@@ -227,7 +228,7 @@ DefaultTableModel model;
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, -1));
 
         jButton5.setText("Search");
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -236,7 +237,7 @@ DefaultTableModel model;
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -251,7 +252,14 @@ DefaultTableModel model;
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jPanelcustomerSearch.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 490, -1));
+        jPanelcustomerSearch.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 540, 380));
+
+        jTextField13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField13ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 130, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 830, 510));
 
@@ -310,6 +318,14 @@ DefaultTableModel model;
         jPanel7.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 140, -1));
         jPanel7.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("Delete");
+        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setText("Update");
+        jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, -1, -1));
+
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 420, 490));
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
@@ -337,7 +353,7 @@ DefaultTableModel model;
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+            search();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -356,6 +372,10 @@ DefaultTableModel model;
     private void vehicleCombo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCombo1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_vehicleCombo1ActionPerformed
+
+    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField13ActionPerformed
     
     private void FillCombo()
     {
@@ -445,10 +465,19 @@ DefaultTableModel model;
         }
     
     }
+    private void search()
+    {
+        String frm=jTextField13.getText();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Maintaince WHERE MaintainceID='"+frm+"'");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
@@ -485,6 +514,7 @@ DefaultTableModel model;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
+    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -493,7 +523,6 @@ DefaultTableModel model;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
-    private javax.swing.JTextField jTextFieldSearchCustomerId;
     private javax.swing.JComboBox<String> vehicleCombo;
     private javax.swing.JComboBox<String> vehicleCombo1;
     // End of variables declaration//GEN-END:variables
