@@ -427,7 +427,7 @@ boolean result;
         // TODO add your handling code here:
         //Report generating code
         String FileLocation=System.getProperty
-        ("user.dir")+"\\src\\StyleManagement\\Reports\\CreatedDesigns.jrxml";
+        ("user.dir")+"\\src\\StyleManagement\\Reports\\CreateDesign.jrxml";
         autoReport.Table2Report(FileLocation, jTable6);
     }//GEN-LAST:event_GenerateActionPerformed
 
