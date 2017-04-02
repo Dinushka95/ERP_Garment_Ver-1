@@ -1,6 +1,5 @@
 
 package Manufacturing;
- 
 
 
 
@@ -8,23 +7,12 @@ package Manufacturing;
  *
  * @author Dinushka
  */
-public class Sewing1 extends javax.swing.JInternalFrame {
-
-
+public class Sewing extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form SalesDesignInquiry
      */
-    public Sewing1() {
-        initComponents();
-      
-      
-   
-    }
-  
-     
-    
-  
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,10 +23,8 @@ public class Sewing1 extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        myGroup = new javax.swing.ButtonGroup();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jPanel5 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -57,18 +43,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jTextField12 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        jComboBox4 = new javax.swing.JComboBox<>();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField37 = new javax.swing.JTextField();
-        jLabel56 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jPanel7 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
         jTextFieldCustomerId1 = new javax.swing.JTextField();
         jTextFieldCustomerName1 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -82,10 +57,21 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jTextFieldEmail1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel20 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
+        jTextField13 = new javax.swing.JTextField();
+        jLabel26 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jTextField37 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Sewing Details");
+        setTitle("Sewing management");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -94,9 +80,6 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -171,9 +154,86 @@ public class Sewing1 extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 830, 520));
 
-        jTabbedPane1.addTab("ADD Sewing Details", jPanel1);
+        jTabbedPane1.addTab("ADD Sewing details", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTextFieldCustomerId1.setEditable(false);
+        jTextFieldCustomerId1.setName("Customer ID"); // NOI18N
+        jTextFieldCustomerId1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCustomerId1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jTextFieldCustomerId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 150, -1));
+
+        jTextFieldCustomerName1.setName("Customer Name"); // NOI18N
+        jPanel5.add(jTextFieldCustomerName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 150, -1));
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("Sewing ID");
+        jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, 20));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setText("Style ID");
+        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 20));
+
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton7.setText("Reset All");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel15.setText("Schedule ID");
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, 20));
+
+        jTextFieldCompanyName1.setName("Company name"); // NOI18N
+        jPanel5.add(jTextFieldCompanyName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 150, -1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setText("Qualified pieces");
+        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, 20));
+
+        jTextFieldPhone1.setName("Phone number"); // NOI18N
+        jPanel5.add(jTextFieldPhone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 150, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("Damages");
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, 20));
+
+        jTextFieldEmail1.setName("Email"); // NOI18N
+        jPanel5.add(jTextFieldEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 150, -1));
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setText("Delete");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("Edit");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
+
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 80, 410, 450));
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setText("Search By");
+        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Cutting ID", "Style ID", "Schedule ID" }));
         jComboBox4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -182,10 +242,6 @@ public class Sewing1 extends javax.swing.JInternalFrame {
             }
         });
         jPanel3.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 110, -1));
-
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel19.setText("Search By");
-        jPanel3.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel20.setText("Sewing ID");
@@ -198,18 +254,18 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jTextField13.setEnabled(false);
         jPanel3.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 80, 140, -1));
 
-        jTextField37.setEnabled(false);
-        jPanel3.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 140, -1));
+        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel26.setText("Style ID");
+        jLabel26.setEnabled(false);
+        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
 
         jLabel56.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel56.setText("Schedule ID");
         jLabel56.setEnabled(false);
         jPanel3.add(jLabel56, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 110, -1, -1));
 
-        jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel26.setText("Style ID");
-        jLabel26.setEnabled(false);
-        jPanel3.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 80, -1, -1));
+        jTextField37.setEnabled(false);
+        jPanel3.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 140, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Search");
@@ -230,80 +286,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
 
         jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 710, 330));
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextFieldCustomerId1.setEditable(false);
-        jTextFieldCustomerId1.setName("Customer ID"); // NOI18N
-        jTextFieldCustomerId1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustomerId1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jTextFieldCustomerId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 60, 150, -1));
-
-        jTextFieldCustomerName1.setName("Customer Name"); // NOI18N
-        jPanel7.add(jTextFieldCustomerName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 150, -1));
-
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setText("Sewing ID");
-        jPanel7.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, -1, 20));
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel13.setText("Style ID");
-        jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, 20));
-
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton7.setText("Reset All");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 330, -1, -1));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setText("Schedule ID");
-        jPanel7.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 160, -1, 20));
-
-        jTextFieldCompanyName1.setName("Company name"); // NOI18N
-        jPanel7.add(jTextFieldCompanyName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 160, 150, -1));
-
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel16.setText("Qualified pieces");
-        jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, 20));
-
-        jTextFieldPhone1.setName("Phone number"); // NOI18N
-        jPanel7.add(jTextFieldPhone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 150, -1));
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setText("Damages");
-        jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, 20));
-
-        jTextFieldEmail1.setName("Email"); // NOI18N
-        jPanel7.add(jTextFieldEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 150, -1));
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton3.setText("Delete");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 330, -1, -1));
-
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setText("Edit");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 330, -1, -1));
-
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 80, 410, 450));
-
-        jTabbedPane1.addTab("Search &  Delete", jPanel3);
+        jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jTabbedPane1.addTab("Reports", jPanel4);
@@ -314,6 +297,22 @@ public class Sewing1 extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+  
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextFieldCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerId1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+         
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+ 
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTextField11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField11ActionPerformed
         // TODO add your handling code here:
@@ -326,47 +325,12 @@ public class Sewing1 extends javax.swing.JInternalFrame {
     private void jComboBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox4MouseClicked
 
     }//GEN-LAST:event_jComboBox4MouseClicked
-
-    private void jTextFieldCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerId1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-
-    }//GEN-LAST:event_jButton2ActionPerformed
-
-   
-        
-       
-        
-    
-    
-      
-    
-    
-    
-    
-    
-    
-
-        
-    
-    
-   
-
-
-    
-    
  
-   
+    
+
+    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -396,7 +360,6 @@ public class Sewing1 extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -415,9 +378,5 @@ public class Sewing1 extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextFieldCustomerName1;
     private javax.swing.JTextField jTextFieldEmail1;
     private javax.swing.JTextField jTextFieldPhone1;
-    private javax.swing.ButtonGroup myGroup;
     // End of variables declaration//GEN-END:variables
-
-    
-    
 }

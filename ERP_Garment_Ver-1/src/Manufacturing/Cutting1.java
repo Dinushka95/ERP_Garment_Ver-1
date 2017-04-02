@@ -103,7 +103,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
-        setTitle("Cutting Schedule");
+        setTitle("Cutting Details");
         setMaximumSize(new java.awt.Dimension(1365, 620));
         setMinimumSize(new java.awt.Dimension(1365, 620));
         setPreferredSize(new java.awt.Dimension(1365, 620));
@@ -222,7 +222,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 850, 520));
 
-        jTabbedPane1.addTab("ADD Cutting schedule", jPanel1);
+        jTabbedPane1.addTab("ADD Cutting Details", jPanel1);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

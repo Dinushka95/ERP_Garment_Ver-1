@@ -7,7 +7,7 @@
   </NonVisualComponents>
   <Properties>
     <Property name="resizable" type="boolean" value="true"/>
-    <Property name="title" type="java.lang.String" value="Cutting Schedule"/>
+    <Property name="title" type="java.lang.String" value="Iron And Packing Details"/>
     <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
       <Dimension value="[1365, 620]"/>
     </Property>
@@ -58,8 +58,8 @@
         <Container class="javax.swing.JPanel" name="jPanel1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="ADD Cutting schedule">
-                <Property name="tabTitle" type="java.lang.String" value="ADD Cutting schedule"/>
+              <JTabbedPaneConstraints tabName="ADD Iron And Packing Details">
+                <Property name="tabTitle" type="java.lang.String" value="ADD Iron And Packing Details"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>
