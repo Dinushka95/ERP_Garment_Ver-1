@@ -29,7 +29,7 @@ import net.proteanit.sql.DbUtils;
 
 /**
  *
- * @author Aaquiff
+ * @author Vihangi
  */
 public class Employee extends javax.swing.JInternalFrame {
 
@@ -124,14 +124,13 @@ public class Employee extends javax.swing.JInternalFrame {
                     + "'" + cmbGender.getSelectedItem().toString()+ "',"
                     + "'" + txtNic.getText() + "',"
                     + "'" + cmbNationality.getSelectedItem().toString() + "',"
-                    + "'" + txtAddress.getText() + "',"
+                    + "'" + txtAddress.getText() + "'," 
                     + "'" + txtDepID.getText() + "',"
                     + "'" + txtEmail.getText() + "',"
-                    + "'" + txtMobileNo.getText() + "'"
+                    + "'" + txtMobileNo.getText() + "',"
                     + "'" + sdf.format(dtpDOB.getDate()) + "'"
                     + ")"
-                    ;
-            
+                    ;            
             stmnt.executeUpdate(sql);
             JOptionPane.showMessageDialog(this, "Record Inserted");
             Populate();
