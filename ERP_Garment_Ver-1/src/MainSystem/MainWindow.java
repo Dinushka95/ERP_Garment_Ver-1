@@ -41,6 +41,8 @@ import java.beans.PropertyVetoException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import static MainSystem.MainWindow.autoSqlQuery;
+import Maintance.JobInspectingAndEstimation;
+import Maintance.MaintenancesRequest1;
 import Maintance.OrderParts;
 import Manufacturing.Cutting1;
 import Manufacturing.IronAndPacking2;
@@ -916,7 +918,7 @@ public static AutoReport autoReport;
     }//GEN-LAST:event_jButton44ActionPerformed
 
     private void jButton48ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton48ActionPerformed
-        // TODO add your handling code here:
+        
         Contactor  contactor =new  Contactor();
          contactor .setVisible(true);
         jDesktopPane1.removeAll();
@@ -1002,12 +1004,22 @@ public static AutoReport autoReport;
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton54ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton54ActionPerformed
-        // TODO add your handling code here:
+       MaintenancesRequest1 main = new  MaintenancesRequest1();
+        main.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(main);
+        try {
+           main.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        main.setMaximizable(false);
+        
     }//GEN-LAST:event_jButton54ActionPerformed
 
     private void jButton55ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton55ActionPerformed
 
-         OrderParts order = new  OrderParts();
+       OrderParts order = new  OrderParts();
         order.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(order);
@@ -1021,7 +1033,17 @@ public static AutoReport autoReport;
     }//GEN-LAST:event_jButton55ActionPerformed
 
     private void jButton56ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton56ActionPerformed
-        // TODO add your handling code here:
+        
+       JobInspectingAndEstimation   job =new  JobInspectingAndEstimation();
+         job .setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add( job );
+        try {
+           job .setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+          job .setMaximizable(false);
     }//GEN-LAST:event_jButton56ActionPerformed
 
     private void jButton53ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton53ActionPerformed
