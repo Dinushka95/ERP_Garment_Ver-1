@@ -1273,6 +1273,7 @@ int RowCountjTable1;
 
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
     jTablesCustomer.setModel(DbUtils.resultSetToTableModel(salesinquirymodel.SearchID(jTextFieldSDICustomerId1.getText()))); 
+     clearSearch();
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed

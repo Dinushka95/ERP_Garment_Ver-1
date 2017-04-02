@@ -1,12 +1,16 @@
 
 package Marketing;
 
+import MainSystem.AutoDB_Connect;
 import Sales.*;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePicker;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
@@ -43,5 +47,17 @@ public class MarketDesignInquiryApprovalModel {
             else {
              return false;
             }
+    }
+    public String SearchEmployeeById(int key)  {
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("emp_table","emp_id",String.valueOf(key));
+        try {
+            AutoDB_Connect.DB_ResultSet.next();
+            return AutoDB_Connect.DB_ResultSet.getString("f_name");
+        } catch (SQLException ex) {
+            Logger.getLogger(SalesDesignInquiryModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+   
+    return null;  
     }
 }

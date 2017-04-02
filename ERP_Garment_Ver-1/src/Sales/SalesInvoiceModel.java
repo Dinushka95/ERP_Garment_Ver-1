@@ -107,7 +107,18 @@ public class SalesInvoiceModel {
     
         return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("product_table");
     }
-     
+    
+    public ResultSet SearchID(String Key){
+        return autoSqlQuery.executeAutoSearchAll("d_customer_table","CustomerId",Key);
+    }
+    
+    public ResultSet SearchCustomerTPhone(String key){
+    return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","Phone",key);
+    }
+    
+    public ResultSet SearchCustomerTName(String key){
+    return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("d_customer_table","Name",key);
+    }
     public ResultSet ViewAllInquiry(){
     
         return AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoViewAll("d_salesInquiry_table");

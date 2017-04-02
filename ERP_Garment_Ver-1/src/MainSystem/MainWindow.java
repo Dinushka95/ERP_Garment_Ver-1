@@ -72,11 +72,14 @@ import java.awt.SplashScreen;
 public class MainWindow extends javax.swing.JFrame {
 public static int  userid=1;
 public static String  username="test";
+public static boolean Login= false;
 public static AutoSQLQuery autoSqlQuery;
 public static AutoValidation validation;
 public static AutoGetImage autogetimage;
 public static AutoIdGenerator aid;
 public static AutoReport autoReport;
+public static MainWindow mwx ;
+public static Login loginx;
 
 //public static DB_Connect db_con;
     /**
@@ -87,25 +90,15 @@ public static AutoReport autoReport;
         centerLocation();
         
         setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
-    //    db_con= new DB_Connect();
-    //   db_con.connect();
            autoSqlQuery=new AutoSQLQuery("garmentsystem");
            validation =new AutoValidation();
            autogetimage=new AutoGetImage();
            aid = new AutoIdGenerator();
            autoReport=new AutoReport(DB_connection);
-           
-       
- 
+
     }
     
-    private void centerLocation() throws HeadlessException {
-    final Toolkit toolkit = Toolkit.getDefaultToolkit();
-    final Dimension screenSize = toolkit.getScreenSize();
-    final int x = (screenSize.width - this.getWidth()) / 2;
-    final int y = (screenSize.height - this.getHeight()) / 2;
-    this.setLocation(x, y);
-}
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -265,21 +258,23 @@ public static AutoReport autoReport;
 
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jButton13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton13.setText("Marketing Design Inquiry Approval");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, -1, -1));
+        jPanel11.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
 
+        jButton41.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton41.setText("Marketing Design Inquiry");
         jButton41.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton41ActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton41, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 11, -1, -1));
+        jPanel11.add(jButton41, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         jTabbedPane1.addTab("Marketing", jPanel11);
 
@@ -1339,33 +1334,6 @@ public static AutoReport autoReport;
         
     }//GEN-LAST:event_jButton23ActionPerformed
 
-    public static void DisplaySplash()
-    {
-        try
-        {
-            JSplash splash = new JSplash(MainWindow.class.getResource("cover.png"), true, true, false, "1.0", null, Color.BLACK, Color.BLACK);
-            splash.splashOn();
-        
-            splash.setProgress(15, "Initializing");
-            Thread.sleep(1000);
-            splash.setProgress(20, "Connecting to Database Connection");
-            Thread.sleep(3000);
-            splash.setProgress(40, "Initializing Libraries");
-            Thread.sleep(2500);
-            splash.setProgress(60, "Creating Interface");
-            Thread.sleep(2000);
-            splash.setProgress(80, "Appling Configs");
-            Thread.sleep(1500);
-            splash.setProgress(100, "Stating Application");
-            Thread.sleep(2000);
-            
-            splash.splashOff();
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-    }
     
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
 
@@ -1451,13 +1419,46 @@ public static AutoReport autoReport;
         iro.setMaximizable(false);
     }//GEN-LAST:event_jButton38ActionPerformed
 
-    
+    private void centerLocation() throws HeadlessException {
+    final Toolkit toolkit = Toolkit.getDefaultToolkit();
+    final Dimension screenSize = toolkit.getScreenSize();
+    final int x = (screenSize.width - this.getWidth()) / 2;
+    final int y = (screenSize.height - this.getHeight()) / 2;
+    this.setLocation(x, y);
+}
+     public static void DisplaySplash()
+    {
+        try
+        {
+            JSplash splash = new JSplash(MainWindow.class.getResource("cover.png"), true, true, false, "1.0", null, Color.BLACK, Color.BLACK);
+            splash.splashOn();
+        
+            splash.setProgress(15, "Initializing");
+            Thread.sleep(1000);
+            splash.setProgress(20, "Connecting to Database Connection");
+            Thread.sleep(1500);
+            splash.setProgress(40, "Initializing Libraries");
+            Thread.sleep(2000);
+            splash.setProgress(60, "Creating Interface");
+            Thread.sleep(1500);
+            splash.setProgress(80, "Appling Configs");
+            Thread.sleep(1000);
+            splash.setProgress(100, "Stating Application");
+            Thread.sleep(700);
+            
+            splash.splashOff();
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+     
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
-
+    loginx=new Login();
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -1476,12 +1477,23 @@ public static AutoReport autoReport;
         }
 
 
-       //DisplaySplash();
-
+       
+            DisplaySplash();
+            
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainWindow().setVisible(true);
+               
+                mwx =new MainWindow();
+               // mwx =new MainWindow();
+                if (Login==true){
+                mwx.setVisible(true);
+                }
+                else {
+                mwx.setVisible(false);
+                
+                loginx.setVisible(true);
+                }
             }
         });
     }

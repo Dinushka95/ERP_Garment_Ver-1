@@ -7,6 +7,8 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
  
 import MainSystem.AutoValidation;
+import static MainSystem.MainWindow.autoSqlQuery;
+import Sales.SalesDesignInquiryModel;
 import java.io.File;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -231,6 +233,17 @@ public class MarketDesignInquiryModel {
     return x;
     }
     
-
+    public String SearchEmployeeById(int key)  {
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("emp_table","emp_id",String.valueOf(key));
+        try {
+            AutoDB_Connect.DB_ResultSet.next();
+            return AutoDB_Connect.DB_ResultSet.getString("f_name");
+        } catch (SQLException ex) {
+            Logger.getLogger(SalesDesignInquiryModel.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+   
+    return null;  
+    }
     
 }

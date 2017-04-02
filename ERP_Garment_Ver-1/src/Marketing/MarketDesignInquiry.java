@@ -16,6 +16,7 @@ import static MainSystem.MainWindow.autogetimage;
 import static MainSystem.MainWindow.validation;
 import MainSystem.MainWindow;        
 import static MainSystem.MainWindow.autoReport;
+import static MainSystem.MainWindow.userid;
 
 /**
  *
@@ -50,6 +51,8 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         datePicker1.setDateToToday();
         jButtonADDImage.setEnabled(false);
         jPanelEdit.setVisible(false);
+        jTextFieldCustomerId.setText(Integer.toString(userid));
+        jTextFieldCustomerName.setText(marketDesignInquiryModel.SearchEmployeeById(userid));
 
     }
 
@@ -87,7 +90,6 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         jTextFieldCustomerId = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         jTextFieldCustomerName = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -188,8 +190,8 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanelAddDesignInquiryMain.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("ADD Design Inquiry");
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -280,16 +282,7 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         jTextFieldCustomerName.setName("Customer Name"); // NOI18N
         jPanel10.add(jTextFieldCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 140, 110, -1));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("Search Employee");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 180, -1, -1));
-
-        jPanelAddDesignInquiryMain.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 390, 220));
+        jPanelAddDesignInquiryMain.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 390, 180));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -323,15 +316,15 @@ MarketDesignInquiryModel marketDesignInquiryModel;
 
         jLabel5.setText("Size");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 20, -1, -1));
+        jPanel5.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 40, -1, -1));
 
         jLabel6.setText("Quantity");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 60, -1, -1));
+        jPanel5.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 80, -1, -1));
 
         jTextFieldQuantatiy.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextFieldQuantatiy.setName("Quantity"); // NOI18N
-        jPanel5.add(jTextFieldQuantatiy, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 60, 100, -1));
+        jPanel5.add(jTextFieldQuantatiy, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 80, 100, -1));
 
         jButton3.setText("Delete Row");
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -353,7 +346,7 @@ MarketDesignInquiryModel marketDesignInquiryModel;
 
         jLabel17.setText("Colour");
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 100, -1, -1));
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, -1, -1));
 
         jLabel20.setText("Description");
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -363,10 +356,10 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         jPanel5.add(jTextFieldDecription, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 400, 30));
 
         jComboBoxSize.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Size", "MS", "M", "L", "XL", "2XL", "3XL", "4XL" }));
-        jPanel5.add(jComboBoxSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 100, -1));
+        jPanel5.add(jComboBoxSize, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 40, 100, -1));
 
         jComboBoxColour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Color", "Red", "Blood Red", "Magenta", "Blue", "Light Blue", "Sky Blue", "Peacock Blue", "Green", "Tamil Green", "Light Green", "Orange", "Light Orange", "Pink", "Rose Pink", "Beige", "Brown", "Desert Brown" }));
-        jPanel5.add(jComboBoxColour, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 100, 100, -1));
+        jPanel5.add(jComboBoxColour, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 120, 100, -1));
 
         jPanelAddDesignInquiryMain.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 40, 820, 180));
 
@@ -576,7 +569,7 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         });
         jPanelSearchEditDeleteReportM.add(jButton20, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, 210, -1));
 
-        jButton18.setText(" All SDI Report");
+        jButton18.setText(" All MDI Report");
         jButton18.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton18.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -603,8 +596,8 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         });
         jPanelSearchEditDeleteReportM.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 100, 210, -1));
 
-        jButton17.setText("Search");
         jButton17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton17.setText("Search");
         jButton17.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton17ActionPerformed(evt);
@@ -630,8 +623,8 @@ MarketDesignInquiryModel marketDesignInquiryModel;
         });
         jPanelSearchEditDeleteReportM.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 120, -1));
 
-        jButton19.setText("Search");
         jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton19.setText("Search");
         jButton19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton19ActionPerformed(evt);
@@ -771,11 +764,6 @@ MarketDesignInquiryModel marketDesignInquiryModel;
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         RowCountjTable1=jTable1.getSelectedRow();
     }//GEN-LAST:event_jTable1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        jPanelEmployeeSearch.setVisible(true);
-        jPanelAddDesignInquiryMain.setVisible(false);
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField10ActionPerformed
         // TODO add your handling code here:
@@ -1017,7 +1005,6 @@ MarketDesignInquiryModel marketDesignInquiryModel;
     private javax.swing.JTextField JTextFieldDesignName;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton13;
