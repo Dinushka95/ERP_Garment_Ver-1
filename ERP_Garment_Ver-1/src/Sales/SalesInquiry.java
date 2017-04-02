@@ -4,7 +4,6 @@ package Sales;
 import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
-import static MainSystem.MainWindow.autogetimage;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -26,12 +25,23 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
  DefaultTableModel CustomerModel;
  DefaultTableModel sedmodel1;
  DefaultTableModel sedmodel2;
+ DefaultTableModel ProductModel1;
+ 
  String ProductID;
  String ProductName;
  String Price;
  String Quantity="";
  String  CustomerId;
  String  CustomerName;
+ String CustomerNameE;
+ String x1Cust;
+ String x1Dis = null;
+ 
+String ProductID1;
+String ProductName1;
+String Price1;
+String Quantity1;
+     
  int RowCountjTable;
  
     public SalesInquiry() {
@@ -40,9 +50,13 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jTextFieldSalesInquiryId.setText(salesinquirymodel.generate_sii());
         jPanelcustomerSearch4.setVisible(false);
         jPanelproductSearch.setVisible(false);
-        jPanelEdit.setVisible(false); 
+   //     jPanelEdit.setVisible(false); 
         datePickerSalesInquiry.setDateToToday();
         ProductModel = (DefaultTableModel) jTableSalesInuiry.getModel();
+       
+        jPanelproductSearch1.setVisible(false);
+        jTabbedPane1.setEnabledAt(2,false);
+        
     }
 
 
@@ -149,10 +163,57 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jTextFieldSearchCustomerID = new javax.swing.JTextField();
         jTextFieldSearchCustomerName1 = new javax.swing.JTextField();
         jTextFieldSearchDesignName = new javax.swing.JTextField();
-        jPanelEdit = new javax.swing.JPanel();
-        jButton41 = new javax.swing.JButton();
-        jButton42 = new javax.swing.JButton();
-        jLabel28 = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanelMainSI1 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTableSalesInuiry1 = new javax.swing.JTable();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextFieldCustomerId1 = new javax.swing.JTextField();
+        jTextFieldCustomerName1 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jTextFieldSalesInquiryId1 = new javax.swing.JTextField();
+        DatePickerSettings dateSettingsq = new DatePickerSettings();
+        dateSettingsq.setFormatForDatesCommonEra("yyyy/MM/dd");
+        dateSettingsq.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        datePickerSalesInquiry1 = new com.github.lgooddatepicker.components.DatePicker(dateSettingsq);
+        jLabel11 = new javax.swing.JLabel();
+        DatePickerSettings dateSettings1q = new DatePickerSettings();
+        dateSettings1q.setFormatForDatesCommonEra("yyyy/MM/dd");
+        dateSettings1q.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        datePickerPurchaseDue1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1q);
+        jButton5 = new javax.swing.JButton();
+        jButton31 = new javax.swing.JButton();
+        jButton32 = new javax.swing.JButton();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTextAreaNote1 = new javax.swing.JTextArea();
+        jLabel24 = new javax.swing.JLabel();
+        jLabel27 = new javax.swing.JLabel();
+        jTextFieldTotal1 = new javax.swing.JTextField();
+        jLabel29 = new javax.swing.JLabel();
+        jButton8 = new javax.swing.JButton();
+        jLabel30 = new javax.swing.JLabel();
+        jTextFieldGrandTotal1 = new javax.swing.JTextField();
+        jComboBoxDiscountRate1 = new javax.swing.JComboBox<>();
+        jButton7 = new javax.swing.JButton();
+        jPanelproductSearch1 = new javax.swing.JPanel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        jTablesProduct1 = new javax.swing.JTable();
+        jButton25 = new javax.swing.JButton();
+        jTextFieldsDesignId1 = new javax.swing.JTextField();
+        jTextFieldsProductType1 = new javax.swing.JTextField();
+        jTextFieldsProductId1 = new javax.swing.JTextField();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jButton33 = new javax.swing.JButton();
+        jButton43 = new javax.swing.JButton();
+        jButton44 = new javax.swing.JButton();
+        jButton45 = new javax.swing.JButton();
+        jLabelsProductPreview1 = new javax.swing.JLabel();
+        jButton9 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Sales Inquiry Management");
@@ -446,8 +507,8 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         jLabelsProductPreview.setText("              Product Preview");
         jPanelproductSearch.add(jLabelsProductPreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 240, 170));
 
-        jButton3.setText("Reset ALL");
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setText("Reset ALL");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -608,8 +669,8 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         });
         jPanelSearchEditDeleteReportM1.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 120, 110, -1));
 
-        jButton28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton28.setText("Edit");
+        jButton28.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton28.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton28ActionPerformed(evt);
@@ -713,8 +774,8 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         });
         jPanelSearchEditDeleteReportM.add(jButton38, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 120, -1));
 
-        jButtonSearchCustomerID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButtonSearchCustomerID.setText("Search");
+        jButtonSearchCustomerID.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButtonSearchCustomerID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSearchCustomerIDActionPerformed(evt);
@@ -780,36 +841,295 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
 
         jPanel12.add(jPanelSearchEditDeleteReportM, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 950, 140));
 
-        jPanelEdit.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton41.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton41.setText("Finish Editing");
-        jButton41.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton41ActionPerformed(evt);
-            }
-        });
-        jPanelEdit.add(jButton41, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 30, 190, -1));
-
-        jButton42.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jButton42.setText("Quit Editing ");
-        jButton42.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton42ActionPerformed(evt);
-            }
-        });
-        jPanelEdit.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 90, 190, -1));
-
-        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 0, 0));
-        jLabel28.setText("Edit Mode ");
-        jPanelEdit.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, 100, 60));
-
-        jPanel12.add(jPanelEdit, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 950, 140));
-
         jPanelSDISearch.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1270, 540));
 
         jTabbedPane1.addTab("Search & Edit ||  Delete ||Reports ", jPanelSDISearch);
+
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanelMainSI1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanelMainSI1.setMaximumSize(new java.awt.Dimension(1310, 530));
+        jPanelMainSI1.setMinimumSize(new java.awt.Dimension(1310, 530));
+        jPanelMainSI1.setPreferredSize(new java.awt.Dimension(1310, 530));
+        jPanelMainSI1.setToolTipText("");
+        jPanelMainSI1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTableSalesInuiry1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Product ID", "Product Name", "Price", "Quantity","SubTotal"
+            }
+        ));
+        jTableSalesInuiry1.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jTableSalesInuiry1ComponentAdded(evt);
+            }
+        });
+        jTableSalesInuiry1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableSalesInuiry1MouseClicked(evt);
+            }
+        });
+        jTableSalesInuiry1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTableSalesInuiry1KeyTyped(evt);
+            }
+        });
+        jScrollPane2.setViewportView(jTableSalesInuiry1);
+
+        jPanelMainSI1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 1110, 200));
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel5.setText("Customer ID");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel6.setText("Customer Name");
+        jPanel7.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
+
+        jTextFieldCustomerId1.setEditable(false);
+        jTextFieldCustomerId1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextFieldCustomerId1.setName("Customer Name"); // NOI18N
+        jTextFieldCustomerId1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCustomerId1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jTextFieldCustomerId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 110, -1));
+
+        jTextFieldCustomerName1.setEditable(false);
+        jTextFieldCustomerName1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextFieldCustomerName1.setName("Company name"); // NOI18N
+        jPanel7.add(jTextFieldCustomerName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 110, -1));
+
+        jLabel9.setText("Sales Inquiry ID");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel7.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+
+        jLabel10.setText("Date");
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel7.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
+
+        jTextFieldSalesInquiryId1.setEditable(false);
+        jTextFieldSalesInquiryId1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextFieldSalesInquiryId1.setName("Customer ID"); // NOI18N
+        jTextFieldSalesInquiryId1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldSalesInquiryId1ActionPerformed(evt);
+            }
+        });
+        jPanel7.add(jTextFieldSalesInquiryId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 110, -1));
+
+        datePickerSalesInquiry1.setEnabled(false);
+        datePickerSalesInquiry1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        datePickerSalesInquiry1.setName(""); // NOI18N
+        jPanel7.add(datePickerSalesInquiry1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
+
+        jLabel11.setText("Estimated date of purchase");
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel7.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 20, -1, -1));
+
+        datePickerPurchaseDue1.setEnabled(false);
+        datePickerPurchaseDue1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanel7.add(datePickerPurchaseDue1, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 50, -1, -1));
+
+        jPanelMainSI1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 1200, 100));
+
+        jButton5.setText("Cancel Editing");
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+        jPanelMainSI1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, 140, 30));
+
+        jButton31.setText("Add");
+        jButton31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton31ActionPerformed(evt);
+            }
+        });
+        jPanelMainSI1.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 200, 80, -1));
+
+        jButton32.setText("Delete");
+        jButton32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelMainSI1.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 240, 80, -1));
+
+        jTextAreaNote1.setColumns(20);
+        jTextAreaNote1.setEditable(false);
+        jTextAreaNote1.setRows(5);
+        jTextAreaNote1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
+        jScrollPane5.setViewportView(jTextAreaNote1);
+
+        jPanelMainSI1.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 500, 130));
+
+        jLabel24.setText("Note");
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelMainSI1.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
+
+        jLabel27.setText("Total ");
+        jLabel27.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelMainSI1.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 370, -1, -1));
+
+        jTextFieldTotal1.setEditable(false);
+        jTextFieldTotal1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanelMainSI1.add(jTextFieldTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 370, 100, -1));
+
+        jLabel29.setText("Discount Rate");
+        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelMainSI1.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 110, 20));
+
+        jButton8.setText("Calculate Total");
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+        jPanelMainSI1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 370, 140, -1));
+
+        jLabel30.setText("Grand Total");
+        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelMainSI1.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 430, 100, 20));
+
+        jTextFieldGrandTotal1.setEditable(false);
+        jTextFieldGrandTotal1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanelMainSI1.add(jTextFieldGrandTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 430, 100, -1));
+
+        jComboBoxDiscountRate1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"","2.5", "5", "7.5", "10","12.5","15" }));
+        jComboBoxDiscountRate1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanelMainSI1.add(jComboBoxDiscountRate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 400, 100, -1));
+
+        jButton7.setText("Edit Invoice ");
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanelMainSI1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 480, 140, 30));
+
+        jPanel2.add(jPanelMainSI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1310, 530));
+
+        jPanelproductSearch1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        jPanelproductSearch1.setMaximumSize(new java.awt.Dimension(1020, 530));
+        jPanelproductSearch1.setMinimumSize(new java.awt.Dimension(1020, 530));
+        jPanelproductSearch1.setPreferredSize(new java.awt.Dimension(1020, 530));
+        jPanelproductSearch1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jTablesProduct1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTablesProduct1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTablesProduct1MouseClicked(evt);
+            }
+        });
+        jScrollPane9.setViewportView(jTablesProduct1);
+
+        jPanelproductSearch1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 950, 250));
+
+        jButton25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton25.setText("Select");
+        jButton25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton25ActionPerformed(evt);
+            }
+        });
+        jPanelproductSearch1.add(jButton25, new org.netbeans.lib.awtextra.AbsoluteConstraints(879, 483, 90, 30));
+
+        jTextFieldsDesignId1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jTextFieldsDesignId1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldsDesignId1ActionPerformed(evt);
+            }
+        });
+        jPanelproductSearch1.add(jTextFieldsDesignId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 100, -1));
+
+        jTextFieldsProductType1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanelproductSearch1.add(jTextFieldsProductType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 100, -1));
+
+        jTextFieldsProductId1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jPanelproductSearch1.add(jTextFieldsProductId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 100, -1));
+
+        jLabel31.setText("Product ID");
+        jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelproductSearch1.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+
+        jLabel32.setText("Design ID");
+        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelproductSearch1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        jLabel33.setText("Product Type");
+        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelproductSearch1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        jButton33.setText("Search");
+        jButton33.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
+        jPanelproductSearch1.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 90, -1));
+
+        jButton43.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton43.setText("Search");
+        jButton43.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton43ActionPerformed(evt);
+            }
+        });
+        jPanelproductSearch1.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 90, -1));
+
+        jButton44.setText("Search");
+        jButton44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton44.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton44ActionPerformed(evt);
+            }
+        });
+        jPanelproductSearch1.add(jButton44, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 90, -1));
+
+        jButton45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton45.setText("View All");
+        jButton45.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton45ActionPerformed(evt);
+            }
+        });
+        jPanelproductSearch1.add(jButton45, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 100, -1));
+
+        jLabelsProductPreview1.setText("              Product Preview");
+        jPanelproductSearch1.add(jLabelsProductPreview1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 240, 170));
+
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton9.setText("Reset ALL");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanelproductSearch1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 100, -1));
+
+        jPanel2.add(jPanelproductSearch1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 1020, 530));
+
+        jTabbedPane1.addTab("", jPanel2);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -882,7 +1202,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton15ActionPerformed
 
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
-     jTablesProduct.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchAll("product_table","ProductId",jTextFieldsDesignId.getText())));
+     jTablesProduct.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoViewAll("product_table")));
     }//GEN-LAST:event_jButton17ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
@@ -972,7 +1292,7 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        ProductModel = (DefaultTableModel) jTablesProduct.getModel();
+        //ProductModel = (DefaultTableModel) jTablesProduct.getModel();
         ProductModel.getDataVector().removeAllElements();
         ProductModel.fireTableDataChanged();
     }//GEN-LAST:event_jButton3ActionPerformed
@@ -995,14 +1315,70 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton28ActionPerformed
+        String PriceE = null;
+         
         if(jTextFieldSearchTSDIID.getText().equals("")){
             //do nothing
         }
         else{
-   //         jTable1.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchAll("d_designinquiry_table1","d_salesInquiry_table1", jTextFieldSearchTSDIID.getText())));
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeAutoSearchAll("d_salesInquiry_table","SalesInquiryId", jTextFieldSearchTSDIID.getText());
+            try {
+                AutoDB_Connect.DB_ResultSet.next();
+                String x1Sii =AutoDB_Connect.DB_ResultSet.getString("SalesInquiryId");
+                String x1Date =AutoDB_Connect.DB_ResultSet.getString("Date");
+                String x1Note =AutoDB_Connect.DB_ResultSet.getString("Note");
+                String x1Estim =AutoDB_Connect.DB_ResultSet.getString("EstimatePurchaseDate");
+                       x1Dis =AutoDB_Connect.DB_ResultSet.getString("discountRate");
+                String x1total =AutoDB_Connect.DB_ResultSet.getString("total");
+                       x1Cust =AutoDB_Connect.DB_ResultSet.getString("CustomerId");
+                String x1Grandtotal =AutoDB_Connect.DB_ResultSet.getString("grandTotal");
+                jTextFieldSalesInquiryId1.setText(x1Sii);
+                datePickerSalesInquiry1.setText(x1Date);
+                datePickerPurchaseDue1.setText(x1Estim);
+                jTextFieldCustomerId1.setText(x1Cust);
+                jTextAreaNote1.setText(x1Note);
+                jTextFieldTotal1.setText(x1total);
+                jComboBoxDiscountRate1.setSelectedItem(x1Dis);
+                jTextFieldGrandTotal1.setText(x1Grandtotal);
+                
+                AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeAutoSearchAll("d_salesInquiry_table1","SalesInquiryId", jTextFieldSearchTSDIID.getText());
+                jTableSalesInuiry1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            } catch (SQLException ex) {
+                Logger.getLogger(SalesInquiry.class.getName()).log(Level.SEVERE, null, ex);
+            }
+                ProductModel1 = (DefaultTableModel) jTableSalesInuiry1.getModel();
+                ProductModel1.addColumn("Price");
+                ProductModel1.addColumn("Sub Total");
+                int rowc=0;
+                
+                while(rowc<ProductModel1.getRowCount()){
+                String ccv = (String) ProductModel1.getValueAt(rowc, 1);
+                AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeAutoSearchAll("product_table","ProductId",ccv);
+            
+            try {
+                AutoDB_Connect.DB_ResultSet.next();
+                PriceE = AutoDB_Connect.DB_ResultSet.getString("Price");
+            } catch (SQLException ex) {
+                Logger.getLogger(SalesInquiry.class.getName()).log(Level.SEVERE, null, ex);
+            }   
+
+                ProductModel1.setValueAt(PriceE,rowc,3);
+                rowc++;
+                }
+            
+            AutoDB_Connect.DB_ResultSet =salesinquirymodel.SearchID(x1Cust);
+            try {
+                AutoDB_Connect.DB_ResultSet.next();
+                 CustomerNameE = AutoDB_Connect.DB_ResultSet.getString("Name");
+            } catch (SQLException ex) {
+                Logger.getLogger(SalesInquiry.class.getName()).log(Level.SEVERE, null, ex);
+            }
+          //  System.err.println(CustomerNameE);
+            jTextFieldCustomerName1.setText(CustomerNameE);
+            jTabbedPane1.setSelectedIndex(2);
             jPanelSearchEditDeleteReportM.setVisible(false);
             jPanelSearchEditDeleteReportM1.setVisible(false);
-            jPanelEdit.setVisible(true);
+           // jPanelEdit.setVisible(true);
         }
     }//GEN-LAST:event_jButton28ActionPerformed
 
@@ -1040,13 +1416,13 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton34ActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
-        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\report1.jrxml";
-        String SQL="SELECT * FROM garmentsystem.d_designinquiry_table";
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SII.jrxml";
+        String SQL="SELECT * FROM garmentsystem.d_salesInquiry_table";
         autoReport.Query2Report(FileLocation, SQL);
     }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
-        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SalesInquiry.jrxml";
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SII.jrxml";
         autoReport.Table2Report(FileLocation, jTable3);
     }//GEN-LAST:event_jButton36ActionPerformed
 
@@ -1084,19 +1460,97 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldSearchCustomerName1ActionPerformed
 
-    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
+    private void jTableSalesInuiry1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jTableSalesInuiry1ComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableSalesInuiry1ComponentAdded
 
-    }//GEN-LAST:event_jButton41ActionPerformed
+    private void jTableSalesInuiry1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSalesInuiry1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableSalesInuiry1MouseClicked
 
-    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
-        jPanelSearchEditDeleteReportM.setVisible(true);
-        jPanelSearchEditDeleteReportM1.setVisible(true);
-         
-        jPanelEdit.setVisible(false);
-        clearTable();
-        clearSearch();
-        //clear();
-    }//GEN-LAST:event_jButton42ActionPerformed
+    private void jTableSalesInuiry1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableSalesInuiry1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTableSalesInuiry1KeyTyped
+
+    private void jTextFieldCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerId1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
+
+    private void jTextFieldSalesInquiryId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSalesInquiryId1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldSalesInquiryId1ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
+        jPanelproductSearch1.setVisible(true);
+        jPanelMainSI1.setVisible(false);
+    }//GEN-LAST:event_jButton31ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+
+        getSubTotalE();
+        getTotalE();
+        getGrandTotalE();
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+       jTabbedPane1.setSelectedIndex(1);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTablesProduct1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablesProduct1MouseClicked
+       
+    int x=jTablesProduct1.getSelectedRow();
+    String y=(String) jTablesProduct1.getValueAt(x,0);
+    
+    AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("product_table","ProductId", y);
+    
+    try {
+        AutoDB_Connect.DB_ResultSet.next();
+        ProductID1=AutoDB_Connect.DB_ResultSet.getString("ProductId");
+        ProductName1=AutoDB_Connect.DB_ResultSet.getString("ProductName");
+        Price1=AutoDB_Connect.DB_ResultSet.getString("Price");
+        //Quantity=DB_Connect.DB_ResultSet.getString("ProductId");
+        
+    } catch (SQLException ex) {
+        Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
+    }    
+    jLabelsProductPreview1.setIcon(autoSqlQuery.executeAutoGetImage(ProductID1));
+    }//GEN-LAST:event_jTablesProduct1MouseClicked
+
+    private void jButton25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton25ActionPerformed
+        ProductModel1 = (DefaultTableModel) jTableSalesInuiry1.getModel();
+        ProductModel1.addRow(new Object[]{jTextFieldSearchTSDIID.getText(), ProductID1,Quantity1,Price1});
+        jPanelproductSearch1.setVisible(false);
+        jPanelMainSI1.setVisible(true);
+        
+    }//GEN-LAST:event_jButton25ActionPerformed
+
+    private void jTextFieldsDesignId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldsDesignId1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldsDesignId1ActionPerformed
+
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton33ActionPerformed
+
+    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton43ActionPerformed
+
+    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton44ActionPerformed
+
+    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
+         jTablesProduct1.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoViewAll("product_table")));
+    }//GEN-LAST:event_jButton45ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton9ActionPerformed
     private void clearSearch(){
         jTextFieldSDICustomerId1.setText("");
         jTextField12.setText("");
@@ -1143,6 +1597,9 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     }
     }
     
+    
+
+    
     public void getTotal(){
      
      double total = 0;
@@ -1174,10 +1631,73 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     }
   
     }
+        
+       
+    
+    
+    public void getSubTotalE(){
+     ProductModel1 = (DefaultTableModel) jTableSalesInuiry1.getModel();
+     double total = 0;
+     double mut1 = 0;
+     double mut2 = 0;
+     String value1;
+     String value2;
+     int column1 = 2;
+     int column2 = 3;
+
+    for (int i = 0; i < ProductModel1.getRowCount(); i++){
+    if (ProductModel1.getValueAt(i, column1) != null&&ProductModel1.getValueAt(i, column2) != null)       
+        {//System.out.println(ProductModel.getValueAt(i, column1));
+        value1= (String) ProductModel1.getValueAt(i, column1);
+        value2= (String) ProductModel1.getValueAt(i, column2);
+        mut1=Double.valueOf(value1);
+        mut2=Double.valueOf(value2);
+        total= mut1*mut2;
+        ProductModel1.setValueAt(total, i, 4);
+        }
+    else {//error message box
+        
+    }
+  
+    }
+    }
+        public void getTotalE(){
+     ProductModel1 = (DefaultTableModel) jTableSalesInuiry1.getModel();
+     double total = 0;
+     double value;
+     int column = 4; 
+
+    for (int i = 0; i < ProductModel1.getRowCount(); i++){
+    if (ProductModel1.getValueAt(i, column) != null)       
+        {//System.out.println(ProductModel.getValueAt(i, column));
+        value=  (double) ProductModel1.getValueAt(i, column);
+        total=total+value;
+        } 
+  
+    }
+    jTextFieldTotal1.setText(String.valueOf(total));
+    }
+        
+     public void getGrandTotalE(){
+     
+
+    if (jComboBoxDiscountRate1.getSelectedItem().equals("")){
+        jTextFieldGrandTotal1.setText(jTextFieldTotal1.getText());
+        } 
+    else{
+        double x=Double.valueOf(jTextFieldTotal1.getText());
+        double y=Double.valueOf(jComboBoxDiscountRate1.getSelectedItem().toString());
+        y=((100-y)/100);
+        jTextFieldGrandTotal1.setText(String.valueOf(x*y));
+    }
+  
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePickerPurchaseDue;
+    private com.github.lgooddatepicker.components.DatePicker datePickerPurchaseDue1;
     private com.github.lgooddatepicker.components.DatePicker datePickerSalesInquiry;
+    private com.github.lgooddatepicker.components.DatePicker datePickerSalesInquiry1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
@@ -1193,12 +1713,16 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton22;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
+    private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton27;
     private javax.swing.JButton jButton28;
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
+    private javax.swing.JButton jButton31;
+    private javax.swing.JButton jButton32;
+    private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
@@ -1207,12 +1731,20 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton39;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton41;
-    private javax.swing.JButton jButton42;
+    private javax.swing.JButton jButton43;
+    private javax.swing.JButton jButton44;
+    private javax.swing.JButton jButton45;
+    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonSearchCustomerID;
     private javax.swing.JComboBox<String> jComboBoxDiscountRate;
+    private javax.swing.JComboBox<String> jComboBoxDiscountRate1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
@@ -1226,52 +1758,79 @@ public class SalesInquiry extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelsProductPreview;
+    private javax.swing.JLabel jLabelsProductPreview1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel12;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanelEdit;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanelMainSI;
+    private javax.swing.JPanel jPanelMainSI1;
     private javax.swing.JPanel jPanelSDISearch;
     private javax.swing.JPanel jPanelSearchEditDeleteReportM;
     private javax.swing.JPanel jPanelSearchEditDeleteReportM1;
     private javax.swing.JPanel jPanelcustomerSearch4;
     private javax.swing.JPanel jPanelproductSearch;
+    private javax.swing.JPanel jPanelproductSearch1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
+    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable3;
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTableSalesInuiry;
+    private javax.swing.JTable jTableSalesInuiry1;
     private javax.swing.JTable jTablesCustomer;
     private javax.swing.JTable jTablesProduct;
+    private javax.swing.JTable jTablesProduct1;
     private javax.swing.JTextArea jTextAreaNote;
+    private javax.swing.JTextArea jTextAreaNote1;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextFieldCustomerId;
+    private javax.swing.JTextField jTextFieldCustomerId1;
     private javax.swing.JTextField jTextFieldCustomerName;
+    private javax.swing.JTextField jTextFieldCustomerName1;
     private javax.swing.JTextField jTextFieldGrandTotal;
+    private javax.swing.JTextField jTextFieldGrandTotal1;
     private javax.swing.JTextField jTextFieldSDICustomerId1;
     private javax.swing.JTextField jTextFieldSalesInquiryId;
+    private javax.swing.JTextField jTextFieldSalesInquiryId1;
     private javax.swing.JTextField jTextFieldSearchCustomerID;
     private javax.swing.JTextField jTextFieldSearchCustomerName1;
     private javax.swing.JTextField jTextFieldSearchDesignName;
     private javax.swing.JTextField jTextFieldSearchSDIID;
     private javax.swing.JTextField jTextFieldSearchTSDIID;
     private javax.swing.JTextField jTextFieldTotal;
+    private javax.swing.JTextField jTextFieldTotal1;
     private javax.swing.JTextField jTextFieldsDesignId;
+    private javax.swing.JTextField jTextFieldsDesignId1;
     private javax.swing.JTextField jTextFieldsProductId;
+    private javax.swing.JTextField jTextFieldsProductId1;
     private javax.swing.JTextField jTextFieldsProductType;
+    private javax.swing.JTextField jTextFieldsProductType1;
     // End of variables declaration//GEN-END:variables
 }
