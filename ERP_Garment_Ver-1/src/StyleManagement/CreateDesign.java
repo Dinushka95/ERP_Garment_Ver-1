@@ -716,7 +716,7 @@ boolean result;
             while(AutoDB_Connect.DB_ResultSet.next())
             {
                 String designer = AutoDB_Connect.DB_ResultSet.getString
-        ("f_name");
+                ("f_name");
                 styledesigner.addItem(designer);
             }
         }
