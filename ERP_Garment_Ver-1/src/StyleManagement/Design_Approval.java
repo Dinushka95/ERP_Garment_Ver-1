@@ -10,6 +10,7 @@ import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author Dinushka
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
 public class Design_Approval extends javax.swing.JInternalFrame {
 
 
-
+public static String styleid =null; 
 
 
 
@@ -32,7 +33,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         FillTextCombo1();
         FillTextComboApprover();
         TableLoad2();
-        TableLoad4();
+        TableLoad4();        
         generate_Aid();
         datePicker1.setDateToToday();
       
@@ -175,9 +176,9 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 21));
 
         Approval.add(Approvestatus);
-        Approvestatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Approvestatus.setSelected(true);
         Approvestatus.setText("Approve");
+        Approvestatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Approvestatus.setToolTipText("Click Me");
         jPanel8.add(Approvestatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
@@ -186,8 +187,8 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         jPanel8.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 129, 28));
 
         Approval.add(DisApprovestatus);
-        DisApprovestatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         DisApprovestatus.setText("Not Approved");
+        DisApprovestatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         DisApprovestatus.setToolTipText("Click Me");
         jPanel8.add(DisApprovestatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
@@ -410,6 +411,11 @@ public class Design_Approval extends javax.swing.JInternalFrame {
 
         jButton11.setText("View Cost");
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 10, -1, -1));
 
         stidcost_txt.setToolTipText("Styleid Auto fills");
@@ -486,6 +492,10 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         
          AppDesStid_txt.setText(id);
          stidcost_txt.setText(id);
+         
+         
+         
+         
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -543,6 +553,15 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+
+        styleid=stidcost_txt.getText();
+        Costing cst = new Costing();
+        cst.setVisible(true);
+        
+        
+    }//GEN-LAST:event_jButton11ActionPerformed
+
 
         private void generate_Aid(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -564,6 +583,7 @@ public class Design_Approval extends javax.swing.JInternalFrame {
         ("SELECT * FROM `garmentsystem`.`T_Design_Approval_Table`;");
        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
+    
     
     
     private void TextBoxClear(){

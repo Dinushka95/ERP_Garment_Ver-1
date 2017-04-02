@@ -7,6 +7,7 @@ package StyleManagement;
 
 import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static StyleManagement.Design_Approval.styleid;
 import net.proteanit.sql.DbUtils;
 
 /**
@@ -20,6 +21,7 @@ public class Costing extends javax.swing.JFrame {
      */
     public Costing() {
         initComponents();
+        InternalTable();
     }
 
     /**
@@ -31,17 +33,12 @@ public class Costing extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        viewcostapprove_t = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 204, 255)));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        viewcostapprove_t.setModel(new javax.swing.table.DefaultTableModel(
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -52,11 +49,18 @@ public class Costing extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(viewcostapprove_t);
+        jScrollPane5.setViewportView(jTable3);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, 180));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 11, 500, 330));
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -95,21 +99,15 @@ public class Costing extends javax.swing.JFrame {
             }
         });
     }
-    
-     private void TableLoad()
+
+    private void InternalTable()
     {
 
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT StyleID, Quantity, Cost, Final_Cost, FROM"
-                + " `garmentsystem`.`T_Bill_Of_Material`");
-    viewcostapprove_t.setModel(DbUtils.resultSetToTableModel
-        (AutoDB_Connect.DB_ResultSet));
-
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT StyleID, Cost, Final_Cost FROM `garmentsystem`.`T_Bill_Of_Material` WHERE StyleID like '"+styleid+"';");
+       jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable viewcostapprove_t;
+    private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JTable jTable3;
     // End of variables declaration//GEN-END:variables
 }
