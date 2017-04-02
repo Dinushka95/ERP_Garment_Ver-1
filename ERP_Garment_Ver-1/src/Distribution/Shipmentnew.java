@@ -107,6 +107,8 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         phone2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -296,6 +298,11 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
         jPanelShipSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 580, 320));
@@ -321,15 +328,22 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
 
         shipid1.setEditable(false);
         shipid1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        shipid1.setRequestFocusEnabled(false);
         shipid1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 shipid1ActionPerformed(evt);
             }
         });
         jPanel5.add(shipid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 25, 219, -1));
+
+        supplier1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                supplier1ActionPerformed(evt);
+            }
+        });
         jPanel5.add(supplier1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 64, 121, -1));
         jPanel5.add(address1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 102, 121, -1));
-        jPanel5.add(phone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 121, -1));
+        jPanel5.add(phone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 121, -1));
 
         jLabel15.setText("Suplier ");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -369,7 +383,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
             }
         });
         jPanel5.add(descriptionarea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 321, 254, 50));
-        jPanel5.add(recieved1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 283, 121, -1));
+        jPanel5.add(recieved1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 121, -1));
         jPanel5.add(phone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 126, 121, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -379,6 +393,14 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Update");
         jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, -1));
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 120, -1));
+        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 120, -1));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 560, 530));
 
@@ -440,6 +462,49 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private void fromCombo2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fromCombo2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_fromCombo2ActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+         try{
+            int r=jTable3.getSelectedRow();
+            String id= jTable3.getValueAt(r, 0).toString();
+            String supp=jTable3.getValueAt(r, 1).toString();
+            String addrs=jTable3.getValueAt(r, 2).toString();
+            String phn=jTable3.getValueAt(r, 3).toString();
+            String frm=jTable3.getValueAt(r, 4).toString();
+            String strdate=jTable3.getValueAt(r, 5).toString();
+            String enddt=jTable3.getValueAt(r, 6).toString();
+            String rcvd=jTable3.getValueAt(r, 7).toString();
+            String dsc=jTable3.getValueAt(r, 8).toString();
+            boolean type = false;
+            
+            System.err.print(type);
+            
+            shipid1.setText(id);
+            supplier1.setText(supp);
+            address1.setText(addrs);
+            phone2.setText(phn);
+            phone1.setText(frm);
+            jTextField1.setText(strdate);
+            jTextField2.setText(enddt);
+            recieved1.setText(rcvd);
+            descriptionarea1.setText(dsc);
+        
+        
+        }
+        
+         catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void supplier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplier1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_supplier1ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
      private void generate_shipmentid(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -583,6 +648,8 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField phone;
     private javax.swing.JTextField phone1;
     private javax.swing.JTextField phone2;

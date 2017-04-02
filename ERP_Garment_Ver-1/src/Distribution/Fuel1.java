@@ -254,6 +254,11 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable3);
 
         jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, 510, 310));
@@ -386,6 +391,40 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField18ActionPerformed
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+                                
+        try{
+            int r=jTable3.getSelectedRow();
+            String fid= jTable3.getValueAt(r, 0).toString();
+            String VID=jTable3.getValueAt(r, 1).toString();
+            String DID =jTable3.getValueAt(r, 2).toString();
+            String Fname=jTable3.getValueAt(r, 3).toString();
+            String BillNum=jTable3.getValueAt(r, 4).toString();
+            String Uprice=jTable3.getValueAt(r, 5).toString();
+            String Units=jTable3.getValueAt(r, 6).toString();
+            String cost=jTable3.getValueAt(r, 6).toString();
+            String date=jTable3.getValueAt(r, 6).toString();
+            boolean type = false;
+            
+            System.err.print(type);
+            
+            jTextField16.setText(fid);
+              jTextField15.setText(VID);
+              jTextField14.setText(DID);
+              jTextField13.setText(Fname);
+              jTextField12.setText(BillNum);
+              jTextField10.setText(Uprice);
+              jTextField9.setText(Units);
+              jTextField8.setText(cost);
+              jTextField17.setText(date);
+        }
+        
+         catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jTable3MouseClicked
  private void generate_FuelID(){
     AutoIdGenerator aid = new AutoIdGenerator();
      jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));

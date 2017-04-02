@@ -5,7 +5,10 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import static MainSystem.MainWindow.autoSqlQuery;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import javax.swing.JOptionPane;
+import static jdk.nashorn.internal.objects.NativeJava.type;
 
 
 import net.proteanit.sql.DbUtils;
@@ -310,8 +313,13 @@ public class Distribution extends javax.swing.JInternalFrame {
         });
         jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Delete");
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 320, -1, -1));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, 470, 470));
@@ -361,17 +369,40 @@ public class Distribution extends javax.swing.JInternalFrame {
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
        
-        /*try{
+        try{
             int r=jTable2.getSelectedRow();
-            String id=dis_id.getValueAt(r, 0).tostring();
+            String id= jTable2.getValueAt(r, 0).toString();
+            String VID=jTable2.getValueAt(r, 1).toString();
+            String DID =jTable2.getValueAt(r, 2).toString();
+            String HID=jTable2.getValueAt(r, 3).toString();
+            String date=jTable2.getValueAt(r, 4).toString();
+            String Dis_cost=jTable2.getValueAt(r, 5).toString();
+            String Milage=jTable2.getValueAt(r, 6).toString();
+            boolean type = false;
+            
+            System.err.print(type);
+            
+            dis_id1.setText(id);
+              jTextField6.setText(VID);
+              jTextField7.setText(DID);
+              jTextField8.setText(HID);
+              jTextField11.setText(date);
+              jTextField9.setText(Dis_cost);
+              jTextField10.setText(Milage);
         
         }
         
          catch(Exception ex)
         {
             System.out.println(ex);
-        }*/
+        }
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         DeleteDesigns();
+        tableLoad();
+        clearDeleteDesign();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
@@ -501,4 +532,44 @@ public class Distribution extends javax.swing.JInternalFrame {
 
         
     }
+     private void DeleteDesigns()
+    {
+                int reply = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+        String id =dis_id.getText();
+        
+        boolean x = autoSqlQuery.execute
+        ("DELETE FROM `garmentsystem`.`C_Distribution`\n" +
+           "DistributionID = '"+id+"';");
+        
+        try
+        {
+            if (x==true)
+            {
+                clearDeleteDesign();
+                tableLoad();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+    }
+    }
+     public void clearDeleteDesign(){
+        
+        dis_id1.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField11.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+       
+        
+    }
 }
+

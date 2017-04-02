@@ -251,6 +251,11 @@ DefaultTableModel model;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jPanelcustomerSearch2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 450, 330));
@@ -368,6 +373,37 @@ DefaultTableModel model;
     private void jTextField16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField16ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField16ActionPerformed
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        try{
+            int r=jTable2.getSelectedRow();
+            String Vid= jTable2.getValueAt(r, 0).toString();
+            String type=jTable2.getValueAt(r, 1).toString();
+            String lysonNum =jTable2.getValueAt(r, 2).toString();
+            String Milage=jTable2.getValueAt(r, 3).toString();
+            String DID=jTable2.getValueAt(r, 4).toString();
+            String Dname=jTable2.getValueAt(r, 5).toString();
+            String engNum=jTable2.getValueAt(r, 7).toString();
+            String serDueration=jTable2.getValueAt(r, 7).toString();
+           // boolean type = false;
+            
+            System.err.print(type);
+            
+            jTextField16.setText(Vid);
+              jTextField15.setText(type);
+              jTextField14.setText(lysonNum);
+              jTextField13.setText(Milage);
+              jTextField12.setText(DID);
+              jTextField11.setText(Dname);
+              jTextField10.setText(engNum);
+              jTextField9.setText(serDueration);
+        
+        }
+         catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jTable2MouseClicked
      private void generate_vehicleID() {
        
        AutoIdGenerator aid = new AutoIdGenerator();

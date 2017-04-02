@@ -91,15 +91,15 @@ DefaultTableModel model;
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         jTextField2 = new javax.swing.JTextField();
-        vehicleCombo1 = new javax.swing.JComboBox<>();
         jTextField8 = new javax.swing.JTextField();
         jTextField9 = new javax.swing.JTextField();
         jTextField10 = new javax.swing.JTextField();
         jTextField11 = new javax.swing.JTextField();
         jTextField12 = new javax.swing.JTextField();
-        datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jTextField14 = new javax.swing.JTextField();
+        jTextField15 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -250,6 +250,11 @@ DefaultTableModel model;
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable1MouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTable1);
 
         jPanelcustomerSearch.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 540, 380));
@@ -304,19 +309,11 @@ DefaultTableModel model;
             }
         });
         jPanel7.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 140, -1));
-
-        vehicleCombo1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                vehicleCombo1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(vehicleCombo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 140, -1));
         jPanel7.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 140, -1));
         jPanel7.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 150, 140, -1));
         jPanel7.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 140, -1));
         jPanel7.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 220, 140, -1));
         jPanel7.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 260, 140, -1));
-        jPanel7.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Delete");
@@ -325,8 +322,10 @@ DefaultTableModel model;
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Update");
         jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, -1, -1));
+        jPanel7.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 140, -1));
+        jPanel7.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 140, -1));
 
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(880, 20, 420, 490));
+        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 420, 490));
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
@@ -369,13 +368,42 @@ DefaultTableModel model;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void vehicleCombo1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleCombo1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vehicleCombo1ActionPerformed
-
     private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField13ActionPerformed
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+     try{
+            int r=jTable1.getSelectedRow();
+            String Mid= jTable1.getValueAt(r, 0).toString();
+            String VID=jTable1.getValueAt(r, 1).toString();
+            String dname =jTable1.getValueAt(r, 2).toString();
+            String address=jTable1.getValueAt(r, 3).toString();
+            String phone=jTable1.getValueAt(r, 4).toString();
+            String discription=jTable1.getValueAt(r, 5).toString();
+            String cost=jTable1.getValueAt(r, 6).toString();
+            String date=jTable1.getValueAt(r, 7).toString();
+            boolean type = false;
+            
+            System.err.print(type);
+            
+            
+              jTextField2.setText(Mid);
+              jTextField14.setText(VID);
+              jTextField8.setText(dname);
+              jTextField9.setText(address);
+              jTextField10.setText(phone);
+              jTextField11.setText(discription);
+              jTextField12.setText(cost);
+              jTextField15.setText(date);
+        
+        }
+        
+         catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jTable1MouseClicked
     
     private void FillCombo()
     {
@@ -481,7 +509,6 @@ DefaultTableModel model;
        }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
-    private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -522,6 +549,8 @@ DefaultTableModel model;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
+    private javax.swing.JTextField jTextField14;
+    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
@@ -531,7 +560,6 @@ DefaultTableModel model;
     private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
     private javax.swing.JComboBox<String> vehicleCombo;
-    private javax.swing.JComboBox<String> vehicleCombo1;
     // End of variables declaration//GEN-END:variables
 
     private void AddMaintanance() {
