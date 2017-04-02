@@ -36,20 +36,22 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
     
     private void generate_Aid(){
     AutoIdGenerator sid = new AutoIdGenerator();
-    jTextField3.setText(sid.generate("SAID",Integer.toString(MainWindow.userid)));
+    idApprove.setText(sid.generate("SAID",Integer.toString(MainWindow.userid)));
     }
     private void TableLoad()
     {
 
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`T_Sample_Approval_Table`;");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`T_Sample_Approval_Table`;");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void TableLoad1()
     {
 
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`T_Sample_Costing_Table`;");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`T_Sample_Costing_Table`;");
+            ViewSample.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
      private void FillTextCombo()
@@ -62,7 +64,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
             while(AutoDB_Connect.DB_ResultSet.next())
             {
                 String id = AutoDB_Connect.DB_ResultSet.getString("SampleId");
-                jComboBox4.addItem(id);
+                Sampleids.addItem(id);
             }
         }
         catch(Exception ex)
@@ -77,17 +79,13 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
     {
         
         
-        String id = jTextField3.getText();
-        String name = jComboBox1.getSelectedItem().toString();
-        String SampleId = jTextField2.getText();
-        String comment =  jTextArea2.getText();
-        
+        String id = idApprove.getText();
+        String name = NameApp.getSelectedItem().toString();
+        String SampleId = sCosting.getText();
+        String comment =  appcomm.getText();
         jRadioButton1.setActionCommand("Approve");
         jRadioButton2.setActionCommand("NotApprove");
-        
-        
         String status = SampleApprove.getSelection().getActionCommand();
-        
         String date = datePicker1.getText();
         
         
@@ -113,7 +111,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
             if(x==true)
             {
                 TableLoad();
-                
+                clearSampleApprove();
                 JOptionPane.showMessageDialog(null,"Successfully Added");
             }
         }
@@ -130,9 +128,9 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
      
      public void CreateSampleSearch()
     {
-            String SampleId = jComboBox4.getSelectedItem().toString();
+            String SampleId = Sampleids.getSelectedItem().toString();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.T_Request_Create_Sample_table WHERE SampleId = '"+SampleId+"'");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
+            ViewSample.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
      
      
@@ -149,17 +147,17 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        ViewCost = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        ViewSample = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
         jRadioButton2 = new javax.swing.JRadioButton();
         jLabel8 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jComboBox4 = new javax.swing.JComboBox<>();
+        AddSampleApp = new javax.swing.JButton();
+        Sampleids = new javax.swing.JComboBox<>();
         jButton5 = new javax.swing.JButton();
         DatePickerSettings dateSettings5 = new DatePickerSettings();
         dateSettings5.setFormatForDatesCommonEra("yyyy-MM-dd");
@@ -168,16 +166,18 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         datePicker1.setName("");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        appcomm = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        idApprove = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox<>();
+        byapp = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jButton10 = new javax.swing.JButton();
-        jButton11 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        sCosting = new javax.swing.JTextField();
+        Clear = new javax.swing.JButton();
+        Demo = new javax.swing.JButton();
+        NameApp = new javax.swing.JComboBox<>();
+        ViewSample1 = new javax.swing.JButton();
+        appstid1 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton6 = new javax.swing.JButton();
@@ -199,16 +199,17 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("View Sample");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        ViewCost.setText("View Sample");
+        ViewCost.setActionCommand("View Cost");
+        ViewCost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ViewCost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                ViewCostActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, -1));
+        jPanel2.add(ViewCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        ViewSample.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -219,12 +220,12 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
                 "Sample Id", "Style Id", "Description", "Size", "Date", "Sample Type", "Name of Item", "Quantity", "Unit Price/Rtae", "Total Cost"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        ViewSample.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                ViewSampleMouseClicked(evt);
             }
         });
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(ViewSample);
 
         jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 60, 780, 114));
 
@@ -252,70 +253,87 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         jRadioButton2.setToolTipText("Click Me");
         jPanel2.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 359, -1, -1));
 
-        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel8.setText("Comment");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 320, -1, 23));
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 280, -1, 23));
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton3.setLabel("Add ");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        AddSampleApp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        AddSampleApp.setLabel("Add ");
+        AddSampleApp.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                AddSampleAppActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 433, -1, -1));
+        jPanel2.add(AddSampleApp, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 433, -1, -1));
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SampleId" }));
-        jComboBox4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(162, 14, -1, -1));
+        Sampleids.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SampleId" }));
+        Sampleids.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(Sampleids, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.setText("Generate Report");
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 433, -1, -1));
         jPanel2.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jTextArea2.setToolTipText("Comment Please");
-        jScrollPane3.setViewportView(jTextArea2);
+        appcomm.setColumns(20);
+        appcomm.setRows(5);
+        appcomm.setToolTipText("Comment Please");
+        jScrollPane3.setViewportView(appcomm);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 320, -1, -1));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 320, -1, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("SampleApproveId");
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 218, -1, 20));
 
-        jTextField3.setToolTipText("AutoGenerate");
-        jTextField3.setEnabled(false);
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 139, -1));
+        idApprove.setEnabled(false);
+        idApprove.setToolTipText("AutoGenerate");
+        jPanel2.add(idApprove, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 139, 30));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("ApprovedBy");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 270, -1, -1));
 
-        jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Manager", "Customer", "Snr Sampling Executive", " " }));
-        jComboBox2.setToolTipText("Please Select");
-        jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 121, 30));
+        byapp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Manager", "Customer", "Snr Sampling Executive", " " }));
+        byapp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        byapp.setToolTipText("Please Select");
+        jPanel2.add(byapp, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 270, 121, 30));
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("SampleID");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, -1, -1));
 
-        jTextField2.setToolTipText("Auto Fills");
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 120, 20));
+        sCosting.setToolTipText("Auto Fills");
+        jPanel2.add(sCosting, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 120, 30));
 
-        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton10.setText("Reset");
-        jPanel2.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 433, -1, -1));
+        Clear.setText("Reset");
+        Clear.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Clear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ClearActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 433, -1, -1));
 
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton11.setText("Demo");
-        jPanel2.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, -1, -1));
+        Demo.setText("Demo");
+        Demo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(Demo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, -1, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Approver" }));
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 140, 30));
+        NameApp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Approver" }));
+        NameApp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(NameApp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 140, 30));
+
+        ViewSample1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ViewSample1.setText("View Sample");
+        ViewSample1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewSample1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ViewSample1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        appstid1.setToolTipText("Auto Fills");
+        jPanel2.add(appstid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 220, 120, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 18, 810, 511));
 
@@ -339,20 +357,20 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
 
         jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(842, 18, -1, 368));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton6.setText("View");
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(859, 446, -1, -1));
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton7.setText("Update");
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(954, 446, -1, -1));
 
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton8.setText("Delete");
+        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(1056, 446, -1, -1));
 
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.setText("Reset");
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1157, 446, -1, -1));
 
         jTabbedPane1.addTab("Sample Approval", jPanel1);
@@ -376,58 +394,85 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         String comment = jTable2.getValueAt(row,4).toString();
         String date = jTable2.getValueAt(row,5).toString();
 
-        jTextField3.setText(id);
+        idApprove.setText(id);
         //jComboBox1.getSelectedIndex(by);
-        jTextArea2.setText(comment);
-        jTextField3.setText(status);
-        jTextField2.setText(stid);
+        appcomm.setText(comment);
+        idApprove.setText(status);
+        sCosting.setText(stid);
         datePicker1.setText(date);
     }//GEN-LAST:event_jTable2MouseClicked
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void ViewSampleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ViewSampleMouseClicked
         // TODO add your handling code here:
         
-        int row =jTable1.getSelectedRow();
-        String stid = jTable1.getValueAt(row,0).toString();
+        int row =ViewSample.getSelectedRow();
+        String stid = ViewSample.getValueAt(row,0).toString();
         
-        jTextField2.setText(stid);
+        appstid1.setText(stid);
+        sCosting.setText(stid);
         
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_ViewSampleMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void ViewCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewCostActionPerformed
         // TODO add your handling code here:
         
         CreateSampleSearch();
         TableLoad1();
         FillTextCombo();
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_ViewCostActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void AddSampleAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSampleAppActionPerformed
         // TODO add your handling code here:
         
         AddSampleApproval();
         TableLoad();
-    }//GEN-LAST:event_jButton3ActionPerformed
+        clearSampleApprove();
+    }//GEN-LAST:event_AddSampleAppActionPerformed
+
+    private void ViewSample1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewSample1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ViewSample1ActionPerformed
+
+    private void ClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ClearActionPerformed
+        // TODO add your handling code here:
+        
+        clearSampleApprove();
+    }//GEN-LAST:event_ClearActionPerformed
  
+    
+        public void clearSampleApprove(){
+            
+            idApprove.setText("");
+            NameApp.setSelectedIndex(0);
+            appcomm.setText("");
+            appstid1.setText("");
+            byapp.setSelectedIndex(0);
+            datePicker1.setText("");
+        }
     
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AddSampleApp;
+    private javax.swing.JButton Clear;
+    private javax.swing.JButton Demo;
+    private javax.swing.JComboBox<String> NameApp;
     private javax.swing.ButtonGroup SampleApprove;
+    private javax.swing.JComboBox<String> Sampleids;
+    private javax.swing.JButton ViewCost;
+    private javax.swing.JTable ViewSample;
+    private javax.swing.JButton ViewSample1;
+    private javax.swing.JTextArea appcomm;
+    private javax.swing.JTextField appstid1;
+    private javax.swing.JComboBox<String> byapp;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JTextField idApprove;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JComboBox<String> jComboBox2;
-    private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel3;
@@ -444,10 +489,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField sCosting;
     // End of variables declaration//GEN-END:variables
 }

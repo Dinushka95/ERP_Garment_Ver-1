@@ -42,6 +42,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import static MainSystem.MainWindow.autoSqlQuery;
 import Maintance.OrderParts;
+import Manufacturing.Cutting1;
+import Manufacturing.IronAndPacking2;
+import Manufacturing.Sewing1;
+import Manufacturing.Washing1;
 import ManufacturingPlanning.CuttingSchedule;
 import ManufacturingPlanning.IronAndPacking1;
 import ManufacturingPlanning.SewingSchedule;
@@ -131,7 +135,6 @@ public static AutoReport autoReport;
         jButton28 = new javax.swing.JButton();
         jButton43 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
@@ -322,7 +325,7 @@ public static AutoReport autoReport;
                 jButton12ActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 10, -1, -1));
+        jPanel14.add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
         jButton28.setText("Request_And_Create Sample");
         jButton28.addActionListener(new java.awt.event.ActionListener() {
@@ -338,14 +341,11 @@ public static AutoReport autoReport;
                 jButton43ActionPerformed(evt);
             }
         });
-        jPanel14.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, -1, -1));
+        jPanel14.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
         jTabbedPane1.addTab("Sampling Mgmt", jPanel14);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jButton7.setText("Marker Entering Form");
-        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jButton8.setText("Cutting Planning");
         jButton8.addActionListener(new java.awt.event.ActionListener() {
@@ -384,15 +384,35 @@ public static AutoReport autoReport;
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton15.setText("Cutting ");
+        jButton15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton15ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, -1, -1));
 
         jButton16.setText("Sewing  ");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 10, -1, -1));
 
         jButton17.setText("Washing  ");
+        jButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton17ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton17, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
 
         jButton38.setText("Iron & Packing  ");
+        jButton38.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton38ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton38, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
         jTabbedPane1.addTab("Manufacturing", jPanel4);
@@ -1357,6 +1377,58 @@ public static AutoReport autoReport;
         
     }//GEN-LAST:event_jButton32ActionPerformed
 
+    private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
+      Cutting1  cut=new Cutting1();
+      cut.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(cut);
+        try {
+            cut.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        cut.setMaximizable(false);      
+    }//GEN-LAST:event_jButton15ActionPerformed
+
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+        Sewing1 sew=new Sewing1();
+        sew.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(sew);
+        try {
+            sew.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        sew.setMaximizable(false);
+    }//GEN-LAST:event_jButton16ActionPerformed
+
+    private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
+        Washing1 was=new Washing1();
+        was.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(was);
+        try {
+            was.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        was.setMaximizable(false);
+    }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
+       IronAndPacking2 iro=new IronAndPacking2();
+        iro.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(iro);
+        try {
+            iro.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        iro.setMaximizable(false);
+    }//GEN-LAST:event_jButton38ActionPerformed
+
     
     /**
      * @param args the command line arguments
@@ -1381,7 +1453,7 @@ public static AutoReport autoReport;
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-       //DisplaySplash();
+       DisplaySplash();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1445,7 +1517,6 @@ public static AutoReport autoReport;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JDesktopPane jDesktopPane1;
