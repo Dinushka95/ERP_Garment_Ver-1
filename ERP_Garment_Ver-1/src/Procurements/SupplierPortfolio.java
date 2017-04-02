@@ -6,6 +6,7 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
 import net.proteanit.sql.DbUtils;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.validation;
 
 
 /**
@@ -467,7 +468,9 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     
     private void SupplierEdit()
     {
-        String id = jTextField16.getText();
+        if(validation.ValidationCheck(jTextField17, true, 0, 'a')&&validation.ValidationCheck(jTextField18, true, 0, 'a')&&validation.ValidationCheck(jTextField19, true, 0, 'a')&&validation.ValidationCheck(jTextField20, true, 0, 'a')&&validation.ValidationCheck(jTextField22, true, 0,'a')&&validation.ValidationCheck(jTextField23, true, 0, 'a')&&validation.ValidationCheck(jTextField24, true, 0, '1')&&validation.ValidationCheck(jTextField25, true, 0, '1')&&validation.ValidationCheck(jTextField26, true, 0, 'a')&&validation.ValidationCheck(jTextField27, true, 0, '1')&&validation.ValidationCheck(jTextField28, true, 0, '1'))
+        {
+           String id = jTextField16.getText();
         String name = jTextField17.getText();
         String propreiter = jTextField18.getText();
         String web = jTextField19.getText();
@@ -510,7 +513,9 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         catch(Exception ex)
         {
             System.out.println(ex);
+        } 
         }
+        
         
     }
     
@@ -553,7 +558,9 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     
     private void AddSupplier()
     {
-        String id = jTextField1.getText();
+        if(validation.ValidationCheck(jTextField2, true, 0, 'a')&&validation.ValidationCheck(jTextField3, true, 0, 'a')&&validation.ValidationCheck(jTextField4, true, 0, 'a')&&validation.ValidationCheck(jTextField5, true, 0, 'a')&&validation.ValidationCheck(jTextField7, true, 0,'a')&&validation.ValidationCheck(jTextField8, true, 0, 'a')&&validation.ValidationCheck(jTextField9, true, 0, '1')&&validation.ValidationCheck(jTextField10, true, 0, '1')&&validation.ValidationCheck(jTextField11, true, 0, 'a')&&validation.ValidationCheck(jTextField13, true, 0, '1')&&validation.ValidationCheck(jTextField14, true, 0, '1'))
+        {
+            String id = jTextField1.getText();
         String name = jTextField2.getText();
         String propreiter = jTextField3.getText();
         String web = jTextField4.getText();
@@ -607,6 +614,8 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         }
+        }
+        
         
         
     }

@@ -74,6 +74,7 @@
             <Component class="javax.swing.JLabel" name="jLabel2">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Purchase Description"/>
+                <Property name="name" type="java.lang.String" value="Purchase Description" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -89,6 +90,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="des">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="Purchase Description" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="170" y="80" width="210" height="-1"/>
@@ -98,6 +102,7 @@
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Quantity"/>
+                <Property name="name" type="java.lang.String" value="Quantity" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -106,6 +111,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="qty">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="Quantity" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="170" y="120" width="210" height="-1"/>
@@ -115,6 +123,7 @@
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Unit price"/>
+                <Property name="name" type="java.lang.String" value="Unit price" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -123,6 +132,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="unit">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="Unit price" noResource="true"/>
+              </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="unitKeyReleased"/>
               </Events>
@@ -170,6 +182,7 @@
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Advance"/>
+                <Property name="name" type="java.lang.String" value="Advance" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -178,6 +191,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="adv">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="Advance" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="170" y="230" width="210" height="-1"/>
@@ -385,6 +401,7 @@
             <Component class="javax.swing.JLabel" name="jLabel4">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Purchase Item Name"/>
+                <Property name="name" type="java.lang.String" value="Purchase Item Name" noResource="true"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -400,6 +417,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="des1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="Purchase Item Name" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="170" y="80" width="210" height="-1"/>
@@ -417,6 +437,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="qty1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="Quantity" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="170" y="120" width="210" height="-1"/>
@@ -434,6 +457,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="unit1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="Unit price" noResource="true"/>
+              </Properties>
               <Events>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="unit1KeyReleased"/>
               </Events>
@@ -489,6 +515,9 @@
               </Constraints>
             </Component>
             <Component class="javax.swing.JTextField" name="adv1">
+              <Properties>
+                <Property name="name" type="java.lang.String" value="Advance" noResource="true"/>
+              </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                   <AbsoluteConstraints x="170" y="230" width="210" height="-1"/>
@@ -808,10 +837,10 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel26">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Re-Order Quantity"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Re-Order Quantity"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -833,6 +862,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="reorder1">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="Re-Order Quantity" noResource="true"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="210" y="280" width="180" height="-1"/>
@@ -840,6 +872,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="matname">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="Material Name" noResource="true"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="210" y="60" width="180" height="-1"/>
@@ -847,6 +882,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="quantityfield">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="Quantity" noResource="true"/>
+                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quantityfieldActionPerformed"/>
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="quantityfieldKeyReleased"/>
@@ -859,6 +897,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="unitfield">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="Material Cost Per Unit" noResource="true"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="210" y="120" width="180" height="-1"/>
@@ -867,10 +908,10 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel27">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Material Name"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Material Name"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -880,10 +921,10 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel28">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Material Cost Per Unit"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Material Cost Per Unit"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -906,10 +947,10 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel30">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Quantity"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Quantity"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -992,10 +1033,10 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel22">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Accessory Name"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Accessory Name"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1021,14 +1062,14 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel23">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Cost Per Unit"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Cost Per Unit"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="40" y="110" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="40" y="120" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1052,10 +1093,10 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel24">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Quantity"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Quantity"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1091,10 +1132,10 @@
                     </Component>
                     <Component class="javax.swing.JLabel" name="jLabel33">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Re-Order Level"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Re-Order Level"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1103,6 +1144,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="namefield1">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="Accessory Name" noResource="true"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="200" y="70" width="140" height="-1"/>
@@ -1114,6 +1158,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="Re-Order Level" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1122,6 +1167,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="costfield1">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="Cost Per Unit" noResource="true"/>
+                      </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="200" y="120" width="140" height="-1"/>
@@ -1129,6 +1177,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="quantityfield1">
+                      <Properties>
+                        <Property name="name" type="java.lang.String" value="Quantity" noResource="true"/>
+                      </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="quantityfield1ActionPerformed"/>
                         <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="quantityfield1KeyReleased"/>
@@ -1202,10 +1253,11 @@
                   <SubComponents>
                     <Component class="javax.swing.JLabel" name="jLabel34">
                       <Properties>
+                        <Property name="text" type="java.lang.String" value="Machine Part Name"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Machine Part Name"/>
+                        <Property name="name" type="java.lang.String" value="Machine Part Name" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1235,7 +1287,7 @@
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="60" y="230" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="60" y="240" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -1257,6 +1309,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="Quantity" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1282,6 +1335,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="Part Value" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -1294,6 +1348,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="14" style="0"/>
                         </Property>
+                        <Property name="name" type="java.lang.String" value="Machine Part Name" noResource="true"/>
                       </Properties>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

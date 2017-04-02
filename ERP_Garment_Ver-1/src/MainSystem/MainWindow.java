@@ -1453,7 +1453,7 @@ public static AutoReport autoReport;
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
 
-       DisplaySplash();
+       //DisplaySplash();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
