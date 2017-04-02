@@ -248,7 +248,7 @@ public class Customer extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTablesCustomer);
 
-        jPanelcustomerSearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, 770, 300));
+        jPanelcustomerSearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 790, 300));
 
         jButton1.setText("Search");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -330,8 +330,8 @@ public class Customer extends javax.swing.JInternalFrame {
         });
         jPanelcustomerSearch.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 100, 210, -1));
 
-        jButton13.setText(" All Customers Report");
         jButton13.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton13.setText(" All Customers Report");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton13ActionPerformed(evt);
@@ -493,6 +493,7 @@ public class Customer extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        jTablesCustomer.setModel(DbUtils.resultSetToTableModel(customerModel.SearchDateRange("d_customer_table","AddedDate",datePickersFrom,datePickersTo)));
+       clearSearch();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
@@ -565,7 +566,8 @@ public class Customer extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        // TODO add your handling code here:
+        jTablesCustomer.setModel(DbUtils.resultSetToTableModel(customerModel.SearchID(jTextFieldSearchCustomerId.getText())));
+        clearSearch();
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -588,9 +590,14 @@ public class Customer extends javax.swing.JInternalFrame {
     }
     
     private void clearSearch(){
+        datePickersFrom.setText("");
+        datePickersTo.setText("");
+        jTextFieldSearchCustomerId.setText("");
         jTextFieldCustomerId1.setText("");
         jTextFieldCustomerName1.setText("");
+        jTextFieldSearchCustomerName.setText("");
         jTextFieldCompanyName1.setText("");
+        jTextFieldSearchCustomerPhone.setText("");
         jTextFieldPhone1.setText("");
         jTextFieldEmail1.setText("");
         jTextFieldAddress1.setText("");

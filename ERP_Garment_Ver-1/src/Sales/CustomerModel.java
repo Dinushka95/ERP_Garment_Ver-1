@@ -21,6 +21,7 @@ public class CustomerModel {
             validation.ValidationCheck(CustomerName, true,-40,'s')&&
             validation.ValidationCheck(CompanyName, true,-40,'@')&&
             validation.ValidationCheck(Phone, true,-11,'1')&&
+            validation.ValidationCheck(Phone, true,9,'@')&&
             validation.isValidEmailAddress(Email.getText())&&
             validation.ValidationCheck(Address, false,-40,'@')){
         
@@ -47,11 +48,12 @@ public class CustomerModel {
     }
     
     public boolean EditCustomer(String CustomerId,JTextField CustomerName,JTextField CompanyName,JTextField Phone,JTextField Email,JTextField Address){
-        if( validation.ValidationCheck(CustomerName, true,0,'@')&&
-            validation.ValidationCheck(CompanyName, true,0,'@')&&
-            validation.ValidationCheck(Phone, true,0,'1')&&
+        if( validation.ValidationCheck(CustomerName, true,-40,'s')&&
+            validation.ValidationCheck(CompanyName, true,-40,'@')&&
+            validation.ValidationCheck(Phone, true,-11,'1')&&
+            validation.ValidationCheck(Phone, true,9,'@')&&
             validation.isValidEmailAddress(Email.getText())&&
-            validation.ValidationCheck(Address, false,0,'@')){
+            validation.ValidationCheck(Address, false,-40,'@')){
             
             boolean x =autoSqlQuery.executeAutoEdit(new String[]{  "Name="+CustomerName.getText(),
                                                             "CompanyName="+CompanyName.getText(),
