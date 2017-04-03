@@ -296,10 +296,10 @@ private void Tableload()
   }
     private void DeletejButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton7ActionPerformed
         // TODO add your handling code here:
-         String bill = jTextField1bill.getText();
+         String Billno = jTextField1bill.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_EXPENES`\n" +
-"WHERE Bill_No LIKE '"+bill+"';");
+"WHERE Bill_No LIKE '"+Billno+"';");
         
         try
         {

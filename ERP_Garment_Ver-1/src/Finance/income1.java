@@ -2,6 +2,8 @@
 package Finance;
 
 import MainSystem.AutoDB_Connect;
+import MainSystem.AutoIdGenerator;
+import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
@@ -24,6 +26,9 @@ public class income1 extends javax.swing.JInternalFrame {
         initComponents();
        datePicker1date.setDateToToday();
        Tableload();
+       generate_Earned();
+       generate_Passive();
+       generate_Portfolio();
       
     }
 
@@ -117,16 +122,21 @@ public class income1 extends javax.swing.JInternalFrame {
 
         jLabel19.setText("Income Type");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 120, -1));
+        jPanel10.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 120, -1));
 
         jComboBox3type.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Income", "Earned Income", "Passive Income", "Portfolio Income", " " }));
         jComboBox3type.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(jComboBox3type, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 170, 30));
+        jComboBox3type.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3typeActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jComboBox3type, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 20, 170, 30));
 
         jLabel1.setText("Bill No");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 70, -1));
-        jPanel10.add(jTextField1bill, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 170, 30));
+        jPanel10.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 70, -1));
+        jPanel10.add(jTextField1bill, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 170, 30));
 
         jLabel2.setText("Date");
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -394,6 +404,37 @@ public class income1 extends javax.swing.JInternalFrame {
     
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void jComboBox3typeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3typeActionPerformed
+        // TODO add your handling code here:
+        if(jComboBox3type.getSelectedItem().equals("Earned Income"))
+
+        {
+            generate_Earned();
+        }
+        else if(jComboBox3type.getSelectedItem().equals("Passive Income"))
+        {
+            generate_Passive();
+        }
+        else if(jComboBox3type.getSelectedItem().equals("Portfolio Income"))
+        {
+            generate_Portfolio();
+        }
+       
+    }//GEN-LAST:event_jComboBox3typeActionPerformed
+private void generate_Earned(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1bill.setText(aid.generate("EAR",Integer.toString(MainWindow.userid)));
+    }
+    
+    private void generate_Passive(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1bill.setText(aid.generate("PASS",Integer.toString(MainWindow.userid)));
+    }
+     private void generate_Portfolio(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1bill.setText(aid.generate("PORT",Integer.toString(MainWindow.userid)));
+    }
+     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADDjButton2;
     private javax.swing.JButton DeletejButton7;

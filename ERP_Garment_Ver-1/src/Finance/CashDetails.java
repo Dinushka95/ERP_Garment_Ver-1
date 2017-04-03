@@ -275,7 +275,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
          String chno = jTextField3.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`CASH_DETAILS`\n" +
-"WHERE Cash_ID LIKE '"+chno+"';");
+"WHERE Cash_ID = '"+chno+"';");
         
          try
         {
@@ -378,10 +378,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
  }
   public void  Editcash()
   {
-       if(validation.ValidationCheck(jTextField3, true, 0, '@')
-        &&validation.ValidationCheck(jTextArea1, true,0,'@')
-        &&validation.ValidationCheck(jTextField1, true,0,'1'))
-       {
+      
        String chno= jTextField3.getText();
       String chtype = jComboBox2.getSelectedItem().toString();
       String date = datePicker1.getText();
@@ -393,7 +390,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
 "`Cash_ID` = '"+chno+"',\n" +
 "`Type` = '"+chtype+"',\n" +
 "`Date` = '"+date+"',\n" +
-"`Description` ='"+Des+"',\n" +
+"`Description` = '"+Des+"',\n" +
 "`Amount` = "+amount+"\n" +
 "WHERE `Cash_ID` = '"+chno+"';");
        
@@ -413,7 +410,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
          
           
     
-  }
+  
   }
    public void CashIDSearch()
     {

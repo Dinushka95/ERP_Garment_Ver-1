@@ -3,6 +3,8 @@ package Finance;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoDB_Connect;
+import MainSystem.AutoIdGenerator;
+import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import java.sql.ResultSet;
@@ -22,12 +24,15 @@ public class BankDetail extends javax.swing.JInternalFrame {
      * Creates new form SalesDesignInquiry
      */
     public BankDetail() {
-        initComponents();
+        
+        initComponents();  
         TableLoad1();
         TableLoad2();
+        
         FillTextCombo1();
         FillTextCombo2();
         
+        generate_Cusid();
         
         datePicker1date.setDateToToday(); 
         datePicker2date.setDateToToday();
@@ -203,6 +208,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel8);
         jLabel8.setBounds(10, 80, 120, 15);
+
+        jTextField1Cus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1CusActionPerformed(evt);
+            }
+        });
         jPanel7.add(jTextField1Cus);
         jTextField1Cus.setBounds(200, 80, 200, 30);
 
@@ -554,6 +565,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         AddDeposit();
         TableLoad1();
         FillTextCombo1();
+        generate_Cusid();
         
     }//GEN-LAST:event_ADDjButton4ActionPerformed
 
@@ -580,17 +592,17 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private void EditjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditjButton2ActionPerformed
         // TODO add your handling code here:
         EditWithraw();
-         TextBoxClear2();
+        TextBoxClear2();
         TableLoad2();
         FillTextCombo2();
     }//GEN-LAST:event_EditjButton2ActionPerformed
 
     private void DELETEjButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEjButton6ActionPerformed
      
-          String cno = jTextField5CheNo.getText();
+        String cno = jTextField5CheNo.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_DEPOSIT DETAILS`\n" +
-"WHERE Cheque_No LIKE '"+cno+"';");
+        "WHERE Cheque_No LIKE '"+cno+"';");
         
         try
         {
@@ -659,7 +671,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
          String cno = jTextField2cno.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_WITHDRAW DETAILS`\n" +
-"WHERE ChequeNo LIKE '"+cno+"';");
+        "WHERE ChequeNo LIKE '"+cno+"';");
         
         try
         {
@@ -733,12 +745,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
         try
         {
             AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
-                    + "FROM `garmentsystem`.`F_DEPOSIT DETAILS` where `Cheque_No` LIKE '"+chequeNo+"' ;");
+                 + "FROM `garmentsystem`.`F_DEPOSIT DETAILS` where `Cheque_No` LIKE '"+chequeNo+"' ;");
             
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                 String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
+                String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
                 String custno = AutoDB_Connect.DB_ResultSet.getString("Customer ID");
                 String bank = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
                 String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
@@ -773,7 +785,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                 String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
+                String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
                 String b_name = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
                 String br_name = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
                 String w_date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
@@ -817,7 +829,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
             while(rs.next())
             {
             
-                 String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
+                String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
                 String bank = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
                 String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
                 String date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
@@ -898,7 +910,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
             {
                  String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
                  String custid = AutoDB_Connect.DB_ResultSet.getString("Customer_ID");
-                 String bank = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
+                 String bank = AutoDB_Connect.DB_ResultSet.getString("BankName");
                  String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
                 String date = AutoDB_Connect.DB_ResultSet.getString("Deposit Date");
                 String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
@@ -932,6 +944,10 @@ public class BankDetail extends javax.swing.JInternalFrame {
       datePicker2date.setDateToToday();
       jTextField6amt.setText("");
     }//GEN-LAST:event_demo_withdrawalActionPerformed
+
+    private void jTextField1CusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1CusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1CusActionPerformed
   
     
     
@@ -940,7 +956,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
       AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT `F_DEPOSIT DETAILS`.`Cheque_No`,\n" +
 "    `F_DEPOSIT DETAILS`.`Customer ID`,\n" +
-"    `F_DEPOSIT DETAILS`.`Bank Name`,\n" +
+"    `F_DEPOSIT DETAILS`.`BankName`,\n" +
 "    `F_DEPOSIT DETAILS`.`Branch Name`,\n" +
 "    `F_DEPOSIT DETAILS`.`Deposit Date`,\n" +
 "    `F_DEPOSIT DETAILS`.`Amount`\n" +
@@ -962,9 +978,9 @@ public class BankDetail extends javax.swing.JInternalFrame {
   }
   public void AddDeposit()
   {
-      if(validation.ValidationCheck(jTextField5CheNo, true, 0, '@')
+      if(validation.ValidationCheck(jTextField5CheNo, true, 0, '1')
         &&validation.ValidationCheck(jTextField1Cus, true,0,'@')
-        &&validation.ValidationCheck(jTextField6Branch, true,0,'@')
+        &&validation.ValidationCheck(jTextField6Branch, true,0,'a')
         &&validation.ValidationCheck(jTextField10amt, true,0,'1'))
       {
       String cno = jTextField5CheNo.getText();
@@ -978,7 +994,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
   boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_DEPOSIT DETAILS`\n" +
 "(`Cheque_No`,\n" +
 "`Customer ID`,\n" +
-"`Bank Name`,\n" +
+"`BankName`,\n" +
 "`Branch Name`,\n" +
 "`Deposit Date`,\n" +
 "`Amount`)\n" +
@@ -1066,11 +1082,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
   }
   public void  EditDeposit()
   {
-       if(validation.ValidationCheck(jTextField5CheNo, true, 0, '@')
-        &&validation.ValidationCheck(jTextField1Cus, true,0,'@')
-        &&validation.ValidationCheck(jTextField6Branch, true,0,'@')
-        &&validation.ValidationCheck(jTextField10amt, true,0,'1'))
-       {
+      
       String cno = jTextField5CheNo.getText();
       String cusid = jTextField1Cus.getText();
       String b_name = jComboBox2b_name.getSelectedItem().toString();
@@ -1082,7 +1094,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 "SET\n" +
 "`Cheque_No` = '"+cno+"',\n" +
 "`Customer ID` = '"+cusid+"',\n" +
-"`Bank Name` = '"+b_name+"',\n" +
+"`BankName` = '"+b_name+"',\n" +
 "`Branch Name` = '"+br_name+"',\n" +
 "`Deposit Date` = '"+date+"',\n" +
 "`Amount` = "+amount+"\n" +
@@ -1100,13 +1112,10 @@ public class BankDetail extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
   }
-  }
+  
      public void EditWithraw()
      {
-         if(validation.ValidationCheck(jTextField2cno, true, 0, '1')
-        &&validation.ValidationCheck(jTextField5brname, true,0,'@')
-        &&validation.ValidationCheck(jTextField6amt, true,0,'1'))
-         {
+        
           String cno = jTextField2cno.getText();
       String b_name = jComboBox1bank.getSelectedItem().toString();
       String br_name = jTextField5brname.getText();
@@ -1134,7 +1143,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
      }
-     }
+     
      
       private void FillTextCombo1()
     {
@@ -1176,10 +1185,17 @@ public class BankDetail extends javax.swing.JInternalFrame {
     }
       public void ChequeNoSearch()
       {
-           String Dbank = jComboBox2b_name.getSelectedItem().toString();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_DEPOSIT DETAILS WHERE Bank Name LIKE '"+Dbank+"%'");
+         
+           String b_name = jComboBox2b_name.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_DEPOSIT DETAILS WHERE BankName LIKE '"+b_name+"%'");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+          
       }
+       private void generate_Cusid(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField1Cus.setText(aid.generate("cus",Integer.toString(MainWindow.userid)));
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADDjButton4;
     private javax.swing.JTextField ChequeAmount;
