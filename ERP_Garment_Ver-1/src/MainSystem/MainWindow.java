@@ -6,7 +6,6 @@ import Distribution.Fuel1;
 import Distribution.Shipmentnew;
 import Distribution.Vehicle1;
 import Distribution.maintanance1;
-import Finance.BALANCESHEET;
 import Maintance.Contactor;
 import Finance.BankDetail;
 import Finance.CashDetails;
@@ -14,6 +13,7 @@ import Finance.EXPENCESS;
 import Finance.FIXASSETS;
 import Finance.LOANDETAILS;
 import Finance.PROFITANDLOSS;
+import Finance.balancesheet1;
 import Finance.income1;
 import HumanResource.Department;
 import HumanResource.Employee;
@@ -1470,7 +1470,7 @@ public static Login loginx;
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
-         BALANCESHEET in = new BALANCESHEET();
+         balancesheet1 in = new balancesheet1();
         in.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(in);
