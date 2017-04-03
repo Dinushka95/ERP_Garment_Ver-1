@@ -752,7 +752,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
             {
                 String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
                 String custno = AutoDB_Connect.DB_ResultSet.getString("Customer ID");
-                String bank = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
+                String bank = AutoDB_Connect.DB_ResultSet.getString("BankName");
                 String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
                 String date = AutoDB_Connect.DB_ResultSet.getString("Deposit Date");
                 String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
