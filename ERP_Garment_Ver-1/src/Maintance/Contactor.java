@@ -431,10 +431,12 @@ public class Contactor extends javax.swing.JInternalFrame {
         
         
         
-        
+          
+      
+              
         public void ADDContactor(){
             
-            
+         
    
     
       String c_id = jTextField4.getText();
