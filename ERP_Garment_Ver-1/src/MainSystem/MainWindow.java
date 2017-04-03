@@ -6,8 +6,10 @@ import Distribution.Fuel1;
 import Distribution.Shipmentnew;
 import Distribution.Vehicle1;
 import Distribution.maintanance1;
+import Finance.BALANCESHEET;
 import Maintance.Contactor;
 import Finance.BankDetail;
+import Finance.CashDetails;
 import Finance.EXPENCESS;
 import Finance.FIXASSETS;
 import Finance.LOANDETAILS;
@@ -170,6 +172,7 @@ public static Login loginx;
         jButton44 = new javax.swing.JButton();
         jButton45 = new javax.swing.JButton();
         jButton47 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         btnEmployee = new javax.swing.JButton();
         btnPayroll = new javax.swing.JButton();
@@ -586,7 +589,7 @@ public static Login loginx;
                 jButton31ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+        jPanel8.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
 
         jButton32.setText("Income");
         jButton32.addActionListener(new java.awt.event.ActionListener() {
@@ -594,10 +597,15 @@ public static Login loginx;
                 jButton32ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 10, -1, -1));
+        jPanel8.add(jButton32, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
-        jButton33.setText("Cash flow");
-        jPanel8.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, -1, -1));
+        jButton33.setText("Cash Details");
+        jButton33.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton33ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jButton33, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, -1, -1));
 
         jButton44.setText("Profit & Loss");
         jButton44.addActionListener(new java.awt.event.ActionListener() {
@@ -605,7 +613,7 @@ public static Login loginx;
                 jButton44ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton44, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, -1, -1));
+        jPanel8.add(jButton44, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 10, -1, -1));
 
         jButton45.setText("Loans");
         jButton45.addActionListener(new java.awt.event.ActionListener() {
@@ -613,7 +621,7 @@ public static Login loginx;
                 jButton45ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton45, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 10, -1, -1));
+        jPanel8.add(jButton45, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
 
         jButton47.setText("Fixed Assets");
         jButton47.addActionListener(new java.awt.event.ActionListener() {
@@ -621,7 +629,15 @@ public static Login loginx;
                 jButton47ActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton47, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
+        jPanel8.add(jButton47, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
+
+        jButton7.setText("Balance Sheet");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, -1, -1));
 
         jTabbedPane1.addTab("Finance ", jPanel8);
 
@@ -1438,6 +1454,34 @@ public static Login loginx;
         settings.setMaximizable(false);
     }//GEN-LAST:event_jButton60ActionPerformed
 
+    private void jButton33ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton33ActionPerformed
+        // TODO add your handling code here:
+         CashDetails in = new CashDetails();
+        in.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(in);
+        try {
+            in.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        in.setMaximizable(false);
+    }//GEN-LAST:event_jButton33ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+         BALANCESHEET in = new BALANCESHEET();
+        in.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(in);
+        try {
+            in.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        in.setMaximizable(false);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
     private void centerLocation() throws HeadlessException {
     final Toolkit toolkit = Toolkit.getDefaultToolkit();
     final Dimension screenSize = toolkit.getScreenSize();
@@ -1572,6 +1616,7 @@ public static Login loginx;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton60;
     private javax.swing.JButton jButton61;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JDesktopPane jDesktopPane1;
