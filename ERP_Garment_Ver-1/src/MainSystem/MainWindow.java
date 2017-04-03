@@ -58,6 +58,7 @@ import Procurements.SupplierPortfolio;
 import Sample.Request_CreateSample;
 import Sample.Sample_Approval;
 import Sample.Sample_Costing;
+import Settings.Settings;
 import StyleManagement.CreateDesign;
 import StyleManagement.Update_Delete_Designs;
 import com.thehowtotutorial.splashscreen.JSplash;
@@ -666,6 +667,11 @@ public static Login loginx;
         jPanel9.add(jButton59, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         jButton60.setText("User Settings");
+        jButton60.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton60ActionPerformed(evt);
+            }
+        });
         jPanel9.add(jButton60, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jButton61.setText("Database Back-up");
@@ -1419,6 +1425,19 @@ public static Login loginx;
         iro.setMaximizable(false);
     }//GEN-LAST:event_jButton38ActionPerformed
 
+    private void jButton60ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton60ActionPerformed
+        Settings settings=new Settings();
+        settings.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(settings);
+        try {
+            settings.setMaximum(true);
+        } catch (PropertyVetoException ex) {
+            Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        settings.setMaximizable(false);
+    }//GEN-LAST:event_jButton60ActionPerformed
+
     private void centerLocation() throws HeadlessException {
     final Toolkit toolkit = Toolkit.getDefaultToolkit();
     final Dimension screenSize = toolkit.getScreenSize();
@@ -1478,7 +1497,7 @@ public static Login loginx;
 
 
        
-            DisplaySplash();
+         //   DisplaySplash();
             
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
