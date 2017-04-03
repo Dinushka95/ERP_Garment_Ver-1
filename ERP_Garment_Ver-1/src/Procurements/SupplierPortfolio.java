@@ -75,6 +75,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jLabel20 = new javax.swing.JLabel();
@@ -240,6 +241,14 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
             }
         });
         jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 490, -1, -1));
+
+        jButton7.setText("Demo");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 350, -1, -1));
 
         jTabbedPane1.addTab("Add new supplier", jPanel1);
 
@@ -453,6 +462,21 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
         System.err.println(FileLocation);
         autoReport.SimpleAllReport(FileLocation);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+        jTextField2.setText("Kasun Traders");
+        jTextField3.setText("Kasun Dissanayake");
+        jTextField4.setText("www.kasuntraders.lk");
+        jTextField5.setText("Miriswatta,Gampaha");
+        jTextField7.setText("Gampaha");
+        jTextField8.setText("Sri Lanka");
+        jTextField9.setText("11350");
+        jTextField10.setText("0714210560");
+        jTextField11.setText("kasuntraders@gmail.com");
+        jTextField13.setText("0112249335");
+        jTextField14.setText("456789");
+    }//GEN-LAST:event_jButton7ActionPerformed
     private void generate_Supid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField1.setText(aid.generate("SUP",Integer.toString(MainWindow.userid)));
@@ -645,6 +669,7 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
