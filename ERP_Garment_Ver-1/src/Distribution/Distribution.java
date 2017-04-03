@@ -3,12 +3,10 @@ package Distribution;
 
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
-import static MainSystem.MainWindow.autoSqlQuery;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
-import static jdk.nashorn.internal.objects.NativeJava.type;
 
 
 import net.proteanit.sql.DbUtils;
@@ -364,7 +362,10 @@ public class Distribution extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField7ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        
+        UpdateAddedDistributiond();
+        clearUpdateDistributions();
+        tableLoad();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
@@ -399,9 +400,9 @@ public class Distribution extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         DeleteDesigns();
-        tableLoad();
-        clearDeleteDesign();
+         DeleteDistributions();
+         tableLoad();
+         clearDistributions();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -489,21 +490,21 @@ public class Distribution extends javax.swing.JInternalFrame {
         String Milage = jTextField4.getText();
         
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Distribution`\n" +
-"(`DistributionID`,\n" +
-"`VehicalId`,\n" +
-"`Driver's_ID`,\n" +
-"`Helper's_ID`,\n" +
-"`Date`,\n" +
-"`Distribution_cost`,\n" +
-"`Distribution_milage`)\n" +
-"VALUES\n" +
-"('"+id+"',\n" +
-"'"+VID+"',\n" +
-"'"+DID+"',\n" +
-"'"+HID+"',\n" +
-"'"+date+"',\n" +
-"'"+Dis_cost+"',\n" +
-"'"+Milage+"');");   
+            "(`DistributionID`,\n" +
+            "`VehicalId`,\n" +
+            "`Driver_ID`,\n" +
+            "`Helper_ID`,\n" +
+            "`Date`,\n" +
+            "`Distribution_cost`,\n" +
+            "`Distribution_milage`)\n" +
+            "VALUES\n" +
+            "('"+id+"',\n" +
+            "'"+VID+"',\n" +
+            "'"+DID+"',\n" +
+            "'"+HID+"',\n" +
+            "'"+date+"',\n" +
+            "'"+Dis_cost+"',\n" +
+            "'"+Milage+"');");   
         try
         {
             if(x==true)
@@ -532,7 +533,7 @@ public class Distribution extends javax.swing.JInternalFrame {
 
         
     }
-     private void DeleteDesigns()
+     private void DeleteDistributions()
     {
                 int reply = JOptionPane.showConfirmDialog(null, 
                 "Are you sure you want to Delete?", "Delete?", 
@@ -542,13 +543,14 @@ public class Distribution extends javax.swing.JInternalFrame {
         String id =dis_id1.getText();
         
         boolean x = autoSqlQuery.execute
-        ("DELETE FROM `garmentsystem`.`C_Distribution` WHERE DistributionID = '"+id+"';");
+        ("DELETE FROM `garmentsystem`.`C_Distribution` WHERE DistributionID ="
+                + " '"+id+"';");
         
         try
         {
             if (x==true)
             {
-                clearDeleteDesign();
+                clearDistributions();
                 tableLoad();
                 JOptionPane.showMessageDialog(null,"Successfully Deleted");
             }
@@ -558,7 +560,7 @@ public class Distribution extends javax.swing.JInternalFrame {
         }
     }
     }
-     public void clearDeleteDesign(){
+     public void clearDistributions(){
         
         dis_id1.setText("");
         jTextField6.setText("");
@@ -570,5 +572,111 @@ public class Distribution extends javax.swing.JInternalFrame {
        
         
     }
+   public void UpdateAddedDistributiond(){
+          
+            
+        String id,VID,DID,HID,date,Dis_cost,Milage;
+        id=dis_id1.getText();
+        VID=jTextField6.getText();
+        DID=jTextField7.getText();
+        HID=jTextField8.getText();
+        date=jTextField11.getText();
+        Dis_cost=jTextField9.getText();
+        Milage=jTextField10.getText();
+        
+        
+        if(id.isEmpty()||VID.isEmpty()||DID.isEmpty()||HID.
+        isEmpty()||date.isEmpty()||Dis_cost.isEmpty()||Milage.isEmpty())
+        {
+       JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        
+        else{
+                if(id.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE DISTRIBUTION DESCRIPTION FIELD");
+                }
+                else if(!id.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS AND NUMBES");
+                    
+                }
+                
+                else{
+                if(id.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE DISTRIBUTION ID FIELD");
+                }
+                else if(!id.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS  AND NUMBES");
+                    
+                }
+                
+                //else{
+            
+            try{
+            
+        
+        
+         int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+
+                boolean x = autoSqlQuery.execute
+        ("UPDATE `garmentsystem`.`C_Distribution`\n" +
+            "SET\n" +
+            "`DistributionID` = '"+id+"',\n" +
+            "`VehicalId` = '"+VID+"',\n" +
+            "`Driver_ID` = '"+DID+"',\n" +
+            "`Helper_ID` = '"+HID+"',\n" +
+            "`Date` = '"+date+"',\n" +
+            "`Distribution_cost` = '"+Dis_cost+"',\n" +
+            "`Distribution_milage` = '"+Milage+"'\n" +
+            "WHERE `DistributionID` = '"+id+"';");
+                 
+       
+            if(x==true){
+               clearDistributions();
+               JOptionPane.showMessageDialog(null,"SUCCESSFULLY UPDATED");
+             }
+             else
+             {
+              
+              
+             }
+        }
+            }
+        
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+         
+       
+    }
+    }
+        }
+    public void clearUpdateDistributions(){
+        
+        dis_id1.setText("");
+        jTextField6.setText("");
+        jTextField7.setText("");
+        jTextField8.setText("");
+        jTextField11.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        
+        
+    }
+     
 }
 

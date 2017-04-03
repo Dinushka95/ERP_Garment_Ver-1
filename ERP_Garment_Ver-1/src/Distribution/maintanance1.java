@@ -274,7 +274,7 @@ DefaultTableModel model;
 
         jLabel12.setText("Date");
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 310, -1, -1));
+        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         jLabel8.setText("Cost");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -286,7 +286,7 @@ DefaultTableModel model;
 
         jLabel13.setText("Phone");
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, 50, 20));
+        jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 50, 20));
 
         jLabel14.setText("Address");
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -325,8 +325,13 @@ DefaultTableModel model;
         });
         jPanel7.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Update");
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, -1, -1));
         jPanel7.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 140, -1));
         jPanel7.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 140, -1));
@@ -365,10 +370,6 @@ DefaultTableModel model;
            TextBoxClear();
         generate_MaintainceID();
     }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void vehicleComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleComboActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_vehicleComboActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
         // TODO add your handling code here:
@@ -416,6 +417,16 @@ DefaultTableModel model;
         tableLoad();
         clearDeleteDesign();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        UpdateAddedMaintanance();
+        UpdateAddedMaintanance();
+        tableLoad();
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void vehicleComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleComboActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vehicleComboActionPerformed
     
     private void FillCombo()
     {
@@ -564,6 +575,123 @@ DefaultTableModel model;
         jTextField12.setText("");
         jTextField15.setText("");
        
+        
+    }
+      public void UpdateAddedMaintanance(){
+          
+            
+        String Mid,VID,discription,cost,date,Dname,address,phone;
+        Mid = jTextField2.getText();
+        VID = jTextField14.getText();
+        discription = jTextField8.getText();
+        cost = jTextField9.getText();
+        date = jTextField10.getText();
+        Dname = jTextField11.getText();
+        address = jTextField12.getText();
+        phone = jTextField15.getText();
+             
+       
+        
+        if(Mid.isEmpty()||VID.isEmpty()||discription.isEmpty()||cost.isEmpty()||date.
+        isEmpty()||Dname.isEmpty()||address.isEmpty()||phone.isEmpty())
+        {
+       JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        
+        else{
+                if(Mid.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE MAINTANANCE ID FIELD");
+                }
+                else if(!Mid.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS AND NUMBES");
+                    
+                }
+                
+                else{
+                if(Mid.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE MAINTANANCE ID FIELD");
+                }
+                else if(!Mid.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS  AND NUMBERS");
+                    
+                }
+                
+                //else{
+            
+            try{
+            
+        
+        
+         int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+
+                boolean x = autoSqlQuery.execute
+        ("UPDATE `garmentsystem`.`C_Maintaince`\n" +
+            "SET\n" +
+             "`MaintainceID` = '"+Mid+"',\n" +
+            "`VehicalID` = '"+VID+"',\n" +
+            "`Maintainc_discription` = '"+discription+"',\n" +
+            "`Cost` = '"+cost+"',\n" +
+            "`Date` = '"+date+"',\n" +
+            "`Arage_name` = '"+Dname+"',\n" +
+            "`Address` = '"+address+"',\n" +
+            "`Phone` = '"+phone+"'\n" +
+             "WHERE `MaintainceID` = '"+Mid+"';");
+              
+                /*  "MaintainceID="+Mid,
+                                                                    "VehicalID="+VID,
+                                                                    "Maintainc_discription="+discription,
+                                                                    "Cost="+cost,
+                                                                    "Date="+date,
+                                                                    "Arage_name="+Dname,
+                                                                    "Address="+address,
+                                                                    "Phone="+phone,
+                                                                     }, "C_Maintaince");*/
+       
+            if(x==true){
+               clearUpdatMaintanance();
+               JOptionPane.showMessageDialog(null,"SUCCESSFULLY UPDATED");
+             }
+             else
+             {
+              
+              
+             }
+        }
+            }
+        
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+       
+    }
+    }
+        }
+    public void clearUpdatMaintanance(){
+        
+        jTextField2.setText("");
+        jTextField14.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField11.setText("");
+        jTextField12.setText("");
+         jTextField15.setText("");
+        
+        
         
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

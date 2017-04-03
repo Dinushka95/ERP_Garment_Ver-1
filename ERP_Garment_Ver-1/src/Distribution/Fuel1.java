@@ -332,8 +332,13 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jPanel6.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 130, -1));
         jPanel6.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 130, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("update");
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 380, -1, -1));
 
         jButton3.setText("Delete");
@@ -361,7 +366,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        
+        tableload1();
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
@@ -371,6 +376,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         AddFuel();
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -437,19 +443,28 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         TabelLoad();
         clearDeleteDesign();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+          UpdateAddedFuel();
+        clearUpdateFuel();
+        tableload1();
+    }//GEN-LAST:event_jButton2ActionPerformed
  private void generate_FuelID(){
     AutoIdGenerator aid = new AutoIdGenerator();
      jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));
     }
     
     private void TabelLoad()
-    {
-        
-           
+    {     
      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel");
-        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
+    private void tableload1(){
+     AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));    
+    
+    }
     private void TextBoxClear()
     {
         jTextField8.setText("");
@@ -479,7 +494,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Fuel`\n" +
 "(`Fuel_ID`,\n" +
 "`Vehical_ID`,\n" +
-"`Driver-ID`,\n" +
+"`Driver_ID`,\n" +
 "`Fuel_StationName`,\n" +
 "`BillNum`,\n" +
 "`Unit_Price`,\n" +
@@ -514,7 +529,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
  {
         String Fname=jTextField18.getText();
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel WHERE Fuel_StationName='"+Fname+"'");
-        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
  }
     private void DeleteDesigns()
     {
@@ -533,7 +548,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             if (x==true)
             {
                 clearDeleteDesign();
-                TabelLoad();
+                tableload1();
                 JOptionPane.showMessageDialog(null,"Successfully Deleted");
             }
         }
@@ -557,6 +572,116 @@ public class Fuel1 extends javax.swing.JInternalFrame {
        
         
     } 
+     public void UpdateAddedFuel(){
+          
+            
+        String fid,VID,DID,Fname,BillNum,Uprice,Units,cost,date;
+        fid = jTextField16.getText();
+        VID = jTextField15.getText();
+        DID = jTextField14.getText();
+        Fname = jTextField13.getText();
+        BillNum = jTextField12.getText();
+        Uprice = jTextField11.getText();
+        Units = jTextField10.getText();
+        cost = jTextField9.getText();
+        date = jTextField7.getText();
+       
+        
+        
+        if(fid.isEmpty()||VID.isEmpty()||DID.isEmpty()||Fname.
+        isEmpty()||BillNum.isEmpty()||Uprice.isEmpty()||Units.isEmpty()||cost.isEmpty()||date.isEmpty())
+        {
+       JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        
+        else{
+                if(fid.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE C ID FIELD");
+                }
+                else if(!fid.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS AND NUMBES");
+                    
+                }
+                
+                else{
+                if(fid.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE V ID FIELD");
+                }
+                else if(!fid.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS  AND NUMBERS");
+                    
+                }
+                
+                //else{
+            
+            try{
+            
+        
+        
+         int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+
+                boolean x = autoSqlQuery.execute
+        ("UPDATE `garmentsystem`.`C_Fuel`\n" +
+            "SET\n" +
+            "`Fuel_ID` = '"+fid+"',\n" +
+            "`Vehical_ID` = '"+VID+"',\n" +
+            "`Driver_ID` = '"+DID+"',\n" +
+            "`Fuel_StationName` = '"+Fname+"',\n" +
+            "`BillNum` = '"+BillNum+"',\n" +
+            "`Unit_Price` = '"+Uprice+"',\n" +
+            "`Units` = '"+Units+"',\n" +
+            "`Cost` = '"+cost+"',\n" +
+             "`date` = '"+date+"'\n" +
+             "WHERE `VehicalID` = '"+fid+"';");
+                    
+            if(x==true){
+               clearUpdateFuel();
+               JOptionPane.showMessageDialog(null,"SUCCESSFULLY UPDATED");
+             }
+             else
+             {
+              
+              
+             }
+        }
+            }
+        
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+         
+       
+    }
+    }
+        }
+    public void clearUpdateFuel(){
+        
+         jTextField16.setText("");
+        jTextField15.setText("");
+        jTextField14.setText("");
+        jTextField13.setText("");
+        jTextField12.setText("");
+        jTextField11.setText("");
+        jTextField10.setText("");
+        jTextField9.setText("");
+        jTextField7.setText("");
+        
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JButton jButton1;

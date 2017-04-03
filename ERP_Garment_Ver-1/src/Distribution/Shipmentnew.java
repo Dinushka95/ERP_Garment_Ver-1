@@ -91,7 +91,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings3);
         jPanel5 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
-        shipid1 = new javax.swing.JTextField();
         supplier1 = new javax.swing.JTextField();
         address1 = new javax.swing.JTextField();
         phone1 = new javax.swing.JTextField();
@@ -110,6 +109,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jButton2 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -327,22 +327,18 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 29, -1, -1));
 
-        shipid1.setEditable(false);
-        shipid1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        shipid1.setRequestFocusEnabled(false);
-        shipid1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shipid1ActionPerformed(evt);
-            }
-        });
-        jPanel5.add(shipid1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 25, 219, -1));
-
         supplier1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 supplier1ActionPerformed(evt);
             }
         });
         jPanel5.add(supplier1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 64, 121, -1));
+
+        address1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                address1ActionPerformed(evt);
+            }
+        });
         jPanel5.add(address1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 102, 121, -1));
         jPanel5.add(phone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 121, -1));
 
@@ -396,8 +392,13 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         });
         jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 420, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Update");
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel5.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 420, -1, -1));
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
@@ -407,6 +408,14 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         });
         jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 120, -1));
         jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 120, -1));
+
+        jTextField3.setText("jTextField3");
+        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField3ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 120, -1));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 560, 530));
 
@@ -457,10 +466,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void shipid1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shipid1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_shipid1ActionPerformed
-
     private void descriptionarea1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_descriptionarea1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_descriptionarea1ActionPerformed
@@ -485,7 +490,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
             
             System.err.print(type);
             
-            shipid1.setText(id);
+            jTextField3.setText(id);
             supplier1.setText(supp);
             address1.setText(addrs);
             phone2.setText(phn);
@@ -517,6 +522,20 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
           tableLoad();
           clearDeleteDesign();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        UpdateAddedShipment();
+        clearUpdateShipment();
+        tableLoad();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void address1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_address1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_address1ActionPerformed
+
+    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField3ActionPerformed
 
      private void generate_shipmentid(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -556,26 +575,26 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         String dsc = descriptionarea.getText();
         
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Shipment`\n" +
-"(`Shipment_id`,\n" +
-"`Supplier`,\n" +
-"`Adress`,\n" +
-"`Phone`,\n" +
-"`From`,\n" +
-"`Shipped_date`,\n" +
-"`Dlivery_date`,\n" +
-"`Recieved_by`,\n" +
-"`Discription`)\n" +
-"VALUES\n" +
-"('"+id+"',\n" +
-"'"+supp+"',\n" +
-"'"+addrs+"',\n" +
-"'"+phn+"',\n" +
-"'"+frm+"',\n" +
-"'"+strtdate+"',\n" +
-"'"+enddt+"',\n" +
-"'"+rcvd+"',\n" +
-"'"+dsc+"');");
-        
+            "(`Shipment_id`,\n" +
+            "`Supplier`,\n" +
+            "`Adress`,\n" +
+            "`Phone`,\n" +
+            "`From`,\n" +
+            "`Shipped_date`,\n" +
+            "`Dlivery_date`,\n" +
+            "`Recieved_by`,\n" +
+            "`Discription`)\n" +
+            "VALUES\n" +
+            "('"+id+"',\n" +
+            "'"+supp+"',\n" +
+            "'"+addrs+"',\n" +
+            "'"+phn+"',\n" +
+            "'"+frm+"',\n" +
+            "'"+strtdate+"',\n" +
+            "'"+enddt+"',\n" +
+            "'"+rcvd+"',\n" +
+            "'"+dsc+"');");
+
         try
         {
             if(x==true)
@@ -616,7 +635,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                             JOptionPane.YES_NO_OPTION);
         
           if (reply == JOptionPane.YES_OPTION){
-        String id =shipid1.getText();
+        String id =jTextField3.getText();
         
         boolean x = autoSqlQuery.execute
         ("DELETE FROM `garmentsystem`.`C_Shipment` WHERE Shipment_id = '"+id+"';");
@@ -637,16 +656,126 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     }
      public void clearDeleteDesign(){
         
-       shipid1.setText("");
+       jTextField3.setText("");
         supplier1.setText("");
         address1.setText("");
         phone2.setText("");
-        phone2.setText("");
+        phone1.setText("");
         jTextField1.setText("");
         jTextField2.setText("");
         recieved1.setText("");
         descriptionarea1.setText("");
        
+        
+    }
+      public void UpdateAddedShipment(){
+          
+            
+        String id,supp,addrs,phn,frm,strtdate,enddt,rcvd,dsc;
+        id = jTextField3.getText();
+        supp = supplier1.getText();
+        addrs = address1.getText();
+        phn = phone2.getText();
+        frm = phone1.getText();
+        strtdate = jTextField1.getText();
+        enddt = jTextField2.getText();
+        rcvd = recieved1.getText();
+        dsc = descriptionarea1.getText();
+        
+        
+        if(id.isEmpty()||supp.isEmpty()||addrs.isEmpty()||phn.
+        isEmpty()||frm.isEmpty()||strtdate.isEmpty()||enddt.isEmpty()||rcvd.isEmpty()||dsc.isEmpty())
+        {
+       JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        
+        else{
+                if(id.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE SHIPMENT ID FIELD");
+                }
+                else if(!id.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS AND NUMBES");
+                    
+                }
+                
+                else{
+                if(id.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE V ID FIELD");
+                }
+                else if(!id.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS  AND NUMBERS");
+                    
+                }
+                
+                //else{
+            
+            try{
+            
+        
+        
+         int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+
+                boolean x = autoSqlQuery.execute
+        ("UPDATE `garmentsystem`.`C_Shipment`\n" +
+            "SET\n" +
+            "`Shipment_id` = '"+id+"',\n" +
+            "`Supplier` = '"+supp+"',\n" +
+            "`Adress` = '"+addrs+"',\n" +
+            "`Phone` = '"+phn+"',\n" +
+            "`From` = '"+frm+"',\n" +
+            "`Shipped_date` = '"+strtdate+"',\n" +
+            "`Dlivery_date` = '"+enddt+"',\n" +
+            "`Recieved_by` = '"+rcvd+"',\n" +
+            "`Discription` = '"+dsc+"'\n" +
+            "WHERE `Shipment_id` = '"+id+"';");
+        
+            if(x==true){
+               clearUpdateShipment();
+               JOptionPane.showMessageDialog(null,"SUCCESSFULLY UPDATED");
+             }
+             else
+             {
+              
+              
+             }
+        }
+            }
+        
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+         
+       
+    }
+    }
+        }
+    public void clearUpdateShipment(){
+        
+        jTextField3.setText("");
+        supplier1.setText("");
+        address1.setText("");
+        phone2.setText("");
+        phone1.setText("");
+        jTextField1.setText("");
+        jTextField2.setText("");
+        recieved1.setText("");
+        descriptionarea1.setText("");
+        
         
     }
     
@@ -701,13 +830,13 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField phone;
     private javax.swing.JTextField phone1;
     private javax.swing.JTextField phone2;
     private javax.swing.JTextField recieved;
     private javax.swing.JTextField recieved1;
     private javax.swing.JTextField shipid;
-    private javax.swing.JTextField shipid1;
     private com.github.lgooddatepicker.components.DatePicker startdate;
     private javax.swing.JTextField supplier;
     private javax.swing.JTextField supplier1;

@@ -322,6 +322,11 @@ DefaultTableModel model;
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Update");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 380, -1, -1));
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -416,6 +421,12 @@ DefaultTableModel model;
         tableLoad();
         clearDeleteDesign();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+          UpdateAddedVehicle();
+        clearUpdateVehicle();
+        tableLoad();
+    }//GEN-LAST:event_jButton2ActionPerformed
      private void generate_vehicleID() {
        
        AutoIdGenerator aid = new AutoIdGenerator();
@@ -455,7 +466,7 @@ DefaultTableModel model;
           
         
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Vehiclel`\n" +
-"(`VehicalID`,\n" +
+"(`VehicalID`='"+Vid+"',\n" +
 "`Type`,\n" +
 "`LysonNum`,\n" +
 "`Milage`,\n" +
@@ -548,7 +559,115 @@ DefaultTableModel model;
         
     }
 
-   
+    public void UpdateAddedVehicle(){
+          
+            
+        String Vid,type,lysonNum,Milage,DID,Dname,engNum,serDueration;
+        Vid = jTextField16.getText();
+        type = jTextField15.getText();
+        lysonNum = jTextField14.getText();
+        Milage = jTextField13.getText();
+        DID = jTextField12.getText();
+        Dname = jTextField11.getText();
+        engNum = jTextField10.getText();
+        serDueration = jTextField9.getText();
+        
+        
+        if(Vid.isEmpty()||type.isEmpty()||lysonNum.isEmpty()||Milage.
+        isEmpty()||DID.isEmpty()||Dname.isEmpty()||engNum.isEmpty()||serDueration.isEmpty())
+        {
+       JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        
+        else{
+                if(Vid.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE C ID FIELD");
+                }
+                else if(!Vid.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS AND NUMBES");
+                    
+                }
+                
+                else{
+                if(Vid.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE V ID FIELD");
+                }
+                else if(!Vid.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS  AND NUMBERS");
+                    
+                }
+                
+                //else{
+            
+            try{
+            
+        
+        
+         int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+
+                boolean x = autoSqlQuery.execute
+        ("UPDATE `garmentsystem`.`C_Vehiclel`\n" +
+            "SET\n" +
+            "`VehicalID` = '"+Vid+"',\n" +
+            "`Type` = '"+type+"',\n" +
+            "`LysonNum` = '"+lysonNum+"',\n" +
+            "`Milage` = '"+Milage+"',\n" +
+            "`DriverID` = '"+DID+"',\n" +
+            "`DriverName` = '"+Dname+"',\n" +
+            "`Engine_num` = '"+engNum+"',\n" +
+            "`Service_duration` = '"+serDueration+"'\n" +
+             "WHERE `VehicalID` = '"+Vid+"';");
+              
+       
+            if(x==true){
+               clearUpdateVehicle();
+               JOptionPane.showMessageDialog(null,"SUCCESSFULLY UPDATED");
+             }
+             else
+             {
+              
+              
+             }
+        }
+            }
+        
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+         
+       
+    }
+    }
+        }
+    public void clearUpdateVehicle(){
+        
+         jTextField16.setText("");
+        jTextField15.setText("");
+        jTextField14.setText("");
+        jTextField13.setText("");
+        jTextField12.setText("");
+        jTextField11.setText("");
+        jTextField10.setText("");
+        jTextField9.setText("");
+        
+        
+    }
+     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
