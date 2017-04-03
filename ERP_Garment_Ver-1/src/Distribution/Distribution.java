@@ -482,6 +482,16 @@ public class Distribution extends javax.swing.JInternalFrame {
         String Dis_cost = jTextField3.getText();
         String Milage = jTextField4.getText();
         
+        if(id.isEmpty()||VID.isEmpty()||DID.isEmpty()||HID.
+        isEmpty()||date.isEmpty()||Dis_cost.isEmpty()||Milage.isEmpty())
+        {
+       JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        else{
+            JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
+        
+        }
+        
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Distribution`\n" +
             "(`DistributionID`,\n" +
             "`VehicalId`,\n" +
@@ -504,12 +514,14 @@ public class Distribution extends javax.swing.JInternalFrame {
             {
                 TabelLoad();
                 TextBoxClear();
+                
             }
         }
         catch(Exception ex)
         {
             System.out.println(ex);
         }
+    
     }
  private void search()
  {

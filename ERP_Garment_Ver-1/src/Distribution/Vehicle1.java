@@ -450,41 +450,42 @@ DefaultTableModel model;
         String Dname = jTextField6.getText();
         String engNum = jTextField7.getText();
         String serDueration = jTextField8.getText();
+        
           
         
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Vehiclel`\n" +
-"(`VehicalID`='"+Vid+"',\n" +
-"`Type`,\n" +
-"`LysonNum`,\n" +
-"`Milage`,\n" +
-"`DriverID`,\n" +
-"`DriverName`,\n" +
-"`Engine_num`,\n" +
-"`Service_duration`)\n" +
-"VALUES\n" +
-"('"+Vid+"',\n" +
-"'"+type+"',\n" +
-"'"+lysonNum+"',\n" +
-"'"+Milage+"',\n" +
-"'"+DID+"',\n" +
-"'"+Dname+"',\n" +
-"'"+engNum+"',\n" +
-"'"+serDueration+"');");   
-        try
-        {
-            if(x==true)
+                "(`VehicalID`,\n" +
+                "`Type`,\n" +
+                "`LysonNum`,\n" +
+                "`Milage`,\n" +
+                "`DriverID`,\n" +
+                "`DriverName`,\n" +
+                "`Engine_num`,\n" +
+                "`Service_duration`)\n" +
+                "VALUES\n" +
+                "('"+Vid+"',\n" +
+                "'"+type+"',\n" +
+                "'"+lysonNum+"',\n" +
+                "'"+Milage+"',\n" +
+                "'"+DID+"',\n" +
+                "'"+Dname+"',\n" +
+                "'"+engNum+"',\n" +
+                "'"+serDueration+"');");   
+            try
             {
-                TabelLoad();
-                TextBoxClear();
+                if(x==true)
+                {
+                    TabelLoad();
+                    TextBoxClear();
+                }
+            }
+            catch(Exception ex)
+            {
+                System.out.println(ex);
             }
         }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-    }
-     private void search()
-     {
+         private void search()
+         {
          String Vid=jTextField17.getText();
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel WHERE VehicalID='"+Vid+"'");
         jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));

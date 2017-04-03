@@ -560,6 +560,16 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         String rcvd = recieved.getText();
         String dsc = descriptionarea.getText();
         
+         if(id.isEmpty()||supp.isEmpty()||addrs.isEmpty()||phn.
+        isEmpty()||frm.isEmpty()||rcvd.isEmpty()||dsc.isEmpty())
+        {
+       JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+         else
+         {
+             JOptionPane.showMessageDialog(null,"Successfully Added");
+         }
+        
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Shipment`\n" +
             "(`Shipment_id`,\n" +
             "`Supplier`,\n" +

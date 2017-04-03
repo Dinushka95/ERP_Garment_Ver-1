@@ -492,6 +492,13 @@ DefaultTableModel model;
         String cost = jTextField7.getText();
         String date = datePicker1.getText();
         
+          if(Mid.isEmpty()||VID.isEmpty()||discription.isEmpty()||cost.isEmpty()
+        ||Dname.isEmpty()||address.isEmpty()||phone.isEmpty())
+        {
+       JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+          else{
+        
            boolean x= autoSqlQuery.executeAutoADD(new String[]  {   "MaintainceID="+Mid,
                                                                     "VehicalID="+VID,
                                                                     "Maintainc_discription="+discription,
@@ -514,7 +521,7 @@ DefaultTableModel model;
         {
             System.out.println(ex);
         }
-    
+          }JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
     }
     private void search()
     {
@@ -650,15 +657,7 @@ DefaultTableModel model;
             "`Phone` = '"+phone+"'\n" +
              "WHERE `MaintainceID` = '"+Mid+"';");
               
-                /*  "MaintainceID="+Mid,
-                                                                    "VehicalID="+VID,
-                                                                    "Maintainc_discription="+discription,
-                                                                    "Cost="+cost,
-                                                                    "Date="+date,
-                                                                    "Arage_name="+Dname,
-                                                                    "Address="+address,
-                                                                    "Phone="+phone,
-                                                                     }, "C_Maintaince");*/
+               
        
             if(x==true){
                clearUpdatMaintanance();

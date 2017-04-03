@@ -476,28 +476,37 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         String Units = jTextField4.getText();
         String cost = jTextField7.getText();
          String date = datePicker1.getText();
-        
+         
+          if(fid.isEmpty()||VID.isEmpty()||DID.isEmpty()||Fname.
+        isEmpty()||BillNum.isEmpty()||Uprice.isEmpty()||Units.isEmpty()||cost.isEmpty())
+        {
+       JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        else
+          {
+          JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
+          }
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Fuel`\n" +
-"(`Fuel_ID`,\n" +
-"`Vehical_ID`,\n" +
-"`Driver_ID`,\n" +
-"`Fuel_StationName`,\n" +
-"`BillNum`,\n" +
-"`Unit_Price`,\n" +
-"`Units`,\n" +
-"`Cost`,\n" +
-"`Date`)\n" +
-"VALUES\n" +
-"('"+fid+"',\n" +
-"'"+VID+"',\n" +
-"'"+DID+"',\n" +
-"'"+Fname+"',\n" +
-"'"+BillNum+"',\n" +
-"'"+Uprice+"',\n" +
-"'"+Units+"',\n" +
-"'"+cost+"',\n" +
-"'"+date+"');");
-        
+            "(`Fuel_ID`,\n" +
+            "`Vehical_ID`,\n" +
+            "`Driver_ID`,\n" +
+            "`Fuel_StationName`,\n" +
+            "`BillNum`,\n" +
+            "`Unit_Price`,\n" +
+            "`Units`,\n" +
+            "`Cost`,\n" +
+            "`Date`)\n" +
+            "VALUES\n" +
+            "('"+fid+"',\n" +
+            "'"+VID+"',\n" +
+            "'"+DID+"',\n" +
+            "'"+Fname+"',\n" +
+            "'"+BillNum+"',\n" +
+            "'"+Uprice+"',\n" +
+            "'"+Units+"',\n" +
+            "'"+cost+"',\n" +
+            "'"+date+"');");
+
         try
         {
             if(x==true)
