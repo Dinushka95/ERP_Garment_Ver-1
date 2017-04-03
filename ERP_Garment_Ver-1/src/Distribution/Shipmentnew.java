@@ -213,6 +213,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 530, 480));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -227,24 +228,9 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 28, 756, 388));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 760, 480));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 20, 780, 480));
 
         jTabbedPane1.addTab("ADD Shipment", jPanel1);
 
@@ -306,7 +292,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
-        jPanelShipSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 140, 580, 320));
+        jPanelShipSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 720, 320));
 
         fromCombo2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "USA", "UK", "India", "Pakisthan", " " }));
         fromCombo2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -315,10 +301,10 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 fromCombo2ActionPerformed(evt);
             }
         });
-        jPanelShipSearch.add(fromCombo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 121, 31));
+        jPanelShipSearch.add(fromCombo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 121, 31));
         jPanelShipSearch.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
-        jPanel3.add(jPanelShipSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 710, 530));
+        jPanel3.add(jPanelShipSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 750, 530));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -417,7 +403,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         });
         jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 120, -1));
 
-        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 20, 560, 530));
+        jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 560, 530));
 
         jTabbedPane1.addTab("Search & Update || Delete", jPanel3);
 

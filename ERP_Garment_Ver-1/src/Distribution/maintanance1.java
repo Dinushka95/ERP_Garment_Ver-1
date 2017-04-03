@@ -130,9 +130,9 @@ DefaultTableModel model;
         ));
         jScrollPane3.setViewportView(jTable3);
 
-        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(173, 28, -1, -1));
+        jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 860, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 10, 760, 530));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 910, 500));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -209,7 +209,7 @@ DefaultTableModel model;
         });
         jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 30, 140, -1));
 
-        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 530, 440));
+        jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 390, 500));
 
         jTabbedPane1.addTab("ADD Maintanance Details", jPanel1);
 
@@ -258,7 +258,7 @@ DefaultTableModel model;
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanelcustomerSearch.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 540, 380));
+        jPanelcustomerSearch.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 810, 380));
 
         jTextField13.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -267,7 +267,7 @@ DefaultTableModel model;
         });
         jPanelcustomerSearch.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 130, -1));
 
-        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 830, 510));
+        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 860, 510));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -336,7 +336,7 @@ DefaultTableModel model;
         jPanel7.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 140, -1));
         jPanel7.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 140, -1));
 
-        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 420, 490));
+        jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 20, 420, 510));
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
