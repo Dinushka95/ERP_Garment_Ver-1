@@ -780,7 +780,7 @@ int RowCountjTable2;
         numsamples=sampleNum.getText();
         size_=Samplesize.getText();
         givento_=givento.getText();
-        date=datePicker3.getText();
+        date=datePicker1.getText();
         
        
         
@@ -882,7 +882,7 @@ int RowCountjTable2;
         numsamples=sampleNum.getText();
         size_=Samplesize.getText();
         givento_=givento.getText();
-        date=datePicker3.getText();
+        date=datePicker1.getText();
         
        
         
