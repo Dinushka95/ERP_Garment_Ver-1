@@ -70,6 +70,7 @@ int RowCountjTable;
         dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -188,6 +189,13 @@ int RowCountjTable;
         datePicker2.setEnabled(false);
         datePicker2.setName(""); // NOI18N
 
+        jButton3.setText("Demo");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -195,7 +203,11 @@ int RowCountjTable;
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(33, 33, 33)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(AddButton)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(AddButton))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
@@ -253,10 +265,15 @@ int RowCountjTable;
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel21)))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(AddButton)
-                    .addComponent(ResetButton))
-                .addGap(50, 50, 50))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(AddButton)
+                            .addComponent(ResetButton))
+                        .addGap(50, 50, 50))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(37, 37, 37))))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 680, 530));
@@ -677,6 +694,14 @@ int RowCountjTable;
         // TODO add your handling code here:
     }//GEN-LAST:event_quantityfieldActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        namefield.setText("Linen Fabrick - Black");
+        costfield.setText("450");
+        reorderfield.setText("100");
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
 
         
     private void generate_mid(){
@@ -861,6 +886,7 @@ int RowCountjTable;
     private javax.swing.JTextField idfield;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

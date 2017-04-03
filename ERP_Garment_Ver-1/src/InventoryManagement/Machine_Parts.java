@@ -70,6 +70,7 @@ int RowCountjTable;
         valuefield = new javax.swing.JTextField();
         namefield = new javax.swing.JTextField();
         machineCombo = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -167,14 +168,24 @@ int RowCountjTable;
 
         machineCombo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
 
+        jButton3.setText("Demo");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jButton3)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel21)
                             .addGroup(jPanel6Layout.createSequentialGroup()
@@ -198,7 +209,7 @@ int RowCountjTable;
                             .addComponent(datePicker2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(machineCombo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(163, 163, 163))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(AddButton)
                         .addGap(72, 72, 72)
@@ -236,7 +247,9 @@ int RowCountjTable;
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddButton)
                     .addComponent(ResetButton))
-                .addGap(50, 50, 50))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addGap(21, 21, 21))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 630, 530));
@@ -614,6 +627,14 @@ int RowCountjTable;
         autoReport.SimpleAllReport(FileLocation);
         
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        namefield.setText("Machine Belt");
+        valuefield.setText("4500");
+        qtyfield.setText("10");
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
     private void generate_mac_prtid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     idfield.setText(aid.generate("MAC_PRT",Integer.toString(MainWindow.userid)));
@@ -812,6 +833,7 @@ int RowCountjTable;
     private javax.swing.JTextField idfield1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
