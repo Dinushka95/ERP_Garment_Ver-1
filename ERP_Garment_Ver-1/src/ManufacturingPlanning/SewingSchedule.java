@@ -157,6 +157,9 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jComboBox1 = new javax.swing.JComboBox<>();
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
@@ -396,6 +399,25 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-select-", "S001", "S002", "S003", "S004", "S005" }));
         jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 340, 140, -1));
 
+        jButton2.setText("Demo search style");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, -1, -1));
+
+        jButton5.setText("Demo search cutting");
+        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 140, -1));
+
+        jButton6.setText("Demo");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 430, -1, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 1260, 520));
 
         jTabbedPane1.addTab("ADD Sewing schedule", jPanel1);
@@ -606,6 +628,12 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
        }
        else{
         AddSewingSchedule();
+         jTextField6.setText("");
+         jTextField4.setText("");
+         jTextField2.setText("");
+         jTextField18.setText("");
+        jTextField19.setText("");
+        jTextField11.setText("");
        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -860,8 +888,19 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        // TODO add your handling code here:
+        jTextField4.setText("SWG-SHI1283fce94");
     }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        jTextField4.setText("STY1887b74a8");
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+         jTextField18.setText("56");
+         jTextField11.setText("56");
+         jComboBox3.setSelectedItem("S003");
+         jComboBox2.setSelectedItem("2");
+    }//GEN-LAST:event_jButton6ActionPerformed
     
     private void generate_shi(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -918,8 +957,11 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker5;
     private com.github.lgooddatepicker.components.DatePicker datePicker6;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
