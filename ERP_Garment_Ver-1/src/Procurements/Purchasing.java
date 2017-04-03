@@ -1082,7 +1082,7 @@ public class Purchasing extends javax.swing.JInternalFrame {
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
 
-        des1.setText("Raw Materials - Zipper");
+        des1.setText("RawMaterialsZipper");
         qty1.setText("30");
         unit1.setText("500");
         adv1.setText("5000");
@@ -1093,7 +1093,7 @@ public class Purchasing extends javax.swing.JInternalFrame {
 
     private void jButton15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton15ActionPerformed
 
-        des.setText("Raw Materials - Lace");
+        des.setText("RawMaterialsLace");
         qty.setText("20");
         unit.setText("500");
         adv.setText("5000");

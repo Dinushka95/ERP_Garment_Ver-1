@@ -465,15 +465,15 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
 
-        jTextField2.setText("Kasun Traders");
-        jTextField3.setText("Kasun Dissanayake");
-        jTextField4.setText("www.kasuntraders.lk");
-        jTextField5.setText("Miriswatta,Gampaha");
+        jTextField2.setText("KasunTraders");
+        jTextField3.setText("KasunDissanayake");
+        jTextField4.setText("kasuntraders");
+        jTextField5.setText("MiriswattaGampaha");
         jTextField7.setText("Gampaha");
-        jTextField8.setText("Sri Lanka");
+        jTextField8.setText("SriLanka");
         jTextField9.setText("11350");
         jTextField10.setText("0714210560");
-        jTextField11.setText("kasuntraders@gmail.com");
+        jTextField11.setText("kasuntraders@gmailcom");
         jTextField13.setText("0112249335");
         jTextField14.setText("456789");
     }//GEN-LAST:event_jButton7ActionPerformed

@@ -671,7 +671,7 @@ int RowCountjTable;
         AddMaterial();
         TableLoad();
         TableLoad2();
-        TextBoxClear();
+//        TextBoxClear();
 
     }//GEN-LAST:event_AddButtonActionPerformed
 
@@ -696,7 +696,7 @@ int RowCountjTable;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        namefield.setText("Linen Fabrick - Black");
+        namefield.setText("LinenFabrickBlack");
         costfield.setText("450");
         reorderfield.setText("100");
         
@@ -728,7 +728,7 @@ int RowCountjTable;
             costfield.setText("");
             quantityfield.setText("");
             reorderfield.setText("");
-            datePicker2.setText("");
+            datePicker2.setDateToToday();
     }
     
     private void TextBoxClear2()

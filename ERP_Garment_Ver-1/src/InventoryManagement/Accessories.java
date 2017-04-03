@@ -754,7 +754,7 @@ int RowCountjTable;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        namefield.setText("Red Ribbons");
+        namefield.setText("RedRibbons");
         costfield.setText("150");
         quantityfield.setText("50");
         jComboBox1.setSelectedItem("Ribbons");
@@ -915,7 +915,7 @@ int RowCountjTable;
     
         public void AccessoryNameSearch()
     {
-        if(validation.ValidationCheck(searchAccessory, true, 45, 'a'))
+        if(validation.ValidationCheck(searchAccessory, true, 0, 'a'))
         {
             String accname = searchAccessory.getText();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Accessory_Table WHERE accessory_name LIKE '"+accname+"%'");

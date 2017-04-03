@@ -280,7 +280,7 @@ File Image;
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabelImage.setText("                Please upload  Image");
-        jPanel9.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 210, 150));
+        jPanel9.add(jLabelImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 240, 210));
 
         jButton23.setText("ADD an Image");
         jButton23.addActionListener(new java.awt.event.ActionListener() {
@@ -288,9 +288,9 @@ File Image;
                 jButton23ActionPerformed(evt);
             }
         });
-        jPanel9.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
+        jPanel9.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
-        jPanel6.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 260, 220));
+        jPanel6.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 260, 260));
 
         jButton3.setText("Demo");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -384,7 +384,7 @@ File Image;
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 656, 280));
+        jPanel7.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 656, 200));
 
         jButton1.setText("Search");
         jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -396,7 +396,7 @@ File Image;
         jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
 
         jLabelProductImageSED.setText("              Product Image");
-        jPanel7.add(jLabelProductImageSED, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 160, 160));
+        jPanel7.add(jLabelProductImageSED, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 270, 300, 250));
 
         jButton2.setText("All Products Report");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -628,7 +628,7 @@ File Image;
         AddProduct();
         TableLoad();
         TableLoad2();
-        TextBoxClear();
+        jLabelImage.setIcon(null);
         generate_finid();
         
         
@@ -775,8 +775,8 @@ File Image;
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        namefield.setText("T-Shirt");
-        
+        namefield.setText("TShirt");
+        designName.setText("EmbarkBlack");
         costfield.setText("1200");
         quantityfield.setText("100");
         sellingPrice.setText("2000");
@@ -882,6 +882,8 @@ File Image;
                 TextBoxClear();
                 TableLoad2();
                 clear();
+                
+                
             }
         }
         catch(Exception ex)
@@ -940,6 +942,7 @@ File Image;
             {
                 clear();
                 TableLoad2();
+                jLabelProductImageSED.setIcon(null);
             }
         }
         catch (Exception ex){
