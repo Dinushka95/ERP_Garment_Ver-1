@@ -292,14 +292,8 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
   }
     public void AddLoan()
     {
-        if(validation.ValidationCheck(jTextField2, true, 0, '@')
-        &&validation.ValidationCheck(jTextField3, true,0,'@')
-        &&validation.ValidationCheck(jTextField4, true,0,'1')
-        &&validation.ValidationCheck(amt1, true,0,'1')
-        &&validation.ValidationCheck(Mrate, true,0,'1')
-        &&validation.ValidationCheck(payamt, true,0,'1'))
-        {
-        String b_name = jComboBox1.getSelectedItem().toString();
+        
+           String b_name = jComboBox1.getSelectedItem().toString();
         String br_name = jTextField2.getText();
         String acc_no = jTextField3.getText();
         String date = datePicker1.getText();
@@ -318,14 +312,14 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
 "`Month Interest`,\n" +
 "`Payment`)\n" +
 "VALUES\n" +
-"'"+b_name+"',\n" +
+"('"+b_name+"',\n" +
 "'"+br_name+"',\n" +
 "'"+acc_no+"',\n" +
 "'"+date+"',\n" +
 "'"+period+"',\n" +
 ""+amt+",\n" +
 "'"+inter+"',\n" +
-""+payment+");");
+"'"+payment+"');");
         
         
           try
@@ -341,7 +335,7 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         }    
-    }
+    
     }
 private void TextBoxClear()
 {
