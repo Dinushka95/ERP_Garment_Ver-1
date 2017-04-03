@@ -198,7 +198,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 470, 90));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 130, 470, 300));
 
         jTabbedPane1.addTab("ADD ", jPanel1);
 
@@ -250,8 +250,8 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jTextFieldTechnicianName1.setName("Address"); // NOI18N
         jPanel6.add(jTextFieldTechnicianName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 210, -1));
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("Edit");
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -296,8 +296,8 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         });
         jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
 
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.setText("View All");
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);

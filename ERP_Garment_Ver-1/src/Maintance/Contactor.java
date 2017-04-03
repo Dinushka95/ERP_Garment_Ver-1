@@ -327,7 +327,7 @@ public class Contactor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        
+        ConSearch();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void ResetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetButton1ActionPerformed
@@ -499,7 +499,7 @@ public class Contactor extends javax.swing.JInternalFrame {
                 + "`Email` = '" + em + "',\n"
                 + "`Address` = '" + add + "',\n"
                 + "`Date` = '" + date + "' \n"
-                + "WHERE `OrderID` = '" + c_id + "';");
+                + "WHERE `Contactor_ID` = '" + c_id + "';");
       
               
     
@@ -520,6 +520,18 @@ public class Contactor extends javax.swing.JInternalFrame {
         }}
         
         
+           public void ConSearch() {
+        {
+            String c_id= jTextField3.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Contactor WHERE Contactor_ID = '" + c_id + "'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        }
+
+    }
+          
+          
+          
+          
            private void TextBoxClear1(){
      
          //jComboBox1.setSelectedIndex(0);
