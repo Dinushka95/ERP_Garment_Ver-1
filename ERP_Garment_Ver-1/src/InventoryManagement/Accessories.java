@@ -74,6 +74,7 @@ int RowCountjTable;
         jLabel7 = new javax.swing.JLabel();
         reorderfield = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -208,6 +209,13 @@ int RowCountjTable;
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Zippers", "Buttons", "Lace", "Sequences", "Threads", "Pins", "Ribbon", "Elastics", "Ornaments", "Collars", "Buckels", "Brooch", "Neckline", "Badge" }));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
+        jButton3.setText("Demo");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -229,8 +237,10 @@ int RowCountjTable;
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel7))
+                            .addComponent(jLabel7)
+                            .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jButton3)
+                                .addComponent(jLabel3)))
                         .addGap(97, 97, 97)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(namefield, javax.swing.GroupLayout.DEFAULT_SIZE, 238, Short.MAX_VALUE)
@@ -281,8 +291,9 @@ int RowCountjTable;
                 .addGap(24, 24, 24)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AddButton)
-                    .addComponent(ResetButton))
-                .addContainerGap(68, Short.MAX_VALUE))
+                    .addComponent(ResetButton)
+                    .addComponent(jButton3))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 560, 540));
@@ -740,6 +751,16 @@ int RowCountjTable;
         System.err.println(FileLocation);
         autoReport.SimpleAllReport(FileLocation);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        namefield.setText("Red Ribbons");
+        costfield.setText("150");
+        quantityfield.setText("50");
+        jComboBox1.setSelectedItem("Ribbons");
+        reorderfield.setText("25");
+        datePicker2.setDateToToday();
+    }//GEN-LAST:event_jButton3ActionPerformed
     private void generate_accid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     idfield.setText(aid.generate("ACC",Integer.toString(MainWindow.userid)));
@@ -936,6 +957,7 @@ int RowCountjTable;
     private javax.swing.JTextField idfield1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JLabel jLabel1;

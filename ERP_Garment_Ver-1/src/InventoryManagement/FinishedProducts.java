@@ -88,6 +88,7 @@ File Image;
         jPanel9 = new javax.swing.JPanel();
         jLabelImage = new javax.swing.JLabel();
         jButton23 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -290,6 +291,14 @@ File Image;
         jPanel9.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 190, -1, -1));
 
         jPanel6.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 260, 220));
+
+        jButton3.setText("Demo");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 700, 540));
 
@@ -763,6 +772,16 @@ File Image;
         System.err.println(FileLocation);
         autoReport.SimpleAllReport(FileLocation);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+
+        namefield.setText("T-Shirt");
+        
+        costfield.setText("1200");
+        quantityfield.setText("100");
+        sellingPrice.setText("2000");
+        datePicker2.setDateToToday();
+    }//GEN-LAST:event_jButton3ActionPerformed
     private void generate_finid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     idfield.setText(aid.generate("FGD",Integer.toString(MainWindow.userid)));
@@ -980,6 +999,7 @@ File Image;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton23;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
