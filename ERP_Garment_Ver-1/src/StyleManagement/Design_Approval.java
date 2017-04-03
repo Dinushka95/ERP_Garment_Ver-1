@@ -531,7 +531,7 @@ public static String styleid =null;
 
     private void ResetbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetbtnActionPerformed
         // TODO add your handling code here:
-        Reset();
+        TextBoxClearApproveDesign();
         //generate AID again
         generate_Aid();
     }//GEN-LAST:event_ResetbtnActionPerformed
@@ -618,12 +618,12 @@ public static String styleid =null;
         DisApprovestatus.setActionCommand("NotApprove");
         String status = Approval.getSelection().getActionCommand();
         String date = datePicker1.getText();
-        String cost=stidcost_txt.getText();
+        
                 
         
-        //Approve Design Add Validation
+        //Approve sample Add Validation
         
-        if(name.isEmpty()||comment.isEmpty()||StyleId.isEmpty()||cost.isEmpty())
+        if(id.isEmpty()||name.isEmpty()||comment.isEmpty()||StyleId.isEmpty()||status.isEmpty()||date.isEmpty())
         {
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         
