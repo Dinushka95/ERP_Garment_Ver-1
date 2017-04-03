@@ -81,7 +81,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         
         String id = idApprove.getText();
         String name = NameApp.getSelectedItem().toString();
-        String SampleId = sCosting.getText();
+        String SampleId = appstid1.getText();
         String comment =  appcomm.getText();
         jRadioButton1.setActionCommand("Approve");
         jRadioButton2.setActionCommand("NotApprove");
@@ -383,7 +383,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         //jComboBox1.getSelectedIndex(by);
         appcomm.setText(comment);
         idApprove.setText(status);
-        sCosting.setText(stid);
+        appstid1.setText(stid);
         datePicker1.setText(date);
     }//GEN-LAST:event_jTable2MouseClicked
 
@@ -394,7 +394,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         String stid = ViewSample.getValueAt(row,0).toString();
         
         appstid1.setText(stid);
-        sCosting.setText(stid);
+        
         
     }//GEN-LAST:event_ViewSampleMouseClicked
 
