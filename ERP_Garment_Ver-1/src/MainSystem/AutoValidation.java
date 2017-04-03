@@ -70,7 +70,7 @@ char TypeCheck1;
             String tem=Textbox1.getText();
             int count=0;
             while(count<tem.length()){
-            if(Character.isDigit(tem.charAt(count))){
+            if(Character.isDigit(tem.charAt(count))||Character.isSpace(tem.charAt(count))){
                 // do nothing
                 count++;
             }
@@ -91,7 +91,7 @@ char TypeCheck1;
             String tem=Textbox1.getText();
             int count=0;
             while(count<tem.length()){
-            if(Character.isAlphabetic(tem.charAt(count))){
+            if(Character.isAlphabetic(tem.charAt(count))||Character.isSpace(tem.charAt(count))){
                 // do nothing
                 count++;
             }
