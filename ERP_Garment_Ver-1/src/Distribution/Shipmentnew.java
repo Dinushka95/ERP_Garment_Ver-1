@@ -139,8 +139,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jLabel2.setText("Shipment ID");
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 29, -1, -1));
-
-        startdate.setEnabled(false);
         jPanel6.add(startdate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 230, -1));
 
         jLabel3.setText("Shipped Date");
@@ -150,8 +148,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jLabel4.setText("Delivery Date");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, -1));
-
-        enddate.setEnabled(false);
         jPanel6.add(enddate, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 230, -1));
 
         jLabel5.setText("From");

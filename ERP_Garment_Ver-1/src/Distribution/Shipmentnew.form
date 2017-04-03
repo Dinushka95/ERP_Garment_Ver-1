@@ -122,9 +122,6 @@
                   </Constraints>
                 </Component>
                 <Component class="com.github.lgooddatepicker.components.DatePicker" name="startdate">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(dateSettings1)"/>
                     <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings dateSettings1 = new DatePickerSettings();&#xa;dateSettings1.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;dateSettings1.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
@@ -162,9 +159,6 @@
                   </Constraints>
                 </Component>
                 <Component class="com.github.lgooddatepicker.components.DatePicker" name="enddate">
-                  <Properties>
-                    <Property name="enabled" type="boolean" value="false"/>
-                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(dateSettings2)"/>
                     <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings dateSettings2 = new DatePickerSettings();&#xa;dateSettings2.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;dateSettings2.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
