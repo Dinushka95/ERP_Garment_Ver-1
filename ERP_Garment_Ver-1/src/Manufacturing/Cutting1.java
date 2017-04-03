@@ -77,6 +77,8 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
@@ -253,6 +255,17 @@ public class Cutting1 extends javax.swing.JInternalFrame {
 
         jLabel10.setText("meters");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, -1, -1));
+
+        jButton4.setText("Search style");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, -1, -1));
+
+        jButton6.setText("Search schedule_ID");
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 850, 520));
 
@@ -671,6 +684,10 @@ public class Cutting1 extends javax.swing.JInternalFrame {
 
 
     }//GEN-LAST:event_jComboBox4ItemStateChanged
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        jTextField4.setText("");
+    }//GEN-LAST:event_jButton4ActionPerformed
 private void generate_cdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField1.setText(aid.generate("CUT-",Integer.toString(MainWindow.userid)));
@@ -704,7 +721,9 @@ private void generate_cdi(){
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
