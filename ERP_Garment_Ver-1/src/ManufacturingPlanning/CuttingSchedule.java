@@ -146,6 +146,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jComboBox3 = new javax.swing.JComboBox<>();
         jComboBox5 = new javax.swing.JComboBox<>();
+        jButton2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel12 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -436,6 +437,14 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
             }
         });
         jPanel9.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 350, 150, -1));
+
+        jButton2.setText("Demo");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel9.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 390, -1, -1));
 
         jPanel5.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 1260, 520));
 
@@ -760,30 +769,51 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    public void textClear(){
+      jTextField1.setText("");
+      jTextField34.setText("");
+      jTextField29.setText("");
+      jTextField35.setText("");
+      jTextField26.setText("");
+      jTextField30.setText("");
+      jTextField31.setText("");
+      jTextField32.setText("");
+      jTextField33.setText("");
+      datePicker7.setText("");
+      datePicker8.setText("");
+        generate_cdi();
+    
+    }
+    
+    
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
       String colour=jTextField1.getText();
-      String size=jTextField1.getText();
-      String qnty=jTextField1.getText();
-      String matname=jTextField1.getText();
-      String lab=jTextField1.getText();
-      String minutes=jTextField1.getText();
-      String days=jTextField1.getText();
-      String length=jTextField1.getText();
-      String totlength=jTextField1.getText();
+      String size=jTextField34.getText();
+      String qnty=jTextField29.getText();
+      String matname=jTextField35.getText();
+      String lab=jTextField26.getText();
+      String minutes=jTextField30.getText();
+     // String days=jTextField31.getText();
+      String length=jTextField32.getText();
+    //  String totlength=jTextField33.getText();
       String stdate=datePicker7.getText();
       String endate=datePicker8.getText();
-      try{
-      SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-       Date date1 = format.parse(stdate);
-       Date date2 = format.parse(endate);
-       if(date1.after(date2))
-           JOptionPane.showMessageDialog(null, "End date can't be beore start  ");
-       
-      }
-      catch(Exception e){
-          System.out.println(e);
-      }
-        if(colour.isEmpty()||size.isEmpty()||qnty.isEmpty()||matname.isEmpty()||lab.isEmpty()||minutes.isEmpty()||days.isEmpty()||length.isEmpty()||totlength.isEmpty())
+     
+      
+//      try{
+////      SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+////       Date date1 = format.parse(stdate);
+////       Date date2 = format.parse(endate);
+////       if(date1.after(date2))
+////           JOptionPane.showMessageDialog(null, "End date can't be beore start  ");
+////       
+////      }
+//      catch(Exception e){
+//          System.out.println(e);
+//      }
+        if(colour.isEmpty()||size.isEmpty()||qnty.isEmpty()||matname.isEmpty()||lab.isEmpty()||minutes.isEmpty()||length.isEmpty())
         {
             
             JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
@@ -865,7 +895,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
      "'"+color+"');");
 
             JOptionPane.showMessageDialog(null,"Successful");
-
+            textClear();
 
             }
             catch(HeadlessException e){
@@ -1407,6 +1437,20 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "Select a category");
        FillComboSupervisor();
     }//GEN-LAST:event_jComboBox4ItemStateChanged
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      jTextField1.setText("Blue");
+      jTextField34.setText("XL");
+      jTextField29.setText("6");
+      jTextField35.setText("Fabric");
+      jTextField26.setText("44");
+      jTextField30.setText("6");
+      jTextField31.setText("3");
+      jTextField32.setText("776");
+      jTextField33.setText("3");
+      jComboBox5.setSelectedItem("C004");
+      jComboBox3.setSelectedItem("4");
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     private void MultileSelectError()
     {
@@ -1473,6 +1517,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker7;
     private com.github.lgooddatepicker.components.DatePicker datePicker8;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
