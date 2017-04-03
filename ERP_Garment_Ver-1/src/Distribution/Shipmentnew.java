@@ -72,6 +72,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         phone = new javax.swing.JTextField();
         AddButton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -204,7 +205,16 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 410, -1, -1));
+        jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 410, -1, -1));
+
+        jButton3.setText("Demo");
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 530, 480));
 
@@ -519,6 +529,18 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         shipid.setText("SHI4879g56");
+        supplier.setText("Arise");
+        address.setText("Dilli");
+        phone.setText("1048952");
+        fromCombo.setSelectedItem(0);
+        startdate.setText("");
+        enddate.setText("");
+        recieved.setText("Chathu");
+        descriptionarea.setText("Low Qulity");
+    }//GEN-LAST:event_jButton3ActionPerformed
+
      private void generate_shipmentid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     shipid.setText(aid.generate("SHPMT",Integer.toString(MainWindow.userid)));
@@ -784,6 +806,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;

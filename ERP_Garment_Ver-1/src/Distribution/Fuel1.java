@@ -67,6 +67,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
@@ -202,6 +203,15 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jLabel2.setText("Date");
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+
+        jButton6.setText("Demo");
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 420, 530));
 
@@ -435,6 +445,18 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         clearUpdateFuel();
         tableload1();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+         jTextField8.setText("FUL145ds78");
+         jTextField1.setText("BF7895");
+         jTextField2.setText("DR49762");
+         jTextField5.setText("Rathna");
+         jTextField3.setText("HG4975");
+         jTextField6.setText("400");
+         jTextField4.setText("10");
+         jTextField7.setText("4000");
+          datePicker1.setText("");
+    }//GEN-LAST:event_jButton6ActionPerformed
  private void generate_FuelID(){
     AutoIdGenerator aid = new AutoIdGenerator();
      jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));
@@ -684,6 +706,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
