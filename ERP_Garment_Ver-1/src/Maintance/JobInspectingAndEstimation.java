@@ -272,7 +272,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
 
         jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelcustomerSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 60, -1));
+        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 110, -1));
 
         jLabel9.setText("Machine ID");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -362,11 +362,11 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+       MachSearch();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        // TODO add your handling code here:
+      TableLoad2();
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -480,12 +480,14 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
 
         }
     }
-
+    
+    
+    
     private void DeleteJobInspection() {
         String m_id = jTextFieldSearchCustomerId.getText();
 
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`JobIspection_Estimation`\n"
-                + "WHERE Description = '" + m_id + "';");
+                + "WHERE MachineID LIKE '" + m_id + "';");
 
         try {
             if (x == true) {
@@ -497,6 +499,15 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
+    
+      public void MachSearch() {
+        {
+            String m_id = jTextFieldSearchCustomerId.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.JobIspection_Estimation WHERE MachineID = '" + m_id + "'");
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        }
+
+    }
 
     public void EditJobInspection() {
 
@@ -507,17 +518,18 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         String t_id = jTextFieldTechnicianID1.getText();
         String t_name = jTextFieldTechnicianName1.getText();
         String date = datePicker3.getText();
-
+                
+         
+         
         boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`JobIspection_Estimation`\n"
-                + "SET\n"
-                + "`MachineID` = '" + m_id + "',\n"
+                + "SET \n"
                 + "`Description` = '" + description + "',\n"
                 + "`Department` = '" + dep + "',\n"
                 + "`MachinePart` = '" + m_pa + "',\n"
                 + "`TechnianID` = '" + t_id + "',\n"
                 + "`TechnicianName` = '" + t_name + "',\n"
-                + "`Date` = '" + date + "',\n"
-                + "WHERE `accessory_id` = '" + m_id + "';");
+                + "`Date` = '" + date + "'\n"
+                + "WHERE `MachineID` = '" + m_id + "';");
 
         try {
             if (x == true) {

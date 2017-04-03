@@ -17,8 +17,9 @@ public String generate (String Prefix,String UserID){
     int hc=now.hashCode();
     String hhc=Integer.toHexString(hc);
     String ff=Prefix+UserID+hhc;
-   // System.out.println(ff);
+   System.out.println(ff);
     return ff;
 }
+ 
     
 }

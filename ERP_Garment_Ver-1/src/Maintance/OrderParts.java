@@ -381,7 +381,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonResetAllActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-
+    TableLoad2();
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
