@@ -147,7 +147,6 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        ViewCost = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         ViewSample = new javax.swing.JTable();
         jLabel4 = new javax.swing.JLabel();
@@ -172,7 +171,6 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         byapp = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
-        sCosting = new javax.swing.JTextField();
         Clear = new javax.swing.JButton();
         Demo = new javax.swing.JButton();
         NameApp = new javax.swing.JComboBox<>();
@@ -198,16 +196,6 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        ViewCost.setText("View Sample");
-        ViewCost.setActionCommand("View Cost");
-        ViewCost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ViewCost.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ViewCostActionPerformed(evt);
-            }
-        });
-        jPanel2.add(ViewCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, -1, -1));
 
         ViewSample.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -303,9 +291,6 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         jLabel1.setText("SampleID");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, -1, -1));
 
-        sCosting.setToolTipText("Auto Fills");
-        jPanel2.add(sCosting, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 20, 120, 30));
-
         Clear.setText("Reset");
         Clear.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Clear.addActionListener(new java.awt.event.ActionListener() {
@@ -323,8 +308,8 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         NameApp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(NameApp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 140, 30));
 
-        ViewSample1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ViewSample1.setText("View Sample");
+        ViewSample1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ViewSample1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ViewSample1ActionPerformed(evt);
@@ -413,15 +398,6 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_ViewSampleMouseClicked
 
-    private void ViewCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewCostActionPerformed
-        // TODO add your handling code here:
-        
-        CreateSampleSearch();
-        TableLoad1();
-        FillTextCombo();
-        
-    }//GEN-LAST:event_ViewCostActionPerformed
-
     private void AddSampleAppActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddSampleAppActionPerformed
         // TODO add your handling code here:
         
@@ -460,7 +436,6 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> NameApp;
     private javax.swing.ButtonGroup SampleApprove;
     private javax.swing.JComboBox<String> Sampleids;
-    private javax.swing.JButton ViewCost;
     private javax.swing.JTable ViewSample;
     private javax.swing.JButton ViewSample1;
     private javax.swing.JTextArea appcomm;
@@ -490,6 +465,5 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField sCosting;
     // End of variables declaration//GEN-END:variables
 }

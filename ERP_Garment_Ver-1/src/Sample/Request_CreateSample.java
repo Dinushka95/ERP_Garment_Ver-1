@@ -111,10 +111,10 @@ int RowCountjTable2;
         jButton6 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        updatesample = new javax.swing.JButton();
+        deletesample = new javax.swing.JButton();
+        ResetSample = new javax.swing.JButton();
+        ReportCreateSample = new javax.swing.JButton();
         Samplesize = new javax.swing.JTextField();
         sdesi = new javax.swing.JTextField();
         sname = new javax.swing.JTextField();
@@ -420,21 +420,36 @@ int RowCountjTable2;
 
         jPanel8.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 1259, 268));
 
-        jButton7.setText("Update");
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 482, -1, -1));
+        updatesample.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        updatesample.setText("Update");
+        updatesample.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updatesampleActionPerformed(evt);
+            }
+        });
+        jPanel8.add(updatesample, new org.netbeans.lib.awtextra.AbsoluteConstraints(293, 482, -1, -1));
 
-        jButton8.setText("Delete");
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 482, -1, -1));
+        deletesample.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        deletesample.setText("Delete");
+        deletesample.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deletesampleActionPerformed(evt);
+            }
+        });
+        jPanel8.add(deletesample, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 482, -1, -1));
 
-        jButton9.setText("Reset");
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 482, -1, -1));
+        ResetSample.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ResetSample.setText("Reset");
+        ResetSample.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ResetSampleActionPerformed(evt);
+            }
+        });
+        jPanel8.add(ResetSample, new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 482, -1, -1));
 
-        jButton10.setText("Report");
-        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 482, -1, -1));
+        ReportCreateSample.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ReportCreateSample.setText("Report");
+        jPanel8.add(ReportCreateSample, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 482, -1, -1));
         jPanel8.add(Samplesize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, 130, 30));
         jPanel8.add(sdesi, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 130, 30));
         jPanel8.add(sname, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, 130, 30));
@@ -579,6 +594,26 @@ int RowCountjTable2;
             Nu_of_Samples.setText("2");
             Sample_Given.setText("Customer");
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void updatesampleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updatesampleActionPerformed
+        // TODO add your handling code here:
+        UpdateAddedSampleDesigns();
+        TableLoad3();
+        clearSearchupdateDel();
+    }//GEN-LAST:event_updatesampleActionPerformed
+
+    private void ResetSampleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ResetSampleActionPerformed
+        // TODO add your handling code here:
+         clearSearchupdateDel();
+    }//GEN-LAST:event_ResetSampleActionPerformed
+
+    private void deletesampleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deletesampleActionPerformed
+        // TODO add your handling code here:
+        
+        DeleteAddedSampleDesigns();
+        TableLoad3();
+        clearSearchupdateDel();
+    }//GEN-LAST:event_deletesampleActionPerformed
     private void generate_SAMID(){
     AutoIdGenerator sid = new AutoIdGenerator();
     SampleID.setText(sid.generate("SAMID",Integer.toString(MainWindow.userid)));
@@ -628,6 +663,21 @@ int RowCountjTable2;
             Sample_Given.setText("");
     }
     
+     private void clearSearchupdateDel(){
+            
+        sid.setText("");
+        sname.setText("");
+        stid.setText("");
+        stype.setText("");
+        sdes.setText("");
+        sdesi.setText("");
+        sgrp.setText("");
+        sampleNum.setText("");
+        Samplesize.setText("");
+        givento.setText("");
+        datePicker1.setText("");
+    }
+    
     public void AddSampleDesign()
     
     {
@@ -637,7 +687,7 @@ int RowCountjTable2;
         String name =Sample.getText();
         String stid =SampleStid.getText();
         String des=SampleDes.getText();
-        String Sampletype =SType.getText();
+        String Sampletype =stype.getText();
         String samplesize =S_Size.getText();
         String samplegroup = samplegrp.getSelectedItem().toString();
         String sampledesigner =Sample_Designer.getSelectedItem().toString();
@@ -723,7 +773,7 @@ int RowCountjTable2;
         id=sid.getText();
         name=sname.getText();
         styleid=stid.getText();
-        type_=SType.getText();
+        type_=stype.getText();
         des_=sdes.getText();
         designer=sdesi.getText();
         group=sgrp.getText();
@@ -795,6 +845,8 @@ int RowCountjTable2;
        
             if(x==true){
                
+               clearSearchupdateDel();
+               TableLoad3();
                JOptionPane.showMessageDialog(null,"SUCCESSFULLY UPDATED");
              }
              else
@@ -815,6 +867,61 @@ int RowCountjTable2;
     }
     }
         }
+     
+     private void DeleteAddedSampleDesigns()
+    {
+        
+       String id,name,styleid,type_, des_,designer,group,numsamples,size_,givento_, date;
+        id=sid.getText();
+        name=sname.getText();
+        styleid=stid.getText();
+        type_=stype.getText();
+        des_=sdes.getText();
+        designer=sdesi.getText();
+        group=sgrp.getText();
+        numsamples=sampleNum.getText();
+        size_=Samplesize.getText();
+        givento_=givento.getText();
+        date=datePicker3.getText();
+        
+       
+        
+        if(id.isEmpty()||name.isEmpty()||styleid.isEmpty()||type_.
+        isEmpty()||des_.isEmpty()||size_.isEmpty()||date.isEmpty()
+        ||designer.isEmpty()|| numsamples.isEmpty()||group.isEmpty()||givento_.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+         else{
+             try{
+        
+                int reply = JOptionPane.showConfirmDialog(null, 
+                "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+        id =sid.getText();
+        
+        boolean x = autoSqlQuery.execute
+        ("DELETE FROM `garmentsystem`.`T_Request_Create_Sample_table`\n" +
+           "WHERE SampleId = '"+id+"';");
+        
+        
+        
+            if (x==true)
+            {
+                clearSearchupdateDel();
+                TableLoad();
+                JOptionPane.showMessageDialog(null,"Successfully Deleted");
+            }
+        }
+             }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+    }
+    }
+
     
 
        
@@ -845,6 +952,8 @@ int RowCountjTable2;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Nu_of_Samples;
+    private javax.swing.JButton ReportCreateSample;
+    private javax.swing.JButton ResetSample;
     private javax.swing.JTextField SType;
     private javax.swing.JTextField S_Size;
     private javax.swing.JTextField Sample;
@@ -857,18 +966,15 @@ int RowCountjTable2;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
+    private javax.swing.JButton deletesample;
     private javax.swing.JTextField givento;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -917,5 +1023,6 @@ int RowCountjTable2;
     private javax.swing.JTextField sname;
     private javax.swing.JTextField stid;
     private javax.swing.JTextField stype;
+    private javax.swing.JButton updatesample;
     // End of variables declaration//GEN-END:variables
 }
