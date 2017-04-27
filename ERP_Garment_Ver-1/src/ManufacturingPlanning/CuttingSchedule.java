@@ -7,7 +7,7 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
-import java.awt.HeadlessException;
+//import java.awt.HeadlessException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -55,6 +55,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
        jTextField26.setText("");
        //jComboBox3.setSelectedItem(null);
        jTextField30.setText("");
+       jLabel1.setText("");
     
     }
     
@@ -789,56 +790,57 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     
     
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-      String colour=jTextField1.getText();
-      String size=jTextField34.getText();
-      String qnty=jTextField29.getText();
-      String matname=jTextField35.getText();
-      String lab=jTextField26.getText();
-      String minutes=jTextField30.getText();
-     // String days=jTextField31.getText();
-      String length=jTextField32.getText();
-    //  String totlength=jTextField33.getText();
-      String stdate=datePicker7.getText();
-      String endate=datePicker8.getText();
-     
       
-//      try{
-////      SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
-////       Date date1 = format.parse(stdate);
-////       Date date2 = format.parse(endate);
-////       if(date1.after(date2))
-////           JOptionPane.showMessageDialog(null, "End date can't be beore start  ");
-////       
-////      }
-//      catch(Exception e){
-//          System.out.println(e);
-//      }
-        if(colour.isEmpty()||size.isEmpty()||qnty.isEmpty()||matname.isEmpty()||lab.isEmpty()||minutes.isEmpty()||length.isEmpty())
+
+            String scheduleID=jTextField28.getText();
+            String RoomNo=(String)jComboBox5.getSelectedItem();
+            String startDate=datePicker7.getText();
+            String EndDate=datePicker8.getText();
+            String size=jTextField34.getText();
+            String styleNo=(String) styleCombo.getSelectedItem();
+            String materialID=(String) jComboBox2.getSelectedItem();
+            String matname=jTextField35.getText();
+            String supervisorID=(String) jComboBox1.getSelectedItem();
+            String color=jTextField1.getText();
+            String qty=jTextField29.getText();
+            String length=jTextField32.getText();
+            String totlength=jTextField33.getText();
+            String totdays=jTextField31.getText();
+            String lab=jTextField26.getText();
+            String minutes=jTextField30.getText();
+            String lines=jComboBox3.getSelectedItem().toString();
+            
+        
+      
+     
+        if(color.isEmpty()||size.isEmpty()||qty.isEmpty()||matname.isEmpty()||RoomNo.equals("-select-")||lines.equals("-select-")||lab.isEmpty()||minutes.isEmpty()||totdays.isEmpty()||length.isEmpty())
         {
             
             JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }    
         else{
-            String scheduleID=jTextField28.getText();
-            String RoomNo=(String)jComboBox5.getSelectedItem();
-            String startDate=datePicker7.getText();
-            String EndDate=datePicker8.getText();
-            
-            String styleNo=(String) styleCombo.getSelectedItem();
-            String materialID=(String) jComboBox2.getSelectedItem();
-            String supervisorID=(String) jComboBox1.getSelectedItem();
-            String color=jTextField1.getText();
-            String qty=jTextField29.getText();
-            int widthPerSample=Integer.valueOf(jTextField32.getText());
+          
             int noOfLabourers=Integer.valueOf(jTextField26.getText());
             int noOfLines=Integer.valueOf(jComboBox3.getSelectedItem().toString());
             int noOfDaysPerSample=Integer.valueOf(jTextField30.getText());
+            int widthPerSample=Integer.valueOf(jTextField32.getText());
+        try{
+                SimpleDateFormat dformat = new SimpleDateFormat("yyyy/MM/dd");
+                Date date=new Date();
+                Date date1 = dformat.parse(startDate);
+                Date date2 = dformat.parse(EndDate);
+                if(date1.after(date2) )
+                     JOptionPane.showMessageDialog(null, "End date can't be before start Date  ");
+                else{
+                    if( date1.before(date)){
+                    JOptionPane.showMessageDialog(null, "End Date can't be before Current Date  ");
+                    
+                    }
+                    else{
+                    
+                String availability="";
+                String matid=(String)jComboBox2.getSelectedItem();
             
-          
-            
-            String availability="";
-             String matid=(String)jComboBox2.getSelectedItem();
-             try{
                  AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("Raw_Materials", "Material_id", matid);
                  AutoDB_Connect.DB_ResultSet.next();
                  int rolls =Integer.valueOf(AutoDB_Connect.DB_ResultSet.getString("Material_qty"));
@@ -854,15 +856,9 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
                      availability="Not Available";
                      System.out.println("condition2");
                  }
-             }
-             catch(Exception e)
-             {
-                     System.out.println(e);
+             
+            
 
-             }
-
-
-            try{
             boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Cutting_Schedule_table`\n" +
      "(`Shedule_ID`,\n" +
      "`Style_ID`,\n" +
@@ -896,11 +892,14 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
             JOptionPane.showMessageDialog(null,"Successful");
             textClear();
-
+                }
             }
-            catch(HeadlessException e){
+         }
+    
+         catch(Exception e){
                 System.out.println(e);
-            }
+          }
+
                 
         }    
                
