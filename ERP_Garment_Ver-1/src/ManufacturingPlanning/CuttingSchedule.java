@@ -340,6 +340,11 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
                 jComboBox2MouseClicked(evt);
             }
         });
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         jPanel9.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 150, -1));
 
         jPanel11.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Availability", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
@@ -833,7 +838,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
                      JOptionPane.showMessageDialog(null, "End date can't be before start Date  ");
                 else{
                     if( date1.before(date)){
-                    JOptionPane.showMessageDialog(null, "End Date can't be before Current Date  ");
+                    JOptionPane.showMessageDialog(null, "Start Date can't be before Current Date  ");
                     
                     }
                     else{
@@ -1450,6 +1455,10 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
       jComboBox5.setSelectedItem("C004");
       jComboBox3.setSelectedItem("4");
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox2ActionPerformed
     
     private void MultileSelectError()
     {

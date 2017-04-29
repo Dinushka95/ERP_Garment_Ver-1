@@ -619,22 +619,40 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
       String minutes=jTextField18.getText();
       String days=jTextField19.getText();
       String lab=jTextField11.getText();
-     
+      String stDate=datePicker4.getText();
+      String endDate=datePicker2.getText();
       String room=jComboBox1.getSelectedItem().toString();
       String lines=jComboBox1.getSelectedItem().toString();
       
+      try{
         if(schid.isEmpty()||style.isEmpty()||cutNo.isEmpty()||minutes.isEmpty()||days.isEmpty()||lab.isEmpty()||room.equals("-select-")||lines.equals("-select-")){
             JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
        }
        else{
-        AddSewingSchedule();
-         jTextField6.setText("");
-         jTextField4.setText("");
-         jTextField2.setText("");
-         jTextField18.setText("");
-        jTextField19.setText("");
-        jTextField11.setText("");
-       }
+             SimpleDateFormat dformat = new SimpleDateFormat("yyyy-MM-dd");
+                Date date=new Date();
+                Date date1 = dformat.parse(stDate);
+                Date date2 = dformat.parse(endDate);
+                if(date1.after(date2) )
+                     JOptionPane.showMessageDialog(null, "End date can't be before start Date  ");
+                else{
+                    if( date1.before(date)){
+                        JOptionPane.showMessageDialog(null, "Start Date can't be before Current Date  ");
+                    
+                    }
+                    else{
+                         AddSewingSchedule();
+                         textClear();
+                    }
+        
+                }
+        }
+      }
+        catch(Exception ex)
+        {
+                System.out.println(ex);
+                
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
@@ -644,7 +662,17 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private void jComboBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox4MouseClicked
 
     }//GEN-LAST:event_jComboBox4MouseClicked
-
+    public void textClear(){
+        jTextField6.setText("");
+        jTextField4.setText("");
+        jTextField2.setText("");
+        jTextField18.setText("");
+        jTextField19.setText("");
+        jTextField11.setText("");
+        datePicker4.clear();
+        datePicker2.clear();
+    }
+    
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         String schid=jTextField14.getText();
          String styleid=jTextField15.getText();
