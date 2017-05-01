@@ -686,11 +686,11 @@ public class Cutting1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox4ItemStateChanged
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jTextField4.setText("");
+        jTextField4.setText("STY124c9f493");
     }//GEN-LAST:event_jButton4ActionPerformed
 private void generate_cdi(){
-    AutoIdGenerator aid = new AutoIdGenerator();
-    jTextField1.setText(aid.generate("CUT-",Integer.toString(MainWindow.userid)));
+        AutoIdGenerator aid = new AutoIdGenerator();
+        jTextField1.setText("CUT-SHI128110d2e");
     }
    
         

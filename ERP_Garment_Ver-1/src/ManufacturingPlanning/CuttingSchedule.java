@@ -789,7 +789,8 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
       jTextField33.setText("");
       datePicker7.setText("");
       datePicker8.setText("");
-        generate_cdi();
+      jLabel1.setText("");
+      generate_cdi();
     
     }
     
@@ -830,18 +831,8 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
             int noOfDaysPerSample=Integer.valueOf(jTextField30.getText());
             int widthPerSample=Integer.valueOf(jTextField32.getText());
         try{
-                SimpleDateFormat dformat = new SimpleDateFormat("yyyy/MM/dd");
-                Date date=new Date();
-                Date date1 = dformat.parse(startDate);
-                Date date2 = dformat.parse(EndDate);
-                if(date1.after(date2) )
-                     JOptionPane.showMessageDialog(null, "End date can't be before start Date  ");
-                else{
-                    if( date1.before(date)){
-                    JOptionPane.showMessageDialog(null, "Start Date can't be before Current Date  ");
-                    
-                    }
-                    else{
+               
+            if(validation.checkDate(startDate,EndDate)){
                     
                 String availability="";
                 String matid=(String)jComboBox2.getSelectedItem();
@@ -897,9 +888,11 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
             JOptionPane.showMessageDialog(null,"Successful");
             textClear();
-                }
-            }
+               
+            
          }
+        }
+        
     
          catch(Exception e){
                 System.out.println(e);
@@ -1279,6 +1272,8 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
                 try
                 {
 
+                    if(validation.checkDate(startDate, EndDate))
+                    {
                  boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Cutting_Schedule_table`\n" +
          "SET\n" +
          //"`Shedule_ID` = '"+shid+"',\n" +
@@ -1304,6 +1299,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
                         //TextBoxClear();
                         JOptionPane.showMessageDialog(null, "Successfully updated");
                     }
+                }
                 }
                 catch(Exception ex)
                 {

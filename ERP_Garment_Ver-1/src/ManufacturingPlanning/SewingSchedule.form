@@ -342,7 +342,7 @@
                     <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker4">
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(setting1)"/>
-                        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting1 = new DatePickerSettings();&#xa;setting1.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;setting1.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
+                        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting1 = new DatePickerSettings();&#xa;setting1.setFormatForDatesCommonEra(&quot;yyyy/M/dd&quot;);&#xa;setting1.setFormatForDatesBeforeCommonEra(&quot;uuuu/MM/dd&quot;);"/>
                       </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -366,7 +366,7 @@
                     <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker2">
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(setting2)"/>
-                        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting2 = new DatePickerSettings();&#xa;setting2.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;setting2.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
+                        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting2 = new DatePickerSettings();&#xa;setting2.setFormatForDatesCommonEra(&quot;yyyy/MM/dd&quot;);&#xa;setting2.setFormatForDatesBeforeCommonEra(&quot;uuuu/MM/dd&quot;);"/>
                       </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -559,6 +559,9 @@
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Demo search cutting"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
+                  </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                       <AbsoluteConstraints x="560" y="50" width="140" height="-1"/>
@@ -639,7 +642,7 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(setting3)"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting3 = new DatePickerSettings();&#xa;setting3.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;setting3.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting3 = new DatePickerSettings();&#xa;setting3.setFormatForDatesCommonEra(&quot;yyyy-/MM/dd&quot;);&#xa;setting3.setFormatForDatesBeforeCommonEra(&quot;uuuu/MM/dd&quot;);"/>
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -667,7 +670,7 @@
               </Properties>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(setting4)"/>
-                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting4 = new DatePickerSettings();&#xa;setting4.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;setting4.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
+                <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting4 = new DatePickerSettings();&#xa;setting4.setFormatForDatesCommonEra(&quot;yyyy/MM/dd&quot;);&#xa;setting4.setFormatForDatesBeforeCommonEra(&quot;uuuu/MM/dd&quot;);"/>
               </AuxValues>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

@@ -68,13 +68,13 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         DatePickerSettings setting8 = new DatePickerSettings();
-        setting8.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting8.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting8.setFormatForDatesCommonEra("yyyy/MM/dd");
+        setting8.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker7 = new com.github.lgooddatepicker.components.DatePicker(setting8);
         jLabel34 = new javax.swing.JLabel();
         DatePickerSettings setting9 = new DatePickerSettings();
-        setting9.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting9.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting9.setFormatForDatesCommonEra("yyyy/MM/dd");
+        setting9.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker8 = new com.github.lgooddatepicker.components.DatePicker(setting9);
         jLabel35 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
@@ -99,12 +99,12 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         DatePickerSettings setting11 = new DatePickerSettings();
-        setting11.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting11.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting11.setFormatForDatesCommonEra("yyyy/MM/dd");
+        setting11.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker4 = new com.github.lgooddatepicker.components.DatePicker(setting11);
         DatePickerSettings setting10 = new DatePickerSettings();
-        setting10.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting10.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting10.setFormatForDatesCommonEra("yyyy/MM/dd");
+        setting10.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(setting10);
         jComboBox2 = new javax.swing.JComboBox<>();
         jTextField7 = new javax.swing.JTextField();
@@ -124,12 +124,12 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         DatePickerSettings setting12 = new DatePickerSettings();
-        setting12.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting12.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting12.setFormatForDatesCommonEra("yyyy/MM/dd");
+        setting12.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker5 = new com.github.lgooddatepicker.components.DatePicker(setting12);
         DatePickerSettings setting13 = new DatePickerSettings();
-        setting13.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting13.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting13.setFormatForDatesCommonEra("yyyy/MM/dd");
+        setting13.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker6 = new com.github.lgooddatepicker.components.DatePicker(setting13);
         jLabel20 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
@@ -474,8 +474,8 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
 
-        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Minutes per Sample");
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
         jPanel6.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 140, -1));
 
@@ -500,8 +500,12 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         //System.err.print("guhk"); 
-        AddIronSchedule();
-       
+        String stdate =datePicker7.getText();
+        String enddate=datePicker8.getText();
+        if(validation.checkDate(stdate, enddate))
+        {
+            AddIronSchedule();
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
@@ -684,6 +688,8 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
          
        try
        {
+           if(validation.checkDate(stdate, endate))
+           {
         
             boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Iron_and_Packing_Schedule`\n" +
 "SET\n" +
@@ -705,6 +711,7 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
                //TextBoxClear();
                JOptionPane.showMessageDialog(null, "Successfully updated");
            }
+       }
        }
        catch(Exception ex)
        {

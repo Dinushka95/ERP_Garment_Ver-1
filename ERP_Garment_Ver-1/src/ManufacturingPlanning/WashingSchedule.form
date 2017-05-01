@@ -259,7 +259,7 @@
                     <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker3">
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(setting11)"/>
-                        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting11 = new DatePickerSettings();&#xa;setting11.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;setting11.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
+                        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting11 = new DatePickerSettings();&#xa;setting11.setFormatForDatesCommonEra(&quot;yyyy/MM/dd&quot;);&#xa;setting11.setFormatForDatesBeforeCommonEra(&quot;uuuu/MM/dd&quot;);"/>
                       </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -283,7 +283,7 @@
                     <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker1">
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new com.github.lgooddatepicker.components.DatePicker(setting12)"/>
-                        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting12 = new DatePickerSettings();&#xa;setting12.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;setting12.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);"/>
+                        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings setting12 = new DatePickerSettings();&#xa;setting12.setFormatForDatesCommonEra(&quot;yyyy/MM/dd&quot;);&#xa;setting12.setFormatForDatesBeforeCommonEra(&quot;uuuu/MM/dd&quot;);"/>
                       </AuxValues>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

@@ -64,13 +64,13 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         DatePickerSettings setting11 = new DatePickerSettings();
-        setting11.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting11.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting11.setFormatForDatesCommonEra("yyyy/MM/dd");
+        setting11.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(setting11);
         jLabel12 = new javax.swing.JLabel();
         DatePickerSettings setting12 = new DatePickerSettings();
-        setting12.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting12.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting12.setFormatForDatesCommonEra("yyyy/MM/dd");
+        setting12.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(setting12);
         jLabel23 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
@@ -565,6 +565,11 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
     }
     else{
         try{
+            if(validation.checkDate(stdate, endate))
+            {
+            
+            
+            
        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Washing_Schedule_table`\n" +
 "(`Schedule_ID`,\n" +
 "`Style_ID`,\n" +
@@ -590,6 +595,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
        
         if (x==true)
             JOptionPane.showMessageDialog(null,"Successful");
+        }
         }
         catch(Exception e){
             System.out.println(e); 
@@ -919,6 +925,9 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
        try
        {
         
+           if(validation.checkDate(stdate, endate))
+           {
+           
             boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Washing_Schedule_table`\n" +
 "SET\n" +
 "`Style_ID` = '"+styleid+"',\n" +
@@ -938,6 +947,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
                //TextBoxClear();
                JOptionPane.showMessageDialog(null, "Successfully updated");
            }
+       }
        }
        catch(Exception ex)
        {

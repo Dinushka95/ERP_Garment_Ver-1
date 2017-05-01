@@ -137,13 +137,13 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         DatePickerSettings setting1 = new DatePickerSettings();
-        setting1.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting1.setFormatForDatesCommonEra("yyyy/M/dd");
+        setting1.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker4 = new com.github.lgooddatepicker.components.DatePicker(setting1);
         jLabel17 = new javax.swing.JLabel();
         DatePickerSettings setting2 = new DatePickerSettings();
-        setting2.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting2.setFormatForDatesCommonEra("yyyy/MM/dd");
+        setting2.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(setting2);
         jLabel24 = new javax.swing.JLabel();
         jTextField18 = new javax.swing.JTextField();
@@ -165,13 +165,13 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         DatePickerSettings setting3 = new DatePickerSettings();
-        setting3.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting3.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting3.setFormatForDatesCommonEra("yyyy-/MM/dd");
+        setting3.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(setting3);
         jLabel10 = new javax.swing.JLabel();
         DatePickerSettings setting4 = new DatePickerSettings();
-        setting4.setFormatForDatesCommonEra("yyyy-MM-dd");
-        setting4.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
+        setting4.setFormatForDatesCommonEra("yyyy/MM/dd");
+        setting4.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(setting4);
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -408,6 +408,11 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, -1, -1));
 
         jButton5.setText("Demo search cutting");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 50, 140, -1));
 
         jButton6.setText("Demo");
@@ -629,23 +634,15 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
        }
        else{
-             SimpleDateFormat dformat = new SimpleDateFormat("yyyy-MM-dd");
-                Date date=new Date();
-                Date date1 = dformat.parse(stDate);
-                Date date2 = dformat.parse(endDate);
-                if(date1.after(date2) )
-                     JOptionPane.showMessageDialog(null, "End date can't be before start Date  ");
-                else{
-                    if( date1.before(date)){
-                        JOptionPane.showMessageDialog(null, "Start Date can't be before Current Date  ");
-                    
-                    }
-                    else{
+             
+                    if(validation.checkDate(stDate, endDate)){
                          AddSewingSchedule();
                          textClear();
+                    
                     }
+                   
         
-                }
+                
         }
       }
         catch(Exception ex)
@@ -697,6 +694,8 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
             
        try
        {
+           if(validation.checkDate(stdate, endate))
+           {
         
             boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Sewing_Schedule`\n" +
 "SET\n" +
@@ -718,6 +717,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
                //TextBoxClear();
                JOptionPane.showMessageDialog(null, "Successfully updated");
            }
+       }
        }
        catch(Exception ex)
        {
@@ -929,6 +929,10 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
          jComboBox3.setSelectedItem("S003");
          jComboBox2.setSelectedItem("2");
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+         jTextField2.setText("CUT-SHI14dab3353");
+    }//GEN-LAST:event_jButton5ActionPerformed
     
     private void generate_shi(){
     AutoIdGenerator aid = new AutoIdGenerator();
