@@ -878,6 +878,7 @@ File Image;
         {
             if(x==true)
             {   autoSqlQuery.executeAutoAddImage(id, autogetimage.getFile());
+                JOptionPane.showMessageDialog(this, "Product Added");
                 TableLoad();
                 TextBoxClear();
                 TableLoad2();
@@ -924,6 +925,18 @@ File Image;
 "`Price` = '"+price+"',\n" +
 "`Date` = '"+date+"'\n" +
 "WHERE `ProductId` = '"+id+"';");
+        
+        
+        try
+        {
+            JOptionPane.showMessageDialog(this, "Updated");
+            clear();
+            TableLoad2();
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
         }
         
     }
@@ -940,6 +953,7 @@ File Image;
         {
             if (x==true)
             {
+                JOptionPane.showMessageDialog(this, "Deleted");
                 clear();
                 TableLoad2();
                 jLabelProductImageSED.setIcon(null);

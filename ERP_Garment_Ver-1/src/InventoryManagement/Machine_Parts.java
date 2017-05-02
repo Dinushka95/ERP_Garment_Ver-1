@@ -11,6 +11,7 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -588,7 +589,7 @@ int RowCountjTable;
 
     private void EditButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditButtonActionPerformed
         // TODO add your handling code here:
-        EditMaterials();
+        EditParts();
         TableLoad2();
     }//GEN-LAST:event_EditButtonActionPerformed
 
@@ -603,6 +604,7 @@ int RowCountjTable;
         {
             if (x==true)
             {
+                JOptionPane.showMessageDialog(this, "Part Details Deleted");
                 clear();
                 TableLoad2();
             }
@@ -697,6 +699,7 @@ int RowCountjTable;
         {
             if(x==true)
             {
+                JOptionPane.showMessageDialog(this, "Part Added");
                 TableLoad();
                 TextBoxClear();
             }
@@ -710,7 +713,7 @@ int RowCountjTable;
       
     }
     
-    public void EditMaterials()
+    public void EditParts()
     {
         if(validation.ValidationCheck(namefield1, true, 0, 'a')&&validation.ValidationCheck(valuefield1, true,0,'1')&&validation.ValidationCheck(qtyfield1, true,0,'1'))
         {
@@ -735,6 +738,7 @@ int RowCountjTable;
         {
             if (x==true)
             {
+                JOptionPane.showMessageDialog(this, "Part Details Updated");
                 clear();
                 TableLoad2();
             }

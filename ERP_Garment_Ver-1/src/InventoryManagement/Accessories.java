@@ -10,6 +10,7 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -828,6 +829,7 @@ int RowCountjTable;
         {
             if(x==true)
             {
+                JOptionPane.showMessageDialog(this, "Accessory Successfully Added");
                 TableLoad();
                 TextBoxClear();
                 TableLoad2();
@@ -875,6 +877,7 @@ int RowCountjTable;
         {
             if(x==true)
             {
+                JOptionPane.showMessageDialog(this, "Updated");
                 TableLoad();
                 TableLoad2();
                 clear();
@@ -901,6 +904,7 @@ int RowCountjTable;
         {
             if (x==true)
             {
+                JOptionPane.showMessageDialog(this, "Deleted");
                 clear();
                 TableLoad2();
             }
