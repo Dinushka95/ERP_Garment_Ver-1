@@ -6,6 +6,7 @@ import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -111,17 +112,32 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         jLabel16.setText("Month Interrest");
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, -1, -1));
+
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2KeyTyped(evt);
+            }
+        });
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 150, 30));
         jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 150, 30));
 
         jLabel1.setText("Loan period");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, -1, -1));
+
+        jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField4KeyTyped(evt);
+            }
+        });
         jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 150, 30));
 
         amt1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 amt1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                amt1KeyTyped(evt);
             }
         });
         jPanel3.add(amt1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 150, 30));
@@ -276,6 +292,39 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         payamt.setText(Double.toString(depreciation));
         
     }//GEN-LAST:event_MrateKeyReleased
+
+    private void jTextField4KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField4KeyTyped
+         char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_jTextField4KeyTyped
+
+    private void amt1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_amt1KeyTyped
+         char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_amt1KeyTyped
+
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+         char c=evt.getKeyChar();
+      {
+          if(!(Character.isLetter(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Numbers");
+          }
+      }
+    }//GEN-LAST:event_jTextField2KeyTyped
    
       private void TableLoad()
   {

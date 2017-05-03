@@ -7,6 +7,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
+import com.sun.glass.events.KeyEvent;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
@@ -26,16 +27,19 @@ public class BankDetail extends javax.swing.JInternalFrame {
     public BankDetail() {
         
         initComponents();  
+        
         TableLoad1();
         TableLoad2();
-        
+        TableLoad3();
+                
         FillTextCombo1();
         FillTextCombo2();
         
-        generate_Cusid();
+       
         
         datePicker1date.setDateToToday(); 
         datePicker2date.setDateToToday();
+        datePicker1.setDateToToday();
     }
 
     /**
@@ -56,10 +60,9 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jTextField6Branch = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
         jTextField10amt = new javax.swing.JTextField();
-        ADDjButton4 = new javax.swing.JButton();
-        EDITjButton11 = new javax.swing.JButton();
-        SEARCHjButton12 = new javax.swing.JButton();
-        DELETEjButton6 = new javax.swing.JButton();
+        D_ADD = new javax.swing.JButton();
+        D_EDIT = new javax.swing.JButton();
+        D_SEARCH = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jTextField1Cus = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -71,7 +74,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker1date = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jLabel3 = new javax.swing.JLabel();
-        jButton7 = new javax.swing.JButton();
+        D_RESET_ALL = new javax.swing.JButton();
         demo_deposit = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
@@ -91,12 +94,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
         dateSettings2.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker2date = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
-        jButton1 = new javax.swing.JButton();
-        EditjButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        DeletejButton5 = new javax.swing.JButton();
+        W_ADD = new javax.swing.JButton();
+        W_EDIT = new javax.swing.JButton();
+        W_SEARCH = new javax.swing.JButton();
         jComboBox1bank = new javax.swing.JComboBox<>();
-        jButton4 = new javax.swing.JButton();
+        W_RESET = new javax.swing.JButton();
         demo_withdrawal = new javax.swing.JButton();
         jComboBox4 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
@@ -106,8 +108,6 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel8 = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox<>();
-        jLabel6 = new javax.swing.JLabel();
-        chequeN = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
@@ -118,10 +118,10 @@ public class BankDetail extends javax.swing.JInternalFrame {
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings3);
         jLabel17 = new javax.swing.JLabel();
         ChequeAmount = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
+        R_ADD = new javax.swing.JButton();
+        R_EDIT = new javax.swing.JButton();
+        R_SEARCH = new javax.swing.JButton();
+        R_RESET_ALL = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
@@ -152,8 +152,28 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel5);
         jLabel5.setBounds(10, 160, 110, 20);
+
+        jTextField5CheNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5CheNoActionPerformed(evt);
+            }
+        });
+        jTextField5CheNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField5CheKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5CheNoKeyTyped(evt);
+            }
+        });
         jPanel7.add(jTextField5CheNo);
         jTextField5CheNo.setBounds(200, 40, 200, 30);
+
+        jTextField6Branch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField6BranchKeyTyped(evt);
+            }
+        });
         jPanel7.add(jTextField6Branch);
         jTextField6Branch.setBounds(200, 160, 200, 30);
 
@@ -161,48 +181,44 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel24);
         jLabel24.setBounds(10, 240, 100, 20);
+
+        jTextField10amt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField10amtKeyTyped(evt);
+            }
+        });
         jPanel7.add(jTextField10amt);
         jTextField10amt.setBounds(200, 240, 200, 30);
 
-        ADDjButton4.setText("ADD");
-        ADDjButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ADDjButton4.addActionListener(new java.awt.event.ActionListener() {
+        D_ADD.setText("ADD");
+        D_ADD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        D_ADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ADDjButton4ActionPerformed(evt);
+                D_ADDActionPerformed(evt);
             }
         });
-        jPanel7.add(ADDjButton4);
-        ADDjButton4.setBounds(50, 280, 59, 23);
+        jPanel7.add(D_ADD);
+        D_ADD.setBounds(50, 280, 59, 23);
 
-        EDITjButton11.setText("EDIT");
-        EDITjButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        EDITjButton11.addActionListener(new java.awt.event.ActionListener() {
+        D_EDIT.setText("EDIT");
+        D_EDIT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        D_EDIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EDITjButton11ActionPerformed(evt);
+                D_EDITActionPerformed(evt);
             }
         });
-        jPanel7.add(EDITjButton11);
-        EDITjButton11.setBounds(130, 280, 61, 23);
+        jPanel7.add(D_EDIT);
+        D_EDIT.setBounds(130, 280, 61, 23);
 
-        SEARCHjButton12.setText("Search");
-        SEARCHjButton12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        SEARCHjButton12.addActionListener(new java.awt.event.ActionListener() {
+        D_SEARCH.setText("Search");
+        D_SEARCH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        D_SEARCH.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SEARCHjButton12ActionPerformed(evt);
+                D_SEARCHActionPerformed(evt);
             }
         });
-        jPanel7.add(SEARCHjButton12);
-        SEARCHjButton12.setBounds(210, 280, 73, 23);
-
-        DELETEjButton6.setText("DELETE");
-        DELETEjButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        DELETEjButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DELETEjButton6ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(DELETEjButton6);
-        DELETEjButton6.setBounds(300, 280, 80, 23);
+        jPanel7.add(D_SEARCH);
+        D_SEARCH.setBounds(210, 280, 73, 23);
 
         jLabel8.setText("Customer ID");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -244,15 +260,15 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel7.add(jLabel3);
         jLabel3.setBounds(10, 40, 130, 15);
 
-        jButton7.setText("Reset All");
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        D_RESET_ALL.setText("Reset All");
+        D_RESET_ALL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        D_RESET_ALL.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                D_RESET_ALLActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton7);
-        jButton7.setBounds(410, 280, 90, 23);
+        jPanel7.add(D_RESET_ALL);
+        D_RESET_ALL.setBounds(310, 280, 90, 23);
 
         demo_deposit.setText("Demo");
         demo_deposit.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
@@ -311,6 +327,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel9.setText("Cheque No ");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 110, -1));
+
+        jTextField2cno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2cnoKeyTyped(evt);
+            }
+        });
         jPanel3.add(jTextField2cno, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 180, 30));
 
         jLabel12.setText("Bank Name");
@@ -328,53 +350,50 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel16.setText("Amount");
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, -1));
+
+        jTextField5brname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5brnameKeyTyped(evt);
+            }
+        });
         jPanel3.add(jTextField5brname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 180, 30));
         jPanel3.add(jTextField6amt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 180, 30));
         jPanel3.add(datePicker2date, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 180, 30));
 
-        jButton1.setText("ADD");
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        W_ADD.setText("ADD");
+        W_ADD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        W_ADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                W_ADDActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
+        jPanel3.add(W_ADD, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
-        EditjButton2.setText("EDIT");
-        EditjButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        EditjButton2.addActionListener(new java.awt.event.ActionListener() {
+        W_EDIT.setText("EDIT");
+        W_EDIT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        W_EDIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EditjButton2ActionPerformed(evt);
+                W_EDITActionPerformed(evt);
             }
         });
-        jPanel3.add(EditjButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
+        jPanel3.add(W_EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
 
-        jButton3.setText("Search");
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
-
-        DeletejButton5.setText("DELETE");
-        DeletejButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        DeletejButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletejButton5ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(DeletejButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 280, -1, -1));
+        W_SEARCH.setText("Search");
+        W_SEARCH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel3.add(W_SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
 
         jComboBox1bank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Bank", "BOC", "Peoples Bank", "HNB ", "UNION", " " }));
         jComboBox1bank.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jComboBox1bank, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 180, 30));
 
-        jButton4.setText("Reset All");
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        W_RESET.setText("Reset All");
+        W_RESET.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        W_RESET.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                W_RESETActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 280, -1, -1));
+        jPanel3.add(W_RESET, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, -1, -1));
 
         demo_withdrawal.setText("Demo");
         demo_withdrawal.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -431,62 +450,67 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Section");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jPanel8.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Section", "Deposit", "Withdraw", "Expences" }));
+        jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel8.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 180, 30));
-
-        jLabel6.setText("Cheque No");
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
-        jPanel8.add(chequeN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 180, 30));
+        jPanel8.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 110, 180, 30));
 
         jLabel7.setText("Description");
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 160, -1, -1));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane3.setViewportView(jTextArea1);
 
-        jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, 180, -1));
+        jPanel8.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 180, 80));
 
         jLabel10.setText("Return Date");
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, -1, -1));
-        jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 180, 30));
+        jPanel8.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 180, 30));
 
         jLabel17.setText("Amount");
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
-        jPanel8.add(ChequeAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 180, 30));
+        jPanel8.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, -1, -1));
+        jPanel8.add(ChequeAmount, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, 180, 30));
 
-        jButton6.setText("ADD");
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
-
-        jButton8.setText("EDIT");
-        jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        R_ADD.setText("ADD");
+        R_ADD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        R_ADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                R_ADDActionPerformed(evt);
             }
         });
-        jPanel8.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
+        jPanel8.add(R_ADD, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
-        jButton9.setText("SEARH");
-        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
+        R_EDIT.setText("EDIT");
+        R_EDIT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        R_EDIT.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                R_EDITActionPerformed(evt);
+            }
+        });
+        jPanel8.add(R_EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
 
-        jButton10.setText("DELETE");
-        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
+        R_SEARCH.setText("SEARH");
+        R_SEARCH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel8.add(R_SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
+
+        R_RESET_ALL.setText("RESET ALL");
+        R_RESET_ALL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        R_RESET_ALL.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                R_RESET_ALLActionPerformed(evt);
+            }
+        });
+        jPanel8.add(R_RESET_ALL, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
 
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -501,11 +525,16 @@ public class BankDetail extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4", "Title 5"
             }
         ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
         jScrollPane4.setViewportView(jTable3);
 
-        jPanel9.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 590, 170));
+        jPanel9.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 590, 170));
 
-        jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 630, 210));
+        jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, 630, 210));
 
         jButton11.setText("Demo");
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -514,8 +543,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel10.setLayout(new java.awt.CardLayout());
 
-        DepositCombo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         DepositCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cheque No" }));
+        DepositCombo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         DepositCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DepositComboActionPerformed(evt);
@@ -550,7 +579,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
         jPanel8.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 110, 140, 30));
 
-        jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1310, -1));
+        jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1310, 530));
 
         jTabbedPane1.addTab("Return Cheques", jPanel5);
 
@@ -560,423 +589,14 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void ADDjButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDjButton4ActionPerformed
+//--------------------------DEPOSIT(ADD)---------------------------------------
+    private void D_ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D_ADDActionPerformed
         AddDeposit();
         TableLoad1();
-        FillTextCombo1();
-        generate_Cusid();
-        
-    }//GEN-LAST:event_ADDjButton4ActionPerformed
+        FillTextCombo1();   
+    }//GEN-LAST:event_D_ADDActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        AddWithraw();
-        TableLoad2();
-        FillTextCombo2();
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-       TextBoxClear1();
-    }//GEN-LAST:event_jButton7ActionPerformed
-
-    private void EDITjButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITjButton11ActionPerformed
-        // TODO add your handling code here:
-        EditDeposit();
-        TextBoxClear1();
-        TableLoad1();
-        
-    }//GEN-LAST:event_EDITjButton11ActionPerformed
-
-    private void EditjButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EditjButton2ActionPerformed
-        // TODO add your handling code here:
-        EditWithraw();
-        TextBoxClear2();
-        TableLoad2();
-        FillTextCombo2();
-    }//GEN-LAST:event_EditjButton2ActionPerformed
-
-    private void DELETEjButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEjButton6ActionPerformed
-     
-        String cno = jTextField5CheNo.getText();
-        
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_DEPOSIT DETAILS`\n" +
-        "WHERE Cheque_No LIKE '"+cno+"';");
-        
-        try
-        {
-            if (x==true)
-            {
-                TextBoxClear1();
-                TableLoad1();
-                JOptionPane.showMessageDialog(null,"Successfully Deleted");
-            }
-        }
-        catch (Exception ex){
-            System.out.println(ex);
-        }
-        
-    }//GEN-LAST:event_DELETEjButton6ActionPerformed
-
-    private void ReturnChequeCombo()
-    {
-        
-        try
-        {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
-                    + "FROM `garmentsystem`.`F_WITHDRAW DETAILS`;");
-            
-            while(AutoDB_Connect.DB_ResultSet.next())
-            {
-                String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
-                DepositCombo.addItem(cno);
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-    
-    }
-    
-    
-    
-    private void ReturnChequeCombo1()
-    {
-        
-        
-        try
-        {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
-                    + "FROM `garmentsystem`.`F_DEPOSIT DETAILS`;");
-        
-            
-            while(AutoDB_Connect.DB_ResultSet.next())
-            {
-                String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
-                WithDrawCombo.addItem(cno);
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-    
-    }
-
-
-    private void DeletejButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton5ActionPerformed
-        // TODO add your handling code here:
-         String cno = jTextField2cno.getText();
-        
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_WITHDRAW DETAILS`\n" +
-        "WHERE ChequeNo LIKE '"+cno+"';");
-        
-        try
-        {
-            if (x==true)
-            {
-                TextBoxClear2();
-                TableLoad2();
-                JOptionPane.showMessageDialog(null,"Successfully Deleted");
-            }
-        }
-        catch (Exception ex){
-            System.out.println(ex);
-        }
-    }//GEN-LAST:event_DeletejButton5ActionPerformed
-
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        
-           int row =jTable1.getSelectedRow();
-        String cno = jTable1.getValueAt(row,0).toString();
-        String cusid = jTable1.getValueAt(row,1).toString();
-        String b_name = jTable1.getValueAt(row,2).toString();
-        String br_name = jTable1.getValueAt(row,3).toString();
-        String date = jTable1.getValueAt(row,4).toString();
-        String amount = jTable1.getValueAt(row,5).toString();
-        
-      jTextField5CheNo.setText(cno);
-      jTextField1Cus.setText(cusid);
-      jComboBox2b_name.setSelectedItem(b_name);
-      jTextField6Branch.setText(br_name);
-      datePicker1date.setText(date); 
-      jTextField10amt.setText(amount);
-        
-    }//GEN-LAST:event_jTable1MouseClicked
-
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        // TODO add your handling code here:
-        
-         int row =jTable2.getSelectedRow();
-        String cno = jTable2.getValueAt(row,0).toString();
-        String b_name = jTable2.getValueAt(row,1).toString();
-        String br_name = jTable2.getValueAt(row,2).toString();
-        String w_date = jTable2.getValueAt(row,3).toString();
-        String amount = jTable2.getValueAt(row,4).toString();
-        
-      jTextField2cno.setText(cno);
-      jComboBox1bank.setSelectedItem(b_name);
-      jTextField5brname.setText(cno);
-      jTextField6Branch.setText(br_name);
-      datePicker2date.setText(w_date); 
-      jTextField6amt.setText(amount);
-       
-        
-    }//GEN-LAST:event_jTable2MouseClicked
-
-    private void SEARCHjButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARCHjButton12ActionPerformed
-        // TODO add your handling code here:
-       FillTextCombo1();
-       ChequeNoSearch();
-        
-    }//GEN-LAST:event_SEARCHjButton12ActionPerformed
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-        
-        String chequeNo = jComboBox2.getSelectedItem().toString();
-        try
-        {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
-                 + "FROM `garmentsystem`.`F_DEPOSIT DETAILS` where `Cheque_No` LIKE '"+chequeNo+"' ;");
-            
-            
-            while(AutoDB_Connect.DB_ResultSet.next())
-            {
-                String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
-                String custno = AutoDB_Connect.DB_ResultSet.getString("Customer ID");
-                String bank = AutoDB_Connect.DB_ResultSet.getString("BankName");
-                String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
-                String date = AutoDB_Connect.DB_ResultSet.getString("Deposit Date");
-                String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
-                
-                jTextField5CheNo.setText(cno);
-                jTextField1Cus.setText(custno);
-                jComboBox2b_name.setSelectedItem(bank);
-                jTextField6Branch.setText(branch);
-                datePicker1date.setText(date);
-                jTextField10amt.setText(amount);
-            }
-               
-                
-            
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-    }//GEN-LAST:event_jComboBox2ActionPerformed
-
-    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
-        // TODO add your handling code here:
-        String chequeNo1 = jComboBox4.getSelectedItem().toString();
-        try
-        {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
-                    + "FROM `garmentsystem`.`F_WITHDRAW DETAILS` where `ChequeNo` LIKE '"+chequeNo1+"' ;");
-            
-            
-            while(AutoDB_Connect.DB_ResultSet.next())
-            {
-                String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
-                String b_name = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
-                String br_name = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
-                String w_date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
-                String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
-                
-                jTextField2cno.setText(cno);
-                jComboBox1bank.setSelectedItem(b_name);
-                jTextField5brname.setText(br_name);
-                datePicker2date.setText(w_date);
-                jTextField6amt.setText(amount);
-                
-            }
-                      
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-                                          
-    }//GEN-LAST:event_jComboBox4ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-        TextBoxClear2();
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void WithDrawComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WithDrawComboActionPerformed
-
-        String chequeNo = WithDrawCombo.getSelectedItem().toString();
-        try
-        {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT `garmentsystem`.`F_WITHDRAW DETAILS`.`ChequeNo`,\n" +
-"    `F_WITHDRAW DETAILS`.`Bank Name`,\n" +
-"    `F_WITHDRAW DETAILS`.`Branch Name`,\n" +
-"    `F_WITHDRAW DETAILS`.`WithdrawDate`,\n" +
-"    `F_WITHDRAW DETAILS`.`Amount`\n" +
-"FROM `garmentsystem`.`F_WITHDRAW DETAILS` where `ChequeNo` LIKE '"+chequeNo+"' ;");
-            
-            ResultSet rs = AutoDB_Connect.DB_ResultSet;
-            
-            while(rs.next())
-            {
-            
-                String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
-                String bank = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
-                String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
-                String date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
-                String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
-                
-                chequeN.setText(cno);
-                
-                System.out.println(bank);
-                System.out.println(branch);
-                datePicker1.setText(date);
-                ChequeAmount.setText(amount);
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-        
-    }//GEN-LAST:event_WithDrawComboActionPerformed
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-
-         String chequeNo = WithDrawCombo.getSelectedItem().toString();
-        try
-        {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
-                    + "FROM `garmentsystem`.`F_WITHDRAW DETAILS` where `ChequeNo` LIKE '"+chequeNo+"' ;");
-            
-            ResultSet rs = AutoDB_Connect.DB_ResultSet;
-            
-            //while(rs.next())
-            while(AutoDB_Connect.DB_ResultSet.next())
-            {
-                 String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
-                String bank = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
-                String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
-                String date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
-                String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
-                
-                chequeN.setText(cno);
-                
-                System.out.println(bank);
-                System.out.println(branch);
-                datePicker1.setText(date);
-                ChequeAmount.setText(amount);
-            }
-        }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-        if(jComboBox1.getSelectedItem().equals("Deposit"))
-        {
-            jPanel12.setVisible(true);
-            jPanel11.setVisible(false);
-            ReturnChequeCombo1();
-            
-        }
-        else if(jComboBox1.getSelectedItem().equals("Withdraw"))
-        {
-            jPanel12.setVisible(false);
-            jPanel11.setVisible(true);
-            ReturnChequeCombo();
-        }
-            
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void DepositComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositComboActionPerformed
-
-         String chequeNo = DepositCombo.getSelectedItem().toString();
-         try
-        {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
-                    + "FROM `garmentsystem`.`F_DEPOSIT DETAILS` where `Cheque_No` LIKE '"+chequeNo+"' ;");
-            
-            
-            while(AutoDB_Connect.DB_ResultSet.next())
-            {
-                 String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
-                 String custid = AutoDB_Connect.DB_ResultSet.getString("Customer_ID");
-                 String bank = AutoDB_Connect.DB_ResultSet.getString("BankName");
-                 String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
-                String date = AutoDB_Connect.DB_ResultSet.getString("Deposit Date");
-                String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
-                
-                chequeN.setText(cno);
-                datePicker1.setText(date);
-                ChequeAmount.setText(amount);
-            }
-         }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-    }//GEN-LAST:event_DepositComboActionPerformed
-
-    private void demo_depositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_demo_depositActionPerformed
-        // TODO add your handling code here:
-    /*  jTextField5CheNo.setText("789");
-      jTextField1Cus.setText("mkm");
-      jComboBox2b_name.setSelectedIndexItem("BOC");
-      jTextField6Branch.setText("nk");
-      datePicker1date.setDateToToday(); 
-      jTextField10amt.setText("45200");*/
-    }//GEN-LAST:event_demo_depositActionPerformed
-
-    private void demo_withdrawalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_demo_withdrawalActionPerformed
-        // TODO add your handling code here:
-      jTextField2cno.setText("");
-      jComboBox1bank.setSelectedIndex(0);
-      jTextField5brname.setText("");
-      datePicker2date.setDateToToday();
-      jTextField6amt.setText("");
-    }//GEN-LAST:event_demo_withdrawalActionPerformed
-
-    private void jTextField1CusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1CusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1CusActionPerformed
-  
-    
-    
-  private void TableLoad1()
-  {
-      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT `F_DEPOSIT DETAILS`.`Cheque_No`,\n" +
-"    `F_DEPOSIT DETAILS`.`Customer ID`,\n" +
-"    `F_DEPOSIT DETAILS`.`BankName`,\n" +
-"    `F_DEPOSIT DETAILS`.`Branch Name`,\n" +
-"    `F_DEPOSIT DETAILS`.`Deposit Date`,\n" +
-"    `F_DEPOSIT DETAILS`.`Amount`\n" +
-"FROM `garmentsystem`.`F_DEPOSIT DETAILS`;");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
-
-  }
-   
-  private void TableLoad2()
-  {
-      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT `F_WITHDRAW DETAILS`.`ChequeNo`,\n" +
-"    `F_WITHDRAW DETAILS`.`Bank Name`,\n" +
-"    `F_WITHDRAW DETAILS`.`Branch Name`,\n" +
-"    `F_WITHDRAW DETAILS`.`WithdrawDate`,\n" +
-"    `F_WITHDRAW DETAILS`.`Amount`\n" +
-"FROM `garmentsystem`.`F_WITHDRAW DETAILS`;");
-            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
-  }
-  public void AddDeposit()
+     public void AddDeposit()
   {
       if(validation.ValidationCheck(jTextField5CheNo, true, 0, '1')
         &&validation.ValidationCheck(jTextField1Cus, true,0,'@')
@@ -1031,8 +651,15 @@ public class BankDetail extends javax.swing.JInternalFrame {
       datePicker1date.setDateToToday(); 
       jTextField10amt.setText("");
   }
-  
-  public void AddWithraw()
+  //--------------------------------WITHROW(ADD)-------------------------------
+    private void W_ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_W_ADDActionPerformed
+        // TODO add your handling code here:
+        AddWithraw();
+        TableLoad2();
+        FillTextCombo2();
+    }//GEN-LAST:event_W_ADDActionPerformed
+
+    public void AddWithraw()
   {
        if(validation.ValidationCheck(jTextField2cno, true, 0, '1')
         &&validation.ValidationCheck(jTextField5brname, true,0,'@')
@@ -1080,7 +707,23 @@ public class BankDetail extends javax.swing.JInternalFrame {
       datePicker2date.setDateToToday();
       jTextField6amt.setText("");
   }
-  public void  EditDeposit()
+    
+    private void D_RESET_ALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D_RESET_ALLActionPerformed
+
+       TextBoxClear1();
+    }//GEN-LAST:event_D_RESET_ALLActionPerformed
+
+    
+  //--------------------DEPOSIT(EDIT)---------------------------------------- 
+    private void D_EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D_EDITActionPerformed
+        // TODO add your handling code here:
+        EditDeposit();
+        TextBoxClear1();
+        TableLoad1();
+        
+    }//GEN-LAST:event_D_EDITActionPerformed
+ 
+    public void  EditDeposit()
   {
       
       String cno = jTextField5CheNo.getText();
@@ -1113,7 +756,17 @@ public class BankDetail extends javax.swing.JInternalFrame {
         }
   }
   
-     public void EditWithraw()
+  //--------------------WITHROW(EDIT)-------------------------------------------
+    private void W_EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_W_EDITActionPerformed
+        // TODO add your handling code here:
+        EditWithraw();
+        TextBoxClear2();
+        TableLoad2();
+        FillTextCombo2();
+    }//GEN-LAST:event_W_EDITActionPerformed
+
+  
+   public void EditWithraw()
      {
         
           String cno = jTextField2cno.getText();
@@ -1143,6 +796,549 @@ public class BankDetail extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
      }
+   
+   
+   
+   
+    private void ReturnChequeCombo()
+    {
+        
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
+                    + "FROM `garmentsystem`.`F_WITHDRAW DETAILS`;");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
+                DepositCombo.addItem(cno);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    
+    }
+    
+    
+    
+    private void ReturnChequeCombo1()
+    {
+        
+        
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
+                    + "FROM `garmentsystem`.`F_DEPOSIT DETAILS`;");
+        
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
+                WithDrawCombo.addItem(cno);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    
+    }
+
+
+    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+
+        
+           int row =jTable1.getSelectedRow();
+        String cno = jTable1.getValueAt(row,0).toString();
+        String cusid = jTable1.getValueAt(row,1).toString();
+        String b_name = jTable1.getValueAt(row,2).toString();
+        String br_name = jTable1.getValueAt(row,3).toString();
+        String date = jTable1.getValueAt(row,4).toString();
+        String amount = jTable1.getValueAt(row,5).toString();
+        
+      jTextField5CheNo.setText(cno);
+      jTextField1Cus.setText(cusid);
+      jComboBox2b_name.setSelectedItem(b_name);
+      jTextField6Branch.setText(br_name);
+      datePicker1date.setText(date); 
+      jTextField10amt.setText(amount);
+        
+    }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        
+         int row =jTable2.getSelectedRow();
+        String cno = jTable2.getValueAt(row,0).toString();
+        String b_name = jTable2.getValueAt(row,1).toString();
+        String br_name = jTable2.getValueAt(row,2).toString();
+        String w_date = jTable2.getValueAt(row,3).toString();
+        String amount = jTable2.getValueAt(row,4).toString();
+        
+      jTextField2cno.setText(cno);
+      jComboBox1bank.setSelectedItem(b_name);
+      jTextField5brname.setText(cno);
+      jTextField6Branch.setText(br_name);
+      datePicker2date.setText(w_date); 
+      jTextField6amt.setText(amount);
+       
+        
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void D_SEARCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D_SEARCHActionPerformed
+        // TODO add your handling code here:
+       FillTextCombo1();
+       ChequeNoSearch();
+        
+    }//GEN-LAST:event_D_SEARCHActionPerformed
+//----------------RETURN_CHEQUE(EDIT)------------------------------------------
+    private void R_EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R_EDITActionPerformed
+       
+        EditReturn();
+        TextBoxClear3();
+        TableLoad3();
+    }//GEN-LAST:event_R_EDITActionPerformed
+        public void EditReturn(){
+     if(
+        
+             validation.ValidationCheck(ChequeAmount, true,0,'1'))
+     {
+         String section = jComboBox1.getSelectedItem().toString();
+      String Des = jTextArea1.getText();
+      String date = datePicker1.getText() ;
+      float amount =Float.parseFloat(ChequeAmount.getText());
+      
+       boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`RETURN_CHEQUE`\n" +
+"SET\n" +
+"`section` = '"+section+"',\n" +
+"`description` = '"+Des+"',\n" +
+"`returnDate` = '"+date+"',\n" +
+"`amount` = "+amount+"\n" +
+"WHERE `section` = '"+section+"';");
+         try
+        {
+            if (x==true)
+            {
+               TextBoxClear3();
+                 TableLoad3();
+               JOptionPane.showMessageDialog(null,"Successfully Updated");
+            }
+        }
+        catch (Exception ex){
+            System.out.println(ex);
+        }
+     }
+         }
+        
+     
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+       
+        
+   String chequeNo = jComboBox2.getSelectedItem().toString();
+     try
+      {
+          AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
+                  + "FROM `garmentsystem`.`F_DEPOSIT DETAILS`"
+                  + " where `Cheque_No` LIKE '"+chequeNo+"' ;");
+            
+            
+       while(AutoDB_Connect.DB_ResultSet.next())
+        {
+          String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
+          String custno = AutoDB_Connect.DB_ResultSet.getString("Customer ID");
+          String bank = AutoDB_Connect.DB_ResultSet.getString("BankName");
+          String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
+          String date = AutoDB_Connect.DB_ResultSet.getString("Deposit Date");
+          String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
+                
+                jTextField5CheNo.setText(cno);
+                jTextField1Cus.setText(custno);
+                jComboBox2b_name.setSelectedItem(bank);
+                jTextField6Branch.setText(branch);
+                datePicker1date.setText(date);
+                jTextField10amt.setText(amount);
+            }
+               
+                
+            
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
+        // TODO add your handling code here:
+        String chequeNo1 = jComboBox4.getSelectedItem().toString();
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
+                    + "FROM `garmentsystem`.`F_WITHDRAW DETAILS` "
+                    + "where `ChequeNo` LIKE '"+chequeNo1+"' ;");
+            
+            
+       while(AutoDB_Connect.DB_ResultSet.next())
+        {
+           String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
+           String b_name = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
+           String br_name = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
+           String w_date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
+           String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
+                
+                jTextField2cno.setText(cno);
+                jComboBox1bank.setSelectedItem(b_name);
+                jTextField5brname.setText(br_name);
+                datePicker2date.setText(w_date);
+                jTextField6amt.setText(amount);
+                
+            }
+                      
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+                                          
+    }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void W_RESETActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_W_RESETActionPerformed
+        // TODO add your handling code here:
+        TextBoxClear2();
+    }//GEN-LAST:event_W_RESETActionPerformed
+
+    private void WithDrawComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WithDrawComboActionPerformed
+
+        String chequeNo = WithDrawCombo.getSelectedItem().toString();
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery(""
+     + "SELECT `garmentsystem`.`F_WITHDRAW DETAILS`.`ChequeNo`,\n" +
+"    `F_WITHDRAW DETAILS`.`Bank Name`,\n" +
+"    `F_WITHDRAW DETAILS`.`Branch Name`,\n" +
+"    `F_WITHDRAW DETAILS`.`WithdrawDate`,\n" +
+"    `F_WITHDRAW DETAILS`.`Amount`\n" +
+"FROM `garmentsystem`.`F_WITHDRAW DETAILS` where `ChequeNo` LIKE '"+chequeNo+"' ;");
+            
+            ResultSet rs = AutoDB_Connect.DB_ResultSet;
+            
+         while(rs.next())
+          {
+            
+            String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
+            String bank = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
+            String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
+            String date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
+            String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
+                
+             //   chequeN.setText(cno);
+                
+                System.out.println(bank);
+                System.out.println(branch);
+                datePicker1.setText(date);
+                ChequeAmount.setText(amount);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+    }//GEN-LAST:event_WithDrawComboActionPerformed
+
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+
+      /*   if(jComboBox1.getSelectedItem().equals("Deposit"))
+        {
+            generate_Diposit();
+        }
+        else if(jComboBox1.getSelectedItem().equals("Withdraw"))
+        {
+            generate_withdrow();
+        }
+         else 
+        {
+            generate_Expences();
+        }
+        */
+        
+        
+         String chequeNo = WithDrawCombo.getSelectedItem().toString();
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
+                    + "FROM `garmentsystem`.`F_WITHDRAW DETAILS` where `ChequeNo` LIKE '"+chequeNo+"' ;");
+            
+            ResultSet rs = AutoDB_Connect.DB_ResultSet;
+            
+            //while(rs.next())
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                 String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
+                String bank = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
+                String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
+                String date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
+                String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
+                
+               // chequeN.setText(cno);
+                
+                System.out.println(bank);
+                System.out.println(branch);
+                datePicker1.setText(date);
+                ChequeAmount.setText(amount);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        if(jComboBox1.getSelectedItem().equals("Deposit"))
+        {
+            jPanel12.setVisible(true);
+            jPanel11.setVisible(false);
+            ReturnChequeCombo1();
+            
+        }
+        else if(jComboBox1.getSelectedItem().equals("Withdraw"))
+        {
+            jPanel12.setVisible(false);
+            jPanel11.setVisible(true);
+            ReturnChequeCombo();
+        }
+            
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void DepositComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositComboActionPerformed
+
+         String chequeNo = DepositCombo.getSelectedItem().toString();
+         try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery(""
+                    + "SELECT *"
+                    + "FROM `garmentsystem`.`F_DEPOSIT DETAILS` "
+                    + "where `Cheque_No` LIKE '"+chequeNo+"' ;");
+            
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+              String cno = AutoDB_Connect.DB_ResultSet.getString("Cheque_No");
+              String custid = AutoDB_Connect.DB_ResultSet.getString("Customer_ID");
+              String bank = AutoDB_Connect.DB_ResultSet.getString("BankName");
+              String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
+              String date = AutoDB_Connect.DB_ResultSet.getString("Deposit Date");
+              String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
+               
+              //  chequeN.setText(cno);
+                datePicker1.setText(date);
+                ChequeAmount.setText(amount);
+            }
+         }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_DepositComboActionPerformed
+
+    private void demo_depositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_demo_depositActionPerformed
+        // TODO add your handling code here:
+    /*  jTextField5CheNo.setText("789");
+      jTextField1Cus.setText("mkm");
+      jComboBox2b_name.setSelectedIndexItem("BOC");
+      jTextField6Branch.setText("nk");
+      datePicker1date.setDateToToday(); 
+      jTextField10amt.setText("45200");*/
+    }//GEN-LAST:event_demo_depositActionPerformed
+
+    private void demo_withdrawalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_demo_withdrawalActionPerformed
+        // TODO add your handling code here:
+      jTextField2cno.setText("");
+      jComboBox1bank.setSelectedIndex(0);
+      jTextField5brname.setText("");
+      datePicker2date.setDateToToday();
+      jTextField6amt.setText("");
+    }//GEN-LAST:event_demo_withdrawalActionPerformed
+
+    private void jTextField1CusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1CusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1CusActionPerformed
+
+    private void jTextField5CheNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5CheNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5CheNoActionPerformed
+
+    private void jTextField5CheKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5CheKeyPressed
+       
+    }//GEN-LAST:event_jTextField5CheKeyPressed
+
+    private void jTextField5CheNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5CheNoKeyTyped
+      char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_jTextField5CheNoKeyTyped
+
+    private void jTextField6BranchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6BranchKeyTyped
+       char c=evt.getKeyChar();
+      {
+          if(!(Character.isLetter(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Numbers");
+          }
+      }
+    }//GEN-LAST:event_jTextField6BranchKeyTyped
+
+    private void jTextField2cnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2cnoKeyTyped
+         char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_jTextField2cnoKeyTyped
+
+    private void jTextField5brnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5brnameKeyTyped
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isLetter(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Numbers");
+          }
+      }
+    }//GEN-LAST:event_jTextField5brnameKeyTyped
+
+    private void jTextField10amtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10amtKeyTyped
+   
+    }//GEN-LAST:event_jTextField10amtKeyTyped
+
+    //--------------------RETURN(ADD)------------------------------------------
+    
+    private void R_ADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R_ADDActionPerformed
+       AddReturnCheque();
+       TableLoad3();
+       
+    }//GEN-LAST:event_R_ADDActionPerformed
+
+     public void AddReturnCheque()
+  {
+      if(
+        validation.ValidationCheck(ChequeAmount, true,0,'1'))
+      {
+      String section = jComboBox1.getSelectedItem().toString();
+      String Des = jTextArea1.getText();
+      String date = datePicker1.getText() ;
+      float amount =Float.parseFloat(ChequeAmount.getText());
+  
+
+  boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`RETURN_CHEQUE`\n" +
+"(`section`,\n" +
+"`description`,\n" +
+"`returnDate`,\n" +
+"`amount`)\n" +
+"VALUES\n" +
+"('"+section+"',\n" +
+"'"+Des+"',\n" +
+"'"+date+"',\n" +
+""+amount+");");
+  
+        try
+        {
+            if(x==true)
+            {
+                TableLoad3();
+                TextBoxClear3();
+                JOptionPane.showMessageDialog(null,"Successfully Added");
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }    
+      } 
+  }
+     
+       private void TextBoxClear3()
+  {
+     
+      jComboBox1.setSelectedIndex(0);
+      jTextArea1.setText("");
+      datePicker1.setDateToToday();
+      ChequeAmount.setText("");
+  }
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        int row =jTable3.getSelectedRow();
+        String section = jTable3.getValueAt(row,0).toString();
+        String Des = jTable3.getValueAt(row,1).toString();
+        String date = jTable3.getValueAt(row,2).toString();
+        String amount = jTable3.getValueAt(row,3).toString();
+       
+        
+      jComboBox1.setSelectedItem(section);
+      jTextArea1.setText(Des);
+      datePicker1.setText(date); 
+      ChequeAmount.setText(amount);
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void R_RESET_ALLActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R_RESET_ALLActionPerformed
+       TextBoxClear3();
+        
+    }//GEN-LAST:event_R_RESET_ALLActionPerformed
+  
+    
+    
+  private void TableLoad1()
+  {
+      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT `F_DEPOSIT DETAILS`.`Cheque_No`,\n" +
+"    `F_DEPOSIT DETAILS`.`Customer ID`,\n" +
+"    `F_DEPOSIT DETAILS`.`BankName`,\n" +
+"    `F_DEPOSIT DETAILS`.`Branch Name`,\n" +
+"    `F_DEPOSIT DETAILS`.`Deposit Date`,\n" +
+"    `F_DEPOSIT DETAILS`.`Amount`\n" +
+"FROM `garmentsystem`.`F_DEPOSIT DETAILS`;");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+  }
+   
+  private void TableLoad2()
+  {
+      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT `F_WITHDRAW DETAILS`.`ChequeNo`,\n" +
+"    `F_WITHDRAW DETAILS`.`Bank Name`,\n" +
+"    `F_WITHDRAW DETAILS`.`Branch Name`,\n" +
+"    `F_WITHDRAW DETAILS`.`WithdrawDate`,\n" +
+"    `F_WITHDRAW DETAILS`.`Amount`\n" +
+"FROM `garmentsystem`.`F_WITHDRAW DETAILS`;");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+  }
+ 
+  
+     private void TableLoad3()
+  {
+      AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT `RETURN_CHEQUE`.`section`,\n" +
+"    `RETURN_CHEQUE`.`description`,\n" +
+"    `RETURN_CHEQUE`.`returnDate`,\n" +
+"    `RETURN_CHEQUE`.`amount`\n" +
+"FROM `garmentsystem`.`RETURN_CHEQUE`;");
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+  }
+  
+ 
+  
+    
      
      
       private void FillTextCombo1()
@@ -1183,44 +1379,59 @@ public class BankDetail extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
+      
+      
+      
+      //----------------------DEPOSIT(SEARCH)-----------------------------------
       public void ChequeNoSearch()
       {
          
            String b_name = jComboBox2b_name.getSelectedItem().toString();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_DEPOSIT DETAILS WHERE BankName LIKE '"+b_name+"%'");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * "
+                    + "FROM garmentsystem.F_DEPOSIT DETAILS "
+                    + "WHERE BankName LIKE '"+b_name+"%'");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
           
       }
-       private void generate_Cusid(){
+    
+    /*   private void generate_Diposit(){
     AutoIdGenerator aid = new AutoIdGenerator();
-    jTextField1Cus.setText(aid.generate("cus",Integer.toString(MainWindow.userid)));
+    chequeN.setText(aid.generate("DEP",Integer.toString(MainWindow.userid)));
     }
     
+    private void generate_withdrow(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    chequeN.setText(aid.generate("WIT",Integer.toString(MainWindow.userid)));
+    }
+    private void generate_Expences(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    chequeN.setText(aid.generate("EXP",Integer.toString(MainWindow.userid)));
+    }*/
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ADDjButton4;
     private javax.swing.JTextField ChequeAmount;
-    private javax.swing.JButton DELETEjButton6;
-    private javax.swing.JButton DeletejButton5;
+    private javax.swing.JButton D_ADD;
+    private javax.swing.JButton D_EDIT;
+    private javax.swing.JButton D_RESET_ALL;
+    private javax.swing.JButton D_SEARCH;
     private javax.swing.JComboBox<String> DepositCombo;
-    private javax.swing.JButton EDITjButton11;
-    private javax.swing.JButton EditjButton2;
-    private javax.swing.JButton SEARCHjButton12;
+    private javax.swing.JButton R_ADD;
+    private javax.swing.JButton R_EDIT;
+    private javax.swing.JButton R_RESET_ALL;
+    private javax.swing.JButton R_SEARCH;
+    private javax.swing.JButton W_ADD;
+    private javax.swing.JButton W_EDIT;
+    private javax.swing.JButton W_RESET;
+    private javax.swing.JButton W_SEARCH;
     private javax.swing.JComboBox<String> WithDrawCombo;
-    private javax.swing.JTextField chequeN;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker1date;
     private com.github.lgooddatepicker.components.DatePicker datePicker2date;
     private javax.swing.JButton demo_deposit;
     private javax.swing.JButton demo_withdrawal;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox1bank;
     private javax.swing.JComboBox<String> jComboBox2;
@@ -1240,7 +1451,6 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;

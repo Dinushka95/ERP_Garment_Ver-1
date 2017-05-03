@@ -9,6 +9,7 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -144,12 +145,20 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
                 CostActionPerformed(evt);
             }
         });
+        Cost.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CostKeyTyped(evt);
+            }
+        });
         jPanel11.add(Cost);
         Cost.setBounds(180, 100, 180, 30);
 
         rate1.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 rate1KeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                rate1KeyTyped(evt);
             }
         });
         jPanel11.add(rate1);
@@ -356,6 +365,28 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void CostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostKeyTyped
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_CostKeyTyped
+
+    private void rate1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rate1KeyTyped
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_rate1KeyTyped
      private void generate_Asstid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     Fixass.setText(aid.generate("ASST",Integer.toString(MainWindow.userid)));
