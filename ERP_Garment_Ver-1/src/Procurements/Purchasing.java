@@ -187,6 +187,8 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jLabel2.setText("Purchase Description");
         jLabel2.setName("Purchase Description"); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        odno.setName("Order No"); // NOI18N
         jPanel1.add(odno, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 210, -1));
 
         des.setName("Purchase Description"); // NOI18N
@@ -218,6 +220,7 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
 
         tot.setEditable(false);
+        tot.setName("Total amount"); // NOI18N
         tot.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 totKeyPressed(evt);
@@ -340,7 +343,7 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
         jPanel2.add(odno1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 210, -1));
 
-        des1.setName("Purchase Item Name"); // NOI18N
+        des1.setName("Purchase Description"); // NOI18N
         jPanel2.add(des1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 210, -1));
 
         jLabel9.setText("Quantity");
@@ -521,7 +524,7 @@ public class Purchasing extends javax.swing.JInternalFrame {
 
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 890, 590));
         jPanel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
-        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, 180, -1));
+        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 180, -1));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel6.setLayout(new java.awt.CardLayout());

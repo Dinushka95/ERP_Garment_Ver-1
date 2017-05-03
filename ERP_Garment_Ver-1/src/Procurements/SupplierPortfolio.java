@@ -161,29 +161,45 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Website");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(283, 108, -1, -1));
+
+        jTextField1.setName("ID"); // NOI18N
         jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 74, 107, -1));
+
+        jTextField2.setName("Name"); // NOI18N
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 100, 107, -1));
+
+        jTextField3.setName("Propreitor"); // NOI18N
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 74, 107, -1));
+
+        jTextField4.setName("Website"); // NOI18N
         jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(375, 105, 107, -1));
 
         jLabel6.setText("Address");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 143, -1, -1));
         jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 163, 456, 10));
 
-        jLabel7.setText("Address 1");
+        jLabel7.setText("Address");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(42, 182, -1, -1));
+
+        jTextField5.setName("Address"); // NOI18N
         jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 180, 102, -1));
 
         jLabel9.setText("City");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+
+        jTextField7.setName("City"); // NOI18N
         jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 220, 102, -1));
 
         jLabel10.setText("Country");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(285, 182, -1, -1));
+
+        jTextField8.setName("Country"); // NOI18N
         jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 179, 102, -1));
 
         jLabel11.setText("Postal code");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 220, -1, -1));
+
+        jTextField9.setName("Postal code"); // NOI18N
         jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, 102, -1));
 
         jLabel12.setText("Contact");
@@ -192,15 +208,23 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
 
         jLabel13.setText("Tel No");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 328, -1, -1));
+
+        jTextField10.setName("Tel No"); // NOI18N
         jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 325, 119, -1));
 
         jLabel14.setText("E-mail");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 366, -1, -1));
+
+        jTextField11.setName("E-mail"); // NOI18N
         jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 363, 119, -1));
+
+        jTextField13.setName("Fax"); // NOI18N
         jPanel1.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 394, 119, -1));
 
         jLabel15.setText("Account No");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(46, 435, -1, -1));
+
+        jTextField14.setName("Account No"); // NOI18N
         jPanel1.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 432, 119, -1));
 
         jLabel16.setText("Fax");
@@ -262,47 +286,71 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
 
         jLabel22.setText("Name");
         jPanel4.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+
+        jTextField16.setName("Supplier ID"); // NOI18N
         jPanel4.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 60, 110, -1));
+
+        jTextField17.setName("Name"); // NOI18N
         jPanel4.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, 110, -1));
 
         jLabel23.setText("Propreitor");
         jPanel4.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, -1, -1));
+
+        jTextField18.setName("Propreitor"); // NOI18N
         jPanel4.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 120, 110, -1));
 
         jLabel24.setText("Website");
         jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, -1, -1));
+
+        jTextField19.setName("Website"); // NOI18N
         jPanel4.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, 110, -1));
 
-        jLabel25.setText("Address 1");
+        jLabel25.setText("Address");
         jPanel4.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
+
+        jTextField20.setName("Address"); // NOI18N
         jPanel4.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, 110, -1));
 
         jLabel27.setText("City");
         jPanel4.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+
+        jTextField22.setName("City"); // NOI18N
         jPanel4.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, 110, -1));
 
         jLabel28.setText("Country");
         jPanel4.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
+
+        jTextField23.setName("Country"); // NOI18N
         jPanel4.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 110, -1));
 
         jLabel29.setText("Postal code");
         jPanel4.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+
+        jTextField24.setName("Postal code"); // NOI18N
         jPanel4.add(jTextField24, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 110, -1));
 
         jLabel30.setText("Tel No");
         jPanel4.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, -1, -1));
+
+        jTextField25.setName("Tel No"); // NOI18N
         jPanel4.add(jTextField25, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 320, 110, -1));
 
         jLabel31.setText("E-mail");
         jPanel4.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, -1, -1));
+
+        jTextField26.setName("E-mail"); // NOI18N
         jPanel4.add(jTextField26, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 350, 110, -1));
 
         jLabel32.setText("Fax");
         jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 380, -1, -1));
+
+        jTextField27.setName("Fax"); // NOI18N
         jPanel4.add(jTextField27, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 110, -1));
 
         jLabel33.setText("Account No");
         jPanel4.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, -1, -1));
+
+        jTextField28.setName("Account No"); // NOI18N
         jPanel4.add(jTextField28, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, 110, -1));
 
         jButton2.setText("Update");
@@ -328,6 +376,8 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
 
         jLabel19.setText("Name");
         jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        jTextField15.setName("Search"); // NOI18N
         jPanel6.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 210, -1));
 
         jButton4.setText("Search");
@@ -451,8 +501,11 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        
-        SupplierNameSearch();
+
+        if(validation.ValidationCheck(jTextField15, true, 0, 'a'))
+        {
+            SupplierNameSearch();
+        }
         
     }//GEN-LAST:event_jButton4ActionPerformed
 
