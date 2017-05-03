@@ -416,8 +416,9 @@ private void Tableload()
     }
    public void  EditExp()
   {
-      if(validation.ValidationCheck(jTextField1bill, true, 0, '@')&&validation.ValidationCheck
-        (jTextArea1description, true,0,'@')&&validation.ValidationCheck(jTextField2amt, true,0,'1'))
+              if(validation.ValidationCheck(jTextField1bill, true, 0, '@')
+              &&validation.ValidationCheck(jTextArea1description, true,0,'@')
+              &&validation.ValidationCheck(jTextField2amt, true,0,'1'))
       {
       String Billno = jTextField1bill.getText();
       String exType = jComboBox3type.getSelectedItem().toString();
