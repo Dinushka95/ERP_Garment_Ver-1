@@ -138,7 +138,6 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel8.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1465, 265, -1, -1));
 
         Deletecost.setText("DELETE");
-        Deletecost.setActionCommand("DELETE");
         Deletecost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Deletecost.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -246,6 +245,11 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jTextFieldFinalCost.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jTextFieldFinalCostMouseExited(evt);
+            }
+        });
+        jTextFieldFinalCost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldFinalCostActionPerformed(evt);
             }
         });
         jPanel6.add(jTextFieldFinalCost, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 220, 100, 30));
@@ -384,8 +388,8 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         });
         jPanel8.add(AddCost1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 450, -1, -1));
 
-        update.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         update.setText("UPDATE");
+        update.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updateActionPerformed(evt);
@@ -474,7 +478,8 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     {
         try
         {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Accessory_Table`");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`Accessory_Table`");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
@@ -565,14 +570,18 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         String id = AccNumber.getSelectedItem().toString();
          try
         {
-            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Accessory_Table` WHERE accessory_id LIKE '"+id+"'");
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`Accessory_Table` "
+                + "WHERE accessory_id LIKE '"+id+"'");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String name = AutoDB_Connect.DB_ResultSet.getString("accessory_name");
+                String name = AutoDB_Connect.DB_ResultSet.getString
+        ("accessory_name");
                 Acce.setText(name);
                 
-                String cost = AutoDB_Connect.DB_ResultSet.getString("accessory_cost");
+                String cost = AutoDB_Connect.DB_ResultSet.getString
+        ("accessory_cost");
                 jTextFieldCost.setText(cost);
                 
             }
@@ -634,7 +643,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
 
     private void jTextFieldFinalCostMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldFinalCostMouseExited
         // TODO add your handling code here:
-        
+        //CALCULATING FINAL COST OF BILL OF MATERIAL
         String qty12=jTextFieldQuantatiy1.getText();
         String cost12=jTextFieldCost.getText();
         
@@ -644,6 +653,10 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jTextFieldFinalCostMouseExited
+
+    private void jTextFieldFinalCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFinalCostActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldFinalCostActionPerformed
     
     
      public void AddDesignCostBilling()

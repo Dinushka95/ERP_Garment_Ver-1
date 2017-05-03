@@ -1,15 +1,13 @@
 
 package StyleManagement;
 
-import MainSystem.AutoIdGenerator;
 import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
-import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
-import static MainSystem.MainWindow.validation;
-
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
+
 /**
  *
  * @author Dinushka
@@ -73,7 +71,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jLabel33 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        tbldelete = new javax.swing.JTable();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
@@ -95,6 +93,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         id16 = new javax.swing.JLabel();
         Editbtn1 = new javax.swing.JButton();
         ResetViewUpdateDesign1 = new javax.swing.JButton();
+        tblsort = new javax.swing.JLabel();
+        sorttxt = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel35 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
@@ -102,6 +102,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jLabel44 = new javax.swing.JLabel();
+        sort_txt = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jScrollPane7 = new javax.swing.JScrollPane();
@@ -208,7 +210,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jButton8.setForeground(new java.awt.Color(0, 0, 153));
         jPanel10.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 576, -1, -1));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        tbldelete.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null, null, null, null},
@@ -219,12 +221,12 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
                 "Style ID", "Style Description", "Size", "Gender", "Type", "Collection", "Color", "Designer", "Status", "Date"
             }
         ));
-        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbldelete.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable2MouseClicked(evt);
+                tbldeleteMouseClicked(evt);
             }
         });
-        jScrollPane4.setViewportView(jTable2);
+        jScrollPane4.setViewportView(tbldelete);
 
         jPanel10.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 261, 924, 153));
 
@@ -319,6 +321,23 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         });
         jPanel10.add(ResetViewUpdateDesign1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 450, -1, -1));
 
+        tblsort.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        tblsort.setText("Sort Table");
+        jPanel10.add(tblsort, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 210, -1, -1));
+
+        sorttxt.setToolTipText("Clothe Type?");
+        sorttxt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sorttxtMouseClicked(evt);
+            }
+        });
+        sorttxt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sorttxtActionPerformed(evt);
+            }
+        });
+        jPanel10.add(sorttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 200, 110, 29));
+
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         jPanel5.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1270, 490));
@@ -349,7 +368,14 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         });
         jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
-        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 180, 180));
+        jLabel44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel44.setText("Gender");
+        jPanel8.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
+
+        sort_txt.setToolTipText("Gender");
+        jPanel8.add(sort_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 110, -1));
+
+        jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, 180));
 
         jLabel20.setText("Style ID");
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -529,19 +555,20 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         TableLoad3();
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+    private void tbldeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbldeleteMouseClicked
         // TODO add your handling code here:
-        int row =jTable2.getSelectedRow();
-        String id = jTable2.getValueAt(row,0).toString();
-        String des = jTable2.getValueAt(row,1).toString();
-        String size = jTable2.getValueAt(row,2).toString();
-        String gender = jTable2.getValueAt(row,3).toString();
-        String type = jTable2.getValueAt(row,4).toString();
-        String collection = jTable2.getValueAt(row,5).toString();
-        String colour = jTable2.getValueAt(row,6).toString();
-        String designer = jTable2.getValueAt(row,7).toString();
-        String status = jTable2.getValueAt(row,8).toString();
-        String date = jTable2.getValueAt(row,9).toString();
+        
+        int row =tbldelete.getSelectedRow();
+        String id = tbldelete.getValueAt(row,0).toString();
+        String des = tbldelete.getValueAt(row,1).toString();
+        String size = tbldelete.getValueAt(row,2).toString();
+        String gender = tbldelete.getValueAt(row,3).toString();
+        String type = tbldelete.getValueAt(row,4).toString();
+        String collection = tbldelete.getValueAt(row,5).toString();
+        String colour = tbldelete.getValueAt(row,6).toString();
+        String designer = tbldelete.getValueAt(row,7).toString();
+        String status = tbldelete.getValueAt(row,8).toString();
+        String date = tbldelete.getValueAt(row,9).toString();
 
         id16.setText(id);
         styleDes1.setText(des);
@@ -553,7 +580,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         deletetype.setText(type);
         deletestatus.setText(status);
         
-    }//GEN-LAST:event_jTable2MouseClicked
+    }//GEN-LAST:event_tbldeleteMouseClicked
 
     private void DeleteCreateDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteCreateDesignActionPerformed
         // TODO add your handling code here:
@@ -581,6 +608,16 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         //Reset all textfields of delete designs
          clearDeleteDesign();
     }//GEN-LAST:event_ResetViewUpdateDesign1ActionPerformed
+
+    private void sorttxtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sorttxtMouseClicked
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_sorttxtMouseClicked
+
+    private void sorttxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sorttxtActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_sorttxtActionPerformed
 
         public void UpdateAddedDesigns(){
           
@@ -686,7 +723,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private void Table2Load(){
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT * FROM garmentsystem.T_Design_table");
-            jTable2.setModel(DbUtils.resultSetToTableModel
+            tbldelete.setModel(DbUtils.resultSetToTableModel
         (AutoDB_Connect.DB_ResultSet));
         
     }
@@ -839,6 +876,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -851,11 +889,14 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextField size_txt;
+    private javax.swing.JTextField sort_txt;
+    private javax.swing.JTextField sorttxt;
     private javax.swing.JTextField status_txt;
     private javax.swing.JLabel stid;
     private javax.swing.JTextArea styleDes1;
+    private javax.swing.JTable tbldelete;
+    private javax.swing.JLabel tblsort;
     private javax.swing.JTextField type_txt;
     // End of variables declaration//GEN-END:variables
 
