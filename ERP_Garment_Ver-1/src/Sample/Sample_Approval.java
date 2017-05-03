@@ -408,6 +408,11 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
 
         Sampleids.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SampleId" }));
         Sampleids.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        Sampleids.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SampleidsActionPerformed(evt);
+            }
+        });
         jPanel2.add(Sampleids, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         jButton5.setText("Generate Report");
@@ -651,6 +656,10 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         datePicker2.setDateToToday();
         
     }//GEN-LAST:event_DemoActionPerformed
+
+    private void SampleidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampleidsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SampleidsActionPerformed
  
     
         public void clearSampleApprove(){

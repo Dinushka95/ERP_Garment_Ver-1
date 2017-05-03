@@ -5,35 +5,36 @@
  */
 package Sample;
 
+import MainSystem.AutoDB_Connect;
 import StyleManagement.*;
 import Marketing.*;
 import Sales.*;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import net.proteanit.sql.DbUtils;
 
 /**
  *
  * @author Dinushka
  */
 public class Sample_Costing extends javax.swing.JInternalFrame {
-DefaultTableModel model;
-DefaultTableModel model2;
-DefaultTableModel model3;
-int RowCountjTable1;
-CustomerModel customerModeSDI;
-String CustomerId;
-String CustomerName;
-SalesDesignInquiryModel salesDesignInquiryModel;
-    private Object datePicker2;
+
+    
     /**
      * Creates new form SalesDesignInquiry
      */
     public Sample_Costing() {
         initComponents();
         generate_sdi();
-        //datePicker2.setDateToToday();
+        FillTextComboSampleID();
+        AccessoryIDFillCombo();
+        AutoFill();
+        TableLoadAccessories();
+        TableLoad();
 
     }
 
@@ -49,8 +50,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        ADD_Sample_Cost = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -59,7 +59,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jTextField2 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
-        jTextField3 = new javax.swing.JTextField();
+        txt_Sample_Name = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
@@ -71,13 +71,14 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jTextField5 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
+        ViewAccessories = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jButton2 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        UPDATE_Sample_Cost = new javax.swing.JButton();
+        DELETE_Sample_Cost = new javax.swing.JButton();
+        RESET_Sample_Cost = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        jTextField6 = new javax.swing.JTextField();
 
         setTitle("Sample Costing");
         setMaximumSize(new java.awt.Dimension(1365, 620));
@@ -90,13 +91,14 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton3.setText("Add");
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 488, -1, -1));
-
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton4.setText("Demo");
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 490, -1, -1));
+        ADD_Sample_Cost.setText("Add");
+        ADD_Sample_Cost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ADD_Sample_Cost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ADD_Sample_CostActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ADD_Sample_Cost, new org.netbeans.lib.awtextra.AbsoluteConstraints(424, 488, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("SampleID");
@@ -121,37 +123,53 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jLabel1.setText("Sample Name");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 70, -1, -1));
 
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox2ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 13, 166, 30));
-        jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 64, 166, 30));
+        jPanel2.add(txt_Sample_Name, new org.netbeans.lib.awtextra.AbsoluteConstraints(153, 64, 166, 30));
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel7.setText("Raw Material Information and Costing");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 290, -1, -1));
 
+        jLabel8.setText("ACCID");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel8.setText("Accessories");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 344, -1, -1));
 
-        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
-        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 341, 98, -1));
+        jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 341, 110, 30));
 
+        jLabel6.setText("Accessory");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel6.setText("Quantity");
-        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 344, -1, -1));
-        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, 96, -1));
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, -1, -1));
+        jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 350, 96, -1));
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Unit Price");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 412, -1, -1));
-        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 409, 98, -1));
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 400, -1, -1));
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 400, 98, -1));
 
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel9.setText("Total Cost");
-        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(211, 412, -1, -1));
-        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 96, -1));
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 460, -1, -1));
+
+        jTextField5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField5MouseExited(evt);
+            }
+        });
+        jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 450, 96, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -170,9 +188,14 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
         jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, 610, 158));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton1.setText("ViewAll");
-        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, -1, -1));
+        ViewAccessories.setText("ViewAll");
+        ViewAccessories.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ViewAccessories.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewAccessoriesActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ViewAccessories, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -191,17 +214,22 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
         jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(428, 220, 620, 234));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton2.setText("Update");
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 488, -1, -1));
+        UPDATE_Sample_Cost.setText("Update");
+        UPDATE_Sample_Cost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(UPDATE_Sample_Cost, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 488, -1, -1));
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton5.setText("Delete");
-        jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 488, -1, -1));
+        DELETE_Sample_Cost.setText("Delete");
+        DELETE_Sample_Cost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(DELETE_Sample_Cost, new org.netbeans.lib.awtextra.AbsoluteConstraints(618, 488, -1, -1));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton6.setText("Reset");
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 488, -1, -1));
+        RESET_Sample_Cost.setText("Reset");
+        RESET_Sample_Cost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(RESET_Sample_Cost, new org.netbeans.lib.awtextra.AbsoluteConstraints(717, 488, -1, -1));
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setText("Quantity");
+        jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
+        jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 96, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -222,29 +250,276 @@ SalesDesignInquiryModel salesDesignInquiryModel;
 
         jTabbedPane1.addTab("Sample Cost Add", jPanel1);
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
-
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void ViewAccessoriesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAccessoriesActionPerformed
+        // TODO add your handling code here:
+        TableLoadAccessories();
+    }//GEN-LAST:event_ViewAccessoriesActionPerformed
+
+    private void ADD_Sample_CostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADD_Sample_CostActionPerformed
+        // TODO add your handling code here:
+        AddDesign();
+        TableLoad();
+    }//GEN-LAST:event_ADD_Sample_CostActionPerformed
+
+    private void jComboBox3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox3ActionPerformed
+        // TODO add your handling code here:
+        
+        //Fill Accessory when select Accessory ID
+        String id = jComboBox3.getSelectedItem().toString();
+         try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`Accessory_Table` "
+                + "WHERE accessory_id LIKE '"+id+"'");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String name = AutoDB_Connect.DB_ResultSet.getString
+        ("accessory_name");
+                jTextField4.setText(name);
+                
+                String cost = AutoDB_Connect.DB_ResultSet.getString
+        ("accessory_cost");
+                jTextField1.setText(cost);
+                
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+                 
+    }//GEN-LAST:event_jComboBox3ActionPerformed
+
+    private void jTextField5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseExited
+        // TODO add your handling code here:
+        String qty12=jTextField1.getText();
+        String cost12=jTextField6.getText();
+        
+        int f_cost=Integer.parseInt(qty12)*Integer.parseInt(cost12);
+        
+        jTextField5.setText(Integer.toString(f_cost));
+        
+    }//GEN-LAST:event_jTextField5MouseExited
+
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
+        // TODO add your handling code here:
+        String id = jComboBox2.getSelectedItem().toString();
+         try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`T_Request_Create_Sample_table` "
+                + "WHERE SampleId LIKE '"+id+"'");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String stid = AutoDB_Connect.DB_ResultSet.getString
+        ("StyleId");
+                jTextField2.setText(stid);
+                
+                String name = AutoDB_Connect.DB_ResultSet.getString
+        ("SampleName");
+                txt_Sample_Name.setText(name);
+                
+                String des = AutoDB_Connect.DB_ResultSet.getString
+        ("StyleDesc");
+                jTextArea1.setText(des);
+                
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+                 
+    }//GEN-LAST:event_jComboBox2ActionPerformed
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     /*jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",Integer.toString(MainWindow.userid)));*/
     }
+    //COMBO BOX FILL FROM CREATE SAMPLE TABLE FOR SAMPLE COSTING
+     private void FillTextComboSampleID()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery("SELECT *"
+                    + " FROM garmentsystem.T_Request_Create_Sample_table");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String id = AutoDB_Connect.DB_ResultSet.getString("SampleId");
+                jComboBox2.addItem(id);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+        
+        
+    }
+     private void TableLoadAccessories()
+    {
 
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`Accessory_Table`;");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    }
+     
+     private void AccessoryIDFillCombo()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`Accessory_Table`");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String id = AutoDB_Connect.DB_ResultSet.getString("accessory_id");
+               jComboBox3.addItem(id);
+                
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+     private void AutoFill()
+    {
+        String id = jTextField4.getText();
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`Accessory_Table` "
+                + "where accessory_id like '"+id+"'");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+           String cost = AutoDB_Connect.DB_ResultSet.getString("accessory_cost");
+           String type = AutoDB_Connect.DB_ResultSet.getString("accessory_type");
+                jTextField4.setText(type);
+                jTextField1.setText(cost);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+     public void AddDesign()
+    
+    {
+        
+        
+        //Assigning values
+        String SampleID = jComboBox2.getSelectedItem().toString();
+        String name = txt_Sample_Name.getText();
+        String des =  jTextArea1.getText();
+        String id = jTextField2.getText();
+        String accID = jComboBox3.getSelectedItem().toString();
+        String acc =  jTextField4.getText();
+        String qty =  jTextField6.getText();
+        String cost =  jTextField1.getText();
+        String finalcost =  jTextField5.getText();
+        
+        
+        if(SampleID.isEmpty()||name.isEmpty()||des.isEmpty()||id.
+        isEmpty()||accID.isEmpty()||acc.isEmpty()||qty.isEmpty()
+       ||cost.isEmpty()||finalcost.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        
+        }
+        
+        else{
+                if(des.length()>10){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE STYLE DESCRIPTION FIELD");
+                }
+                else if(!des.matches("[a-zA-Z]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS");
+                    
+                }
+                
+                else{
+         //Sql Query
+             try
+        {  
+        
+        boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`T_Sample_Costing_Table`\n" +
+"(`SampleId`,\n" +
+"`SampleName`,\n" +
+"`StyleId`,\n" +
+"`Description`,\n" +
+"`Accessories`,\n" +
+"`Quantity`,\n" +
+"`Cost`,\n" +
+"`Total_Cost`)\n" +
+"VALUES\n" +
+"('"+name+"',\n" +                  
+"'"+des+"',\n" +
+"'"+id+"',\n" +
+"'"+accID+"',\n" +
+"'"+acc+"',\n" +
+"'"+qty+"',\n" +
+"'"+cost+"',\n" +
+"'"+finalcost+"');");
+
+       
+            
+             
+             if(x==true){
+               
+               JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
+               TableLoad();
+             }
+             else
+             {
+              
+              
+             }
+        }
+        
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+         
+       
+                }
+            }
+    }
+     
+    private void TableLoad()
+    {
+
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM `garmentsystem`.`T_Sample_Costing_Table`;");
+            jTable2.setModel(DbUtils.resultSetToTableModel
+        (AutoDB_Connect.DB_ResultSet));
+
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton ADD_Sample_Cost;
+    private javax.swing.JButton DELETE_Sample_Cost;
+    private javax.swing.JButton RESET_Sample_Cost;
+    private javax.swing.JButton UPDATE_Sample_Cost;
+    private javax.swing.JButton ViewAccessories;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -255,7 +530,6 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -265,8 +539,9 @@ SalesDesignInquiryModel salesDesignInquiryModel;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField txt_Sample_Name;
     // End of variables declaration//GEN-END:variables
 }
