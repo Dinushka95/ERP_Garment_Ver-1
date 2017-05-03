@@ -6,6 +6,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -23,7 +24,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         initComponents();
         generate_FuelID();
         TabelLoad();
-        
+         FillComboMaterial();
           TabelLoad();
         datePicker1.setDateToToday();
 
@@ -54,9 +55,6 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jTextField4 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -68,6 +66,9 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
@@ -75,7 +76,13 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jLabel20 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jComboBox6 = new javax.swing.JComboBox<>();
+        jComboBox7 = new javax.swing.JComboBox<>();
+        jLabel22 = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -163,9 +170,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jPanel5.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 130, -1));
         jPanel5.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 130, -1));
         jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 130, -1));
-        jPanel5.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 130, -1));
-        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 130, -1));
-        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 130, -1));
+
+        jTextField8.setEditable(false);
         jPanel5.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 130, -1));
 
         jLabel8.setText("Fuel ID");
@@ -213,6 +219,13 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         });
         jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
 
+        jPanel5.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 110, -1));
+
+        jPanel5.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 110, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "COOP", "Jayawardhena", "DSI", "United", " " }));
+        jPanel5.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 110, -1));
+
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 420, 530));
 
         jTabbedPane1.addTab("ADD Fuel", jPanel1);
@@ -229,16 +242,17 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, -1, -1));
 
         jButton5.setText("Search");
+        jButton5.setEnabled(false);
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -258,19 +272,43 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
-        jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 80, 820, 310));
+        jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 820, 310));
 
+        jLabel9.setText("Search By");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel9.setText("Fuel Station Name");
-        jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 130, 20));
+        jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 90, 20));
 
-        jTextField18.setText(" ");
-        jTextField18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField18ActionPerformed(evt);
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Vehical ID", "Fuel ID", "Fuel Station Name" }));
+        jComboBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox4ItemStateChanged(evt);
             }
         });
-        jPanelcustomerSearch.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 130, -1));
+        jPanelcustomerSearch.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 90, -1));
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel20.setText("Vehical ID");
+        jLabel20.setEnabled(false);
+        jPanelcustomerSearch.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel21.setText("Fuel Station Name");
+        jLabel21.setEnabled(false);
+        jPanelcustomerSearch.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
+
+        jComboBox5.setEnabled(false);
+        jPanelcustomerSearch.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 100, 20));
+
+        jComboBox6.setEnabled(false);
+        jPanelcustomerSearch.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 100, -1));
+
+        jComboBox7.setEnabled(false);
+        jPanelcustomerSearch.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 120, 100, -1));
+
+        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel22.setText("Fuel ID");
+        jLabel22.setEnabled(false);
+        jPanelcustomerSearch.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 60, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 870, 500));
 
@@ -361,13 +399,53 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+     private void FillComboMaterial()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String VID = AutoDB_Connect.DB_ResultSet.getString("VehicalID");
+                jComboBox5.addItem(VID);
+                                       
+             
+            }
+            
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String DID = AutoDB_Connect.DB_ResultSet.getString("DriverID");
+                jComboBox6.addItem(DID);
+                             
+            }
+              AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String Fname = AutoDB_Connect.DB_ResultSet.getString("Fuel_StationName");
+                jComboBox7.addItem(Fname);
+                             
+            }
+            
+           
+        }
+        catch (SQLException ex)
+        {
+            System.out.println(ex);
+        }
+    }
+     
+
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         tableload1();
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        search();
+        //search();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -395,10 +473,6 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private void jTextField10KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField10KeyReleased
-
-    private void jTextField18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField18ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField18ActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
                                 
@@ -448,15 +522,46 @@ public class Fuel1 extends javax.swing.JInternalFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
          jTextField8.setText("FUL145ds78");
-         jTextField1.setText("BF7895");
-         jTextField2.setText("DR49762");
-         jTextField5.setText("Rathna");
+         //jTextField1.setText("BF7895");
+         //jTextField2.setText("DR49762");
+         //jTextField5.setText("Rathna");
          jTextField3.setText("HG4975");
          jTextField6.setText("400");
          jTextField4.setText("10");
          jTextField7.setText("4000");
           datePicker1.setText("");
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
+               String search=jComboBox4.getSelectedItem().toString();
+         System.out.println(search);
+        if(search.equals("Vehicle ID"))
+        {
+            jLabel20.setEnabled(true);
+             jComboBox5.setEnabled(true);
+            jButton5.setEnabled(true);
+             jButton8.setEnabled(true);
+        }
+        
+        else if (search.equals("Fuel Station Name"))
+        {
+            jLabel21.setEnabled(true);
+            jComboBox6.setEnabled(true);
+            jButton5.setEnabled(true);
+             jButton8.setEnabled(true);
+        
+        }
+         else if (search.equals("Fuel ID"))
+        {
+            jLabel22.setEnabled(true);
+            jComboBox7.setEnabled(true);
+            jButton5.setEnabled(true);
+             jButton8.setEnabled(true);
+        
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Select a category");
+    }//GEN-LAST:event_jComboBox4ItemStateChanged
  private void generate_FuelID(){
     AutoIdGenerator aid = new AutoIdGenerator();
      jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));
@@ -476,9 +581,9 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private void TextBoxClear()
     {
         jTextField8.setText("");
-         jTextField1.setText("");
-         jTextField2.setText("");
-         jTextField5.setText("");
+         String VID = jComboBox1.getSelectedItem().toString();
+         String DID = jComboBox2.getSelectedItem().toString();
+         String Fname = jComboBox3.getSelectedItem().toString();
          jTextField3.setText("");
          jTextField6.setText("");
          jTextField4.setText("");
@@ -490,9 +595,9 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private void AddFuel()
     {
         String fid = jTextField8.getText();
-        String VID = jTextField1.getText();
-        String DID = jTextField2.getText();
-        String Fname = jTextField5.getText();
+        String VID = jComboBox1.getSelectedItem().toString();
+       String DID = jComboBox2.getSelectedItem().toString();
+        String Fname = jComboBox3.getSelectedItem().toString();
         String BillNum = jTextField3.getText();
         String Uprice = jTextField6.getText();
         String Units = jTextField4.getText();
@@ -542,12 +647,12 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
-      private void search()
+ /*     private void search()
  {
         String Fname=jTextField18.getText();
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel WHERE Fuel_StationName='"+Fname+"'");
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
- }
+ }*/
     private void DeleteDesigns()
     {
                 int reply = JOptionPane.showConfirmDialog(null, 
@@ -708,6 +813,13 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
+    private javax.swing.JComboBox<String> jComboBox6;
+    private javax.swing.JComboBox<String> jComboBox7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -720,6 +832,9 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -739,7 +854,6 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
@@ -748,11 +862,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;

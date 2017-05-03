@@ -5,7 +5,11 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import ManufacturingPlanning.CuttingSchedule;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -25,6 +29,7 @@ public class Distribution extends javax.swing.JInternalFrame {
         initComponents();
         generate_distributionid();
         TabelLoad();
+         FillComboMaterial();
         datePicker1.setDateToToday();
 
     }
@@ -51,9 +56,6 @@ public class Distribution extends javax.swing.JInternalFrame {
         dateSettings1.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
-        jTextField5 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
         dis_id = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
@@ -64,6 +66,9 @@ public class Distribution extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jSearchDIS = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -75,6 +80,10 @@ public class Distribution extends javax.swing.JInternalFrame {
         dateSettings2.setFormatForDatesCommonEra("yyyy-MM-dd");
         dateSettings2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
+        jComboBox4 = new javax.swing.JComboBox<>();
+        jComboBox5 = new javax.swing.JComboBox<>();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         dis_id1 = new javax.swing.JTextField();
@@ -139,18 +148,8 @@ public class Distribution extends javax.swing.JInternalFrame {
         jPanel6.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 130, -1));
         jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 130, -1));
         jPanel6.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
-        jPanel6.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 130, -1));
 
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 130, -1));
-
-        jTextField1.setName("vid"); // NOI18N
-        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 130, -1));
-
+        dis_id.setEditable(false);
         dis_id.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jPanel6.add(dis_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 130, -1));
 
@@ -201,6 +200,22 @@ public class Distribution extends javax.swing.JInternalFrame {
         });
         jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 300, -1, -1));
 
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 50, 130, -1));
+
+        jPanel6.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 140, -1));
+
+        jPanel6.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 130, -1));
+
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 430, 530));
 
         jTabbedPane1.addTab("ADD Distribution", jPanel1);
@@ -211,8 +226,9 @@ public class Distribution extends javax.swing.JInternalFrame {
         jSearchDIS.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel9.setText("Distribution Date");
+        jLabel9.setEnabled(false);
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jSearchDIS.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
+        jSearchDIS.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
 
         jButton8.setText("View All");
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -221,9 +237,10 @@ public class Distribution extends javax.swing.JInternalFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jSearchDIS.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, -1, -1));
+        jSearchDIS.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, -1, -1));
 
         jButton5.setText("Search");
+        jButton5.setEnabled(false);
         jButton5.setFocusable(false);
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -231,7 +248,7 @@ public class Distribution extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jSearchDIS.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 20, -1, -1));
+        jSearchDIS.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -251,8 +268,30 @@ public class Distribution extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jSearchDIS.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 810, 320));
-        jSearchDIS.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
+        jSearchDIS.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 810, 320));
+
+        datePicker2.setEnabled(false);
+        jSearchDIS.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
+
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Distribution Date", "Driver ID" }));
+        jComboBox4.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox4ItemStateChanged(evt);
+            }
+        });
+        jSearchDIS.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
+
+        jComboBox5.setEnabled(false);
+        jSearchDIS.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 130, -1));
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel16.setText("Search By");
+        jSearchDIS.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
+
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel17.setText("Driver ID");
+        jLabel17.setEnabled(false);
+        jSearchDIS.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 80, -1));
 
         jPanel3.add(jSearchDIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 850, 470));
 
@@ -346,10 +385,6 @@ public class Distribution extends javax.swing.JInternalFrame {
        search();
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         AddDistribution();
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -409,13 +444,44 @@ public class Distribution extends javax.swing.JInternalFrame {
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         dis_id.setText("DIE148v78");
-        jTextField1.setText("JH789");
-        jTextField2.setText("DR4978");
-        jTextField5.setText("HP487");
+       
         datePicker1.setText("");
         jTextField3.setText("49785");
         jTextField4.setText("100");
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+      
+        
+    }//GEN-LAST:event_jComboBox1MouseClicked
+
+    private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
+            String search=jComboBox4.getSelectedItem().toString();
+         System.out.println(search);
+        if(search.equals("Distribution Date"))
+        {
+            jLabel9.setEnabled(true);
+            datePicker2.setEnabled(true);
+            jButton5.setEnabled(true);
+             jButton8.setEnabled(true);
+        }
+        
+        else if (search.equals("Start Date"))
+        {
+            jLabel17.setEnabled(true);
+            jComboBox5.setEnabled(true);
+            jButton5.setEnabled(true);
+             jButton8.setEnabled(true);
+        
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Select a category");
+       //FillComboSupervisor();
+    }//GEN-LAST:event_jComboBox4ItemStateChanged
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
@@ -429,6 +495,11 @@ public class Distribution extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JComboBox<String> jComboBox4;
+    private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -436,6 +507,8 @@ public class Distribution extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -456,13 +529,10 @@ public class Distribution extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
@@ -484,21 +554,21 @@ public class Distribution extends javax.swing.JInternalFrame {
         private void TextBoxClear()
     {
         dis_id.setText("");
-        jTextField1.setText("");
-        jTextField2.setText("");
-        jTextField5.setText("");
+       //jComboBox1.setText("");
+       // jComboBox2.setText("");
+        //jComboBox3.setText("");
         datePicker1.setText("");
         jTextField3.setText("");
-        jTextField4.setText("");
+       jTextField4.setText("");
        
         
     }
          private void AddDistribution()
     {
         String id =  dis_id.getText();
-        String VID = jTextField1.getText();
-        String DID = jTextField2.getText();
-        String HID = jTextField5.getText();
+        String VID = jComboBox1.getSelectedItem().toString();
+        String DID = jComboBox2.getSelectedItem().toString();
+        String HID = jComboBox3.getSelectedItem().toString();
         String date = datePicker1.getText();
         String Dis_cost = jTextField3.getText();
         String Milage = jTextField4.getText();
@@ -702,6 +772,44 @@ public class Distribution extends javax.swing.JInternalFrame {
         jTextField10.setText("");
         
         
+    }
+      private void FillComboMaterial()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String VID = AutoDB_Connect.DB_ResultSet.getString("VehicalID");
+                jComboBox1.addItem(VID);
+                                       
+             
+            }
+            
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String DID = AutoDB_Connect.DB_ResultSet.getString("DriverID");
+                jComboBox2.addItem(DID);
+                                       
+             
+            }
+            
+             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Distribution");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String HID = AutoDB_Connect.DB_ResultSet.getString("Helper_ID");
+                jComboBox3.addItem(HID);  
+                                       
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println(ex);
+        }
     }
      
 }

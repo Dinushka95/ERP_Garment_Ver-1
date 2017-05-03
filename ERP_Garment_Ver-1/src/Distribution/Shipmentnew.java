@@ -62,7 +62,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         recieved = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        descriptionarea = new javax.swing.JTextField();
         fromCombo = new javax.swing.JComboBox<>();
         jLabel14 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
@@ -73,6 +72,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         AddButton = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -158,12 +158,17 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jLabel6.setText("Recieved By");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 286, -1, -1));
+
+        recieved.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recievedActionPerformed(evt);
+            }
+        });
         jPanel6.add(recieved, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 230, -1));
 
-        jLabel7.setText("Discription");
+        jLabel7.setText("About Shipment");
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 321, -1, -1));
-        jPanel6.add(descriptionarea, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 321, 254, 50));
 
         fromCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "USA", "UK", "India", "Pakisthan", " " }));
         fromCombo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -215,6 +220,15 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
             }
         });
         jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
+
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton6.setText("Details");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 530, 480));
 
@@ -538,8 +552,20 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         startdate.setText("");
         enddate.setText("");
         recieved.setText("Chathu");
-        descriptionarea.setText("Low Qulity");
+//        descriptionarea.setText("Low Qulity");
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void recievedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recievedActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_recievedActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+      AboutShipment frm2=new AboutShipment();
+      frm2.setVisible(true);
+      this.setVisible(false);
+      
+     
+    }//GEN-LAST:event_jButton6ActionPerformed
 
      private void generate_shipmentid(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -562,7 +588,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         startdate.setText("");
         enddate.setText("");
         recieved.setText("");
-        descriptionarea.setText("");
+//        descriptionarea.setText("");
         
     }
     
@@ -576,10 +602,10 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         String strtdate = startdate.getText();
         String enddt = enddate.getText();
         String rcvd = recieved.getText();
-        String dsc = descriptionarea.getText();
+       // String dsc = descriptionarea.getText();
         
          if(id.isEmpty()||supp.isEmpty()||addrs.isEmpty()||phn.
-        isEmpty()||frm.isEmpty()||rcvd.isEmpty()||dsc.isEmpty())
+        isEmpty()||frm.isEmpty()||rcvd.isEmpty())
         {
        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
@@ -606,8 +632,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
             "'"+frm+"',\n" +
             "'"+strtdate+"',\n" +
             "'"+enddt+"',\n" +
-            "'"+rcvd+"',\n" +
-            "'"+dsc+"');");
+            "'"+rcvd+"');");
 
         try
         {
@@ -694,11 +719,11 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         strtdate = jTextField1.getText();
         enddt = jTextField2.getText();
         rcvd = recieved1.getText();
-        dsc = descriptionarea1.getText();
+        //dsc = descriptionarea1.getText();
         
         
         if(id.isEmpty()||supp.isEmpty()||addrs.isEmpty()||phn.
-        isEmpty()||frm.isEmpty()||strtdate.isEmpty()||enddt.isEmpty()||rcvd.isEmpty()||dsc.isEmpty())
+        isEmpty()||frm.isEmpty()||strtdate.isEmpty()||enddt.isEmpty()||rcvd.isEmpty())
         {
        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
@@ -753,7 +778,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
             "`Shipped_date` = '"+strtdate+"',\n" +
             "`Dlivery_date` = '"+enddt+"',\n" +
             "`Recieved_by` = '"+rcvd+"',\n" +
-            "`Discription` = '"+dsc+"'\n" +
+           // "`Discription` = '"+dsc+"'\n" +
             "WHERE `Shipment_id` = '"+id+"';");
         
             if(x==true){
@@ -788,7 +813,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jTextField1.setText("");
         jTextField2.setText("");
         recieved1.setText("");
-        descriptionarea1.setText("");
+        //descriptionarea1.setText("");
         
         
     }
@@ -798,7 +823,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private javax.swing.JTextField address;
     private javax.swing.JTextField address1;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
-    private javax.swing.JTextField descriptionarea;
     private javax.swing.JTextField descriptionarea1;
     private com.github.lgooddatepicker.components.DatePicker enddate;
     private javax.swing.JComboBox<String> fromCombo;
@@ -809,6 +833,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
