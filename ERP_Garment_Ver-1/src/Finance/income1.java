@@ -7,6 +7,7 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -155,6 +156,12 @@ public class income1 extends javax.swing.JInternalFrame {
         jLabel4.setText("Amount");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel10.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 240, 90, -1));
+
+        jTextField2amt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2amtKeyTyped(evt);
+            }
+        });
         jPanel10.add(jTextField2amt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, 30));
         jPanel10.add(datePicker1date, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 170, 30));
 
@@ -421,6 +428,17 @@ public class income1 extends javax.swing.JInternalFrame {
         }
        
     }//GEN-LAST:event_jComboBox3typeActionPerformed
+
+    private void jTextField2amtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2amtKeyTyped
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_jTextField2amtKeyTyped
 private void generate_Earned(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField1bill.setText(aid.generate("EAR",Integer.toString(MainWindow.userid)));

@@ -7,6 +7,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
+import com.sun.glass.events.KeyEvent;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
@@ -26,6 +27,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
     public BankDetail() {
         
         initComponents();  
+        
         TableLoad1();
         TableLoad2();
         
@@ -152,8 +154,28 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel5);
         jLabel5.setBounds(10, 160, 110, 20);
+
+        jTextField5CheNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField5CheNoActionPerformed(evt);
+            }
+        });
+        jTextField5CheNo.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField5CheKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5CheNoKeyTyped(evt);
+            }
+        });
         jPanel7.add(jTextField5CheNo);
         jTextField5CheNo.setBounds(200, 40, 200, 30);
+
+        jTextField6Branch.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField6BranchKeyTyped(evt);
+            }
+        });
         jPanel7.add(jTextField6Branch);
         jTextField6Branch.setBounds(200, 160, 200, 30);
 
@@ -161,6 +183,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel24);
         jLabel24.setBounds(10, 240, 100, 20);
+
+        jTextField10amt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField10amtKeyTyped(evt);
+            }
+        });
         jPanel7.add(jTextField10amt);
         jTextField10amt.setBounds(200, 240, 200, 30);
 
@@ -311,6 +339,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel9.setText("Cheque No ");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 110, -1));
+
+        jTextField2cno.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2cnoKeyTyped(evt);
+            }
+        });
         jPanel3.add(jTextField2cno, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 180, 30));
 
         jLabel12.setText("Bank Name");
@@ -328,6 +362,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel16.setText("Amount");
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, 100, -1));
+
+        jTextField5brname.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField5brnameKeyTyped(evt);
+            }
+        });
         jPanel3.add(jTextField5brname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 180, 30));
         jPanel3.add(jTextField6amt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 180, 30));
         jPanel3.add(datePicker2date, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 180, 30));
@@ -445,6 +485,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel6.setText("Cheque No");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
+
+        chequeN.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                chequeNKeyTyped(evt);
+            }
+        });
         jPanel8.add(chequeN, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 180, 30));
 
         jLabel7.setText("Description");
@@ -469,6 +515,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
         jButton6.setText("ADD");
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
         jButton8.setText("EDIT");
@@ -514,8 +565,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel10.setLayout(new java.awt.CardLayout());
 
-        DepositCombo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         DepositCombo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cheque No" }));
+        DepositCombo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         DepositCombo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DepositComboActionPerformed(evt);
@@ -948,6 +999,77 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private void jTextField1CusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1CusActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1CusActionPerformed
+
+    private void jTextField5CheNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField5CheNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField5CheNoActionPerformed
+
+    private void jTextField5CheKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5CheKeyPressed
+       
+    }//GEN-LAST:event_jTextField5CheKeyPressed
+
+    private void jTextField5CheNoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5CheNoKeyTyped
+      char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_jTextField5CheNoKeyTyped
+
+    private void jTextField6BranchKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6BranchKeyTyped
+       char c=evt.getKeyChar();
+      {
+          if(!(Character.isLetter(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Numbers");
+          }
+      }
+    }//GEN-LAST:event_jTextField6BranchKeyTyped
+
+    private void jTextField2cnoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2cnoKeyTyped
+         char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_jTextField2cnoKeyTyped
+
+    private void jTextField5brnameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField5brnameKeyTyped
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isLetter(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Numbers");
+          }
+      }
+    }//GEN-LAST:event_jTextField5brnameKeyTyped
+
+    private void jTextField10amtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10amtKeyTyped
+   
+    }//GEN-LAST:event_jTextField10amtKeyTyped
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void chequeNKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_chequeNKeyTyped
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_chequeNKeyTyped
   
     
     

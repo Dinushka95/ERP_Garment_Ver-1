@@ -3,6 +3,10 @@ package Finance;
 
 //import Sales.*;
 
+import com.sun.glass.events.KeyEvent;
+import javax.swing.JOptionPane;
+
+
 
 /**
  *
@@ -96,6 +100,12 @@ public class RETURN_CHEQUE extends javax.swing.JInternalFrame {
         jLabel5.setText("Amount");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        jTextField2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField2KeyTyped(evt);
+            }
+        });
         jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 280, 180, 30));
 
         jButton1.setText("ADD");
@@ -154,6 +164,18 @@ public class RETURN_CHEQUE extends javax.swing.JInternalFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jTextField2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyTyped
+        // TODO add your handling code here:
+         char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_jTextField2KeyTyped
     private void generate_sdi(){
   /*  AutoIdGenerator aid = new AutoIdGenerator();
     jTextFieldCustomerId.setText(aid.generate("cus",Integer.toString(MainWindow.userid)));*/

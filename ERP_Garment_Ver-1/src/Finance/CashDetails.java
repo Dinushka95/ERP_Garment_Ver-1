@@ -7,6 +7,7 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.sun.glass.events.KeyEvent;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -25,6 +26,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
      */
     public CashDetails() {
         initComponents();
+        generate_Cashid();
        Tableload();
        datePicker1.setDateToToday();
        
@@ -130,6 +132,17 @@ public class CashDetails extends javax.swing.JInternalFrame {
         jLabel2.setText("Amount");
         jPanel7.add(jLabel2);
         jLabel2.setBounds(10, 290, 60, 15);
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
         jPanel7.add(jTextField1);
         jTextField1.setBounds(170, 280, 150, 30);
 
@@ -317,6 +330,21 @@ public class CashDetails extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }//GEN-LAST:event_jTextField1KeyTyped
+
      private void generate_Payabels(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField3.setText(aid.generate("PAY",Integer.toString(MainWindow.userid)));
@@ -429,6 +457,10 @@ public class CashDetails extends javax.swing.JInternalFrame {
 "FROM `garmentsystem`.`CASH_DETAILS`;");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
    }
+   private void generate_Cashid(){
+    AutoIdGenerator aid = new AutoIdGenerator();
+    jTextField3.setText(aid.generate("cash",Integer.toString(MainWindow.userid)));
+    }
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADD;
