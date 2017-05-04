@@ -27,7 +27,12 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         initComponents();
         generate_cdi();
       
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Shedule_ID,Style_ID,Material_ID,Start_Date,End_Date,Quantity,Length_per_Sample FROM garmentsystem.r_Cutting_Schedule_table");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
    
+        
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.cutting");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
   
      
@@ -265,6 +270,11 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, -1, -1));
 
         jButton6.setText("Search schedule_ID");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 20, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 850, 520));
@@ -688,6 +698,10 @@ public class Cutting1 extends javax.swing.JInternalFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         jTextField4.setText("STY124c9f493");
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        jTextField6.setText("CUT-SHI1252445de");
+    }//GEN-LAST:event_jButton6ActionPerformed
 private void generate_cdi(){
         AutoIdGenerator aid = new AutoIdGenerator();
         jTextField1.setText("CUT-SHI128110d2e");

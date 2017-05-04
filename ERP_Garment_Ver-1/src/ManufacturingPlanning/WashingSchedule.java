@@ -27,7 +27,12 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         initComponents();
         generate_shi();
         FillComboSupervisor();
+        
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedue_ID,Style_ID,Start_Date,End_Date,Qty FROM garmentsystem.r_Sewing_Schedule");
+        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
    
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void generate_shi(){
@@ -132,8 +137,8 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         jTextField8 = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
+        jComboBox8 = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
@@ -335,6 +340,11 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         jPanel3.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 80, -1, -1));
 
         jTextField1.setEnabled(false);
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 50, 140, -1));
 
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal wash", "Pigment wash", "Enzyme wash", "Stone wash", "Bleach wash", "Bleach stone wash", "Acid wash", "Sand blasting", "Whickering", "Hand scrapping", "Potassium permanganate spraying", "Destroying" }));
@@ -484,16 +494,11 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         jPanel8.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
         jPanel8.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 240, 140, -1));
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField12ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 140, -1));
-
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setText("Sup ID");
         jPanel8.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, -1, -1));
+
+        jPanel8.add(jComboBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, 140, -1));
 
         jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 80, 460, 460));
 
@@ -548,6 +553,8 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         String stdate=datePicker3.getText();
         String endate=datePicker1.getText();
         String type;
+        int r=jTable2.getSelectedRow();
+        String prevEndDate=jTable2.getValueAt(r, 3).toString();
         if (jRadioButton1.isSelected()==true)
             type=jComboBox1.getSelectedItem().toString();
         else
@@ -555,7 +562,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         
         String lab=jTextField4.getText();
         String sup=jComboBox7.getSelectedItem().toString();
-           int r=jTable2.getSelectedRow();
+           
            String qty=jTable2.getValueAt(r, 4).toString();
         
     if(id.isEmpty()||stid.isEmpty()||sewid.isEmpty()||sample.isEmpty()||stdate.isEmpty()||endate.isEmpty()||type.isEmpty())
@@ -565,7 +572,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
     }
     else{
         try{
-            if(validation.checkDate(stdate, endate))
+            if(validation.checkDate(stdate, endate,prevEndDate))
             {
             
             
@@ -612,9 +619,9 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
+                String id = AutoDB_Connect.DB_ResultSet.getString("f_name");
                 jComboBox7.addItem(id);
-                              
+                jComboBox8.addItem(id);             
             }
         }
         catch (Exception ex)
@@ -859,7 +866,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
        datePicker6.setText(endDate);
        jTextField8.setText(labour);
        jTextField9.setText(sample);
-       jTextField12.setText(supid);
+       jComboBox8.setSelectedItem(supid);
     try{
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Schedue_ID ='"+sewingid+"'");
         AutoDB_Connect.DB_ResultSet.next();
@@ -908,7 +915,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
          String type=jComboBox4.getSelectedItem().toString();
          int qty=Integer.valueOf(jComboBox7.getSelectedItem().toString());
          int lab=Integer.valueOf(jTextField8.getText());
-         String sup=jTextField12.getText();
+         String sup=jComboBox8.getSelectedItem().toString();
      
          int r=jTable3.getSelectedRow();
          String sew=jTable3.getValueAt(r, 8).toString();
@@ -956,9 +963,9 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
          }
     }//GEN-LAST:event_jButton6ActionPerformed
 
-    private void jTextField12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField12ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField12ActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
     
  
 
@@ -984,6 +991,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox5;
     private javax.swing.JComboBox<String> jComboBox6;
     private javax.swing.JComboBox<String> jComboBox7;
+    private javax.swing.JComboBox<String> jComboBox8;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1029,7 +1037,6 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField16;
     private javax.swing.JTextField jTextField17;
     private javax.swing.JTextField jTextField2;

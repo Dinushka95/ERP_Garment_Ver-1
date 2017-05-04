@@ -4,14 +4,13 @@ package ManufacturingPlanning;
 import MainSystem.AutoIdGenerator;
 import MainSystem.AutoDB_Connect;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
 //import java.awt.HeadlessException;
 import java.sql.SQLException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -38,6 +37,8 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         FillComboSupervisor();
         FillComboSupervisor2();
         
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Cutting_Schedule_table");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
       
    
     }
@@ -226,6 +227,8 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jButton4 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Cutting Schedule");
@@ -393,14 +396,18 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         jLabel49.setText("Material ID");
         jLabel49.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel9.add(jLabel49, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+
+        jTextField34.setEditable(false);
         jPanel9.add(jTextField34, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 150, 150, -1));
 
         jLabel50.setText("Material Name");
         jLabel50.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel9.add(jLabel50, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+
+        jTextField35.setEditable(false);
         jPanel9.add(jTextField35, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 240, 150, -1));
 
-        jLabel51.setText("Supervisor ID");
+        jLabel51.setText("Supervisor ");
         jLabel51.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel9.add(jLabel51, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 280, -1, -1));
 
@@ -417,6 +424,8 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
             }
         });
         jPanel9.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 280, 150, -1));
+
+        jTextField1.setEditable(false);
         jPanel9.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 120, 150, -1));
 
         jButton3.setText("View Table");
@@ -654,7 +663,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
-        jLabel12.setText("SupervisorID");
+        jLabel12.setText("Supervisor");
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, 90, -1));
 
@@ -757,14 +766,30 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
         jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, 680, -1));
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("Search");
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
         jPanel4.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, -1, -1));
+
+        jButton7.setText("jButton7");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, -1, -1));
+
+        jButton9.setText("jButton9");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 130, -1, -1));
 
         jTabbedPane1.addTab("Reports", jPanel4);
 
@@ -797,7 +822,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
       
-
+        
             String scheduleID=jTextField28.getText();
             String RoomNo=(String)jComboBox5.getSelectedItem();
             String startDate=datePicker7.getText();
@@ -825,14 +850,10 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }    
         else{
-          
-            int noOfLabourers=Integer.valueOf(jTextField26.getText());
-            int noOfLines=Integer.valueOf(jComboBox3.getSelectedItem().toString());
-            int noOfDaysPerSample=Integer.valueOf(jTextField30.getText());
-            int widthPerSample=Integer.valueOf(jTextField32.getText());
+
         try{
                
-            if(validation.checkDate(startDate,EndDate)){
+            if(validation.checkDate(startDate,EndDate)&& validation.isDigit(lab)&&validation.isDigit(lines)&&validation.isDigit(minutes)&&validation.isDigit(length)&&validation.isDigit(qty)) {
                     
                 String availability="";
                 String matid=(String)jComboBox2.getSelectedItem();
@@ -875,13 +896,13 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
      "'"+styleNo+"',\n" +
      "'"+materialID+"',\n" +
      "'"+supervisorID+"',\n" +
-     "'"+noOfLabourers+"',\n" +
+     "'"+lab+"',\n" +
      "'"+RoomNo+"',\n" +
-     "'"+noOfLines+"',\n" +
-     "'"+noOfDaysPerSample+"',\n" +
+     "'"+lines+"',\n" +
+     "'"+minutes+"',\n" +
      "'"+startDate+"',\n" +
      "'"+EndDate+"',\n" +
-     "'"+widthPerSample+"',\n" +
+     "'"+length+"',\n" +
      "'"+availability+"',\n"+
      "'"+qty+"',\n"+
      "'"+color+"');");
@@ -900,13 +921,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
 
                 
         }    
-               
-    
-       
-       
-       
-       
-
+              
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void FillCombo()
@@ -936,7 +951,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
+                String id = AutoDB_Connect.DB_ResultSet.getString("f_name");
                 jComboBox1.addItem(id);
                 
                
@@ -956,9 +971,9 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
+                String id = AutoDB_Connect.DB_ResultSet.getString("f_name");
                 jComboBox10.addItem(id);
-                
+                jComboBox7.addItem(id);
                
             }
         }
@@ -1260,6 +1275,8 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         String EndDate=datePicker6.getText();
         String availability="";
         
+        
+        
         if(stID.isEmpty()||matID.isEmpty()||width.isEmpty()|color.isEmpty())
         {
             
@@ -1338,7 +1355,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox12ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
+        
         search2();
         
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -1455,6 +1472,20 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        //String x=System.getProperty("user.dir");
+        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report1.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.r_Cutting_Schedule_table";
+        autoReport.Query2Report(FileLocation, SQL); 
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report2.jrxml";
+        autoReport.Table2Report(FileLocation, jTable1);
+    }//GEN-LAST:event_jButton9ActionPerformed
     
     private void MultileSelectError()
     {
@@ -1467,6 +1498,10 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     
     private void search2() 
     {
+        String date=datePicker3.getText();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Cutting_Schedule_table WHERE Start_Date = '"+date+"'");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        
           /* try{
         
         if(jTextField8MouseClicked)
@@ -1526,7 +1561,9 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox10;
     private javax.swing.JComboBox<String> jComboBox11;

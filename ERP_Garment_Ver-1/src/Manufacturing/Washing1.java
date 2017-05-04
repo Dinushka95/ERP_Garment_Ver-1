@@ -26,7 +26,12 @@ public class Washing1 extends javax.swing.JInternalFrame {
         initComponents();
         generate_cdi();
       
-   
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.washing");
+        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); 
+    
     }
   
      

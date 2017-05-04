@@ -27,7 +27,11 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         initComponents();
         generate_cdi();
       
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule");
+        jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
    
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.sewing ");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
   
      
@@ -523,7 +527,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Style_ID ='"+search+"'");
             jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
         }
-        if(jTextField12.getText()!=null)
+        else if(jTextField12.getText()!=null)
         {
             String search=jTextField12.getText();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Schedue_ID ='"+search+"'");

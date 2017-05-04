@@ -28,7 +28,11 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         generate_cdi();
         FillComboSupervisor();
       
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedule_ID,Style_ID,Start_Date,End_Date,Qty FROM garmentsystem.r_Washing_Schedule_table");
+        jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
    
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule");
+       jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     public void AddSewingSchedule(){
         
@@ -502,7 +506,9 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         //System.err.print("guhk"); 
         String stdate =datePicker7.getText();
         String enddate=datePicker8.getText();
-        if(validation.checkDate(stdate, enddate))
+        int r=jTable4.getSelectedRow();
+        String prevEndDate=jTable4.getValueAt(r, 3).toString();
+        if(validation.checkDate(stdate, enddate,prevEndDate))
         {
             AddIronSchedule();
         }
@@ -771,7 +777,7 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
+                String id = AutoDB_Connect.DB_ResultSet.getString("f_name");
                 jComboBox8.addItem(id);
                 jComboBox9.addItem(id);
             }

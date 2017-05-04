@@ -31,7 +31,11 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         initComponents();
         generate_shi();
         FillComboSupervisor();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Shedule_ID,Style_ID,Material_ID,Start_Date,End_Date,Quantity FROM garmentsystem.r_Cutting_Schedule_table");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
    
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule ");
+        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
     }
     public void AddSewingSchedule(){
         String Schedule_ID=jTextField6.getText();
@@ -92,7 +96,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
+                String id = AutoDB_Connect.DB_ResultSet.getString("f_name");
                 jComboBox1.addItem(id);
                 jComboBox6.addItem(id);
                 jComboBox9.addItem(id);
@@ -387,7 +391,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 370, -1, -1));
 
-        jLabel13.setText("Supervisor ID");
+        jLabel13.setText("Supervisor");
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 280, -1, -1));
 
@@ -458,7 +462,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
 
-        jLabel12.setText("Supervisor ID");
+        jLabel12.setText("Supervisor ");
         jLabel12.setEnabled(false);
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, -1, -1));
@@ -628,6 +632,8 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
       String endDate=datePicker2.getText();
       String room=jComboBox1.getSelectedItem().toString();
       String lines=jComboBox1.getSelectedItem().toString();
+      int r=jTable3.getSelectedRow();
+      String prevEndDate=jTable3.getValueAt(r, 9).toString();
       
       try{
         if(schid.isEmpty()||style.isEmpty()||cutNo.isEmpty()||minutes.isEmpty()||days.isEmpty()||lab.isEmpty()||room.equals("-select-")||lines.equals("-select-")){
@@ -635,7 +641,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
        }
        else{
              
-                    if(validation.checkDate(stDate, endDate)){
+                    if(validation.checkDate(stDate, endDate,prevEndDate)){
                          AddSewingSchedule();
                          textClear();
                     
@@ -683,6 +689,8 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
          String line=jComboBox8.getSelectedItem().toString();
          int r=jTable2.getSelectedRow();
          String cut=jTable2.getValueAt(r, 9).toString();
+         
+         
          
         if(schid.isEmpty()||styleid.isEmpty()||lab.isEmpty()||(jTextField20.getText()).isEmpty()||(jTextField25.getText()).isEmpty()||room.equals("-select-")||line.equals("-select-"))
         {

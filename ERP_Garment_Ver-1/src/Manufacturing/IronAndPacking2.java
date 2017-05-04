@@ -26,7 +26,11 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         initComponents();
         generate_cdi();
       
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
    
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.ironNpacking");
+        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); 
     }
   
      
