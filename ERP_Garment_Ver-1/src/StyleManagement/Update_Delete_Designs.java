@@ -6,12 +6,17 @@ import net.proteanit.sql.DbUtils;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
-import javax.swing.JTable;
+import javax.swing.RowFilter;
+import javax.swing.table.TableRowSorter;
+
+
 
 /**
  *
  * @author Dinushka
  */
+
+
 public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
 
@@ -30,15 +35,11 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
       
      
       date.setDateToToday();
-      datePicker3.setDateToToday();
-     
-      
-      
+      datePicker3.setDateToToday();    
         
-        
-        
-     
+    
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -373,6 +374,21 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jPanel8.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         sort_txt.setToolTipText("Gender");
+        sort_txt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                sort_txtMouseClicked(evt);
+            }
+        });
+        sort_txt.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sort_txtActionPerformed(evt);
+            }
+        });
+        sort_txt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                sort_txtKeyTyped(evt);
+            }
+        });
         jPanel8.add(sort_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 110, -1));
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, 180));
@@ -510,6 +526,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
+        
         int row =jTable1.getSelectedRow();
         String id = jTable1.getValueAt(row,0).toString();
         String des = jTable1.getValueAt(row,1).toString();
@@ -618,6 +635,28 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
     }//GEN-LAST:event_sorttxtActionPerformed
+
+    private void sort_txtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_sort_txtMouseClicked
+        // TODO add your handling code here:
+        
+       
+    }//GEN-LAST:event_sort_txtMouseClicked
+
+    private void sort_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sort_txtKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sort_txtKeyTyped
+
+    private void sort_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sort_txtActionPerformed
+        // TODO add your handling code here:
+        
+        
+//       String text = sort_txt.getText();
+//        if (text.length() == 0) {
+//          rowSorter.setRowFilter(null);
+//        } else {
+//          sorter.setRowFilter(RowFilter.regexFilter(text));
+//        }
+    }//GEN-LAST:event_sort_txtActionPerformed
 
         public void UpdateAddedDesigns(){
           
@@ -817,6 +856,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         }
     }
     }
+
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton DeleteCreateDesign;

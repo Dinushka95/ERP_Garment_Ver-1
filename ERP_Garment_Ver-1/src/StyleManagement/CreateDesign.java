@@ -374,9 +374,7 @@ boolean result;
     }// </editor-fold>//GEN-END:initComponents
 
     private void AddDesignActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddDesignActionPerformed
-        // TODO add your handling code here:
-        //Validation Part
-      
+       
            
         AddDesign();
         TableLoad();
@@ -392,14 +390,13 @@ boolean result;
         generate_stlid();
         datePicker1.setDateToToday();
         
-        //reset jRadiobutton loaded by Demo
+        
        
         
     }//GEN-LAST:event_ResetAllActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-//        boolean result = val.ValidationCheck(addnewcolour,true,0,'@');
+        
         AddNewColour();
         TextBoxClear2CreateDesign();
        
