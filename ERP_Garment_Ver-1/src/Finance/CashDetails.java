@@ -1,15 +1,22 @@
 
 package Finance;
 
+
 import MainSystem.AutoDB_Connect;
+import static MainSystem.AutoDB_Connect.DB_PreparedStatement;
+import static MainSystem.AutoDB_Connect.DB_connection;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.sun.glass.events.KeyEvent;
+import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 
 
 
@@ -24,14 +31,44 @@ public class CashDetails extends javax.swing.JInternalFrame {
     /**
      * Creates new form SalesDesignInquiry
      */
-    public CashDetails() {
+    public CashDetails() 
+    {
         initComponents();
         generate_Cashid();
        Tableload();
        datePicker1.setDateToToday();
+       CashTotal();
        
        
     }
+    
+    
+       public void CashTotal()
+    {        
+            try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) from CASH_DETAILS");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                txtCashtot.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
+            
+              
+     //       txtCashtot = "SELECT SUM(Amount) from CASH_DETAILS"
+            
+            
+            
+    }
+    
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -71,7 +108,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        txtCashtot = new javax.swing.JTextField();
 
         setResizable(true);
         setTitle("Cash Details");
@@ -238,7 +275,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel3.setText("Total");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 60, -1));
-        jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 140, 30));
+        jPanel2.add(txtCashtot, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 190, 140, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 670, 250));
 
@@ -274,6 +311,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         Addcash();
         Tableload();
+        CashTotal();
     }//GEN-LAST:event_ADDActionPerformed
 
     private void EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EDITActionPerformed
@@ -281,10 +319,12 @@ public class CashDetails extends javax.swing.JInternalFrame {
         Editcash();
         TextBoxClear();
         Tableload();
+        CashTotal();
     }//GEN-LAST:event_EDITActionPerformed
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
         // TODO add your handling code here:
+       
          String chno = jTextField3.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`CASH_DETAILS`\n" +
@@ -297,12 +337,15 @@ public class CashDetails extends javax.swing.JInternalFrame {
                Tableload();
                 TextBoxClear();
                 JOptionPane.showMessageDialog(null,"Successfully Deleted");
+                CashTotal();
             }
         }
         catch (Exception ex)
         {
             System.out.println(ex);
         }   
+         
+          
     }//GEN-LAST:event_DELETEActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -420,7 +463,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
 "`Date` = '"+date+"',\n" +
 "`Description` = '"+Des+"',\n" +
 "`Amount` = "+amount+"\n" +
-"WHERE `Cash_ID` = '"+chno+"';");
+"WHERE `Cash_ID` =  '"+chno+"';");
        
          try
         {
@@ -443,7 +486,9 @@ public class CashDetails extends javax.swing.JInternalFrame {
    public void CashIDSearch()
     {
             String cash = jTextField3.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.CASH_DETAILS WHERE Cash_ID LIKE '"+cash+"%'");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * "
+                    + "FROM garmentsystem.CASH_DETAILS "
+                    + "WHERE Cash_ID LIKE '"+cash+"%'");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
    private void Tableload()
@@ -488,8 +533,8 @@ public class CashDetails extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField txtCashtot;
     // End of variables declaration//GEN-END:variables
 
    

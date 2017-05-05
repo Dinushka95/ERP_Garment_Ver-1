@@ -2,12 +2,16 @@
 package Finance;
 
 import MainSystem.AutoDB_Connect;
+import static MainSystem.AutoDB_Connect.DB_connection;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.sun.glass.events.KeyEvent;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -28,9 +32,27 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
        datePicker1date.setDateToToday();
        Tableload();
        
-        
+        ExTotal();
        
      
+    }
+    
+    public void ExTotal()
+    {
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) from F_EXPENE");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                ExTotal.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
     }
 
     /**
@@ -68,7 +90,7 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         jPanel6 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
+        ExTotal = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
@@ -190,12 +212,12 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 140, 50, -1));
 
-        jTextField15.addActionListener(new java.awt.event.ActionListener() {
+        ExTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField15ActionPerformed(evt);
+                ExTotalActionPerformed(evt);
             }
         });
-        jPanel11.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 150, 30));
+        jPanel11.add(ExTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 150, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -325,9 +347,9 @@ private void Tableload()
 
     }//GEN-LAST:event_DeletejButton7ActionPerformed
 
-    private void jTextField15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField15ActionPerformed
+    private void ExTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExTotalActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField15ActionPerformed
+    }//GEN-LAST:event_ExTotalActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
@@ -454,6 +476,7 @@ private void Tableload()
     private javax.swing.JButton ADDjButton2;
     private javax.swing.JButton DeletejButton7;
     private javax.swing.JButton EDITjButton3;
+    private javax.swing.JTextField ExTotal;
     private javax.swing.JButton SEARHjButton4;
     private com.github.lgooddatepicker.components.DatePicker datePicker1date;
     private javax.swing.JButton jButton1;
@@ -474,7 +497,6 @@ private void Tableload()
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1description;
-    private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField1bill;
     private javax.swing.JTextField jTextField2amt;
     // End of variables declaration//GEN-END:variables

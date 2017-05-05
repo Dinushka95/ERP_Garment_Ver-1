@@ -3,12 +3,15 @@ package Finance;
 
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import MainSystem.AutoDB_Connect;
+import static MainSystem.AutoDB_Connect.DB_connection;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.sun.glass.events.KeyEvent;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -37,13 +40,72 @@ public class BankDetail extends javax.swing.JInternalFrame {
         FillTextCombo1();
         FillTextCombo2();
         
-       
         
         datePicker1date.setDateToToday(); 
         datePicker2date.setDateToToday();
         datePicker1.setDateToToday();
+        
+         DepositTotal();
+         WithdrowTotal();
+         ReturnTotal();
     }
 
+    
+     public void DepositTotal()
+     {
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) from F_DEPOSIT DETAILS");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                DepositTotal.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
+     }
+     
+     public void WithdrowTotal()
+     {
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) from F_WITHDRAW DETAILS");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                WithdrowTotal.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            } 
+     }
+     
+      public void ReturnTotal()
+     {
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) from RETURN_CHEQUE");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                ReturnTotal.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            } 
+     }
+     
+     
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -80,6 +142,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
         demo_deposit = new javax.swing.JButton();
         jComboBox2 = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
+        DepositTotal = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -104,6 +168,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
         demo_withdrawal = new javax.swing.JButton();
         jComboBox4 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
+        WithdrowTotal = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jPanel5 = new javax.swing.JPanel();
@@ -125,6 +191,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
         R_SEARCH = new javax.swing.JButton();
         R_RESET_ALL = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        ReturnTotal = new javax.swing.JTextField();
         jScrollPane4 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jButton11 = new javax.swing.JButton();
@@ -301,6 +369,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel2.add(DepositTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 150, 190, 30));
+
+        jLabel6.setText("Total");
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, 70, -1));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -320,7 +393,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 640, 100));
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 640, 170));
 
         jPanel6.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 330, 670, 210));
 
@@ -387,6 +460,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
         W_SEARCH.setText("Search");
         W_SEARCH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        W_SEARCH.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                W_SEARCHActionPerformed(evt);
+            }
+        });
         jPanel3.add(W_SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
 
         jComboBox1bank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Bank", "BOC", "Peoples Bank", "HNB ", "UNION", " " }));
@@ -425,6 +503,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel18.setText("Total");
+        jPanel4.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 150, 50, -1));
+        jPanel4.add(WithdrowTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 140, 150, 30));
+
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -443,7 +526,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTable2);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 110));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 580, 170));
 
         jPanel6.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 330, 620, 210));
 
@@ -526,6 +609,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel8.add(R_RESET_ALL, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
 
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setText("Total");
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel9.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, -1, -1));
+        jPanel9.add(ReturnTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 150, 150, 30));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -687,8 +775,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
       
       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_WITHDRAW DETAILS`\n" +
 "(`ChequeNo`,\n" +
-"`Bank Name`,\n" +
-"`Branch Name`,\n" +
+"`BankName`,\n" +
+"`BranchName`,\n" +
 "`WithdrawDate`,\n" +
 "`Amount`)\n" +
 "VALUES\n" +
@@ -792,8 +880,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`F_WITHDRAW DETAILS`\n" +
 "SET\n" +
 "`ChequeNo` = '"+cno+"',\n" +
-"`Bank Name` = '"+b_name+"',\n" +
-"`Branch Name` = '"+br_name+"',\n" +
+"`BankName` = '"+b_name+"',\n" +
+"`BranchName` = '"+br_name+"',\n" +
 "`WithdrawDate` = '"+w_date+"',\n" +
 "`Amount` = "+amount+"\n" +
 "WHERE `ChequeNo` = '"+cno+"';");
@@ -863,8 +951,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
 
-        
-           int row =jTable1.getSelectedRow();
+         int row =jTable1.getSelectedRow();
         String cno = jTable1.getValueAt(row,0).toString();
         String cusid = jTable1.getValueAt(row,1).toString();
         String b_name = jTable1.getValueAt(row,2).toString();
@@ -997,8 +1084,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
        while(AutoDB_Connect.DB_ResultSet.next())
         {
            String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
-           String b_name = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
-           String br_name = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
+           String b_name = AutoDB_Connect.DB_ResultSet.getString("BankName");
+           String br_name = AutoDB_Connect.DB_ResultSet.getString("BranchName");
            String w_date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
            String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
                 
@@ -1030,8 +1117,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
         {
             AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery(""
      + "SELECT `garmentsystem`.`F_WITHDRAW DETAILS`.`ChequeNo`,\n" +
-"    `F_WITHDRAW DETAILS`.`Bank Name`,\n" +
-"    `F_WITHDRAW DETAILS`.`Branch Name`,\n" +
+"    `F_WITHDRAW DETAILS`.`BankName`,\n" +
+"    `F_WITHDRAW DETAILS`.`BranchName`,\n" +
 "    `F_WITHDRAW DETAILS`.`WithdrawDate`,\n" +
 "    `F_WITHDRAW DETAILS`.`Amount`\n" +
 "FROM `garmentsystem`.`F_WITHDRAW DETAILS` where `ChequeNo` LIKE '"+chequeNo+"' ;");
@@ -1042,8 +1129,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
           {
             
             String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
-            String bank = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
-            String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
+            String bank = AutoDB_Connect.DB_ResultSet.getString("BankName");
+            String branch = AutoDB_Connect.DB_ResultSet.getString("BranchName");
             String date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
             String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
                 
@@ -1092,8 +1179,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
             while(AutoDB_Connect.DB_ResultSet.next())
             {
                  String cno = AutoDB_Connect.DB_ResultSet.getString("ChequeNo");
-                String bank = AutoDB_Connect.DB_ResultSet.getString("Bank Name");
-                String branch = AutoDB_Connect.DB_ResultSet.getString("Branch Name");
+                String bank = AutoDB_Connect.DB_ResultSet.getString("BankName");
+                String branch = AutoDB_Connect.DB_ResultSet.getString("BranchName");
                 String date = AutoDB_Connect.DB_ResultSet.getString("WithdrawDate");
                 String amount = AutoDB_Connect.DB_ResultSet.getString("Amount");
                 
@@ -1328,6 +1415,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
           }
       }
     }//GEN-LAST:event_ChequeAmountKeyTyped
+
+    private void W_SEARCHActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_W_SEARCHActionPerformed
+       String bank = jComboBox1bank.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`F_WITHDRAW DETAILS` WHERE BankName = '"+bank+"'");
+            jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); 
+    }//GEN-LAST:event_W_SEARCHActionPerformed
   
     
     
@@ -1349,8 +1442,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
   {
       AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
         ("SELECT `F_WITHDRAW DETAILS`.`ChequeNo`,\n" +
-"    `F_WITHDRAW DETAILS`.`Bank Name`,\n" +
-"    `F_WITHDRAW DETAILS`.`Branch Name`,\n" +
+"    `F_WITHDRAW DETAILS`.`BankName`,\n" +
+"    `F_WITHDRAW DETAILS`.`BranchName`,\n" +
 "    `F_WITHDRAW DETAILS`.`WithdrawDate`,\n" +
 "    `F_WITHDRAW DETAILS`.`Amount`\n" +
 "FROM `garmentsystem`.`F_WITHDRAW DETAILS`;");
@@ -1420,11 +1513,9 @@ public class BankDetail extends javax.swing.JInternalFrame {
       public void ChequeNoSearch()
       {
          
-           String b_name = jComboBox2b_name.getSelectedItem().toString();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * "
-                    + "FROM garmentsystem.F_DEPOSIT DETAILS "
-                    + "WHERE BankName LIKE '"+b_name+"%'");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+           String bank = jComboBox2b_name.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM  `garmentsystem`.`F_DEPOSIT DETAILS` WHERE BankName = '"+bank+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); 
           
       }
       
@@ -1456,15 +1547,18 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private javax.swing.JButton D_RESET_ALL;
     private javax.swing.JButton D_SEARCH;
     private javax.swing.JComboBox<String> DepositCombo;
+    private javax.swing.JTextField DepositTotal;
     private javax.swing.JButton R_ADD;
     private javax.swing.JButton R_EDIT;
     private javax.swing.JButton R_RESET_ALL;
     private javax.swing.JButton R_SEARCH;
+    private javax.swing.JTextField ReturnTotal;
     private javax.swing.JButton W_ADD;
     private javax.swing.JButton W_EDIT;
     private javax.swing.JButton W_RESET;
     private javax.swing.JButton W_SEARCH;
     private javax.swing.JComboBox<String> WithDrawCombo;
+    private javax.swing.JTextField WithdrowTotal;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker1date;
     private com.github.lgooddatepicker.components.DatePicker datePicker2date;
@@ -1485,11 +1579,14 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
