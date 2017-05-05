@@ -509,7 +509,7 @@ public static Login loginx;
                 jButton50ActionPerformed(evt);
             }
         });
-        jPanel12.add(jButton50, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
+        jPanel12.add(jButton50, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
 
         jButton51.setText("Vehicle Maintenance");
         jButton51.addActionListener(new java.awt.event.ActionListener() {
@@ -517,7 +517,7 @@ public static Login loginx;
                 jButton51ActionPerformed(evt);
             }
         });
-        jPanel12.add(jButton51, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, -1, -1));
+        jPanel12.add(jButton51, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
 
         jButton53.setText("Vehicle");
         jButton53.addActionListener(new java.awt.event.ActionListener() {
@@ -525,7 +525,7 @@ public static Login loginx;
                 jButton53ActionPerformed(evt);
             }
         });
-        jPanel12.add(jButton53, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, -1, -1));
+        jPanel12.add(jButton53, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 10, -1, -1));
 
         jButton57.setText("Fuel Bills");
         jButton57.addActionListener(new java.awt.event.ActionListener() {
@@ -533,7 +533,7 @@ public static Login loginx;
                 jButton57ActionPerformed(evt);
             }
         });
-        jPanel12.add(jButton57, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, -1, -1));
+        jPanel12.add(jButton57, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
         jTabbedPane1.addTab("Distribution", jPanel12);
 
@@ -724,7 +724,7 @@ public static Login loginx;
             .addGap(0, 730, Short.MAX_VALUE)
         );
 
-        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 70, -1, -1));
+        getContentPane().add(jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
         getAccessibleContext().setAccessibleDescription("");
 
