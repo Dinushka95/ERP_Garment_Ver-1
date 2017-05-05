@@ -79,6 +79,10 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         RESET_Sample_Cost = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         jTextField6 = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        txtSid = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jTextField7 = new javax.swing.JTextField();
 
         setTitle("Sample Costing");
         setMaximumSize(new java.awt.Dimension(1365, 620));
@@ -123,8 +127,8 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         jLabel1.setText("Sample Name");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 70, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboBox2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboBox2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox2ActionPerformed(evt);
@@ -137,12 +141,12 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         jLabel7.setText("Raw Material Information and Costing");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 290, -1, -1));
 
-        jLabel8.setText("ACCID");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("ACCID");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 344, -1, -1));
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboBox3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select" }));
         jComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox3ActionPerformed(evt);
@@ -214,13 +218,23 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
             }
         ));
         jTable2.setColumnSelectionAllowed(true);
+        jTable2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable2MouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable2);
         jTable2.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jPanel2.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(428, 220, 620, 234));
 
-        UPDATE_Sample_Cost.setText("Update");
         UPDATE_Sample_Cost.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        UPDATE_Sample_Cost.setText("Update");
+        UPDATE_Sample_Cost.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UPDATE_Sample_CostActionPerformed(evt);
+            }
+        });
         jPanel2.add(UPDATE_Sample_Cost, new org.netbeans.lib.awtextra.AbsoluteConstraints(506, 488, -1, -1));
 
         DELETE_Sample_Cost.setText("Delete");
@@ -235,6 +249,16 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         jLabel10.setText("Quantity");
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, -1, -1));
         jPanel2.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 400, 96, -1));
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("SampleID");
+        jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 220, 70, 20));
+        jPanel2.add(txtSid, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 250, 170, 40));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setText("ACCID");
+        jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, -1, -1));
+        jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 96, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -306,9 +330,8 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         String qty12=jTextField1.getText();
         String cost12=jTextField6.getText();
         
-        int f_cost=Integer.parseInt(qty12)*Integer.parseInt(cost12);
-        
-        jTextField5.setText(Integer.toString(f_cost));
+        double f_cost=Double.parseDouble(qty12)*Double.parseDouble(cost12);
+        jTextField5.setText(Double.toString(f_cost));
         
     }//GEN-LAST:event_jTextField5MouseExited
 
@@ -350,6 +373,138 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jTable1MouseClicked
+
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        // TODO add your handling code here:
+        int row =jTable2.getSelectedRow();
+        String Sid = jTable2.getValueAt(row,0).toString();
+        String name = jTable2.getValueAt(row,1).toString();
+        String Stid = jTable2.getValueAt(row,2).toString();
+        String des = jTable2.getValueAt(row,3).toString();
+        String aid = jTable2.getValueAt(row,5).toString();
+        String accname = jTable2.getValueAt(row,4).toString();
+        String qty = jTable2.getValueAt(row,6).toString();
+        String cost = jTable2.getValueAt(row,7).toString();
+        String finalcost = jTable2.getValueAt(row,8).toString();
+        
+
+        txtSid.setText(Sid);
+        txt_Sample_Name.setText(name);
+        jTextField2.setText(Stid);
+        jTextArea1.setText(des);
+        jTextField7.setText(aid);
+        jTextField4.setText(accname);
+        jTextField6.setText(qty);
+        jTextField1.setText(cost);
+        jTextField5.setText(finalcost);
+        
+    }//GEN-LAST:event_jTable2MouseClicked
+
+    private void UPDATE_Sample_CostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UPDATE_Sample_CostActionPerformed
+        // TODO add your handling code here:
+        
+        //UPDATE SAMPLE COSTING
+        UpdateSampleCosting();
+        TableLoad();
+    }//GEN-LAST:event_UPDATE_Sample_CostActionPerformed
+    public void UpdateSampleCosting(){
+          
+            
+        String Sid,name,Stid,des,aid,accname,qty,cost,finalcost;
+        Sid=txtSid.getText();
+        name=txt_Sample_Name.getText();
+        Stid=jTextField2.getText();
+        des=jTextArea1.getText();
+        aid=jTextField7.getText();
+        accname=jTextField4.getText();
+        qty=jTextField6.getText();
+        cost=jTextField1.getText();
+        finalcost=jTextField5.getText();
+        
+        if(Sid.isEmpty()||name.isEmpty()||Stid.isEmpty()||des.
+        isEmpty()||aid.isEmpty()||accname.isEmpty()||qty.isEmpty()
+        ||cost.isEmpty()||finalcost.isEmpty()){
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        }
+        
+        else{
+                if(des.length()>10){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE STYLE DESCRIPTION FIELD");
+                }
+                else if(!des.matches("[a-zA-Z]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS");
+                    
+                }
+                
+                else{
+                if(des.length()>10){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE STYLE DESCRIPTION FIELD");
+                }
+                else if(!des.matches("[a-zA-Z]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS");
+                    
+                }
+                
+                //else{
+            
+            try{
+            
+        
+        
+         int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+              
+
+        boolean x = autoSqlQuery.execute
+        ("UPDATE `garmentsystem`.`T_Sample_Costing_Table`\n" +
+"SET\n" +
+"`SampleId` = '"+Sid+"',\n" +
+"`SampleName` = '"+name+"',\n" +
+"`StyleId` = '"+Stid+"',\n" +
+"`Description` = '"+des+"',\n" +
+"`Accessories` = '"+accname+"',\n" +
+"`AccId` = '"+aid+"',\n" +
+"`Quantity` = '"+qty+"',\n" +
+"`Cost` = '"+cost+"',\n" +
+"`Total_Cost` = '"+finalcost+"',\n" +
+"WHERE `SampleId` = '"+Sid+"';");
+        
+       
+            if(x==true){
+               
+               JOptionPane.showMessageDialog(null,"SUCCESSFULLY UPDATED");
+               TableLoad();
+             }
+             else
+             {
+              
+              
+             }
+        }
+            }
+        
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+         
+       
+    }
+    }
+        }
+    
     private void generate_sdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     /*jTextFieldSalesDesignInquiryId.setText(aid.generate("sdi",Integer.toString(MainWindow.userid)));*/
@@ -467,21 +622,24 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
              try
         {  
         
-        boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`T_Sample_Costing_Table`\n" +
+        boolean x =autoSqlQuery.execute("INSERT INTO "
+                + "`garmentsystem`.`T_Sample_Costing_Table`\n" +
 "(`SampleId`,\n" +
 "`SampleName`,\n" +
 "`StyleId`,\n" +
 "`Description`,\n" +
 "`Accessories`,\n" +
+"`AccId`,\n" +
 "`Quantity`,\n" +
 "`Cost`,\n" +
 "`Total_Cost`)\n" +
 "VALUES\n" +
-"('"+name+"',\n" +                  
-"'"+des+"',\n" +
+"('"+SampleID+"',\n" +    
+"'"+name+"',\n" +                  
 "'"+id+"',\n" +
-"'"+accID+"',\n" +
+"'"+des+"',\n" +
 "'"+acc+"',\n" +
+"'"+accID+"',\n" +
 "'"+qty+"',\n" +
 "'"+cost+"',\n" +
 "'"+finalcost+"');");
@@ -532,6 +690,8 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -554,6 +714,8 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JTextField txtSid;
     private javax.swing.JTextField txt_Sample_Name;
     // End of variables declaration//GEN-END:variables
 }

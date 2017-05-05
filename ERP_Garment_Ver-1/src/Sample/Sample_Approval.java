@@ -350,7 +350,6 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings302);
         datePicker1.setName("");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
-        jPanel4 = new javax.swing.JPanel();
 
         setTitle("Sample Approval");
         setMaximumSize(new java.awt.Dimension(1365, 620));
@@ -587,9 +586,6 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Sample Approval", jPanel1);
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
-
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
         pack();
@@ -714,7 +710,6 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;

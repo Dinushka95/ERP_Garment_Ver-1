@@ -7,7 +7,6 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 
@@ -17,8 +16,7 @@ import net.proteanit.sql.DbUtils;
  * @author Dinushka
  */
 public class Request_CreateSample extends javax.swing.JInternalFrame {
-DefaultTableModel model;
-int RowCountjTable2;
+
 
 
     /**
@@ -695,10 +693,10 @@ int RowCountjTable2;
         String samplegiven=Sample_Given.getText();
         String date = datePicker2.getText();
         
-        if(id.isEmpty()||name.isEmpty()||stid.isEmpty()||des.
+         if(id.isEmpty()||name.isEmpty()||stid.isEmpty()||des.
         isEmpty()||Sampletype.isEmpty()||samplesize.isEmpty()||date.isEmpty()
-       ||samplegroup.isEmpty()||sampledesigner.isEmpty()||samplegiven.isEmpty()){
-            
+       ||samplegroup.isEmpty()||sampledesigner.isEmpty()||Nosample.isEmpty()
+       ||samplegiven.isEmpty()){
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         
         }
@@ -717,53 +715,44 @@ int RowCountjTable2;
                 }
                 
                 else{
-                    
-                    
-                 try
-        {
-                
-        boolean  x = autoSqlQuery.execute("INSERT INTO "
-                + "`garmentsystem`.`T_Request_Create_Sample_table`\n" +
-"(`SampleId`,\n" +
-"`SampleName`,\n" +
-"`StyleId`,\n" +
-"`StyleDesc`,\n" +
-"`SampleType`,\n" +
-"`SampleGroup`,\n" +
-"`SampleSize`,\n" +
-"`SampleDesigner`,\n" +
-"`NumberOfSamples`,\n" +
-"`SampleGivenTo`,\n" +
-"`Date`)\n" +
-"VALUES\n" +
-"('"+id+"',\n" +
-"'"+name+"',\n" +
-"'"+stid+"',\n" +
-"'"+des+"',\n" +
-"'"+Sampletype+"',\n" +
-"'"+samplesize+"',\n" +
-"'"+samplegroup+"',\n" +
-"'"+sampledesigner+"',\n" +
-"'"+Nosample+"',\n" +
-"'"+samplegiven+"',\n" +
-"'"+date+"');");
-       
-            if(x==true)
-            {
-               JOptionPane.showMessageDialog(null,"Successfully Added");
-               clearSearch();
-            }
+         //Sql Query
+             try
+        {  
+        
+        boolean x =autoSqlQuery.executeAutoADD
+        (new String[]{"SampleId="+id,
+        "SampleName="+name,
+        "StyleId="+stid,
+        "StyleDesc="+des,
+        "SampleType="+Sampletype,
+        "SampleGroup="+samplegroup,
+        "SampleSize="+samplesize,
+        "SampleDesigner="+sampledesigner,
+        "NumberOfSamples="+Nosample,
+        "Date="+date,
+        }, "T_Request_Create_Sample_table");
+            
+             
+             if(x==true){
+               
+               JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
+             }
+             else
+             {
+              
+              
+             }
         }
-                
+        
         catch(Exception ex)
         {
             System.out.println(ex);
         }
+        
+         
+       
                 }
-        
-        
-      
-    }
+            }
     }
     
      public void UpdateAddedSampleDesigns(){
