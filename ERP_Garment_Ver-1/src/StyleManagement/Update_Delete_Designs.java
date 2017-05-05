@@ -633,6 +633,12 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
     private void sorttxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sorttxtActionPerformed
         // TODO add your handling code here:
+        String text = sorttxt.getText();
+        if (text.length() == 0) {
+          //rowSorter.setRowFilter(null);
+        } else {
+          //rowsorter.setRowFilter(RowFilter.regexFilter(text));
+        }
         
     }//GEN-LAST:event_sorttxtActionPerformed
 
@@ -649,13 +655,12 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private void sort_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sort_txtActionPerformed
         // TODO add your handling code here:
         
-        
-//       String text = sort_txt.getText();
-//        if (text.length() == 0) {
-//          rowSorter.setRowFilter(null);
-//        } else {
-//          sorter.setRowFilter(RowFilter.regexFilter(text));
-//        }
+       String text = sort_txt.getText();
+        if (text.length() == 0) {
+          //rowSorter.setRowFilter(null);
+        } else {
+          //rowsorter.setRowFilter(RowFilter.regexFilter(text));
+        }
     }//GEN-LAST:event_sort_txtActionPerformed
 
         public void UpdateAddedDesigns(){

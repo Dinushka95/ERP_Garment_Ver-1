@@ -305,6 +305,16 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jPanel6.add(AccNumber, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 20, 100, 30));
 
         jTextFieldQuantatiy1.setToolTipText("Add Quantity");
+        jTextFieldQuantatiy1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldQuantatiy1ActionPerformed(evt);
+            }
+        });
+        jTextFieldQuantatiy1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextFieldQuantatiy1KeyReleased(evt);
+            }
+        });
         jPanel6.add(jTextFieldQuantatiy1, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 100, 100, 30));
         jPanel6.add(num222, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 20, 110, 30));
 
@@ -531,6 +541,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         AddDesignCostBilling();
+        
         TableLoad2();
         
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -657,6 +668,17 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     private void jTextFieldFinalCostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldFinalCostActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldFinalCostActionPerformed
+
+    private void jTextFieldQuantatiy1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldQuantatiy1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jTextFieldQuantatiy1ActionPerformed
+
+    private void jTextFieldQuantatiy1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldQuantatiy1KeyReleased
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jTextFieldQuantatiy1KeyReleased
     
     
      public void AddDesignCostBilling()
@@ -678,6 +700,20 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         
         }
+        else if(!Qty.matches("^[0-9]+$")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN'T ENTER ONLY NUMBERS");
+                    
+                }
+        
+        int q=Integer.parseInt(Qty);
+        if(q<0){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER NEGATIVE NUMBER");    
+                }
+        
         
         
                 else{
@@ -882,6 +918,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
          ||cost_.isEmpty()||F_cost.isEmpty()){
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
+         
          else{
              try{
         
@@ -912,6 +949,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         }
     }
     }
+     
      
      public void UpdateAddedDesignsBilling(){
           
@@ -965,6 +1003,8 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         }
     }
     }
+     
+     
      
      private void DeleteMainBilling()
     {
@@ -1068,21 +1108,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         
 
      
-     /*public void UpdateAddedDesigns(){
-          
-            
-        String id,des,designer,gender,type,size,date,status,collection,colour;
-        id=jLabel1.getText();
-        des=Style_txt.getText();
-        designer=designer_txt.getText();
-        gender=gender_txt.getText();
-        type=type_txt.getText();
-        size=size_txt.getText();
-        date=datePicker3.getText();
-        status=status_txt.getText();
-        collection=collection_txt.getText();
-        colour=colour_txt.getText();
-     */
+     
 
     
         
