@@ -470,7 +470,7 @@ public class Distribution extends javax.swing.JInternalFrame {
              jButton8.setEnabled(true);
         }
         
-        else if (search.equals("Start Date"))
+        else if (search.equals("Driver ID"))
         {
             jLabel17.setEnabled(true);
             jComboBox5.setEnabled(true);
@@ -619,6 +619,11 @@ public class Distribution extends javax.swing.JInternalFrame {
      String date=datePicker2.getText();
 
         jTable2.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Distribution","Date", date)));
+ 
+        
+        String DID = jComboBox5.getSelectedItem().toString();
+
+        jTable2.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Distribution","Driver_ID", DID)));
  
  }
     private void tableLoad(){
@@ -775,7 +780,7 @@ public class Distribution extends javax.swing.JInternalFrame {
     }
       private void FillComboMaterial()
     {
-        try
+         try
         {
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
             
@@ -804,6 +809,15 @@ public class Distribution extends javax.swing.JInternalFrame {
                 String HID = AutoDB_Connect.DB_ResultSet.getString("Helper_ID");
                 jComboBox3.addItem(HID);  
                                        
+            }
+             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String DID = AutoDB_Connect.DB_ResultSet.getString("DriverID");
+                jComboBox5.addItem(DID);
+                                       
+             
             }
         }
         catch (SQLException ex)

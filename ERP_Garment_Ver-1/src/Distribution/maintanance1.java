@@ -34,7 +34,7 @@ DefaultTableModel model;
      
         datePicker1.setDateToToday();
         
-        FillCombo();
+         FillComboMaterial();
         
     }
 
@@ -81,7 +81,7 @@ DefaultTableModel model;
         jButton5 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jTextField13 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel7 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -260,12 +260,7 @@ DefaultTableModel model;
 
         jPanelcustomerSearch.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, 810, 380));
 
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField13ActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, 130, -1));
+        jPanelcustomerSearch.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 90, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 860, 510));
 
@@ -375,10 +370,6 @@ DefaultTableModel model;
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField2ActionPerformed
 
-    private void jTextField13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField13ActionPerformed
-
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
      try{
             int r=jTable1.getSelectedRow();
@@ -428,17 +419,20 @@ DefaultTableModel model;
         // TODO add your handling code here:
     }//GEN-LAST:event_vehicleComboActionPerformed
     
-    private void FillCombo()
+    private void FillComboMaterial()
     {
-        try
+         try
         {
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Maintaince");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
-                String id = AutoDB_Connect.DB_ResultSet.getString("LysonNum");
-                vehicleCombo.addItem(id);
+                String Mid = AutoDB_Connect.DB_ResultSet.getString("MaintainceID");
+                jComboBox1.addItem(Mid);
+                                       
+             
             }
+         
         }
         catch (SQLException ex)
         {
@@ -525,8 +519,8 @@ DefaultTableModel model;
     }
     private void search()
     {
-        String frm=jTextField13.getText();
-        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Maintaince WHERE MaintainceID='"+frm+"'");
+        String Mid = jComboBox1.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Maintaince WHERE MaintainceID='"+Mid+"'");
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     
     }
@@ -701,6 +695,7 @@ DefaultTableModel model;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -734,7 +729,6 @@ DefaultTableModel model;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField2;

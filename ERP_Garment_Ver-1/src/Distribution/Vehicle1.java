@@ -5,6 +5,7 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
@@ -25,6 +26,7 @@ DefaultTableModel model;
     public Vehicle1() {
         initComponents();
         generate_vehicleID();
+        FillComboMaterial();
         TabelLoad();
 
   
@@ -57,12 +59,12 @@ DefaultTableModel model;
         jTextField8 = new javax.swing.JTextField();
         jTextField7 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox2 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -70,7 +72,7 @@ DefaultTableModel model;
         jButton5 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jTextField17 = new javax.swing.JTextField();
+        jComboBox3 = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -144,7 +146,7 @@ DefaultTableModel model;
         jPanel5.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 90, 20));
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel3.setText("Lyson No");
+        jLabel3.setText("License No");
         jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 100, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -175,10 +177,8 @@ DefaultTableModel model;
         });
         jPanel5.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 270, 170, -1));
         jPanel5.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 170, 20));
-        jPanel5.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 170, -1));
         jPanel5.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 170, 20));
         jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 110, 170, -1));
-        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 170, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("ADD");
@@ -197,6 +197,16 @@ DefaultTableModel model;
             }
         });
         jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 370, -1, -1));
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "van", "Bike", "Lorry", "Truck" }));
+        jPanel5.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 70, 170, -1));
+
+        jComboBox2.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox2ItemStateChanged(evt);
+            }
+        });
+        jPanel5.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 170, -1));
 
         jPanel1.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 500, 420));
 
@@ -220,8 +230,8 @@ DefaultTableModel model;
         });
         jPanelcustomerSearch2.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 20, -1, -1));
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.setText("Search");
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -248,7 +258,8 @@ DefaultTableModel model;
         jScrollPane2.setViewportView(jTable2);
 
         jPanelcustomerSearch2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 800, 330));
-        jPanelcustomerSearch2.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 90, -1));
+
+        jPanelcustomerSearch2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 90, -1));
 
         jPanel3.add(jPanelcustomerSearch2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 840, 460));
 
@@ -353,7 +364,7 @@ DefaultTableModel model;
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        search();
+           search();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -377,10 +388,10 @@ DefaultTableModel model;
         try{
             int r=jTable2.getSelectedRow();
             String Vid= jTable2.getValueAt(r, 0).toString();
-            String type=jTable2.getValueAt(r, 1).toString();
+            String type=jComboBox1.getSelectedItem().toString();
             String lysonNum =jTable2.getValueAt(r, 2).toString();
             String Milage=jTable2.getValueAt(r, 3).toString();
-            String DID=jTable2.getValueAt(r, 4).toString();
+            String DID=jComboBox2.getSelectedItem().toString();
             String Dname=jTable2.getValueAt(r, 5).toString();
             String engNum=jTable2.getValueAt(r, 7).toString();
             String serDueration=jTable2.getValueAt(r, 7).toString();
@@ -389,7 +400,7 @@ DefaultTableModel model;
             System.err.print(type);
             
             jTextField16.setText(Vid);
-              jTextField15.setText(type);
+              //jTextField15.setText(type);
               jTextField14.setText(lysonNum);
               jTextField13.setText(Milage);
               jTextField12.setText(DID);
@@ -415,6 +426,25 @@ DefaultTableModel model;
         clearUpdateVehicle();
         tableLoad();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jComboBox2ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox2ItemStateChanged
+          try
+        {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String DID = AutoDB_Connect.DB_ResultSet.getString("Vehical_ID");
+                jComboBox2.addItem(DID);
+                                       
+             
+            }
+        }
+        catch (SQLException ex)
+        {
+            System.out.println(ex);
+        }
+    }//GEN-LAST:event_jComboBox2ItemStateChanged
      private void generate_vehicleID() {
        
        AutoIdGenerator aid = new AutoIdGenerator();
@@ -430,10 +460,10 @@ DefaultTableModel model;
         private void TextBoxClear()
     {
         jTextField1.setText("");
-        jTextField2.setText("");
+        //jTextField2.setText("");
         jTextField3.setText("");
         jTextField4.setText("");
-        jTextField5.setText("");
+        //jTextField5.setText("");
         jTextField6.setText("");
         jTextField7.setText("");
         jTextField8.setText("");
@@ -444,10 +474,10 @@ DefaultTableModel model;
          private void AddVehicle()
     {
         String Vid = jTextField1.getText();
-        String type = jTextField2.getText();
+        String type = jComboBox1.getSelectedItem().toString();
         String lysonNum = jTextField3.getText();
         String Milage = jTextField4.getText();
-        String DID = jTextField5.getText();
+        String DID = jComboBox2.getSelectedItem().toString();
         String Dname = jTextField6.getText();
         String engNum = jTextField7.getText();
         String serDueration = jTextField8.getText();
@@ -487,7 +517,7 @@ DefaultTableModel model;
         }
          private void search()
          {
-         String Vid=jTextField17.getText();
+         String Vid=jComboBox3.getSelectedItem().toString();
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel WHERE VehicalID='"+Vid+"'");
         jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
      
@@ -508,6 +538,27 @@ DefaultTableModel model;
 
         
     }*/
+       private void FillComboMaterial()
+    {
+         try
+        {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String VID = AutoDB_Connect.DB_ResultSet.getString("VehicalId");
+                jComboBox3.addItem(VID);
+                                       
+             
+            }
+         
+        }
+        catch (SQLException ex)
+        {
+            System.out.println(ex);
+        }
+    }
+      
      private void DeleteDesigns()
     {
                 int reply = JOptionPane.showConfirmDialog(null, 
@@ -537,7 +588,7 @@ DefaultTableModel model;
      public void clearDeleteDesign(){
         
         jTextField16.setText("");
-        jTextField15.setText("");
+        //jTextField15.setText("");
         jTextField14.setText("");
         jTextField13.setText("");
         jTextField12.setText("");
@@ -666,6 +717,9 @@ DefaultTableModel model;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -703,11 +757,8 @@ DefaultTableModel model;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
     private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
