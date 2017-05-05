@@ -6,15 +6,9 @@
 package Sample;
 
 import MainSystem.AutoDB_Connect;
-import StyleManagement.*;
-import Marketing.*;
-import Sales.*;
 import MainSystem.AutoIdGenerator;
-import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
-import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
