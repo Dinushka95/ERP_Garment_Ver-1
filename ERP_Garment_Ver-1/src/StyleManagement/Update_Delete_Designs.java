@@ -5,6 +5,7 @@ import MainSystem.AutoDB_Connect;
 import net.proteanit.sql.DbUtils;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
@@ -32,10 +33,10 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
       initComponents();
       
        Table2Load();
-      
-     
       date.setDateToToday();
-      datePicker3.setDateToToday();    
+      datePicker3.setDateToToday();  
+      jPanel5.setVisible(false);
+      jPanel4.setVisible(false);
         
     
     }
@@ -135,6 +136,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         ResetViewUpdateDesign = new javax.swing.JButton();
         stid = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
 
         setResizable(true);
         setTitle("Update||Delete Designs");
@@ -339,7 +342,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         });
         jPanel10.add(sorttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 200, 110, 29));
 
-        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, -1));
 
         jPanel5.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1270, 490));
 
@@ -369,8 +372,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         });
         jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
 
+        jLabel44.setText("Sort");
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel44.setText("Gender");
         jPanel8.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         sort_txt.setToolTipText("Gender");
@@ -389,7 +392,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
                 sort_txtKeyTyped(evt);
             }
         });
-        jPanel8.add(sort_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 110, 110, -1));
+        jPanel8.add(sort_txt, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 110, -1));
 
         jPanel7.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 210, 180));
 
@@ -512,6 +515,14 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
         jLabel1.setToolTipText("Style ID");
         jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 160, 30));
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StyleManagement/updated-icon.png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 260, 130, 110));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StyleManagement/wrnimg.png"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 260, 120, 110));
 
         jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1295, 501));
 
@@ -681,7 +692,20 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         if(des.isEmpty()||designer.isEmpty()||size.isEmpty()||type.
         isEmpty()||gender.isEmpty()||status.isEmpty()||date.isEmpty()
         ||collection.isEmpty()||colour.isEmpty()){
+            
+            jLabel1.setBackground(Color.GREEN);
+            Style_txt.setBackground(Color.GREEN);
+            designer_txt.setBackground(Color.GREEN);
+            type_txt.setBackground(Color.GREEN);
+            gender_txt.setBackground(Color.GREEN);
+            size_txt.setBackground(Color.GREEN);
+            datePicker3.setBackground(Color.GREEN);
+            status_txt.setBackground(Color.GREEN);
+            collection_txt.setBackground(Color.GREEN);
+            colour_txt.setBackground(Color.GREEN);
+            jPanel5.setVisible(true);
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        jPanel5.setVisible(false);
         }
         
         else{
@@ -703,10 +727,11 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
                     + "IN THE STYLE DESCRIPTION FIELD");
                 }
-                else if(!des.matches("[a-zA-Z]+")){
+               
+                else if(des.matches("[0-9]+")){
                     
             JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS");
+                    + "CAN'T ENTER NUMBERS");
                     
                 }
                 
@@ -741,7 +766,9 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
        
             if(x==true){
                clearUpdateDesign();
+               jLabel4.setVisible(true);
                JOptionPane.showMessageDialog(null,"SUCCESSFULLY UPDATED");
+               jLabel4.setVisible(false);
              }
              else
              {
@@ -918,11 +945,13 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

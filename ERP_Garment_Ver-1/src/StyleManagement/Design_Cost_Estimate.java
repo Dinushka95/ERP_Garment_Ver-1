@@ -851,6 +851,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     }
    
     private void TextBoxClear(){
+        
             Styleid.setSelectedIndex(0);
             datePicker1.setText("");
             number.setText("");
@@ -866,6 +867,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     }
     
      private void TextBoxClearacc(){
+         
             AccNumber.setSelectedIndex(0);
             jTextFieldColour.setText("");
             num222.setText("");

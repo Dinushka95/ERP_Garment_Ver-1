@@ -11,6 +11,7 @@ import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.autogetimage;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 /**
  *
@@ -19,17 +20,6 @@ import javax.swing.JOptionPane;
 public class CreateDesign extends javax.swing.JInternalFrame {
     
     
-
-AutoValidation val = new AutoValidation();
-boolean result;
-
-
-
-
-
-    /**
-     * Creates new form SalesDesignInquiry
-     */
     public CreateDesign() {
         
     initComponents();
@@ -39,6 +29,8 @@ boolean result;
     FillTextCombo1();
     FillTextComboDesigner();
     datePicker1.setDateToToday();
+    Error.setVisible(false);
+    OKAY.setVisible(false);
     
         
         
@@ -105,6 +97,8 @@ boolean result;
         jButton1 = new javax.swing.JButton();
         Demo = new javax.swing.JButton();
         AddImage = new javax.swing.JButton();
+        OKAY = new javax.swing.JLabel();
+        Error = new javax.swing.JLabel();
 
         setResizable(true);
         setTitle("Creating Designs");
@@ -362,6 +356,14 @@ boolean result;
         });
         jPanel2.add(AddImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, -1, -1));
 
+        OKAY.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StyleManagement/sus.jpg"))); // NOI18N
+        OKAY.setText("jLabel12");
+        jPanel2.add(OKAY, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, 100, 110));
+
+        Error.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StyleManagement/er.jpg"))); // NOI18N
+        Error.setText("jLabel12");
+        jPanel2.add(Error, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 100, 110));
+
         jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 300, 620, 250));
 
         jTabbedPane1.addTab("Create Designs", jPanel4);
@@ -491,6 +493,8 @@ boolean result;
         stylecollection.setSelectedItem("Select Collection");
         stylecolour.setSelectedItem("Select Color");
         addnewcolour.setText("");
+        Error.setVisible(false);
+        OKAY.setVisible(false);
        
         
        
@@ -517,10 +521,30 @@ boolean result;
         String collection = stylecollection.getSelectedItem().toString();
         String color = stylecolour.getSelectedItem().toString();  
         
+        //Validating
         if(des.isEmpty()||designer.isEmpty()||size.isEmpty()||Type.
         isEmpty()||gender.isEmpty()||status.isEmpty()||date.isEmpty()
        ||collection.isEmpty()||color.isEmpty()){
+            
+            
+        D_stid.setBackground(Color.yellow);
+        Styledes.setBackground(Color.yellow);
+        stylesize.setBackground(Color.yellow);
+        styletype.setBackground(Color.yellow);
+        male.setBackground(Color.yellow);
+        female.setBackground(Color.yellow);
+        start.setBackground(Color.yellow);
+        inprogress.setBackground(Color.yellow);
+        finished.setBackground(Color.yellow);
+        datePicker1.setBackground(Color.yellow);
+        stylecollection.setBackground(Color.yellow);
+        stylecolour.setBackground(Color.yellow);
+        D_stid.setBackground(Color.yellow);
+        D_stid.setBackground(Color.yellow);
+        Error.setVisible(true);
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        Error.setVisible(false);
+        
         
         }
         
@@ -529,11 +553,13 @@ boolean result;
             
             JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
                     + "IN THE STYLE DESCRIPTION FIELD");
+           
                 }
                 else if(!des.matches("[a-zA-Z]+")){
                     
             JOptionPane.showMessageDialog(null, "WARNING YOU "
                     + "CAN ENTER ONLY ALPHABETS");
+            
                     
                 }
                 
@@ -557,7 +583,9 @@ boolean result;
              
              if(x==true){
                TextBoxClear2CreateDesign();
+               OKAY.setVisible(true);
                JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
+               OKAY.setVisible(false);
              }
              else
              {
@@ -598,7 +626,10 @@ boolean result;
             {
                 
                 TextBoxClear3();
+                OKAY.setVisible(true);
                 JOptionPane.showMessageDialog(null,"Successfully Added");
+                OKAY.setVisible(false);
+                
             }
         }
         catch(Exception ex)
@@ -686,8 +717,10 @@ boolean result;
     private javax.swing.JButton AddImage;
     private javax.swing.JLabel D_stid;
     private javax.swing.JButton Demo;
+    private javax.swing.JLabel Error;
     private javax.swing.ButtonGroup GenderButtonGroup;
     private javax.swing.JButton Generate;
+    private javax.swing.JLabel OKAY;
     private javax.swing.JButton ResetAll;
     private javax.swing.ButtonGroup Status;
     private javax.swing.JTextArea Styledes;
