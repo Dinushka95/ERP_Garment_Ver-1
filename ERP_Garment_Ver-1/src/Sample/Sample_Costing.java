@@ -247,7 +247,7 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("SampleID");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 220, 70, 20));
-        jPanel2.add(txtSid, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 250, 170, 40));
+        jPanel2.add(txtSid, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 250, 170, 30));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("ACCID");

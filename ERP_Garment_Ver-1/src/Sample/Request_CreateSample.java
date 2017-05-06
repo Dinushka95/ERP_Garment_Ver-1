@@ -49,8 +49,6 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         jLabel22 = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -106,7 +104,6 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         sampleNum = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         givento = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable4 = new javax.swing.JTable();
         updatesample = new javax.swing.JButton();
@@ -163,19 +160,6 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         jScrollPane5.setViewportView(jTable3);
 
         jPanel2.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 560, 390));
-
-        jButton13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton13.setText("View");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 470, -1, -1));
-
-        jButton14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton14.setText("Reset");
-        jPanel2.add(jButton14, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 1300, 530));
 
@@ -394,10 +378,6 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         jPanel8.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 70, -1, -1));
         jPanel8.add(givento, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 70, 130, 30));
 
-        jButton6.setText("Reset");
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel8.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 80, -1));
-
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null, null, null},
@@ -418,8 +398,8 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
 
         jPanel8.add(jScrollPane6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 1259, 268));
 
-        updatesample.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         updatesample.setText("Update");
+        updatesample.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         updatesample.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 updatesampleActionPerformed(evt);
@@ -560,11 +540,6 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         
         
     }//GEN-LAST:event_jTable4MouseClicked
-
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-      
-    }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         // TODO add your handling code here:
@@ -959,11 +934,8 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
     private javax.swing.JTextField givento;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -565,7 +565,7 @@
                 <Component class="javax.swing.JTextField" name="txtSid">
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="1070" y="250" width="170" height="40"/>
+                      <AbsoluteConstraints x="1070" y="250" width="170" height="30"/>
                     </Constraint>
                   </Constraints>
                 </Component>
