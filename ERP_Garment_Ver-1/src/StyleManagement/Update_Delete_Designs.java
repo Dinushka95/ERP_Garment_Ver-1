@@ -712,9 +712,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
             status_txt.setBackground(Color.GREEN);
             collection_txt.setBackground(Color.GREEN);
             colour_txt.setBackground(Color.GREEN);
-            jPanel5.setVisible(true);
-        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
-        jPanel5.setVisible(false);
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        
         }
         
         else{
@@ -775,9 +774,9 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
        
             if(x==true){
                clearUpdateDesign();
-               jLabel4.setVisible(true);
+               
                JOptionPane.showMessageDialog(null,"SUCCESSFULLY UPDATED");
-               jLabel4.setVisible(false);
+               
              }
              else
              {
