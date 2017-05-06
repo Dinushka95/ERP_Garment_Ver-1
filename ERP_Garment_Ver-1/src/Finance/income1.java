@@ -31,9 +31,7 @@ public class income1 extends javax.swing.JInternalFrame {
         initComponents();
        datePicker1date.setDateToToday();
        Tableload();
-       generate_Earned();
-       generate_Passive();
-       generate_Portfolio();
+      
       
     }
     
@@ -200,14 +198,14 @@ public class income1 extends javax.swing.JInternalFrame {
 
         jLabel15.setText("Total");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel11.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(109, 140, 50, -1));
+        jPanel11.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 180, 50, -1));
 
         InTotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InTotalActionPerformed(evt);
             }
         });
-        jPanel11.add(InTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 150, 30));
+        jPanel11.add(InTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, 150, 30));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -227,7 +225,7 @@ public class income1 extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTable1);
 
-        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 590, 90));
+        jPanel11.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 590, 140));
 
         jPanel6.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 630, 210));
 
@@ -323,7 +321,7 @@ public class income1 extends javax.swing.JInternalFrame {
         (jTextArea1description, true,0,'@')&&validation.ValidationCheck(jTextField2amt, true,0,'1'))
          {
       String bill = jTextField1bill.getText();
-      String i_type = jComboBox3type.getSelectedItem().toString();
+      String inType = jComboBox3type.getSelectedItem().toString();
       String date = datePicker1date.getText() ;
       String descrip = jTextArea1description.getText();
       float amount =Float.parseFloat(jTextField2amt.getText());
@@ -331,7 +329,7 @@ public class income1 extends javax.swing.JInternalFrame {
        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`INCOME`\n" +
 "SET\n" +
 "`Bill_No` = '"+bill+"',\n" +
-"`Income Type` = '"+i_type+"',\n" +
+"`Income Type` = '"+inType+"',\n" +
 "`Date` = '"+date+"',\n" +
 "`Discription` = '"+descrip+"',\n" +
 "`Amount` = "+amount+"\n" +
@@ -357,36 +355,44 @@ public class income1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_SEARHjButton4ActionPerformed
      private void IncomeSearch()
      {
-     String Billno = jTextField1bill.getText();
-        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.INCOME WHERE Bill_No LIKE '"+Billno+"%'");
+     String inType = jComboBox3type.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM  `garmentsystem`.`INCOME` WHERE `Income Type` = '"+inType+"'");
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); 
      }
-    
+   
     private void DeletejButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton7ActionPerformed
-        // TODO add your handling code here:
-         String Billno = jTextField1bill.getText();
+       Deleteincome();
+       TextBoxClear();
+       
+    }//GEN-LAST:event_DeletejButton7ActionPerformed
+
+    
+     private void Deleteincome()
+    {
+        String Billno = jTextField1bill.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`INCOME`\n" +
-"WHERE Bill_No LIKE '"+Billno+"';");
+"WHERE Bill_No = '"+Billno+"';");
         
         try
         {
             if (x==true)
             {
+                JOptionPane.showMessageDialog(this, "Deleted");
+                
                 TextBoxClear();
                 Tableload();
+              
             }
         }
         catch (Exception ex){
             System.out.println(ex);
         }
-       
-    }//GEN-LAST:event_DeletejButton7ActionPerformed
-
+    }
      public void  EditExp()
   {
       String Billno = jTextField1bill.getText();
-      String InType = jComboBox3type.getSelectedItem().toString();
+      String inType = jComboBox3type.getSelectedItem().toString();
       String date = datePicker1date.getText();
       String desc = jTextArea1description.getText();
       float amt =Float.parseFloat(jTextField2amt.getText());
@@ -394,7 +400,7 @@ public class income1 extends javax.swing.JInternalFrame {
        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`INCOME`\n" +
 "SET\n" +
 "`Bill_No` = '"+Billno+"',\n" +
-"`Income Type` = '"+InType+"',\n" +
+"`Income Type` = '"+inType+"',\n" +
 "`Date` = '"+date+"',\n" +
 "`Discription` = '"+desc+"',\n" +
 "`Amount` = "+amt+"\n" +
@@ -418,13 +424,15 @@ public class income1 extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-         int row =jTable1.getSelectedRow();
+        int row =jTable1.getSelectedRow();  
         String Billno = jTable1.getValueAt(row,0).toString();
-        String inType = jTable1.getValueAt(row,1).toString();
+        String inType = jTable1.getValueAt(row,1).toString();    
         String date = jTable1.getValueAt(row,2).toString();
         String desc = jTable1.getValueAt(row,3).toString();
         String amt = jTable1.getValueAt(row,4).toString();
         
+    
+     
       jTextField1bill.setText(Billno);
       jComboBox3type.setSelectedItem(inType);
       datePicker1date.setText(date);
@@ -448,6 +456,7 @@ public class income1 extends javax.swing.JInternalFrame {
         {
             generate_Portfolio();
         }
+        
        
     }//GEN-LAST:event_jComboBox3typeActionPerformed
 
@@ -471,7 +480,7 @@ private void generate_Earned(){
     jTextField1bill.setText(aid.generate("PASS",Integer.toString(MainWindow.userid)));
     }
      private void generate_Portfolio(){
-    AutoIdGenerator aid = new AutoIdGenerator();
+    AutoIdGenerator aid = new AutoIdGenerator(); 
     jTextField1bill.setText(aid.generate("PORT",Integer.toString(MainWindow.userid)));
     }
      

@@ -292,11 +292,12 @@ public class CashDetails extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         int row =jTable1.getSelectedRow();
-        String chno = jTable1.getValueAt(row,0).toString();
-        String chtype = jTable1.getValueAt(row,1).toString();
+         String chtype = jTable1.getValueAt(row,0).toString();
+        String chno = jTable1.getValueAt(row,1).toString();
         String date = jTable1.getValueAt(row,2).toString();
         String Des = jTable1.getValueAt(row,3).toString();
         String amount = jTable1.getValueAt(row,4).toString();
+        
         
         jTextField3.setText(chno);
         jComboBox2.setSelectedItem(chtype);
@@ -410,8 +411,8 @@ public class CashDetails extends javax.swing.JInternalFrame {
       float amount =Float.parseFloat(jTextField1.getText());
       
        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`CASH_DETAILS`\n" +
-"(`Cash_ID`,\n" +
-"`Type`,\n" +
+"(`Type`,\n" +
+"`Cash_ID`,\n" +
 "`Date`,\n" +
 "`Description`,\n" +
 "`Amount`)\n" +
@@ -458,12 +459,12 @@ public class CashDetails extends javax.swing.JInternalFrame {
       
        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`CASH_DETAILS`\n" +
 "SET\n" +
-"`Cash_ID` = '"+chno+"',\n" +
 "`Type` = '"+chtype+"',\n" +
+"`Cash_ID` = '"+chno+"',\n" +
 "`Date` = '"+date+"',\n" +
 "`Description` = '"+Des+"',\n" +
 "`Amount` = "+amount+"\n" +
-"WHERE `Cash_ID` =  '"+chno+"';");
+"WHERE `Type` = '"+chtype+"';");
        
          try
         {
@@ -480,15 +481,15 @@ public class CashDetails extends javax.swing.JInternalFrame {
         }   
          
           
-    
+    /* String bank = jComboBox2b_name.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM  `garmentsystem`.`F_DEPOSIT DETAILS` WHERE BankName = '"+bank+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); */
   
   }
    public void CashIDSearch()
     {
-            String cash = jTextField3.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * "
-                    + "FROM garmentsystem.CASH_DETAILS "
-                    + "WHERE Cash_ID LIKE '"+cash+"%'");
+            String chtype = jComboBox2.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM  `garmentsystem`.`CASH_DETAILS` WHERE Type = '"+chtype+"'");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
    private void Tableload()

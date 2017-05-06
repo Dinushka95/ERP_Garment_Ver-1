@@ -1,6 +1,13 @@
 
 package Finance;
 
+import MainSystem.AutoDB_Connect;
+import static MainSystem.AutoDB_Connect.DB_connection;
+import static MainSystem.MainWindow.autoSqlQuery;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 
 
@@ -17,6 +24,11 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
      */
     public PROFITANDLOSS() {
         initComponents();
+        CalAnnualSales();
+        CalcSalesRetuen();
+        CalcCostofSales();
+        CalPurchase();
+        CalReturnPurchase();
       
     }
 
@@ -36,8 +48,8 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
+        Sales = new javax.swing.JTextField();
+        SalesReturn = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -46,11 +58,11 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField7 = new javax.swing.JTextField();
-        jTextField8 = new javax.swing.JTextField();
+        CostOfSales = new javax.swing.JTextField();
+        openStock = new javax.swing.JTextField();
+        Purchase = new javax.swing.JTextField();
+        ReturnPuechase = new javax.swing.JTextField();
+        Goods = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jTextField9 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
@@ -94,13 +106,13 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
 
         jLabel6.setText("Date");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 40, -1));
+        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 10, 40, -1));
 
         jLabel8.setText("To");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 10, 30, -1));
-        jPanel6.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 130, -1));
-        jPanel6.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 130, -1));
+        jPanel6.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, 30, -1));
+        jPanel6.add(Sales, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 40, 130, -1));
+        jPanel6.add(SalesReturn, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 70, 130, -1));
 
         jLabel9.setText("Cost Of Sales");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -130,11 +142,17 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jButton1.setText("ADD");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 70, -1));
-        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 130, -1));
-        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 130, -1));
-        jPanel6.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 130, -1));
-        jPanel6.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 130, -1));
-        jPanel6.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 130, -1));
+        jPanel6.add(CostOfSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 130, -1));
+
+        openStock.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                openStockKeyReleased(evt);
+            }
+        });
+        jPanel6.add(openStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 130, -1));
+        jPanel6.add(Purchase, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 170, 130, -1));
+        jPanel6.add(ReturnPuechase, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 200, 130, -1));
+        jPanel6.add(Goods, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 230, 130, -1));
 
         jLabel19.setText("Cost Of Sales");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -175,11 +193,11 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 150, -1));
 
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jButton2.setText("Demo");
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, -1, -1));
-        jPanel6.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(289, 0, 150, 30));
-        jPanel6.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(489, 0, 150, 30));
+        jPanel6.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 150, 30));
+        jPanel6.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 150, 30));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 650, 550));
 
@@ -192,12 +210,118 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void openStockKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_openStockKeyReleased
+        // TODO add your handling code here:
+        Goods.setText("");
+        CalcCostofGoddsSales();
+        
+    }//GEN-LAST:event_openStockKeyReleased
+
+ private void CalAnnualSales()
+ {
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(total) from garmentsystem.d_salesInvoice_table;");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                Sales.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
+     }
  
+ private void CalcSalesRetuen()
+ {
+     try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(TotalAmount) from garmentsystem.d_salesReturn_table;");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                SalesReturn.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
+ }
  
+  private void CalcCostofSales()
+  {
+      float sales = Float.parseFloat(Sales.getText());
+      float ret   = Float.parseFloat(SalesReturn.getText());
+   
+      
+      float cos = (sales-ret);
+      System.out.println(cos);
+      CostOfSales.setText(Double.toString(cos));
+  }
+ 
+ private void CalPurchase()
+ {
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Total) FROM garmentsystem.Purchasing;");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                Purchase.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
+     }
+ 
+  private void CalReturnPurchase()
+ {
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(TotalAmount) FROM garmentsystem.PurchaseReturn;");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                ReturnPuechase.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
+     }
+ 
+   private void CalcCostofGoddsSales()
+ {
+       float open = Float.parseFloat(openStock.getText());
+       float Purch = Float.parseFloat(Purchase.getText());
+        float Purchre = Float.parseFloat(ReturnPuechase.getText());
+       
+      float goods = (open+Purch+Purchre);
+
+       System.out.println(goods);
+      Goods.setText(Double.toString(goods));
+     }
+   
  
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField CostOfSales;
+    private javax.swing.JTextField Goods;
+    private javax.swing.JTextField Purchase;
+    private javax.swing.JTextField ReturnPuechase;
+    private javax.swing.JTextField Sales;
+    private javax.swing.JTextField SalesReturn;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
@@ -223,7 +347,6 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField12;
     private javax.swing.JTextField jTextField13;
@@ -231,13 +354,8 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField18;
     private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField openStock;
     // End of variables declaration//GEN-END:variables
 
    

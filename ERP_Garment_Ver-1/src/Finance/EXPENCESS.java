@@ -277,8 +277,8 @@ private void Tableload()
 
  public void AddExpences()
  {
-       if(validation.ValidationCheck(jTextField1bill, true, 0, '@')&&validation.ValidationCheck
-        (jTextArea1description, true,0,'@')&&validation.ValidationCheck(jTextField2amt, true,0,'1'))
+       if(validation.ValidationCheck(jTextField1bill, true, 0, '@')
+               &&validation.ValidationCheck(jTextField2amt, true,0,'1'))
        {
      String Billno = jTextField1bill.getText();
      String exType = jComboBox3type.getSelectedItem().toString();
@@ -324,7 +324,7 @@ private void Tableload()
       jTextField2amt.setText("");
   }
     private void DeletejButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton7ActionPerformed
-        // TODO add your handling code here:
+       
          String Billno = jTextField1bill.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_EXPENES`\n" +
@@ -432,15 +432,13 @@ private void Tableload()
      
     private void searchexpen()
     {
-        String bill = jTextField1bill.getText();
-        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.F_EXPENES WHERE Bill_No LIKE '"+bill+"%'");
+        String exType = jComboBox3type.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM  `garmentsystem`.`F_EXPENES` WHERE `Expences_Type` = '"+exType+"'");
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
     }
    public void  EditExp()
   {
-              if(validation.ValidationCheck(jTextField1bill, true, 0, '@')
-              &&validation.ValidationCheck(jTextArea1description, true,0,'@')
-              &&validation.ValidationCheck(jTextField2amt, true,0,'1'))
+              if(validation.ValidationCheck(jTextField2amt, true,0,'1'))
       {
       String Billno = jTextField1bill.getText();
       String exType = jComboBox3type.getSelectedItem().toString();
