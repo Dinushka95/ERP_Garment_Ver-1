@@ -27,7 +27,7 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         CalFixAssets();
    //     CalcBank();
          CalCash();
-         CalcCurrTotal();
+       //  CalcCurrTotal();
          CalcLi();
        
        
@@ -57,7 +57,7 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
  {
        float fix = Float.parseFloat(fixassets.getText());
        float Investment = Float.parseFloat(invest.getText());
-       float Fixtot = (Investment+fix);
+       float Fixtot = (fix+Investment);
        
        System.out.println(Fixtot);
       F_tot.setText(Double.toString(Fixtot));
@@ -125,19 +125,19 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
       Goods.setText(Double.toString(goods));
      }*/
          
-    private void CalcCurrTotal()
+  /*  private void CalcCurrTotal()
  {
-      float stock = Float.parseFloat(stocktot.getText());
+     // float stocks = Float.parseFloat(stocktot.getText());
+          float debit = Float.parseFloat(deb.getText());
        float cash = Float.parseFloat(cashtot.getText());
-       float debit = Float.parseFloat(deb.getText());
-       float bank = Float.parseFloat(Bank.getText());
+        float bank = Float.parseFloat(Bank.getText());
        
-       float Currtot = (stock+debit+cash+bank);
+       float Currtot = (debit+cash+bank);//stock should be here
        
        System.out.println(Currtot);
       cuAss_tot.setText(Double.toString(Currtot));
      }  
-    
+    */
        private void CalcLiaCap()
  {
       float Fund = Float.parseFloat(fund.getText());
@@ -314,6 +314,12 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel32.setText("Debitors");
         jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        deb.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                debKeyReleased(evt);
+            }
+        });
         jPanel4.add(deb, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -522,6 +528,11 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         CalcNonLiaCap();
     }//GEN-LAST:event_otherliKeyReleased
+
+    private void debKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_debKeyReleased
+//CalcCurrTotal();        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_debKeyReleased
 
   
     // Variables declaration - do not modify//GEN-BEGIN:variables

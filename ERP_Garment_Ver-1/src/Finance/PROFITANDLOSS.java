@@ -7,6 +7,7 @@ import static MainSystem.MainWindow.autoSqlQuery;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JTextField;
 
 
 
@@ -16,6 +17,12 @@ import java.sql.SQLException;
  * @author Dinushka
  */
 public class PROFITANDLOSS extends javax.swing.JInternalFrame {
+
+    private float closeship;
+    private float goods;
+    private float cos;
+    private float costsales;
+    private JTextField gross;
 
 
 
@@ -29,6 +36,11 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         CalcCostofSales();
         CalPurchase();
         CalReturnPurchase();
+        CalcCostOfSales();
+        CalcGrossProfit();
+        CalcExpencess();
+       
+        
       
     }
 
@@ -56,7 +68,7 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel13 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField10 = new javax.swing.JTextField();
+        Clossing = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         CostOfSales = new javax.swing.JTextField();
         openStock = new javax.swing.JTextField();
@@ -64,17 +76,17 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         ReturnPuechase = new javax.swing.JTextField();
         Goods = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        CostSales = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        jTextField12 = new javax.swing.JTextField();
+        GrossProfit = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
-        jTextField13 = new javax.swing.JTextField();
+        Expen = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
-        jTextField17 = new javax.swing.JTextField();
+        net = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
+        Shipping = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        jTextField19 = new javax.swing.JTextField();
+        Tax = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jTextField20 = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
@@ -137,7 +149,13 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel17.setText("(-)Closing Stock");
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 260, 110, -1));
-        jPanel6.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 130, -1));
+
+        Clossing.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ClossingKeyReleased(evt);
+            }
+        });
+        jPanel6.add(Clossing, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 130, -1));
 
         jButton1.setText("ADD");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -157,32 +175,38 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel19.setText("Cost Of Sales");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 100, -1));
-        jPanel6.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 130, -1));
+        jPanel6.add(CostSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 130, -1));
 
         jLabel20.setText("Gross Profit/Loss");
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 140, -1));
-        jPanel6.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 130, -1));
+        jPanel6.add(GrossProfit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 130, -1));
 
         jLabel21.setText("Expences");
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 80, -1));
-        jPanel6.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 130, -1));
+        jPanel6.add(Expen, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 370, 130, -1));
 
         jLabel22.setText("Net Profit/Loss");
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 100, -1));
-        jPanel6.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 130, -1));
+        jPanel6.add(net, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 130, -1));
 
         jLabel23.setText("Shipping Cost");
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 290, 100, -1));
-        jPanel6.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 130, -1));
+
+        Shipping.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ShippingKeyReleased(evt);
+            }
+        });
+        jPanel6.add(Shipping, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 130, -1));
 
         jLabel24.setText("10% of IncomeTax");
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 120, -1));
-        jPanel6.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 130, -1));
+        jPanel6.add(Tax, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 130, -1));
 
         jLabel26.setText("Net Profit/Loss Per Year");
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -216,6 +240,16 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         CalcCostofGoddsSales();
         
     }//GEN-LAST:event_openStockKeyReleased
+
+    private void ClossingKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ClossingKeyReleased
+        // TODO add your handling code here:
+        CalcClosingShipping();
+    }//GEN-LAST:event_ClossingKeyReleased
+
+    private void ShippingKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ShippingKeyReleased
+        // TODO add your handling code here:
+        CalcClosingShipping();
+    }//GEN-LAST:event_ShippingKeyReleased
 
  private void CalAnnualSales()
  {
@@ -267,7 +301,7 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
  private void CalPurchase()
  {
          try {
-             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Total) FROM garmentsystem.Purchasing;");
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Total) FROM garmentsystem._PurchasesRecieved;");
              ResultSet  results = statement.executeQuery();
                 results.next();
                 String sum = results.getString(1);
@@ -312,16 +346,112 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
       Goods.setText(Double.toString(goods));
      }
    
-
+   
+  private void CalcClosingShipping()
+ {
+       float clossing = Float.parseFloat(Clossing.getText());
+       float shipping = Float.parseFloat(Shipping.getText());
+       
+        float closeship = (clossing+shipping);
+        System.out.println(closeship);
+     }
+   
   
+   private void CalcCostOfSales()
+ {
+        //float closeship = 0;
+     float costsales = (goods-closeship);
+      System.out.println(costsales);
+      
+      CostSales.setText(Double.toString(costsales));
+       
+        System.out.println(costsales);
+     }
+    private void CalcGrossProfit()
+ {
+        //float closeship = 0;
+        float gross = (cos-costsales);
+      System.out.println(gross);
+      
+      GrossProfit.setText(Double.toString(gross));
+       
+        System.out.println(gross);
+     }
+    
   
+    private void CalcExpencess()
+ {
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) FROM garmentsystem.F_EXPENES;");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                Expen.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
+     }
+    
+    //----------NetProfit Calculate----------------
+   /*  private void CalcNetProfit()
+ {
+     
+       float ex = Float.parseFloat(Expen.getText());
+       
+        float Net = (gross-ex);
+  
+      
+      net.setText(Double.toString(Net));
+       
+        System.out.println(Net);
+     }
+    */
+    
+    //----------------taxCalculate-------------------
+  /* private void Calctax()
+ {
+          
+         float rate = (float) 0.10;       
+        float tax = (Net*rate);
+        
+        net.setText(Double.toString(tax));
+       
+        System.out.println(tax);
+        
+     }
+  */
+   //-----------------netProfit per year------------- 
+    /*
+     private void CalcNetProfitperYear()
+ {
+       
+        float peryear = (Net-tax);
+  
+      
+      net.setText(Double.toString(peryear));
+       
+        System.out.println(peryear);
+     }
+    */
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Clossing;
     private javax.swing.JTextField CostOfSales;
+    private javax.swing.JTextField CostSales;
+    private javax.swing.JTextField Expen;
     private javax.swing.JTextField Goods;
+    private javax.swing.JTextField GrossProfit;
     private javax.swing.JTextField Purchase;
     private javax.swing.JTextField ReturnPuechase;
     private javax.swing.JTextField Sales;
     private javax.swing.JTextField SalesReturn;
+    private javax.swing.JTextField Shipping;
+    private javax.swing.JTextField Tax;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
@@ -347,14 +477,8 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
     private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField net;
     private javax.swing.JTextField openStock;
     // End of variables declaration//GEN-END:variables
 
