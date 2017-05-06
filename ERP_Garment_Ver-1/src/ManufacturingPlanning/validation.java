@@ -66,7 +66,7 @@ public  class validation {
                     if( date1.before(date)){
                         JOptionPane.showMessageDialog(null, "Start Date can't be before Current Date  ");
                         if(preDate.after(date1))
-                            JOptionPane.showMessageDialog(null, "The rocesses should takeplace in order Cutting->Sewing->Washing->Iron&Packing ");
+                            JOptionPane.showMessageDialog(null, "The processes should takeplace in order Cutting->Sewing->Washing->Iron&Packing ");
                     }
                     else{
                         return true;
@@ -107,7 +107,7 @@ public  class validation {
         }
             if(l)
             {
-                JOptionPane.showMessageDialog(null, "The data enetered is not a digit");
+                JOptionPane.showMessageDialog(null, "The data enetered  "+word+" is not a digit");
                 return false;
             }
             

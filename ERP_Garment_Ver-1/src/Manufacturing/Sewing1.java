@@ -5,6 +5,10 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import ManufacturingPlanning.CuttingSchedule;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JComponent;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
@@ -26,7 +30,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
     public Sewing1() {
         initComponents();
         generate_cdi();
-      
+        FillCombo();
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule");
         jTable4.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
    
@@ -68,6 +72,8 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jButton9 = new javax.swing.JButton();
         jTextField12 = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel19 = new javax.swing.JLabel();
@@ -115,12 +121,15 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Sewing ID");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+
+        jTextField1.setEditable(false);
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 130, -1));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel24.setText("Style ID");
         jPanel2.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, -1, -1));
 
+        jTextField11.setEditable(false);
         jTextField11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField11MouseClicked(evt);
@@ -136,6 +145,12 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel22.setText("Damages");
         jPanel2.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 380, -1, 20));
+
+        jTextField10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField10MouseExited(evt);
+            }
+        });
         jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 370, 110, 30));
 
         jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -173,6 +188,8 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Total No of Qualified pieces");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 410, -1, 20));
+
+        jTextField2.setEditable(false);
         jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 410, 110, 30));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Item", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
@@ -187,6 +204,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         });
         jPanel6.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 20, 80, -1));
 
+        jTextField12.setEditable(false);
         jTextField12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTextField12MouseClicked(evt);
@@ -204,6 +222,22 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jPanel6.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
 
         jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, 740, 320));
+
+        jComboBox1.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox1ItemStateChanged(evt);
+            }
+        });
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 20, 170, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Cutting ID");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 830, 520));
 
@@ -316,12 +350,18 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jPanel7.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, -1, 20));
 
         jTextFieldPhone1.setName("Phone number"); // NOI18N
+        jTextFieldPhone1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextFieldPhone1MouseExited(evt);
+            }
+        });
         jPanel7.add(jTextFieldPhone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 200, 150, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("Damages");
         jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, -1, 20));
 
+        jTextFieldEmail1.setEditable(false);
         jTextFieldEmail1.setName("Email"); // NOI18N
         jPanel7.add(jTextFieldEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 240, 150, -1));
 
@@ -373,6 +413,26 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
 
+     private void FillCombo()
+    {
+         try
+         {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Cutting_ID FROM garmentsystem.cutting  ");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String id = AutoDB_Connect.DB_ResultSet.getString("Cutting_ID");
+                jComboBox1.addItem(id);
+                           
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
+    
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String id = jTextFieldCustomerId1.getText();
         
@@ -595,6 +655,61 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jTable1MouseClicked
 
+    private void jTextField10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField10MouseExited
+//        int r=jTable4.getSelectedRow();
+//        int qty=Integer.parseInt(jTable4.getValueAt(r, 10).toString());
+        String result="";
+        String cutid = jComboBox1.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Qualified_pieces FROM garmentsystem.cutting WHERE Cutting_ID ='"+cutid+"'");
+         try {
+            
+            AutoDB_Connect.DB_ResultSet.next();
+            result=AutoDB_Connect.DB_ResultSet.getString("Qualified_pieces");
+                        
+        } catch (SQLException ex) {
+            Logger.getLogger(CuttingSchedule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         int qty=Integer.parseInt(result);
+        int damages=Integer.parseInt(jTextField10.getText());
+        if(qty>damages){
+            String qualified=Integer.toString(qty-damages);
+            jTextField2.setText(qualified);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages");
+        
+    }//GEN-LAST:event_jTextField10MouseExited
+
+    private void jTextFieldPhone1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextFieldPhone1MouseExited
+        
+//        String search=jTextFieldCustomerId1.getText();
+//        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.cutting WHERE depid='cutting' ");
+//            
+//            while(AutoDB_Connect.DB_ResultSet.next())
+//            {
+//                String id = AutoDB_Connect.DB_ResultSet.getString("f_name");
+//                jComboBox10.addItem(id);
+//            }
+    }//GEN-LAST:event_jTextFieldPhone1MouseExited
+
+    private void jComboBox1ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox1ItemStateChanged
+       
+    }//GEN-LAST:event_jComboBox1ItemStateChanged
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+        String cutid = jComboBox1.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.cutting WHERE Cutting_ID ='"+cutid+"'");
+         try {
+            
+            AutoDB_Connect.DB_ResultSet.next();
+            String name=AutoDB_Connect.DB_ResultSet.getString("Style_ID");
+            jTextField11.setText(name);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CuttingSchedule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jComboBox1MouseClicked
+
    
         
        
@@ -625,6 +740,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
@@ -638,6 +754,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;

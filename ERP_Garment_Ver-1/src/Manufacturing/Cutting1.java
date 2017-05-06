@@ -135,6 +135,8 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Cutting ID");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 20, -1, -1));
+
+        jTextField1.setEditable(false);
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 20, 120, -1));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Item", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
@@ -210,6 +212,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         jLabel7.setText("meters");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 270, -1, -1));
 
+        jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -224,6 +227,8 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText(")");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 340, 10, 20));
+
+        jTextField5.setEditable(false);
         jPanel2.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(549, 380, 90, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -379,17 +384,17 @@ public class Cutting1 extends javax.swing.JInternalFrame {
 
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setText("Quantity");
-        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 190, -1, -1));
+        jPanel6.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         jTextFieldCompanyName1.setName("Company name"); // NOI18N
-        jPanel6.add(jTextFieldCompanyName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 190, 140, -1));
+        jPanel6.add(jTextFieldCompanyName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 280, 140, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("Total wastages");
-        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
+        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 240, -1, -1));
 
         jTextFieldEmail1.setName("Email"); // NOI18N
-        jPanel6.add(jTextFieldEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 270, 140, -1));
+        jPanel6.add(jTextFieldEmail1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 240, 140, -1));
 
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton3.setText("Delete");
@@ -410,15 +415,15 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 350, -1, -1));
 
         jLabel11.setText("meters");
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 270, -1, -1));
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 240, -1, -1));
 
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel26.setText("Length");
-        jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, -1, -1));
-        jPanel6.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 230, 140, -1));
+        jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 200, -1, -1));
+        jPanel6.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 200, 140, -1));
 
         jLabel27.setText("meters");
-        jPanel6.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 230, -1, -1));
+        jPanel6.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 200, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setText("Cut Shedule ID");
@@ -535,7 +540,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
 "`CutShedue_ID` = '"+cut_sch+"',\n" +
 "`Total_Wastages` = '"+wastages+"',\n" +
 "`Total_Length_Used` = '"+length+"',\n" +
-"`Qualified _pieces` = '"+qty+"'\n" +
+"`Qualified_pieces` = '"+qty+"'\n" +
 "WHERE `Cutting_ID` = '"+id+"';");
         
         JOptionPane.showMessageDialog(null, "Updated Successfully");
@@ -582,11 +587,23 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         String waste=jTextField2.getText();
         String used=jTextField5.getText();
         String pcs=jTextField3.getText();
-        
+        int r=jTable1.getSelectedRow();
+        String qty=jTable1.getValueAt(r, 5).toString();
+        String length=jTable1.getValueAt(r, 6).toString();
         if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||tot.isEmpty()||waste.isEmpty()||used.isEmpty()||pcs.isEmpty()){
             JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
         else{
+            if(Integer.parseInt(pcs)>Integer.parseInt(qty))
+            {
+                        JOptionPane.showMessageDialog(null, "The qualified pieces can't be greater than expected quantity");
+            }
+            else{
+                if(Double.parseDouble(used)>Double.parseDouble(length))
+                {
+                    JOptionPane.showMessageDialog(null, "The total wastages can't be greater than the total length used");
+                }
+                else{
         try{
        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`cutting`\n" +
 "(`Cutting_ID`,\n" +
@@ -595,7 +612,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
 "`Total_Length`,\n" +
 "`Total_Wastages`,\n" +
 "`Total_Length_Used`,\n" +
-"`Qualified _pieces`)\n"+
+"`Qualified_pieces`)\n"+
 "VALUES\n" +
 "('"+id+"',\n" +
 "'"+style+"',\n" +
@@ -606,15 +623,29 @@ public class Cutting1 extends javax.swing.JInternalFrame {
 "'"+pcs+"');");
        
        JOptionPane.showMessageDialog(null,"Successful");
-      
+       textBoxclear();
        
        }
        catch(Exception e){
            System.out.println(e);
        }
-    }
+    }}}
+    
     }//GEN-LAST:event_jButton14ActionPerformed
 
+    public void textBoxclear()
+    {
+        jTextField4.setText("");
+        jTextField6.setText("");
+        jTextField8.setText("");
+        jTextField9.setText("");
+        jTextField10.setText("");
+        jTextField2.setText("");
+        jTextField5.setText("");
+        jTextField3.setText("");
+        generate_cdi();
+    }
+    
     private void jTextField4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField4MouseClicked
         jTextField6.setEnabled(false);
         jTextField6.setText("");
@@ -704,7 +735,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 private void generate_cdi(){
         AutoIdGenerator aid = new AutoIdGenerator();
-        jTextField1.setText("CUT-SHI128110d2e");
+        jTextField1.setText(aid.generate("CUT-",Integer.toString(MainWindow.userid)));
     }
    
         

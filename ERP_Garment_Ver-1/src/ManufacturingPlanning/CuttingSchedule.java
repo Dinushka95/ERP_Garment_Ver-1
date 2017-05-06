@@ -652,6 +652,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         jLabel55.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel55, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 170, -1, -1));
 
+        jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -1090,99 +1091,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         
             
     }//GEN-LAST:event_jTextField32MouseExited
-//  public Boolean validate_TextBox()
-//  {
-//     
-//      String colour=jTextField1.getText();
-//      String size=jTextField1.getText();
-//      String qty=jTextField1.getText();
-//      String matname=jTextField1.getText();
-//      String lab=jTextField1.getText();
-//      String minutes=jTextField1.getText();
-//      String days=jTextField1.getText();
-//      String length=jTextField1.getText();
-//      String totlength=jTextField1.getText();
-//      String roomNo=jComboBox5.getSelectedItem().toString();
-//      String lines=jComboBox4.getSelectedItem().toString();
-//      
-//      if(!colour.isEmpty())
-//      {
-//          if(!size.isEmpty())
-//          {
-//            if(!qty.isEmpty())
-//            {
-//              if(!matname.isEmpty())
-//              {
-//                  if(!lab.isEmpty())
-//                  {
-//                      if(!minutes.isEmpty())
-//                      {
-//                            if(!days.isEmpty())
-//                            {
-//                                   if(!length.isEmpty())
-//                                   {
-//                                        if(!totlength.isEmpty())
-//                                        {
-//                                                if(!roomNo.isEmpty())
-//                                                {
-//                                                     if(!lines.isEmpty())
-//                                                     {
-//                      
-//                                                         return true;
-//                                                     }
-//                                                     else{
-//                                                           JOptionPane.showMessageDialog(null, "Enter No of Lines");
-//                                                           return false;
-//                                                     }
-//                                                }
-//                                                else{
-//                                                    JOptionPane.showMessageDialog(null, "Enter roomNo");
-//                                                    return false;}
-//                                        }
-//                                        else{
-//                                             JOptionPane.showMessageDialog(null, "Enter Total length");
-//                                             return false;
-//                                        }
-//                                   }
-//                                   else{
-//                                        JOptionPane.showMessageDialog(null, "Enter days");
-//                                        return false;
-//                                   }
-//                            }
-//                            else{
-//                                        JOptionPane.showMessageDialog(null, "Enter minutes");
-//                                        return false;}
-//                      
-//                  }
-//                    else{
-//                     JOptionPane.showMessageDialog(null, "Enter labourers");
-//                     return false;
-//                      }
-//                  }
-//                  else{
-//                     JOptionPane.showMessageDialog(null, "Enter labourers");
-//                     return false;}
-//              }
-//              else{
-//                    JOptionPane.showMessageDialog(null, "Enter material name");
-//                    return false;
-//              }
-//          
-//          }
-//            else{
-//              JOptionPane.showMessageDialog(null, "Enter qty");
-//              return false;
-//            }
-//          }
-//          else{
-//              JOptionPane.showMessageDialog(null, "Enter size");
-//              return false;}
-//      }
-//      else {
-//          JOptionPane.showMessageDialog(null, "Enter colour");
-//          return false;
-//      }
-//  }
+  
     
     
     
@@ -1264,12 +1173,12 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         String stID=jTextField9.getText();
         String matID=jTextField22.getText();
         String supID=jComboBox10.getSelectedItem().toString();
-        int days=Integer.valueOf(jTextField11.getText());
-        int labour=Integer.valueOf(jTextField12.getText());
+        String days=jTextField11.getText();
+        String labour=jTextField12.getText();
         String roomNo=jComboBox8.getSelectedItem().toString();
-        int Lines=Integer.valueOf(jComboBox9.getSelectedItem().toString());
+        String Lines=jComboBox9.getSelectedItem().toString();
         String width=jTextField23.getText();
-        int qty=Integer.valueOf(jTextField24.getText());
+        String qty=jTextField24.getText();
         String color=jTextField2.getText();
         String startDate=datePicker1.getText();
         String EndDate=datePicker6.getText();
@@ -1289,8 +1198,31 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
                 try
                 {
 
-                    if(validation.checkDate(startDate, EndDate))
+                    if(validation.checkDate(startDate, EndDate) && validation.isDigit(labour) && validation.isDigit(days) && validation.isDigit(Lines) && validation.isDigit(qty))
                     {
+                        
+                        Double need=(Double.parseDouble(qty)*Double.parseDouble(width))/100;
+        
+          try{
+           AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("Raw_Materials", "Material_id", matID);
+            AutoDB_Connect.DB_ResultSet.next();
+           String x =AutoDB_Connect.DB_ResultSet.getString("Material_qty");
+            
+            int roll =Integer.valueOf(x);
+           
+            
+            
+            if(roll>=need)
+            {
+                availability="available";
+            }
+            else{
+                availability="Not available";
+            }
+        }
+            catch(NumberFormatException | SQLException e){
+                System.out.println(e);
+            }
                  boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Cutting_Schedule_table`\n" +
          "SET\n" +
          //"`Shedule_ID` = '"+shid+"',\n" +

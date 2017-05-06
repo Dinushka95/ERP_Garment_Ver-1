@@ -172,6 +172,12 @@ public class Washing1 extends javax.swing.JInternalFrame {
         jPanel6.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 30, 120, -1));
 
         jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 560, 270));
+
+        jTextField10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField10MouseExited(evt);
+            }
+        });
         jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 360, 100, -1));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -181,6 +187,8 @@ public class Washing1 extends javax.swing.JInternalFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Total No of Qualified pieces");
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 390, -1, 20));
+
+        jTextField2.setEditable(false);
         jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 390, 100, -1));
 
         jLabel7.setText("pcs");
@@ -560,6 +568,18 @@ public class Washing1 extends javax.swing.JInternalFrame {
         }
                                     
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTextField10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField10MouseExited
+         int r=jTable1.getSelectedRow();
+        int qty=Integer.parseInt(jTable1.getValueAt(r, 9).toString());
+        int damages=Integer.parseInt(jTextField10.getText());
+        if(qty>damages){
+            String qualified=Integer.toString(qty-damages);
+            jTextField2.setText(qualified);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages");
+    }//GEN-LAST:event_jTextField10MouseExited
 
    private void generate_cdi(){
     AutoIdGenerator aid = new AutoIdGenerator();

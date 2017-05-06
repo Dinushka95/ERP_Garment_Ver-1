@@ -114,6 +114,8 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Iron & Packing ID");
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+
+        jTextField1.setEditable(false);
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 130, -1));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Item", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
@@ -130,8 +132,8 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jLabel14.setText("Schedule ID");
         jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, -1, -1));
 
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.setText("Search");
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -171,6 +173,12 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 30, -1, -1));
 
         jPanel2.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 620, 270));
+
+        jTextField10.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField10MouseExited(evt);
+            }
+        });
         jPanel2.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 390, 110, -1));
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -179,6 +187,8 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
 
         jLabel7.setText("pcs");
         jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 390, -1, -1));
+
+        jTextField2.setEditable(false);
         jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 420, 110, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -261,8 +271,8 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jTextField37.setEnabled(false);
         jPanel3.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 140, -1));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Search");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -548,6 +558,18 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jTextFieldEmail1.setText(pcs);
           
     }//GEN-LAST:event_jTable2MouseClicked
+
+    private void jTextField10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField10MouseExited
+        int r=jTable1.getSelectedRow();
+        int qty=Integer.parseInt(jTable1.getValueAt(r, 9).toString());
+        int damages=Integer.parseInt(jTextField10.getText());
+        if(qty>damages){
+            String qualified=Integer.toString(qty-damages);
+            jTextField2.setText(qualified);
+        }
+        else
+            JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages");
+    }//GEN-LAST:event_jTextField10MouseExited
     
     private void generate_cdi(){
     AutoIdGenerator aid = new AutoIdGenerator();

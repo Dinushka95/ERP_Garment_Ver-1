@@ -369,6 +369,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
+        jTextField19.setEditable(false);
         jTextField19.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField19ActionPerformed(evt);
@@ -633,7 +634,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
       String room=jComboBox1.getSelectedItem().toString();
       String lines=jComboBox1.getSelectedItem().toString();
       int r=jTable3.getSelectedRow();
-      String prevEndDate=jTable3.getValueAt(r, 9).toString();
+      String prevEndDate=jTable3.getValueAt(r, 4).toString();
       
       try{
         if(schid.isEmpty()||style.isEmpty()||cutNo.isEmpty()||minutes.isEmpty()||days.isEmpty()||lab.isEmpty()||room.equals("-select-")||lines.equals("-select-")){
@@ -641,7 +642,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
        }
        else{
              
-                    if(validation.checkDate(stDate, endDate,prevEndDate)){
+                    if(validation.checkDate(stDate, endDate,prevEndDate)&&validation.isDigit(minutes)&&validation.isDigit(days)&&validation.isDigit(lab)&&validation.isDigit(lines)){
                          AddSewingSchedule();
                          textClear();
                     
@@ -680,7 +681,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         String schid=jTextField14.getText();
          String styleid=jTextField15.getText();
          int quantity =Integer.valueOf(jTextField20.getText());
-         int sample =Integer.valueOf(jTextField25.getText());
+         String  sample =jTextField25.getText();
          String stdate=datePicker5.getText();
          String endate=datePicker6.getText();
          String supid=jComboBox9.getSelectedItem().toString();
@@ -702,7 +703,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
             
        try
        {
-           if(validation.checkDate(stdate, endate))
+           if(validation.checkDate(stdate, endate)&&validation.isDigit(sample)&&validation.isDigit(lab)&&validation.isDigit(line))
            {
         
             boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Sewing_Schedule`\n" +

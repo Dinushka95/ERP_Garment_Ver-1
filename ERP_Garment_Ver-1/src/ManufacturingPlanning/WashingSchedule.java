@@ -572,7 +572,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
     }
     else{
         try{
-            if(validation.checkDate(stdate, endate,prevEndDate))
+            if(validation.checkDate(stdate, endate,prevEndDate)&&validation.isDigit(sample)&&validation.isDigit(lab)&&validation.isDigit(qty))
             {
             
             
@@ -909,12 +909,12 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
          String schid=jTextField5.getText();
          String styleid=jTextField10.getText();
-         int sample=Integer.valueOf(jTextField9.getText());
+         String sample=jTextField9.getText();
          String stdate=datePicker5.getText();
          String endate=datePicker6.getText();
          String type=jComboBox4.getSelectedItem().toString();
-         int qty=Integer.valueOf(jComboBox7.getSelectedItem().toString());
-         int lab=Integer.valueOf(jTextField8.getText());
+         String qty=jComboBox7.getSelectedItem().toString();
+         String lab=jTextField8.getText();
          String sup=jComboBox8.getSelectedItem().toString();
      
          int r=jTable3.getSelectedRow();
@@ -932,7 +932,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
        try
        {
         
-           if(validation.checkDate(stdate, endate))
+           if(validation.checkDate(stdate, endate)&&validation.isDigit(sample)&&validation.isDigit(qty)&&validation.isDigit(lab))
            {
            
             boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Washing_Schedule_table`\n" +

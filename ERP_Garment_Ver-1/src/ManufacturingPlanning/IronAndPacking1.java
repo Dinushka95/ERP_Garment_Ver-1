@@ -504,11 +504,16 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         //System.err.print("guhk"); 
+        int r=jTable4.getSelectedRow();
+        String lab=jTextField4.getText();
+        String qty=jTable4.getValueAt(r, 4).toString();
+        String sample=jTextField16.getText();
+        String line=jComboBox7.getSelectedItem().toString();
         String stdate =datePicker7.getText();
         String enddate=datePicker8.getText();
-        int r=jTable4.getSelectedRow();
+       
         String prevEndDate=jTable4.getValueAt(r, 3).toString();
-        if(validation.checkDate(stdate, enddate,prevEndDate))
+        if(validation.checkDate(stdate, enddate,prevEndDate)&&validation.isDigit(sample)&&validation.isDigit(line)&&validation.isDigit(lab)&&validation.isDigit(qty))
         {
             AddIronSchedule();
         }
