@@ -593,10 +593,19 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         {
        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
-         else
+         else{
+             
+                    if(validation.checkDate(strtdate, enddt)){
+                         AddShipment();
+                         TextBoxClear();
+                    
+                    }
+                    
+        }
+         /*else
          {
              JOptionPane.showMessageDialog(null,"Successfully Added");
-         }
+         }*/
         
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Shipment`\n" +
             "(`Shipment_id`,\n" +

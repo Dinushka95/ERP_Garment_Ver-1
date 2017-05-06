@@ -573,15 +573,38 @@ public class Distribution extends javax.swing.JInternalFrame {
         String Dis_cost = jTextField3.getText();
         String Milage = jTextField4.getText();
         
-        if(id.isEmpty()||VID.isEmpty()||DID.isEmpty()||HID.
+           
+       if(id.isEmpty()||VID.isEmpty()||DID.isEmpty()||HID.
         isEmpty()||date.isEmpty()||Dis_cost.isEmpty()||Milage.isEmpty())
         {
        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
-        else{
-            JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
         
-        }
+        else{
+                if(Dis_cost.length()>15){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE DISTRIBUTION COST FIELD");
+                }
+                else if(!Dis_cost.matches("[0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY  NUMBES FOR DISTRIBUTION COST FIELD");
+                    
+                }
+                
+                else{
+                if(Milage.length()>20){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE DISTRIBUTION ID FIELD");
+                }
+                else if(!Milage.matches("[0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY NUMBES FOR MILAGE FIELD");
+                    
+                }
         
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Distribution`\n" +
             "(`DistributionID`,\n" +
@@ -613,6 +636,8 @@ public class Distribution extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     
+      }
+     }
     }
  private void search()
  {
@@ -693,28 +718,28 @@ public class Distribution extends javax.swing.JInternalFrame {
         }
         
         else{
-                if(id.length()>25){
+                if(Dis_cost.length()>1){
             
             JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE DISTRIBUTION DESCRIPTION FIELD");
+                    + "IN THE DISTRIBUTION COST FIELD");
                 }
-                else if(!id.matches("[a-zA-Z0-9]+")){
+                else if(!Dis_cost.matches("[0-9]+")){
                     
             JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS AND NUMBES");
+                    + "CAN ENTER ONLY  NUMBES FOR DISTRIBUTION COST FIELD");
                     
                 }
                 
                 else{
-                if(id.length()>25){
+                if(Milage.length()>20){
             
             JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
                     + "IN THE DISTRIBUTION ID FIELD");
                 }
-                else if(!id.matches("[a-zA-Z0-9]+")){
+                else if(!Milage.matches("[0-9]+")){
                     
             JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS  AND NUMBES");
+                    + "CAN ENTER ONLY NUMBES FOR MILAGE FIELD");
                     
                 }
                 

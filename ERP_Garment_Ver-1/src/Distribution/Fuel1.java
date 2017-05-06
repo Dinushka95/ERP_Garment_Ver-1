@@ -162,6 +162,10 @@ public class Fuel1 extends javax.swing.JInternalFrame {
 
         datePicker1.setEnabled(false);
         jPanel5.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, -1));
+
+        jTextField7.setEditable(false);
+        jTextField7.setAutoscrolls(false);
+        jTextField7.setEnabled(false);
         jPanel5.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 130, -1));
 
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -170,6 +174,9 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             }
         });
         jPanel5.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 130, -1));
+
+        jTextField6.setEditable(false);
+        jTextField6.setEnabled(false);
         jPanel5.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 130, -1));
         jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 130, -1));
 
@@ -423,6 +430,23 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     {
         try
         {
+             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String VID = AutoDB_Connect.DB_ResultSet.getString("VehicalID");
+                jComboBox1.addItem(VID);  
+            }
+            
+             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String DID = AutoDB_Connect.DB_ResultSet.getString("DriverID");
+                jComboBox2.addItem(DID);
+                             
+            }
+            
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
             
             while(AutoDB_Connect.DB_ResultSet.next())
@@ -667,15 +691,38 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         String cost = jTextField7.getText();
          String date = datePicker1.getText();
          
-          if(fid.isEmpty()||VID.isEmpty()||DID.isEmpty()||Fname.
-        isEmpty()||BillNum.isEmpty()||Uprice.isEmpty()||Units.isEmpty()||cost.isEmpty())
+           
+        if(fid.isEmpty()||VID.isEmpty()||DID.isEmpty()||Fname.
+        isEmpty()||BillNum.isEmpty()||Uprice.isEmpty()||Units.isEmpty()||cost.isEmpty()||date.isEmpty())
         {
        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
-        else
-          {
-          JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
-          }
+        
+        else{
+                if(BillNum.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE BILL NUMBER FIELD");
+                }
+                else if(!BillNum.matches("[a-zA-Z0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY ALPHABETS AND NUMBES IN THE BILL NUMBER FIELD");
+                    
+                }
+                
+                else{
+                if(Units.length()>25){
+            
+            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
+                    + "IN THE UNIT FIELD");
+                }
+                else if(!Units.matches("[0-9]+")){
+                    
+            JOptionPane.showMessageDialog(null, "WARNING YOU "
+                    + "CAN ENTER ONLY NUMBERS IN UNIT FIELD");
+                    
+                }
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Fuel`\n" +
             "(`Fuel_ID`,\n" +
             "`Vehical_ID`,\n" +
@@ -710,6 +757,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
+   }
+  }
  /*     private void search()
  {
         String Fname=jTextField18.getText();
