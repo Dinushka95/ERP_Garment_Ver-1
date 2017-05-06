@@ -51,8 +51,6 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
         jPanel11 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -93,16 +91,6 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanel10.setLayout(null);
-
-        jLabel5.setText("Machinary ");
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel10.add(jLabel5);
-        jLabel5.setBounds(10, 20, 100, 15);
-
-        jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 410, 470));
-
         jPanel11.setLayout(null);
 
         jLabel6.setText("Other Fix Assets");
@@ -123,7 +111,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
             }
         });
         jPanel11.add(jComboBox1);
-        jComboBox1.setBounds(470, 60, 160, 30);
+        jComboBox1.setBounds(480, 60, 160, 30);
 
         jLabel1.setText("Cost");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -220,9 +208,9 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jLabel12.setText("ID");
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jLabel12);
-        jLabel12.setBounds(640, 60, 50, 30);
+        jLabel12.setBounds(650, 60, 50, 30);
         jPanel11.add(Assetid);
-        Assetid.setBounds(680, 60, 130, 30);
+        Assetid.setBounds(710, 60, 130, 30);
         jPanel11.add(datePicker1);
         datePicker1.setBounds(180, 20, 180, 30);
 
@@ -261,7 +249,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jPanel11.add(jButton1);
         jButton1.setBounds(740, 240, 67, 23);
 
-        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 850, 470));
+        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 850, 470));
 
         jTabbedPane1.addTab("Fix Assets", jPanel1);
 
@@ -533,13 +521,11 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTabbedPane jTabbedPane1;

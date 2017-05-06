@@ -1,6 +1,11 @@
 
 package Finance;
 
+import static MainSystem.AutoDB_Connect.DB_connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 
 
 
@@ -10,6 +15,8 @@ package Finance;
  */
 public class balancesheet1 extends javax.swing.JInternalFrame {
 
+    private static Object DepositTotal;
+
 
 
     /**
@@ -17,12 +24,158 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
      */
     public balancesheet1() {
         initComponents();
+        CalFixAssets();
+   //     CalcBank();
+         CalCash();
+         CalcCurrTotal();
+         CalcLi();
        
        
         
        
      
     }
+     private void CalFixAssets()
+ {
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Cost) FROM garmentsystem.F_FIXASSETS;");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                fixassets.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
+     }
+     
+        private void CalcfixTotal()
+ {
+       float fix = Float.parseFloat(fixassets.getText());
+       float Investment = Float.parseFloat(invest.getText());
+       float Fixtot = (Investment+fix);
+       
+       System.out.println(Fixtot);
+      F_tot.setText(Double.toString(Fixtot));
+     }
+        
+
+        
+    /**
+     *
+     */
+        
+        //----------------clculate Bank--------------------
+     /*  public static String D_tot = DepositTotal.getText();
+        public static String w_tot = WithdrowTotal.getText();
+        public static String R_tot = ReturnTotal.getText();
+        
+        
+        private void CalcBank()
+ {
+     
+     
+     
+      float D_tot = Float.parseFloat(DepositTotal.getText());
+       float w_tot = Float.parseFloat(WithdrowTotal.getText());
+       float R_tot = Float.parseFloat(ReturnTotal.getText());
+       float bank = (D_tot+w_tot)-R_tot;
+       
+       System.out.println(bank);
+      F_tot.setText(Double.toString(bank));
+     } 
+        */
+     
+        
+         private void CalCash()
+ {
+     
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) FROM garmentsystem.CASH_DETAILS;");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                cashtot.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
+     }
+         
+
+         
+     //-----------------stock-----------------    
+         /*
+              private void stock()
+ {
+      
+        float stock = Float.parseFloat(stocktot.getText());
+       
+      float goods = (open+Purch+Purchre);
+
+       System.out.println(goods);
+      Goods.setText(Double.toString(goods));
+     }*/
+         
+    private void CalcCurrTotal()
+ {
+      float stock = Float.parseFloat(stocktot.getText());
+       float cash = Float.parseFloat(cashtot.getText());
+       float debit = Float.parseFloat(deb.getText());
+       float bank = Float.parseFloat(Bank.getText());
+       
+       float Currtot = (stock+debit+cash+bank);
+       
+       System.out.println(Currtot);
+      cuAss_tot.setText(Double.toString(Currtot));
+     }  
+    
+       private void CalcLiaCap()
+ {
+      float Fund = Float.parseFloat(fund.getText());
+       float capital = Float.parseFloat(Capital.getText());
+       float RS = Float.parseFloat(ReseAndSup.getText());
+       //float bank = Float.parseFloat(Bank.getText());
+       
+       float CurrLiCap = (Fund+capital+RS);//profit and loss value should be here
+       
+       System.out.println(CurrLiCap);
+      liandcaptot.setText(Double.toString(CurrLiCap));
+     }  
+ 
+       
+       
+           private void CalcNonLiaCap()
+ {
+      float loan = Float.parseFloat(longloan.getText());
+       float other = Float.parseFloat(otherli.getText());
+     
+       
+       float CurrnonLiCap = (loan+other);
+       
+       System.out.println(CurrnonLiCap);
+      NonCurrTot.setText(Double.toString(CurrnonLiCap));
+     } 
+           
+       private void CalcLi()
+ {
+      float shrtlo = Float.parseFloat(shortloan.getText());
+       float others = Float.parseFloat(othercurrloan.getText());
+       
+       
+       float CurrnonLi = (shrtlo+others);
+       
+       System.out.println(CurrnonLi);
+      currli.setText(Double.toString(CurrnonLi));
+     } 
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -40,28 +193,24 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel33 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jLabel17 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel18 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        fixassets = new javax.swing.JTextField();
         jLabel34 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
+        invest = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        jTextField22 = new javax.swing.JTextField();
+        F_tot = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel35 = new javax.swing.JLabel();
-        jTextField5 = new javax.swing.JTextField();
+        stocktot = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
-        jTextField6 = new javax.swing.JTextField();
+        deb = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        cashtot = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
+        Bank = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        jTextField9 = new javax.swing.JTextField();
+        cuAss_tot = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jTextField10 = new javax.swing.JTextField();
         jPanel8 = new javax.swing.JPanel();
@@ -71,28 +220,28 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jLabel36 = new javax.swing.JLabel();
         jLabel24 = new javax.swing.JLabel();
         jLabel37 = new javax.swing.JLabel();
-        jTextField11 = new javax.swing.JTextField();
-        jTextField12 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
+        fund = new javax.swing.JTextField();
+        Capital = new javax.swing.JTextField();
+        ReseAndSup = new javax.swing.JTextField();
         jTextField14 = new javax.swing.JTextField();
-        jTextField23 = new javax.swing.JTextField();
+        liandcaptot = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel38 = new javax.swing.JLabel();
         jLabel39 = new javax.swing.JLabel();
         jLabel30 = new javax.swing.JLabel();
         jLabel31 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
+        longloan = new javax.swing.JTextField();
+        otherli = new javax.swing.JTextField();
+        NonCurrTot = new javax.swing.JTextField();
         jPanel10 = new javax.swing.JPanel();
         jLabel22 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel25 = new javax.swing.JLabel();
-        jTextField18 = new javax.swing.JTextField();
-        jTextField19 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
+        shortloan = new javax.swing.JTextField();
+        othercurrloan = new javax.swing.JTextField();
+        currli = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
         jTextField21 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
@@ -124,35 +273,25 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jPanel3.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel16.setText("Land And Buildings");
-        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 40, 180, -1));
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel17.setText("Machinary");
-        jPanel3.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-        jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 180, -1));
-
-        jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel18.setText("Vehicale");
-        jPanel3.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
-        jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 180, -1));
+        jLabel16.setText("Fix Assets Total Cost");
+        jPanel3.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 140, -1));
+        jPanel3.add(fixassets, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, -1));
 
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel34.setText("Invesments");
-        jPanel3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-        jPanel3.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 180, -1));
+        jPanel3.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+
+        invest.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                investKeyReleased(evt);
+            }
+        });
+        jPanel3.add(invest, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 180, -1));
 
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel14.setText("Total");
         jPanel3.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
-        jPanel3.add(jTextField22, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 130, -1));
+        jPanel3.add(F_tot, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 130, -1));
 
         jPanel6.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 410, 210));
 
@@ -170,33 +309,33 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jLabel35.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel35.setText("Stock");
         jPanel4.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
-        jPanel4.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 180, -1));
+        jPanel4.add(stocktot, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 180, -1));
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel32.setText("Debitors");
         jPanel4.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-        jPanel4.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, -1));
+        jPanel4.add(deb, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, -1));
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel13.setText("Cash");
         jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
-        jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 180, -1));
+        jPanel4.add(cashtot, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 180, -1));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel12.setText("Bank");
         jPanel4.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-        jPanel4.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 180, -1));
+        jPanel4.add(Bank, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 180, -1));
 
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel19.setText("Total");
         jPanel4.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
-        jTextField9.addActionListener(new java.awt.event.ActionListener() {
+        cuAss_tot.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField9ActionPerformed(evt);
+                cuAss_totActionPerformed(evt);
             }
         });
-        jPanel4.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 150, -1));
+        jPanel4.add(cuAss_tot, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, 150, -1));
 
         jPanel6.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 410, 230));
 
@@ -232,11 +371,29 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jLabel37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel37.setText("Total");
         jPanel7.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, -1, -1));
-        jPanel7.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 140, -1));
-        jPanel7.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 140, -1));
-        jPanel7.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 140, -1));
+
+        fund.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                fundKeyReleased(evt);
+            }
+        });
+        jPanel7.add(fund, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 140, -1));
+
+        Capital.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CapitalKeyReleased(evt);
+            }
+        });
+        jPanel7.add(Capital, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 140, -1));
+
+        ReseAndSup.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                ReseAndSupKeyReleased(evt);
+            }
+        });
+        jPanel7.add(ReseAndSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 140, -1));
         jPanel7.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, 140, -1));
-        jPanel7.add(jTextField23, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 140, 130, -1));
+        jPanel7.add(liandcaptot, new org.netbeans.lib.awtextra.AbsoluteConstraints(315, 140, 130, -1));
 
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel21.setText("LIABILITIES AND CAPITAL");
@@ -262,9 +419,21 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jLabel31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel31.setText("Total");
         jPanel9.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
-        jPanel9.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 140, -1));
-        jPanel9.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 140, -1));
-        jPanel9.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 120, -1));
+
+        longloan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                longloanKeyReleased(evt);
+            }
+        });
+        jPanel9.add(longloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 140, -1));
+
+        otherli.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                otherliKeyReleased(evt);
+            }
+        });
+        jPanel9.add(otherli, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 140, -1));
+        jPanel9.add(NonCurrTot, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 120, -1));
 
         jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 460, 120));
 
@@ -286,9 +455,9 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel25.setText("Total");
         jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
-        jPanel10.add(jTextField18, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 140, -1));
-        jPanel10.add(jTextField19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 140, -1));
-        jPanel10.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 110, -1));
+        jPanel10.add(shortloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 140, -1));
+        jPanel10.add(othercurrloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 140, -1));
+        jPanel10.add(currli, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 110, -1));
 
         jPanel8.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, 460, 130));
 
@@ -322,16 +491,52 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void cuAss_totActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cuAss_totActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_cuAss_totActionPerformed
 
-    private void jTextField9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField9ActionPerformed
+    private void investKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_investKeyReleased
+        CalcfixTotal();
+    }//GEN-LAST:event_investKeyReleased
+
+    private void fundKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fundKeyReleased
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField9ActionPerformed
+        CalcLiaCap();
+    }//GEN-LAST:event_fundKeyReleased
+
+    private void CapitalKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CapitalKeyReleased
+      CalcLiaCap();
+    }//GEN-LAST:event_CapitalKeyReleased
+
+    private void ReseAndSupKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ReseAndSupKeyReleased
+        // TODO add your handling code here:
+        CalcLiaCap();
+    }//GEN-LAST:event_ReseAndSupKeyReleased
+
+    private void longloanKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_longloanKeyReleased
+        // TODO add your handling code here:
+        CalcNonLiaCap();
+    }//GEN-LAST:event_longloanKeyReleased
+
+    private void otherliKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otherliKeyReleased
+        // TODO add your handling code here:
+        CalcNonLiaCap();
+    }//GEN-LAST:event_otherliKeyReleased
 
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Bank;
+    private javax.swing.JTextField Capital;
+    private javax.swing.JTextField F_tot;
+    private javax.swing.JTextField NonCurrTot;
+    private javax.swing.JTextField ReseAndSup;
+    private javax.swing.JTextField cashtot;
+    private javax.swing.JTextField cuAss_tot;
+    private javax.swing.JTextField currli;
+    private javax.swing.JTextField deb;
+    private javax.swing.JTextField fixassets;
+    private javax.swing.JTextField fund;
+    private javax.swing.JTextField invest;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -342,8 +547,6 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
@@ -374,31 +577,20 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField11;
-    private javax.swing.JTextField jTextField12;
-    private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField18;
-    private javax.swing.JTextField jTextField19;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField21;
-    private javax.swing.JTextField jTextField22;
-    private javax.swing.JTextField jTextField23;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
-    private javax.swing.JTextField jTextField9;
+    private javax.swing.JTextField liandcaptot;
+    private javax.swing.JTextField longloan;
+    private javax.swing.JTextField othercurrloan;
+    private javax.swing.JTextField otherli;
+    private javax.swing.JTextField shortloan;
+    private javax.swing.JTextField stocktot;
     // End of variables declaration//GEN-END:variables
 
+   
+
+    
    
   
 

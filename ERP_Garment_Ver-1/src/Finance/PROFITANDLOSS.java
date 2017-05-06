@@ -312,7 +312,7 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
       Goods.setText(Double.toString(goods));
      }
    
- 
+
   
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
