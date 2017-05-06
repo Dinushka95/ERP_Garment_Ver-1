@@ -9,25 +9,10 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 
 
-
-/**
- *
- * @author Dinushka
- */
-
-
 public class Update_Delete_Designs extends javax.swing.JInternalFrame {
       
-
-
-
-    /**
-     * Creates new form SalesDesignInquiry
-     */
     public Update_Delete_Designs() {
-        
-      
-        
+            
       initComponents();
       
        Table2Load();
