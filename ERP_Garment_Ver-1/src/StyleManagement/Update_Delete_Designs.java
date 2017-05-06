@@ -7,8 +7,6 @@ import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
 import javax.swing.JOptionPane;
-import javax.swing.RowFilter;
-import javax.swing.table.TableRowSorter;
 
 
 
@@ -19,9 +17,7 @@ import javax.swing.table.TableRowSorter;
 
 
 public class Update_Delete_Designs extends javax.swing.JInternalFrame {
-
-
-
+      
 
 
 
@@ -29,6 +25,8 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
      * Creates new form SalesDesignInquiry
      */
     public Update_Delete_Designs() {
+        
+      
         
       initComponents();
       
@@ -340,6 +338,11 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
                 sorttxtActionPerformed(evt);
             }
         });
+        sorttxt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                sorttxtKeyTyped(evt);
+            }
+        });
         jPanel10.add(sorttxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(1090, 200, 110, 29));
 
         jPanel2.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1270, -1));
@@ -376,7 +379,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         jLabel44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel8.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
-        sort_txt.setToolTipText("Gender");
+        sort_txt.setToolTipText("Sort");
         sort_txt.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 sort_txtMouseClicked(evt);
@@ -644,12 +647,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
     private void sorttxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sorttxtActionPerformed
         // TODO add your handling code here:
-        String text = sorttxt.getText();
-        if (text.length() == 0) {
-          //rowSorter.setRowFilter(null);
-        } else {
-          //rowsorter.setRowFilter(RowFilter.regexFilter(text));
-        }
+       
         
     }//GEN-LAST:event_sorttxtActionPerformed
 
@@ -661,18 +659,44 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
     private void sort_txtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sort_txtKeyTyped
         // TODO add your handling code here:
+        String search = sort_txt.getText();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM T_Design_table "
+                    + "WHERE StyleId LIKE "
+                    + "'%"+search+"%' OR StyleDesc LIKE '%"+ search +"%' OR Size "
+                    + "LIKE '%"+ search +"%' OR Gender LIKE '%"+ search +"%' "
+                    + "OR Type LIKE '%"+ search +"%' OR Collection "
+                    + "LIKE '%"+ search +"%' OR Color = '%"+ search +"%' "
+                    + "OR Designer LIKE '%"+ search +"%' OR Status = '%"+ search
+                    +"%'OR Date = '%"+ search +"%'");
+            jTable1.setModel(DbUtils.resultSetToTableModel
+        (AutoDB_Connect.DB_ResultSet));
+
+       
     }//GEN-LAST:event_sort_txtKeyTyped
 
     private void sort_txtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sort_txtActionPerformed
         // TODO add your handling code here:
-        
-       String text = sort_txt.getText();
-        if (text.length() == 0) {
-          //rowSorter.setRowFilter(null);
-        } else {
-          //rowsorter.setRowFilter(RowFilter.regexFilter(text));
-        }
+       
     }//GEN-LAST:event_sort_txtActionPerformed
+
+    private void sorttxtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_sorttxtKeyTyped
+        // TODO add your handling code here:
+        String search = sorttxt.getText();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
+        ("SELECT * FROM T_Design_table "
+                    + "WHERE StyleId LIKE "
+                    + "'%"+search+"%' OR StyleDesc LIKE '%"+ search +"%' OR Size "
+                    + "LIKE '%"+ search +"%' OR Gender LIKE '%"+ search +"%' "
+                    + "OR Type LIKE '%"+ search +"%' OR Collection "
+                    + "LIKE '%"+ search +"%' OR Color = '%"+ search +"%' "
+                    + "OR Designer LIKE '%"+ search +"%' OR Status = '%"+ search
+                    +"%'OR Date = '%"+ search +"%'");
+            tbldelete.setModel(DbUtils.resultSetToTableModel
+        (AutoDB_Connect.DB_ResultSet));
+
+       
+    }//GEN-LAST:event_sorttxtKeyTyped
 
         public void UpdateAddedDesigns(){
           
