@@ -1520,13 +1520,13 @@ public class Purchasing extends javax.swing.JInternalFrame {
     
     private void TableLoad()
     {
-        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * from `garmentsystem`.`Purchasing` where Type='Local'");
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * from `garmentsystem`.`Purchasing` where Type like 'Local'");
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     
     private void TableLoad2()
     {
-        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * from `garmentsystem`.`Purchasing` where Type='Foreign'");
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * from `garmentsystem`.`Purchasing` where Type like 'Foreign'");
         jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
     

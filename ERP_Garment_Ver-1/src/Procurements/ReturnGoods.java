@@ -970,21 +970,63 @@ public class ReturnGoods extends javax.swing.JInternalFrame {
         datePicker1.setText("");
     }
     
+    
+    AutoIdGenerator aid = new AutoIdGenerator();
+    String rtid =aid.generate("RTN",Integer.toString(MainWindow.userid));
+    
+    
     private void DeleteOrder()
     {
+//        boolean y = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`PurchaseReturn`\n" +
+//"(`ReturnId`,\n" +
+//"`OrderNum`,\n" +
+//"`purchaseDescription`,\n" +
+//"`Quantity`,\n" +
+//"`Unit_Price`,\n" +
+//"`TotalAmount`,\n" +
+//"`ReturnedDate`,\n" +
+//"VALUES\n" +
+//"('"+id+"',\n" +
+//"'"+odno.getText()+"',\n" +
+//"'"+des.getText()+"',\n" +
+//"'"+qty.getText()+"',\n" +
+//"'"+unit.getText()+"',\n" +
+//"'"+tot.getText()+"',\n" +
+//"'"+datePicker1.getText()+"');");
+//        
+        boolean z = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`PurchaseReturn`\n" +
+"(`ReturnId`,\n" +
+"`OrderNum`,\n" +
+"`purchaseDescription`,\n" +
+"`Quantity`,\n" +
+"`Unit_Price`,\n" +
+"`TotalAmount`,\n" +
+"`ReturnedDate`)\n" +
+"VALUES\n" +
+"('"+rtid+"',\n" +
+"'"+odno.getText()+"',\n" +
+"'"+des.getText()+"',\n" +
+"'"+qty.getText()+"',\n" +
+"'"+unit.getText()+"',\n" +
+"'"+tot.getText()+"',\n" +
+"'"+datePicker1.getText()+"');");
         
         
-            String id = odno.getText();
+            
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Purchasing`\n" +
-"WHERE Order_ID='"+id+"';");
+"WHERE Order_ID='"+odno.getText()+"';");
         
         try
         {
-            if(x==true)
+            if(z==true)
             {
-                TableLoad();
-                TextBoxClear();
+                if(x==true)
+                {
+                    TableLoad();
+                    TextBoxClear();
+                }
+
             }
         }
         catch(Exception ex)
