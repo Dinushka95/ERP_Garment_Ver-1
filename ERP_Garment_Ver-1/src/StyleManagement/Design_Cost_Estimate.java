@@ -2,11 +2,10 @@
 package StyleManagement;
 
 import MainSystem.AutoDB_Connect;
-import MainSystem.AutoReport;
 import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
-import javax.swing.table.DefaultTableModel;
+import java.awt.Color;
 import net.proteanit.sql.DbUtils;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
@@ -336,6 +335,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
+        datePicker1.setEnabled(false);
         datePicker1.setToolTipText("Enter the Date");
         jPanel7.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 179, 30));
 
@@ -697,6 +697,7 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
         if(Number.isEmpty()||id.isEmpty()||acc.isEmpty()||Qty.
         isEmpty()||Color.isEmpty()||cost.isEmpty()
        ||FinalCost.isEmpty()){
+            
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         
         }

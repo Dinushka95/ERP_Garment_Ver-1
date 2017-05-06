@@ -81,7 +81,6 @@ public static String styleid =null;
         jLabel1 = new javax.swing.JLabel();
         jComboBox2 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        Refreshbtn = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         Updatebtn = new javax.swing.JButton();
@@ -176,9 +175,9 @@ public static String styleid =null;
         jPanel8.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, 21));
 
         Approval.add(Approvestatus);
+        Approvestatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Approvestatus.setSelected(true);
         Approvestatus.setText("Approve");
-        Approvestatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Approvestatus.setToolTipText("Click Me");
         jPanel8.add(Approvestatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 110, -1, -1));
 
@@ -187,8 +186,8 @@ public static String styleid =null;
         jPanel8.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 129, 28));
 
         Approval.add(DisApprovestatus);
-        DisApprovestatus.setText("Not Approved");
         DisApprovestatus.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        DisApprovestatus.setText("Not Approved");
         DisApprovestatus.setToolTipText("Click Me");
         jPanel8.add(DisApprovestatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 140, -1, -1));
 
@@ -278,15 +277,6 @@ public static String styleid =null;
             }
         });
         jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 10, -1, -1));
-
-        Refreshbtn.setText("Refresh");
-        Refreshbtn.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Refreshbtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RefreshbtnActionPerformed(evt);
-            }
-        });
-        jPanel4.add(Refreshbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -456,11 +446,6 @@ public static String styleid =null;
         FillTextCombo1();
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
-    private void RefreshbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RefreshbtnActionPerformed
-        // TODO add your handling code here:
-        TableLoad4();
-    }//GEN-LAST:event_RefreshbtnActionPerformed
-
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
         // TODO add your handling code here:
         
@@ -488,7 +473,7 @@ public static String styleid =null;
         // TODO add your handling code here:
         
         int row =jTable1.getSelectedRow();
-        String id = jTable1.getValueAt(row,0).toString();
+        String id = jTable1.getValueAt(row,1).toString();
         
          AppDesStid_txt.setText(id);
          stidcost_txt.setText(id);
@@ -571,8 +556,7 @@ public static String styleid =null;
     {
 
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT StyleId,StyleDesc,Size,Gender,Type,Collection,Color,Status"
-                + " FROM `garmentsystem`.`T_Design_table`;");
+        ("SELECT * FROM `garmentsystem`.`T_Bill_Of_Material`;");
     jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
@@ -901,7 +885,6 @@ public static String styleid =null;
     private javax.swing.JButton Demobtn;
     private javax.swing.JRadioButton DisApprovestatus;
     private javax.swing.JButton Refresh;
-    private javax.swing.JButton Refreshbtn;
     private javax.swing.JButton Reportbtn;
     private javax.swing.JButton ResetDelUpdate;
     private javax.swing.JButton Resetbtn;
