@@ -7,7 +7,6 @@ package HumanResource;
 
 import HumanResource.Util.Common;
 import MainSystem.AutoDB_Connect;
-import HumanResource.Util.DBObject;
 import static MainSystem.MainWindow.autoSqlQuery;
 import java.awt.Component;
 import java.sql.Connection;
@@ -234,6 +233,7 @@ public class Department extends javax.swing.JInternalFrame {
     }
     
     private void Insert() {
+       
         Statement stmnt = null;
         try {
             stmnt = con.createStatement();
@@ -297,7 +297,8 @@ public class Department extends javax.swing.JInternalFrame {
             }
         }
     }
-    
+      
+           
     void ClearAll() {
         for(Component c : jPanel1.getComponents()) {
             if(c instanceof JTextField){

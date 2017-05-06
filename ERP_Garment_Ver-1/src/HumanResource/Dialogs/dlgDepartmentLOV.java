@@ -9,10 +9,7 @@ import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
 import net.proteanit.sql.DbUtils;
 
-/**
- *
- * @author aaqui
- */
+
 public class dlgDepartmentLOV extends javax.swing.JDialog {
 
     /**

@@ -8,7 +8,6 @@ package HumanResource;
 import HumanResource.Util.Common;
 import MainSystem.AutoDB_Connect;
 import static MainSystem.AutoDB_Connect.DB_connection;
-import HumanResource.Util.DBObject;
 import static MainSystem.MainWindow.autoSqlQuery;
 import java.awt.Component;
 import java.sql.Connection;

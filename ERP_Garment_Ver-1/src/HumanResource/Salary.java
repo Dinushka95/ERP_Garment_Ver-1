@@ -6,7 +6,6 @@
 package HumanResource;
 
 import HumanResource.Util.Common;
-import HumanResource.Util.DBObject;
 import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
 import java.awt.*;
@@ -40,6 +39,10 @@ public class Salary extends javax.swing.JInternalFrame {
         initComponents();
         con = AutoDB_Connect.DB_connection;
         Populate();
+        txtOTRate.setText("1.5");
+        txtEPF.setText("12");
+        txtETF.setText("3");
+       
     }
     
     /**
@@ -377,10 +380,17 @@ public class Salary extends javax.swing.JInternalFrame {
     }
     
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
+        calculateNetSalary();
         if(Common.CheckNull(jPanel1)) {
             Insert();
         }
     }//GEN-LAST:event_btnInsertActionPerformed
+   private void calculateNetSalary() {      
+      double ot=(Double.parseDouble(txtOTHours.getText())*(Double.parseDouble(txtBasicSal.getText())*0.01));//ot=othr*(basicsal*0.01)
+      double epfetf=(Double.parseDouble(txtBasicSal.getText())-(Double.parseDouble(txtBasicSal.getText())*0.15)) ;//epfetf=basicsal-(basicsal*0.15)
+      double netSalary=ot+epfetf+Double.parseDouble(txtAllowance.getText());//netsal=ot+epfetf+allownce
+      txtNetSal.setText(Double.toString(netSalary));
+   } 
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         if(Common.CheckNull(jPanel1)) {

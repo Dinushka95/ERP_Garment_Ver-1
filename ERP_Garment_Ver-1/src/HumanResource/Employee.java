@@ -8,7 +8,7 @@ package HumanResource;
 import HumanResource.Dialogs.dlgDepartmentLOV;
 import HumanResource.Util.Common;
 import MainSystem.AutoDB_Connect;
-import HumanResource.Util.DBObject;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import java.awt.Component;
 import java.awt.Dialog;
@@ -195,6 +195,7 @@ public class Employee extends javax.swing.JInternalFrame {
         btnDelete = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnUpdate1 = new javax.swing.JButton();
+        btnUpdate2 = new javax.swing.JButton();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -218,6 +219,12 @@ public class Employee extends javax.swing.JInternalFrame {
         cmbGender.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
 
         cmbNationality.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sri" }));
+
+        txtMobileNo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtMobileNoActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Employee ID:");
@@ -258,11 +265,23 @@ public class Employee extends javax.swing.JInternalFrame {
             }
         });
 
+        txtFirstName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFirstNameKeyTyped(evt);
+            }
+        });
+
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Select Dept");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        dtpDOB.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                dtpDOBKeyTyped(evt);
             }
         });
 
@@ -399,6 +418,14 @@ public class Employee extends javax.swing.JInternalFrame {
             }
         });
 
+        btnUpdate2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnUpdate2.setText("Print");
+        btnUpdate2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdate2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -411,7 +438,10 @@ public class Employee extends javax.swing.JInternalFrame {
                 .addGap(7, 7, 7)
                 .addComponent(btnInsert)
                 .addGap(9, 9, 9)
-                .addComponent(btnUpdate1))
+                .addComponent(btnUpdate1)
+                .addGap(18, 18, 18)
+                .addComponent(btnUpdate2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -429,9 +459,11 @@ public class Employee extends javax.swing.JInternalFrame {
                     .addComponent(btnUpdate)
                     .addComponent(btnDelete)
                     .addComponent(btnInsert)
-                    .addComponent(btnUpdate1))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUpdate1)
+                        .addComponent(btnUpdate2)))
                 .addGap(11, 11, 11)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 298, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -499,6 +531,22 @@ public class Employee extends javax.swing.JInternalFrame {
             txtDepID.setText(Integer.toString(dlg.depID));
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void btnUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate2ActionPerformed
+         
+    }//GEN-LAST:event_btnUpdate2ActionPerformed
+
+    private void txtFirstNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFirstNameKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFirstNameKeyTyped
+
+    private void dtpDOBKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dtpDOBKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_dtpDOBKeyTyped
+
+    private void txtMobileNoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMobileNoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtMobileNoActionPerformed
+
     private boolean Validations(){
         if(txtEmployeeId.getText()==null){
               JOptionPane.showMessageDialog(this, "Employee ID id mandatory");
@@ -534,6 +582,7 @@ public class Employee extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnInsert;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdate1;
+    private javax.swing.JButton btnUpdate2;
     private javax.swing.JComboBox<String> cmbGender;
     private javax.swing.JComboBox<String> cmbNationality;
     private org.jdesktop.swingx.JXDatePicker dtpDOB;
