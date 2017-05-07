@@ -590,8 +590,25 @@ public class Customer extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
+     try
+        {
         String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\CustomerDateRange.jrxml";
         autoReport.Table2Report(FileLocation, jTablesCustomer);
+         
+        }        
+     catch(Exception e)        
+       {
+       }
+     
+        try
+        {
+        String FileLocation="\\src\\Sales\\Reports\\CustomerDateRange.jrxml";
+        autoReport.Table2Report(FileLocation, jTablesCustomer);
+         
+        }        
+     catch(Exception e)        
+       {
+       }
     }//GEN-LAST:event_jButton14ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed

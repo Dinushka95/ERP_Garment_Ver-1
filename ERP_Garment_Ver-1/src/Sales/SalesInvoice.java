@@ -1017,7 +1017,7 @@ String Quantity1;
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton22ActionPerformed
-CC();
+        CC();
     }//GEN-LAST:event_jButton22ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -1142,6 +1142,9 @@ CC();
     }//GEN-LAST:event_jButton28ActionPerformed
 
     private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+
+        
+        try{
         String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SalesInvoice.jrxml";
         String SQL="SELECT * FROM garmentsystem.d_salesInvoice_table where salesInvoiceId ='"+jTextField4.getText()+"'";
         autoReport.Query2Report(FileLocation, SQL);
@@ -1149,11 +1152,34 @@ CC();
         String FileLocation1="C:\\Users\\Dinu-Laptop\\Documents\\NetBeansProjects\\ERP_Garment_Ver-1\\ERP_Garment_Ver-1\\src\\Sales\\Reports\\SalesInvoice2.jrxml";
         String SQL1="SELECT * FROM garmentsystem.d_salesInvoice_table1 where salesInvoiceId ='"+jTextField4.getText()+"'";
         autoReport.Query2Report(FileLocation1, SQL1);
+       }
+       catch(Exception e){}
+        
+        try{
+        String FileLocation="\\src\\Sales\\Reports\\SalesInvoice.jrxml";
+        String SQL="SELECT * FROM garmentsystem.d_salesInvoice_table where salesInvoiceId ='"+jTextField4.getText()+"'";
+        autoReport.Query2Report(FileLocation, SQL);
+        
+        String FileLocation1="\\src\\Sales\\Reports\\SalesInvoice2.jrxml";
+        String SQL1="SELECT * FROM garmentsystem.d_salesInvoice_table1 where salesInvoiceId ='"+jTextField4.getText()+"'";
+        autoReport.Query2Report(FileLocation1, SQL1);
+       }
+       catch(Exception e){}
     }//GEN-LAST:event_jButton24ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+       try{
         String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SalesInvoice.jrxml";
         autoReport.Table2Report(FileLocation, jTable4);
+       }
+       catch(Exception e){}
+        
+       try{
+        String FileLocation="\\src\\Sales\\Reports\\SalesInvoice.jrxml";
+        autoReport.Table2Report(FileLocation, jTable4);
+       }
+       catch(Exception e){}
     }//GEN-LAST:event_jButton4ActionPerformed
     
     
