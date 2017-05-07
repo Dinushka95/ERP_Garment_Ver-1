@@ -56,6 +56,19 @@ String z;
         jButton1 = new javax.swing.JButton();
         jPasswordField1 = new javax.swing.JPasswordField();
         jPasswordField2 = new javax.swing.JPasswordField();
+        jCheckBox1 = new javax.swing.JCheckBox();
+        jCheckBox2 = new javax.swing.JCheckBox();
+        jCheckBox3 = new javax.swing.JCheckBox();
+        jCheckBox4 = new javax.swing.JCheckBox();
+        jCheckBox5 = new javax.swing.JCheckBox();
+        jCheckBox6 = new javax.swing.JCheckBox();
+        jCheckBox7 = new javax.swing.JCheckBox();
+        jCheckBox8 = new javax.swing.JCheckBox();
+        jCheckBox9 = new javax.swing.JCheckBox();
+        jCheckBox10 = new javax.swing.JCheckBox();
+        jCheckBox11 = new javax.swing.JCheckBox();
+        jCheckBox12 = new javax.swing.JCheckBox();
+        jCheckBox13 = new javax.swing.JCheckBox();
         jPanel8 = new javax.swing.JPanel();
         jTextField5 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
@@ -99,7 +112,7 @@ String z;
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 40, 120, -1));
+        jPanel7.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 30, 120, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("UserName");
@@ -128,7 +141,7 @@ String z;
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 120, -1));
+        jPanel7.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 110, 120, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jButton1.setText("Clear");
@@ -137,9 +150,48 @@ String z;
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, 120, -1));
+        jPanel7.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 70, 120, -1));
         jPanel7.add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 160, -1));
         jPanel7.add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 160, -1));
+
+        jCheckBox1.setText("Sales");
+        jPanel7.add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
+
+        jCheckBox2.setText("Marketing");
+        jPanel7.add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+
+        jCheckBox3.setText("Design Mangement");
+        jPanel7.add(jCheckBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
+
+        jCheckBox4.setText("Sampling Mangement");
+        jPanel7.add(jCheckBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
+
+        jCheckBox5.setText("Manufacturing Planning");
+        jPanel7.add(jCheckBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, -1, -1));
+
+        jCheckBox6.setText("Manufacturing");
+        jPanel7.add(jCheckBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 110, -1, -1));
+
+        jCheckBox7.setText("Procuments");
+        jPanel7.add(jCheckBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 130, -1, -1));
+
+        jCheckBox8.setText("Inventory");
+        jPanel7.add(jCheckBox8, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 10, -1, -1));
+
+        jCheckBox9.setText("Distribution");
+        jPanel7.add(jCheckBox9, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 30, -1, -1));
+
+        jCheckBox10.setText("Maintenance");
+        jPanel7.add(jCheckBox10, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 50, -1, -1));
+
+        jCheckBox11.setText("Finance");
+        jPanel7.add(jCheckBox11, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 70, -1, -1));
+
+        jCheckBox12.setText("Human Resouce");
+        jPanel7.add(jCheckBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, -1, -1));
+
+        jCheckBox13.setText("Settings");
+        jPanel7.add(jCheckBox13, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, -1, -1));
 
         jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 1200, 160));
 
@@ -374,19 +426,47 @@ String z;
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+     jTable1.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoViewAll("emp_table")));
       
+      char[] per1;
         if (validation.ValidationCheck(jTextField4, true,0,'1')&&
             validation.ValidationCheck(jTextField3, true,0,'@')&&
             validation.ValidationCheck(jPasswordField1, true,0,'@')&&
             (jPasswordField1.getText().equals(jPasswordField2.getText()))
             )
         {
+          
+                     
+             StringBuilder str = new StringBuilder("0000000000000");
+                   
+             if(jCheckBox1.isSelected()){str.setCharAt(0,'1');}else{str.setCharAt(0,'0');}
+             if(jCheckBox2.isSelected()){str.setCharAt(1,'1');}else{str.setCharAt(1,'0');}
+             if(jCheckBox3.isSelected()){str.setCharAt(2,'1');}else{str.setCharAt(2,'0');}
+             if(jCheckBox4.isSelected()){str.setCharAt(3,'1');}else{str.setCharAt(3,'0');}
+             if(jCheckBox5.isSelected()){str.setCharAt(4,'1');}else{str.setCharAt(4,'0');}
+             if(jCheckBox6.isSelected()){str.setCharAt(5,'1');}else{str.setCharAt(5,'0');}
+             if(jCheckBox7.isSelected()){str.setCharAt(6,'1');}else{str.setCharAt(6,'0');}
+             if(jCheckBox7.isSelected()){str.setCharAt(7,'1');}else{str.setCharAt(7,'0');}
+             if(jCheckBox8.isSelected()){str.setCharAt(8,'1');}else{str.setCharAt(8,'0');}
+             if(jCheckBox9.isSelected()){str.setCharAt(9,'1');}else{str.setCharAt(9,'0');}
+             if(jCheckBox10.isSelected()){str.setCharAt(10,'1');}else{str.setCharAt(10,'0');}
+             if(jCheckBox11.isSelected()){str.setCharAt(11,'1');}else{str.setCharAt(11,'0');}
+             if(jCheckBox12.isSelected()){str.setCharAt(12,'1');}else{str.setCharAt(12,'0');}
+            
+             System.out.print(str);
+            
+            
+            
+         
+                 
+
          String sha256hex= org.apache.commons.codec.digest.DigestUtils.sha256Hex(jPasswordField1.getText());
          //System.out.println(jPasswordField2.getText());
-         boolean x =autoSqlQuery.executeAutoADD(new String[]  {"UserName="+jTextField3.getText(),
+         autoSqlQuery.executeAutoADD(new String[]  {"UserName="+jTextField3.getText(),
                                                             "Password="+sha256hex,
                                                             "emp_table_emp_id="+jTextField4 .getText(),
                                                             "Dep="+DepID,
+                                                            "Permission="+str
                                                           }, "users_table");
         JOptionPane.showMessageDialog(null,"Successfully ADDED", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
         
@@ -459,6 +539,19 @@ String z;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
+    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JCheckBox jCheckBox10;
+    private javax.swing.JCheckBox jCheckBox11;
+    private javax.swing.JCheckBox jCheckBox12;
+    private javax.swing.JCheckBox jCheckBox13;
+    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox jCheckBox3;
+    private javax.swing.JCheckBox jCheckBox4;
+    private javax.swing.JCheckBox jCheckBox5;
+    private javax.swing.JCheckBox jCheckBox6;
+    private javax.swing.JCheckBox jCheckBox7;
+    private javax.swing.JCheckBox jCheckBox8;
+    private javax.swing.JCheckBox jCheckBox9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

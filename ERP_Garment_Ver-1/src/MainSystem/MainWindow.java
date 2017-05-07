@@ -85,6 +85,7 @@ public static AutoIdGenerator aid;
 public static AutoReport autoReport;
 public static MainWindow mwx ;
 public static Login loginx;
+public static String prem=null;
 
 public static CuttingSchedule cuttingschedule ;
     /**
@@ -105,29 +106,7 @@ public static CuttingSchedule cuttingschedule ;
         autoReport=new AutoReport(DB_connection);
         setUserAccess();
         // premition set loop
-        ResultSet pre=autoSqlQuery.executeAutoSearchSelected(new String[]{"Permission"},"users_table","emp_table_emp_id",Integer.toString(userid));
-        String prem=null;
         
-    try {
-        pre.next();
-        prem = AutoDB_Connect.DB_ResultSet.getString("Permission");
-    } catch (SQLException ex) {
-        Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
-    }
-        //String prem="00000100000000";
-        for (int x=1;x<14;x++)
-        {   
-            char c=prem.charAt(x);
-            if(c=='0')
-            {
-            jTabbedPane.setEnabledAt(x,false);
-            }
-            else
-            {
-            jTabbedPane.setEnabledAt(x,true);
-            }
-        
-        }
         
     }
     
@@ -1621,6 +1600,7 @@ public static CuttingSchedule cuttingschedule ;
                 
                 loginx.setVisible(true);
                 }
+
             }
         });
     }
@@ -1698,6 +1678,6 @@ public static CuttingSchedule cuttingschedule ;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTabbedPane jTabbedPane;
+    public static javax.swing.JTabbedPane jTabbedPane;
     // End of variables declaration//GEN-END:variables
 }

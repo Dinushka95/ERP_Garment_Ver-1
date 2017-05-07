@@ -6,10 +6,13 @@
 package MainSystem;
 
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.jTabbedPane;
 import static MainSystem.MainWindow.mwx;
+import static MainSystem.MainWindow.prem;
 import static MainSystem.MainWindow.userid;
 import static MainSystem.MainWindow.userDep;
 import static MainSystem.MainWindow.validation;
+
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
@@ -133,10 +136,36 @@ public class Login extends javax.swing.JFrame {
              usernameDB=a.getString("UserName");
              PasswordDB=a.getString("Password");
              userid=a.getInt("emp_table_emp_id");
+             System.out.println("print ussssssssssssssss");
              userDep=a.getInt("Dep");
          } catch (SQLException ex) {
              Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
          }
+         
+                         ResultSet pre=autoSqlQuery.executeAutoSearchSelected(new String[]{"Permission"},"users_table","emp_table_emp_id",Integer.toString(userid));
+        prem=null;
+        
+    try {
+        pre.next();
+        prem = AutoDB_Connect.DB_ResultSet.getString("Permission");
+        System.out.println("qqqqqqqqqqq");
+    } catch (SQLException ex) {
+        Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        //String prem="00000100000000";
+        for (int x=0;x<13;x++)
+        {   
+            char c=prem.charAt(x);
+            if(c=='0')
+            {
+            jTabbedPane.setEnabledAt(x,false);
+            }
+            else
+            {
+            jTabbedPane.setEnabledAt(x,true);
+            }
+        
+        }
          String sha256hex= org.apache.commons.codec.digest.DigestUtils.sha256Hex(jPasswordField1.getText());
          //System.out.println(sha256hex);
         if(jTextField1.getText().equals(usernameDB)&&PasswordDB.equals(sha256hex))
