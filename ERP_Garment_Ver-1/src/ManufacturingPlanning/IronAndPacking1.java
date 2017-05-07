@@ -717,7 +717,7 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
          int r=jTable3.getSelectedRow();
          String wash=jTable3.getValueAt(r, 10).toString();
           if(schid.isEmpty()||styleid.isEmpty()||(jTextField13.getText()).isEmpty()||(jTextField5.getText()).isEmpty()||stdate.isEmpty()||endate.isEmpty()||lab.isEmpty()){
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         }
         else{
          
@@ -856,7 +856,7 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         String qty=jTable4.getValueAt(r, 4).toString();
         
         if(id.isEmpty()||style.isEmpty()||wshid.isEmpty()||type.isEmpty()||(jTextField16.getText()).isEmpty()||stdate.isEmpty()||enddate.isEmpty()||(jTextField4.getText()).isEmpty()){
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         }
         else{
         

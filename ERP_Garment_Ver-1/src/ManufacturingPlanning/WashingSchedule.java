@@ -676,7 +676,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
 
         if(schid.isEmpty()||styleid.isEmpty()||(jTextField9.getText()).isEmpty()||stdate.isEmpty()||endate.isEmpty()||type.isEmpty()||(jTextField8.getText()).isEmpty()||sup.isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
 
         }
         else{
@@ -934,7 +934,7 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
 
         if(id.isEmpty()||stid.isEmpty()||sewid.isEmpty()||sample.isEmpty()||stdate.isEmpty()||endate.isEmpty()||type.isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
 
         }
         else{

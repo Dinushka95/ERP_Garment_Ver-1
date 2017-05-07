@@ -479,7 +479,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         String pcs=jTextFieldEmail1.getText();
         
          if(sewid.isEmpty()||style.isEmpty()||sch.isEmpty()||damage.isEmpty()||pcs.isEmpty()){
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         }
         else{
          try
@@ -545,7 +545,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
                
         
          if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||tot.isEmpty()||waste.isEmpty()){
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         }
         else{
         try{
@@ -709,7 +709,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
             jTextField2.setText(qualified);
         }
         else
-            JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages");
+            JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages","Failure",JOptionPane.ERROR_MESSAGE);
         }
         
     }//GEN-LAST:event_jTextField10MouseExited

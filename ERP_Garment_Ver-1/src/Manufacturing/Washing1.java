@@ -455,7 +455,7 @@ public class Washing1 extends javax.swing.JInternalFrame {
         String pcs=jTextFieldEmail1.getText();
        
         if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||damages.isEmpty()||pcs.isEmpty()){
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         }
         else{
                        
@@ -535,7 +535,7 @@ public class Washing1 extends javax.swing.JInternalFrame {
         String pcs=jTextField2.getText();
         String sewid=jComboBox1.getSelectedItem().toString();
         if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||dmg.isEmpty()||pcs.isEmpty()){
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         }
         else{
         
@@ -639,7 +639,7 @@ public class Washing1 extends javax.swing.JInternalFrame {
             jTextField2.setText(qualified);
         }
         else
-            JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages");
+            JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages","Failure",JOptionPane.ERROR_MESSAGE);
     }//GEN-LAST:event_jTextField10MouseExited
 
     private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked

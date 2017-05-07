@@ -907,7 +907,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         if(color.isEmpty()||size.isEmpty()||qty.isEmpty()||matname.isEmpty()||RoomNo.equals("-select-")||lines.equals("-select-")||lab.isEmpty()||minutes.isEmpty()||totdays.isEmpty()||length.isEmpty())
         {
             
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         }    
         else{
 
@@ -1257,7 +1257,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         if(stID.isEmpty()||matID.isEmpty()||width.isEmpty()|color.isEmpty())
         {
             
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
             
         }
         else{

@@ -494,7 +494,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         String pcs=jTextField2.getText();
         
         if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||dmg.isEmpty()||pcs.isEmpty()){
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         }
         else{
         
@@ -631,7 +631,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
             jTextField2.setText(qualified);
         }
         else
-            JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages");
+            JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages","Failure",JOptionPane.ERROR_MESSAGE);
        }
     }//GEN-LAST:event_jTextField10MouseExited
 

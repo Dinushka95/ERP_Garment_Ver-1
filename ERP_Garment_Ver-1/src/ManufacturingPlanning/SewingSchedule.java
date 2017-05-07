@@ -804,7 +804,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         
       try{
         if(schid.isEmpty()||style.isEmpty()||cutNo.isEmpty()||minutes.isEmpty()||days.isEmpty()||lab.isEmpty()||room.equals("-select-")||lines.equals("-select-")){
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
        }
        else{
              
@@ -863,7 +863,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
          
         if(schid.isEmpty()||styleid.isEmpty()||lab.isEmpty()||(jTextField20.getText()).isEmpty()||(jTextField25.getText()).isEmpty()||room.equals("-select-")||line.equals("-select-"))
         {
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         }
         else
         {     

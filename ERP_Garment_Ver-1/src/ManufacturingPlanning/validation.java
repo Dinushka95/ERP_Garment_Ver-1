@@ -31,7 +31,7 @@ public  class validation {
                 }
                 else{
                     if( date1.before(date)){
-                        JOptionPane.showMessageDialog(null, "Start Date can't be before Current Date  ");
+                        JOptionPane.showMessageDialog(null, "Start Date can't be before Current Date  ","Failure",JOptionPane.ERROR_MESSAGE);
                         
                     }
                     else{
@@ -59,12 +59,12 @@ public  class validation {
                 
                 
                 if(date1.after(date2) ){
-                     JOptionPane.showMessageDialog(null, "End date can't be before start Date  ");
+                     JOptionPane.showMessageDialog(null, "End date can't be before start Date  ","Failure",JOptionPane.ERROR_MESSAGE);
                      
                 }
                 else{
                     if( date1.before(date)){
-                        JOptionPane.showMessageDialog(null, "Start Date can't be before Current Date  ");
+                        JOptionPane.showMessageDialog(null, "Start Date can't be before Current Date  ","Failure",JOptionPane.ERROR_MESSAGE);
                         if(preDate.after(date1))
                             JOptionPane.showMessageDialog(null, "The processes should takeplace in order Cutting->Sewing->Washing->Iron&Packing ");
                     }
@@ -107,7 +107,7 @@ public  class validation {
         }
             if(l)
             {
-                JOptionPane.showMessageDialog(null, "The data enetered  "+word+" is not a digit");
+                JOptionPane.showMessageDialog(null, "The data enetered  "+word+" is not a digit","Failure",JOptionPane.ERROR_MESSAGE);
                 return false;
             }
             

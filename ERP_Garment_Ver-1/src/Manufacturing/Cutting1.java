@@ -570,7 +570,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
            
         if(id.isEmpty()||cut_sch.isEmpty()||style.isEmpty()||qty.isEmpty()||length.isEmpty()||wastages.isEmpty())
         {
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         
         }
         else{
@@ -638,7 +638,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         String qty=jTable1.getValueAt(r, 5).toString();
         String length=jTable1.getValueAt(r, 6).toString();
         if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||tot.isEmpty()||waste.isEmpty()||used.isEmpty()||pcs.isEmpty()){
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY","Failure",JOptionPane.ERROR_MESSAGE);
         }
         else{
         if(validation.isDigit(pcs)){
