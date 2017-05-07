@@ -2,6 +2,7 @@
 package Sales;
 
 import MainSystem.AutoDB_Connect;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
@@ -163,7 +164,6 @@ String Quantity1;
         jButton26 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jButton24 = new javax.swing.JButton();
-        jButton31 = new javax.swing.JButton();
         jButton32 = new javax.swing.JButton();
         jButton33 = new javax.swing.JButton();
         jTextField4 = new javax.swing.JTextField();
@@ -173,52 +173,7 @@ String Quantity1;
         jButton3 = new javax.swing.JButton();
         jScrollPane5 = new javax.swing.JScrollPane();
         jTable5 = new javax.swing.JTable();
-        jPanel4 = new javax.swing.JPanel();
-        jPanelMainSI1 = new javax.swing.JPanel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        jTableSalesInuiry1 = new javax.swing.JTable();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jTextFieldCustomerId1 = new javax.swing.JTextField();
-        jTextFieldCustomerName1 = new javax.swing.JTextField();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jTextFieldSalesInquiryId1 = new javax.swing.JTextField();
-        DatePickerSettings dateSettingsq = new DatePickerSettings();
-        dateSettingsq.setFormatForDatesCommonEra("yyyy/MM/dd");
-        dateSettingsq.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
-        datePickerSalesInquiry1 = new com.github.lgooddatepicker.components.DatePicker(dateSettingsq);
-        jButton19 = new javax.swing.JButton();
-        jButton37 = new javax.swing.JButton();
-        jButton38 = new javax.swing.JButton();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        jTextAreaNote1 = new javax.swing.JTextArea();
-        jLabel32 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        jTextFieldTotal1 = new javax.swing.JTextField();
-        jLabel34 = new javax.swing.JLabel();
-        jButton39 = new javax.swing.JButton();
-        jLabel35 = new javax.swing.JLabel();
-        jTextFieldGrandTotal1 = new javax.swing.JTextField();
-        jComboBoxDiscountRate1 = new javax.swing.JComboBox<>();
-        jButton40 = new javax.swing.JButton();
-        jPanelproductSearch1 = new javax.swing.JPanel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        jTablesProduct1 = new javax.swing.JTable();
-        jButton41 = new javax.swing.JButton();
-        jTextFieldsDesignId1 = new javax.swing.JTextField();
-        jTextFieldsProductType1 = new javax.swing.JTextField();
-        jTextFieldsProductId1 = new javax.swing.JTextField();
-        jLabel36 = new javax.swing.JLabel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jButton42 = new javax.swing.JButton();
-        jButton43 = new javax.swing.JButton();
-        jButton44 = new javax.swing.JButton();
-        jButton45 = new javax.swing.JButton();
-        jLabelsProductPreview1 = new javax.swing.JLabel();
-        jButton46 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Sales Invoice Management");
@@ -775,7 +730,7 @@ String Quantity1;
                 jButton21ActionPerformed(evt);
             }
         });
-        jPanelSalesInvoiceSearch.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 90, -1));
+        jPanelSalesInvoiceSearch.add(jButton21, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 110, -1));
 
         jButton22.setText("Reset All");
         jButton22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -784,7 +739,7 @@ String Quantity1;
                 jButton22ActionPerformed(evt);
             }
         });
-        jPanelSalesInvoiceSearch.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 90, 90, -1));
+        jPanelSalesInvoiceSearch.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 90, 110, -1));
 
         jButton7.setText("Search");
         jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -823,18 +778,14 @@ String Quantity1;
         jPanel11.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton24.setText("Report");
-        jPanel11.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 110, -1));
-
-        jButton31.setText("Edit");
-        jButton31.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton31.addActionListener(new java.awt.event.ActionListener() {
+        jButton24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton31ActionPerformed(evt);
+                jButton24ActionPerformed(evt);
             }
         });
-        jPanel11.add(jButton31, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 60, 110, -1));
+        jPanel11.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 90, 110, -1));
 
         jButton32.setText("Delete");
         jButton32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -872,7 +823,7 @@ String Quantity1;
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanelSalesInvoiceSearch.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 90, -1));
+        jPanelSalesInvoiceSearch.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 30, 110, -1));
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -889,292 +840,18 @@ String Quantity1;
 
         jPanelSalesInvoiceSearch.add(jScrollPane5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 980, 130));
 
+        jButton4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton4.setText("Table Report");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        jPanelSalesInvoiceSearch.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 120, 110, -1));
+
         jPanel3.add(jPanelSalesInvoiceSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 1290, 530));
 
         jTabbedPane1.addTab("Search &  Delete", jPanel3);
-
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanelMainSI1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        jPanelMainSI1.setToolTipText("");
-        jPanelMainSI1.setMaximumSize(new java.awt.Dimension(1310, 530));
-        jPanelMainSI1.setMinimumSize(new java.awt.Dimension(1310, 530));
-        jPanelMainSI1.setPreferredSize(new java.awt.Dimension(1310, 530));
-        jPanelMainSI1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTableSalesInuiry1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Product ID", "Product Name", "Price", "Quantity","SubTotal"
-            }
-        ));
-        jTableSalesInuiry1.addContainerListener(new java.awt.event.ContainerAdapter() {
-            public void componentAdded(java.awt.event.ContainerEvent evt) {
-                jTableSalesInuiry1ComponentAdded(evt);
-            }
-        });
-        jTableSalesInuiry1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTableSalesInuiry1MouseClicked(evt);
-            }
-        });
-        jTableSalesInuiry1.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                jTableSalesInuiry1KeyTyped(evt);
-            }
-        });
-        jScrollPane7.setViewportView(jTableSalesInuiry1);
-
-        jPanelMainSI1.add(jScrollPane7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 1110, 200));
-
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel22.setText("Customer ID");
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel7.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
-
-        jLabel25.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel25.setText("Customer Name");
-        jPanel7.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 50, -1, -1));
-
-        jTextFieldCustomerId1.setEditable(false);
-        jTextFieldCustomerId1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextFieldCustomerId1.setName("Customer Name"); // NOI18N
-        jTextFieldCustomerId1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldCustomerId1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jTextFieldCustomerId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, 110, -1));
-
-        jTextFieldCustomerName1.setEditable(false);
-        jTextFieldCustomerName1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextFieldCustomerName1.setName("Company name"); // NOI18N
-        jPanel7.add(jTextFieldCustomerName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 110, -1));
-
-        jLabel29.setText("Sales Inquiry ID");
-        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel7.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabel30.setText("Date");
-        jLabel30.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel7.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        jTextFieldSalesInquiryId1.setEditable(false);
-        jTextFieldSalesInquiryId1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextFieldSalesInquiryId1.setName("Customer ID"); // NOI18N
-        jTextFieldSalesInquiryId1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldSalesInquiryId1ActionPerformed(evt);
-            }
-        });
-        jPanel7.add(jTextFieldSalesInquiryId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 110, -1));
-
-        datePickerSalesInquiry1.setEnabled(false);
-        datePickerSalesInquiry1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        datePickerSalesInquiry1.setName(""); // NOI18N
-        jPanel7.add(datePickerSalesInquiry1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, -1, -1));
-
-        jPanelMainSI1.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 1200, 100));
-
-        jButton19.setText("Cancel Editing");
-        jButton19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton19ActionPerformed(evt);
-            }
-        });
-        jPanelMainSI1.add(jButton19, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 480, 140, 30));
-
-        jButton37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton37.setText("Add");
-        jButton37.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton37ActionPerformed(evt);
-            }
-        });
-        jPanelMainSI1.add(jButton37, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 200, 80, -1));
-
-        jButton38.setText("Delete");
-        jButton38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton38.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton38ActionPerformed(evt);
-            }
-        });
-        jPanelMainSI1.add(jButton38, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 240, 80, -1));
-
-        jTextAreaNote1.setColumns(20);
-        jTextAreaNote1.setEditable(false);
-        jTextAreaNote1.setRows(5);
-        jTextAreaNote1.setFont(new java.awt.Font("Monospaced", 0, 12)); // NOI18N
-        jScrollPane8.setViewportView(jTextAreaNote1);
-
-        jPanelMainSI1.add(jScrollPane8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, 500, 130));
-
-        jLabel32.setText("Note");
-        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelMainSI1.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, -1, -1));
-
-        jLabel33.setText("Total ");
-        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelMainSI1.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 370, -1, -1));
-
-        jTextFieldTotal1.setEditable(false);
-        jTextFieldTotal1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanelMainSI1.add(jTextFieldTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 370, 100, -1));
-
-        jLabel34.setText("Discount Rate");
-        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelMainSI1.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 400, 110, 20));
-
-        jButton39.setText("Calculate Total");
-        jButton39.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton39.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton39ActionPerformed(evt);
-            }
-        });
-        jPanelMainSI1.add(jButton39, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 370, 140, -1));
-
-        jLabel35.setText("Grand Total");
-        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelMainSI1.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 430, 100, 20));
-
-        jTextFieldGrandTotal1.setEditable(false);
-        jTextFieldGrandTotal1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanelMainSI1.add(jTextFieldGrandTotal1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 430, 100, -1));
-
-        jComboBoxDiscountRate1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] {"","2.5", "5", "7.5", "10","12.5","15" }));
-        jComboBoxDiscountRate1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanelMainSI1.add(jComboBoxDiscountRate1, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 400, 100, -1));
-
-        jButton40.setText("Edit Invoice ");
-        jButton40.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton40.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton40ActionPerformed(evt);
-            }
-        });
-        jPanelMainSI1.add(jButton40, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 480, 140, 30));
-
-        jPanel4.add(jPanelMainSI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1310, 530));
-
-        jPanelproductSearch1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
-        jPanelproductSearch1.setMaximumSize(new java.awt.Dimension(1020, 530));
-        jPanelproductSearch1.setMinimumSize(new java.awt.Dimension(1020, 530));
-        jPanelproductSearch1.setPreferredSize(new java.awt.Dimension(1020, 530));
-        jPanelproductSearch1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTablesProduct1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jTablesProduct1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTablesProduct1MouseClicked(evt);
-            }
-        });
-        jScrollPane9.setViewportView(jTablesProduct1);
-
-        jPanelproductSearch1.add(jScrollPane9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, 950, 250));
-
-        jButton41.setText("Select");
-        jButton41.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton41.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton41ActionPerformed(evt);
-            }
-        });
-        jPanelproductSearch1.add(jButton41, new org.netbeans.lib.awtextra.AbsoluteConstraints(879, 483, 90, 30));
-
-        jTextFieldsDesignId1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextFieldsDesignId1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldsDesignId1ActionPerformed(evt);
-            }
-        });
-        jPanelproductSearch1.add(jTextFieldsDesignId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 90, 100, -1));
-
-        jTextFieldsProductType1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanelproductSearch1.add(jTextFieldsProductType1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 100, -1));
-
-        jTextFieldsProductId1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jPanelproductSearch1.add(jTextFieldsProductId1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 50, 100, -1));
-
-        jLabel36.setText("Product ID");
-        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelproductSearch1.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
-
-        jLabel37.setText("Design ID");
-        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelproductSearch1.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
-
-        jLabel38.setText("Product Type");
-        jLabel38.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelproductSearch1.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
-
-        jButton42.setText("Search");
-        jButton42.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton42.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton42ActionPerformed(evt);
-            }
-        });
-        jPanelproductSearch1.add(jButton42, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 130, 90, -1));
-
-        jButton43.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton43.setText("Search");
-        jButton43.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton43ActionPerformed(evt);
-            }
-        });
-        jPanelproductSearch1.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 90, -1));
-
-        jButton44.setText("Search");
-        jButton44.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton44.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton44ActionPerformed(evt);
-            }
-        });
-        jPanelproductSearch1.add(jButton44, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 90, 90, -1));
-
-        jButton45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton45.setText("View All");
-        jButton45.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton45ActionPerformed(evt);
-            }
-        });
-        jPanelproductSearch1.add(jButton45, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 70, 100, -1));
-
-        jLabelsProductPreview1.setText("              Product Preview");
-        jPanelproductSearch1.add(jLabelsProductPreview1, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 20, 240, 170));
-
-        jButton46.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton46.setText("Reset ALL");
-        jButton46.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton46ActionPerformed(evt);
-            }
-        });
-        jPanelproductSearch1.add(jButton46, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 110, 100, -1));
-
-        jPanel4.add(jPanelproductSearch1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, 1020, 530));
-
-        jTabbedPane1.addTab("", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -1361,10 +1038,6 @@ CC();
         CC();
     }//GEN-LAST:event_jButton26ActionPerformed
 
-    private void jButton31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton31ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton31ActionPerformed
-
     private void jButton32ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton32ActionPerformed
        Boolean result =salesinvoicemodel.DeleteSII(jTextField4.getText());
         if(result){
@@ -1470,116 +1143,20 @@ CC();
      jTablesProduct.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchAll("product_table","ProductType",jTextField13.getText())));
     }//GEN-LAST:event_jButton28ActionPerformed
 
-    private void jTableSalesInuiry1ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jTableSalesInuiry1ComponentAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTableSalesInuiry1ComponentAdded
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SalesInvoice.jrxml";
+        String SQL="SELECT * FROM garmentsystem.d_salesInvoice_table where salesInvoiceId ='"+jTextField4.getText()+"'";
+        autoReport.Query2Report(FileLocation, SQL);
+        
+        String FileLocation1="C:\\Users\\Dinu-Laptop\\Documents\\NetBeansProjects\\ERP_Garment_Ver-1\\ERP_Garment_Ver-1\\src\\Sales\\Reports\\SalesInvoice2.jrxml";
+        String SQL1="SELECT * FROM garmentsystem.d_salesInvoice_table1 where salesInvoiceId ='"+jTextField4.getText()+"'";
+        autoReport.Query2Report(FileLocation1, SQL1);
+    }//GEN-LAST:event_jButton24ActionPerformed
 
-    private void jTableSalesInuiry1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableSalesInuiry1MouseClicked
-      //  RowCountjTable1=jTableSalesInuiry.getSelectedRow();
-    }//GEN-LAST:event_jTableSalesInuiry1MouseClicked
-
-    private void jTableSalesInuiry1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTableSalesInuiry1KeyTyped
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTableSalesInuiry1KeyTyped
-
-    private void jTextFieldCustomerId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCustomerId1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
-
-    private void jTextFieldSalesInquiryId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSalesInquiryId1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldSalesInquiryId1ActionPerformed
-
-    private void jButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton19ActionPerformed
-        jTabbedPane1.setSelectedIndex(1);
-
-        CC();
-        clearTable();
-    }//GEN-LAST:event_jButton19ActionPerformed
-
-    private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
-        jPanelproductSearch1.setVisible(true);
-        jPanelMainSI1.setVisible(false);
-    }//GEN-LAST:event_jButton37ActionPerformed
-
-    private void jButton38ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton38ActionPerformed
-       // ProductModel1.removeRow(RowCountjTable);
-    }//GEN-LAST:event_jButton38ActionPerformed
-
-    private void jButton39ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton39ActionPerformed
-        getSubTotalE();
-        getTotalE();
-        getGrandTotalE();
-    }//GEN-LAST:event_jButton39ActionPerformed
-
-    private void jButton40ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton40ActionPerformed
-        boolean result=salesinvoicemodel.EditSINI(jTextFieldSalesInquiryId1,jTextFieldCustomerId1,datePickerSalesInquiry1,jTextAreaNote1,jTextFieldTotal1,jComboBoxDiscountRate1,jTextFieldGrandTotal1,jTableSalesInuiry1);
-        if(result){
-            JOptionPane.showMessageDialog(null,"Successfully To Edit Invoice", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-            jTabbedPane1.setSelectedIndex(1);
-
-
-            CC();
-            clearTable();
-        }
-        else{
-            JOptionPane.showMessageDialog(null,"Failed To Edit Invoice", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
-
-        }
-
-    }//GEN-LAST:event_jButton40ActionPerformed
-
-    private void jTablesProduct1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTablesProduct1MouseClicked
-
-        int x=jTablesProduct1.getSelectedRow();
-        String y=(String) jTablesProduct1.getValueAt(x,0);
-
-        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeAutoSearchAll("product_table","ProductId", y);
-
-        try {
-            AutoDB_Connect.DB_ResultSet.next();
-            ProductID1=AutoDB_Connect.DB_ResultSet.getString("ProductId");
-            ProductName1=AutoDB_Connect.DB_ResultSet.getString("ProductName");
-            Price1=AutoDB_Connect.DB_ResultSet.getString("Price");
-            //Quantity=DB_Connect.DB_ResultSet.getString("ProductId");
-
-        } catch (SQLException ex) {
-            Logger.getLogger(Customer.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        jLabelsProductPreview1.setIcon(autoSqlQuery.executeAutoGetImage(ProductID1));
-    }//GEN-LAST:event_jTablesProduct1MouseClicked
-
-    private void jButton41ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton41ActionPerformed
-        ProductModel1 = (DefaultTableModel) jTableSalesInuiry1.getModel();
-        ProductModel1.addRow(new Object[]{jTextField4.getText(), ProductID1,Quantity1,Price1});
-        jPanelproductSearch1.setVisible(false);
-        jPanelMainSI1.setVisible(true);
-
-    }//GEN-LAST:event_jButton41ActionPerformed
-
-    private void jTextFieldsDesignId1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldsDesignId1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldsDesignId1ActionPerformed
-
-    private void jButton42ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton42ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton42ActionPerformed
-
-    private void jButton43ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton43ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton43ActionPerformed
-
-    private void jButton44ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton44ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton44ActionPerformed
-
-    private void jButton45ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton45ActionPerformed
-        jTablesProduct1.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoViewAll("product_table")));
-    }//GEN-LAST:event_jButton45ActionPerformed
-
-    private void jButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton46ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton46ActionPerformed
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\SalesInvoice.jrxml";
+        autoReport.Table2Report(FileLocation, jTable4);
+    }//GEN-LAST:event_jButton4ActionPerformed
     
     
     public void CC(){
@@ -1651,61 +1228,9 @@ CC();
     }
   
     }
-     public void getSubTotalE(){
-     ProductModel1 = (DefaultTableModel) jTableSalesInuiry1.getModel();
-     double total = 0;
-     double mut1 = 0;
-     double mut2 = 0;
-     String value1;
-     String value2;
-     int column1 = 2;
-     int column2 = 3;
-
-    for (int i = 0; i < ProductModel1.getRowCount(); i++){
-    if (ProductModel1.getValueAt(i, column1) != null&&ProductModel1.getValueAt(i, column2) != null)       
-        {//System.out.println(ProductModel.getValueAt(i, column1));
-        value1= (String) ProductModel1.getValueAt(i, column1);
-        value2= (String) ProductModel1.getValueAt(i, column2);
-        mut1=Double.valueOf(value1);
-        mut2=Double.valueOf(value2);
-        total= mut1*mut2;
-        ProductModel1.setValueAt(total, i, 4);
-        }
-    else {//error message box
-        
-    }
+    
   
-    }
-    }
-        public void getTotalE(){
-     ProductModel1 = (DefaultTableModel) jTableSalesInuiry1.getModel();
-     double total = 0;
-     double value;
-     int column = 4; 
-
-    for (int i = 0; i < ProductModel1.getRowCount(); i++){
-    if (ProductModel1.getValueAt(i, column) != null)       
-        {//System.out.println(ProductModel.getValueAt(i, column));
-        value=  (double) ProductModel1.getValueAt(i, column);
-        total=total+value;
-        } 
-  
-    }
-    jTextFieldTotal1.setText(String.valueOf(total));
-    }
-        
-     public void getGrandTotalE(){
-     
-
-    if (jComboBoxDiscountRate1.getSelectedItem().equals("")){
-        jTextFieldGrandTotal1.setText(jTextFieldTotal1.getText());
-        } 
-    else{
-        double x=Double.valueOf(jTextFieldTotal1.getText());
-        double y=Double.valueOf(jComboBoxDiscountRate1.getSelectedItem().toString());
-        y=((100-y)/100);
-        jTextFieldGrandTotal1.setText(String.valueOf(x*y));
-    }}
+    
     private void clearTable(){
     sedmodel1= (DefaultTableModel) jTable4.getModel();
     sedmodel1.getDataVector().removeAllElements();
@@ -1729,7 +1254,6 @@ CC();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private com.github.lgooddatepicker.components.DatePicker datePickerSalesInquiry1;
     private com.github.lgooddatepicker.components.DatePicker datePickerSalesInvoice;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
@@ -1741,7 +1265,6 @@ CC();
     private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton17;
     private javax.swing.JButton jButton18;
-    private javax.swing.JButton jButton19;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton20;
     private javax.swing.JButton jButton21;
@@ -1755,22 +1278,12 @@ CC();
     private javax.swing.JButton jButton29;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton30;
-    private javax.swing.JButton jButton31;
     private javax.swing.JButton jButton32;
     private javax.swing.JButton jButton33;
     private javax.swing.JButton jButton34;
     private javax.swing.JButton jButton35;
     private javax.swing.JButton jButton36;
-    private javax.swing.JButton jButton37;
-    private javax.swing.JButton jButton38;
-    private javax.swing.JButton jButton39;
-    private javax.swing.JButton jButton40;
-    private javax.swing.JButton jButton41;
-    private javax.swing.JButton jButton42;
-    private javax.swing.JButton jButton43;
-    private javax.swing.JButton jButton44;
-    private javax.swing.JButton jButton45;
-    private javax.swing.JButton jButton46;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1778,7 +1291,6 @@ CC();
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonADD;
     private javax.swing.JComboBox<String> jComboBoxDiscountRate;
-    private javax.swing.JComboBox<String> jComboBoxDiscountRate1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -1792,23 +1304,12 @@ CC();
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1816,39 +1317,28 @@ CC();
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelsProductPreview;
-    private javax.swing.JLabel jLabelsProductPreview1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanelMainSI1;
     private javax.swing.JPanel jPanelSalesInquirySearch;
     private javax.swing.JPanel jPanelSalesInvoiceSearch;
     private javax.swing.JPanel jPanelcustomerSearch1;
     private javax.swing.JPanel jPanelproductSearch;
-    private javax.swing.JPanel jPanelproductSearch1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JScrollPane jScrollPane6;
-    private javax.swing.JScrollPane jScrollPane7;
-    private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JScrollPane jScrollPane9;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable4;
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTableSCustomer;
-    private javax.swing.JTable jTableSalesInuiry1;
     private javax.swing.JTable jTableSalesInvoice;
     private javax.swing.JTable jTablesProduct;
-    private javax.swing.JTable jTablesProduct1;
     private javax.swing.JTable jTablesSalesInquiry;
-    private javax.swing.JTextArea jTextAreaNote1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
@@ -1859,15 +1349,11 @@ CC();
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextFieldCustomerID;
-    private javax.swing.JTextField jTextFieldCustomerId1;
     private javax.swing.JTextField jTextFieldCustomerName;
-    private javax.swing.JTextField jTextFieldCustomerName1;
     private javax.swing.JTextField jTextFieldGrandTotal;
-    private javax.swing.JTextField jTextFieldGrandTotal1;
     private javax.swing.JTextField jTextFieldSDICustomerId;
     private javax.swing.JTextField jTextFieldSDIpprId1;
     private javax.swing.JTextField jTextFieldSalesInquiryId;
-    private javax.swing.JTextField jTextFieldSalesInquiryId1;
     private javax.swing.JTextField jTextFieldSalesInvoiceId;
     private javax.swing.JTextField jTextFieldSearchCustomerId;
     private javax.swing.JTextField jTextFieldSearchCustomerId1;
@@ -1876,9 +1362,5 @@ CC();
     private javax.swing.JTextField jTextFieldSearchCustomerPhone;
     private javax.swing.JTextField jTextFieldSearchCustomerPhone1;
     private javax.swing.JTextField jTextFieldTotal;
-    private javax.swing.JTextField jTextFieldTotal1;
-    private javax.swing.JTextField jTextFieldsDesignId1;
-    private javax.swing.JTextField jTextFieldsProductId1;
-    private javax.swing.JTextField jTextFieldsProductType1;
     // End of variables declaration//GEN-END:variables
 }

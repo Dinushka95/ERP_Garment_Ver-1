@@ -7,7 +7,6 @@ import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -1219,7 +1218,7 @@ int RowCountjTable1;
         }
         else
         {
-        JOptionPane.showMessageDialog(null,"Exceed Stock Quantitiy", "InfoBox", JOptionPane.ERROR);
+        JOptionPane.showMessageDialog(null,"Exceed Stock Quantitiy", "InfoBox", JOptionPane.ERROR_MESSAGE);
         }
         
         
@@ -1325,6 +1324,8 @@ int RowCountjTable1;
         //ProductModel = (DefaultTableModel) jTablesProduct.getModel();
         ProductModel.getDataVector().removeAllElements();
         ProductModel.fireTableDataChanged();
+        jTextField1.setText("");
+        
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
