@@ -323,7 +323,6 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         String qty12=jTextField1.getText();
         String cost12=jTextField6.getText();
-        
         double f_cost=Double.parseDouble(qty12)*Double.parseDouble(cost12);
         jTextField5.setText(Double.toString(f_cost));
         

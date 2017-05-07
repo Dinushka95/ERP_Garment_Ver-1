@@ -6,6 +6,7 @@ import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -668,66 +669,41 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         String samplegiven=Sample_Given.getText();
         String date = datePicker2.getText();
         
-         if(id.isEmpty()||name.isEmpty()||stid.isEmpty()||des.
-        isEmpty()||Sampletype.isEmpty()||samplesize.isEmpty()||date.isEmpty()
-       ||samplegroup.isEmpty()||sampledesigner.isEmpty()||Nosample.isEmpty()
-       ||samplegiven.isEmpty()){
-        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
-        
+        if(id.isEmpty()||name.isEmpty()||stid.isEmpty()||des.isEmpty()||
+        Sampletype.isEmpty()||samplesize.isEmpty()||samplegroup.isEmpty()||
+        sampledesigner.isEmpty()||Nosample.isEmpty()||samplegiven.isEmpty()
+        ||date.isEmpty()){
+            
+            SampleID.setBackground(Color.yellow);
+            Sample.setBackground(Color.yellow);
+            SampleStid.setBackground(Color.yellow);
+            SampleDes.setBackground(Color.yellow);
+            SType.setBackground(Color.yellow);
+            S_Size.setBackground(Color.yellow);
+            samplegrp.setBackground(Color.yellow);
+            Sample_Designer.setBackground(Color.yellow);
+            Nu_of_Samples.setBackground(Color.yellow);
+            Sample_Given.setBackground(Color.yellow);
+            datePicker2.setBackground(Color.yellow);
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");            
+            
         }
-        
-        else{
+         else{
                 if(des.length()>10){
             
             JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
                     + "IN THE STYLE DESCRIPTION FIELD");
+           
                 }
                 else if(!des.matches("[a-zA-Z]+")){
                     
             JOptionPane.showMessageDialog(null, "WARNING YOU "
                     + "CAN ENTER ONLY ALPHABETS");
+            
                     
                 }
-                
-                else{
-         //Sql Query
-             try
-        {  
-        
-        boolean x =autoSqlQuery.executeAutoADD
-        (new String[]{"SampleId="+id,
-        "SampleName="+name,
-        "StyleId="+stid,
-        "StyleDesc="+des,
-        "SampleType="+Sampletype,
-        "SampleGroup="+samplegroup,
-        "SampleSize="+samplesize,
-        "SampleDesigner="+sampledesigner,
-        "NumberOfSamples="+Nosample,
-        "Date="+date,
-        }, "T_Request_Create_Sample_table");
-            
-             
-             if(x==true){
-               
-               JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
-             }
-             else
-             {
-              
-              
-             }
         }
         
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
-        
-         
-       
-                }
-            }
     }
     
      public void UpdateAddedSampleDesigns(){
