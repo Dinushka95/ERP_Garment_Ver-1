@@ -25,12 +25,13 @@ DROP TABLE IF EXISTS `F_LOANDETAILS`;
 CREATE TABLE `F_LOANDETAILS` (
   `BankName` varchar(45) DEFAULT NULL,
   `BranchName` varchar(45) DEFAULT NULL,
-  `AccNo` varchar(45) DEFAULT NULL,
+  `AccNo` varchar(45) NOT NULL,
   `Date` date DEFAULT NULL,
   `Period` varchar(45) DEFAULT NULL,
   `Ammount` float DEFAULT NULL,
   `Month Interest` varchar(45) DEFAULT NULL,
-  `Payment` float DEFAULT NULL
+  `Payment` float DEFAULT NULL,
+  PRIMARY KEY (`AccNo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -40,6 +41,7 @@ CREATE TABLE `F_LOANDETAILS` (
 
 LOCK TABLES `F_LOANDETAILS` WRITE;
 /*!40000 ALTER TABLE `F_LOANDETAILS` DISABLE KEYS */;
+INSERT INTO `F_LOANDETAILS` VALUES ('BOC','iiiiiiiiiiiiii','4444444444','2017-05-06','12',10000,'7',700),('UNION','wellawaththe','483957','2017-04-03','2',45000,'10',4500),('Peoples Bank','xcvz','7516','2017-05-01','12',120000,'5',6000),('BOC','xcvz','751685','2017-05-01','12',120000,'5',6000),('Peoples Bank','homagama','758263','2017-04-03','4',780000,'12',93600),('HNB ','kaluthara','857934','2017-04-03','2',4870000,'15',730500),('BOC','pliyandala','859647','2017-04-03','4',100000,'10',10000);
 /*!40000 ALTER TABLE `F_LOANDETAILS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 12:03:26
+-- Dump completed on 2017-05-07  3:25:45

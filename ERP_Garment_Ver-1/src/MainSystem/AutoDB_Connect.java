@@ -1,5 +1,4 @@
-//This class is able to be used in any project or with another class to connect with
-//MySQL database.
+//This class is able to be used in any project or with another class to connect with MySQL database.
 //Author -Dinushka95@yahoo.com
 //11/12/2016
 package MainSystem;

@@ -559,11 +559,29 @@ public class Customer extends javax.swing.JInternalFrame {
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
         //String x=System.getProperty("user.dir");
+        //./Reports/ipr.jrxml
+        try
+        {
         String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\CustomerDateRange.jrxml";
         System.err.println(FileLocation);
-        //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.d_customer_table";
         autoReport.Query2Report(FileLocation, SQL); 
+        }
+        catch(Exception e)
+        {
+        }
+      
+     try
+        {
+        String FileLocation="\\src\\Sales\\Reports\\CustomerDateRange.jrxml";
+        System.err.println(FileLocation);
+        String SQL="SELECT * FROM garmentsystem.d_customer_table";
+        autoReport.Query2Report(FileLocation, SQL);         
+        }        
+     catch(Exception e)        
+       {
+       }
+        
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

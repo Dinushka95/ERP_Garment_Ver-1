@@ -23,12 +23,12 @@ DROP TABLE IF EXISTS `F_EXPENES`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `F_EXPENES` (
-  `Bill No` varchar(45) NOT NULL,
-  `Expences Type` varchar(45) DEFAULT NULL,
+  `Bill_No` varchar(45) NOT NULL,
+  `Expences_Type` varchar(45) DEFAULT NULL,
   `Date` date DEFAULT NULL,
   `Discription` varchar(45) DEFAULT NULL,
   `Amount` float DEFAULT NULL,
-  PRIMARY KEY (`Bill No`)
+  PRIMARY KEY (`Bill_No`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,6 +38,7 @@ CREATE TABLE `F_EXPENES` (
 
 LOCK TABLES `F_EXPENES` WRITE;
 /*!40000 ALTER TABLE `F_EXPENES` DISABLE KEYS */;
+INSERT INTO `F_EXPENES` VALUES ('412','Administration Expences','2017-04-01','jkh',100),('78612','Description Expences','2017-04-01','malabe',450),('7892','Administration Expences','2017-04-01','mnhn ',7800),('ADM1ca56ac90','Administration Expences','2017-05-02',',mjn',7888),('DES131dc1535','Description Expences','2017-04-03','hapugoda',100000),('DES1d472ab1b','Description Expences','2017-05-04','iikk',555555),('DES1dc6b71c6','Description Expences','2017-05-06','gkkk',1000000),('FIN12d441ddd','Description Expences','2017-04-02','12',123),('OTH1deeeabde','Other Expences','2017-05-06','nnnn',999000);
 /*!40000 ALTER TABLE `F_EXPENES` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 12:01:40
+-- Dump completed on 2017-05-07  3:24:47

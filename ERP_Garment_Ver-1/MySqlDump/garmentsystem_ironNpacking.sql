@@ -16,32 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `d_salesReturn_table`
+-- Table structure for table `ironNpacking`
 --
 
-DROP TABLE IF EXISTS `d_salesReturn_table`;
+DROP TABLE IF EXISTS `ironNpacking`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `d_salesReturn_table` (
-  `salesReturnId` varchar(45) NOT NULL,
-  `CustomerId` varchar(45) DEFAULT NULL,
-  `SalesInvoiceID` varchar(45) DEFAULT NULL,
-  `Date` date DEFAULT NULL,
-  `Note` varchar(45) DEFAULT NULL,
-  `TotalAmount` varchar(45) DEFAULT NULL,
-  `users_table_userId` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`salesReturnId`)
+CREATE TABLE `ironNpacking` (
+  `iNp` varchar(45) NOT NULL,
+  `style_ID` varchar(45) DEFAULT NULL,
+  `Schedule_ID` varchar(45) DEFAULT NULL,
+  `damages` int(11) DEFAULT NULL,
+  `pcs` int(11) DEFAULT NULL,
+  `Washing_ID` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`iNp`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `d_salesReturn_table`
+-- Dumping data for table `ironNpacking`
 --
 
-LOCK TABLES `d_salesReturn_table` WRITE;
-/*!40000 ALTER TABLE `d_salesReturn_table` DISABLE KEYS */;
-INSERT INTO `d_salesReturn_table` VALUES ('sri192ae6ae7','cus178d439cd','sin17fda24b4','2017-03-03','6095.0','6095.0','1');
-/*!40000 ALTER TABLE `d_salesReturn_table` ENABLE KEYS */;
+LOCK TABLES `ironNpacking` WRITE;
+/*!40000 ALTER TABLE `ironNpacking` DISABLE KEYS */;
+INSERT INTO `ironNpacking` VALUES ('INP-12ecb4f72','STY124da5ebd','IAP-SHI12d589bfc',54,77,NULL),('INP-1deb4d855','STY124da5ebd','IAP-SHI12d589bfc',3,66,NULL),('INP-1deb8a0f6','STY124da5ebd','IAP-SHI12d645df8',1,2,NULL);
+/*!40000 ALTER TABLE `ironNpacking` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:22:03
+-- Dump completed on 2017-05-07  3:25:36

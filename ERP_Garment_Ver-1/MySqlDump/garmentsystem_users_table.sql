@@ -31,7 +31,7 @@ CREATE TABLE `users_table` (
   UNIQUE KEY `userId_UNIQUE` (`userId`),
   KEY `fk_users_table_emp_table1_idx` (`emp_table_emp_id`),
   CONSTRAINT `fk_users_table_emp_table1` FOREIGN KEY (`emp_table_emp_id`) REFERENCES `emp_table` (`emp_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `users_table` (
 
 LOCK TABLES `users_table` WRITE;
 /*!40000 ALTER TABLE `users_table` DISABLE KEYS */;
-INSERT INTO `users_table` VALUES (1,'admin','admin',0),(2,'sss','sss',0),(3,'sss','sss',0);
+INSERT INTO `users_table` VALUES (1,'admin','admin',1),(2,'sss','sss',2),(3,'sss','sss',3),(4,'Aaquiff','4',4);
 /*!40000 ALTER TABLE `users_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 12:05:16
+-- Dump completed on 2017-05-07  3:26:51

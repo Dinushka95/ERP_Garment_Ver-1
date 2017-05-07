@@ -74,6 +74,7 @@ import java.awt.SplashScreen;
  */
 public class MainWindow extends javax.swing.JFrame {
 public static int  userid=1;
+public static int  userDep=1;
 public static String  username="test";
 public static boolean Login= false;
 public static AutoSQLQuery autoSqlQuery;
@@ -84,21 +85,21 @@ public static AutoReport autoReport;
 public static MainWindow mwx ;
 public static Login loginx;
 
-//public static DB_Connect db_con;
+
     /**
      * Creates new form Login
      */
-    public MainWindow() {
+    public MainWindow() 
+    {
         initComponents();
         centerLocation();
         
         setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
-           autoSqlQuery=new AutoSQLQuery("garmentsystem");
-           validation =new AutoValidation();
-           autogetimage=new AutoGetImage();
-           aid = new AutoIdGenerator();
-           autoReport=new AutoReport(DB_connection);
-
+        autoSqlQuery=new AutoSQLQuery("garmentsystem");
+        validation =new AutoValidation();
+        autogetimage=new AutoGetImage();
+        aid = new AutoIdGenerator();
+        autoReport=new AutoReport(DB_connection);
     }
     
 
@@ -691,6 +692,11 @@ public static Login loginx;
         jPanel9.add(jButton60, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         jButton61.setText("Database Back-up");
+        jButton61.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton61ActionPerformed(evt);
+            }
+        });
         jPanel9.add(jButton61, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jTabbedPane1.addTab("Settings", jPanel9);
@@ -1482,6 +1488,10 @@ public static Login loginx;
         in.setMaximizable(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
+    private void jButton61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton61ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton61ActionPerformed
+
     private void centerLocation() throws HeadlessException {
     final Toolkit toolkit = Toolkit.getDefaultToolkit();
     final Dimension screenSize = toolkit.getScreenSize();
@@ -1541,7 +1551,7 @@ public static Login loginx;
 
 
        
-         //   DisplaySplash();
+            DisplaySplash();
             
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

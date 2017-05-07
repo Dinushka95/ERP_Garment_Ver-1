@@ -38,7 +38,7 @@ CREATE TABLE `d_salesInquiry_table1` (
 
 LOCK TABLES `d_salesInquiry_table1` WRITE;
 /*!40000 ALTER TABLE `d_salesInquiry_table1` DISABLE KEYS */;
-INSERT INTO `d_salesInquiry_table1` VALUES ('sii17d95ffa9','FGD17a1683cd','5'),('sii17d95ffa9','FGD17a7c3f81','5');
+INSERT INTO `d_salesInquiry_table1` VALUES ('sii12ea8e452','FGD179c60f66','1'),('sii12ea8e452','FGD17a1683cd','1'),('sii12eb5dfa4','FGD179c4873e','6'),('sii12ebbc75f','FGD17a7c3f81','5'),('sii132510b6d','FGD131ee1f2c','1'),('sii132510b6d','FGD17a1683cd','2'),('sii17d95ffa9','FGD17a1683cd','5'),('sii17d95ffa9','FGD17a7c3f81','5'),('sii1dcd9f62c','FGD17a7c3f81','10');
 /*!40000 ALTER TABLE `d_salesInquiry_table1` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 12:05:54
+-- Dump completed on 2017-05-07  3:27:40

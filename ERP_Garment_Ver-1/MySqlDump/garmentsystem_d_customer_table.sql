@@ -43,7 +43,7 @@ CREATE TABLE `d_customer_table` (
 
 LOCK TABLES `d_customer_table` WRITE;
 /*!40000 ALTER TABLE `d_customer_table` DISABLE KEYS */;
-INSERT INTO `d_customer_table` VALUES ('cus117ae8487','ann','anns','1234567890','asdfghjk','nugegoda','2016-12-19',0),('cus117aef1ad','bob','bobs','0987654321','lkjhgfdsa','mnbvcxz','2016-12-19',0),('cus117af5300','cat','catss','1234567890','asdfghjkl','qwertyuiop','2016-12-19',0),('cus172a652a0','wwwwwwwww','wwwww','55555555','fs@fd','3543gf','2017-02-25',1),('cus178d439cd','qwqwwq','wqwqw','12121212','121asasa','asasa','2017-02-26',1),('cus178d4b06c','sadsdasd','asdasdd','2313123','sadasd','asdasd','2017-02-26',1);
+INSERT INTO `d_customer_table` VALUES ('cus12cecaefe','Bob','Bob','0122334455','Bob@bob.lk','35 Jaya Road, Jayawatha ','2017-01-02',1),('cus12cef4dfc','Candy','Candices','0778632145','Candy@candices.lk','No 101 Candy Street, Malabe','2017-02-02',1),('cus12d3cc7f2','Dave','Dave','0781234567','Dava@davids.lk','32 Dugmud Road, Madapara','2017-04-02',1),('cus12de21000','Evana','Evanas','1212121212','Evana@Evanas.lk','No 99 Elvitigama, Evelen Road','2017-04-02',1),('cus132129746','aa aa','asdasd','1234567890','sadas@jhj.lk','dsffdsds','2017-04-03',1),('cus1324a1b3d','jack','jack','1234567890','sdsd@dr','dssdds','2017-04-03',1),('cus1324b20bd','fdfd','dffd','1235678906','sdsss2@KJ.LK','dffd','2017-04-03',1);
 /*!40000 ALTER TABLE `d_customer_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 11:58:36
+-- Dump completed on 2017-05-07  3:23:16

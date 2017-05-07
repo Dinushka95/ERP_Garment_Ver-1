@@ -5,11 +5,20 @@
  */
 package MainSystem;
 
+import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.mwx;
+import static MainSystem.MainWindow.userid;
+import static MainSystem.MainWindow.userDep;
+import static MainSystem.MainWindow.validation;
 import java.awt.Dimension;
 import java.awt.HeadlessException;
 import java.awt.Toolkit;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -43,8 +52,8 @@ public class Login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPasswordField1 = new javax.swing.JPasswordField();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -61,15 +70,14 @@ public class Login extends javax.swing.JFrame {
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jPasswordField1.setText("admin");
+        jPasswordField1.setName("Password"); // NOI18N
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 120, -1));
+
         jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jTextField1.setText("admin");
+        jTextField1.setName("Username"); // NOI18N
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 220, 120, -1));
-
-        jTextField2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField2.setText("admin");
-        jTextField2.setMaximumSize(new java.awt.Dimension(400, 300));
-        jTextField2.setMinimumSize(new java.awt.Dimension(400, 300));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 120, -1));
 
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Login");
@@ -114,8 +122,38 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-     mwx.setVisible(true);
-     dispose();
+     String usernameDB=null;
+     String PasswordDB=null;
+     if( validation.ValidationCheck(jTextField1, true,-20,'@')&&
+         validation.ValidationCheck(jPasswordField1, true,-20,'@'))
+     {  
+         ResultSet a=autoSqlQuery.executeAutoSearchAll("users_table","UserName",jTextField1.getText());
+         try {
+             a.next();
+             usernameDB=a.getString("UserName");
+             PasswordDB=a.getString("Password");
+             userid=a.getInt("emp_table_emp_id");
+             userDep=a.getInt("Dep");
+         } catch (SQLException ex) {
+             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+         }
+         String sha256hex= org.apache.commons.codec.digest.DigestUtils.sha256Hex(jPasswordField1.getText());
+         //System.out.println(sha256hex);
+        if(jTextField1.getText().equals(usernameDB)&&PasswordDB.equals(sha256hex))
+        {
+            mwx.setVisible(true);
+            dispose();
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Incorrect Username Or Password", "InfoBox", JOptionPane.INFORMATION_MESSAGE);
+        }
+        
+     }
+      else
+     {
+     // Do nothing
+     }
      
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -163,7 +201,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,10 +25,11 @@ DROP TABLE IF EXISTS `Order_Part`;
 CREATE TABLE `Order_Part` (
   `OrderID` varchar(45) NOT NULL DEFAULT '0',
   `Description` varchar(45) DEFAULT NULL,
+  `CompanyName` varchar(45) DEFAULT NULL,
   `Amount` float DEFAULT NULL,
   `TechnicianID` varchar(45) DEFAULT NULL,
   `TechnicianName` varchar(45) DEFAULT NULL,
-  `Date` varchar(45) DEFAULT NULL,
+  `Date` date DEFAULT NULL,
   PRIMARY KEY (`OrderID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -39,7 +40,7 @@ CREATE TABLE `Order_Part` (
 
 LOCK TABLES `Order_Part` WRITE;
 /*!40000 ALTER TABLE `Order_Part` DISABLE KEYS */;
-INSERT INTO `Order_Part` VALUES ('CONT18947a346','hu',9000,'fyt12','gu','2017/03/01');
+INSERT INTO `Order_Part` VALUES ('ACC12ff3a7e9','Good','SINGER',1000,'Technician ID','Manesha','2017-04-03'),('ACC12ff83ebb','good','SINGER',155,'Technician ID','suni','2017-04-03'),('ACC131cdddda','Bad','SINGER',500,'Technician ID','Nimal','2017-04-03'),('ACC132052000','Normal','SINGER',500,'Technician ID','Tiny','2017-04-03'),('ACC1321c4b0b','Bad','SINGER',500,'Technician ID','Tiny','2017-04-03'),('ACC1321d5b56','Normal','SINGER',10000,'Technician ID','Vihan','2017-04-03'),('ACC1327c8fff','good','SINGER',1000,'6','Adith','2017-04-03'),('ACC1d18db06d','bad','SINGER',5000,'Technician ID','sunil','2017-05-04'),('CONT18947a346','hu',NULL,9000,'fyt12','gu','2017-03-01'),('o_1296f7900','good','ABANS',8768,'6','Adithya','2017-04-01');
 /*!40000 ALTER TABLE `Order_Part` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 11:57:08
+-- Dump completed on 2017-05-07  3:21:46

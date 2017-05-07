@@ -44,7 +44,7 @@ CREATE TABLE `T_Design_table` (
 
 LOCK TABLES `T_Design_table` WRITE;
 /*!40000 ALTER TABLE `T_Design_table` DISABLE KEYS */;
-INSERT INTO `T_Design_table` VALUES ('STY1887b74a8','Summer','MS','Male','Short','Men','Blood Red','Shanika','In Progress','2017-03-01');
+INSERT INTO `T_Design_table` VALUES ('STY12ee4ae88','Summer','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-04-02'),('STY12fd7b4c4','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-04-02'),('STY131fc1ca4','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-04-03'),('STY13253f033','Winter','XL','Male','Trouser','Men','Reddish','Surosh Chavi','Start','2017-04-03'),('STY1b3b985a','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-03-26'),('STY1bc00c3ae','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-04-30'),('STY1bc0e1960','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-04-30'),('STY1bf2b2170','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-04-30'),('STY1bf2d0025','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-04-30'),('STY1cac4f977','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-05-03'),('STY1cd118170','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-05-03'),('STY1cd591b82','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-05-03'),('STY1cdb80cf4','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-05-03'),('STY1cdea3e3c','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-05-03'),('STY1d511311a','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-05-05'),('STY1d979c01b','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-05-05'),('STY1d97ada57','Summer','Select Size','Male','Select Type','Select Collection','Select Color','Select Designer','Start','2017-05-05'),('STY1d9a51232','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-05-05'),('STY1ddde5bba','Winter','XL','Male','Trouser','Men','Red','Surosh Chavi','Start','2017-05-06'),('STY1f42cb781','Winter','XL','Male','Blouse','Men','Red','Tiny Wijerathna','Start','2017-03-22');
 /*!40000 ALTER TABLE `T_Design_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 12:03:37
+-- Dump completed on 2017-05-07  3:25:53

@@ -16,32 +16,32 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `d_salesReturn_table`
+-- Table structure for table `cutting`
 --
 
-DROP TABLE IF EXISTS `d_salesReturn_table`;
+DROP TABLE IF EXISTS `cutting`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `d_salesReturn_table` (
-  `salesReturnId` varchar(45) NOT NULL,
-  `CustomerId` varchar(45) DEFAULT NULL,
-  `SalesInvoiceID` varchar(45) DEFAULT NULL,
-  `Date` date DEFAULT NULL,
-  `Note` varchar(45) DEFAULT NULL,
-  `TotalAmount` varchar(45) DEFAULT NULL,
-  `users_table_userId` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`salesReturnId`)
+CREATE TABLE `cutting` (
+  `Cutting_ID` varchar(45) NOT NULL,
+  `Style_ID` varchar(45) DEFAULT NULL,
+  `CutShedue_ID` varchar(45) DEFAULT NULL,
+  `Total_Length` int(11) DEFAULT NULL,
+  `Total_Wastages` int(11) DEFAULT NULL,
+  `Total_Length_Used` int(11) DEFAULT NULL,
+  `Qualified_pieces` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Cutting_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `d_salesReturn_table`
+-- Dumping data for table `cutting`
 --
 
-LOCK TABLES `d_salesReturn_table` WRITE;
-/*!40000 ALTER TABLE `d_salesReturn_table` DISABLE KEYS */;
-INSERT INTO `d_salesReturn_table` VALUES ('sri192ae6ae7','cus178d439cd','sin17fda24b4','2017-03-03','6095.0','6095.0','1');
-/*!40000 ALTER TABLE `d_salesReturn_table` ENABLE KEYS */;
+LOCK TABLES `cutting` WRITE;
+/*!40000 ALTER TABLE `cutting` DISABLE KEYS */;
+INSERT INTO `cutting` VALUES ('CUT-12da847a4','STY124da5ebd','CUT-SHI1252445de',6,1,5,77),('CUT-12ded18f4','CUT-SHI19d50583c','STY1887b74a8',1,1,7,67),('CUT-132009f8d','CUT-SHI1283cef67','STY1260ee5f8',66,6,60,41),('CUT-132087538','STY1260ee5f8','CUT-SHI1283cef67',66,6,60,33),('CUT-1dc30ef90','STY1260ee5f8','CUT-SHI1283cef67',66,23,43,2),('CUT-1dc34f791','STY124e1b385','CUT-SHI12f26848b',344,35,309,3),('CUT-1dc39e37e','STY124c9f493','CUT-SHI128110d2e',555,5,550,2),('CUT-1dc3a68da','STY129fbf121','CUT-SHI131ded808',776,3,773,6),('CUT-1dde6b3f0','STY124c9f493','CUT-SHI128110d2e',555,16,539,42),('CUT-1de8c2ada','STY124e1b385','CUT-SHI12f26848b',344,65,279,23),('CUT-1de958c4e','STY124e1b385','CUT-SHI12f26848b',344,34,310,4),('CUT-1de9c3d63','STY12ee4ae88','CUT-SHI1af5caa7c',677,45,632,4),('CUT-SHI128110d2e','STY124c9f493','CUT-SHI128110d2e',555,57,498,46);
+/*!40000 ALTER TABLE `cutting` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:22:03
+-- Dump completed on 2017-05-07  3:26:26

@@ -45,7 +45,7 @@ CREATE TABLE `Supplier` (
 
 LOCK TABLES `Supplier` WRITE;
 /*!40000 ALTER TABLE `Supplier` DISABLE KEYS */;
-INSERT INTO `Supplier` VALUES ('SUP18f4f29c3','Tiny enterprises','Tiny','www.tiny.com','456','Main City','Somaliya','4560','0112729729','gmail@tiny.com','0112729729','789');
+INSERT INTO `Supplier` VALUES ('SUP13270b428','KasunTraders','KasunDissanayake','kasuntraders','MiriswattaGampaha','Gampaha','SriLanka','11350','0714210560','kasuntradersgmailcom','0112249335','456789'),('SUP1a43c2f25','Chathu Industries','Chathu','www.chathu.com','Nochchiyamaga','Anuradhapura','Sri Lanka','14450','0112729729','gmail@chathu.com','0112729729','45874592');
 /*!40000 ALTER TABLE `Supplier` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 12:06:14
+-- Dump completed on 2017-05-07  3:23:25

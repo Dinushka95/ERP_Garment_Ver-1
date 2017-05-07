@@ -35,7 +35,7 @@ CREATE TABLE `department_table` (
 
 LOCK TABLES `department_table` WRITE;
 /*!40000 ALTER TABLE `department_table` DISABLE KEYS */;
-INSERT INTO `department_table` VALUES (1,'HR'),(2,'Financial');
+INSERT INTO `department_table` VALUES (1,'HR'),(2,'Financial'),(3,'Design'),(4,'Sample1'),(5,'Manufact'),(6,'Human Resourse'),(7,'Marketing'),(8,'Procument'),(9,'Sales'),(10,'Projects');
 /*!40000 ALTER TABLE `department_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +48,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 12:01:13
+-- Dump completed on 2017-05-07  3:24:31

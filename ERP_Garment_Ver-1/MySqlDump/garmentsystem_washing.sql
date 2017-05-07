@@ -16,32 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `d_salesReturn_table`
+-- Table structure for table `washing`
 --
 
-DROP TABLE IF EXISTS `d_salesReturn_table`;
+DROP TABLE IF EXISTS `washing`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `d_salesReturn_table` (
-  `salesReturnId` varchar(45) NOT NULL,
-  `CustomerId` varchar(45) DEFAULT NULL,
-  `SalesInvoiceID` varchar(45) DEFAULT NULL,
-  `Date` date DEFAULT NULL,
-  `Note` varchar(45) DEFAULT NULL,
-  `TotalAmount` varchar(45) DEFAULT NULL,
-  `users_table_userId` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`salesReturnId`)
+CREATE TABLE `washing` (
+  `washing_ID` varchar(45) NOT NULL,
+  `style_ID` varchar(45) DEFAULT NULL,
+  `WashSchedule` varchar(45) DEFAULT NULL,
+  `damages` int(11) DEFAULT NULL,
+  `pcs` int(11) DEFAULT NULL,
+  `Sewing_ID` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`washing_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `d_salesReturn_table`
+-- Dumping data for table `washing`
 --
 
-LOCK TABLES `d_salesReturn_table` WRITE;
-/*!40000 ALTER TABLE `d_salesReturn_table` DISABLE KEYS */;
-INSERT INTO `d_salesReturn_table` VALUES ('sri192ae6ae7','cus178d439cd','sin17fda24b4','2017-03-03','6095.0','6095.0','1');
-/*!40000 ALTER TABLE `d_salesReturn_table` ENABLE KEYS */;
+LOCK TABLES `washing` WRITE;
+/*!40000 ALTER TABLE `washing` DISABLE KEYS */;
+INSERT INTO `washing` VALUES ('WASH-12e797861','STY124da5ebd','WSH-SHI129dbc5c0',5,69,NULL),('WASH-1c2dc4978','STY1887b74a8','WSH-SHI12a46d39d',45,4,NULL),('WASH-1d9b86257','STY124da5ebd','WSH-SHI129dbc5c0',2,3,NULL),('WASH-1dc947979','STY124da5ebd','WSH-SHI129dbc5c0',32,22,NULL),('WASH-1dc9621df','STY124da5ebd','WSH-SHI12d3e2368',3,51,NULL),('WASH-1dc9be960','STY124da5ebd','WSH-SHI12d3e2368',3,51,'SEW-12e4e8eeb'),('WASH-1deada077','STY124da5ebd','WSH-SHI129dbc5c0',3,51,'SEW-12e4e8eeb');
+/*!40000 ALTER TABLE `washing` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:22:03
+-- Dump completed on 2017-05-07  3:26:59

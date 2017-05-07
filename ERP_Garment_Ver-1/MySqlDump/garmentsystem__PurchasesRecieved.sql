@@ -16,32 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `d_salesReturn_table`
+-- Table structure for table `_PurchasesRecieved`
 --
 
-DROP TABLE IF EXISTS `d_salesReturn_table`;
+DROP TABLE IF EXISTS `_PurchasesRecieved`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `d_salesReturn_table` (
-  `salesReturnId` varchar(45) NOT NULL,
-  `CustomerId` varchar(45) DEFAULT NULL,
-  `SalesInvoiceID` varchar(45) DEFAULT NULL,
-  `Date` date DEFAULT NULL,
-  `Note` varchar(45) DEFAULT NULL,
-  `TotalAmount` varchar(45) DEFAULT NULL,
-  `users_table_userId` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`salesReturnId`)
+CREATE TABLE `_PurchasesRecieved` (
+  `RecieveId` varchar(45) NOT NULL,
+  `OrderId` varchar(45) DEFAULT NULL,
+  `Description` varchar(45) DEFAULT NULL,
+  `Type` varchar(45) DEFAULT NULL,
+  `Quantity` varchar(45) DEFAULT NULL,
+  `Unit_Price` varchar(45) DEFAULT NULL,
+  `Total` varchar(45) DEFAULT NULL,
+  `RecievedDate` date DEFAULT NULL,
+  PRIMARY KEY (`RecieveId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `d_salesReturn_table`
+-- Dumping data for table `_PurchasesRecieved`
 --
 
-LOCK TABLES `d_salesReturn_table` WRITE;
-/*!40000 ALTER TABLE `d_salesReturn_table` DISABLE KEYS */;
-INSERT INTO `d_salesReturn_table` VALUES ('sri192ae6ae7','cus178d439cd','sin17fda24b4','2017-03-03','6095.0','6095.0','1');
-/*!40000 ALTER TABLE `d_salesReturn_table` ENABLE KEYS */;
+LOCK TABLES `_PurchasesRecieved` WRITE;
+/*!40000 ALTER TABLE `_PurchasesRecieved` DISABLE KEYS */;
+INSERT INTO `_PurchasesRecieved` VALUES ('RCV1ddb29f4d','PURFR1dc98cd0c','RawMaterialsLace','Foreign','30','500.0','15000.0','2017-05-06');
+/*!40000 ALTER TABLE `_PurchasesRecieved` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:22:03
+-- Dump completed on 2017-05-07  3:26:43

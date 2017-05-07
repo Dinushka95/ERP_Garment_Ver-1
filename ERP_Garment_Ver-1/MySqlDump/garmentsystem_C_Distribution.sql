@@ -25,8 +25,8 @@ DROP TABLE IF EXISTS `C_Distribution`;
 CREATE TABLE `C_Distribution` (
   `DistributionID` varchar(45) NOT NULL,
   `VehicalId` varchar(45) DEFAULT NULL,
-  `Driver's_ID` varchar(45) DEFAULT NULL,
-  `Helper's_ID` varchar(45) DEFAULT NULL,
+  `Driver_ID` varchar(45) DEFAULT NULL,
+  `Helper_ID` varchar(45) DEFAULT NULL,
   `Date` date DEFAULT NULL,
   `Distribution_cost` varchar(45) DEFAULT NULL,
   `Distribution_milage` varchar(45) DEFAULT NULL,
@@ -40,6 +40,7 @@ CREATE TABLE `C_Distribution` (
 
 LOCK TABLES `C_Distribution` WRITE;
 /*!40000 ALTER TABLE `C_Distribution` DISABLE KEYS */;
+INSERT INTO `C_Distribution` VALUES ('DIE148v787','JH789','DR4978','HP487','2017-04-01','9785','100'),('DIS1327de2b6','LC1023','DR9961','HP123','2017-03-01','115000.00','200'),('DIS1328174ef','PS7546','DR1236','HP741','2017-03-15','7500.00','90'),('DIS132832018','LC1023','DR9961','HP159','2017-04-01','9000.00','113'),('DIS132850d47','VK4838','DR963','HP756','2017-04-02','5000.00','68'),('DIS132867a2c','PS7564','DR1231','HP159','2017-04-02','8231.00','69.5'),('DIS1cbd6bfd2','VEH12d020b59','DR1459','HP741','2017-05-02','12555','123'),('DIS1dc54cbc9','VEH12cecb9ae','Ya789','HP487','2017-05-05','q123','345'),('DIS1df6d836a','VEH12cecb9ae','Ya789','HP487','2017-05-06','4562','456'),('DIS1df8c4543','VEH12cecb9ae','Ya789','HP487','2017-05-06','1546','4899');
 /*!40000 ALTER TABLE `C_Distribution` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 12:00:07
+-- Dump completed on 2017-05-07  3:24:05

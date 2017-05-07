@@ -16,32 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `d_salesReturn_table`
+-- Table structure for table `CASH_DETAILS`
 --
 
-DROP TABLE IF EXISTS `d_salesReturn_table`;
+DROP TABLE IF EXISTS `CASH_DETAILS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `d_salesReturn_table` (
-  `salesReturnId` varchar(45) NOT NULL,
-  `CustomerId` varchar(45) DEFAULT NULL,
-  `SalesInvoiceID` varchar(45) DEFAULT NULL,
+CREATE TABLE `CASH_DETAILS` (
+  `Type` varchar(45) NOT NULL,
+  `Cash_ID` varchar(45) DEFAULT NULL,
   `Date` date DEFAULT NULL,
-  `Note` varchar(45) DEFAULT NULL,
-  `TotalAmount` varchar(45) DEFAULT NULL,
-  `users_table_userId` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`salesReturnId`)
+  `Description` varchar(45) DEFAULT NULL,
+  `Amount` float DEFAULT NULL,
+  PRIMARY KEY (`Type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `d_salesReturn_table`
+-- Dumping data for table `CASH_DETAILS`
 --
 
-LOCK TABLES `d_salesReturn_table` WRITE;
-/*!40000 ALTER TABLE `d_salesReturn_table` DISABLE KEYS */;
-INSERT INTO `d_salesReturn_table` VALUES ('sri192ae6ae7','cus178d439cd','sin17fda24b4','2017-03-03','6095.0','6095.0','1');
-/*!40000 ALTER TABLE `d_salesReturn_table` ENABLE KEYS */;
+LOCK TABLES `CASH_DETAILS` WRITE;
+/*!40000 ALTER TABLE `CASH_DETAILS` DISABLE KEYS */;
+INSERT INTO `CASH_DETAILS` VALUES ('PAY1dcaf46c9','Payabels','2017-05-06','tygvg',780000),('PAY1de12eadb','Payabels','2017-05-06','sumanapala',20000),('PAY1dec30f70','Payabels','2017-05-06','kaluthara',50000),('RES1dcaf816a','Reservable','2017-05-06','rtiooo',90000);
+/*!40000 ALTER TABLE `CASH_DETAILS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -53,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:22:03
+-- Dump completed on 2017-05-07  3:22:27

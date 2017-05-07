@@ -28,15 +28,13 @@ CREATE TABLE `d_designinquiry_table` (
   `Description` varchar(45) DEFAULT NULL,
   `AddedDate` date DEFAULT NULL,
   `DueDate` date DEFAULT NULL,
-  `status-Approval` varchar(45) DEFAULT NULL,
-  `status-ApprovalName` varchar(45) DEFAULT NULL,
-  `status-ApprovalDate` date DEFAULT NULL,
+  `StatusApproval` varchar(45) DEFAULT NULL,
+  `StatusApprovalName` varchar(45) DEFAULT NULL,
+  `StatusApprovalDate` date DEFAULT NULL,
   `customer_table_CustomerId` varchar(45) NOT NULL,
   `users_table_userId` int(11) NOT NULL,
   PRIMARY KEY (`DesignInquiryId`),
-  KEY `fk_designinquiry_table_customer_table1_idx` (`customer_table_CustomerId`),
   KEY `fk_designinquiry_table_users_table1_idx` (`users_table_userId`),
-  CONSTRAINT `fk_designinquiry_table_customer_table1` FOREIGN KEY (`customer_table_CustomerId`) REFERENCES `d_customer_table` (`CustomerId`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_designinquiry_table_users_table1` FOREIGN KEY (`users_table_userId`) REFERENCES `users_table` (`userId`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -47,7 +45,7 @@ CREATE TABLE `d_designinquiry_table` (
 
 LOCK TABLES `d_designinquiry_table` WRITE;
 /*!40000 ALTER TABLE `d_designinquiry_table` DISABLE KEYS */;
-INSERT INTO `d_designinquiry_table` VALUES ('sdi179618a5c',NULL,'432434','2017-02-26','2017-02-26','false','null',NULL,'cus117af5300',1),('sdi179654e37',NULL,'addsdsad','2017-02-26','2017-02-26','false','null',NULL,'cus172a652a0',1),('sdi179988519',NULL,'b nb bn ghv','2017-02-26','2017-02-26','false','null',NULL,'cus117aef1ad',1),('sdi1799e4662',NULL,'adsada','2017-02-26','2017-02-26','false','null',NULL,'cus172a652a0',1),('sdi179a9bcb7','sdfdfsdf','zxczx cfdfs','2017-02-26','2017-02-26','false','null',NULL,'cus117ae8487',1),('sdi197e582b3','TAta booohuuu','its looks nice','2017-03-04','2017-03-13','false','null',NULL,'cus117ae8487',1),('sdi197ed3b01','dadada','wqeweqqwwq','2017-03-04','2017-03-22','false','null',NULL,'cus117aef1ad',1),('sdi197efdaa1','asddaasd','asdd','2017-03-04','2017-03-24','false','null',NULL,'cus117aef1ad',1);
+INSERT INTO `d_designinquiry_table` VALUES ('mdi12fb086a1','tubatuo','','2017-04-02','2017-04-02','false','null',NULL,'1',1),('sdi12df09c06','dinusha','This should be targeted to april season','2017-04-02','2017-04-02','Approved','dinusha','2017-04-03','cus12ce9c7f6',1),('sdi12dfd8c09','dinusha','only for testing market','2017-04-02','2017-04-02','Approved','dinusha','2017-04-02','cus12cef4dfc',1),('sdi12e092b7f','dinusha','need  to long slives','2017-04-02','2017-04-02','Approved','dinusha','2017-04-03','cus12d3cc7f2',1),('sdi12e0cec60','dinusha','need 3xl as main design','2017-04-02','2017-04-02','false','null',NULL,'cus12de21000',1),('sdi1324e3894','dinusha','','2017-04-03','2017-04-03','false','null',NULL,'cus12cef4dfc',1);
 /*!40000 ALTER TABLE `d_designinquiry_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -60,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 11:58:06
+-- Dump completed on 2017-05-07  3:22:52

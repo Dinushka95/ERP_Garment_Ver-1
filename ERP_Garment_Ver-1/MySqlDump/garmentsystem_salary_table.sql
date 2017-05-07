@@ -32,6 +32,7 @@ CREATE TABLE `salary_table` (
   `emp_id` varchar(10) DEFAULT NULL,
   `ot_hours` double DEFAULT NULL,
   `epf` double DEFAULT NULL,
+  `Month` text,
   PRIMARY KEY (`sal_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -42,6 +43,7 @@ CREATE TABLE `salary_table` (
 
 LOCK TABLES `salary_table` WRITE;
 /*!40000 ALTER TABLE `salary_table` DISABLE KEYS */;
+INSERT INTO `salary_table` VALUES (1,4244234,1.5,13539338.46,3,232,'2',234,12,'January'),(3,345,354,19267.5,543,534,'3',5345,34,'January'),(4,9000,1.5,8620,3,700,'3',3,12,'January');
 /*!40000 ALTER TABLE `salary_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 12:02:55
+-- Dump completed on 2017-05-07  3:28:45

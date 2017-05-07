@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `C_Vehiclel`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `C_Vehiclel` (
-  `VehicalID` int(11) NOT NULL,
+  `VehicalID` varchar(45) NOT NULL,
   `Type` varchar(45) DEFAULT NULL,
   `LysonNum` varchar(45) DEFAULT NULL,
   `Milage` float DEFAULT NULL,
@@ -41,6 +41,7 @@ CREATE TABLE `C_Vehiclel` (
 
 LOCK TABLES `C_Vehiclel` WRITE;
 /*!40000 ALTER TABLE `C_Vehiclel` DISABLE KEYS */;
+INSERT INTO `C_Vehiclel` VALUES ('VEH12cecb9ae','Lorry','A458S4568',6,'Ya789','Kumar','3month','3month'),('VEH12d020b59','Bike','Ne457A65',98,'DR1459','Wenura','MV49761','5'),('VEH134aca984','Lorry','MG4569',497,'DR249','Aman','AIY498','3month'),('VEH1a06fc46e','Van','HY47895',500000,'DR5789','Kelum','M1428888','5month');
 /*!40000 ALTER TABLE `C_Vehiclel` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 11:58:45
+-- Dump completed on 2017-05-07  3:27:48

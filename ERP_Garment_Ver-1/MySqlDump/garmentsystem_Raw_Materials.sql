@@ -40,7 +40,7 @@ CREATE TABLE `Raw_Materials` (
 
 LOCK TABLES `Raw_Materials` WRITE;
 /*!40000 ALTER TABLE `Raw_Materials` DISABLE KEYS */;
-INSERT INTO `Raw_Materials` VALUES ('mat123','pins','1000','100','100000','100','2017-02-17'),('mat1544a2f0f','fabrick - red','200','100','20000.0','50','2017-02-19'),('MAT18068f799','','','','','','2017-02-27');
+INSERT INTO `Raw_Materials` VALUES ('mat123','pins','1000','100','100000','100','2017-02-17'),('MAT131ecc3fa','LinenFabrickBlack','450','200','90000.0','100','2017-04-03'),('MAT132750492','gghvh','500',' 10','5000.0','5','2017-04-03'),('MAT1bcb611fe','LinenFabrickBlack','450','10','4500.0','100','2017-04-30'),('MAT1ddb2a4f4','fabrickBlue','500','30','15000.0','15','2017-05-10');
 /*!40000 ALTER TABLE `Raw_Materials` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 11:57:54
+-- Dump completed on 2017-05-07  3:22:19

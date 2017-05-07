@@ -37,7 +37,7 @@ CREATE TABLE `d_salesInvoice_table1` (
 
 LOCK TABLES `d_salesInvoice_table1` WRITE;
 /*!40000 ALTER TABLE `d_salesInvoice_table1` DISABLE KEYS */;
-INSERT INTO `d_salesInvoice_table1` VALUES ('sin17fda24b4','FGD17a7c3f81','7');
+INSERT INTO `d_salesInvoice_table1` VALUES ('sin130fb2758','FGD17a1683cd','2'),('sin1314a7dc7','FGD17a1683cd','2'),('sin1314a7dc7','FGD17a7c3f81','2'),('sin1314ecdfb','FGD17a1683cd','2'),('sin1314ecdfb','FGD17a7c3f81','1'),('sin13151aa2e','FGD17a1683cd','1'),('sin13151aa2e','FGD17a7c3f81','1'),('sin1315e9c3e','FGD17a1683cd','1'),('sin1315e9c3e','FGD17a7c3f81','1'),('sin1322722bb','FGD131ee1f2c','1'),('sin17fda24b4','FGD17a7c3f81','7'),('sin1dce35aee','FGD17a7c3f81','12'),('sin1dcee5321','FGD17a7c3f81','12');
 /*!40000 ALTER TABLE `d_salesInvoice_table1` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 11:58:54
+-- Dump completed on 2017-05-07  3:21:38

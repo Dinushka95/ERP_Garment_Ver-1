@@ -1,11 +1,14 @@
 package MainSystem;
 
-// This class is used to validate textboxes using jtextfield object. you can check isEmpty , lenth check and type check
-//Author- Dinushka95@yahoo.com
-//Contructor needs the text object then weather u want to check the is empty check then you have to enter a number from 
-// negative to postive number. for example negative -5 is less than five and 5 means  grater than five and zero means no length check
-// then the final check is type check it needs a char input if a number is input it will allow numbers only if letter is input then only letters
-// to accept any input use special character 
+/*
+This class is used to validate textboxes using jtextfield object. you can check isEmpty , lenth check and type check
+Author- Dinushka95@yahoo.com
+Contructor needs the text object then weather u want to check the is empty check then you have to enter a number from 
+negative to postive number. for example negative -5 is less than five and 5 means  grater than five and zero means no length check
+then the final check is type check it needs a char input if a number is input it will allow numbers only if letter is input then only letters
+to accept any input use special character 
+*/ 
+
 import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.swing.JOptionPane;
@@ -70,7 +73,7 @@ char TypeCheck1;
             String tem=Textbox1.getText();
             int count=0;
             while(count<tem.length()){
-            if(Character.isDigit(tem.charAt(count))||Character.isSpace(tem.charAt(count))){
+            if(Character.isDigit(tem.charAt(count))||Character.isWhitespace(tem.charAt(count))){
                 // do nothing
                 count++;
             }
@@ -91,7 +94,7 @@ char TypeCheck1;
             String tem=Textbox1.getText();
             int count=0;
             while(count<tem.length()){
-            if(Character.isAlphabetic(tem.charAt(count))||Character.isSpace(tem.charAt(count))){
+            if(Character.isAlphabetic(tem.charAt(count))||Character.isWhitespace(tem.charAt(count))){
                 // do nothing
                 count++;
             }
@@ -112,10 +115,10 @@ char TypeCheck1;
         
         }
     return true;
-    }
+  }
   
-  
-    public boolean isValidEmailAddress(String email) {
+  // This method is used to validate Email address
+  public boolean isValidEmailAddress(String email) {
         boolean result = true;
         try {
         InternetAddress emailAddr = new InternetAddress(email);
@@ -125,6 +128,6 @@ char TypeCheck1;
         result = false;
         }
         return result;
-    }
+  }
 }
 

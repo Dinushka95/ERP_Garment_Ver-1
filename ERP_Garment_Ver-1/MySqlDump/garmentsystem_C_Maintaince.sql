@@ -40,6 +40,7 @@ CREATE TABLE `C_Maintaince` (
 
 LOCK TABLES `C_Maintaince` WRITE;
 /*!40000 ALTER TABLE `C_Maintaince` DISABLE KEYS */;
+INSERT INTO `C_Maintaince` VALUES ('MAIN130fce279','MG4598','punch','4865','2017-04-02','Unitad','Colombo','011147896'),('MAIN1326dcfbd','VT4879','Fuel Tank','7500','2017-04-02','Staferd','Nugegoda','014789654'),('MAIN1327173cb','Qt1549','Seat repair','94000','2017-04-02','Rathna','Anuradhapura','02578948'),('MAIN134b16f5c','MG4569','Body Repair','150000','2017-04-03','Unitad','Negambo','03879546'),('MAIN1df99dbcd','VEH12cecb9ae','gfkjsf','154','2017-05-06','ava','hdfgf','14569d');
 /*!40000 ALTER TABLE `C_Maintaince` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 11:59:11
+-- Dump completed on 2017-05-07  3:23:41

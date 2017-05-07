@@ -24,8 +24,10 @@ DROP TABLE IF EXISTS `T_Sample_Approval_Table`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `T_Sample_Approval_Table` (
   `SAID` varchar(45) NOT NULL,
-  `S_ApprovalName` varchar(45) NOT NULL,
-  `S_ApprovalDate` date NOT NULL,
+  `ApprovalName` varchar(45) NOT NULL,
+  `SampleID` varchar(45) NOT NULL,
+  `ApproveDate` date NOT NULL,
+  `ApprovedBy` varchar(45) NOT NULL,
   `Status` varchar(45) NOT NULL,
   `Comment` varchar(45) NOT NULL,
   PRIMARY KEY (`SAID`)
@@ -50,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-03-04 11:56:49
+-- Dump completed on 2017-05-07  3:21:30
