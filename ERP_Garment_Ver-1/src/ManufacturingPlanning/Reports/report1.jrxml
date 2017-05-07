@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2dc1acd2-23c0-4533-a8a0-1009bb85ce7c">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -27,7 +30,7 @@
      r_Cutting_Schedule_table.`Quantity` AS Quantity,
      r_Cutting_Schedule_table.`Colour` AS Colour
 FROM
-     `r_Cutting_Schedule_table` ]]>
+     `r_Cutting_Schedule_table`]]>
 	</queryString>
 	<field name="Shedule_ID" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -78,24 +81,24 @@ FROM
 		<band height="102" splitType="Stretch">
 			<image>
 				<reportElement x="725" y="0" width="77" height="102" uuid="d1d835fe-5c31-4a80-b3b4-eaae8e7a1000"/>
-				<imageExpression> </imageExpression>
+				<imageExpression><![CDATA[]]></imageExpression>
 			</image>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="734e65fe-cf9a-46f5-829a-1e801be11798"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="56cafd1b-76a3-465c-a62a-7c15487b6c48"/>
+					<reportElement style="Title" x="0" y="0" width="647" height="66" uuid="56cafd1b-76a3-465c-a62a-7c15487b6c48"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text> </text>
+					<text><![CDATA[Cutting Schedule Full Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="f1ac16f6-9810-4a9a-a03c-45bda2baab5b"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>
-					<text> </text>
+					<text><![CDATA[ ]]></text>
 				</staticText>
 			</frame>
 			<frame>

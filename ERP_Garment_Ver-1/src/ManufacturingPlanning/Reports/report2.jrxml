@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="adbbf3ec-cc8a-4498-a56d-d4bae50a24f7">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -27,7 +30,7 @@
      r_Cutting_Schedule_table.`Quantity` AS Quantity,
      r_Cutting_Schedule_table.`Colour` AS Colour
 FROM
-     `r_Cutting_Schedule_table` ]]>
+     `r_Cutting_Schedule_table`]]>
 	</queryString>
 	<field name="Shedule_ID" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -76,30 +79,26 @@ FROM
 	</background>
 	<title>
 		<band height="102" splitType="Stretch">
-			<image>
-				<reportElement x="725" y="0" width="77" height="102" uuid="605b161c-393e-42ac-a740-72affbff4fd8"/>
-				<imageExpression></imageExpression>
-			</image>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="30255232-cd15-43e5-bc87-046226dea894"/>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="30255232-cd15-43e5-bc87-046226dea894"/>
 				<staticText>
 					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="de35ea06-e9ac-4910-9910-5f0cae624023"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text></text>
+					<text><![CDATA[]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="af72f702-fa40-44c0-8744-0aee16046d5b"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>
-					<text></text>
+					<text><![CDATA[]]></text>
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="e24d077f-fddb-4539-8472-47b999005294"/>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="e24d077f-fddb-4539-8472-47b999005294"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="f660f8dd-22e8-42db-b937-f7de2491a1a4"/>
 					<textElement textAlignment="Right">
