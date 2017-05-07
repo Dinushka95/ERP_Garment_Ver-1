@@ -188,8 +188,13 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         jPanel10.add(jTextField2amt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, 30));
         jPanel10.add(datePicker1date, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 170, 30));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Demo");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
 
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -411,6 +416,15 @@ private void Tableload()
           }
       }
     }//GEN-LAST:event_jTextField2amtKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+      
+      jComboBox3type.setSelectedItem("Financial Expences");
+      jTextArea1description.setText("sunimal");
+      jTextField2amt.setText("8000");
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
     
      private void generate_Descriptoin(){
     AutoIdGenerator aid = new AutoIdGenerator();

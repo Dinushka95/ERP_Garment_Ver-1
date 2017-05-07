@@ -274,6 +274,11 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
 
         jButton1.setText("Demo");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel11.add(jButton1);
         jButton1.setBounds(820, 240, 67, 23);
 
@@ -425,6 +430,16 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         
         TextBoxClear();
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+       
+         jComboBox1.setSelectedItem("Vehicals");
+         Cost.setText("250000");
+         rate1.setText("10");
+         
+       
+    }//GEN-LAST:event_jButton1ActionPerformed
      private void generate_Asstid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     Fixass.setText(aid.generate("ASST",Integer.toString(MainWindow.userid)));

@@ -224,8 +224,13 @@ public class CashDetails extends javax.swing.JInternalFrame {
         jPanel7.add(jButton4);
         jButton4.setBounds(170, 380, 90, 23);
 
-        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.setText("Demo");
+        jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jButton5);
         jButton5.setBounds(540, 380, 70, 23);
 
@@ -391,6 +396,16 @@ public class CashDetails extends javax.swing.JInternalFrame {
           }
       }
     }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        
+        jComboBox2.setSelectedItem("Paybales");
+        jTextArea1.setText("sunil");
+        jTextField1.setText("250000");
+       
+        
+    }//GEN-LAST:event_jButton5ActionPerformed
 
      private void generate_Payabels(){
     AutoIdGenerator aid = new AutoIdGenerator();

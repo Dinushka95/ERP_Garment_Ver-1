@@ -644,6 +644,11 @@ public class BankDetail extends javax.swing.JInternalFrame {
 
         jButton11.setText("Demo");
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
         jPanel8.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, -1, -1));
 
         jPanel10.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -716,6 +721,16 @@ public class BankDetail extends javax.swing.JInternalFrame {
       String br_name = jTextField6Branch.getText();
       String date = datePicker1date.getText() ;
       float amount =Float.parseFloat(jTextField10amt.getText());
+      
+      int check=Integer.parseInt(cno);
+      if(check!=6){
+      JOptionPane.showMessageDialog(null,"ERROR");
+      
+      }
+      else{
+         
+      try
+        {
   
 
   boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_DEPOSITDETAILS`\n" +
@@ -733,8 +748,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 "'"+date+"',\n" +
 ""+amount+");");
   
-        try
-        {
+        
             if(x==true)
             {
                 TableLoad1();
@@ -747,8 +761,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }    
       } 
+      }
   }
-  
   private void TextBoxClear1()
   {
       jTextField5CheNo.setText("");
@@ -1250,22 +1264,19 @@ public class BankDetail extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_DepositComboActionPerformed
 
     private void demo_depositActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_demo_depositActionPerformed
-        // TODO add your handling code here:
-    /*  jTextField5CheNo.setText("789");
-      jTextField1Cus.setText("mkm");
-      jComboBox2b_name.setSelectedIndexItem("BOC");
-      jTextField6Branch.setText("nk");
-      datePicker1date.setDateToToday(); 
-      jTextField10amt.setText("45200");*/
+       
+     jTextField5CheNo.setText("789489");
+      jComboBox2b_name.setSelectedItem("BOC");
+      jTextField6Branch.setText("piliyandala"); 
+      jTextField10amt.setText("40000");
     }//GEN-LAST:event_demo_depositActionPerformed
 
     private void demo_withdrawalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_demo_withdrawalActionPerformed
         // TODO add your handling code here:
-      jTextField2cno.setText("");
-      jComboBox1bank.setSelectedIndex(0);
-      jTextField5brname.setText("");
-      datePicker2date.setDateToToday();
-      jTextField6amt.setText("");
+      jTextField2cno.setText("859675");
+      jComboBox1bank.setSelectedItem("BOC");
+      jTextField5brname.setText("kaluthra");
+      jTextField6amt.setText("65000");
     }//GEN-LAST:event_demo_withdrawalActionPerformed
 
     private void jTextField1CusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1CusActionPerformed
@@ -1433,6 +1444,13 @@ public class BankDetail extends javax.swing.JInternalFrame {
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`RETURN_CHEQUE` WHERE section = '"+section+"'");
             jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); 
     }//GEN-LAST:event_R_SEARCHActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        // TODO add your handling code here:
+        jComboBox1.setSelectedItem("Deposit");
+      jTextArea1.setText("amara");
+      ChequeAmount.setText("480000");
+    }//GEN-LAST:event_jButton11ActionPerformed
   
     
     

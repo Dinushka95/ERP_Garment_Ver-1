@@ -2,9 +2,11 @@
 package Finance;
 
 import static MainSystem.AutoDB_Connect.DB_connection;
+import com.sun.glass.events.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 
 
@@ -246,7 +248,6 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jTextField21 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Bank Details");
@@ -285,6 +286,9 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 investKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                investKeyTyped(evt);
+            }
         });
         jPanel3.add(invest, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 100, 180, -1));
 
@@ -318,6 +322,9 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         deb.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 debKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                debKeyTyped(evt);
             }
         });
         jPanel4.add(deb, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, 180, -1));
@@ -382,6 +389,9 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 fundKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                fundKeyTyped(evt);
+            }
         });
         jPanel7.add(fund, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 140, -1));
 
@@ -389,12 +399,18 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 CapitalKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CapitalKeyTyped(evt);
+            }
         });
         jPanel7.add(Capital, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, 140, -1));
 
         ReseAndSup.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ReseAndSupKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ReseAndSupKeyTyped(evt);
             }
         });
         jPanel7.add(ReseAndSup, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, 140, -1));
@@ -430,12 +446,18 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 longloanKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                longloanKeyTyped(evt);
+            }
         });
         jPanel9.add(longloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 30, 140, -1));
 
         otherli.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 otherliKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                otherliKeyTyped(evt);
             }
         });
         jPanel9.add(otherli, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 60, 140, -1));
@@ -462,6 +484,12 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jLabel25.setText("Total");
         jPanel10.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
         jPanel10.add(shortloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 40, 140, -1));
+
+        othercurrloan.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                othercurrloanKeyTyped(evt);
+            }
+        });
         jPanel10.add(othercurrloan, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 140, -1));
         jPanel10.add(currli, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 110, -1));
 
@@ -480,13 +508,14 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         jButton1.setText("Genarate Report");
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 460, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Reset All");
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 490, -1, -1));
-
-        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton3.setText("Demo");
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 520, -1, -1));
 
         jTabbedPane1.addTab("Balance Sheet", jPanel1);
 
@@ -534,6 +563,131 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_debKeyReleased
 
+    private void investKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_investKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_investKeyTyped
+
+    private void debKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_debKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_debKeyTyped
+
+    private void fundKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_fundKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_fundKeyTyped
+
+    private void CapitalKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CapitalKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_CapitalKeyTyped
+
+    private void ReseAndSupKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ReseAndSupKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_ReseAndSupKeyTyped
+
+    private void longloanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_longloanKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_longloanKeyTyped
+
+    private void otherliKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_otherliKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_otherliKeyTyped
+
+    private void othercurrloanKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_othercurrloanKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_othercurrloanKeyTyped
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
+
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Bank;
@@ -550,7 +704,6 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
     private javax.swing.JTextField invest;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

@@ -146,6 +146,12 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
             }
         });
         jPanel3.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 150, 30));
+
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3KeyTyped(evt);
+            }
+        });
         jPanel3.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 150, 30));
 
         jLabel1.setText("Loan period");
@@ -223,6 +229,11 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
 
         jButton1.setText("Demo");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 340, -1, -1));
 
         jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 480, 380));
@@ -357,6 +368,34 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
           }
       }
     }//GEN-LAST:event_jTextField2KeyTyped
+
+    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+        // TODO add your handling code here:
+        
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_jTextField3KeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        jComboBox1.setSelectedItem("BOC");
+        jTextField2.setText("kaluthara");
+        jTextField3.setText("7895836987");
+        jTextField4.setText("4");
+        amt1.setText("780000");
+        Mrate.setText("5");
+        
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
    
       private void TableLoad()
   {

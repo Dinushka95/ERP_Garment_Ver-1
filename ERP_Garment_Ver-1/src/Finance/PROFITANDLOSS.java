@@ -4,9 +4,11 @@ package Finance;
 import MainSystem.AutoDB_Connect;
 import static MainSystem.AutoDB_Connect.DB_connection;
 import static MainSystem.MainWindow.autoSqlQuery;
+import com.sun.glass.events.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 
@@ -36,8 +38,8 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         CalcCostofSales();
         CalPurchase();
         CalReturnPurchase();
-        CalcCostOfSales();
-        CalcGrossProfit();
+       
+ 
         CalcExpencess();
        
         
@@ -69,7 +71,6 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
         Clossing = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         CostOfSales = new javax.swing.JTextField();
         openStock = new javax.swing.JTextField();
         Purchase = new javax.swing.JTextField();
@@ -90,9 +91,10 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel26 = new javax.swing.JLabel();
         jTextField20 = new javax.swing.JTextField();
         jButton11 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Bank Details");
@@ -154,17 +156,19 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ClossingKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ClossingKeyTyped(evt);
+            }
         });
         jPanel6.add(Clossing, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 260, 130, -1));
-
-        jButton1.setText("ADD");
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 500, 70, -1));
         jPanel6.add(CostOfSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 130, -1));
 
         openStock.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 openStockKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                openStockKeyTyped(evt);
             }
         });
         jPanel6.add(openStock, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 140, 130, -1));
@@ -175,11 +179,26 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel19.setText("Cost Of Sales");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 100, -1));
+
+        CostSales.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                CostSalesKeyReleased(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CostSalesKeyTyped(evt);
+            }
+        });
         jPanel6.add(CostSales, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 310, 130, -1));
 
         jLabel20.setText("Gross Profit/Loss");
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 350, 140, -1));
+
+        GrossProfit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GrossProfitMouseClicked(evt);
+            }
+        });
         jPanel6.add(GrossProfit, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, 130, -1));
 
         jLabel21.setText("Expences");
@@ -190,6 +209,12 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel22.setText("Net Profit/Loss");
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 400, 100, -1));
+
+        net.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                netMouseClicked(evt);
+            }
+        });
         jPanel6.add(net, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 130, -1));
 
         jLabel23.setText("Shipping Cost");
@@ -200,28 +225,61 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ShippingKeyReleased(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                ShippingKeyTyped(evt);
+            }
         });
         jPanel6.add(Shipping, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 290, 130, -1));
 
         jLabel24.setText("10% of IncomeTax");
         jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 430, 120, -1));
+
+        Tax.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                TaxMouseClicked(evt);
+            }
+        });
+        Tax.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                TaxKeyTyped(evt);
+            }
+        });
         jPanel6.add(Tax, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 420, 130, -1));
 
         jLabel26.setText("Net Profit/Loss Per Year");
         jLabel26.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 460, 180, -1));
+
+        jTextField20.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField20MouseClicked(evt);
+            }
+        });
         jPanel6.add(jTextField20, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 450, 130, -1));
 
         jButton11.setText("Genarate a Report");
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 150, -1));
-
-        jButton2.setText("Demo");
-        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
-        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 500, -1, -1));
         jPanel6.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 150, 30));
         jPanel6.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 150, 30));
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("Reset All");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, -1, -1));
+
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 650, 550));
 
@@ -243,13 +301,114 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
 
     private void ClossingKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ClossingKeyReleased
         // TODO add your handling code here:
-        CalcClosingShipping();
     }//GEN-LAST:event_ClossingKeyReleased
 
     private void ShippingKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ShippingKeyReleased
-        // TODO add your handling code here:
         CalcClosingShipping();
     }//GEN-LAST:event_ShippingKeyReleased
+
+    private void openStockKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_openStockKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_openStockKeyTyped
+
+    private void ClossingKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ClossingKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_ClossingKeyTyped
+
+    private void ShippingKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ShippingKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_ShippingKeyTyped
+
+    private void TaxKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TaxKeyTyped
+        // TODO add your handling code here:
+        {                              
+        char c=evt.getKeyChar();
+      {
+          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
+          {
+              evt.consume();
+              JOptionPane.showMessageDialog(this,"You can't enter Characters");
+          }
+      }
+    }                             
+
+    }//GEN-LAST:event_TaxKeyTyped
+
+    
+   /*  private void TextBoxClear1()
+  {
+       datePicker2date.setDateToToday();
+      
+      openStock.setText("");
+      Clossing.setText("");
+     
+      jTextField6amt.setText("");
+  }*/
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+           CalcGrossProfit();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void CostSalesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostSalesKeyReleased
+      // CalcGrossProfit();
+    }//GEN-LAST:event_CostSalesKeyReleased
+
+    private void CostSalesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostSalesKeyTyped
+        CalcGrossProfit();
+    }//GEN-LAST:event_CostSalesKeyTyped
+
+    private void GrossProfitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GrossProfitMouseClicked
+          CalcGrossProfit();
+    }//GEN-LAST:event_GrossProfitMouseClicked
+
+    private void netMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_netMouseClicked
+       CalcNetProfit();
+    }//GEN-LAST:event_netMouseClicked
+
+    private void TaxMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TaxMouseClicked
+        Calctax();
+    }//GEN-LAST:event_TaxMouseClicked
+
+    private void jTextField20MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField20MouseClicked
+        CalcNetProfitperYear();
+    }//GEN-LAST:event_jTextField20MouseClicked
 
  private void CalAnnualSales()
  {
@@ -354,29 +513,21 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
        float shipping = Float.parseFloat(Shipping.getText());
        
         float closeship = (clossing+shipping);
+        float ggg=  Float.parseFloat(Goods.getText());
+        float CoS = (ggg-closeship);
+        
         System.out.println(closeship);
+        CostSales.setText(Float.toString(CoS));
      }
    
-  
-   private void CalcCostOfSales()
- {
-        //float closeship = 0;
-     float costsales = (goods-closeship);
-      System.out.println(costsales);
+    private void CalcGrossProfit(){
+          float cosg=Float.parseFloat(CostOfSales.getText());
+          float cossg=Float.parseFloat(CostSales.getText());
+          float grosst = (cosg-cossg);
+           System.out.println(cossg);
       
-      CostSales.setText(Double.toString(costsales));
+          GrossProfit.setText(Double.toString(grosst));
        
-        System.out.println(costsales);
-     }
-    private void CalcGrossProfit()
- {
-        //float closeship = 0;
-        float gross = (cos-costsales);
-      System.out.println(gross);
-      
-      GrossProfit.setText(Double.toString(gross));
-       
-        System.out.println(gross);
      }
     
   
@@ -399,46 +550,46 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
      }
     
     //----------NetProfit Calculate----------------
-   /*  private void CalcNetProfit()
- {
+    
+     private void CalcNetProfit()
+     {
      
-       float ex = Float.parseFloat(Expen.getText());
-       
-        float Net = (gross-ex);
-  
-      
-      net.setText(Double.toString(Net));
-       
+       float ex = Float.parseFloat(GrossProfit.getText());
+       float ex1 =Float.parseFloat(Expen.getText());
+        float Net = (ex-ex1);
+        net.setText(Double.toString(Net));      
         System.out.println(Net);
      }
-    */
+   
     
     //----------------taxCalculate-------------------
-  /* private void Calctax()
+   private void Calctax()
  {
           
-         float rate = (float) 0.10;       
-        float tax = (Net*rate);
+         float netg = Float.parseFloat(net.getText());   
+         float rate =  (float) 0.10;
+        float rrr = (netg*rate);
         
-        net.setText(Double.toString(tax));
+        Tax.setText(Double.toString(rrr));
        
-        System.out.println(tax);
-        
+       
      }
-  */
+  
    //-----------------netProfit per year------------- 
-    /*
+   
      private void CalcNetProfitperYear()
  {
        
-        float peryear = (Net-tax);
-  
+        float peryear =  Float.parseFloat(net.getText());
+           float nnn =  Float.parseFloat(Tax.getText());
+           
+           float ny =(peryear-nnn);
       
-      net.setText(Double.toString(peryear));
+      jTextField20.setText(Double.toString(ny));
        
-        System.out.println(peryear);
+        System.out.println(ny);
      }
-    */
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Clossing;
