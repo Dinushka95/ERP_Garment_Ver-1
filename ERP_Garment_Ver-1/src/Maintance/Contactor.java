@@ -393,7 +393,10 @@ public class Contactor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable3MouseClicked
 
     private void jButtonDemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDemoActionPerformed
- 
+       jTextField1.setText("Fernando");
+       jTextFieldPhone.setText("0775879632");
+       jTextFieldEmail.setText("Nathasha@Yahoo.com");
+       jTextFieldAddress1.setText("Kandy"); 
 
     }//GEN-LAST:event_jButtonDemoActionPerformed
 

@@ -502,7 +502,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButtonADD2ActionPerformed
 
     private void jButtonDemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDemoActionPerformed
-       jTextFieldDescription.setText("GOODDDD");
+       jTextFieldDescription.setText("US");
        jComboBox6.setSelectedItem("SINGER");
        jTextFieldAmount.setText("100");
        jComboBox1.setSelectedItem("7");

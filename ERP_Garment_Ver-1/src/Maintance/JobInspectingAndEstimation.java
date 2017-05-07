@@ -442,10 +442,11 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable3MouseClicked
 
     private void jButtonDemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDemoActionPerformed
-        jTextFieldDescription1.setText("GOODDDD");
-        jTextFieldDepartment1.setText("Finance");
-        jTextFieldTechnicianID1.setText("7");
-        jTextFieldTechnicianName1.setText("Sadun");
+       jTextFieldDescription.setText("Good");
+       jComboBox1.setSelectedItem("Finance");
+       jComboBox3.setSelectedItem("7");
+       jTextFieldTechnicianName.setText("Kamal");
+  
         
 
     }//GEN-LAST:event_jButtonDemoActionPerformed
