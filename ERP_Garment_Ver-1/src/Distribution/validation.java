@@ -15,28 +15,21 @@ import javax.swing.JOptionPane;
  */
 public class validation {
     
-     public static boolean checkDate(String startDate,String EndDate)
+     public static boolean checkDate(String strtdate,String enddt)
     {
         try{
-                SimpleDateFormat dformat = new SimpleDateFormat("yyyy/MM/dd");
+                SimpleDateFormat dformat = new SimpleDateFormat("yyyy-MM-dd");
                 Date date=new Date();
-                Date date1 = dformat.parse(startDate);
-                Date date2 = dformat.parse(EndDate);
+                Date date1 = dformat.parse(strtdate);
+                Date date2 = dformat.parse(enddt);
                 if(date1.after(date2) ){
-                     JOptionPane.showMessageDialog(null, "End date can't be before start Date  ");
+                     JOptionPane.showMessageDialog(null, "Shipped date can't be before Delivery Date  ");
                      
                 }
                 else{
-                    if( date1.before(date)){
-                        JOptionPane.showMessageDialog(null, "Start Date can't be before Current Date  ");
-                        
-                    }
-                    else{
-                        return true;
-                        
                     
-                    }
-                }
+                        return true;
+                     }
         }
         catch(Exception e)
         {
@@ -45,4 +38,101 @@ public class validation {
         }
         return false;
     }
+     
+        
+        public static  boolean isLetter(String word)
+    {
+        char c;
+        int i=0;
+        boolean l=false;    
+        while(i<word.length())
+        {
+            c=word.charAt(i);
+            if(Character.isLetter(c))
+            {
+                i++;
+                
+                
+            }
+            else{
+                   
+                l=true;
+                i++;
+            }
+        }
+            if(l)
+            {
+                JOptionPane.showMessageDialog(null, "The data enetered  "+word+" is not a Letter");
+                return false;
+            }
+            
+            
+        
+        return true;
+    } 
+        
+           
+        public static  boolean isDigit(String word)
+    {
+        char d;
+        int i=0;
+        boolean l=false;    
+        while(i<word.length())
+        {
+            d=word.charAt(i);
+            if(Character.isDigit(d))
+            {
+                i++;
+                
+                
+            }
+            else{
+                   
+                l=true;
+                i++;
+            }
+        }
+            if(l)
+            {
+                JOptionPane.showMessageDialog(null, "The data enetered  "+word+" is not a digit");
+                return false;
+            }
+            
+            
+        
+        return true;
+    }    
+        
+          public static  boolean isAlphanumeric(String word)
+    {
+        char d;
+        int i=0;
+        boolean l=false;    
+        while(i<word.length())
+        {
+            d=word.charAt(i);
+            if(Character.isLetter(d)||Character.isDigit(d))
+            {
+                                
+                i++;
+            }
+            else{
+                
+                
+                l=true;
+                i++;
+                
+                
+            }
+        }
+            if(l)
+            {
+                JOptionPane.showMessageDialog(null, "The data enetered  "+word+" is not a charactors digit");
+                return false;
+            }
+            
+            
+        
+        return true;
+    }    
 }

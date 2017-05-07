@@ -28,6 +28,13 @@ DefaultTableModel model;
         generate_vehicleID();
         FillComboMaterial();
         TabelLoad();
+        
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
 
   
     }
@@ -388,19 +395,19 @@ DefaultTableModel model;
         try{
             int r=jTable2.getSelectedRow();
             String Vid= jTable2.getValueAt(r, 0).toString();
-            String type=jComboBox1.getSelectedItem().toString();
+             String Type= jTable2.getValueAt(r, 1).toString();
             String lysonNum =jTable2.getValueAt(r, 2).toString();
             String Milage=jTable2.getValueAt(r, 3).toString();
-            String DID=jComboBox2.getSelectedItem().toString();
+            String DID=jTable2.getValueAt(r, 4).toString();
             String Dname=jTable2.getValueAt(r, 5).toString();
-            String engNum=jTable2.getValueAt(r, 7).toString();
+            String engNum=jTable2.getValueAt(r, 6).toString();
             String serDueration=jTable2.getValueAt(r, 7).toString();
-           // boolean type = false;
+            boolean type = false;
             
             System.err.print(type);
             
             jTextField16.setText(Vid);
-              //jTextField15.setText(type);
+              jTextField15.setText(Type);
               jTextField14.setText(lysonNum);
               jTextField13.setText(Milage);
               jTextField12.setText(DID);
@@ -474,7 +481,7 @@ DefaultTableModel model;
          private void AddVehicle()
     {
         String Vid = jTextField1.getText();
-        String type = jComboBox1.getSelectedItem().toString();
+        String Type = jComboBox1.getSelectedItem().toString();
         String lysonNum = jTextField3.getText();
         String Milage = jTextField4.getText();
         String DID = jComboBox2.getSelectedItem().toString();
@@ -495,7 +502,7 @@ DefaultTableModel model;
                 "`Service_duration`)\n" +
                 "VALUES\n" +
                 "('"+Vid+"',\n" +
-                "'"+type+"',\n" +
+                "'"+Type+"',\n" +
                 "'"+lysonNum+"',\n" +
                 "'"+Milage+"',\n" +
                 "'"+DID+"',\n" +
@@ -506,6 +513,7 @@ DefaultTableModel model;
             {
                 if(x==true)
                 {
+                    JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
                     TabelLoad();
                     TextBoxClear();
                 }
@@ -543,6 +551,16 @@ DefaultTableModel model;
          try
         {
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String VID = AutoDB_Connect.DB_ResultSet.getString("VehicalId");
+                jComboBox2.addItem(VID);
+                                       
+             
+            }
+            
+             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {
@@ -588,7 +606,7 @@ DefaultTableModel model;
      public void clearDeleteDesign(){
         
         jTextField16.setText("");
-        //jTextField15.setText("");
+        jTextField15.setText("");
         jTextField14.setText("");
         jTextField13.setText("");
         jTextField12.setText("");
@@ -602,9 +620,9 @@ DefaultTableModel model;
     public void UpdateAddedVehicle(){
           
             
-        String Vid,type,lysonNum,Milage,DID,Dname,engNum,serDueration;
+        String Vid,Type,lysonNum,Milage,DID,Dname,engNum,serDueration;
         Vid = jTextField16.getText();
-        type = jTextField15.getText();
+        Type = jTextField15.getText();
         lysonNum = jTextField14.getText();
         Milage = jTextField13.getText();
         DID = jTextField12.getText();
@@ -613,39 +631,16 @@ DefaultTableModel model;
         serDueration = jTextField9.getText();
         
         
-        if(Vid.isEmpty()||type.isEmpty()||lysonNum.isEmpty()||Milage.
+        if(Vid.isEmpty()||Type.isEmpty()||lysonNum.isEmpty()||Milage.
         isEmpty()||DID.isEmpty()||Dname.isEmpty()||engNum.isEmpty()||serDueration.isEmpty())
         {
        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
         
         else{
-                if(Vid.length()>25){
             
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE C ID FIELD");
-                }
-                else if(!Vid.matches("[a-zA-Z0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS AND NUMBES");
-                    
-                }
-                
-                else{
-                if(Vid.length()>25){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE V ID FIELD");
-                }
-                else if(!Vid.matches("[a-zA-Z0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS  AND NUMBERS");
-                    
-                }
-                
-                //else{
+            if(validation.isDigit(Milage)&&validation.isDigit(serDueration)&&validation.isLetter(Dname)&&validation.isLetter(Type))
+               {
             
             try{
             
@@ -662,7 +657,7 @@ DefaultTableModel model;
         ("UPDATE `garmentsystem`.`C_Vehiclel`\n" +
             "SET\n" +
             "`VehicalID` = '"+Vid+"',\n" +
-            "`Type` = '"+type+"',\n" +
+            "`Type` = '"+Type+"',\n" +
             "`LysonNum` = '"+lysonNum+"',\n" +
             "`Milage` = '"+Milage+"',\n" +
             "`DriverID` = '"+DID+"',\n" +

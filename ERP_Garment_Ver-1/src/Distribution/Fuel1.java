@@ -27,6 +27,12 @@ public class Fuel1 extends javax.swing.JInternalFrame {
          FillComboMaterial();
           TabelLoad();
         datePicker1.setDateToToday();
+        
+         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
+         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Fuel");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
 
@@ -106,6 +112,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jTextField17 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jLabel24 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -159,13 +167,10 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             }
         });
         jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
-
-        datePicker1.setEnabled(false);
         jPanel5.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, -1));
 
         jTextField7.setEditable(false);
         jTextField7.setAutoscrolls(false);
-        jTextField7.setEnabled(false);
         jPanel5.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 130, -1));
 
         jTextField4.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -176,7 +181,6 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jPanel5.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 270, 130, -1));
 
         jTextField6.setEditable(false);
-        jTextField6.setEnabled(false);
         jPanel5.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 230, 130, -1));
         jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 130, -1));
 
@@ -235,8 +239,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "COOP", "Jayawardhena", "DSI", "United", " " }));
         jPanel5.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 130, -1));
 
-        jComboBox8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox8.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Petrol", "Diesel", " " }));
+        jComboBox8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jComboBox8.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jComboBox8ItemStateChanged(evt);
@@ -306,6 +310,11 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jComboBox4ItemStateChanged(evt);
             }
         });
+        jComboBox4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox4MouseClicked(evt);
+            }
+        });
         jComboBox4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox4ActionPerformed(evt);
@@ -364,11 +373,11 @@ public class Fuel1 extends javax.swing.JInternalFrame {
 
         jLabel16.setText("Unit Price");
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         jLabel17.setText("Units");
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
 
         jLabel18.setText("Cost");
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -384,12 +393,18 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jTextField10KeyReleased(evt);
             }
         });
-        jPanel6.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 130, -1));
-        jPanel6.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 130, -1));
+        jPanel6.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, 130, -1));
+        jPanel6.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 220, 130, -1));
         jPanel6.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, 130, -1));
         jPanel6.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 130, -1));
+
+        jTextField14.setEditable(false);
         jPanel6.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 80, 130, -1));
+
+        jTextField15.setEditable(false);
         jPanel6.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 130, -1));
+
+        jTextField16.setEditable(false);
         jPanel6.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 130, -1));
         jPanel6.add(jTextField17, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 310, 130, -1));
 
@@ -410,6 +425,11 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             }
         });
         jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
+
+        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel24.setText("Fuel Type");
+        jPanel6.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
+        jPanel6.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 190, 130, -1));
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, 430, 500));
 
@@ -534,7 +554,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
  
          String VID = jComboBox6.getSelectedItem().toString();
 
-        jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Fuel","VehicalID", VID)));
+        jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Fuel","Vehical_ID", VID)));
  
         
  }
@@ -550,9 +570,9 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             String BillNum=jTable3.getValueAt(r, 4).toString();
             String Uprice=jTable3.getValueAt(r, 5).toString();
             String Units=jTable3.getValueAt(r, 6).toString();
-            String cost=jTable3.getValueAt(r, 6).toString();
-            String date=jTable3.getValueAt(r, 6).toString();
-             String Fuel_Type = jComboBox8.getSelectedItem().toString();
+            String cost=jTable3.getValueAt(r, 7).toString();
+            String date=jTable3.getValueAt(r, 8).toString();
+             String Ftype = jTable3.getValueAt(r, 9).toString();
             boolean type = false;
             
             System.err.print(type);
@@ -562,11 +582,11 @@ public class Fuel1 extends javax.swing.JInternalFrame {
               jTextField14.setText(DID);
               jTextField13.setText(Fname);
               jTextField12.setText(BillNum);
-              jTextField10.setText(Uprice);
-              jTextField9.setText(Units);
-              jTextField8.setText(cost);
+              jTextField11.setText(Uprice);
+              jTextField10.setText(Units);
+              jTextField9.setText(cost);
               jTextField17.setText(date);
-               //jComboBox8.setText(Fuel_Type);
+               jTextField1.setText(Ftype);
 
         }
         
@@ -601,9 +621,9 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jComboBox4ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox4ItemStateChanged
-               String search=jComboBox4.getSelectedItem().toString();
+        String search=jComboBox4.getSelectedItem().toString();
          System.out.println(search);
-        if(search.equals(" Vehicle ID"))
+        if(search.equals("Vehicle ID"))
         {
             jLabel20.setEnabled(true);
              jComboBox5.setEnabled(true);
@@ -649,6 +669,10 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox4ActionPerformed
+
+    private void jComboBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox4MouseClicked
+               
+    }//GEN-LAST:event_jComboBox4MouseClicked
  private void generate_FuelID(){
     AutoIdGenerator aid = new AutoIdGenerator();
      jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));
@@ -671,6 +695,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
          String VID = jComboBox1.getSelectedItem().toString();
          String DID = jComboBox2.getSelectedItem().toString();
          String Fname = jComboBox3.getSelectedItem().toString();
+          String Ftype = jComboBox8.getSelectedItem().toString();
          jTextField3.setText("");
          jTextField6.setText("");
          jTextField4.setText("");
@@ -684,6 +709,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         String fid = jTextField8.getText();
         String VID = jComboBox1.getSelectedItem().toString();
        String DID = jComboBox2.getSelectedItem().toString();
+       String Ftype = jComboBox8.getSelectedItem().toString();
         String Fname = jComboBox3.getSelectedItem().toString();
         String BillNum = jTextField3.getText();
         String Uprice = jTextField6.getText();
@@ -693,36 +719,16 @@ public class Fuel1 extends javax.swing.JInternalFrame {
          
            
         if(fid.isEmpty()||VID.isEmpty()||DID.isEmpty()||Fname.
-        isEmpty()||BillNum.isEmpty()||Uprice.isEmpty()||Units.isEmpty()||cost.isEmpty()||date.isEmpty())
+        isEmpty()||BillNum.isEmpty()||Uprice.isEmpty()||Units.isEmpty()||cost.isEmpty()||date.isEmpty()||Ftype.isEmpty())
         {
        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
         
         else{
-                if(BillNum.length()>25){
             
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE BILL NUMBER FIELD");
-                }
-                else if(!BillNum.matches("[a-zA-Z0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS AND NUMBES IN THE BILL NUMBER FIELD");
-                    
-                }
-                
-                else{
-                if(Units.length()>25){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE UNIT FIELD");
-                }
-                else if(!Units.matches("[0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY NUMBERS IN UNIT FIELD");
-                    
-                }
+            if(validation.isDigit(Uprice)&&validation.isDigit(Units)&&validation.isLetter(Ftype)&&validation.isLetter(Fname))
+               {
+               
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Fuel`\n" +
             "(`Fuel_ID`,\n" +
             "`Vehical_ID`,\n" +
@@ -732,7 +738,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             "`Unit_Price`,\n" +
             "`Units`,\n" +
             "`Cost`,\n" +
-            "`Date`)\n" +
+            "`Date`,\n" +
+            " `Fuel_Type`)\n" +                   //`C_Fuel`.`Fuel_Type`
             "VALUES\n" +
             "('"+fid+"',\n" +
             "'"+VID+"',\n" +
@@ -742,12 +749,15 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             "'"+Uprice+"',\n" +
             "'"+Units+"',\n" +
             "'"+cost+"',\n" +
-            "'"+date+"');");
+             "'"+date+"',\n" +
+            "'"+Ftype+"');");
 
         try
         {
             if(x==true)
             {
+                
+        JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
                 TabelLoad();
                 TextBoxClear();
             }
@@ -802,6 +812,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
          jTextField10.setText("");
          jTextField9.setText("");
          jTextField17.setText("");
+          jTextField1.setText("");
          
        
         
@@ -809,7 +820,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
      public void UpdateAddedFuel(){
           
             
-        String fid,VID,DID,Fname,BillNum,Uprice,Units,cost,date;
+        String fid,VID,DID,Fname,BillNum,Uprice,Units,cost,date,Ftype;
         fid = jTextField16.getText();
         VID = jTextField15.getText();
         DID = jTextField14.getText();
@@ -819,42 +830,18 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         Units = jTextField10.getText();
         cost = jTextField9.getText();
         date = jTextField7.getText();
-       
+        Ftype = jTextField1.getText();
         
         
         if(fid.isEmpty()||VID.isEmpty()||DID.isEmpty()||Fname.
-        isEmpty()||BillNum.isEmpty()||Uprice.isEmpty()||Units.isEmpty()||cost.isEmpty()||date.isEmpty())
+        isEmpty()||BillNum.isEmpty()||Uprice.isEmpty()||Units.isEmpty()||cost.isEmpty()||date.isEmpty()||Ftype.isEmpty())
         {
        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
         
         else{
-                if(fid.length()>25){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE C ID FIELD");
-                }
-                else if(!fid.matches("[a-zA-Z0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS AND NUMBES");
-                    
-                }
-                
-                else{
-                if(fid.length()>25){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE V ID FIELD");
-                }
-                else if(!fid.matches("[a-zA-Z0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS  AND NUMBERS");
-                    
-                }
-                
-                //else{
+               if(validation.isDigit(Uprice)&&validation.isDigit(Units)&&validation.isDigit(cost)&&validation.isLetter(Ftype)&&validation.isLetter(Fname))
+               {
             
             try{
             
@@ -879,6 +866,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
             "`Units` = '"+Units+"',\n" +
             "`Cost` = '"+cost+"',\n" +
              "`date` = '"+date+"'\n" +
+               "`Fuel_Type` = '"+Ftype+"'\n" +
              "WHERE `VehicalID` = '"+fid+"';");
                     
             if(x==true){
@@ -899,10 +887,11 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         }
         
          
-       
-    }
+          
     }
         }
+        }
+        
     public void clearUpdateFuel(){
         
          jTextField16.setText("");
@@ -913,6 +902,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jTextField11.setText("");
         jTextField10.setText("");
         jTextField9.setText("");
+         jTextField1.setText("");
         jTextField7.setText("");
         
     }
@@ -950,6 +940,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -969,6 +960,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable3;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
     private javax.swing.JTextField jTextField11;
     private javax.swing.JTextField jTextField12;

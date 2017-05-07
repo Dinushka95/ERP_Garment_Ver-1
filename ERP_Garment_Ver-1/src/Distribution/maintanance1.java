@@ -36,6 +36,12 @@ DefaultTableModel model;
         
          FillComboMaterial();
         
+         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Maintaince");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Maintaince");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
     }
 
     /**
@@ -202,6 +208,7 @@ DefaultTableModel model;
         });
         jPanel6.add(vehicleCombo, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 140, -1));
 
+        jTextField1.setEditable(false);
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField1ActionPerformed(evt);
@@ -299,6 +306,7 @@ DefaultTableModel model;
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel7.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
+        jTextField2.setEditable(false);
         jTextField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField2ActionPerformed(evt);
@@ -328,6 +336,8 @@ DefaultTableModel model;
             }
         });
         jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, -1, -1));
+
+        jTextField14.setEditable(false);
         jPanel7.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 70, 140, -1));
         jPanel7.add(jTextField15, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 300, 140, -1));
 
@@ -429,8 +439,14 @@ DefaultTableModel model;
             {
                 String Mid = AutoDB_Connect.DB_ResultSet.getString("MaintainceID");
                 jComboBox1.addItem(Mid);
-                                       
              
+            }
+             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Vehiclel");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String VID = AutoDB_Connect.DB_ResultSet.getString("VehicalID");
+                vehicleCombo.addItem(VID);
             }
          
         }
@@ -492,6 +508,8 @@ DefaultTableModel model;
        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
           else{
+               if(validation.isDigit(cost)&&validation.isDigit(phone)&&validation.isAlphanumeric(address)&&validation.isLetter(Dname))
+               {
         
            boolean x= autoSqlQuery.executeAutoADD(new String[]  {   "MaintainceID="+Mid,
                                                                     "VehicalID="+VID,
@@ -507,6 +525,7 @@ DefaultTableModel model;
         {
             if(x==true)
             {
+                JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
                 TabelLoad();
                 TextBoxClear();
             }
@@ -515,8 +534,9 @@ DefaultTableModel model;
         {
             System.out.println(ex);
         }
-          }JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
-    }
+          }
+          }
+          }
     private void search()
     {
         String Mid = jComboBox1.getSelectedItem().toString();
@@ -584,11 +604,11 @@ DefaultTableModel model;
         String Mid,VID,discription,cost,date,Dname,address,phone;
         Mid = jTextField2.getText();
         VID = jTextField14.getText();
-        discription = jTextField8.getText();
-        cost = jTextField9.getText();
+        discription = jTextField11.getText();
+        cost = jTextField12.getText();
         date = jTextField10.getText();
-        Dname = jTextField11.getText();
-        address = jTextField12.getText();
+        Dname = jTextField8.getText();
+        address = jTextField9.getText();
         phone = jTextField15.getText();
              
        
@@ -600,32 +620,8 @@ DefaultTableModel model;
         }
         
         else{
-                if(Mid.length()>25){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE MAINTANANCE ID FIELD");
-                }
-                else if(!Mid.matches("[a-zA-Z0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS AND NUMBES");
-                    
-                }
-                
-                else{
-                if(Mid.length()>25){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE MAINTANANCE ID FIELD");
-                }
-                else if(!Mid.matches("[a-zA-Z0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS  AND NUMBERS");
-                    
-                }
-                
-                //else{
+            if(validation.isDigit(cost)&&validation.isDigit(phone)&&validation.isLetter(address)&&validation.isLetter(Dname))
+               {
             
             try{
             
@@ -687,6 +683,8 @@ DefaultTableModel model;
         
         
     }
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JButton jButton1;

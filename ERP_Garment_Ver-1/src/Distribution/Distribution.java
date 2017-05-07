@@ -5,11 +5,8 @@ import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
-import ManufacturingPlanning.CuttingSchedule;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -31,6 +28,13 @@ public class Distribution extends javax.swing.JInternalFrame {
         TabelLoad();
          FillComboMaterial();
         datePicker1.setDateToToday();
+        
+         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Distribution");
+        jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Distribution");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
 
     }
 
@@ -626,6 +630,7 @@ public class Distribution extends javax.swing.JInternalFrame {
         {
             if(x==true)
             {
+                JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
                 TabelLoad();
                 TextBoxClear();
                 
@@ -718,32 +723,9 @@ public class Distribution extends javax.swing.JInternalFrame {
         }
         
         else{
-                if(Dis_cost.length()>1){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE DISTRIBUTION COST FIELD");
-                }
-                else if(!Dis_cost.matches("[0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY  NUMBES FOR DISTRIBUTION COST FIELD");
-                    
-                }
-                
-                else{
-                if(Milage.length()>20){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE DISTRIBUTION ID FIELD");
-                }
-                else if(!Milage.matches("[0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY NUMBES FOR MILAGE FIELD");
-                    
-                }
-                
-                //else{
+              if(validation.isDigit(Dis_cost)&&validation.isDigit(Milage)&&validation.isDigit(date))
+               {
+              
             
             try{
             
@@ -789,7 +771,7 @@ public class Distribution extends javax.swing.JInternalFrame {
          
        
     }
-    }
+        }
         }
     public void clearUpdateDistributions(){
         

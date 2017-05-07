@@ -31,6 +31,12 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         TabelLoad();
         enddate.setDateToToday();
 
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Shipment");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Shipment");
+        jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
     }
 
     /**
@@ -275,7 +281,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelShipSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, -1, -1));
+        jPanelShipSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
 
         jButton10.setText("Search");
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -284,7 +290,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 jButton10ActionPerformed(evt);
             }
         });
-        jPanelShipSearch.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 70, -1, -1));
+        jPanelShipSearch.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -407,7 +413,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 120, -1));
         jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 120, -1));
 
-        jTextField3.setText("jTextField3");
+        jTextField3.setEditable(false);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField3ActionPerformed(evt);
@@ -496,7 +502,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
             jTextField1.setText(strdate);
             jTextField2.setText(enddt);
             recieved1.setText(rcvd);
-            jTextField4.setText(dsc);
+            descriptionarea1.setText(dsc);
         
         
         }
@@ -593,19 +599,10 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         {
        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
-         else{
-             
-                    if(validation.checkDate(strtdate, enddt)){
-                         AddShipment();
-                         TextBoxClear();
-                    
-                    }
-                    
-        }
-         /*else
-         {
-             JOptionPane.showMessageDialog(null,"Successfully Added");
-         }*/
+          else{
+             if(validation.checkDate(strtdate,enddt)&& validation.isDigit(phn)&&validation.isLetter(frm)&&validation.isAlphanumeric(addrs)&&validation.isLetter(dsc))
+               {
+               
         
         boolean x =autoSqlQuery.execute("INSERT INTO `garmentsystem`.`C_Shipment`\n" +
             "(`Shipment_id`,\n" +
@@ -633,6 +630,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         {
             if(x==true)
             {
+                JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
                 TabelLoad();
                 TextBoxClear();
             }
@@ -641,6 +639,9 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         }
+               }
+    }
+         
     }
      private void search()
  {
@@ -651,8 +652,10 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
       private void search1()
       {
            String strtdate=datePicker1.getText();
+           AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.C_Shipment WHERE C_Shipment.Shipped_date='"+strtdate+"'");
+      jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
-        jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Shipment","Shipped_date", strtdate)));
+      //  jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Shipment","Shipped_date", strtdate)));
       }
       private void tableLoad(){
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
@@ -714,7 +717,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         strtdate = jTextField1.getText();
         enddt = jTextField2.getText();
         rcvd = recieved1.getText();
-        dsc = jTextField4.getText();
+        dsc = descriptionarea1.getText();
         
         
         if(id.isEmpty()||supp.isEmpty()||addrs.isEmpty()||phn.
@@ -724,32 +727,10 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         }
         
         else{
-                if(id.length()>25){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE SHIPMENT ID FIELD");
-                }
-                else if(!id.matches("[a-zA-Z0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS AND NUMBES");
-                    
-                }
+               
+            if(validation.isDigit(phn)&&validation.isLetter(addrs)&&validation.isLetter(frm)&&validation.isLetter(rcvd))
+               {
                 
-                else{
-                if(id.length()>25){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE V ID FIELD");
-                }
-                else if(!id.matches("[a-zA-Z0-9]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS  AND NUMBERS");
-                    
-                }
-                
-                //else{
             
             try{
             
@@ -809,6 +790,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jTextField2.setText("");
         recieved1.setText("");
         jTextField4.setText("");
+        descriptionarea1.setText("");
         
         
     }
