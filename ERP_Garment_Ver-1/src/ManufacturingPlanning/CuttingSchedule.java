@@ -45,14 +45,7 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
         
    
     }
-    public CuttingSchedule(String matid,String matname)
-    {
-        this.matid=matid;
-        this.matname=matname;
-        System.out.println(matid+matname);
-        jComboBox2.setSelectedItem(matid);
-        jTextField35.setText(matname);
-    }
+  
     
     
     public void TextBoxClearCut(){
