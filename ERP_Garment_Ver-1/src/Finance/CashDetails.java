@@ -430,40 +430,46 @@ public class CashDetails extends javax.swing.JInternalFrame {
     }
 
     public void Editcash() {
-        try {
+       
         String chno = jTextField3.getText();
-        String edit = editid.getText();
-        String date = datePicker1.getText();
-        String Des = jTextArea1.getText();
-        float amount = Float.parseFloat(jTextField1.getText());
-
-        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Cash_ID`\n"
-                + "SET\n"
-                + "`Cash_ID` = '" + chno + "',\n"
-                + "`Type` = '" + edit + "',\n"
-                + "`Date` = '" + date + "',\n"
-                + "`Description` = '" + Des + "',\n"
-                + "`Amount` = " + amount + ",\n"
-                + "WHERE `Cash_ID` = '" + chno + "';");
-
-        
-            System.out.println("x value is : " + x);
-            if (x == true) { 
-                Tableload();
-                TextBoxClear();
-                JOptionPane.showMessageDialog(null, "Successfully Updated");
-            }else {
-                JOptionPane.showMessageDialog(null, "Update fail");
+            String chtype = jComboBox2.getSelectedItem().toString();
+            String date = datePicker1.getText();
+            String Des = jTextArea1.getText();
+            float amount = Float.parseFloat(jTextField1.getText());
+            
+      
+       boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`CASH_DETAILS`\n" +
+"SET\n" +
+"`Cash_ID` = '"+chno+"',\n" +
+"`Type` = '"+chtype+"',\n" +
+"`Date` = '"+date+"',\n" +
+"`Description` = '"+Des+"',\n" +
+"`Amount` = '"+amount+"'\n" +
+"WHERE `Cash_ID` = '"+chno+"';");
+         try
+        {
+            if (x==true)
+            {
+               TextBoxClear();
+               Tableload();
+                JOptionPane.showMessageDialog(null,"Successfully Updated");
             }
-            JOptionPane.showMessageDialog(null, "Final line does exists");
-        } catch (Exception ex) {
+        }
+        catch (Exception ex){
             System.out.println(ex);
+        }
+        
+        
+        
+        
+        
+        
         }
 
         /* String bank = jComboBox2b_name.getSelectedItem().toString();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM  `garmentsystem`.`F_DEPOSIT DETAILS` WHERE BankName = '"+bank+"'");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); */
-    }
+    
 
     public void CashIDSearch() {
         String chtype = jComboBox2.getSelectedItem().toString();

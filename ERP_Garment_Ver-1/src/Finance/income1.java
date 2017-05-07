@@ -334,19 +334,19 @@ public class income1 extends javax.swing.JInternalFrame {
 "`Date` = '"+date+"',\n" +
 "`Discription` = '"+descrip+"',\n" +
 "`Amount` = "+amount+"\n" +
-"WHERE `Bill No` = '"+bill+"';");
-        try
+"WHERE `Bill_No` = '"+bill+"';");
+         try
         {
             if (x==true)
             {
-                Tableload();
-                TextBoxClear();
+               TextBoxClear();
+               Tableload();
+                JOptionPane.showMessageDialog(null,"Successfully Updated");
             }
         }
         catch (Exception ex){
             System.out.println(ex);
         }
-
      }
      }
     private void SEARHjButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARHjButton4ActionPerformed
