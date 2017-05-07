@@ -10,6 +10,8 @@ import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
 import java.awt.*;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
@@ -19,6 +21,10 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import net.proteanit.sql.DbUtils;
+import HumanResource.Dialogs.dlgDepartmentLOV;
+
+
+
 
 /**
  *
@@ -29,12 +35,11 @@ public class Salary extends javax.swing.JInternalFrame {
     /**
      * Creates new form vihplk_SalaryForm
      */
-    
     Connection con;
     Calendar cals = Calendar.getInstance();
     SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
     AutoDB_Connect conn = new AutoDB_Connect();
-    
+
     public Salary() {
         initComponents();
         con = AutoDB_Connect.DB_connection;
@@ -42,9 +47,11 @@ public class Salary extends javax.swing.JInternalFrame {
         txtOTRate.setText("1.5");
         txtEPF.setText("12");
         txtETF.setText("3");
-       
+//        JOptionPane.showMessageDialog(this,SalaryId() );
+        SalaryId();
+
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,12 +82,21 @@ public class Salary extends javax.swing.JInternalFrame {
         txtNetSal = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtOTRate = new javax.swing.JTextField();
-        jPanel2 = new javax.swing.JPanel();
         btnInsert = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
+        jLabel10 = new javax.swing.JLabel();
+        cmb_month = new javax.swing.JComboBox<>();
+        jButton3 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        btnInsert1 = new javax.swing.JButton();
+        SEmpID = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        cmb_month1 = new javax.swing.JComboBox<>();
+        jLabel12 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -152,29 +168,18 @@ public class Salary extends javax.swing.JInternalFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnInsert)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnDelete))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel10.setText("Month:");
+
+        cmb_month.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "January", "February", "March", "April", "May", "June", "July", "August", "September", "Octorber", "November", "Decembr" }));
+
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.setText("EmpId");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -191,19 +196,33 @@ public class Salary extends javax.swing.JInternalFrame {
                     .addComponent(jLabel9)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel10))
+                .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtETF, javax.swing.GroupLayout.DEFAULT_SIZE, 272, Short.MAX_VALUE)
+                    .addComponent(txtETF, javax.swing.GroupLayout.DEFAULT_SIZE, 481, Short.MAX_VALUE)
                     .addComponent(txtSalId, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtEmpId)
                     .addComponent(txtAllowance, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtNetSal)
                     .addComponent(txtEPF, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtOTHours)
                     .addComponent(txtBasicSal, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(txtOTRate, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmb_month, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton3)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -224,7 +243,8 @@ public class Salary extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEmpId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4))
+                    .addComponent(jLabel4)
+                    .addComponent(jButton3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtEPF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -246,8 +266,16 @@ public class Salary extends javax.swing.JInternalFrame {
                     .addComponent(txtOTHours, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(cmb_month, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(69, 69, 69)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnDelete))
+                    .addComponent(btnInsert))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
@@ -268,6 +296,44 @@ public class Salary extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
+        btnInsert1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnInsert1.setText("Search");
+        btnInsert1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnInsert1ActionPerformed(evt);
+            }
+        });
+
+        SEmpID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SEmpIDActionPerformed(evt);
+            }
+        });
+
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("Employee ID:");
+
+        cmb_month1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        cmb_month1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "January", "February", "March", "April", "May", "June", "July", "August", "September", "Octorber", "November", "Decembr" }));
+
+        jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel12.setText("Month           :");
+
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("Search");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("View All");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -275,58 +341,117 @@ public class Salary extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(10, 10, 10)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 424, Short.MAX_VALUE)
-                .addGap(12, 12, 12))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
+                        .addGap(12, 12, 12))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(jLabel11))
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cmb_month1, 0, 82, Short.MAX_VALUE)
+                            .addComponent(SEmpID))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnInsert1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton2)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(11, 11, 11)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                .addGap(11, 11, 11))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(SEmpID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnInsert1)
+                            .addComponent(jButton2))
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cmb_month1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
+                        .addGap(6, 6, 6)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 333, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+ private void SalaryId() {
+
+        int i = 0;
+        String id;
+        try {
+            String sql = "select sal_id  from salary_table  ";
+            Statement stmnt = con.createStatement();
+            ResultSet rs = stmnt.executeQuery(sql);
+
+            while (rs.next()) {
+                id = rs.getString("sal_id");
+                i = Integer.parseInt(id);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+        if (i == 0) {
+            i = 1;
+        } else {
+            i++;
+        }
+
+        txtSalId.setText(String.valueOf(i));
+
+    }
 
     private void Populate() {
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from salary_table");
         jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
     }
-    
-    private void Save()
-    {
+
+    private void Save() {
         try {
             Statement stmnt = con.createStatement();
-            String sql = 
-                    "UPDATE salary_table " +
-                    "SET sal_id = '" + txtSalId.getText() + "'" +
-                    ",basic_sal = '" + txtBasicSal.getText() + "' " +
-                    ",ot_rate = '" + txtOTRate.getText()+ "' " +
-                    ",net_sal = '" + txtNetSal.getText() + "' " +
-                    ",etf = '" + txtETF.getText() + "' " +
-                    ",allowence = '" + txtAllowance.getText() + "' " +
-                    ",emp_id = '" + txtEmpId.getText() + "' " +
-                    ",ot_hours = '" + txtOTHours.getText() + "' " +
-                    ",epf = '" + txtEPF.getText() + "' " +
-                    "where sal_id = " + txtSalId.getText();
+            String sql
+                    = "UPDATE salary_table "
+                    + "SET sal_id = '" + txtSalId.getText() + "'"
+                    + ",basic_sal = '" + txtBasicSal.getText() + "' "
+                    + ",ot_rate = '" + txtOTRate.getText() + "' "
+                    + ",net_sal = '" + txtNetSal.getText() + "' "
+                    + ",etf = '" + txtETF.getText() + "' "
+                    + ",allowence = '" + txtAllowance.getText() + "' "
+                    + ",emp_id = '" + txtEmpId.getText() + "' "
+                    + ",ot_hours = '" + txtOTHours.getText() + "' "
+                    + ",epf = '" + txtEPF.getText() + "' "
+                    + ",Month = '" + cmb_month.getSelectedItem().toString() + "' "
+                    + "where sal_id = " + txtSalId.getText();
             stmnt.executeUpdate(sql);
             JOptionPane.showMessageDialog(this, "Updated Successfully");
             Populate();
-            
+
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
             Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
+
     }
-    
-    private void Remove()
-    {
+
+    private void Remove() {
         try {
             Statement stmnt = con.createStatement();
             String sql = "DELETE FROM salary_table WHERE sal_id = '" + txtSalId.getText() + "'";
@@ -338,62 +463,103 @@ public class Salary extends javax.swing.JInternalFrame {
             Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    private void Insert()
-    {
+
+    private void Insert() {
         try {
             Statement stmnt = con.createStatement();
-            
-            String sql = 
-                    "INSERT INTO salary_table (sal_id,basic_sal,ot_rate,net_sal,etf,allowence,emp_id,ot_hours,epf) "
-                    + "VALUES ("
-                    + "'" + txtSalId.getText() + "',"
-                    + "'" + txtBasicSal.getText() + "',"
-                    + "'" + txtOTRate.getText() + "',"
-                    + "'" + txtNetSal.getText()+ "',"
-                    + "'" + txtETF.getText() + "',"
-                    + "'" + txtAllowance.getText() + "',"
-                    + "'" + txtEmpId.getText() + "',"
-                    + "'" + txtOTHours.getText() + "',"
-                    + "'" + txtEPF.getText() + "'"
-                    
-                    + ")"
-                    ;
-            
-            stmnt.executeUpdate(sql);
-            JOptionPane.showMessageDialog(this, "Record Inserted");
-            Populate();
+            String insert = "INSERT INTO salary_table (sal_id,basic_sal,ot_rate,net_sal,etf,allowence,emp_id,ot_hours,epf,Month) values (?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement conn = con.prepareStatement(insert);
+            conn.setString(1, txtSalId.getText());
+            conn.setString(2, txtBasicSal.getText());
+            conn.setString(3, txtOTRate.getText());
+            conn.setString(4, txtNetSal.getText());
+            conn.setString(5, txtETF.getText());
+            conn.setString(6, txtAllowance.getText());
+            conn.setString(7, txtEmpId.getText());
+            conn.setString(8, txtOTHours.getText());
+            conn.setString(9, txtEPF.getText());
+            conn.setString(10, cmb_month.getSelectedItem().toString());
+            int result = conn.executeUpdate();
+            if (result > 0) {
+                JOptionPane.showMessageDialog(this, "Saved");
+                Populate();
+                SalaryId();
+                cmb_month.setSelectedItem("Select");               
+                txtBasicSal.setText("");
+                txtOTRate.setText("");
+                txtNetSal.setText("");
+                txtETF.setText("");
+                txtAllowance.setText("");
+                txtEmpId.setText("");
+                txtOTHours.setText("");
+                txtEPF.setText("");
+
+            } else {
+                JOptionPane.showMessageDialog(this, "Can't Saves");
+            }
+
+//            String sql = 
+//                    "INSERT INTO salary_table (sal_id,basic_sal,ot_rate,net_sal,etf,allowence,emp_id,ot_hours,epf,Month) "
+//                    + "VALUES ("
+//                    + "'" + txtSalId.getText() + "',"
+//                    + "'" + txtBasicSal.getText() + "',"
+//                    + "'" + txtOTRate.getText() + "',"
+//                    + "'" + txtNetSal.getText()+ "',"
+//                    + "'" + txtETF.getText() + "',"
+//                    + "'" + txtAllowance.getText() + "',"
+//                    + "'" + txtEmpId.getText() + "',"
+//                    + "'" + txtOTHours.getText() + "',"
+//                    + "'" + txtEPF.getText() + "'"
+//                    
+//                    + ")"
+//                    ;
+//            stmnt.executeUpdate(sql);
+//            JOptionPane.showMessageDialog(this, "Record Inserted");
+//            Populate();
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
             Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
+    private void SearchSalary() {
+
+        String key = SEmpID.getText();
+        if (key.equals("")) {
+            JOptionPane.showMessageDialog(this, "Please Enter the Employee Id");
+        } else {
+
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from salary_table where emp_id LIKE '" + key + "'");
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        }
+
+    }
+
     void ClearAll() {
-        for(Component c : jPanel1.getComponents()) {
-            if(c instanceof JTextField){
+        for (Component c : jPanel1.getComponents()) {
+            if (c instanceof JTextField) {
                 JTextField f = (JTextField) c;
                 f.setText("");
             }
         }
     }
-    
+
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
         calculateNetSalary();
-        if(Common.CheckNull(jPanel1)) {
+        if (Common.CheckNull(jPanel1) && !cmb_month.getSelectedItem().toString().equals("Select")) {
             Insert();
         }
+
     }//GEN-LAST:event_btnInsertActionPerformed
-   private void calculateNetSalary() {      
-      double ot=(Double.parseDouble(txtOTHours.getText())*(Double.parseDouble(txtBasicSal.getText())*0.01));//ot=othr*(basicsal*0.01)
-      double epfetf=(Double.parseDouble(txtBasicSal.getText())-(Double.parseDouble(txtBasicSal.getText())*0.15)) ;//epfetf=basicsal-(basicsal*0.15)
-      double netSalary=ot+epfetf+Double.parseDouble(txtAllowance.getText());//netsal=ot+epfetf+allownce
-      txtNetSal.setText(Double.toString(netSalary));
-   } 
+    private void calculateNetSalary() {
+        double ot = (Double.parseDouble(txtOTHours.getText()) * (Double.parseDouble(txtBasicSal.getText()) * 0.01));//ot=othr*(basicsal*0.01)
+        double epfetf = (Double.parseDouble(txtBasicSal.getText()) - (Double.parseDouble(txtBasicSal.getText()) * 0.15));//epfetf=basicsal-(basicsal*0.15)
+        double netSalary = ot + epfetf + Double.parseDouble(txtAllowance.getText());//netsal=ot+epfetf+allownce
+        txtNetSal.setText(Double.toString(netSalary));
+    }
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
-        if(Common.CheckNull(jPanel1)) {
+        if (Common.CheckNull(jPanel1)) {
             Save();
         }
     }//GEN-LAST:event_btnUpdateActionPerformed
@@ -401,9 +567,9 @@ public class Salary extends javax.swing.JInternalFrame {
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         Remove();
     }//GEN-LAST:event_btnDeleteActionPerformed
-    
+
     private void txtSalIdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSalIdActionPerformed
-        
+
     }//GEN-LAST:event_txtSalIdActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
@@ -417,44 +583,83 @@ public class Salary extends javax.swing.JInternalFrame {
         String empId = jTable3.getValueAt(row, 6).toString();
         String otHours = jTable3.getValueAt(row, 7).toString();
         String epf = jTable3.getValueAt(row, 8).toString();
-
+        String month = jTable3.getValueAt(row, 9).toString();
         ClearAll();
+        cmb_month.setSelectedItem(month);
+        txtSalId.setText(salId);
 
-        if(!salId.isEmpty()) {
-            txtSalId.setText(salId);
-        }
-        if(!basicSal.isEmpty()) {
+        if (!basicSal.isEmpty()) {
             txtBasicSal.setText(basicSal);
         }
-        if(!otRate.isEmpty()) {
+        if (!otRate.isEmpty()) {
             txtOTRate.setText(otRate);
         }
-        if(!netSal.isEmpty()) {
+        if (!netSal.isEmpty()) {
             txtNetSal.setText(netSal);
         }
-        if(!etf.isEmpty()) {
+        if (!etf.isEmpty()) {
             txtETF.setText(etf);
         }
-        if(!allowance.isEmpty()) {
+        if (!allowance.isEmpty()) {
             txtAllowance.setText(allowance);
         }
-        if(!empId.isEmpty()) {
+        if (!empId.isEmpty()) {
             txtEmpId.setText(empId);
         }
-        if(!otHours.isEmpty()) {
+        if (!otHours.isEmpty()) {
             txtOTHours.setText(otHours);
         }
-        if(!epf.isEmpty()) {
+        if (!epf.isEmpty()) {
             txtEPF.setText(epf);
         }
-    }//GEN-LAST:event_jTable3MouseClicked
 
-    
+    }//GEN-LAST:event_jTable3MouseClicked
+ 
+    private void btnInsert1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsert1ActionPerformed
+        SearchSalary();
+    }//GEN-LAST:event_btnInsert1ActionPerformed
+
+    private void SEmpIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEmpIDActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SEmpIDActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        String key = cmb_month1.getSelectedItem().toString();
+        if (key.equals("Select")) {
+            JOptionPane.showMessageDialog(this, "Please Enter month");
+        } else {
+
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from salary_table where Month LIKE '" + key + "'");
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    }//GEN-LAST:event_jButton1ActionPerformed
+    }
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        Populate();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       
+       
+       
+       
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField SEmpID;
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnInsert;
+    private javax.swing.JButton btnInsert1;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JComboBox<String> cmb_month;
+    private javax.swing.JComboBox<String> cmb_month1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -464,7 +669,6 @@ public class Salary extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;

@@ -10,6 +10,7 @@ import MainSystem.AutoDB_Connect;
 import static MainSystem.MainWindow.autoSqlQuery;
 import java.awt.Component;
 import java.sql.Connection;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
@@ -77,6 +78,8 @@ public class Department extends javax.swing.JInternalFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Department ID:");
+
+        txtDepartmentId.setEditable(false);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel2.setText("Department Name:");
@@ -184,17 +187,18 @@ public class Department extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if(Common.CheckNull(jPanel1)) {
+        if(Validations())
             Insert();
-        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnUpdate1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate1ActionPerformed
+
         Populate();
     }//GEN-LAST:event_btnUpdate1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        Delete();
+        if(Validations())
+            Delete();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -205,9 +209,8 @@ public class Department extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if(Common.CheckNull(jPanel1)) {
+        if(Validations())
             Update();
-        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
 
@@ -233,12 +236,11 @@ public class Department extends javax.swing.JInternalFrame {
     }
     
     private void Insert() {
-       
         Statement stmnt = null;
         try {
             stmnt = con.createStatement();
             String sql = "INSERT INTO department_table (dep_id,dep_name) VALUES ("
-                    + "'" + txtDepartmentId.getText() + "',"
+                    + "'" + GetNextId() + "',"
                     + "'" + txtDepartmentName.getText() + "'" +
                     ")";
             stmnt.executeUpdate(sql);
@@ -306,5 +308,38 @@ public class Department extends javax.swing.JInternalFrame {
                 f.setText("");
             }
         }
+    }
+    
+    private boolean Validations(){
+        if(txtDepartmentId.getText()==null){
+              JOptionPane.showMessageDialog(this, "Department Id Cannot be empty");
+              return false;
+        }
+        if(txtDepartmentName.getText()==null){
+              JOptionPane.showMessageDialog(this, "Department Name Cannot be empty");
+              return false;
+        }
+
+        
+        return true;
+         
+    }
+    
+    int GetNextId()
+    {   
+        int x=-1;
+        try {  
+            String sql = "select max(dep_id) max_id from department_table";
+            Statement stmnt = con.createStatement();
+            ResultSet rs = stmnt.executeQuery(sql);
+            while(rs.next())
+            {
+                x = rs.getInt("max_id")+1;
+            }
+            return x;
+        } catch (SQLException ex) {
+            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return x;
     }
 }

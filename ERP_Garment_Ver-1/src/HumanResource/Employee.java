@@ -121,10 +121,12 @@ public class Employee extends javax.swing.JInternalFrame {
         try {
             Statement stmnt = con.createStatement();
             
+            
+            
             String sql = 
                     "INSERT INTO emp_table (emp_id,f_name,l_name,gender,nic,nationaliy,address,depid,email,mobile_no,dob) "
                     + "VALUES ("
-                    + "'" + txtEmployeeId.getText() + "',"
+                    + "'" + GetNextId() + "',"
                     + "'" + txtFirstName.getText() + "',"
                     + "'" + txtLastName.getText() + "',"
                     + "'" + cmbGender.getSelectedItem().toString()+ "',"
@@ -145,7 +147,23 @@ public class Employee extends javax.swing.JInternalFrame {
             Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    int GetNextId()
+    {   
+        int x=-1;
+        try {  
+            String sql = "select max(emp_id) max_emp_id from emp_table";
+            Statement stmnt = con.createStatement();
+            ResultSet rs = stmnt.executeQuery(sql);
+            while(rs.next())
+            {
+                x = rs.getInt("max_emp_id")+1;
+            }
+            return x;
+        } catch (SQLException ex) {
+            Logger.getLogger(Employee.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return x;
+    }
     void ClearAll() {
         for(Component c : jPanel1.getComponents()) {
             if(c instanceof JTextField){
@@ -259,6 +277,7 @@ public class Employee extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Mobile No:");
 
+        txtEmployeeId.setEditable(false);
         txtEmployeeId.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmployeeIdActionPerformed(evt);
@@ -481,9 +500,8 @@ public class Employee extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnInsertActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInsertActionPerformed
-        if(Common.CheckNull(jPanel1)) {
-            Insert();
-        }
+        validate();
+        Insert();
         
     }//GEN-LAST:event_btnInsertActionPerformed
 
@@ -548,10 +566,6 @@ public class Employee extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtMobileNoActionPerformed
 
     private boolean Validations(){
-        if(txtEmployeeId.getText()==null){
-              JOptionPane.showMessageDialog(this, "Employee ID id mandatory");
-              return false;
-        }
         if(txtFirstName.getText()==null){
               JOptionPane.showMessageDialog(this, "First Name Cannot be empty");
               return false;
