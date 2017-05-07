@@ -236,7 +236,7 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
 
     private void openStockKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_openStockKeyReleased
         // TODO add your handling code here:
-        Goods.setText("");
+       // Goods.setText("");
         CalcCostofGoddsSales();
         
     }//GEN-LAST:event_openStockKeyReleased
@@ -335,8 +335,9 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
      }
  
    private void CalcCostofGoddsSales()
- {
-       float open = Float.parseFloat(openStock.getText());
+ {      
+       
+       float open = Float.parseFloat(Purchase.getText());
        float Purch = Float.parseFloat(Purchase.getText());
         float Purchre = Float.parseFloat(ReturnPuechase.getText());
        
