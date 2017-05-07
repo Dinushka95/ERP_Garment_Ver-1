@@ -702,8 +702,52 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
             
                     
                 }
+        else{
+            try
+        {
+        
+        
+        boolean  x = autoSqlQuery.execute("INSERT INTO"
+               + " `garmentsystem`.`T_Request_Create_Sample_table`\n" +
+                "(`SampleId`,\n" +
+                "`SampleName`,\n" +
+                "`StyleId`,\n" +
+                "`StyleDesc`,\n" +
+                "`SampleType`,\n" +
+                "`SampleGroup`,\n" +
+                "`SampleSize`,\n" +
+                "`SampleDesigner`,\n" +
+                "`NumberOfSamples`,\n" +
+                "`SampleGivenTo`,\n" +
+                "`Date`)\n" +
+                "VALUES\n" +
+                "('"+id+"',\n" +
+                "'"+name+"',\n" +
+                "'"+stid+"',\n" +
+                "'"+des+"',\n" +
+                "'"+Sampletype+"',\n" +
+                "'"+samplesize+"',\n" +
+                "'"+sampledesigner+"',\n" +
+                "'"+Nosample+"',\n" +
+                "'"+samplegiven+"',\n" +
+                "'"+date+"');");
+        
+        
+            if(x==true)
+            {
+                TableLoad2();
+                clearSearch();
+                JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
         }
         
+        
+        }
     }
     
      public void UpdateAddedSampleDesigns(){

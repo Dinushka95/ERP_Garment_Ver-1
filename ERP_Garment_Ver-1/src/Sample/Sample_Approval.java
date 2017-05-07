@@ -79,7 +79,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
      private void TextBoxClearAdd(){
             
             idApprove.setText("");
-            NameApp.setSelectedItem("");
+            ApproverName.setSelectedItem("");
             appcomm1.setText("");
             //SampleApprove.setSelected(false);
             datePicker2.setText("");
@@ -100,7 +100,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         
         
         String id = idApprove.getText();
-        String name = NameApp.getSelectedItem().toString();
+        String name = ApproverName.getSelectedItem().toString();
         String SampleId = appstid1.getText();
         String comment =  appcomm.getText();
         jRadioButton1.setActionCommand("Approve");
@@ -309,7 +309,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         jLabel1 = new javax.swing.JLabel();
         Clear = new javax.swing.JButton();
         Demo = new javax.swing.JButton();
-        NameApp = new javax.swing.JComboBox<>();
+        ApproverName = new javax.swing.JComboBox<>();
         ViewSample1 = new javax.swing.JButton();
         appstid1 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
@@ -453,9 +453,9 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         });
         jPanel2.add(Demo, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 430, -1, -1));
 
-        NameApp.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Approver" }));
-        NameApp.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(NameApp, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 140, 30));
+        ApproverName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Approver" }));
+        ApproverName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(ApproverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 270, 140, 30));
 
         ViewSample1.setText("View Sample");
         ViewSample1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -648,7 +648,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         
         appcomm1.setText("Approved");
         //SampleApprove.setSelected(true);
-        NameApp.setSelectedItem("Bhagya");
+        ApproverName.setSelectedItem("Bhagya");
         datePicker2.setDateToToday();
         
     }//GEN-LAST:event_DemoActionPerformed
@@ -661,7 +661,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         public void clearSampleApprove(){
             
             idApprove.setText("");
-            NameApp.setSelectedIndex(0);
+            ApproverName.setSelectedIndex(0);
             appcomm.setText("");
             appstid1.setText("");
             byapp.setSelectedIndex(0);
@@ -672,9 +672,9 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AddSampleApp;
+    private javax.swing.JComboBox<String> ApproverName;
     private javax.swing.JButton Clear;
     private javax.swing.JButton Demo;
-    private javax.swing.JComboBox<String> NameApp;
     private javax.swing.ButtonGroup SampleApprove;
     private javax.swing.JComboBox<String> Sampleids;
     private javax.swing.JTable ViewSample;
