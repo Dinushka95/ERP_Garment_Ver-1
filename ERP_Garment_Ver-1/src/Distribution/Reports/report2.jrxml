@@ -54,12 +54,12 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="2" y="0" width="800" height="66" backcolor="#000000" uuid="3a49dd6a-aa15-49d4-9891-733105bc1547"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="cad4cb7c-21a6-4421-a8c5-3026a9a1b1a1"/>
+					<reportElement style="Title" x="0" y="0" width="616" height="66" uuid="cad4cb7c-21a6-4421-a8c5-3026a9a1b1a1"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Distribution Search Report]]></text>
 				</staticText>
 			</frame>
 			<frame>

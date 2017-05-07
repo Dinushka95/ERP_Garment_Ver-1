@@ -52,17 +52,17 @@ FROM
 	<title>
 		<band height="102" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="661d4d37-f4a8-450f-828f-ff648c820fd6"/>
+				<reportElement mode="Opaque" x="0" y="0" width="820" height="66" backcolor="#000000" uuid="661d4d37-f4a8-450f-828f-ff648c820fd6"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="b1ba0172-41d5-48f8-a99a-7c6a4808536f"/>
+					<reportElement style="Title" x="0" y="0" width="637" height="66" uuid="b1ba0172-41d5-48f8-a99a-7c6a4808536f"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Distribution Full Report]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="8297d915-8db2-45fe-9664-e0004ad44e3d"/>
+					<reportElement style="SubTitle" x="678" y="37" width="8" height="29" uuid="8297d915-8db2-45fe-9664-e0004ad44e3d"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>

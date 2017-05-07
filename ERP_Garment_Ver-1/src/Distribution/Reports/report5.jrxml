@@ -58,15 +58,15 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="6fe311c5-6680-4f2e-8b4a-2495b38448df"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="6cf42080-ee65-41a4-907e-25ff8621ad94"/>
+					<reportElement style="Title" x="0" y="0" width="607" height="66" uuid="6cf42080-ee65-41a4-907e-25ff8621ad94"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Maintain Full Report]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="3ef47ebf-d8c6-4ec7-8469-c6c1f02ad78b"/>
+					<reportElement style="SubTitle" x="661" y="37" width="25" height="29" uuid="3ef47ebf-d8c6-4ec7-8469-c6c1f02ad78b"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>
