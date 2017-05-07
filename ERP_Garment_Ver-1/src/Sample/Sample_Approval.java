@@ -136,7 +136,8 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
          try
         {
         
-       boolean  x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`T_Sample_Approval_Table`\n" +
+       boolean  x = autoSqlQuery.execute("INSERT INTO "
+               + "`garmentsystem`.`T_Sample_Approval_Table`\n" +
 "(`SAID`,\n" +
 "`ApprovalName`,\n" +
 "`SampleID`,\n" +
@@ -387,6 +388,7 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
 
         SampleApprove.add(jRadioButton1);
         jRadioButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jRadioButton1.setSelected(true);
         jRadioButton1.setText("Approve");
         jRadioButton1.setToolTipText("Click Me");
         jPanel2.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(406, 318, -1, -1));
