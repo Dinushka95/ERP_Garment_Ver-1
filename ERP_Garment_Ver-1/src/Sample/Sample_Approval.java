@@ -97,9 +97,9 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
     }
     
    
-     public void AddSampleApproval()
+        public void AddSampleApproval()
+    
     {
-        
         
         String id = idApprove.getText();
         String name = NameApp.getSelectedItem().toString();
@@ -109,71 +109,46 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         jRadioButton2.setActionCommand("NotApprove");
         String status = SampleApprove.getSelection().getActionCommand();
         String date = datePicker2.getText();
+        String Byapp = byapp.getSelectedItem().toString();
         
-         if(id.isEmpty()||name.isEmpty()||comment.isEmpty()||SampleId.isEmpty()||status.isEmpty()||date.isEmpty())
-        {
-        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
-        
-        }
-        
-        else{
-                if(comment.length()>10){
-            
-            JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
-                    + "IN THE STYLE DESCRIPTION FIELD");
-                }
-                else if(!comment.matches("[a-zA-Z]+")){
-                    
-            JOptionPane.showMessageDialog(null, "WARNING YOU "
-                    + "CAN ENTER ONLY ALPHABETS");
-                    
-                }
-                
-        
-        //SQL Query
-        else{
-                    
-                
          try
         {
         
-       boolean  x = autoSqlQuery.execute("INSERT INTO "
-               + "`garmentsystem`.`T_Sample_Approval_Table`\n" +
-"(`SAID`,\n" +
-"`ApprovalName`,\n" +
-"`SampleID`,\n" +
-"`ApproveDate`,\n" +
-"`ApprovedBy`,\n" +
-"`Status`,\n" +
-"`Comment`)\n" +
-"VALUES\n" +
-"('"+id+"',\n" +
-"'"+name+"',\n" +
-"'"+SampleId+"',\n" +
-"'"+date+"',\n" +
-"'"+status+"',\n" +
-"'"+comment+"');");
+         
+       boolean  x = autoSqlQuery.execute("INSERT INTO"
+               + " `garmentsystem`.`T_Sample_Approval_Table`\n" +
+                "(`SAID`,\n" +
+                "`ApprovalName`,\n" +
+                "`SampleID`,\n" +
+                "`StyleDesc`,\n" +
+                "`ApproveDate`,\n" +
+                "`ApprovedBy`,\n" +
+                "`Status`,\n" +
+                "`Comment`,\n" +
+                "VALUES\n" +
+                "('"+id+"',\n" +
+                "'"+name+"',\n" +
+                "'"+SampleId+"',\n" +
+                "'"+date+"',\n" +
+                "'"+Byapp+"',\n" +
+                "'"+status+"',\n" +
+                "'"+comment+"',);");
         
-        
-            if(x==true)
+    if(x==true)
             {
                 TableLoad();
-                clearSampleApprove();
-                JOptionPane.showMessageDialog(null,"Successfully Added");
+              
+                JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
             }
         }
         catch(Exception ex)
         {
             System.out.println(ex);
-       }
         }
-        
-        
-        }
-      
     }
-    
-     public void EditApprovedDesigns()
+      
+        
+        public void EditApprovedDesigns()
     {
         String id = appid.getText();
         String by =  appname.getText();

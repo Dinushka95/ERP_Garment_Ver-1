@@ -446,6 +446,8 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         datePicker3.setEnabled(false);
         datePicker3.setName("");
         jPanel8.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 520, 170, 30));
+
+        datePicker1.setEnabled(false);
         jPanel8.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1139, 120, 130, 30));
 
         jPanel3.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 1300, 520));
