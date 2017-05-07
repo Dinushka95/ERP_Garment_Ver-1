@@ -474,6 +474,9 @@
                   </Constraints>
                 </Component>
                 <Component class="com.github.lgooddatepicker.components.DatePicker" name="datePicker2">
+                  <Properties>
+                    <Property name="enabled" type="boolean" value="false"/>
+                  </Properties>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="DatePickerSettings dateSettings5 = new DatePickerSettings();&#xa;dateSettings5.setFormatForDatesCommonEra(&quot;yyyy-MM-dd&quot;);&#xa;dateSettings5.setFormatForDatesBeforeCommonEra(&quot;uuuu-MM-dd&quot;);&#xa;datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings5);&#xa;datePicker1.setName(&quot;&quot;);"/>
                   </AuxValues>

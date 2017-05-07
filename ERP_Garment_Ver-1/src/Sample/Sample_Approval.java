@@ -29,7 +29,8 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         TableLoad();
         TableLoad1();
         FillTextCombo();
- 
+        FillTextCombo1();
+        datePicker2.setDateToToday();
     }
     
     
@@ -491,6 +492,8 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel11.setText("Approval Date");
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 320, -1, -1));
+
+        datePicker2.setEnabled(false);
         jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, 30));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 18, 810, 511));
@@ -667,6 +670,29 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
             byapp.setSelectedIndex(0);
             datePicker1.setText("");
         }
+                     private void FillTextCombo1()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet=autoSqlQuery.executeQuery
+        ("SELECT * FROM garmentsystem.emp_table");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String name = AutoDB_Connect.DB_ResultSet.getString
+        ("f_name");
+                NameApp.addItem(name);
+            }
+        }
+        catch(Exception ex)
+        {
+            System.out.println(ex);
+        }
+        
+        
+        
+    }
+          
     
 
 
