@@ -65,7 +65,6 @@ import StyleManagement.CreateDesign;
 import StyleManagement.Update_Delete_Designs;
 import com.thehowtotutorial.splashscreen.JSplash;
 import java.awt.Color;
-import java.awt.SplashScreen;
 
 
 /**
@@ -85,7 +84,7 @@ public static AutoReport autoReport;
 public static MainWindow mwx ;
 public static Login loginx;
 
-
+public static CuttingSchedule cuttingschedule ;
     /**
      * Creates new form Login
      */
@@ -95,7 +94,9 @@ public static Login loginx;
         centerLocation();
         
         setExtendedState(java.awt.Frame.MAXIMIZED_BOTH);
-        autoSqlQuery=new AutoSQLQuery("garmentsystem");
+        SystemConfig SConfig=new SystemConfig();
+        SConfig.getSystemConfig();
+        autoSqlQuery=new AutoSQLQuery();
         validation =new AutoValidation();
         autogetimage=new AutoGetImage();
         aid = new AutoIdGenerator();
@@ -1224,7 +1225,7 @@ public static Login loginx;
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        CuttingSchedule cuttingschedule =new CuttingSchedule();
+        cuttingschedule =new CuttingSchedule();
         cuttingschedule.setVisible(true);
         jDesktopPane1.removeAll();
         jDesktopPane1.add(cuttingschedule);

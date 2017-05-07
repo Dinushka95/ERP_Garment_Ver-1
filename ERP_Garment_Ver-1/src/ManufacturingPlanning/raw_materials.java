@@ -6,7 +6,9 @@
 package ManufacturingPlanning;
 
 import MainSystem.AutoDB_Connect;
+import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
+import static MainSystem.MainWindow.cuttingschedule;
 import java.sql.SQLException;
 import net.proteanit.sql.DbUtils;
 
@@ -171,7 +173,9 @@ public class raw_materials extends javax.swing.JFrame {
         int r=jTable1.getSelectedRow();
         matid=jTable1.getValueAt(r, 0).toString();
         matname=jTable1.getValueAt(r, 1).toString();
-        CuttingSchedule cs=new CuttingSchedule(matid,matname);
+        cuttingschedule.jComboBox2.setSelectedItem(matid);
+        cuttingschedule.jTextField35.setText(matname);
+        
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

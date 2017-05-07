@@ -32,6 +32,7 @@ public class AutoDB_Connect {
     // this constructor can be used to change your connection settings
     public AutoDB_Connect(String Database_URL,int Port,String DatabaseName,String Username,String Password) {
         DB_Host="jdbc:mysql://"+Database_URL+":"+Port+"/"+DatabaseName+"";
+        System.out.println(DB_Host);
         username=Username;
         password=Password;
     

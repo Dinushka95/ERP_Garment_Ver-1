@@ -11,6 +11,10 @@ package MainSystem;
 
 import static MainSystem.AutoDB_Connect.DB_PreparedStatement;
 import static MainSystem.AutoDB_Connect.DB_connection;
+import static MainSystem.SystemConfig.DB_Name;
+import static MainSystem.SystemConfig.DB_Password;
+import static MainSystem.SystemConfig.DB_Port;
+import static MainSystem.SystemConfig.DB_Username;
 import Sales.SalesDesignInquiry;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -26,6 +30,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import static MainSystem.SystemConfig.DB_Urls;
 
 /**
  *
@@ -35,12 +40,11 @@ import javax.swing.ImageIcon;
 public class AutoSQLQuery  extends AutoDB_Connect{
     
     private static AutoDB_Connect db_con;
-    String DB_Name;
     
-    public AutoSQLQuery(String DatabaseName) {
-       db_con= new AutoDB_Connect();
+    
+    public AutoSQLQuery() {
+       db_con= new  AutoDB_Connect(DB_Urls,Integer.valueOf(DB_Port),DB_Name,DB_Username,DB_Password);
        db_con.connect(); 
-       DB_Name=DatabaseName;
     }
     
     
