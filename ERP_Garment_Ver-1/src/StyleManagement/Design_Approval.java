@@ -248,6 +248,11 @@ public static String styleid =null;
         ApproverName.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Approver" }));
         ApproverName.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ApproverName.setToolTipText("Approver Please");
+        ApproverName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApproverNameActionPerformed(evt);
+            }
+        });
         jPanel8.add(ApproverName, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 130, 30));
         ApproverName.getAccessibleContext().setAccessibleDescription("");
 
@@ -546,6 +551,10 @@ public static String styleid =null;
         
         
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void ApproverNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApproverNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApproverNameActionPerformed
 
 
         private void generate_Aid(){

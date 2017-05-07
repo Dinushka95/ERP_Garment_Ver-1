@@ -18,8 +18,7 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
        Table2Load();
       date.setDateToToday();
       datePicker3.setDateToToday();  
-      jPanel5.setVisible(false);
-      jPanel4.setVisible(false);
+      
         
     
     }
@@ -119,8 +118,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
         ResetViewUpdateDesign = new javax.swing.JButton();
         stid = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
 
         setResizable(true);
         setTitle("Update||Delete Designs");
@@ -503,14 +500,6 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
 
         jLabel1.setToolTipText("Style ID");
         jPanel7.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 20, 160, 30));
-
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StyleManagement/updated-icon.png"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        jPanel7.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(1030, 260, 130, 110));
-
-        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/StyleManagement/wrnimg.png"))); // NOI18N
-        jLabel5.setText("jLabel5");
-        jPanel7.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 260, 120, 110));
 
         jPanel4.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 1295, 501));
 
@@ -953,13 +942,11 @@ public class Update_Delete_Designs extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
     private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;

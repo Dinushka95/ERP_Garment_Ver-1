@@ -461,6 +461,9 @@
                       <AccessibilityProperties>
                         <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
                       </AccessibilityProperties>
+                      <Events>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ApproverNameActionPerformed"/>
+                      </Events>
                       <AuxValues>
                         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                       </AuxValues>
