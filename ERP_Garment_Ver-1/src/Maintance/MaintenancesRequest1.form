@@ -446,10 +446,10 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonADD1">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Delete"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Delete"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonADD1ActionPerformed"/>
@@ -462,10 +462,10 @@
                 </Component>
                 <Component class="javax.swing.JButton" name="jButtonResetAll1">
                   <Properties>
+                    <Property name="text" type="java.lang.String" value="Edit"/>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Tahoma" size="12" style="1"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="Edit"/>
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonResetAll1ActionPerformed"/>

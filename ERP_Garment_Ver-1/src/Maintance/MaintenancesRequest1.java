@@ -543,18 +543,19 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
     
     }else{
 
-        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Maintanance_Request`\n" +
-"SET\n" +
-"`MaintenancesID` = '"+m_id+"',\n" +
-"`Description` = '"+des+"',\n" +
-"`MachineID` = '"+ma_id+"',\n" +
-"`MachineType` = '"+m_t+"',\n" +
-"`Department` = '"+dep+"',\n" +
-"`Date` = '"+date+"' ,\n" +
-"WHERE `MaintenancesID` = '" + m_id + "';");
-     
+                try {
+       
+boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Maintanance_Request`\n" +
+                 "SET \n" +
+                 "`MaintenancesID` = '" + m_id + "',\n" +
+                 "`Description` = '" + des +"',\n" +
+                 "`MachineID` = '" + ma_id + "',\n" +
+                 "`MachineType` = '" + m_t + "',\n" +
+                 "`Department` = '" + dep + "',\n" +
+                 "`Date` = '" + date + "' \n" +
+                 "WHERE `MaintenancesID` = '" + m_id + "';");
 
-        try {
+       
             if (x == true) {
                 TableLoad2();
                 TextBoxClear2();
@@ -598,11 +599,12 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
     
     }else{
         
+                try {
             boolean x = autoSqlQuery.execute
-        ("DELETE FROM `garmentsystem`.`Maintanance_Request`\n"+
-                 "WHERE Department LIKE '" + m_id + "';");
+        ("DELETE FROM `garmentsystem`.`Maintanance_Request`\n" +
+        "WHERE MaintenancesID = '"+m_id+"';");
 
-        try {
+       
             if (x == true) {
                 TextBoxClear2();
                 TableLoad2();

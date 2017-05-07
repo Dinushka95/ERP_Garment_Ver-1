@@ -3,6 +3,7 @@ package Maintance;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
@@ -82,6 +83,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jButtonADD1 = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         jTextFieldSearchCustomerId = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanelcustomerSearch = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -278,6 +280,14 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
         jPanel6.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
 
+        jButton1.setText("Print Report");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 330, -1, -1));
+
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 510, 520));
 
         jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -439,6 +449,10 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         
 
     }//GEN-LAST:event_jButtonDemoActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void generate_Machine_ID() {
         AutoIdGenerator m_id = new AutoIdGenerator();
@@ -647,6 +661,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton8;

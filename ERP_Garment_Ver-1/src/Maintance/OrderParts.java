@@ -85,7 +85,6 @@ public class OrderParts extends javax.swing.JInternalFrame {
         ResetButton1 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         ComName = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jTextFieldDescription1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -104,6 +103,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
         jTextField3 = new javax.swing.JTextField();
         jTextField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -309,14 +309,6 @@ public class OrderParts extends javax.swing.JInternalFrame {
         });
         jPanelcustomerSearch.add(ComName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 120, -1));
 
-        jButton1.setText("Print Report");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, -1));
-
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 550, 500));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -382,6 +374,14 @@ public class OrderParts extends javax.swing.JInternalFrame {
         jLabel1.setText("Order ID");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 70, -1));
+
+        jButton1.setText("Print Report");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, -1, -1));
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 510, 520));
 
