@@ -3,7 +3,6 @@ package StyleManagement;
 
 import MainSystem.AutoIdGenerator;
 import MainSystem.AutoDB_Connect;
-import MainSystem.AutoValidation;
 import net.proteanit.sql.DbUtils;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoReport;
