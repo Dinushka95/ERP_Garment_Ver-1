@@ -87,7 +87,6 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         stylecolour = new javax.swing.JComboBox<>();
         AddDesign = new javax.swing.JButton();
         ResetAll = new javax.swing.JButton();
-        Generate = new javax.swing.JButton();
         jTabbedPane2 = new javax.swing.JTabbedPane();
         styledesigner = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
@@ -295,15 +294,6 @@ public class CreateDesign extends javax.swing.JInternalFrame {
             }
         });
         jPanel14.add(ResetAll, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 490, -1, -1));
-
-        Generate.setText("Generate");
-        Generate.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        Generate.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GenerateActionPerformed(evt);
-            }
-        });
-        jPanel14.add(Generate, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 490, -1, -1));
         jPanel14.add(jTabbedPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, -20, -1, -1));
 
         styledesigner.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Designer" }));
@@ -420,14 +410,6 @@ public class CreateDesign extends javax.swing.JInternalFrame {
         jPanel6.setVisible(false);
         jPanel5.setVisible(true);
     }//GEN-LAST:event_AddImageActionPerformed
-
-    private void GenerateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerateActionPerformed
-        // TODO add your handling code here:
-        //Report generating code
-        String FileLocation=System.getProperty
-        ("user.dir")+"\\src\\StyleManagement\\Reports\\NewDesigns.jrxml";
-        autoReport.Table2Report(FileLocation, jTable6);
-    }//GEN-LAST:event_GenerateActionPerformed
 
     private void stylecolourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stylecolourActionPerformed
         // TODO add your handling code here:
@@ -713,7 +695,6 @@ public class CreateDesign extends javax.swing.JInternalFrame {
     private javax.swing.JButton Demo;
     private javax.swing.JLabel Error;
     private javax.swing.ButtonGroup GenderButtonGroup;
-    private javax.swing.JButton Generate;
     private javax.swing.JLabel OKAY;
     private javax.swing.JButton ResetAll;
     private javax.swing.ButtonGroup Status;
