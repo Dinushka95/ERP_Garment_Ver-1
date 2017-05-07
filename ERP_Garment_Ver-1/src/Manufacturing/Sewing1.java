@@ -4,8 +4,10 @@ package Manufacturing;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import ManufacturingPlanning.CuttingSchedule;
+import ManufacturingPlanning.validation;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -99,7 +101,8 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         jTextFieldEmail1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Sewing Details");
@@ -385,10 +388,25 @@ public class Sewing1 extends javax.swing.JInternalFrame {
 
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 80, 410, 450));
 
-        jTabbedPane1.addTab("Search &  Delete", jPanel3);
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton7.setText("Full report");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, -1));
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton10.setText("Filtered report");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, -1, -1));
+
+        jTabbedPane1.addTab("Search &  Delete", jPanel3);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -434,15 +452,26 @@ public class Sewing1 extends javax.swing.JInternalFrame {
     
     
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
         String id = jTextFieldCustomerId1.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`sewing`\n" +
 "WHERE Sewing_ID='"+id+"';");
        if(x==true)
             JOptionPane.showMessageDialog(null,"Successfully Deleted");
+          }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
         String sewid=jTextFieldCustomerId1.getText();
         String style=jTextFieldCustomerName1.getText();
         String sch=jTextFieldCompanyName1.getText();
@@ -470,8 +499,8 @@ public class Sewing1 extends javax.swing.JInternalFrame {
                 System.out.println(e);
                 
         }
-         }
-       
+        }
+       }  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -512,6 +541,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         String sch=jTextField12.getText();
         String tot=jTextField10.getText();
         String waste=jTextField2.getText();
+        String cutid=jComboBox1.getSelectedItem().toString();
                
         
          if(id.isEmpty()||style.isEmpty()||sch.isEmpty()||tot.isEmpty()||waste.isEmpty()){
@@ -524,13 +554,15 @@ public class Sewing1 extends javax.swing.JInternalFrame {
 "`Style_ID`,\n" +
 "`Sewing_Sch_ID`,\n" +
 "`damages`,\n" +
-"`qualified_pcs`)\n"+
+"`qualified_pcs`,\n" +
+"`Cutting_ID`)\n"+
 "VALUES\n" +
 "('"+id+"',\n" +
 "'"+style+"',\n" +
 "'"+sch+"',\n" +
 "'"+tot+"',\n" +
-"'"+waste+"');");
+"'"+waste+"',\n" +
+"'"+cutid+"');");
        
        JOptionPane.showMessageDialog(null,"Successful");
       
@@ -656,8 +688,9 @@ public class Sewing1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTextField10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField10MouseExited
-//        int r=jTable4.getSelectedRow();
-//        int qty=Integer.parseInt(jTable4.getValueAt(r, 10).toString());
+        String damage=jTextField10.getText();
+        if(validation.isDigit(damage))
+        {
         String result="";
         String cutid = jComboBox1.getSelectedItem().toString();
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Qualified_pieces FROM garmentsystem.cutting WHERE Cutting_ID ='"+cutid+"'");
@@ -677,6 +710,7 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         }
         else
             JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages");
+        }
         
     }//GEN-LAST:event_jTextField10MouseExited
 
@@ -710,6 +744,20 @@ public class Sewing1 extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jComboBox1MouseClicked
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        //String x=System.getProperty("user.dir");
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report3.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.sewing";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report4.jrxml";
+        autoReport.Table2Report(FileLocation, jTable1);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
    
         
        
@@ -736,9 +784,11 @@ public class Sewing1 extends javax.swing.JInternalFrame {
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -761,7 +811,6 @@ public class Sewing1 extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

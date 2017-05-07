@@ -4,8 +4,10 @@ package ManufacturingPlanning;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
+import com.github.lgooddatepicker.components.DateTimePicker;
 import com.jaspersoft.ireport.designer.compiler.prompt.JDateTimePicker;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -36,6 +38,9 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
    
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule ");
         jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule ");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        //datePicker9.setVisible(false);
     }
     public void AddSewingSchedule(){
         String Schedule_ID=jTextField6.getText();
@@ -100,7 +105,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
                 jComboBox1.addItem(id);
                 jComboBox6.addItem(id);
                 jComboBox9.addItem(id);
-               
+                jComboBox12.addItem(id);
             }
         }
         catch (Exception ex)
@@ -141,13 +146,13 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
         DatePickerSettings setting1 = new DatePickerSettings();
-        setting1.setFormatForDatesCommonEra("yyyy/M/dd");
-        setting1.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting1.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker4 = new com.github.lgooddatepicker.components.DatePicker(setting1);
         jLabel17 = new javax.swing.JLabel();
         DatePickerSettings setting2 = new DatePickerSettings();
-        setting2.setFormatForDatesCommonEra("yyyy/MM/dd");
-        setting2.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting2.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting2.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(setting2);
         jLabel24 = new javax.swing.JLabel();
         jTextField18 = new javax.swing.JTextField();
@@ -169,13 +174,13 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         DatePickerSettings setting3 = new DatePickerSettings();
-        setting3.setFormatForDatesCommonEra("yyyy-/MM/dd");
-        setting3.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting3.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting3.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(setting3);
         jLabel10 = new javax.swing.JLabel();
         DatePickerSettings setting4 = new DatePickerSettings();
-        setting4.setFormatForDatesCommonEra("yyyy/MM/dd");
-        setting4.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting4.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting4.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(setting4);
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -192,13 +197,13 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jTextField20 = new javax.swing.JTextField();
         jLabel23 = new javax.swing.JLabel();
         DatePickerSettings dateSettings9 = new DatePickerSettings();
-        dateSettings9.setFormatForDatesCommonEra("yyyy/MM/dd");
-        dateSettings9.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        dateSettings9.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings9.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker5 = new com.github.lgooddatepicker.components.DatePicker(dateSettings9);
         jLabel25 = new javax.swing.JLabel();
         DatePickerSettings dateSettings10 = new DatePickerSettings();
-        dateSettings10.setFormatForDatesCommonEra("yyyy/MM/dd");
-        dateSettings10.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        dateSettings10.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings10.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker6 = new com.github.lgooddatepicker.components.DatePicker(dateSettings10);
         jLabel26 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
@@ -216,6 +221,30 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jComboBox5 = new javax.swing.JComboBox<>();
         jComboBox6 = new javax.swing.JComboBox<>();
         jPanel4 = new javax.swing.JPanel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        DatePickerSettings dateSettings4 = new DatePickerSettings();
+        dateSettings4.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings4.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
+        datePicker7 = new com.github.lgooddatepicker.components.DatePicker(dateSettings4);
+        jLabel34 = new javax.swing.JLabel();
+        DatePickerSettings dateSettings5 = new DatePickerSettings();
+        dateSettings5.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings5.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
+        datePicker8 = new com.github.lgooddatepicker.components.DatePicker(dateSettings5);
+        jComboBox11 = new javax.swing.JComboBox<>();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel57 = new javax.swing.JLabel();
+        jComboBox12 = new javax.swing.JComboBox<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jLabel36 = new javax.swing.JLabel();
+        jComboBox13 = new javax.swing.JComboBox<>();
+        jTextField3 = new javax.swing.JTextField();
 
         setResizable(true);
         setTitle("Sewing Schedule");
@@ -606,9 +635,145 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
         jComboBox6.setEnabled(false);
         jPanel3.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 140, -1));
 
-        jTabbedPane1.addTab("Search &  Delete", jPanel3);
+        jTabbedPane1.addTab("Search & Update ||  Delete", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel19.setText("Schedule ID");
+        jLabel19.setEnabled(false);
+        jPanel5.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 50, -1, -1));
+
+        jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel20.setText("Start Date");
+        jLabel20.setEnabled(false);
+        jPanel5.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 80, -1, -1));
+
+        datePicker7.setEnabled(false);
+        datePicker7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                datePicker7MouseClicked(evt);
+            }
+        });
+        jPanel5.add(datePicker7, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 80, -1, -1));
+
+        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel34.setText("End Date");
+        jLabel34.setEnabled(false);
+        jPanel5.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 110, -1, -1));
+
+        datePicker8.setEnabled(false);
+        datePicker8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                datePicker8MouseClicked(evt);
+            }
+        });
+        jPanel5.add(datePicker8, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, -1, -1));
+
+        jComboBox11.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-select-", "S001", "S002", "S003", "S004", "S005" }));
+        jComboBox11.setEnabled(false);
+        jComboBox11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox11MouseClicked(evt);
+            }
+        });
+        jComboBox11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox11ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jComboBox11, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 140, -1));
+
+        jLabel35.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel35.setText("Room No");
+        jLabel35.setEnabled(false);
+        jPanel5.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 140, -1, -1));
+
+        jLabel57.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel57.setText("Supervisor ID");
+        jLabel57.setEnabled(false);
+        jPanel5.add(jLabel57, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 170, -1, -1));
+
+        jComboBox12.setEnabled(false);
+        jComboBox12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox12MouseClicked(evt);
+            }
+        });
+        jComboBox12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox12ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jComboBox12, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 170, 140, -1));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        jPanel5.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 210, 680, -1));
+
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton9.setText("Search");
+        jButton9.setEnabled(false);
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 100, -1, -1));
+
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton10.setText("Full report");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(940, 100, -1, -1));
+
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.setText("Filtered report");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 140, -1, -1));
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel36.setText("Search By");
+        jPanel5.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
+
+        jComboBox13.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "-Select-", "Schedule ID", "Start Date", "End Date", "Room No", "Supervisor ID" }));
+        jComboBox13.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBox13ItemStateChanged(evt);
+            }
+        });
+        jComboBox13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox13MouseClicked(evt);
+            }
+        });
+        jPanel5.add(jComboBox13, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 110, -1));
+
+        jTextField3.setEnabled(false);
+        jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 50, 140, -1));
+
+        jPanel4.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+
         jTabbedPane1.addTab("Reports", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
@@ -631,11 +796,12 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
       String lab=jTextField11.getText();
       String stDate=datePicker4.getText();
       String endDate=datePicker2.getText();
-      String room=jComboBox1.getSelectedItem().toString();
-      String lines=jComboBox1.getSelectedItem().toString();
+      String room=jComboBox3.getSelectedItem().toString();
+      String lines=jComboBox2.getSelectedItem().toString();
       int r=jTable3.getSelectedRow();
       String prevEndDate=jTable3.getValueAt(r, 4).toString();
       
+        
       try{
         if(schid.isEmpty()||style.isEmpty()||cutNo.isEmpty()||minutes.isEmpty()||days.isEmpty()||lab.isEmpty()||room.equals("-select-")||lines.equals("-select-")){
             JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
@@ -678,7 +844,9 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     }
     
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        String schid=jTextField14.getText();
+           
+
+         String schid=jTextField14.getText();
          String styleid=jTextField15.getText();
          int quantity =Integer.valueOf(jTextField20.getText());
          String  sample =jTextField25.getText();
@@ -706,6 +874,11 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
            if(validation.checkDate(stdate, endate)&&validation.isDigit(sample)&&validation.isDigit(lab)&&validation.isDigit(line))
            {
         
+                int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
             boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Sewing_Schedule`\n" +
 "SET\n" +
 "`Style_ID` = '"+styleid+"',\n" +
@@ -726,13 +899,14 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
                //TextBoxClear();
                JOptionPane.showMessageDialog(null, "Successfully updated");
            }
-       }
+       }}
        }
        catch(Exception ex)
        {
            System.out.println(ex);
        }
-        }
+      
+     }
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -916,12 +1090,19 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+            int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+
         String id = jTextField14.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`r_Sewing_Schedule`\n" +
 "WHERE Schedue_ID='"+id+"';");
        if(x==true)
             JOptionPane.showMessageDialog(null,"Successfully Deleted");
+        }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jComboBox4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox4ActionPerformed
@@ -942,6 +1123,155 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
          jTextField2.setText("CUT-SHI14dab3353");
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void datePicker7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_datePicker7MouseClicked
+
+        jTextField3.setEnabled(false);
+        datePicker3.setEnabled(true);
+        datePicker5.setEnabled(false);
+        jComboBox11.setEnabled(false);
+        jComboBox12.setEnabled(false);
+    }//GEN-LAST:event_datePicker7MouseClicked
+
+    private void datePicker8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_datePicker8MouseClicked
+//
+//        jTextField8.setEnabled(false);
+//        datePicker3.setEnabled(false);
+//        datePicker5.setEnabled(true);
+//        jComboBox11.setEnabled(false);
+//        jComboBox12.setEnabled(false);
+    }//GEN-LAST:event_datePicker8MouseClicked
+
+    private void jComboBox11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox11MouseClicked
+//
+//        jTextField8.setEnabled(false);
+//        datePicker3.setEnabled(false);
+//        datePicker5.setEnabled(false);
+//        jComboBox11.setEnabled(true);
+//        jComboBox12.setEnabled(false);
+    }//GEN-LAST:event_jComboBox11MouseClicked
+
+    private void jComboBox11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox11ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox11ActionPerformed
+
+    private void jComboBox12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox12MouseClicked
+
+//        jTextField8.setEnabled(false);
+//        datePicker3.setEnabled(false);
+//        datePicker5.setEnabled(false);
+//        jComboBox11.setEnabled(false);
+//        jComboBox12.setEnabled(true);
+    }//GEN-LAST:event_jComboBox12MouseClicked
+
+    private void jComboBox12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox12ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox12ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+
+        search2();
+
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void search2() 
+    {
+        try{
+        String search=jComboBox13.getSelectedItem().toString();
+        if(search=="Schedule ID")
+        {
+            String schID=jTextField3.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Shedule_ID ='"+schID+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(search=="Start Date")
+        {
+            String schID=datePicker7.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Start_Date ='"+schID+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(search=="End Date")
+        {
+            String schID=datePicker8.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE End_Date ='"+schID+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(search=="Room No")
+        {
+            String schID=jComboBox11.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Room_No ='"+schID+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        else if(search=="Supervisor ID")
+        {
+            String schID=jComboBox12.getSelectedItem().toString();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Supervisor_ID ='"+schID+"'");
+            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
+        }
+        
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+    }
+    
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+        
+        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report3.jrxml";
+        System.err.println(FileLocation);
+        
+        String SQL="SELECT * FROM garmentsystem.r_Sewing_Schedule";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report4.jrxml";
+        autoReport.Table2Report(FileLocation, jTable1);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jComboBox13ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox13ItemStateChanged
+        String search=jComboBox13.getSelectedItem().toString();
+        System.out.println(search);
+        if(search.equals("Schedule ID"))
+        {
+            jLabel19.setEnabled(true);
+            jTextField3.setEnabled(true);
+            jButton9.setEnabled(true);
+
+        }
+
+        else if (search.equals("Start Date"))
+        {
+            jLabel20.setEnabled(true);
+            datePicker7.setEnabled(true);
+            jButton9.setEnabled(true);
+        }
+        else if (search=="End Date")
+        {
+            jLabel34.setEnabled(true);
+            datePicker8.setEnabled(true);
+            jButton9.setEnabled(true);
+        }
+        else  if(search=="Room No")
+        {
+            jLabel35.setEnabled(true);
+            jComboBox11.setEnabled(true);
+            jButton9.setEnabled(true);
+        }
+        else if(search=="Supervisor ID")
+        {
+            jLabel57.setEnabled(true);
+            jComboBox12.setEnabled(true);
+            jButton9.setEnabled(true);
+        }
+        else
+        JOptionPane.showMessageDialog(null, "Select a category");
+
+    }//GEN-LAST:event_jComboBox13ItemStateChanged
+
+    private void jComboBox13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox13MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox13MouseClicked
     
     private void generate_shi(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -997,7 +1327,11 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker4;
     private com.github.lgooddatepicker.components.DatePicker datePicker5;
     private com.github.lgooddatepicker.components.DatePicker datePicker6;
+    private com.github.lgooddatepicker.components.DatePicker datePicker7;
+    private com.github.lgooddatepicker.components.DatePicker datePicker8;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -1005,7 +1339,11 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jComboBox11;
+    private javax.swing.JComboBox<String> jComboBox12;
+    private javax.swing.JComboBox<String> jComboBox13;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JComboBox<String> jComboBox4;
@@ -1024,7 +1362,9 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
@@ -1039,8 +1379,12 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -1049,12 +1393,15 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JTextField jTextField1;
@@ -1070,6 +1417,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField23;
     private javax.swing.JTextField jTextField25;
+    private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables

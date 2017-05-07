@@ -4,6 +4,7 @@ package ManufacturingPlanning;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.time.LocalDate;
@@ -33,6 +34,8 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
    
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table");
         jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        
+        
     }
     
     private void generate_shi(){
@@ -69,13 +72,13 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         DatePickerSettings setting11 = new DatePickerSettings();
-        setting11.setFormatForDatesCommonEra("yyyy/MM/dd");
-        setting11.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting11.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting11.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(setting11);
         jLabel12 = new javax.swing.JLabel();
         DatePickerSettings setting12 = new DatePickerSettings();
-        setting12.setFormatForDatesCommonEra("yyyy/MM/dd");
-        setting12.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting12.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting12.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(setting12);
         jLabel23 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
@@ -100,13 +103,13 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         DatePickerSettings dateSettings6 = new DatePickerSettings();
-        dateSettings6.setFormatForDatesCommonEra("yyyy/MM/dd");
-        dateSettings6.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        dateSettings6.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings6.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings6);
         jLabel6 = new javax.swing.JLabel();
         DatePickerSettings dateSettings7 = new DatePickerSettings();
-        dateSettings7.setFormatForDatesCommonEra("yyyy/MM/dd");
-        dateSettings7.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        dateSettings7.setFormatForDatesCommonEra("yyyy-MM-dd");
+        dateSettings7.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker4 = new com.github.lgooddatepicker.components.DatePicker(dateSettings7);
         jPanel8 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
@@ -142,7 +145,8 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         jLabel20 = new javax.swing.JLabel();
         jComboBox6 = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        jButton11 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Washing Schedule");
@@ -528,10 +532,25 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, -1, -1));
 
-        jTabbedPane1.addTab("Search &  Delete", jPanel3);
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.setText("Filtered report");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, -1, -1));
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton10.setText("Full report");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 70, -1, -1));
+
+        jTabbedPane1.addTab("Search & Update ||  Delete", jPanel3);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -540,146 +559,228 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField17ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-
-        String id=jTextField6.getText();
-        String stid=jTextField11.getText();
-        String sewid=jTextField2.getText();
-        String sample=jTextField16.getText();
-        String stdate=datePicker3.getText();
-        String endate=datePicker1.getText();
-        String type;
-        int r=jTable2.getSelectedRow();
-        String prevEndDate=jTable2.getValueAt(r, 3).toString();
-        if (jRadioButton1.isSelected()==true)
-            type=jComboBox1.getSelectedItem().toString();
-        else
-            type=jComboBox1.getSelectedItem().toString();
-        
-        String lab=jTextField4.getText();
-        String sup=jComboBox7.getSelectedItem().toString();
-           
-           String qty=jTable2.getValueAt(r, 4).toString();
-        
-    if(id.isEmpty()||stid.isEmpty()||sewid.isEmpty()||sample.isEmpty()||stdate.isEmpty()||endate.isEmpty()||type.isEmpty())
-    {
-        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
-    
-    }
-    else{
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         try{
-            if(validation.checkDate(stdate, endate,prevEndDate)&&validation.isDigit(sample)&&validation.isDigit(lab)&&validation.isDigit(qty))
+            String search=jComboBox6.getSelectedItem().toString();
+            if(search=="Schedule ID")
             {
-            
-            
-            
-       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Washing_Schedule_table`\n" +
-"(`Schedule_ID`,\n" +
-"`Style_ID`,\n" +
-"`Days_per_Sample`,\n" +
-"`Start_Date`,\n" +
-"`End_Date`,\n" +
-"`No_of_Labourers`,\n" +
-"`Supervisor_ID`,\n" +
-"`Type`,\n" +  
-"`Qty`,\n" +  
-"`Sewing_ID`)\n" +
-"VALUES\n" +
-"('"+id+"',\n" +
-"'"+stid+"',\n" +
-"'"+sample+"',\n" +
-"'"+stdate+"',\n" +
-"'"+endate+"',\n" +
-"'"+lab+"',\n" +
-"'"+sup+"',\n" +
-"'"+type+"',\n" +  
-"'"+qty+"',\n" +    
-"'"+sewid+"');");
-       
-        if (x==true)
-            JOptionPane.showMessageDialog(null,"Successful");
-        }
+                String schID=jTextField1.getText();
+                AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE Schedue_ID ='"+schID+"'");
+                jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            }
+            else if(search=="Start Date")
+            {
+                String schID=datePicker2.getText();
+                AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE Start_Date ='"+schID+"'");
+                jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            }
+            else if(search=="End Date")
+            {
+                String schID=datePicker4.getText();
+                AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE End_Date ='"+schID+"'");
+                jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            }
+
+            else if(search=="Type")
+            {
+                String schID=jComboBox3.getSelectedItem().toString();
+                AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE Type ='"+schID+"'");
+                jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            }
+
         }
         catch(Exception e){
-            System.out.println(e); 
-            
+            System.out.println(e);
         }
-    }
-    }//GEN-LAST:event_jButton4ActionPerformed
-
-    private void FillComboSupervisor()
-    {
-         try
-         {
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table WHERE depid='washing' ");
-            
-            while(AutoDB_Connect.DB_ResultSet.next())
-            {
-                String id = AutoDB_Connect.DB_ResultSet.getString("f_name");
-                jComboBox7.addItem(id);
-                jComboBox8.addItem(id);             
-            }
-        }
-        catch (Exception ex)
-        {
-            System.out.println(ex);
-        }
-    }
-    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBox2ActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jComboBox6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox6MouseClicked
 
     }//GEN-LAST:event_jComboBox6MouseClicked
 
+    private void jComboBox6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox6ItemStateChanged
+        String search=jComboBox6.getSelectedItem().toString();
+        System.out.println(search);
+        if(search.equals("Schedule ID"))
+        {
+            jLabel4.setEnabled(true);
+            jTextField1.setEnabled(true);
+            jButton1.setEnabled(true);
+
+        }
+
+        else if (search.equals("Start Date"))
+        {
+            jLabel5.setEnabled(true);
+            datePicker2.setEnabled(true);
+            jButton1.setEnabled(true);
+        }
+        else if (search=="End Date")
+        {
+            jLabel6.setEnabled(true);
+            datePicker4.setEnabled(true);
+            jButton1.setEnabled(true);
+        }
+
+        else if(search=="Type")
+        {
+            jLabel7.setEnabled(true);
+            jComboBox3.setEnabled(true);
+            jButton1.setEnabled(true);
+        }
+        else
+        JOptionPane.showMessageDialog(null, "Select a category");
+    }//GEN-LAST:event_jComboBox6ItemStateChanged
+
     private void jTextField8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField8ActionPerformed
 
-    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
-        try{
-        int r=jTable2.getSelectedRow();
-        String schid=jTable2.getValueAt(r, 0).toString();
-        String styleID=jTable2.getValueAt(r, 1).toString();
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+            int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
         
-        jTextField2.setText(schid);
-        jTextField11.setText(styleID);
+          if (reply == JOptionPane.YES_OPTION){
+
+        String id = jTextField5.getText();
+
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`r_Washing_Schedule_table`\n" +
+            "WHERE Schedule_ID='"+id+"';");
+        if(x==true)
+        JOptionPane.showMessageDialog(null,"Successfully Deleted");
+          }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+           
+        String schid=jTextField5.getText();
+        String styleid=jTextField10.getText();
+        String sample=jTextField9.getText();
+        String stdate=datePicker5.getText();
+        String endate=datePicker6.getText();
+        String type=jComboBox4.getSelectedItem().toString();
+        String qty=jComboBox7.getSelectedItem().toString();
+        String lab=jTextField8.getText();
+        String sup=jComboBox8.getSelectedItem().toString();
+
+        int r=jTable3.getSelectedRow();
+        String sew=jTable3.getValueAt(r, 8).toString();
+
+        System.err.print(sew);
+
+        if(schid.isEmpty()||styleid.isEmpty()||(jTextField9.getText()).isEmpty()||stdate.isEmpty()||endate.isEmpty()||type.isEmpty()||(jTextField8.getText()).isEmpty()||sup.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+
         }
-        catch(Exception e)
+        else{
+
+            try
+            {
+
+                if(validation.checkDate(stdate, endate)&&validation.isDigit(sample)&&validation.isDigit(qty)&&validation.isDigit(lab))
+                {
+
+                     int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+                    boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Washing_Schedule_table`\n" +
+                        "SET\n" +
+                        "`Style_ID` = '"+styleid+"',\n" +
+                        "`Days_per_Sample` = '"+sample+"',\n" +
+                        "`Start_Date` = '"+stdate+"',\n" +
+                        "`End_Date` = '"+endate+"',\n" +
+                        "`Supervisor_ID` = '"+sup+"',\n" +
+                        "`No_of_Labourers` = '"+lab+"',\n" +
+                        "`Type` = '"+type+"',\n"+
+                        "`Qty` = '"+qty+"',\n"+
+                        "`Sewing_ID` = '"+sew+"'\n" +
+                        "WHERE `Schedule_ID` = '"+schid+"';");
+
+                    if(x==true)
+                    {
+                        //EditTableLoad();
+                        //TextBoxClear();
+                        JOptionPane.showMessageDialog(null, "Successfully updated");
+                    }
+                }
+            }}
+            catch(Exception ex)
+            {
+                System.out.println(ex);
+            }
+        
+       }
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jRadioButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton4MouseClicked
+        jComboBox4.setVisible(false);
+        jComboBox5.setVisible(true);
+    }//GEN-LAST:event_jRadioButton4MouseClicked
+
+    private void jRadioButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton3MouseClicked
+        jComboBox5.setVisible(false);
+        jComboBox4.setVisible(true);
+    }//GEN-LAST:event_jRadioButton3MouseClicked
+
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        try{
+            int r=jTable3.getSelectedRow();
+            String schid=jTable3.getValueAt(r, 0).toString();
+            String styleID=jTable3.getValueAt(r, 1).toString();
+            String sample=jTable3.getValueAt(r, 2).toString();
+            String stDate=jTable3.getValueAt(r, 3).toString();
+            String endDate=jTable3.getValueAt(r, 4).toString();
+            String supid=jTable3.getValueAt(r, 5).toString();
+            String labour=jTable3.getValueAt(r, 6).toString();
+            String type=jTable3.getValueAt(r, 7).toString();
+            String sewingid=jTable3.getValueAt(r, 8).toString();
+
+            jTextField5.setText(schid);
+            jTextField10.setText(styleID);
+            if (type.equals("Normal wash") || type.equals("Pigment wash") || type.equals("Enzyme wash") || type.equals("Stone wash") || type.equals("Bleach wash") || type.equals("Bleach stone wash") || type.equals("Acid wash"))
+            {
+                jRadioButton3.setSelected(true);
+                jComboBox2.setVisible(false);
+                jComboBox4.setSelectedItem(type);
+
+            }
+            if (type.equals("Sand blasting") || type.equals("Whickering") || type.equals("Hand scrapping") || type.equals("Potassium permanganate spraying") || type.equals("Destroying"))
+            {
+                jRadioButton4.setSelected(true);
+                jComboBox4.setVisible(false);
+                jComboBox2.setSelectedItem(type);
+
+            }
+            datePicker5.setText(stDate);
+            datePicker6.setText(endDate);
+            jTextField8.setText(labour);
+            jTextField9.setText(sample);
+            jComboBox8.setSelectedItem(supid);
+            try{
+                AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Schedue_ID ='"+sewingid+"'");
+                AutoDB_Connect.DB_ResultSet.next();
+                String x =AutoDB_Connect.DB_ResultSet.getString("Qty");
+                System.err.print(x);
+                jTextField7.setText(x);
+            }
+            catch(Exception e)
+            {
+                System.out.println(e);
+            }
+
+        }catch(Exception e)
         {
             System.out.println(e);
         }
-    }//GEN-LAST:event_jTable2MouseClicked
+    }//GEN-LAST:event_jTable3MouseClicked
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        
-       
-        {
-            if(jTextField11.getText().equals(""))
-            {
-                String search=jTextField2.getText();
-                AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedue_ID,Style_ID,Start_Date,End_Date,Qty FROM garmentsystem.r_Sewing_Schedule WHERE Schedue_ID like '"+search+"'");
-                jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
-                
-                
-            }
-             if(jTextField2.getText().equals(""))
-            {
-               String search=jTextField11.getText(); 
-               AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedue_ID,Style_ID,Start_Date,End_Date,Qty FROM garmentsystem.r_Sewing_Schedule WHERE  Style_ID like '"+search+"'");
-               //AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedue_ID,Style_ID,Start_Date,End_Date,Room_No FROM garmentsystem.r_Sewing_Schedule WHERE Style_ID like '"+jTextField11.getText()+"'");
-               jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
-            }
-        }
-        
-            
-        
-    }//GEN-LAST:event_jButton7ActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
 //    private void Option1()
 //    {
@@ -711,262 +812,197 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
 //        
 //    }
     private void jTextField11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField11MouseClicked
-        
+
         jTextField2.setEnabled(false);
         jTextField2.setText("");
         jTextField11.setEnabled(true);
     }//GEN-LAST:event_jTextField11MouseClicked
 
-    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
-        
-        jTextField11.setEnabled(false);
-        jTextField11.setText("");
-        jTextField2.setEnabled(true);
-    }//GEN-LAST:event_jTextField2MouseClicked
-
-    private void jTextField16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField16MouseClicked
+    private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField16MouseClicked
+    }//GEN-LAST:event_jComboBox2ActionPerformed
+
+    private void jRadioButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MousePressed
+
+    }//GEN-LAST:event_jRadioButton2MousePressed
+
+    private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MouseClicked
+        jComboBox1.setVisible(false);
+        jComboBox2.setVisible(true);
+    }//GEN-LAST:event_jRadioButton2MouseClicked
+
+    private void jRadioButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jRadioButton1KeyPressed
+
+    }//GEN-LAST:event_jRadioButton1KeyPressed
+
+    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
+        jComboBox2.setVisible(false);
+        jComboBox1.setVisible(true);
+    }//GEN-LAST:event_jRadioButton1MouseClicked
+
+    private void jTextField17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField17ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField17ActionPerformed
 
     private void jTextField16MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField16MouseExited
         try{
-        int days=Integer.valueOf(jTextField16.getText());
-        String sewid=jTextField2.getText();
-        if(days<=24)
+            int days=Integer.valueOf(jTextField16.getText());
+            String sewid=jTextField2.getText();
+            if(days<=24)
             days=1;
-        else
+            else
             days=days/24;
-        
-        jTextField17.setText(Integer.toString(days));
+
+            jTextField17.setText(Integer.toString(days));
         }catch(Exception e)
         {
             System.out.println(e);
         }
     }//GEN-LAST:event_jTextField16MouseExited
 
-    private void jRadioButton1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jRadioButton1KeyPressed
-        
-        
-    }//GEN-LAST:event_jRadioButton1KeyPressed
+    private void jTextField16MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField16MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField16MouseClicked
 
-    private void jRadioButton2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MousePressed
-         
-    }//GEN-LAST:event_jRadioButton2MousePressed
+    private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+        try{
+            int r=jTable2.getSelectedRow();
+            String schid=jTable2.getValueAt(r, 0).toString();
+            String styleID=jTable2.getValueAt(r, 1).toString();
 
-    private void jRadioButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton1MouseClicked
-       jComboBox2.setVisible(false);
-        jComboBox1.setVisible(true);
-    }//GEN-LAST:event_jRadioButton1MouseClicked
-
-    private void jRadioButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton2MouseClicked
-        jComboBox1.setVisible(false);
-         jComboBox2.setVisible(true);
-    }//GEN-LAST:event_jRadioButton2MouseClicked
-
-    private void jComboBox6ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox6ItemStateChanged
-        String search=jComboBox6.getSelectedItem().toString();
-        System.out.println(search);
-        if(search.equals("Schedule ID"))
+            jTextField2.setText(schid);
+            jTextField11.setText(styleID);
+        }
+        catch(Exception e)
         {
-            jLabel4.setEnabled(true);
-            jTextField1.setEnabled(true);
-            jButton1.setEnabled(true);
-            
-        }
-        
-        else if (search.equals("Start Date"))
-        {
-            jLabel5.setEnabled(true);
-            datePicker2.setEnabled(true);
-            jButton1.setEnabled(true);
-        }
-        else if (search=="End Date")
-        {
-            jLabel6.setEnabled(true);
-            datePicker4.setEnabled(true);
-            jButton1.setEnabled(true);
-        }
-        
-        else if(search=="Type")
-        {
-            jLabel7.setEnabled(true);
-            jComboBox3.setEnabled(true);
-            jButton1.setEnabled(true);
-        }
-        else
-            JOptionPane.showMessageDialog(null, "Select a category");
-    }//GEN-LAST:event_jComboBox6ItemStateChanged
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         try{
-        String search=jComboBox6.getSelectedItem().toString();
-        if(search=="Schedule ID")
-        {
-            String schID=jTextField1.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE Schedue_ID ='"+schID+"'");
-            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
-        }
-        else if(search=="Start Date")
-        {
-            String schID=datePicker2.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE Start_Date ='"+schID+"'");
-            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
-        }
-        else if(search=="End Date")
-        {
-            String schID=datePicker4.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE End_Date ='"+schID+"'");
-            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
-        }
-       
-        else if(search=="Type")
-        {
-            String schID=jComboBox3.getSelectedItem().toString();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Washing_Schedule_table WHERE Type ='"+schID+"'");
-            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
-        }
-        
-        }
-        catch(Exception e){
             System.out.println(e);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_jTable2MouseClicked
 
-    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-          try{
-        int r=jTable3.getSelectedRow();
-        String schid=jTable3.getValueAt(r, 0).toString();
-        String styleID=jTable3.getValueAt(r, 1).toString();
-        String sample=jTable3.getValueAt(r, 2).toString();
-        String stDate=jTable3.getValueAt(r, 3).toString();
-        String endDate=jTable3.getValueAt(r, 4).toString();
-        String supid=jTable3.getValueAt(r, 5).toString();
-        String labour=jTable3.getValueAt(r, 6).toString();
-        String type=jTable3.getValueAt(r, 7).toString();
-        String sewingid=jTable3.getValueAt(r, 8).toString();
-               
-       
-       jTextField5.setText(schid);
-       jTextField10.setText(styleID);
-       if (type.equals("Normal wash") || type.equals("Pigment wash") || type.equals("Enzyme wash") || type.equals("Stone wash") || type.equals("Bleach wash") || type.equals("Bleach stone wash") || type.equals("Acid wash"))
-       {
-           jRadioButton3.setSelected(true);
-           jComboBox2.setVisible(false);
-           jComboBox4.setSelectedItem(type);
-           
-       } 
-       if (type.equals("Sand blasting") || type.equals("Whickering") || type.equals("Hand scrapping") || type.equals("Potassium permanganate spraying") || type.equals("Destroying"))
-       {
-           jRadioButton4.setSelected(true);
-           jComboBox4.setVisible(false);
-           jComboBox2.setSelectedItem(type);
-           
-       }  
-       datePicker5.setText(stDate);
-       datePicker6.setText(endDate);
-       jTextField8.setText(labour);
-       jTextField9.setText(sample);
-       jComboBox8.setSelectedItem(supid);
-    try{
-        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Sewing_Schedule WHERE Schedue_ID ='"+sewingid+"'");
-        AutoDB_Connect.DB_ResultSet.next();
-        String x =AutoDB_Connect.DB_ResultSet.getString("Qty");
-        System.err.print(x);
-        jTextField7.setText(x);
-    }
-    catch(Exception e)
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+        {
+            if(jTextField11.getText().equals(""))
+            {
+                String search=jTextField2.getText();
+                AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedue_ID,Style_ID,Start_Date,End_Date,Qty FROM garmentsystem.r_Sewing_Schedule WHERE Schedue_ID like '"+search+"'");
+                jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+
+            }
+            if(jTextField2.getText().equals(""))
+            {
+                String search=jTextField11.getText();
+                AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedue_ID,Style_ID,Start_Date,End_Date,Qty FROM garmentsystem.r_Sewing_Schedule WHERE  Style_ID like '"+search+"'");
+                //AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Schedue_ID,Style_ID,Start_Date,End_Date,Room_No FROM garmentsystem.r_Sewing_Schedule WHERE Style_ID like '"+jTextField11.getText()+"'");
+                jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+            }
+        }
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jTextField2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2MouseClicked
+
+        jTextField11.setEnabled(false);
+        jTextField11.setText("");
+        jTextField2.setEnabled(true);
+    }//GEN-LAST:event_jTextField2MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+
+        String id=jTextField6.getText();
+        String stid=jTextField11.getText();
+        String sewid=jTextField2.getText();
+        String sample=jTextField16.getText();
+        String stdate=datePicker3.getText();
+        String endate=datePicker1.getText();
+        String type;
+        int r=jTable2.getSelectedRow();
+        String prevEndDate=jTable2.getValueAt(r, 3).toString();
+        if (jRadioButton1.isSelected()==true)
+        type=jComboBox1.getSelectedItem().toString();
+        else
+        type=jComboBox1.getSelectedItem().toString();
+
+        String lab=jTextField4.getText();
+        String sup=jComboBox7.getSelectedItem().toString();
+
+        String qty=jTable2.getValueAt(r, 4).toString();
+
+        if(id.isEmpty()||stid.isEmpty()||sewid.isEmpty()||sample.isEmpty()||stdate.isEmpty()||endate.isEmpty()||type.isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+
+        }
+        else{
+            try{
+                if(validation.checkDate(stdate, endate,prevEndDate)&&validation.isDigit(sample)&&validation.isDigit(lab)&&validation.isDigit(qty))
+                {
+
+                    boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`r_Washing_Schedule_table`\n" +
+                        "(`Schedule_ID`,\n" +
+                        "`Style_ID`,\n" +
+                        "`Days_per_Sample`,\n" +
+                        "`Start_Date`,\n" +
+                        "`End_Date`,\n" +
+                        "`No_of_Labourers`,\n" +
+                        "`Supervisor_ID`,\n" +
+                        "`Type`,\n" +
+                        "`Qty`,\n" +
+                        "`Sewing_ID`)\n" +
+                        "VALUES\n" +
+                        "('"+id+"',\n" +
+                        "'"+stid+"',\n" +
+                        "'"+sample+"',\n" +
+                        "'"+stdate+"',\n" +
+                        "'"+endate+"',\n" +
+                        "'"+lab+"',\n" +
+                        "'"+sup+"',\n" +
+                        "'"+type+"',\n" +
+                        "'"+qty+"',\n" +
+                        "'"+sewid+"');");
+
+                    if (x==true)
+                    JOptionPane.showMessageDialog(null,"Successful");
+                }
+            }
+            catch(Exception e){
+                System.out.println(e);
+
+            }
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report5.jrxml";
+        autoReport.Table2Report(FileLocation, jTable3);
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+
+        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report6.jrxml";
+        System.err.println(FileLocation);
+
+        String SQL="SELECT * FROM garmentsystem.r_Washing_Schedule_table";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void FillComboSupervisor()
     {
-        System.out.println(e);
-    }
-
-      
-    }catch(Exception e)
-    {
-        System.out.println(e);
-    }
-        
-    }//GEN-LAST:event_jTable3MouseClicked
-
-    private void jRadioButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton4MouseClicked
-        jComboBox4.setVisible(false);
-        jComboBox5.setVisible(true);
-    }//GEN-LAST:event_jRadioButton4MouseClicked
-
-    private void jRadioButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jRadioButton3MouseClicked
-        jComboBox5.setVisible(false);
-        jComboBox4.setVisible(true);
-    }//GEN-LAST:event_jRadioButton3MouseClicked
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        String id = jTextField5.getText();
-        
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`r_Washing_Schedule_table`\n" +
-"WHERE Schedule_ID='"+id+"';");
-       if(x==true)
-            JOptionPane.showMessageDialog(null,"Successfully Deleted");
-    }//GEN-LAST:event_jButton8ActionPerformed
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         String schid=jTextField5.getText();
-         String styleid=jTextField10.getText();
-         String sample=jTextField9.getText();
-         String stdate=datePicker5.getText();
-         String endate=datePicker6.getText();
-         String type=jComboBox4.getSelectedItem().toString();
-         String qty=jComboBox7.getSelectedItem().toString();
-         String lab=jTextField8.getText();
-         String sup=jComboBox8.getSelectedItem().toString();
-     
-         int r=jTable3.getSelectedRow();
-         String sew=jTable3.getValueAt(r, 8).toString();
-         
-         System.err.print(sew);
-         
-         if(schid.isEmpty()||styleid.isEmpty()||(jTextField9.getText()).isEmpty()||stdate.isEmpty()||endate.isEmpty()||type.isEmpty()||(jTextField8.getText()).isEmpty()||sup.isEmpty())
+         try
          {
-              JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
-         
-         }
-         else{
-             
-       try
-       {
-        
-           if(validation.checkDate(stdate, endate)&&validation.isDigit(sample)&&validation.isDigit(qty)&&validation.isDigit(lab))
-           {
-           
-            boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Washing_Schedule_table`\n" +
-"SET\n" +
-"`Style_ID` = '"+styleid+"',\n" +
-"`Days_per_Sample` = '"+sample+"',\n" +
-"`Start_Date` = '"+stdate+"',\n" +
-"`End_Date` = '"+endate+"',\n" +
-"`Supervisor_ID` = '"+sup+"',\n" +
-"`No_of_Labourers` = '"+lab+"',\n" +
-"`Type` = '"+type+"',\n"+
-"`Qty` = '"+qty+"',\n"+
-"`Sewing_ID` = '"+sew+"'\n" +
-"WHERE `Schedule_ID` = '"+schid+"';");
-       
-           if(x==true)
-           {
-               //EditTableLoad();
-               //TextBoxClear();
-               JOptionPane.showMessageDialog(null, "Successfully updated");
-           }
-       }
-       }
-       catch(Exception ex)
-       {
-           System.out.println(ex);
-       }
-         }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-    
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table WHERE depid='washing' ");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String id = AutoDB_Connect.DB_ResultSet.getString("f_name");
+                jComboBox7.addItem(id);
+                jComboBox8.addItem(id);             
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }    
  
 
    
@@ -980,6 +1016,8 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker5;
     private com.github.lgooddatepicker.components.DatePicker datePicker6;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -1019,7 +1057,6 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

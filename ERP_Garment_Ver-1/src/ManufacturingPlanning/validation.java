@@ -20,7 +20,7 @@ public  class validation {
     public static boolean checkDate(String startDate,String EndDate)
     {
         try{
-                SimpleDateFormat dformat = new SimpleDateFormat("yyyy/MM/dd");
+                SimpleDateFormat dformat = new SimpleDateFormat("yyyy-MM-dd");
                 Date date=new Date();
                 Date date1 = dformat.parse(startDate);
                 Date date2 = dformat.parse(EndDate);
@@ -51,7 +51,7 @@ public  class validation {
     public static boolean checkDate(String startDate,String EndDate,String prevEndDate )
     {
         try{
-                SimpleDateFormat dformat = new SimpleDateFormat("yyyy/MM/dd");
+                SimpleDateFormat dformat = new SimpleDateFormat("yyyy-MM-dd");
                 Date date=new Date();
                 Date date1 = dformat.parse(startDate);
                 Date date2 = dformat.parse(EndDate);

@@ -4,7 +4,13 @@ package Manufacturing;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
+import ManufacturingPlanning.CuttingSchedule;
+import ManufacturingPlanning.validation;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -25,7 +31,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
     public IronAndPacking2() {
         initComponents();
         generate_cdi();
-      
+        FillCombo();
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule");
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
    
@@ -67,6 +73,8 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jTextField2 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jButton6 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jPanel3 = new javax.swing.JPanel();
         jComboBox4 = new javax.swing.JComboBox<>();
         jLabel20 = new javax.swing.JLabel();
@@ -92,7 +100,8 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jTextFieldEmail1 = new javax.swing.JTextField();
         jButton3 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Iron And Packing Details");
@@ -112,8 +121,8 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel1.setText("Iron & Packing ID");
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+        jLabel1.setText("Washing ID");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
 
         jTextField1.setEditable(false);
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 50, 130, -1));
@@ -202,7 +211,18 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 470, -1, -1));
+        jPanel2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 460, -1, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Iron & Packing ID");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, -1, -1));
+
+        jComboBox1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jComboBox1MouseClicked(evt);
+            }
+        });
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 50, 180, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, 680, 520));
 
@@ -271,14 +291,14 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         jTextField37.setEnabled(false);
         jPanel3.add(jTextField37, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 140, -1));
 
-        jButton1.setText("Search");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 70, -1, -1));
+        jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -344,10 +364,25 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
 
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 80, 440, 450));
 
-        jTabbedPane1.addTab("Search &  Delete", jPanel3);
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton7.setText("Full report");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 50, -1, -1));
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton9.setText("Filtered report");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 90, -1, -1));
+
+        jTabbedPane1.addTab("Search &  Delete", jPanel3);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -365,15 +400,27 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextFieldCustomerId1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
         String id = jTextFieldCustomerId1.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`ironNpacking`\n" +
 "WHERE iNp='"+id+"';");
        if(x==true)
             JOptionPane.showMessageDialog(null,"Successfully Deleted");
+          }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+            int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+
         String id=jTextFieldCustomerId1.getText();
         String style=jTextFieldCustomerName1.getText();
         String sch=jTextFieldCompanyName1.getText();
@@ -402,6 +449,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
                 
         }
         }
+       }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField5MouseClicked
@@ -425,7 +473,7 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule WHERE Style_ID ='"+search+"'");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
         }
-        if(jTextField4.getText()!=null)
+        else if(jTextField4.getText()!=null)
         {
             String search=jTextField4.getText();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule WHERE Schedule_ID ='"+search+"'");
@@ -560,8 +608,23 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable2MouseClicked
 
     private void jTextField10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField10MouseExited
-        int r=jTable1.getSelectedRow();
-        int qty=Integer.parseInt(jTable1.getValueAt(r, 9).toString());
+       
+        String damage=jTextField10.getText();
+        if(validation.isDigit(damage))
+       {
+        
+        String result="";
+        String wshid = jComboBox1.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT pcs FROM garmentsystem.washing WHERE washing_ID ='"+wshid+"'");
+         try {
+            
+            AutoDB_Connect.DB_ResultSet.next();
+            result=AutoDB_Connect.DB_ResultSet.getString("pcs");
+                        
+        } catch (SQLException ex) {
+            Logger.getLogger(CuttingSchedule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         int qty=Integer.parseInt(result);
         int damages=Integer.parseInt(jTextField10.getText());
         if(qty>damages){
             String qualified=Integer.toString(qty-damages);
@@ -569,14 +632,60 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
         }
         else
             JOptionPane.showMessageDialog(null, "Quantity can't be greater than damages");
+       }
     }//GEN-LAST:event_jTextField10MouseExited
+
+    private void jComboBox1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox1MouseClicked
+        String wshid = jComboBox1.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.washing WHERE Washing_ID ='"+wshid+"'");
+         try {
+            
+            AutoDB_Connect.DB_ResultSet.next();
+            String name=AutoDB_Connect.DB_ResultSet.getString("Style_ID");
+            jTextField5.setText(name);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(CuttingSchedule.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jComboBox1MouseClicked
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        //String x=System.getProperty("user.dir");
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report7.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.ironNpacking";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report8.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+    }//GEN-LAST:event_jButton9ActionPerformed
     
     private void generate_cdi(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField1.setText(aid.generate("INP-",Integer.toString(MainWindow.userid)));
     }
    
-        
+      private void FillCombo()
+    {
+         try
+         {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT washing_ID FROM garmentsystem.washing  ");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String id = AutoDB_Connect.DB_ResultSet.getString("washing_ID");
+                jComboBox1.addItem(id);
+                           
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
        
         
     
@@ -605,6 +714,9 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton9;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel13;
@@ -618,13 +730,13 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

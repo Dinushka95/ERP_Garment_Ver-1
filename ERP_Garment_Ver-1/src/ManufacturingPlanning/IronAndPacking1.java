@@ -4,6 +4,7 @@ package ManufacturingPlanning;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.time.LocalDate;
@@ -72,13 +73,13 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jPanel7 = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         DatePickerSettings setting8 = new DatePickerSettings();
-        setting8.setFormatForDatesCommonEra("yyyy/MM/dd");
-        setting8.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting8.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting8.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker7 = new com.github.lgooddatepicker.components.DatePicker(setting8);
         jLabel34 = new javax.swing.JLabel();
         DatePickerSettings setting9 = new DatePickerSettings();
-        setting9.setFormatForDatesCommonEra("yyyy/MM/dd");
-        setting9.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting9.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting9.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker8 = new com.github.lgooddatepicker.components.DatePicker(setting9);
         jLabel35 = new javax.swing.JLabel();
         jTextField16 = new javax.swing.JTextField();
@@ -103,12 +104,12 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         DatePickerSettings setting11 = new DatePickerSettings();
-        setting11.setFormatForDatesCommonEra("yyyy/MM/dd");
-        setting11.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting11.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting11.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker4 = new com.github.lgooddatepicker.components.DatePicker(setting11);
         DatePickerSettings setting10 = new DatePickerSettings();
-        setting10.setFormatForDatesCommonEra("yyyy/MM/dd");
-        setting10.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting10.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting10.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(setting10);
         jComboBox2 = new javax.swing.JComboBox<>();
         jTextField7 = new javax.swing.JTextField();
@@ -119,6 +120,8 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jLabel12 = new javax.swing.JLabel();
         jComboBox5 = new javax.swing.JComboBox<>();
         jButton3 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
@@ -128,12 +131,12 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jLabel14 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         DatePickerSettings setting12 = new DatePickerSettings();
-        setting12.setFormatForDatesCommonEra("yyyy/MM/dd");
-        setting12.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting12.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting12.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker5 = new com.github.lgooddatepicker.components.DatePicker(setting12);
         DatePickerSettings setting13 = new DatePickerSettings();
-        setting13.setFormatForDatesCommonEra("yyyy/MM/dd");
-        setting13.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
+        setting13.setFormatForDatesCommonEra("yyyy-MM-dd");
+        setting13.setFormatForDatesBeforeCommonEra("yyyy-MM-dd");
         datePicker6 = new com.github.lgooddatepicker.components.DatePicker(setting13);
         jLabel20 = new javax.swing.JLabel();
         jComboBox3 = new javax.swing.JComboBox<>();
@@ -150,7 +153,6 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         jTextField5 = new javax.swing.JTextField();
         jComboBox9 = new javax.swing.JComboBox<>();
         jComboBox10 = new javax.swing.JComboBox<>();
-        jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
         setTitle("Iron And Packing Schedule");
@@ -402,7 +404,25 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
                 jButton3ActionPerformed(evt);
             }
         });
-        jPanel12.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 70, -1, -1));
+        jPanel12.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 70, -1, -1));
+
+        jButton10.setText("Full report");
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        jPanel12.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 60, -1, -1));
+
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.setText("Filtered report");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        jPanel12.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 100, -1, -1));
 
         jPanel3.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 750, 500));
 
@@ -490,10 +510,7 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 40, 470, 500));
 
-        jTabbedPane1.addTab("Search &  Delete", jPanel3);
-
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
+        jTabbedPane1.addTab("Search & Update ||  Delete", jPanel3);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -600,12 +617,19 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField16MouseExited
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-                String id = jTextField5.getText();
+            int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+        
+        String id = jTextField5.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`r_Iron_and_Packing_Schedule`\n" +
 "WHERE Schedule_ID='"+id+"';");
        if(x==true)
             JOptionPane.showMessageDialog(null,"Successfully Deleted");
+          }
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jComboBox5ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox5ItemStateChanged
@@ -678,7 +702,8 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-         String schid=jTextField8.getText();
+           
+        String schid=jTextField8.getText();
          String styleid=jTextField12.getText();
          int quantity =Integer.valueOf(jTextField13.getText());
          int sample =Integer.valueOf(jTextField5.getText());
@@ -702,6 +727,11 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
            if(validation.checkDate(stdate, endate))
            {
         
+                int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
             boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`r_Iron_and_Packing_Schedule`\n" +
 "SET\n" +
 "`Style_ID` = '"+styleid+"',\n" +
@@ -722,13 +752,14 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
                //TextBoxClear();
                JOptionPane.showMessageDialog(null, "Successfully updated");
            }
-       }
+       }}
        }
        catch(Exception ex)
        {
            System.out.println(ex);
        }
-          }
+          
+      }
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
@@ -773,6 +804,20 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
         System.out.println(e);
     }
     }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+
+        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report7.jrxml";
+        System.err.println(FileLocation);
+
+        String SQL="SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report8.jrxml";
+        autoReport.Table2Report(FileLocation, jTable3);
+    }//GEN-LAST:event_jButton11ActionPerformed
 
    private void FillComboSupervisor()
     {
@@ -863,6 +908,8 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker7;
     private com.github.lgooddatepicker.components.DatePicker datePicker8;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
@@ -909,7 +956,6 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

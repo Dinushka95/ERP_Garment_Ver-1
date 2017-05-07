@@ -4,7 +4,9 @@ package Manufacturing;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
+import ManufacturingPlanning.validation;
 import java.awt.HeadlessException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
@@ -113,7 +115,8 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         jLabel27 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jTextFieldCustomerName2 = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Cutting Details");
@@ -207,6 +210,8 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel6.setText("Length");
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, -1, -1));
+
+        jTextField8.setEnabled(false);
         jPanel2.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(548, 270, 80, -1));
 
         jLabel7.setText("meters");
@@ -240,6 +245,12 @@ public class Cutting1 extends javax.swing.JInternalFrame {
 
         jLabel21.setText("meters");
         jPanel2.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 310, -1, -1));
+
+        jTextField9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField9MouseExited(evt);
+            }
+        });
         jPanel2.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 310, 90, -1));
 
         jTextField10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -261,6 +272,12 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel5.setText("Total No of Qualified Pieces");
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 420, -1, -1));
+
+        jTextField3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jTextField3MouseExited(evt);
+            }
+        });
         jPanel2.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 80, -1));
 
         jLabel10.setText("meters");
@@ -337,7 +354,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 90, -1, -1));
+        jPanel3.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 90, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -434,10 +451,25 @@ public class Cutting1 extends javax.swing.JInternalFrame {
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 70, 410, 430));
 
-        jTabbedPane1.addTab("Search &  Delete", jPanel3);
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton7.setText("Full report");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, -1));
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton9.setText("Filtered report");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 100, -1, -1));
+
+        jTabbedPane1.addTab("Search &  Delete", jPanel3);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
@@ -508,15 +540,27 @@ public class Cutting1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextFiel1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+            int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Delete?", "Delete?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
         String id = jTextFiel1.getText();
         
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`cutting`\n" +
 "WHERE Cutting_ID='"+id+"';");
        if(x==true)
             JOptionPane.showMessageDialog(null,"Successfully Deleted");
+          }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+         int reply = JOptionPane.showConfirmDialog(null, 
+                 "Are you sure you want to Update?", "Update?", 
+                            JOptionPane.YES_NO_OPTION);
+        
+          if (reply == JOptionPane.YES_OPTION){
+
         String id=jTextFiel1.getText();
         String cut_sch=jTextFieldCustomerName1.getText();
         String style=jTextFieldCustomerName2.getText();
@@ -550,6 +594,7 @@ public class Cutting1 extends javax.swing.JInternalFrame {
                 
         }
        }
+      }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
@@ -587,6 +632,8 @@ public class Cutting1 extends javax.swing.JInternalFrame {
         String waste=jTextField2.getText();
         String used=jTextField5.getText();
         String pcs=jTextField3.getText();
+        String wastages=jTextField9.getText();
+        String damages=jTextField10.getText();
         int r=jTable1.getSelectedRow();
         String qty=jTable1.getValueAt(r, 5).toString();
         String length=jTable1.getValueAt(r, 6).toString();
@@ -594,6 +641,8 @@ public class Cutting1 extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         }
         else{
+        if(validation.isDigit(pcs)){
+        
             if(Integer.parseInt(pcs)>Integer.parseInt(qty))
             {
                         JOptionPane.showMessageDialog(null, "The qualified pieces can't be greater than expected quantity");
@@ -604,6 +653,8 @@ public class Cutting1 extends javax.swing.JInternalFrame {
                     JOptionPane.showMessageDialog(null, "The total wastages can't be greater than the total length used");
                 }
                 else{
+                                       
+                    
         try{
        boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`cutting`\n" +
 "(`Cutting_ID`,\n" +
@@ -629,7 +680,12 @@ public class Cutting1 extends javax.swing.JInternalFrame {
        catch(Exception e){
            System.out.println(e);
        }
-    }}}
+    }
+                }       
+                
+            }
+            
+        }
     
     }//GEN-LAST:event_jButton14ActionPerformed
 
@@ -659,13 +715,16 @@ public class Cutting1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField6MouseClicked
 
     private void jTextField10MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField10MouseExited
-        double wastage=Double.valueOf(jTextField9.getText());
-        double damages=Double.valueOf(jTextField10.getText());
-        double length=Double.valueOf(jTextField8.getText());
-        double totaldamages=wastage+damages;
-        jTextField2.setText(Double.toString(totaldamages));
-        double totalusage=length-totaldamages;
-        jTextField5.setText(Double.toString(totalusage));
+        String damage=jTextField10.getText();
+        if(validation.isDigit(damage)){
+                double wastage=Double.valueOf(jTextField9.getText());
+                double damages=Double.valueOf(jTextField10.getText());
+                double length=Double.valueOf(jTextField8.getText());
+                double totaldamages=wastage+damages;
+                jTextField2.setText(Double.toString(totaldamages));
+                double totalusage=length-totaldamages;
+                jTextField5.setText(Double.toString(totalusage));
+        }
     }//GEN-LAST:event_jTextField10MouseExited
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -733,6 +792,29 @@ public class Cutting1 extends javax.swing.JInternalFrame {
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
         jTextField6.setText("CUT-SHI1252445de");
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        //String x=System.getProperty("user.dir");
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report1.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.cutting";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report2.jrxml";
+        autoReport.Table2Report(FileLocation, jTable3);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jTextField9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField9MouseExited
+        String waste=jTextField9.getText();
+        validation.isDigit(waste);
+    }//GEN-LAST:event_jTextField9MouseExited
+
+    private void jTextField3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField3MouseExited
+        
+    }//GEN-LAST:event_jTextField3MouseExited
 private void generate_cdi(){
         AutoIdGenerator aid = new AutoIdGenerator();
         jTextField1.setText(aid.generate("CUT-",Integer.toString(MainWindow.userid)));
@@ -769,6 +851,8 @@ private void generate_cdi(){
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -799,7 +883,6 @@ private void generate_cdi(){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
