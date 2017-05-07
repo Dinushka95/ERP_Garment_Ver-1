@@ -72,7 +72,6 @@ public class CashDetails extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         ADD = new javax.swing.JButton();
-        DELETE = new javax.swing.JButton();
         EDIT = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -155,6 +154,9 @@ public class CashDetails extends javax.swing.JInternalFrame {
             }
         });
         jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jTextField1KeyPressed(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 jTextField1KeyTyped(evt);
             }
@@ -170,19 +172,9 @@ public class CashDetails extends javax.swing.JInternalFrame {
             }
         });
         jPanel7.add(ADD);
-        ADD.setBounds(10, 380, 70, 23);
+        ADD.setBounds(80, 380, 70, 23);
 
-        DELETE.setText("DELETE");
-        DELETE.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        DELETE.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DELETEActionPerformed(evt);
-            }
-        });
-        jPanel7.add(DELETE);
-        DELETE.setBounds(270, 380, 90, 23);
-
-        EDIT.setText("EDIT");
+        EDIT.setText("UPDATE");
         EDIT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         EDIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -190,7 +182,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
             }
         });
         jPanel7.add(EDIT);
-        EDIT.setBounds(90, 380, 70, 23);
+        EDIT.setBounds(160, 380, 80, 23);
 
         jButton4.setText("SEARCH");
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -200,7 +192,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
             }
         });
         jPanel7.add(jButton4);
-        jButton4.setBounds(170, 380, 90, 23);
+        jButton4.setBounds(250, 380, 90, 23);
 
         jButton5.setText("Demo");
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -227,7 +219,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
             }
         });
         jPanel7.add(jButton1);
-        jButton1.setBounds(380, 380, 110, 23);
+        jButton1.setBounds(420, 380, 110, 23);
         jPanel7.add(editid);
         editid.setBounds(380, 40, 180, 30);
 
@@ -307,29 +299,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
         Tableload();
         CashTotal();
     }//GEN-LAST:event_EDITActionPerformed
-
-    private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
-        // TODO add your handling code here:
-
-        String chno = jTextField3.getText();
-
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`CASH_DETAILS`\n"
-                + "WHERE Cash_ID = '" + chno + "';");
-
-        try {
-            if (x == true) {
-                Tableload();
-                TextBoxClear();
-                JOptionPane.showMessageDialog(null, "Successfully Deleted");
-                CashTotal();
-            }
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-
-
-    }//GEN-LAST:event_DELETEActionPerformed
-
+/**/
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         CashIDSearch();
@@ -375,6 +345,10 @@ public class CashDetails extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
+    private void jTextField1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1KeyPressed
+
     private void generate_Payabels() {
         AutoIdGenerator aid = new AutoIdGenerator();
         jTextField3.setText(aid.generate("PAY", Integer.toString(MainWindow.userid)));
@@ -389,6 +363,8 @@ public class CashDetails extends javax.swing.JInternalFrame {
         if (validation.ValidationCheck(jTextField3, true, 0, '@')
                 && validation.ValidationCheck(jTextArea1, true, 0, '@')
                 && validation.ValidationCheck(jTextField1, true, 0, '1')) {
+            
+            
             String chno = jTextField3.getText();
             String chtype = jComboBox2.getSelectedItem().toString();
             String date = datePicker1.getText();
@@ -486,7 +462,6 @@ public class CashDetails extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADD;
-    private javax.swing.JButton DELETE;
     private javax.swing.JButton EDIT;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JTextField editid;

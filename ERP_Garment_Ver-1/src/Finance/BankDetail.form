@@ -170,7 +170,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="D_EDIT">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="EDIT"/>
+                        <Property name="text" type="java.lang.String" value="UPDATE"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="12" style="1"/>
                         </Property>
@@ -180,7 +180,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="130" y="280" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="120" y="280" width="80" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -559,6 +559,9 @@
                       </Constraints>
                     </Component>
                     <Component class="javax.swing.JTextField" name="jTextField6amt">
+                      <Events>
+                        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextField6amtKeyTyped"/>
+                      </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
                           <AbsoluteConstraints x="220" y="210" width="180" height="30"/>
@@ -594,7 +597,7 @@
                     </Component>
                     <Component class="javax.swing.JButton" name="W_EDIT">
                       <Properties>
-                        <Property name="text" type="java.lang.String" value="EDIT"/>
+                        <Property name="text" type="java.lang.String" value="UPDATE"/>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Tahoma" size="12" style="1"/>
                         </Property>
@@ -620,7 +623,7 @@
                       </Events>
                       <Constraints>
                         <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                          <AbsoluteConstraints x="210" y="280" width="-1" height="-1"/>
+                          <AbsoluteConstraints x="220" y="280" width="-1" height="-1"/>
                         </Constraint>
                       </Constraints>
                     </Component>
@@ -942,22 +945,6 @@
                     </Constraint>
                   </Constraints>
                 </Component>
-                <Component class="javax.swing.JButton" name="R_EDIT">
-                  <Properties>
-                    <Property name="text" type="java.lang.String" value="EDIT"/>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Tahoma" size="12" style="1"/>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="R_EDITActionPerformed"/>
-                  </Events>
-                  <Constraints>
-                    <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="100" y="380" width="-1" height="-1"/>
-                    </Constraint>
-                  </Constraints>
-                </Component>
                 <Component class="javax.swing.JButton" name="R_SEARCH">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="SEARH"/>
@@ -970,7 +957,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="190" y="380" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="90" y="380" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>
@@ -986,7 +973,7 @@
                   </Events>
                   <Constraints>
                     <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-                      <AbsoluteConstraints x="280" y="380" width="-1" height="-1"/>
+                      <AbsoluteConstraints x="180" y="380" width="-1" height="-1"/>
                     </Constraint>
                   </Constraints>
                 </Component>

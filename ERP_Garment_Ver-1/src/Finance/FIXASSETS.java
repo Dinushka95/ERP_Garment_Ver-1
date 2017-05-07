@@ -102,7 +102,6 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         ADDjButton1 = new javax.swing.JButton();
         EditjButton2 = new javax.swing.JButton();
-        DeletejButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
@@ -215,7 +214,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel11.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 270, 810, 150);
+        jScrollPane1.setBounds(10, 270, 920, 150);
 
         jLabel9.setText("Fix Asset ID");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -261,16 +260,6 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         });
         jPanel11.add(EditjButton2);
         EditjButton2.setBounds(530, 240, 61, 23);
-
-        DeletejButton3.setText("DELETE");
-        DeletejButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        DeletejButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletejButton3ActionPerformed(evt);
-            }
-        });
-        jPanel11.add(DeletejButton3);
-        DeletejButton3.setBounds(610, 240, 77, 23);
 
         jButton1.setText("Demo");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -332,30 +321,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         TableLoad();
         TextBoxClear();
     }//GEN-LAST:event_EditjButton2ActionPerformed
-
-    private void DeletejButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton3ActionPerformed
-        
-          String Fixid = Fixass.getText();
-         // String  assid = Assetid.getText();
-        
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_FIXASSETS`\n" +
-"WHERE Fixid LIKE '"+Fixid+"';");
-        
-        try
-        {
-            if (x==true)
-            {
-                TextBoxClear();
-                TableLoad();
-                JOptionPane.showMessageDialog(null,"Successfully Deleted");
-            }
-        }
-        catch (Exception ex){
-            System.out.println(ex);
-        }
-        
-    }//GEN-LAST:event_DeletejButton3ActionPerformed
-
+/**/
     private void rate1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rate1KeyReleased
         
         
@@ -401,7 +367,13 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_CostActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        
+
+     if (jComboBox1.getSelectedItem().equals("Land And Building")) {
+            generate_landid();
+        } else if (jComboBox1.getSelectedItem().equals("Vehicals")) {
+            generate_vehicleid();
+        }
+
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void CostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostKeyTyped
@@ -549,12 +521,12 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
 "`FixAssetsID` = '"+Fixid+"',\n" +
 "`FixAssetType` = '"+type+"',\n" +
 "`AssetID` = '"+assid+"',\n" +
-"`Cost` = "+cost+",\n" +
+"`Cost` = '"+cost+"',\n" +
 "`Rate` = '"+rate+"',\n" +
-"`Depreaciation` = "+dep+",\n" +
-"`Accumulate Depreaciation` = "+Adep+"\n" +
+"`Depreaciation` = '"+dep+"',\n" +
+"`Accumulate Depreaciation` = '"+Adep+"'\n" +
 "WHERE `FixAssetsID` = '"+Fixid+"' AND `AssetID` = '"+assid+"';");
-              try
+         try
         {
             if (x==true)
             {
@@ -572,7 +544,6 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     private javax.swing.JButton ADDjButton1;
     private javax.swing.JTextField Assetid;
     private javax.swing.JTextField Cost;
-    private javax.swing.JButton DeletejButton3;
     private javax.swing.JButton EditjButton2;
     private javax.swing.JTextField Fixass;
     private javax.swing.JTextField accdep;

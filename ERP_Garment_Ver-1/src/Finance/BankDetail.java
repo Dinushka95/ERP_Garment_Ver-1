@@ -9,9 +9,11 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.sun.glass.events.KeyEvent;
+import java.awt.event.ActionEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -31,7 +33,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         TableLoad2();
         TableLoad3();
         
-        generate_Cusid();
+      //  generate_Cusid();
                 
         FillTextCombo1();
         FillTextCombo2();
@@ -101,12 +103,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
             } 
      }
       
-      public float DT(){
-      float DT = Float.parseFloat(DepositTotal.getText());
-      float WD = Float.parseFloat(WithdrowTotal.getText());
-      return DT+WD;
-      }
      
+      
      
     /**
      * This method is called from within the constructor to initialize the form.
@@ -189,7 +187,6 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jLabel17 = new javax.swing.JLabel();
         ChequeAmount = new javax.swing.JTextField();
         R_ADD = new javax.swing.JButton();
-        R_EDIT = new javax.swing.JButton();
         R_SEARCH = new javax.swing.JButton();
         R_RESET_ALL = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
@@ -277,7 +274,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         jPanel7.add(D_ADD);
         D_ADD.setBounds(50, 280, 59, 23);
 
-        D_EDIT.setText("EDIT");
+        D_EDIT.setText("UPDATE");
         D_EDIT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         D_EDIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -285,7 +282,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
             }
         });
         jPanel7.add(D_EDIT);
-        D_EDIT.setBounds(130, 280, 61, 23);
+        D_EDIT.setBounds(120, 280, 80, 23);
 
         D_SEARCH.setText("Search");
         D_SEARCH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -439,6 +436,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
             }
         });
         jPanel3.add(jTextField5brname, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 130, 180, 30));
+
+        jTextField6amt.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField6amtKeyTyped(evt);
+            }
+        });
         jPanel3.add(jTextField6amt, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 180, 30));
         jPanel3.add(datePicker2date, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 170, 180, 30));
 
@@ -451,7 +454,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         });
         jPanel3.add(W_ADD, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
-        W_EDIT.setText("EDIT");
+        W_EDIT.setText("UPDATE");
         W_EDIT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         W_EDIT.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -467,7 +470,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
                 W_SEARCHActionPerformed(evt);
             }
         });
-        jPanel3.add(W_SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 280, -1, -1));
+        jPanel3.add(W_SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 280, -1, -1));
 
         jComboBox1bank.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Bank", "BOC", "Peoples Bank", "HNB ", "UNION", " " }));
         jComboBox1bank.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -588,15 +591,6 @@ public class BankDetail extends javax.swing.JInternalFrame {
         });
         jPanel8.add(R_ADD, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 380, -1, -1));
 
-        R_EDIT.setText("EDIT");
-        R_EDIT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        R_EDIT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                R_EDITActionPerformed(evt);
-            }
-        });
-        jPanel8.add(R_EDIT, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, -1, -1));
-
         R_SEARCH.setText("SEARH");
         R_SEARCH.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         R_SEARCH.addActionListener(new java.awt.event.ActionListener() {
@@ -604,7 +598,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
                 R_SEARCHActionPerformed(evt);
             }
         });
-        jPanel8.add(R_SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 380, -1, -1));
+        jPanel8.add(R_SEARCH, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, -1));
 
         R_RESET_ALL.setText("RESET ALL");
         R_RESET_ALL.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -613,7 +607,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
                 R_RESET_ALLActionPerformed(evt);
             }
         });
-        jPanel8.add(R_RESET_ALL, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 380, -1, -1));
+        jPanel8.add(R_RESET_ALL, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 380, -1, -1));
 
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -707,7 +701,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         AddDeposit();
         TableLoad1();
         FillTextCombo1(); 
-        generate_Cusid();
+      //  generate_Cusid();
     }//GEN-LAST:event_D_ADDActionPerformed
 
      public void AddDeposit()
@@ -723,17 +717,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
       String br_name = jTextField6Branch.getText();
       String date = datePicker1date.getText() ;
       float amount =Float.parseFloat(jTextField10amt.getText());
-      
-      int check=Integer.parseInt(cno);
-      if(check!=6){
-      JOptionPane.showMessageDialog(null,"ERROR");
-      
-      }
-      else{
-         
-      try
-        {
-  
+   
+   if (!jTextField5CheNo.getText().trim().matches("^[1-9]{6}$")) {
+                JOptionPane.showMessageDialog(this, "Invalid cheque number");
+     }
+     
+     else{
 
   boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`F_DEPOSITDETAILS`\n" +
 "(`Cheque_No`,\n" +
@@ -750,7 +739,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
 "'"+date+"',\n" +
 ""+amount+");");
   
-        
+      try{  
             if(x==true)
             {
                 TableLoad1();
@@ -765,6 +754,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
       } 
       }
   }
+  
   private void TextBoxClear1()
   {
       jTextField5CheNo.setText("");
@@ -840,7 +830,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
   //--------------------DEPOSIT(EDIT)---------------------------------------- 
     private void D_EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_D_EDITActionPerformed
         // TODO add your handling code here:
-        EditDeposit();
+      //  EditDeposit();
         TextBoxClear1();
         TableLoad1();
         //generate_Cusid();
@@ -1016,14 +1006,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
        ChequeNoSearch();
         
     }//GEN-LAST:event_D_SEARCHActionPerformed
-//----------------RETURN_CHEQUE(EDIT)------------------------------------------
-    private void R_EDITActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_R_EDITActionPerformed
-       
-        EditReturn();
-        TextBoxClear3();
-        TableLoad3();
-    }//GEN-LAST:event_R_EDITActionPerformed
-        public void EditReturn(){
+
+     /*  public void EditReturn(){
      if(
         
              validation.ValidationCheck(ChequeAmount, true,0,'1'))
@@ -1054,7 +1038,7 @@ public class BankDetail extends javax.swing.JInternalFrame {
         }
      }
          }
-        
+        */
      
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
        
@@ -1338,7 +1322,13 @@ public class BankDetail extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField5brnameKeyTyped
 
     private void jTextField10amtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField10amtKeyTyped
-   
+ char c = evt.getKeyChar();
+        {
+            if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE))) {
+                evt.consume();
+                JOptionPane.showMessageDialog(this, "You can't enter Characters");
+            }
+        }   
     }//GEN-LAST:event_jTextField10amtKeyTyped
 
     //--------------------RETURN(ADD)------------------------------------------
@@ -1352,13 +1342,9 @@ public class BankDetail extends javax.swing.JInternalFrame {
      public void AddReturnCheque()
   {
       
-      
-      
-      
-      
-    if(
-        validation.ValidationCheck(ChequeAmount, true,0,'1'))
-      {
+    
+          
+    
       String section = jComboBox1.getSelectedItem().toString();
       String Des = jTextArea1.getText();
       String date = datePicker1.getText() ;
@@ -1385,11 +1371,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(null,"Successfully Added");
             }
         }
-        catch (Exception ex)
+        catch(Exception ex)
         {
             System.out.println(ex);
-        }    
-      } 
+        }
+     
+     
   }
      
        private void TextBoxClear3()
@@ -1453,6 +1440,17 @@ public class BankDetail extends javax.swing.JInternalFrame {
       jTextArea1.setText("amara");
       ChequeAmount.setText("480000");
     }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jTextField6amtKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField6amtKeyTyped
+        // TODO add your handling code here:
+         char c = evt.getKeyChar();
+        {
+            if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE))) {
+                evt.consume();
+                JOptionPane.showMessageDialog(this, "You can't enter Characters");
+            }
+        }
+    }//GEN-LAST:event_jTextField6amtKeyTyped
   
     
     
@@ -1551,10 +1549,10 @@ public class BankDetail extends javax.swing.JInternalFrame {
           
       }
       
-       private void generate_Cusid(){
+     /*  private void generate_Cusid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField1Cus.setText(aid.generate("cus",Integer.toString(MainWindow.userid)));
-    }
+    }*/
     
     /*   private void generate_Diposit(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -1569,8 +1567,8 @@ public class BankDetail extends javax.swing.JInternalFrame {
     AutoIdGenerator aid = new AutoIdGenerator();
     chequeN.setText(aid.generate("EXP",Integer.toString(MainWindow.userid)));
     }*/
-    
-    
+   
+      
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ChequeAmount;
@@ -1581,7 +1579,6 @@ public class BankDetail extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox<String> DepositCombo;
     private javax.swing.JTextField DepositTotal;
     private javax.swing.JButton R_ADD;
-    private javax.swing.JButton R_EDIT;
     private javax.swing.JButton R_RESET_ALL;
     private javax.swing.JButton R_SEARCH;
     private javax.swing.JTextField ReturnTotal;

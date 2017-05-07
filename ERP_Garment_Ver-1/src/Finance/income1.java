@@ -69,7 +69,6 @@ public class income1 extends javax.swing.JInternalFrame {
         ADDjButton2 = new javax.swing.JButton();
         EDITjButton3 = new javax.swing.JButton();
         SEARHjButton4 = new javax.swing.JButton();
-        DeletejButton7 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jComboBox3type = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -85,6 +84,8 @@ public class income1 extends javax.swing.JInternalFrame {
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker1date = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jButton1 = new javax.swing.JButton();
+        editI = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -113,16 +114,16 @@ public class income1 extends javax.swing.JInternalFrame {
                 ADDjButton2ActionPerformed(evt);
             }
         });
-        jPanel10.add(ADDjButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+        jPanel10.add(ADDjButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, -1, -1));
 
-        EDITjButton3.setText("EDIT");
+        EDITjButton3.setText("Update");
         EDITjButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         EDITjButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EDITjButton3ActionPerformed(evt);
             }
         });
-        jPanel10.add(EDITjButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, -1, -1));
+        jPanel10.add(EDITjButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
         SEARHjButton4.setText("SEARH");
         SEARHjButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -131,16 +132,7 @@ public class income1 extends javax.swing.JInternalFrame {
                 SEARHjButton4ActionPerformed(evt);
             }
         });
-        jPanel10.add(SEARHjButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 340, -1, -1));
-
-        DeletejButton7.setText("DELETE");
-        DeletejButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        DeletejButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletejButton7ActionPerformed(evt);
-            }
-        });
-        jPanel10.add(DeletejButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
+        jPanel10.add(SEARHjButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 340, -1, -1));
 
         jLabel19.setText("Income Type");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -186,9 +178,24 @@ public class income1 extends javax.swing.JInternalFrame {
         jPanel10.add(jTextField2amt, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 180, 30));
         jPanel10.add(datePicker1date, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, 170, 30));
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton1.setText("Demo");
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
+        jPanel10.add(editI, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, 150, 30));
+
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("ResetAll");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel10.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
 
         jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 550));
 
@@ -333,7 +340,7 @@ public class income1 extends javax.swing.JInternalFrame {
 "`Income Type` = '"+inType+"',\n" +
 "`Date` = '"+date+"',\n" +
 "`Discription` = '"+descrip+"',\n" +
-"`Amount` = "+amount+"\n" +
+"`Amount` = '"+amount+"'\n" +
 "WHERE `Bill_No` = '"+bill+"';");
          try
         {
@@ -347,8 +354,9 @@ public class income1 extends javax.swing.JInternalFrame {
         catch (Exception ex){
             System.out.println(ex);
         }
+         }
      }
-     }
+     
     private void SEARHjButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SEARHjButton4ActionPerformed
         // TODO add your handling code here:
         IncomeSearch();
@@ -361,14 +369,8 @@ public class income1 extends javax.swing.JInternalFrame {
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); 
      }
    
-    private void DeletejButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton7ActionPerformed
-       Deleteincome();
-       TextBoxClear();
-       
-    }//GEN-LAST:event_DeletejButton7ActionPerformed
-
     
-     private void Deleteincome()
+  /*   private void Deleteincome()
     {
         String Billno = jTextField1bill.getText();
         
@@ -390,6 +392,7 @@ public class income1 extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
+*/
      public void  EditExp()
   {
       String Billno = jTextField1bill.getText();
@@ -435,7 +438,7 @@ public class income1 extends javax.swing.JInternalFrame {
     
      
       jTextField1bill.setText(Billno);
-      jComboBox3type.setSelectedItem(inType);
+      editI.setText(inType);
       datePicker1date.setText(date);
       jTextArea1description.setText(desc);
       jTextField2amt.setText(amt); 
@@ -471,6 +474,19 @@ public class income1 extends javax.swing.JInternalFrame {
           }
       }
     }//GEN-LAST:event_jTextField2amtKeyTyped
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        TextBoxClear();
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+            
+      jTextArea1description.setText("nimal");
+      jTextField2amt.setText("25000"); 
+      
+    }//GEN-LAST:event_jButton1ActionPerformed
 private void generate_Earned(){
     AutoIdGenerator aid = new AutoIdGenerator();
     jTextField1bill.setText(aid.generate("EAR",Integer.toString(MainWindow.userid)));
@@ -487,12 +503,13 @@ private void generate_Earned(){
      
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADDjButton2;
-    private javax.swing.JButton DeletejButton7;
     private javax.swing.JButton EDITjButton3;
     private javax.swing.JTextField InTotal;
     private javax.swing.JButton SEARHjButton4;
     private com.github.lgooddatepicker.components.DatePicker datePicker1date;
+    private javax.swing.JTextField editI;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox3type;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel15;

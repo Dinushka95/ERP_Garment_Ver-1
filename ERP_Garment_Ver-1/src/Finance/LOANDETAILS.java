@@ -87,7 +87,6 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         AddjButton1 = new javax.swing.JButton();
         EditjButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel3 = new javax.swing.JLabel();
         DatePickerSettings dateSettings1 = new DatePickerSettings();
@@ -196,7 +195,7 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         });
         jPanel3.add(AddjButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, -1));
 
-        EditjButton2.setText("EDIT");
+        EditjButton2.setText("UPDATE");
         EditjButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         EditjButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,15 +207,6 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         jButton3.setText("SEARCH");
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel3.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
-
-        jButton4.setText("DELETE");
-        jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
-            }
-        });
-        jPanel3.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 340, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Bank", "BOC", "Peoples Bank", "HNB ", "UNION" }));
         jComboBox1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -315,11 +305,6 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         Mrate.setText(inter);
         payamt.setText(payment);
     }//GEN-LAST:event_jTable1MouseClicked
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-         
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void MrateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_MrateKeyReleased
 
@@ -519,7 +504,6 @@ public void EditLoan()
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

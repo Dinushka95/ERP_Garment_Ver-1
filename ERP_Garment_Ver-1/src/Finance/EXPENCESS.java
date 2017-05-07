@@ -9,6 +9,7 @@ import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.sun.glass.events.KeyEvent;
+import java.awt.event.ActionEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -70,7 +71,6 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         ADDjButton2 = new javax.swing.JButton();
         EDITjButton3 = new javax.swing.JButton();
         SEARHjButton4 = new javax.swing.JButton();
-        DeletejButton7 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         jComboBox3type = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
@@ -87,6 +87,7 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         datePicker1date = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        editE = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
@@ -117,7 +118,7 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         });
         jPanel10.add(ADDjButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
-        EDITjButton3.setText("EDIT");
+        EDITjButton3.setText("UPDATE");
         EDITjButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         EDITjButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,16 +134,7 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
                 SEARHjButton4ActionPerformed(evt);
             }
         });
-        jPanel10.add(SEARHjButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, -1, -1));
-
-        DeletejButton7.setText("DELETE");
-        DeletejButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        DeletejButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DeletejButton7ActionPerformed(evt);
-            }
-        });
-        jPanel10.add(DeletejButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 340, -1, -1));
+        jPanel10.add(SEARHjButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
 
         jLabel19.setText("Expences Type");
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -197,14 +189,15 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
         });
         jPanel10.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 340, -1, -1));
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.setText("Reset All");
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel10.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 340, -1, -1));
+        jPanel10.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 340, -1, -1));
+        jPanel10.add(editE, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 170, 30));
 
         jPanel1.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 560, 550));
 
@@ -328,30 +321,7 @@ private void Tableload()
       jTextArea1description.setText("");
       jTextField2amt.setText("");
   }
-    private void DeletejButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton7ActionPerformed
-       
-         String Billno = jTextField1bill.getText();
-        
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`F_EXPENES`\n" +
-"WHERE Bill_No LIKE '"+Billno+"';");
-        
-        try
-        {
-            if (x==true)
-            {
-                TextBoxClear();
-                Tableload();
-                JOptionPane.showMessageDialog(null,"Successfully Deleted");
-            }
-        }
-        catch (Exception ex){
-            System.out.println(ex);
-        }
-        
-        
-
-    }//GEN-LAST:event_DeletejButton7ActionPerformed
-
+  /**/
     private void ExTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExTotalActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ExTotalActionPerformed
@@ -366,7 +336,7 @@ private void Tableload()
         String amt = jTable1.getValueAt(row,4).toString();
         
       jTextField1bill.setText(Billno);
-      jComboBox3type.setSelectedItem(exType);
+      editE.setText(exType);
       datePicker1date.setText(date);
       jTextArea1description.setText(desc);
       jTextField2amt.setText(amt); 
@@ -486,11 +456,11 @@ private void Tableload()
   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADDjButton2;
-    private javax.swing.JButton DeletejButton7;
     private javax.swing.JButton EDITjButton3;
     private javax.swing.JTextField ExTotal;
     private javax.swing.JButton SEARHjButton4;
     private com.github.lgooddatepicker.components.DatePicker datePicker1date;
+    private javax.swing.JTextField editE;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox3type;
