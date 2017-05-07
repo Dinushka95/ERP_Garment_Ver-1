@@ -40,7 +40,7 @@ public class EXPENCESS extends javax.swing.JInternalFrame {
     public void ExTotal()
     {
          try {
-             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) from F_EXPENE");
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) FROM garmentsystem.F_EXPENES;");
              ResultSet  results = statement.executeQuery();
                 results.next();
                 String sum = results.getString(1);
@@ -438,7 +438,7 @@ private void Tableload()
     }
    public void  EditExp()
   {
-              if(validation.ValidationCheck(jTextField2amt, true,0,'1'))
+//              if(validation.ValidationCheck(jTextField2amt, true,0,'1'))
       {
       String Billno = jTextField1bill.getText();
       String exType = jComboBox3type.getSelectedItem().toString();

@@ -15,7 +15,7 @@ import java.sql.SQLException;
  */
 public class balancesheet1 extends javax.swing.JInternalFrame {
 
-    private static Object DepositTotal;
+   // private static Object DepositTotal;
 
 
 

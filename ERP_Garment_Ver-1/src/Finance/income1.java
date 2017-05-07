@@ -31,14 +31,15 @@ public class income1 extends javax.swing.JInternalFrame {
         initComponents();
        datePicker1date.setDateToToday();
        Tableload();
+       Intotal();
       
       
     }
     
-    public void InTotal()
+    public void Intotal()
     {
           try {
-             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) from INCOME");
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) FROM garmentsystem.INCOME");
              ResultSet  results = statement.executeQuery();
                 results.next();
                 String sum = results.getString(1);

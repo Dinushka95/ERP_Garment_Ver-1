@@ -4,12 +4,16 @@ package Finance;
 //import Sales.*;
 
 import MainSystem.AutoDB_Connect;
+import static MainSystem.AutoDB_Connect.DB_connection;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.sun.glass.events.KeyEvent;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -36,8 +40,29 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
        generate_landid();
        generate_vehicleid();
        TableLoad();
+       FixTotal();
        
         datePicker1.setDateToToday();
+    }
+    
+    
+    
+     public void FixTotal()
+    {
+         try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Cost) FROM garmentsystem.F_FIXASSETS;");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                fixtot.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
     }
 
     /**
@@ -79,6 +104,9 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         EditjButton2 = new javax.swing.JButton();
         DeletejButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        fixtot = new javax.swing.JTextField();
 
         setResizable(true);
         setTitle("Fix Assets");
@@ -187,7 +215,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jPanel11.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 270, 810, 90);
+        jScrollPane1.setBounds(10, 270, 810, 150);
 
         jLabel9.setText("Fix Asset ID");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -247,9 +275,26 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
         jButton1.setText("Demo");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel11.add(jButton1);
-        jButton1.setBounds(740, 240, 67, 23);
+        jButton1.setBounds(820, 240, 67, 23);
 
-        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 850, 470));
+        jButton2.setText("Reset All");
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel11.add(jButton2);
+        jButton2.setBounds(710, 240, 90, 23);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Total");
+        jPanel11.add(jLabel3);
+        jLabel3.setBounds(220, 440, 60, 15);
+        jPanel11.add(fixtot);
+        fixtot.setBounds(290, 430, 140, 30);
+
+        jPanel1.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 960, 470));
 
         jTabbedPane1.addTab("Fix Assets", jPanel1);
 
@@ -261,15 +306,15 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void dep1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dep1KeyReleased
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_dep1KeyReleased
 
     private void dep1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dep1KeyPressed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_dep1KeyPressed
 
     private void ADDjButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ADDjButton1ActionPerformed
-        // TODO add your handling code here:
+        
         AddFIXASSETS();
         TableLoad();
         TextBoxClear();
@@ -284,7 +329,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_EditjButton2ActionPerformed
 
     private void DeletejButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeletejButton3ActionPerformed
-        // TODO add your handling code here:
+        
           String Fixid = Fixass.getText();
          // String  assid = Assetid.getText();
         
@@ -307,7 +352,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_DeletejButton3ActionPerformed
 
     private void rate1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_rate1KeyReleased
-        // TODO add your handling code here:
+        
         
         
          float cst = Float.parseFloat(Cost.getText());
@@ -325,7 +370,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_rate1KeyReleased
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
+        
           int row =jTable1.getSelectedRow();
         String date = jTable1.getValueAt(row,0).toString();
         String Fixid = jTable1.getValueAt(row,1).toString();
@@ -347,11 +392,11 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void CostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_CostActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void CostKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostKeyTyped
@@ -375,6 +420,11 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
           }
       }
     }//GEN-LAST:event_rate1KeyTyped
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        TextBoxClear();
+    }//GEN-LAST:event_jButton2ActionPerformed
      private void generate_Asstid(){
     AutoIdGenerator aid = new AutoIdGenerator();
     Fixass.setText(aid.generate("ASST",Integer.toString(MainWindow.userid)));
@@ -393,9 +443,9 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
           if(validation.ValidationCheck(Fixass, true, 0, '@')
         &&validation.ValidationCheck(Assetid, true,0,'@')
         &&validation.ValidationCheck(Cost, true,0,'1')
-        &&validation.ValidationCheck(rate1, true,0,'1')
-        &&validation.ValidationCheck(dep1, true,0,'1')
-        &&validation.ValidationCheck(accdep, true,0,'1'))
+        &&validation.ValidationCheck(rate1, true,0,'@')
+        &&validation.ValidationCheck(dep1, true,0,'@')
+        &&validation.ValidationCheck(accdep, true,0,'@'))
           {
          String date = datePicker1.getText();
          String Fixid = Fixass.getText();
@@ -418,7 +468,7 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
 "`Depreaciation`,\n" +
 "`Accumulate Depreaciation`)\n" +
 "VALUES\n" +
-"'"+date+"',\n" +
+"('"+date+"',\n" +
 "'"+Fixid+"',\n" +
 "'"+type+"',\n" +
 "'"+assid+"',\n" +
@@ -513,13 +563,16 @@ public class FIXASSETS extends javax.swing.JInternalFrame {
     private javax.swing.JTextField accdep;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private javax.swing.JTextField dep1;
+    private javax.swing.JTextField fixtot;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;

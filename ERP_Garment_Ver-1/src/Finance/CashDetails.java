@@ -34,7 +34,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
     public CashDetails() 
     {
         initComponents();
-        generate_Cashid();
+        
        Tableload();
        datePicker1.setDateToToday();
        CashTotal();
@@ -104,6 +104,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jButton1 = new javax.swing.JButton();
+        editid = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -201,7 +202,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
             }
         });
         jPanel7.add(DELETE);
-        DELETE.setBounds(260, 380, 90, 23);
+        DELETE.setBounds(270, 380, 90, 23);
 
         EDIT.setText("EDIT");
         EDIT.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -213,7 +214,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
         jPanel7.add(EDIT);
         EDIT.setBounds(90, 380, 70, 23);
 
-        jButton4.setText("SEARH");
+        jButton4.setText("SEARCH");
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -221,7 +222,7 @@ public class CashDetails extends javax.swing.JInternalFrame {
             }
         });
         jPanel7.add(jButton4);
-        jButton4.setBounds(170, 380, 80, 23);
+        jButton4.setBounds(170, 380, 90, 23);
 
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton5.setText("Demo");
@@ -243,7 +244,9 @@ public class CashDetails extends javax.swing.JInternalFrame {
             }
         });
         jPanel7.add(jButton1);
-        jButton1.setBounds(360, 380, 110, 23);
+        jButton1.setBounds(380, 380, 110, 23);
+        jPanel7.add(editid);
+        editid.setBounds(380, 40, 180, 30);
 
         jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 640, 540));
 
@@ -292,15 +295,15 @@ public class CashDetails extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         
         int row =jTable1.getSelectedRow();
-         String chtype = jTable1.getValueAt(row,0).toString();
-        String chno = jTable1.getValueAt(row,1).toString();
+         String chtype = jTable1.getValueAt(row,1).toString();
+        String chno = jTable1.getValueAt(row,0).toString();
         String date = jTable1.getValueAt(row,2).toString();
         String Des = jTable1.getValueAt(row,3).toString();
         String amount = jTable1.getValueAt(row,4).toString();
         
         
         jTextField3.setText(chno);
-        jComboBox2.setSelectedItem(chtype);
+        editid.setText(chtype);
         datePicker1.setText(date);
         jTextArea1.setText(Des);
         jTextField1.setText(amount);
@@ -417,8 +420,8 @@ public class CashDetails extends javax.swing.JInternalFrame {
 "`Description`,\n" +
 "`Amount`)\n" +
 "VALUES\n" +
-"('"+chno+"',\n" +
-"'"+chtype+"',\n" +
+"('"+chtype+"',\n" +
+"'"+chno+"',\n" +
 "'"+date+"',\n" +
 "'"+Des+"',\n" +
 ""+amount+");");
@@ -447,24 +450,25 @@ public class CashDetails extends javax.swing.JInternalFrame {
         datePicker1.setDateToToday();
         jTextArea1.setText("");
         jTextField1.setText("");
+        editid.setText("");
  }
   public void  Editcash()
   {
       
        String chno= jTextField3.getText();
-      String chtype = jComboBox2.getSelectedItem().toString();
+      String edit = editid.getText();
       String date = datePicker1.getText();
       String Des = jTextArea1.getText();
       float amount =Float.parseFloat(jTextField1.getText());
       
-       boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`CASH_DETAILS`\n" +
+       boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Cash_ID`\n" +
 "SET\n" +
-"`Type` = '"+chtype+"',\n" +
 "`Cash_ID` = '"+chno+"',\n" +
+"`Type` = '"+edit+"',\n" +
 "`Date` = '"+date+"',\n" +
 "`Description` = '"+Des+"',\n" +
-"`Amount` = "+amount+"\n" +
-"WHERE `Type` = '"+chtype+"';");
+"`Amount` = "+amount+",\n" +
+"WHERE `Cash_ID` = '"+chno+"';");
        
          try
         {
@@ -489,30 +493,25 @@ public class CashDetails extends javax.swing.JInternalFrame {
    public void CashIDSearch()
     {
             String chtype = jComboBox2.getSelectedItem().toString();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM  `garmentsystem`.`CASH_DETAILS` WHERE Type = '"+chtype+"'");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * "
+                    + "FROM  `garmentsystem`.`CASH_DETAILS` WHERE Type = '"+chtype+"'");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
    private void Tableload()
    {
          AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT `CASH_DETAILS`.`Cash_ID`,\n" +
-"    `CASH_DETAILS`.`Type`,\n" +
-"    `CASH_DETAILS`.`Date`,\n" +
-"    `CASH_DETAILS`.`Description`,\n" +
-"    `CASH_DETAILS`.`Amount`\n" +
-"FROM `garmentsystem`.`CASH_DETAILS`;");
+        ("SELECT * FROM `garmentsystem`.`CASH_DETAILS`;");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
    }
-   private void generate_Cashid(){
-    AutoIdGenerator aid = new AutoIdGenerator();
-    jTextField3.setText(aid.generate("cash",Integer.toString(MainWindow.userid)));
-    }
+  
+   
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADD;
     private javax.swing.JButton DELETE;
     private javax.swing.JButton EDIT;
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
+    private javax.swing.JTextField editid;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

@@ -3,10 +3,14 @@ package Finance;
 
 
 import MainSystem.AutoDB_Connect;
+import static MainSystem.AutoDB_Connect.DB_connection;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import com.sun.glass.events.KeyEvent;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 
@@ -27,9 +31,30 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         
          TableLoad();
          TextBoxClear();
+         loantotal();
+
          
          
         datePicker1.setDateToToday();
+    }
+    
+    
+     public void loantotal()
+    {
+          try {
+             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Payment) FROM garmentsystem.F_LOANDETAILS;");
+             ResultSet  results = statement.executeQuery();
+                results.next();
+                String sum = results.getString(1);
+                System.out.println(sum);
+                loantot.setText(sum);
+            }
+            
+            catch (SQLException ex) 
+                
+             {
+                System.out.println(ex.getMessage());
+            }
     }
 
     /**
@@ -73,6 +98,8 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         jPanel4 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
+        loantot = new javax.swing.JTextField();
 
         setResizable(true);
         setTitle("Loan Details");
@@ -220,7 +247,12 @@ public class LOANDETAILS extends javax.swing.JInternalFrame {
         });
         jScrollPane1.setViewportView(jTable1);
 
-        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 770, 110));
+        jPanel4.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 770, 150));
+
+        jLabel4.setText("Total");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel4.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, 40, -1));
+        jPanel4.add(loantot, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 180, 140, 30));
 
         jPanel2.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, 800, 220));
 
@@ -458,6 +490,7 @@ public void EditLoan()
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -469,6 +502,7 @@ public void EditLoan()
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField loantot;
     private javax.swing.JTextField payamt;
     // End of variables declaration//GEN-END:variables
 
