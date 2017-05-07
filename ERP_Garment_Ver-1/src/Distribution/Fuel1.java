@@ -339,6 +339,11 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jPanelcustomerSearch.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 100, -1));
 
         jComboBox7.setEnabled(false);
+        jComboBox7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox7ActionPerformed(evt);
+            }
+        });
         jPanelcustomerSearch.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 100, -1));
 
         jLabel22.setText("Driver ID");
@@ -542,20 +547,20 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private void search()
  {
     
-        
-        String DID = jComboBox5.getSelectedItem().toString();
-
+       if(jComboBox4.getSelectedItem().toString()=="Driver ID"){ 
+        String DID = jComboBox6.getSelectedItem().toString();
         jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Fuel","Driver_ID", DID)));
- 
+       }
          
+       else if(jComboBox4.getSelectedItem().toString()=="Fuel Station Name"){
            String Fname = jComboBox7.getSelectedItem().toString();
-
-        jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Fuel","Fuel_StationName", Fname)));
- 
-         String VID = jComboBox6.getSelectedItem().toString();
-
-        jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Fuel","Vehical_ID", VID)));
- 
+            jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Fuel","Fuel_StationName", Fname)));
+       }
+       
+       else if(jComboBox4.getSelectedItem().toString()=="Vehicle ID"){
+         String VID = jComboBox5.getSelectedItem().toString();
+            jTable3.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Fuel","Vehical_ID", VID)));
+       }
         
  }
     
@@ -673,6 +678,10 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private void jComboBox4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jComboBox4MouseClicked
                
     }//GEN-LAST:event_jComboBox4MouseClicked
+
+    private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox7ActionPerformed
  private void generate_FuelID(){
     AutoIdGenerator aid = new AutoIdGenerator();
      jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));

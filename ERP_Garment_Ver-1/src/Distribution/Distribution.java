@@ -288,8 +288,8 @@ public class Distribution extends javax.swing.JInternalFrame {
         jComboBox5.setEnabled(false);
         jSearchDIS.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 130, -1));
 
-        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel16.setText("Search By");
+        jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jSearchDIS.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -645,16 +645,19 @@ public class Distribution extends javax.swing.JInternalFrame {
      }
     }
  private void search()
+         
  {
-     String date=datePicker2.getText();
-
-        jTable2.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Distribution","Date", date)));
- 
+     if(jComboBox4.getSelectedItem().toString()=="Distribution Date")
+     {
+         String date=datePicker2.getText();
+      jTable2.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Distribution","Date", date)));
+     }
         
+     else if(jComboBox4.getSelectedItem().toString()=="Driver ID")
+      {
         String DID = jComboBox5.getSelectedItem().toString();
-
-        jTable2.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Distribution","Driver_ID", DID)));
- 
+         jTable2.setModel(DbUtils.resultSetToTableModel(autoSqlQuery.executeAutoSearchDate("C_Distribution","Driver_ID", DID)));
+       }
  }
     private void tableLoad(){
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
