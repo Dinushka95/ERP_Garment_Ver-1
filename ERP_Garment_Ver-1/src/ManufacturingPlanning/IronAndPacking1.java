@@ -823,7 +823,7 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
     {
          try
          {
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table WHERE depid='iron&packing' ");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table WHERE depid='13' ");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {

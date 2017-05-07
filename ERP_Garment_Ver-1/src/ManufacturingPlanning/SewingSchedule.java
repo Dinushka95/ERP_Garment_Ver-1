@@ -97,7 +97,7 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     {
          try
          {
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table WHERE depid='sewing' ");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table WHERE depid='11' ");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {

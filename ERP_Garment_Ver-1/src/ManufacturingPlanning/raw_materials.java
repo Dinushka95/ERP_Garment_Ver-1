@@ -28,7 +28,7 @@ public class raw_materials extends javax.swing.JFrame {
         
        
         
-         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Raw_Materials");
+         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Material_id,Material_Name,Material_cost,Material_qty FROM garmentsystem.Raw_Materials");
          jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
    
           try
@@ -165,7 +165,7 @@ public class raw_materials extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
           String name=jComboBox1.getSelectedItem().toString();
-        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Raw_Materials WHERE Material_Name ='"+name+"'");
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT Material_id,Material_Name,Material_cost,Material_qty FROM garmentsystem.Raw_Materials WHERE Material_Name ='"+name+"'");
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));  
     }//GEN-LAST:event_jButton2ActionPerformed
 
