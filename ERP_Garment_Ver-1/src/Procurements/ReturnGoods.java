@@ -21,6 +21,7 @@ public class ReturnGoods extends javax.swing.JInternalFrame {
         MaterialLoad();
         AccessoryLoad();
         MachinePartsLoad();
+        SupplyComboCombo();
         
     }
 
@@ -974,26 +975,28 @@ public class ReturnGoods extends javax.swing.JInternalFrame {
     AutoIdGenerator aid = new AutoIdGenerator();
     String rtid =aid.generate("RTN",Integer.toString(MainWindow.userid));
     
+    private void SupplyComboCombo()
+    {
+        try
+        {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Supplier`");
+            
+            while(AutoDB_Connect.DB_ResultSet.next())
+            {
+                String name = AutoDB_Connect.DB_ResultSet.getString("Supplier_name");
+                spp.addItem(name);
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+    }
+    
     
     private void DeleteOrder()
     {
-//        boolean y = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`PurchaseReturn`\n" +
-//"(`ReturnId`,\n" +
-//"`OrderNum`,\n" +
-//"`purchaseDescription`,\n" +
-//"`Quantity`,\n" +
-//"`Unit_Price`,\n" +
-//"`TotalAmount`,\n" +
-//"`ReturnedDate`,\n" +
-//"VALUES\n" +
-//"('"+id+"',\n" +
-//"'"+odno.getText()+"',\n" +
-//"'"+des.getText()+"',\n" +
-//"'"+qty.getText()+"',\n" +
-//"'"+unit.getText()+"',\n" +
-//"'"+tot.getText()+"',\n" +
-//"'"+datePicker1.getText()+"');");
-//        
+       
         boolean z = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`PurchaseReturn`\n" +
 "(`ReturnId`,\n" +
 "`OrderNum`,\n" +

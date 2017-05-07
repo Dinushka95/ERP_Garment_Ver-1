@@ -172,6 +172,7 @@ public class Purchasing extends javax.swing.JInternalFrame {
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker5 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jButton10 = new javax.swing.JButton();
+        jButton16 = new javax.swing.JButton();
 
         setTitle("Purchases");
         setMaximumSize(new java.awt.Dimension(1366, 768));
@@ -520,9 +521,9 @@ public class Purchasing extends javax.swing.JInternalFrame {
         });
         jScrollPane4.setViewportView(jTable4);
 
-        jPanel7.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 20, 850, 550));
+        jPanel7.add(jScrollPane4, new org.netbeans.lib.awtextra.AbsoluteConstraints(22, 20, 850, 480));
 
-        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 890, 590));
+        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 10, 890, 520));
         jPanel5.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, -1));
         jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 50, 180, -1));
 
@@ -740,6 +741,14 @@ public class Purchasing extends javax.swing.JInternalFrame {
         jPanel6.add(machinepartPanel, "card4");
 
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 430, 490));
+
+        jButton16.setText("Print Recieved Purchases");
+        jButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton16ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(jButton16, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 560, -1, -1));
 
         jTabbedPane1.addTab("Recieved Purchases", jPanel5);
 
@@ -960,10 +969,19 @@ public class Purchasing extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jTable2MouseClicked
 
+    String ReciveOrderId , ReciveDescription , ReciveType ,  ReciveQuantity , ReciveUnit_Price , ReciveTotal , RecivedDate;
     
     private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
 
         int r = jTable4.getSelectedRow();
+        
+        ReciveOrderId = jTable4.getValueAt(r,0).toString();
+        ReciveDescription = jTable4.getValueAt(r, 1).toString();
+        ReciveType = jTable4.getValueAt(r, 2).toString();
+        ReciveQuantity = jTable4.getValueAt(r, 3).toString();
+        ReciveUnit_Price = jTable4.getValueAt(r, 4).toString();
+        ReciveTotal = jTable4.getValueAt(r, 5).toString();
+        RecivedDate = jTable4.getValueAt(r, 9).toString();
 
         if(TypeCombo.getSelectedItem().equals("Raw Materials"))
         {
@@ -1104,6 +1122,14 @@ public class Purchasing extends javax.swing.JInternalFrame {
         datePicker1.setDateToToday();
     }//GEN-LAST:event_jButton15ActionPerformed
 
+    private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
+
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Procurements\\Reports\\RecievedPurchases.jrxml";
+        String Query = "SELECT * FROM `garmentsystem`.`_PurchasesRecieved`;";
+        System.err.println(FileLocation);
+        autoReport.Query2Report(FileLocation, Query);
+    }//GEN-LAST:event_jButton16ActionPerformed
+
     private void ClearRecievedPart()
     {
         
@@ -1117,6 +1143,33 @@ public class Purchasing extends javax.swing.JInternalFrame {
     
     private void AddRecievedPart()
     {
+        
+        boolean z = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`_PurchasesRecieved`\n" +
+"(`RecieveId`,\n" +
+"`OrderId`,\n" +
+"`Description`,\n" +
+"`Type`,\n" +
+"`Quantity`,\n" +
+"`Unit_Price`,\n" +
+"`Total`,\n" +
+"`RecievedDate`)\n" +
+"VALUES\n" +
+"(\n" +
+"'"+rcvid+"',\n" +
+"'"+ReciveOrderId+"',\n" +
+"'"+ReciveDescription+"',\n" +
+"'"+ReciveType+"',\n" +
+"'"+ReciveQuantity+"',\n" +
+"'"+ReciveUnit_Price+"',\n" +
+"'"+ReciveTotal+"',\n" +
+"'"+RecivedDate+"'\n" +
+");");
+        
+        
+        boolean y =  autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Purchasing`\n" +
+"WHERE Order_ID='"+ReciveOrderId+"';");
+        
+        
         if(validation.ValidationCheck(namefield2, true, 0, 'a')&&validation.ValidationCheck(qtyfield, true,0,'1')&&validation.ValidationCheck(valuefield2, true,0,'1'))
         {
             String id = jTextField1.getText();
@@ -1148,8 +1201,14 @@ public class Purchasing extends javax.swing.JInternalFrame {
         {
             if(x==true)
             {
-                TableLoad();
-                ClearRecievedPart();
+                if(z==true)
+                {
+                    if(y==true)
+                    {
+                        TableLoad();
+                        ClearRecievedPart();
+                    }
+                }
             }
         }
         catch(Exception ex)
@@ -1166,6 +1225,30 @@ public class Purchasing extends javax.swing.JInternalFrame {
     
     public void AddRecievedAccessories()
     {
+        boolean z = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`_PurchasesRecieved`\n" +
+"(`RecieveId`,\n" +
+"`OrderId`,\n" +
+"`Description`,\n" +
+"`Type`,\n" +
+"`Quantity`,\n" +
+"`Unit_Price`,\n" +
+"`Total`,\n" +
+"`RecievedDate`)\n" +
+"VALUES\n" +
+"(\n" +
+"'"+rcvid+"',\n" +
+"'"+ReciveOrderId+"',\n" +
+"'"+ReciveDescription+"',\n" +
+"'"+ReciveType+"',\n" +
+"'"+ReciveQuantity+"',\n" +
+"'"+ReciveUnit_Price+"',\n" +
+"'"+ReciveTotal+"',\n" +
+"'"+RecivedDate+"'\n" +
+");");
+        
+        
+        boolean y =  autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Purchasing`\n" +
+"WHERE Order_ID='"+ReciveOrderId+"';");
         
         if(validation.ValidationCheck(namefield1, true, 0, 'a')&&validation.ValidationCheck(costfield1, true,0,'1')&&validation.ValidationCheck(quantityfield1, true,0,'1')&&validation.ValidationCheck(reorderfield1, true,0,'1'))
         {
@@ -1201,7 +1284,14 @@ public class Purchasing extends javax.swing.JInternalFrame {
         {
             if(x==true)
             {
-                AccessoryClear();
+                if(z==true)
+                {
+                    if(y==true)
+                    {
+                        AccessoryClear();
+                    }
+                }
+                
             }
         }
         catch(Exception ex)
@@ -1240,9 +1330,40 @@ public class Purchasing extends javax.swing.JInternalFrame {
     
     }
     
+    AutoIdGenerator aid = new AutoIdGenerator();
+    String rcvid =aid.generate("RCV",Integer.toString(MainWindow.userid));
     
     private void AddRecivedMaterials()
     {
+        
+        
+              
+        
+        boolean z = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`_PurchasesRecieved`\n" +
+"(`RecieveId`,\n" +
+"`OrderId`,\n" +
+"`Description`,\n" +
+"`Type`,\n" +
+"`Quantity`,\n" +
+"`Unit_Price`,\n" +
+"`Total`,\n" +
+"`RecievedDate`)\n" +
+"VALUES\n" +
+"(\n" +
+"'"+rcvid+"',\n" +
+"'"+ReciveOrderId+"',\n" +
+"'"+ReciveDescription+"',\n" +
+"'"+ReciveType+"',\n" +
+"'"+ReciveQuantity+"',\n" +
+"'"+ReciveUnit_Price+"',\n" +
+"'"+ReciveTotal+"',\n" +
+"'"+RecivedDate+"'\n" +
+");");
+        
+        
+        boolean y =  autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Purchasing`\n" +
+"WHERE Order_ID='"+ReciveOrderId+"';");
+        
         if(validation.ValidationCheck(matname, true, 0, 'a')&&validation.ValidationCheck(unitfield, true, 0, '1')&&validation.ValidationCheck(quantityfield, true, 0, '1')&&validation.ValidationCheck(reorder1, true, 0, '1'))
         {
             String id = jTextField1.getText();
@@ -1275,8 +1396,16 @@ public class Purchasing extends javax.swing.JInternalFrame {
         {
             if(x==true)
             {
-                TableLoad();
-                AddMaterialClear();
+                if(z==true)
+                {
+                    if(y==true)
+                    {
+                        TableLoad();
+                        TableLoad3();
+                        AddMaterialClear();
+                    }
+                }
+                
             }
         }
         catch(Exception ex)
@@ -1721,6 +1850,7 @@ public class Purchasing extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton16;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
