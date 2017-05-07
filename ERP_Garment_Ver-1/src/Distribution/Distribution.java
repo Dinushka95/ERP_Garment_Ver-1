@@ -4,6 +4,7 @@ package Distribution;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
@@ -88,6 +89,8 @@ public class Distribution extends javax.swing.JInternalFrame {
         jComboBox5 = new javax.swing.JComboBox<>();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         dis_id1 = new javax.swing.JTextField();
@@ -297,6 +300,22 @@ public class Distribution extends javax.swing.JInternalFrame {
         jLabel17.setEnabled(false);
         jSearchDIS.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 80, -1));
 
+        jButton7.setText("Full Report");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jSearchDIS.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+
+        jButton9.setText("Search Report");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jSearchDIS.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, -1));
+
         jPanel3.add(jSearchDIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 850, 470));
 
         jPanel5.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -487,6 +506,19 @@ public class Distribution extends javax.swing.JInternalFrame {
        //FillComboSupervisor();
     }//GEN-LAST:event_jComboBox4ItemStateChanged
 
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report1.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.C_Distribution";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+       String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report2.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+    }//GEN-LAST:event_jButton9ActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private com.github.lgooddatepicker.components.DatePicker datePicker1;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
@@ -498,7 +530,9 @@ public class Distribution extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

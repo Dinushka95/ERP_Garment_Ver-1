@@ -5,6 +5,7 @@ package Distribution;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
@@ -88,6 +89,8 @@ DefaultTableModel model;
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
@@ -269,6 +272,22 @@ DefaultTableModel model;
 
         jPanelcustomerSearch.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 90, -1));
 
+        jButton6.setText("Full Report");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, -1, -1));
+
+        jButton7.setText("Search Rport");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 60, -1, -1));
+
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 860, 510));
 
         jPanel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -428,6 +447,19 @@ DefaultTableModel model;
     private void vehicleComboActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vehicleComboActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_vehicleComboActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report5.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.C_Maintaince";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report6.jrxml";
+        autoReport.Table2Report(FileLocation, jTable1);
+    }//GEN-LAST:event_jButton7ActionPerformed
     
     private void FillComboMaterial()
     {
@@ -692,6 +724,8 @@ DefaultTableModel model;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;

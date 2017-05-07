@@ -4,6 +4,7 @@ package Distribution;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.sql.SQLException;
@@ -91,6 +92,8 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jComboBox6 = new javax.swing.JComboBox<>();
         jComboBox7 = new javax.swing.JComboBox<>();
         jLabel22 = new javax.swing.JLabel();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -350,6 +353,22 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jLabel22.setEnabled(false);
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanelcustomerSearch.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 60, -1));
+
+        jButton7.setText("Full eport");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
+
+        jButton9.setText("Search Report");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 870, 500));
 
@@ -682,6 +701,19 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private void jComboBox7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox7ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+       String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report3.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.C_Fuel";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+         String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report4.jrxml";
+        autoReport.Table2Report(FileLocation, jTable3);
+    }//GEN-LAST:event_jButton9ActionPerformed
  private void generate_FuelID(){
     AutoIdGenerator aid = new AutoIdGenerator();
      jTextField8.setText(aid.generate("FUEL",Integer.toString(MainWindow.userid)));
@@ -924,7 +956,9 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;

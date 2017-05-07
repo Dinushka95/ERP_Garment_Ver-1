@@ -4,6 +4,7 @@ package Distribution;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -80,6 +81,8 @@ DefaultTableModel model;
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jComboBox3 = new javax.swing.JComboBox<>();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -268,6 +271,22 @@ DefaultTableModel model;
 
         jPanelcustomerSearch2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 90, -1));
 
+        jButton6.setText("Full Report");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch2.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 10, -1, -1));
+
+        jButton7.setText("Search Report");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch2.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, -1, -1));
+
         jPanel3.add(jPanelcustomerSearch2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 840, 460));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -326,8 +345,8 @@ DefaultTableModel model;
         });
         jPanel6.add(jTextField16, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, 170, -1));
 
-        jButton2.setText("Update");
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton2.setText("Update");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -452,6 +471,19 @@ DefaultTableModel model;
             System.out.println(ex);
         }
     }//GEN-LAST:event_jComboBox2ItemStateChanged
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report8.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report7.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.C_Vehiclel";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_jButton6ActionPerformed
      private void generate_vehicleID() {
        
        AutoIdGenerator aid = new AutoIdGenerator();
@@ -711,6 +743,8 @@ DefaultTableModel model;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JComboBox<String> jComboBox2;
