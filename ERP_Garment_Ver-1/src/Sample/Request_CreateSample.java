@@ -681,45 +681,36 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         String sampledesigner =Sample_Designer.getSelectedItem().toString();
         String Nosample =Nu_of_Samples.getText();
         String samplegiven=Sample_Given.getText();
-        String date = datePicker2.getText();
+        String date = datePicker2.getText();{
         
-        if(id.isEmpty()||name.isEmpty()||stid.isEmpty()||des.isEmpty()||
-        Sampletype.isEmpty()||samplesize.isEmpty()||samplegroup.isEmpty()||
-        sampledesigner.isEmpty()||Nosample.isEmpty()||samplegiven.isEmpty()
-        ||date.isEmpty()){
-            
-            SampleID.setBackground(Color.yellow);
-            Sample.setBackground(Color.yellow);
-            SampleStid.setBackground(Color.yellow);
-            SampleDes.setBackground(Color.yellow);
-            SType.setBackground(Color.yellow);
-            S_Size.setBackground(Color.yellow);
-            samplegrp.setBackground(Color.yellow);
-            Sample_Designer.setBackground(Color.yellow);
-            Nu_of_Samples.setBackground(Color.yellow);
-            Sample_Given.setBackground(Color.yellow);
-            datePicker2.setBackground(Color.yellow);
-            JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");            
-            
+        if(id.isEmpty()||name.isEmpty()||des.isEmpty()||Sampletype.isEmpty()
+                ||samplesize.isEmpty()||samplegroup.isEmpty()||sampledesigner.isEmpty()
+               ||Nosample.isEmpty()||samplegiven.isEmpty() ||date.isEmpty())
+        {
+        JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
+        
         }
-         else{
+        
+        else{
                 if(des.length()>10){
             
             JOptionPane.showMessageDialog(null, "WARNING YOU CAN'T ENTER MORE "
                     + "IN THE STYLE DESCRIPTION FIELD");
-           
                 }
                 else if(!des.matches("[a-zA-Z]+")){
                     
             JOptionPane.showMessageDialog(null, "WARNING YOU "
                     + "CAN ENTER ONLY ALPHABETS");
-            
                     
                 }
-        else{
-            try
-        {
+                
         
+        //SQL Query
+        else{
+        
+        
+         try
+        {
         
         boolean  x = autoSqlQuery.execute("INSERT INTO"
                + " `garmentsystem`.`T_Request_Create_Sample_table`\n" +
@@ -740,16 +731,17 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
                 "'"+stid+"',\n" +
                 "'"+des+"',\n" +
                 "'"+Sampletype+"',\n" +
+                "'"+samplegroup+"',\n" +
                 "'"+samplesize+"',\n" +
                 "'"+sampledesigner+"',\n" +
                 "'"+Nosample+"',\n" +
                 "'"+samplegiven+"',\n" +
                 "'"+date+"');");
         
-        
-            if(x==true)
+    
+    if(x==true)
             {
-                TableLoad2();
+                TableLoad();
                 clearSearch();
                 JOptionPane.showMessageDialog(null,"SUCCESSFULLY ADDED");
             }
@@ -758,12 +750,8 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         {
             System.out.println(ex);
         }
-        }
-        
-        
-        }
     }
-    
+        }}}
      public void UpdateAddedSampleDesigns(){
           
             
