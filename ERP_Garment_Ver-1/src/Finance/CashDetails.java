@@ -1,6 +1,4 @@
-
 package Finance;
-
 
 import MainSystem.AutoDB_Connect;
 import static MainSystem.AutoDB_Connect.DB_PreparedStatement;
@@ -17,58 +15,38 @@ import net.proteanit.sql.DbUtils;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
-
-
-
 /**
  *
  * @author Dinushka
  */
 public class CashDetails extends javax.swing.JInternalFrame {
 
-
-
     /**
      * Creates new form SalesDesignInquiry
      */
-    public CashDetails() 
-    {
+    public CashDetails() {
         initComponents();
-        
-       Tableload();
-       datePicker1.setDateToToday();
-       CashTotal();
-       
-       
+
+        Tableload();
+        datePicker1.setDateToToday();
+        CashTotal();
+
     }
-    
-    
-       public void CashTotal()
-    {        
-            try {
-             PreparedStatement statement  =DB_connection.prepareStatement("SELECT SUM(Amount) from CASH_DETAILS");
-             ResultSet  results = statement.executeQuery();
-                results.next();
-                String sum = results.getString(1);
-                System.out.println(sum);
-                txtCashtot.setText(sum);
-            }
-            
-            catch (SQLException ex) 
-                
-             {
-                System.out.println(ex.getMessage());
-            }
-            
-              
-     //       txtCashtot = "SELECT SUM(Amount) from CASH_DETAILS"
-            
-            
-            
+
+    public void CashTotal() {
+        try {
+            PreparedStatement statement = DB_connection.prepareStatement("SELECT SUM(Amount) from CASH_DETAILS");
+            ResultSet results = statement.executeQuery();
+            results.next();
+            String sum = results.getString(1);
+            System.out.println(sum);
+            txtCashtot.setText(sum);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        //       txtCashtot = "SELECT SUM(Amount) from CASH_DETAILS"
     }
-    
-    
-    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -298,21 +276,20 @@ public class CashDetails extends javax.swing.JInternalFrame {
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
         // TODO add your handling code here:
-        
-        int row =jTable1.getSelectedRow();
-         String chtype = jTable1.getValueAt(row,1).toString();
-        String chno = jTable1.getValueAt(row,0).toString();
-        String date = jTable1.getValueAt(row,2).toString();
-        String Des = jTable1.getValueAt(row,3).toString();
-        String amount = jTable1.getValueAt(row,4).toString();
-        
-        
+
+        int row = jTable1.getSelectedRow();
+        String chtype = jTable1.getValueAt(row, 1).toString();
+        String chno = jTable1.getValueAt(row, 0).toString();
+        String date = jTable1.getValueAt(row, 2).toString();
+        String Des = jTable1.getValueAt(row, 3).toString();
+        String amount = jTable1.getValueAt(row, 4).toString();
+
         jTextField3.setText(chno);
         editid.setText(chtype);
         datePicker1.setText(date);
         jTextArea1.setText(Des);
         jTextField1.setText(amount);
-   
+
 
     }//GEN-LAST:event_jTable1MouseClicked
 
@@ -333,28 +310,24 @@ public class CashDetails extends javax.swing.JInternalFrame {
 
     private void DELETEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DELETEActionPerformed
         // TODO add your handling code here:
-       
-         String chno = jTextField3.getText();
-        
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`CASH_DETAILS`\n" +
-"WHERE Cash_ID = '"+chno+"';");
-        
-         try
-        {
-            if(x==true)
-            {
-               Tableload();
+
+        String chno = jTextField3.getText();
+
+        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`CASH_DETAILS`\n"
+                + "WHERE Cash_ID = '" + chno + "';");
+
+        try {
+            if (x == true) {
+                Tableload();
                 TextBoxClear();
-                JOptionPane.showMessageDialog(null,"Successfully Deleted");
+                JOptionPane.showMessageDialog(null, "Successfully Deleted");
                 CashTotal();
             }
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println(ex);
-        }   
-         
-          
+        }
+
+
     }//GEN-LAST:event_DELETEActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -369,16 +342,12 @@ public class CashDetails extends javax.swing.JInternalFrame {
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
 
-        if(jComboBox2.getSelectedItem().equals("Payabels"))
-        {
+        if (jComboBox2.getSelectedItem().equals("Payabels")) {
             generate_Payabels();
-        }
-        else if(jComboBox2.getSelectedItem().equals("Reservable"))
-        {
+        } else if (jComboBox2.getSelectedItem().equals("Reservable")) {
             generate_Resevable();
         }
-        
-            
+
 
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
@@ -387,140 +356,128 @@ public class CashDetails extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
-        char c=evt.getKeyChar();
-      {
-          if(!(Character.isDigit(c) || (c==KeyEvent.VK_BACKSPACE) ))
-          {
-              evt.consume();
-              JOptionPane.showMessageDialog(this,"You can't enter Characters");
-          }
-      }
+        char c = evt.getKeyChar();
+        {
+            if (!(Character.isDigit(c) || (c == KeyEvent.VK_BACKSPACE))) {
+                evt.consume();
+                JOptionPane.showMessageDialog(this, "You can't enter Characters");
+            }
+        }
     }//GEN-LAST:event_jTextField1KeyTyped
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        
+
         jComboBox2.setSelectedItem("Paybales");
         jTextArea1.setText("sunil");
         jTextField1.setText("250000");
-       
-        
+
+
     }//GEN-LAST:event_jButton5ActionPerformed
 
-     private void generate_Payabels(){
-    AutoIdGenerator aid = new AutoIdGenerator();
-    jTextField3.setText(aid.generate("PAY",Integer.toString(MainWindow.userid)));
+    private void generate_Payabels() {
+        AutoIdGenerator aid = new AutoIdGenerator();
+        jTextField3.setText(aid.generate("PAY", Integer.toString(MainWindow.userid)));
     }
-      private void generate_Resevable(){
-    AutoIdGenerator aid = new AutoIdGenerator();
-    jTextField3.setText(aid.generate("RES",Integer.toString(MainWindow.userid)));
-    }
-    
-  public void Addcash()
-  {
-        if(validation.ValidationCheck(jTextField3, true, 0, '@')
-        &&validation.ValidationCheck(jTextArea1, true,0,'@')
-        &&validation.ValidationCheck(jTextField1, true,0,'1'))
-        {
-      String chno= jTextField3.getText();
-      String chtype = jComboBox2.getSelectedItem().toString();
-      String date = datePicker1.getText();
-      String Des = jTextArea1.getText();
-      float amount =Float.parseFloat(jTextField1.getText());
-      
-       boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`CASH_DETAILS`\n" +
-"(`Type`,\n" +
-"`Cash_ID`,\n" +
-"`Date`,\n" +
-"`Description`,\n" +
-"`Amount`)\n" +
-"VALUES\n" +
-"('"+chtype+"',\n" +
-"'"+chno+"',\n" +
-"'"+date+"',\n" +
-"'"+Des+"',\n" +
-""+amount+");");
 
-       
-         try
-        {
-            if(x==true)
-            {
-               Tableload();
-                TextBoxClear();
-                JOptionPane.showMessageDialog(null,"Successfully Added");
+    private void generate_Resevable() {
+        AutoIdGenerator aid = new AutoIdGenerator();
+        jTextField3.setText(aid.generate("RES", Integer.toString(MainWindow.userid)));
+    }
+
+    public void Addcash() {
+        if (validation.ValidationCheck(jTextField3, true, 0, '@')
+                && validation.ValidationCheck(jTextArea1, true, 0, '@')
+                && validation.ValidationCheck(jTextField1, true, 0, '1')) {
+            String chno = jTextField3.getText();
+            String chtype = jComboBox2.getSelectedItem().toString();
+            String date = datePicker1.getText();
+            String Des = jTextArea1.getText();
+            float amount = Float.parseFloat(jTextField1.getText());
+
+            boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`CASH_DETAILS`\n"
+                    + "(`Type`,\n"
+                    + "`Cash_ID`,\n"
+                    + "`Date`,\n"
+                    + "`Description`,\n"
+                    + "`Amount`)\n"
+                    + "VALUES\n"
+                    + "('" + chtype + "',\n"
+                    + "'" + chno + "',\n"
+                    + "'" + date + "',\n"
+                    + "'" + Des + "',\n"
+                    + "" + amount + ");");
+
+            try {
+                if (x == true) {
+                    Tableload();
+                    TextBoxClear();
+                    JOptionPane.showMessageDialog(null, "Successfully Added");
+                }
+            } catch (Exception ex) {
+                System.out.println(ex);
             }
         }
-        catch (Exception ex)
-        {
-            System.out.println(ex);
-        }    
-  }
-  }
-    
- public void TextBoxClear()
- {
+    }
+
+    public void TextBoxClear() {
         jTextField3.setText("");
         jComboBox2.setSelectedItem(0);
         datePicker1.setDateToToday();
         jTextArea1.setText("");
         jTextField1.setText("");
         editid.setText("");
- }
-  public void  Editcash()
-  {
-      
-       String chno= jTextField3.getText();
-      String edit = editid.getText();
-      String date = datePicker1.getText();
-      String Des = jTextArea1.getText();
-      float amount =Float.parseFloat(jTextField1.getText());
-      
-       boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Cash_ID`\n" +
-"SET\n" +
-"`Cash_ID` = '"+chno+"',\n" +
-"`Type` = '"+edit+"',\n" +
-"`Date` = '"+date+"',\n" +
-"`Description` = '"+Des+"',\n" +
-"`Amount` = "+amount+",\n" +
-"WHERE `Cash_ID` = '"+chno+"';");
-       
-         try
-        {
-            if(x==true)
-            {
-               Tableload();
+    }
+
+    public void Editcash() {
+        try {
+        String chno = jTextField3.getText();
+        String edit = editid.getText();
+        String date = datePicker1.getText();
+        String Des = jTextArea1.getText();
+        float amount = Float.parseFloat(jTextField1.getText());
+
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Cash_ID`\n"
+                + "SET\n"
+                + "`Cash_ID` = '" + chno + "',\n"
+                + "`Type` = '" + edit + "',\n"
+                + "`Date` = '" + date + "',\n"
+                + "`Description` = '" + Des + "',\n"
+                + "`Amount` = " + amount + ",\n"
+                + "WHERE `Cash_ID` = '" + chno + "';");
+
+        
+            System.out.println("x value is : " + x);
+            if (x == true) { 
+                Tableload();
                 TextBoxClear();
-                JOptionPane.showMessageDialog(null,"Successfully Updated");
+                JOptionPane.showMessageDialog(null, "Successfully Updated");
+            }else {
+                JOptionPane.showMessageDialog(null, "Update fail");
             }
-        }
-        catch (Exception ex)
-        {
+            JOptionPane.showMessageDialog(null, "Final line does exists");
+        } catch (Exception ex) {
             System.out.println(ex);
-        }   
-         
-          
-    /* String bank = jComboBox2b_name.getSelectedItem().toString();
+        }
+
+        /* String bank = jComboBox2b_name.getSelectedItem().toString();
             AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM  `garmentsystem`.`F_DEPOSIT DETAILS` WHERE BankName = '"+bank+"'");
             jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet)); */
-  
-  }
-   public void CashIDSearch()
-    {
-            String chtype = jComboBox2.getSelectedItem().toString();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * "
-                    + "FROM  `garmentsystem`.`CASH_DETAILS` WHERE Type = '"+chtype+"'");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));       
     }
-   private void Tableload()
-   {
-         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery
-        ("SELECT * FROM `garmentsystem`.`CASH_DETAILS`;");
-            jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
-   }
-  
-   
- 
+
+    public void CashIDSearch() {
+        String chtype = jComboBox2.getSelectedItem().toString();
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * "
+                + "FROM  `garmentsystem`.`CASH_DETAILS` WHERE Type = '" + chtype + "'");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    }
+
+    private void Tableload() {
+        AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`CASH_DETAILS`;");
+        jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+    }
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ADD;
     private javax.swing.JButton DELETE;
@@ -552,14 +509,4 @@ public class CashDetails extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCashtot;
     // End of variables declaration//GEN-END:variables
 
-   
- 
-   
-
-   
-  
-
-  
-
-   
 }

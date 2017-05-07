@@ -22,11 +22,7 @@ import net.proteanit.sql.DbUtils;
  */
 public class BankDetail extends javax.swing.JInternalFrame {
 
-
-
-    /**
-     * Creates new form SalesDesignInquiry
-     */
+     
     public BankDetail() {
         
         initComponents();  
@@ -104,6 +100,12 @@ public class BankDetail extends javax.swing.JInternalFrame {
                 System.out.println(ex.getMessage());
             } 
      }
+      
+      public float DT(){
+      float DT = Float.parseFloat(DepositTotal.getText());
+      float WD = Float.parseFloat(WithdrowTotal.getText());
+      return DT+WD;
+      }
      
      
     /**
