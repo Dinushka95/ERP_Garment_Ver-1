@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import static MainSystem.AutoDB_Connect.DB_connection;
+import static MainSystem.MainWindow.autoReport;
 import com.sun.glass.events.KeyEvent;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -415,6 +416,11 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
         upDB();
+        String FileLocation=System.getProperty("user.dir")+"\\src\\Finance\\Report\\report1.jrxml";
+        System.err.println(FileLocation);
+        
+        String SQL="SELECT * FROM garmentsystem.Profitandloss";
+        autoReport.Query2Report(FileLocation, SQL);
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void CostSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostSalesActionPerformed
@@ -471,18 +477,11 @@ private void upDB(){
 "'"+incometax+"',\n" +
 "'"+netprofit_per_year+"');");
                 
-      
-    try
-        {
-            if(x==true)
-            {
-                JOptionPane.showMessageDialog(null,"Successfully Added");
-            }
-        }
-        catch (Exception ex)
-        {
-            System.out.println(ex);
-        }
+   
+    
+    
+    
+    
 }
  private void CalAnnualSales()
  {
