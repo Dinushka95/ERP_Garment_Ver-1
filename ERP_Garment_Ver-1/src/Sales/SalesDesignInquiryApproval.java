@@ -25,6 +25,7 @@ SalesDesignInquiryApprovalModel salesdesigninquiryapprovalmodel;
         ViewAllSDI();
         datePicker1.setDateToToday();
         jTextField2.setText(salesdesigninquiryapprovalmodel.SearchEmployeeById(userid));
+         ViewAllSDI();
     }
 
     @SuppressWarnings("unchecked")

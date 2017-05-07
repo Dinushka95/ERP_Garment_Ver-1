@@ -51,6 +51,7 @@ String Quantity1;
         jTextFieldSalesInvoiceId.setText(salesinvoicemodel.generate_sin());
         datePickerSalesInvoice.setDateToToday();
         ProductModel = (DefaultTableModel) jTableSalesInvoice.getModel();
+        jTable4.setModel(DbUtils.resultSetToTableModel(salesinvoicemodel.ViewAllInquiry()));
         
     }
 
@@ -827,10 +828,7 @@ String Quantity1;
 
         jTable5.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
                 "Title 1", "Title 2", "Title 3", "Title 4"

@@ -38,6 +38,7 @@ SalesPaymentModel salesPaymentModel;
         generate_spi();
         datePickerSalesPayment.setDateToToday();
         jPanelSalesInvoiceSearch.setVisible(false);
+        jTable3.setModel(DbUtils.resultSetToTableModel(salesPaymentModel.ViewAllSalesPayment()));
     }
 
 

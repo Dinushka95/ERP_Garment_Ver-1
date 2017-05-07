@@ -60,6 +60,7 @@ int RowCountjTable1;
        
         jPanelproductSearch1.setVisible(false);
         jTabbedPane1.setEnabledAt(2,false);
+        jTable3.setModel(DbUtils.resultSetToTableModel(salesinquirymodel.ViewAll()));
         
     }
 

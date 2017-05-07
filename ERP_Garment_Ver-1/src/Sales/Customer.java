@@ -43,6 +43,7 @@ public class Customer extends javax.swing.JInternalFrame {
         modelCustomer = (DefaultTableModel) jTablesCustomer.getModel();
         jTextFieldCustomerId.setText(customerModel.generate_cid());
         datePicker2.setDateToToday();
+        jTablesCustomer.setModel(DbUtils.resultSetToTableModel(customerModel.ViewAll()));
     }
 
 

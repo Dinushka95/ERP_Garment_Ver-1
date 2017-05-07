@@ -55,7 +55,7 @@ public class CustomerModel {
             validation.isValidEmailAddress(Email.getText())&&
             validation.ValidationCheck(Address, false,-40,'@')){
             
-            boolean x =autoSqlQuery.executeAutoEdit(new String[]{  "Name="+CustomerName.getText(),
+            boolean x =autoSqlQuery.executeAutoEdit(new String[]{"Name="+CustomerName.getText(),
                                                             "CompanyName="+CompanyName.getText(),
                                                             "Phone="+Phone.getText(),
                                                             "Email="+Email.getText(),

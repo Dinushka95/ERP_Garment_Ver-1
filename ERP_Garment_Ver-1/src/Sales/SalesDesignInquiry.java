@@ -56,6 +56,7 @@ SalesDesignInquiryModel salesDesignInquiryModel;
         jButtonADDImage.setEnabled(false);
         jPanelEdit.setVisible(false);
         JTextFieldDesignName.setText(salesDesignInquiryModel.SearchEmployeeById(userid));
+        jTable2.setModel(DbUtils.resultSetToTableModel(salesDesignInquiryModel.ViewAll()));
 
     }
 
