@@ -467,10 +467,16 @@ public class Contactor extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(null,"FIELDS ARE EMPTY");
     
     }
-      else if(!phone.matches("^[0-9]+$")){
+      else if (!jTextFieldPhone.getText().trim().matches("^[0][1-9]{2}[0-9]{7}$")) {
+                JOptionPane.showMessageDialog(this, "Invalid phone number");
+                
+        }
       
-      JOptionPane.showMessageDialog(null,"Check the Number");
-      }
+      else  if (!jTextFieldEmail.getText().trim().matches("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,6}$")) {
+                JOptionPane.showMessageDialog(this, "Invalid email message");
+                
+        }
+      
       else{
               
     boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Contactor`\n"+
