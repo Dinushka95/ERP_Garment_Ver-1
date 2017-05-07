@@ -8,6 +8,7 @@ package Sample;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import javax.swing.JOptionPane;
@@ -419,6 +420,11 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
 
         jButton5.setText("Generate Report");
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(218, 433, -1, -1));
 
         jLabel13.setText("SampleApproveId");
@@ -661,6 +667,13 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
     private void SampleidsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SampleidsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_SampleidsActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        String FileLocation=System.getProperty
+        ("user.dir")+"\\src\\StyleManagement\\Reports\\CreateSample.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+    }//GEN-LAST:event_jButton5ActionPerformed
  
     
         public void clearSampleApprove(){
