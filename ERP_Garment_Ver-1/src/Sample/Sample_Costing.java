@@ -7,6 +7,7 @@ package Sample;
 
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
@@ -77,6 +78,7 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         txtSid = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
+        ViewAccessories1 = new javax.swing.JButton();
 
         setTitle("Sample Costing");
         setMaximumSize(new java.awt.Dimension(1365, 620));
@@ -198,7 +200,7 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
                 ViewAccessoriesActionPerformed(evt);
             }
         });
-        jPanel2.add(ViewAccessories, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, -1, -1));
+        jPanel2.add(ViewAccessories, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 80, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -253,6 +255,15 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         jLabel12.setText("ACCID");
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 450, -1, -1));
         jPanel2.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 450, 96, -1));
+
+        ViewAccessories1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ViewAccessories1.setText("Report");
+        ViewAccessories1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewAccessories1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(ViewAccessories1, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 30, -1, -1));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -403,6 +414,14 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
         UpdateSampleCosting();
         TableLoad();
     }//GEN-LAST:event_UPDATE_Sample_CostActionPerformed
+
+    private void ViewAccessories1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAccessories1ActionPerformed
+           String FileLocation=System.getProperty("user.dir")+"\\src\\Sample\\Reports\\report2.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.T_Sample_Costing_Table";
+        autoReport.Query2Report(FileLocation, SQL);
+    }//GEN-LAST:event_ViewAccessories1ActionPerformed
     public void UpdateSampleCosting(){
           
             
@@ -682,6 +701,7 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
     private javax.swing.JButton RESET_Sample_Cost;
     private javax.swing.JButton UPDATE_Sample_Cost;
     private javax.swing.JButton ViewAccessories;
+    private javax.swing.JButton ViewAccessories1;
     private javax.swing.JComboBox<String> jComboBox2;
     private javax.swing.JComboBox<String> jComboBox3;
     private javax.swing.JLabel jLabel1;

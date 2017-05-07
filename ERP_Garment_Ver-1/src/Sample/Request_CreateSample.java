@@ -4,6 +4,7 @@ package Sample;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import com.github.lgooddatepicker.components.DatePickerSettings;
 import java.awt.Color;
@@ -263,6 +264,11 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
 
         jButton3.setText("Report");
         jButton3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel7.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
         jButton2.setText("Reset");
@@ -588,6 +594,14 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         TableLoad3();
         clearSearchupdateDel();
     }//GEN-LAST:event_deletesampleActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+         String FileLocation=System.getProperty("user.dir")+"\\src\\Sample\\Reports\\report1.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.T_Request_Create_Sample_table";
+        autoReport.Query2Report(FileLocation, SQL); 
+    }//GEN-LAST:event_jButton3ActionPerformed
     private void generate_SAMID(){
     AutoIdGenerator sid = new AutoIdGenerator();
     SampleID.setText(sid.generate("SAMID",Integer.toString(MainWindow.userid)));
