@@ -3,6 +3,7 @@ package Maintance;
 import MainSystem.AutoDB_Connect;
 import MainSystem.AutoIdGenerator;
 import MainSystem.MainWindow;
+import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
 import com.github.lgooddatepicker.components.DatePickerSettings;
@@ -84,6 +85,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
         ResetButton1 = new javax.swing.JButton();
         jLabel19 = new javax.swing.JLabel();
         ComName = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jTextFieldDescription1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -307,6 +309,14 @@ public class OrderParts extends javax.swing.JInternalFrame {
         });
         jPanelcustomerSearch.add(ComName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 120, -1));
 
+        jButton1.setText("Print Report");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 50, -1, -1));
+
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 550, 500));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -507,6 +517,15 @@ public class OrderParts extends javax.swing.JInternalFrame {
     private void ComNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComNameActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+
+        String location = System.getProperty("user.dir")+"\\src\\Maintance\\Reports\\OrderParts.jrxml";
+        System.err.println(location);
+        
+        String query = "SELECT * FROM Order_Part";
+        autoReport.Query2Report(location, query);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     private void generate_Oder_ID() {
         AutoIdGenerator o_id = new AutoIdGenerator();
@@ -734,6 +753,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
     private javax.swing.JButton Search;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonADD1;
