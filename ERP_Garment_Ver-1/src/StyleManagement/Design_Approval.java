@@ -616,7 +616,8 @@ public static String styleid =null;
         
         //Approve sample Add Validation
         
-        if(id.isEmpty()||name.isEmpty()||comment.isEmpty()||StyleId.isEmpty()||status.isEmpty()||date.isEmpty())
+        if(id.isEmpty()||name.isEmpty()||comment.isEmpty()||StyleId.isEmpty()
+                ||status.isEmpty()||date.isEmpty())
         {
         JOptionPane.showMessageDialog(null, "WARNING FIELDS ARE EMPTY");
         
