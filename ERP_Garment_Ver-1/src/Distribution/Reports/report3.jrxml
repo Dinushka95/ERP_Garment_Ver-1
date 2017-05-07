@@ -66,15 +66,15 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="64d33de4-8f1a-4f95-b682-034f3433ae2b"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="21b7d4fa-1915-413f-83c9-2e1c67584db9"/>
+					<reportElement style="Title" x="0" y="0" width="589" height="66" uuid="21b7d4fa-1915-413f-83c9-2e1c67584db9"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Fuel Full Report]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="64fd2908-f7a6-44ff-98cd-63860a70bdc5"/>
+					<reportElement style="SubTitle" x="677" y="37" width="9" height="29" uuid="64fd2908-f7a6-44ff-98cd-63860a70bdc5"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>

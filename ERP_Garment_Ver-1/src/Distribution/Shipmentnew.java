@@ -117,7 +117,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
         setTitle("Shipment Management");
@@ -226,7 +225,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
             }
         });
         jPanel6.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 410, -1, -1));
-        jPanel6.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 220, -1));
+        jPanel6.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 320, 230, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 530, 480));
 
@@ -272,7 +271,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelShipSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, 90, -1));
+        jPanelShipSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 20, 90, -1));
 
         jButton5.setText("Search");
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -281,7 +280,7 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelShipSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, -1, -1));
+        jPanelShipSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 70, -1, -1));
 
         jButton10.setText("Search");
         jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -336,56 +335,62 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 supplier1ActionPerformed(evt);
             }
         });
-        jPanel5.add(supplier1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 64, 121, -1));
+        jPanel5.add(supplier1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 60, 121, -1));
 
         address1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 address1ActionPerformed(evt);
             }
         });
-        jPanel5.add(address1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 102, 121, -1));
-        jPanel5.add(phone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, 121, -1));
+        jPanel5.add(address1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 90, 121, -1));
+
+        phone1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                phone1ActionPerformed(evt);
+            }
+        });
+        jPanel5.add(phone1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 121, -1));
 
         jLabel15.setText("Suplier ");
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 64, -1, -1));
+        jPanel5.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 60, 70, 20));
 
         jLabel21.setText("Address");
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 105, -1, -1));
+        jPanel5.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, 60, 20));
 
         jLabel22.setText("Phone");
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 132, -1, -1));
+        jPanel5.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, 50, 20));
 
         jLabel11.setText("From");
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+        jPanel5.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 150, 40, 20));
 
         jLabel12.setText("Shipped Date");
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 211, -1, -1));
+        jPanel5.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, -1, -1));
 
         jLabel13.setText("Delivery Date");
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 242, -1, -1));
+        jPanel5.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 220, -1, -1));
 
         jLabel16.setText("Recieved By");
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 286, -1, -1));
+        jPanel5.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 250, -1, 20));
 
         jLabel17.setText("Discription");
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(57, 321, -1, -1));
+        jPanel5.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 290, -1, -1));
 
         descriptionarea1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 descriptionarea1ActionPerformed(evt);
             }
         });
-        jPanel5.add(descriptionarea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 321, 254, 50));
-        jPanel5.add(recieved1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 280, 121, -1));
-        jPanel5.add(phone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(243, 126, 121, -1));
+        jPanel5.add(descriptionarea1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 290, 254, 50));
+        jPanel5.add(recieved1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 250, 121, -1));
+        jPanel5.add(phone2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 121, -1));
 
         jButton1.setText("Delete");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -410,8 +415,8 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, 120, -1));
-        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 250, 120, -1));
+        jPanel5.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 120, -1));
+        jPanel5.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 210, 120, -1));
 
         jTextField3.setEditable(false);
         jTextField3.addActionListener(new java.awt.event.ActionListener() {
@@ -419,14 +424,11 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
                 jTextField3ActionPerformed(evt);
             }
         });
-        jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, 120, -1));
+        jPanel5.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 30, 120, -1));
 
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 20, 560, 530));
 
         jTabbedPane1.addTab("Search & Update || Delete", jPanel3);
-
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
         jTabbedPane1.getAccessibleContext().setAccessibleName("ADD Discription");
@@ -556,6 +558,10 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private void recievedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recievedActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_recievedActionPerformed
+
+    private void phone1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_phone1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_phone1ActionPerformed
 
      private void generate_shipmentid(){
     AutoIdGenerator aid = new AutoIdGenerator();
@@ -835,7 +841,6 @@ public class Shipmentnew extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanelShipSearch;

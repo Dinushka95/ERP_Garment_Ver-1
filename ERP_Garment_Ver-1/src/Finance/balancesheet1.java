@@ -31,11 +31,7 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
          CalCash();
        //  CalcCurrTotal();
          CalcLi();
-       
-       
-        
-       
-     
+
     }
      private void CalFixAssets()
  {
@@ -64,12 +60,7 @@ public class balancesheet1 extends javax.swing.JInternalFrame {
        System.out.println(Fixtot);
       F_tot.setText(Double.toString(Fixtot));
      }
-        
 
-        
-    /**
-     *
-     */
         
         //----------------clculate Bank--------------------
      /*  public static String D_tot = DepositTotal.getText();

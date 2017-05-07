@@ -294,6 +294,11 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
                 jRadioButton2MousePressed(evt);
             }
         });
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 40, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Normal wash", "Pigment wash", "Enzyme wash", "Stone wash", "Bleach wash", "Bleach stone wash", "Acid wash" }));
@@ -532,8 +537,8 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         });
         jPanel3.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, -1, -1));
 
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton11.setText("Filtered report");
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -541,8 +546,8 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         });
         jPanel3.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 110, -1, -1));
 
-        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton10.setText("Full report");
+        jButton10.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton10ActionPerformed(evt);
@@ -985,11 +990,15 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
         autoReport.Query2Report(FileLocation, SQL);
     }//GEN-LAST:event_jButton10ActionPerformed
 
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
     private void FillComboSupervisor()
     {
          try
          {
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table WHERE depid='washing' ");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.emp_table WHERE depid='12' ");
             
             while(AutoDB_Connect.DB_ResultSet.next())
             {

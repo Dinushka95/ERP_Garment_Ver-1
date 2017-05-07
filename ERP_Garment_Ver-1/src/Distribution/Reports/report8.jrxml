@@ -58,15 +58,15 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="dab2d8e0-e8a7-43ef-a707-235d4564cd76"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="d035863e-f54e-44cd-a6b4-d1eb902b2b75"/>
+					<reportElement style="Title" x="0" y="0" width="606" height="66" uuid="d035863e-f54e-44cd-a6b4-d1eb902b2b75"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Vehicle Search Report]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="8faf6bdc-9c63-4775-8d4c-5705a981b12f"/>
+					<reportElement style="SubTitle" x="654" y="37" width="32" height="29" uuid="8faf6bdc-9c63-4775-8d4c-5705a981b12f"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>

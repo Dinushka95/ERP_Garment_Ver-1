@@ -10,6 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import static MainSystem.AutoDB_Connect.DB_connection;
+import com.sun.glass.events.KeyEvent;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
 
 
 
@@ -94,7 +100,6 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         datePicker1 = new com.github.lgooddatepicker.components.DatePicker();
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
 
         setResizable(true);
         setTitle("Bank Details");
@@ -180,6 +185,11 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 320, 100, -1));
 
+        CostSales.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CostSalesActionPerformed(evt);
+            }
+        });
         CostSales.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 CostSalesKeyReleased(evt);
@@ -260,6 +270,11 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
 
         jButton11.setText("Genarate a Report");
         jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 500, 150, -1));
         jPanel6.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 0, 150, 30));
         jPanel6.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 0, 150, 30));
@@ -272,14 +287,6 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
             }
         });
         jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, -1, -1));
-
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel6.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 200, -1, -1));
 
         jPanel1.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 0, 650, 550));
 
@@ -382,10 +389,6 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-           CalcGrossProfit();
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void CostSalesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CostSalesKeyReleased
       // CalcGrossProfit();
     }//GEN-LAST:event_CostSalesKeyReleased
@@ -410,6 +413,77 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
         CalcNetProfitperYear();
     }//GEN-LAST:event_jTextField20MouseClicked
 
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+        upDB();
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void CostSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostSalesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CostSalesActionPerformed
+private void upDB(){
+
+      String sales = Sales.getText();
+      String sales_return = SalesReturn.getText();
+      String cost_sales = CostOfSales.getText();
+      String opening_stock = openStock.getText();
+      String purchase = Purchase.getText();
+      String purchase_return = ReturnPuechase.getText();
+      String costofgoods = Goods.getText();
+      String closing_stock = Clossing.getText();
+      String shippincost = Shipping.getText();
+      String costofsales = CostSales.getText();
+      String gross_profit = GrossProfit.getText();
+      String expences = Expen.getText();
+      String netprofit = net.getText();
+      String incometax = Tax.getText();
+      String netprofit_per_year = jTextField20.getText();
+      
+      boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Profitandloss`\n" +
+"(`sales`,\n" +
+"`sales_return`,\n" +
+"`cost_sales`,\n" +
+"`opening_stock`,\n" +
+"`purchase`,\n" +
+"`purchase_return`,\n" +
+"`costofgoods`,\n" +
+"`closing_stock`,\n" +
+"`shippingcost`,\n" +
+"`costofsales`,\n" +
+"`gross_profit`,\n" +
+"`expences`,\n" +
+"`netprofit`,\n" +
+"`incometax`,\n" +
+"`netprofit_per_year`)\n" +
+"VALUES\n" +
+"('"+sales+"',\n" +
+"'"+sales_return+"',\n" +
+"'"+cost_sales+"',\n" +
+"'"+opening_stock+"',\n" +
+"'"+purchase+"',\n" +
+"'"+purchase_return+"',\n" +
+"'"+costofgoods+"',\n" +
+"'"+closing_stock+"',\n" +
+"'"+shippincost+"',\n" +
+"'"+costofsales+"',\n" +
+"'"+gross_profit+"',\n" +
+"'"+expences+"',\n" +
+"'"+netprofit+"',\n" +
+"'"+incometax+"',\n" +
+"'"+netprofit_per_year+"');");
+                
+      
+    try
+        {
+            if(x==true)
+            {
+                JOptionPane.showMessageDialog(null,"Successfully Added");
+            }
+        }
+        catch (Exception ex)
+        {
+            System.out.println(ex);
+        }
+}
  private void CalAnnualSales()
  {
          try {
@@ -496,7 +570,7 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
    private void CalcCostofGoddsSales()
  {      
        
-       float open = Float.parseFloat(Purchase.getText());
+       float open = Float.parseFloat(openStock.getText());
        float Purch = Float.parseFloat(Purchase.getText());
         float Purchre = Float.parseFloat(ReturnPuechase.getText());
        
@@ -608,7 +682,6 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel13;

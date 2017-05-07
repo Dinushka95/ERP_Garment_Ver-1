@@ -117,7 +117,6 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jButton3 = new javax.swing.JButton();
         jLabel24 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
         setTitle("Fuel Management");
@@ -160,7 +159,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 390, -1, -1));
+        jPanel5.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 410, -1, -1));
 
         jButton1.setText("ADD");
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -169,7 +168,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 390, -1, -1));
+        jPanel5.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 70, -1));
         jPanel5.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 350, -1, -1));
 
         jTextField7.setEditable(false);
@@ -233,7 +232,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 390, -1, -1));
+        jPanel5.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(297, 410, 80, -1));
 
         jPanel5.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 130, -1));
 
@@ -271,7 +270,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 110, -1, -1));
+        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 50, 120, -1));
 
         jButton5.setText("Search");
         jButton5.setEnabled(false);
@@ -281,7 +280,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, -1));
+        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 10, 120, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -301,7 +300,7 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         });
         jScrollPane3.setViewportView(jTable3);
 
-        jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 820, 310));
+        jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 820, 300));
 
         jLabel9.setText("Search By");
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -328,18 +327,18 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jLabel20.setText("Vehical ID");
         jLabel20.setEnabled(false);
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelcustomerSearch.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, -1, -1));
+        jPanelcustomerSearch.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 10, -1, -1));
 
         jLabel21.setText("Fuel Station Name");
         jLabel21.setEnabled(false);
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelcustomerSearch.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 70, -1, -1));
+        jPanelcustomerSearch.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 50, -1, -1));
 
         jComboBox5.setEnabled(false);
-        jPanelcustomerSearch.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 30, 100, 20));
+        jPanelcustomerSearch.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 10, 100, 20));
 
         jComboBox6.setEnabled(false);
-        jPanelcustomerSearch.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 120, 100, -1));
+        jPanelcustomerSearch.add(jComboBox6, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 100, 100, -1));
 
         jComboBox7.setEnabled(false);
         jComboBox7.addActionListener(new java.awt.event.ActionListener() {
@@ -347,28 +346,30 @@ public class Fuel1 extends javax.swing.JInternalFrame {
                 jComboBox7ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 70, 100, -1));
+        jPanelcustomerSearch.add(jComboBox7, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 50, 100, -1));
 
         jLabel22.setText("Driver ID");
         jLabel22.setEnabled(false);
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelcustomerSearch.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 60, -1));
+        jPanelcustomerSearch.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 90, 20));
 
         jButton7.setText("Full eport");
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 120, -1, -1));
+        jPanelcustomerSearch.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 130, 120, -1));
 
         jButton9.setText("Search Report");
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 120, -1, -1));
+        jPanelcustomerSearch.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 90, -1, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 870, 500));
 
@@ -458,9 +459,6 @@ public class Fuel1 extends javax.swing.JInternalFrame {
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 20, 430, 500));
 
         jTabbedPane1.addTab("Search & Update || Delete", jPanel3);
-
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
         jTabbedPane1.getAccessibleContext().setAccessibleName("ADD Discription");
@@ -994,7 +992,6 @@ public class Fuel1 extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanelcustomerSearch;
