@@ -79,12 +79,8 @@ FROM
 	</background>
 	<title>
 		<band height="102" splitType="Stretch">
-			<image>
-				<reportElement x="725" y="0" width="77" height="102" uuid="d1d835fe-5c31-4a80-b3b4-eaae8e7a1000"/>
-				<imageExpression><![CDATA[]]></imageExpression>
-			</image>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="734e65fe-cf9a-46f5-829a-1e801be11798"/>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="734e65fe-cf9a-46f5-829a-1e801be11798"/>
 				<staticText>
 					<reportElement style="Title" x="0" y="0" width="647" height="66" uuid="56cafd1b-76a3-465c-a62a-7c15487b6c48"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
@@ -102,7 +98,7 @@ FROM
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="2ccc4806-d4be-4e4b-ad22-b05c6dd0e004"/>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="2ccc4806-d4be-4e4b-ad22-b05c6dd0e004"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="33567a8c-8b6e-4457-a882-0d242abc0347"/>
 					<textElement textAlignment="Right">

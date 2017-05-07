@@ -70,12 +70,12 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="11a66796-cffb-49b5-89dd-4f7fb343eec9"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="7bfb0884-179e-4d44-84db-ff803f88773d"/>
+					<reportElement style="Title" x="0" y="0" width="686" height="66" uuid="7bfb0884-179e-4d44-84db-ff803f88773d"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Sewing Schedule Filtered Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="95cee134-12b0-4276-b0d8-8c85cf82f7a7"/>

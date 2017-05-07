@@ -82,12 +82,12 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="30255232-cd15-43e5-bc87-046226dea894"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="de35ea06-e9ac-4910-9910-5f0cae624023"/>
+					<reportElement style="Title" x="0" y="0" width="728" height="66" uuid="de35ea06-e9ac-4910-9910-5f0cae624023"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Cutting Schedule Filtered Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="af72f702-fa40-44c0-8744-0aee16046d5b"/>

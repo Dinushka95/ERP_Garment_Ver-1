@@ -69,6 +69,14 @@ FROM
 		<band height="102" splitType="Stretch">
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="79538298-92b0-4e5d-9a6c-f96bb6282353"/>
+				<staticText>
+					<reportElement style="Title" x="10" y="10" width="647" height="66" uuid="30adb0ff-a39c-4e00-b8c2-81760dd6ea6a"/>
+					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
+					<textElement verticalAlignment="Bottom">
+						<font isBold="false"/>
+					</textElement>
+					<text><![CDATA[Sewing Schedule Full Report]]></text>
+				</staticText>
 			</frame>
 			<frame>
 				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="87182a3c-a37a-4ef0-a66c-636378e981fd"/>

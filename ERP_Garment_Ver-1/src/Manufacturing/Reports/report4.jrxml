@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bed7e090-29a8-4310-bef3-553e55024ef9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -19,7 +22,7 @@
      sewing.`qualified_pcs` AS qualified_pcs,
      sewing.`Cutting_ID` AS Cutting_ID
 FROM
-     `sewing` ]]>
+     `sewing`]]>
 	</queryString>
 	<field name="Sewing_ID" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -44,30 +47,26 @@ FROM
 	</background>
 	<title>
 		<band height="102" splitType="Stretch">
-			<image>
-				<reportElement x="725" y="0" width="77" height="102" uuid="cb618837-3944-4aa3-bd93-cc23202b3fe3"/>
-				<imageExpression></imageExpression>
-			</image>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="04612110-2da7-4e1f-8cb2-b4b54a3ee588"/>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="04612110-2da7-4e1f-8cb2-b4b54a3ee588"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="c818a5da-c610-439c-988a-757ceb4ca729"/>
+					<reportElement style="Title" x="0" y="0" width="697" height="66" uuid="c818a5da-c610-439c-988a-757ceb4ca729"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text></text>
+					<text><![CDATA[Sewing Filtered Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="6aa46382-fcc8-4cba-a4f2-b8aff4d01257"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>
-					<text></text>
+					<text><![CDATA[]]></text>
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="5d5be82d-a718-4786-9e93-5b563593f2e2"/>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="5d5be82d-a718-4786-9e93-5b563593f2e2"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="a65c2d93-90eb-4911-b5b6-905007343ccb"/>
 					<textElement textAlignment="Right">

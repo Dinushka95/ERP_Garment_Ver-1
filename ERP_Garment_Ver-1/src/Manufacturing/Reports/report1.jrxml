@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="129663e0-923b-4e68-8a82-bad998b9005d">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -20,7 +23,7 @@
      cutting.`Total_Length_Used` AS Total_Length_Used,
      cutting.`Qualified_pieces` AS Qualified_pieces
 FROM
-     `cutting` ]]>
+     `cutting`]]>
 	</queryString>
 	<field name="Cutting_ID" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -48,30 +51,26 @@ FROM
 	</background>
 	<title>
 		<band height="102" splitType="Stretch">
-			<image>
-				<reportElement x="725" y="0" width="77" height="102" uuid="195ca23f-97b7-4f01-af4c-cf791c11faef"/>
-				<imageExpression></imageExpression>
-			</image>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="df7e937d-000d-4d69-8abc-84f36da47e89"/>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="df7e937d-000d-4d69-8abc-84f36da47e89"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="f8d1a4b1-a5d7-40ef-bed2-46630f674dcc"/>
+					<reportElement style="Title" x="0" y="0" width="797" height="66" uuid="f8d1a4b1-a5d7-40ef-bed2-46630f674dcc"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text></text>
+					<text><![CDATA[Cutting Full Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="85399f35-6d9d-4b2d-9d1e-91489e64da24"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>
-					<text></text>
+					<text><![CDATA[]]></text>
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="e991c113-a828-46ac-949f-fa8bc8798eed"/>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="e991c113-a828-46ac-949f-fa8bc8798eed"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="48a76b7f-f0e7-4c89-9108-410b0e5ab3a9"/>
 					<textElement textAlignment="Right">

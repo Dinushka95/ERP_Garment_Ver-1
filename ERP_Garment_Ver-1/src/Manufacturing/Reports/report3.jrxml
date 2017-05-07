@@ -50,12 +50,12 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="98af9c91-000a-4999-bf97-4640651b576d"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="4fadf279-5ee3-4fae-a558-d37d6a616ee6"/>
+					<reportElement style="Title" x="0" y="0" width="777" height="66" uuid="4fadf279-5ee3-4fae-a558-d37d6a616ee6"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Sewing Full Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="3d2cd033-2f44-4284-8271-9267b0416419"/>

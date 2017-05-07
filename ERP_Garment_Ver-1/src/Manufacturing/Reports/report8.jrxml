@@ -50,12 +50,12 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="db254d95-260e-4844-93b4-8514b81c2598"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="ceaee31f-88ac-479f-8fc0-a2ad174be194"/>
+					<reportElement style="Title" x="0" y="0" width="757" height="66" uuid="ceaee31f-88ac-479f-8fc0-a2ad174be194"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Iron & Packing Filtered Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="3ed8b366-5bb5-4aab-bc44-946848d0d205"/>

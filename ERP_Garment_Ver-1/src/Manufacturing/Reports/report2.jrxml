@@ -54,12 +54,12 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="86de585f-1b4a-406e-9fbb-1ed54e4bdfd2"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="cbd74a1b-12ed-4bf2-aab6-57303107c073"/>
+					<reportElement style="Title" x="0" y="0" width="757" height="66" uuid="cbd74a1b-12ed-4bf2-aab6-57303107c073"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Cutting Filtered Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="6d66ddbe-2c39-46a2-b25f-41c109882f69"/>

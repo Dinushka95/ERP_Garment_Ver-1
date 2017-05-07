@@ -66,12 +66,12 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="5" y="0" width="797" height="66" backcolor="#000000" uuid="142c5e84-c4f4-4c64-99ee-d9af38761150"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="1ddce3c3-4384-437e-9f6c-7a02bad897f7"/>
+					<reportElement style="Title" x="0" y="0" width="728" height="66" uuid="1ddce3c3-4384-437e-9f6c-7a02bad897f7"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Washing Schedule Filtered Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="453eadb4-c495-4487-b4e2-89ebe3a6481c"/>

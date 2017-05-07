@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="50efc345-48ca-4620-ad9d-687943ffbdb6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
 	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
@@ -19,7 +22,7 @@
      washing.`pcs` AS pcs,
      washing.`Sewing_ID` AS Sewing_ID
 FROM
-     `washing` ]]>
+     `washing`]]>
 	</queryString>
 	<field name="washing_ID" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -44,30 +47,26 @@ FROM
 	</background>
 	<title>
 		<band height="102" splitType="Stretch">
-			<image>
-				<reportElement x="725" y="0" width="77" height="102" uuid="d295e9d7-b2b5-4439-88ff-225a079fe6bc"/>
-				<imageExpression></imageExpression>
-			</image>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="721" height="66" backcolor="#000000" uuid="b24f209a-807a-424d-afd1-ae26ca6d5142"/>
+				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="b24f209a-807a-424d-afd1-ae26ca6d5142"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="e8a0e071-ecf2-4769-9cb5-26a518bb4d4d"/>
+					<reportElement style="Title" x="0" y="0" width="728" height="66" uuid="e8a0e071-ecf2-4769-9cb5-26a518bb4d4d"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text></text>
+					<text><![CDATA[Washing Filtered Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="87b7263d-162a-4099-b0cd-1796895fbd52"/>
 					<textElement textAlignment="Right">
 						<font size="22" isBold="false"/>
 					</textElement>
-					<text></text>
+					<text><![CDATA[]]></text>
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="70" width="721" height="32" forecolor="#000000" backcolor="#CC0000" uuid="946a97ba-bf22-4163-9e1e-9d1590f8a2c9"/>
+				<reportElement mode="Opaque" x="0" y="70" width="802" height="32" forecolor="#000000" backcolor="#CC0000" uuid="946a97ba-bf22-4163-9e1e-9d1590f8a2c9"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement x="553" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="a9dca8a5-b0a3-4c3b-a8b9-7d3159574d53"/>
 					<textElement textAlignment="Right">

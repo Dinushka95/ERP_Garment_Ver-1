@@ -70,12 +70,12 @@ FROM
 			<frame>
 				<reportElement mode="Opaque" x="0" y="0" width="802" height="66" backcolor="#000000" uuid="1719573a-be2a-46ba-a42d-fcc34b8f37a8"/>
 				<staticText>
-					<reportElement style="Title" x="0" y="0" width="370" height="66" uuid="b921839a-ab67-4c59-bc56-a0ba851b598e"/>
+					<reportElement style="Title" x="0" y="0" width="769" height="66" uuid="b921839a-ab67-4c59-bc56-a0ba851b598e"/>
 					<box topPadding="4" leftPadding="4" bottomPadding="4" rightPadding="4"/>
 					<textElement verticalAlignment="Bottom">
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[]]></text>
+					<text><![CDATA[Iron & Packing Schedule Full Report]]></text>
 				</staticText>
 				<staticText>
 					<reportElement style="SubTitle" x="370" y="37" width="316" height="29" uuid="b6145013-e5c2-4c43-abc2-35ebd130e0bd"/>
