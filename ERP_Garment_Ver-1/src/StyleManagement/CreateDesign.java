@@ -470,11 +470,6 @@ public class CreateDesign extends javax.swing.JInternalFrame {
 
     }
     
-   
-    
-   
-    
-    
     private void TextBoxClear2CreateDesign()
     {
         generate_stlid();
