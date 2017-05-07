@@ -17,15 +17,17 @@ import javax.swing.JTextField;
 public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
 
     public MaintenancesRequest1() {
-
+        
+        
         initComponents();
-        generate_MaintenancesID();
         TableLoad1();
         TableLoad2();
-        
         FillTextCombo1();
+        FillTextCombo2();
         TextBoxClear2();
         TextBoxClear1();
+        generate_Maidx();
+        generate_Machineidx();
         datePicker2.setDateToToday();
     }
 
@@ -51,7 +53,10 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         jTextFieldMachinePart = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jComboBox1 = new javax.swing.JComboBox();
-        jTextFieldMaintenancesID = new javax.swing.JTextField();
+        TxtMaintenancesID = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        MachineType2 = new javax.swing.JComboBox();
+        jButtonDemo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -65,19 +70,21 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
         jButtonADD1 = new javax.swing.JButton();
         jButtonResetAll1 = new javax.swing.JButton();
-        jLabel14 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jTextFieldMachinePart1 = new javax.swing.JTextField();
         jLabel17 = new javax.swing.JLabel();
-        jComboBox2 = new javax.swing.JComboBox();
-        jPanelcustomerSearch = new javax.swing.JPanel();
-        jTextFieldSearchMaintenancesID = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        MAchineID34 = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jTextFieldSearchMaintenancesID = new javax.swing.JTextField();
+        jPanelcustomerSearch = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
+        DEp = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -107,13 +114,18 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
 
         jLabel7.setText("Date");
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
         datePicker2.setName(""); // NOI18N
-        jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
+        jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 260, -1, -1));
 
         jButtonADD.setText("ADD ");
         jButtonADD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonADD.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonADDMouseClicked(evt);
+            }
+        });
         jButtonADD.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonADDActionPerformed(evt);
@@ -132,14 +144,14 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
 
         jLabel4.setText("Department");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
-        jLabel5.setText("Machine part ");
+        jLabel5.setText("Machine Type");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         jTextFieldMachinePart.setName("Phone number"); // NOI18N
-        jPanel2.add(jTextFieldMachinePart, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 110, -1));
+        jPanel2.add(jTextFieldMachinePart, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 110, -1));
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Maintenance", "Human Resource", "Inventory", "Finance" }));
@@ -148,8 +160,30 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 130, -1));
-        jPanel2.add(jTextFieldMaintenancesID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 130, -1));
+        jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 130, -1));
+
+        TxtMaintenancesID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TxtMaintenancesIDActionPerformed(evt);
+            }
+        });
+        jPanel2.add(TxtMaintenancesID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, 30));
+
+        jLabel8.setText("Machine ID ");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
+
+        MachineType2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Washing Machine", "Swing Machine" }));
+        jPanel2.add(MachineType2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 150, -1));
+
+        jButtonDemo.setText("Demo");
+        jButtonDemo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonDemo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDemoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonDemo, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 320, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 510, 520));
 
@@ -161,7 +195,7 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "MaintenancesID", "Description", "Department", "Machine/PartNo", "Date"
+                "", "", "", "", ""
             }
         ));
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -183,16 +217,16 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         jTextFieldDescription1.setName("Customer Name"); // NOI18N
         jPanel6.add(jTextFieldDescription1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 110, -1));
 
-        jLabel11.setText("Description");
+        jLabel11.setText("Machine Type");
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         jLabel12.setText("Date");
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        jPanel6.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
         datePicker3.setName(""); // NOI18N
-        jPanel6.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, -1, -1));
+        jPanel6.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, -1, -1));
 
         jButtonADD1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButtonADD1.setText("Delete");
@@ -212,30 +246,30 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         });
         jPanel6.add(jButtonResetAll1, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
-        jLabel14.setText("Department");
-        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
-
-        jLabel16.setText("Machine part ");
+        jLabel16.setText("Machine ID ");
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        jPanel6.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jTextFieldMachinePart1.setName("Phone number"); // NOI18N
         jPanel6.add(jTextFieldMachinePart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 110, -1));
         jPanel6.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
-        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Maintenance", "Human Resource", "Inventory", "Finance" }));
-        jPanel6.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 140, -1));
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setText("Description");
+        jPanel6.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
+
+        MAchineID34.setName("Phone number"); // NOI18N
+        jPanel6.add(MAchineID34, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 110, -1));
+
+        jLabel9.setText("Maintenances ID");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jPanel6.add(jTextFieldSearchMaintenancesID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 150, -1));
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 510, 520));
 
         jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelcustomerSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanelcustomerSearch.add(jTextFieldSearchMaintenancesID, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 150, -1));
-
-        jLabel9.setText("Maintenances ID");
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jButton8.setText("Reset All");
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -255,8 +289,8 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         });
         jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
 
-        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton11.setText("View All");
+        jButton11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton11ActionPerformed(evt);
@@ -272,7 +306,7 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
                 {null, null, null, null, null}
             },
             new String [] {
-                "MaintenancesID", "Description", "Department", "Machine/PartNo", "Date"
+                "", "", "", "", ""
             }
         ));
         jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -283,6 +317,11 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         jScrollPane3.setViewportView(jTable3);
 
         jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, 460, 300));
+
+        jLabel14.setText("Department");
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelcustomerSearch.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jPanelcustomerSearch.add(DEp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 150, -1));
 
         jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 600, 510));
 
@@ -299,29 +338,27 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-
+        TextBoxClear2();
 
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-
+        MiSearch();
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButtonADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADDActionPerformed
+        generate_Maidx();
         AddMaintenances();
         TableLoad1();
-       
-     
-
 
     }//GEN-LAST:event_jButtonADDActionPerformed
 
     private void jButtonResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAllActionPerformed
-
+        TextBoxClear1();
     }//GEN-LAST:event_jButtonResetAllActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
+       TableLoad2();
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButtonADD1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADD1ActionPerformed
@@ -341,32 +378,68 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         int row = jTable1.getSelectedRow();
         String m_id = jTable1.getValueAt(row, 0).toString();
         String des = jTable1.getValueAt(row, 1).toString();
-        String dep = jTable1.getValueAt(row, 2).toString();
-        String m_p = jTable1.getValueAt(row, 3).toString();
-        String date = jTable1.getValueAt(row, 4).toString();
+        String ma_id = jTable1.getValueAt(row, 2).toString();
+        String m_t = jTable1.getValueAt(row, 3).toString();
+        String dep = jTable1.getValueAt(row, 4).toString();
+        String date = jTable1.getValueAt(row, 5).toString();
 
-        jTextFieldMaintenancesID.setText(m_id);
+        TxtMaintenancesID.setText(m_id);
         jTextFieldDescription.setText(des);
+        jTextFieldMachinePart.setText(ma_id);
+        MachineType2.setSelectedItem(m_t);
         jComboBox1.setSelectedItem(dep);
-        jTextFieldMachinePart.setText(m_p);
         datePicker2.setText(date);
     }//GEN-LAST:event_jTable1MouseClicked
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
-        // TODO add your handling code here:
+          int row = jTable3.getSelectedRow();
+        String m_id= jTable3.getValueAt(row,0).toString();
+        String des = jTable3.getValueAt(row, 1).toString();
+        String ma_id = jTable3.getValueAt(row,2).toString();
+        String m_t = jTable3.getValueAt(row, 3).toString();
+        String dep = jTable3.getValueAt(row, 4).toString();        
+        String date = jTable3.getValueAt(row, 5).toString();
+
+        jTextFieldSearchMaintenancesID.setText(m_id);
+        jTextFieldDescription1.setText(des);
+        MAchineID34.setText(ma_id);
+        jTextFieldMachinePart1.setText(m_t);
+        DEp.setText(dep);
+        datePicker3.setText(date);
     }//GEN-LAST:event_jTable3MouseClicked
 
-    private void generate_MaintenancesID() {
-        AutoIdGenerator m_id = new AutoIdGenerator();
-        jTextFieldMaintenancesID.setText(m_id.generate("ACC", Integer.toString(MainWindow.userid)));
-    }
+    private void TxtMaintenancesIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TxtMaintenancesIDActionPerformed
+       
+    }//GEN-LAST:event_TxtMaintenancesIDActionPerformed
+
+    private void jButtonADDMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonADDMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonADDMouseClicked
+
+    private void jButtonDemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDemoActionPerformed
+       jTextFieldDescription.setText("GOODDDD");
+       MachineType2.setSelectedItem("WashingMaching");
+       jComboBox1.setSelectedItem("Inventory");
+      
+
+    }//GEN-LAST:event_jButtonDemoActionPerformed
+
+    
+       
     
     public void AddMaintenances() {
-        String m_id = jTextFieldMaintenancesID.getText();
+        String m_id = TxtMaintenancesID.getText();
         String des = jTextFieldDescription.getText();
+        String ma_id = jTextFieldMachinePart.getText();
+        String m_t = MachineType2.getSelectedItem().toString();
         String dep = jComboBox1.getSelectedItem().toString();
-        String m_p = jTextFieldMachinePart.getText();
         String date = datePicker2.getText();
+    
+        if(m_id.isEmpty()||des.isEmpty()||ma_id.isEmpty()||date.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"FIELDS ARE EMPTY");
+    
+    }else{
         
          boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Maintanance_Request`\n"
                  
@@ -374,14 +447,16 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
                  
                     + "(`MaintenancesID`,\n"
                     + "`Description`,\n"
-                    + "`Department`,\n"
                     + "`MachineID`,\n"
+                    + "`MachineType`,\n"
+                    + "`Department`,\n"
                     + "`Date`)\n"
                     + "VALUES\n"
                     + "('" + m_id + "',\n"
                     + "'" + des + "',\n"
-                    + "'" + dep + "',\n"
-                    +"'"  + m_p + "',\n"
+                    +"'"  + ma_id + "',\n"
+                    +"'"  + m_t + "',\n"
+                    + "'" + dep + "',\n"   
                     + "'" + date + "');");
 
          
@@ -397,16 +472,16 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             System.out.println(ex);
 
-        }
+        }}
     }
 
     private void TextBoxClear1() {
 
-        jTextFieldMaintenancesID.setText("");
+        TxtMaintenancesID.setText("");
         jTextFieldDescription.setText("");
-        jComboBox1.setSelectedIndex(0);
-
         jTextFieldMachinePart.setText("");
+        MachineType2.setSelectedIndex(0);
+        jComboBox1.setSelectedIndex(0);
         datePicker2.setDateToToday();
     }
 
@@ -416,42 +491,68 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
         jTable1.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
 
     }
-
-    
   
+
     
     private void FillTextCombo1() {
         try {
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select  part_id from MachineParts_Table   ");
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select  MachineType from Maintanance_Request   ");
 
             while (AutoDB_Connect.DB_ResultSet.next()) {
-                String m_p = AutoDB_Connect.DB_ResultSet.getString("part_id");
-                jComboBox2.addItem(m_p);
+               String m_t = AutoDB_Connect.DB_ResultSet.getString("MachineType");
+               MachineType2.addItem(m_t);
             }
         } catch (Exception ex) {
             System.out.println(ex);
         }
 
     }
-    
+
     
 
+    
+    
+    
+     private void FillTextCombo2() {
+            try {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select Department  from Maintanance_Request   ");
+
+            while (AutoDB_Connect.DB_ResultSet.next()) {
+                String dep = AutoDB_Connect.DB_ResultSet.getString("Department");
+                jComboBox1.addItem(dep);
+            }
+           
+         } catch (Exception ex) {
+              System.out.println(ex);
+        }
+     }
+
+    
     private void EditMaintenance() {
 
         String m_id = jTextFieldSearchMaintenancesID.getText();
         String des = jTextFieldDescription1.getText();
-        String dep = jComboBox2.getSelectedItem().toString();
-        String m_p = jTextFieldMachinePart1.getText();
+        String ma_id = MAchineID34.getText();
+        String m_t =  jTextFieldMachinePart1.getText();
+        String dep = DEp.getText();
         String date = datePicker3.getText();
+        
+           if(m_id.isEmpty()||des.isEmpty()||ma_id.isEmpty()||date.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"FIELDS ARE EMPTY");
+    
+    }else{
 
-        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Maintanance_Request`\n"
-                + "SET\n"
-               
-                + "`Description` = '" + des + "',\n"
-                + "`Department` = '" + dep + "',\n"
-                + "`Machine part ` = '" + m_p + "',\n"
-                + "`Date` = '" + date + "'\n"
-                + "WHERE `MaintenancesID` = '" + m_id + "';");
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Maintanance_Request`\n" +
+"SET\n" +
+"`MaintenancesID` = '"+m_id+"',\n" +
+"`Description` = '"+des+"',\n" +
+"`MachineID` = '"+ma_id+"',\n" +
+"`MachineType` = '"+m_t+"',\n" +
+"`Department` = '"+dep+"',\n" +
+"`Date` = '"+date+"' ,\n" +
+"WHERE `MaintenancesID` = '" + m_id + "';");
+     
 
         try {
             if (x == true) {
@@ -465,6 +566,17 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
 
         }
     }
+    }
+    
+     public void MiSearch() {
+        {
+            String dep = DEp.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Maintanance_Request WHERE Department = '" + dep + "'");
+            jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
+        }
+
+    }
+    
 
     private void TableLoad2() {
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`Maintanance_Request`");
@@ -476,10 +588,19 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
     
     
     private void DeleteMaintenance() {
+        
+        
         String m_id = jTextFieldSearchMaintenancesID.getText();
-
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Maintanance_Request`\n"
-                + "WHERE Description LIKE '" + m_id + "';");
+        
+           if(m_id.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"FIELD IS EMPTY");
+    
+    }else{
+        
+            boolean x = autoSqlQuery.execute
+        ("DELETE FROM `garmentsystem`.`Maintanance_Request`\n"+
+                 "WHERE Department LIKE '" + m_id + "';");
 
         try {
             if (x == true) {
@@ -491,18 +612,39 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
+    }
 
     private void TextBoxClear2() {
+        
+       
 
         jTextFieldSearchMaintenancesID.setText("");
         jTextFieldDescription1.setText("");
-        jComboBox2.setSelectedIndex(0);
+        DEp.setText("");
+        MAchineID34.setText("");
         jTextFieldMachinePart1.setText("");
         datePicker3.setDateToToday();
     }
+      private void generate_Maidx(){
+       
+        AutoIdGenerator m_id = new AutoIdGenerator();
+        TxtMaintenancesID.setText(m_id.generate("MID",Integer.toString(MainWindow.userid)));
+                
+        }
+      
+      private void generate_Machineidx(){
+       
+        AutoIdGenerator machine_id = new AutoIdGenerator();
+        jTextFieldMachinePart.setText(machine_id.generate("MachineID",Integer.toString(MainWindow.userid)));
+                
+        }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField DEp;
+    private javax.swing.JTextField MAchineID34;
+    private javax.swing.JComboBox MachineType2;
+    private javax.swing.JTextField TxtMaintenancesID;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
     private javax.swing.JButton jButton11;
@@ -510,12 +652,13 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonADD;
     private javax.swing.JButton jButtonADD1;
+    private javax.swing.JButton jButtonDemo;
     private javax.swing.JButton jButtonResetAll;
     private javax.swing.JButton jButtonResetAll1;
     private javax.swing.JComboBox jComboBox1;
-    private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -525,6 +668,7 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -541,7 +685,6 @@ public class MaintenancesRequest1 extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextFieldDescription1;
     private javax.swing.JTextField jTextFieldMachinePart;
     private javax.swing.JTextField jTextFieldMachinePart1;
-    private javax.swing.JTextField jTextFieldMaintenancesID;
     private javax.swing.JTextField jTextFieldSearchMaintenancesID;
     // End of variables declaration//GEN-END:variables
 

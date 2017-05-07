@@ -13,7 +13,8 @@ import javax.swing.JOptionPane;
 public class Contactor extends javax.swing.JInternalFrame {
 
 
-    public Contactor() {
+    public Contactor() 
+    {
         initComponents();
         TextBoxClear1();
         TableLoad1();
@@ -52,22 +53,23 @@ public class Contactor extends javax.swing.JInternalFrame {
         jLabel6 = new javax.swing.JLabel();
         jTextFieldEmail = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
-        jTextFieldAddress = new javax.swing.JTextField();
+        jTextFieldAddress1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
+        jButtonDemo = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         ResetButton1 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        jTextField3 = new javax.swing.JTextField();
+        jLabel21 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
         DatePickerSettings dateSettings1 = new DatePickerSettings();
@@ -83,8 +85,8 @@ public class Contactor extends javax.swing.JInternalFrame {
         jTextFieldEmail2 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jTextFieldAddress2 = new javax.swing.JTextField();
-        jLabel21 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -145,8 +147,8 @@ public class Contactor extends javax.swing.JInternalFrame {
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
 
-        jTextFieldAddress.setName("Address"); // NOI18N
-        jPanel2.add(jTextFieldAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 210, -1));
+        jTextFieldAddress1.setName("Address"); // NOI18N
+        jPanel2.add(jTextFieldAddress1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 210, 210, -1));
 
         jLabel1.setText("Contractors ID");
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -157,6 +159,15 @@ public class Contactor extends javax.swing.JInternalFrame {
         jPanel2.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, -1, -1));
         jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 90, 140, -1));
         jPanel2.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 140, -1));
+
+        jButtonDemo.setText("Demo");
+        jButtonDemo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonDemo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDemoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonDemo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 510, 520));
 
@@ -194,7 +205,7 @@ public class Contactor extends javax.swing.JInternalFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 30, -1, -1));
 
         jButton5.setText("Search");
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -203,11 +214,7 @@ public class Contactor extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel2.setText("Contractors ID");
-        jPanelcustomerSearch.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, -1));
 
         ResetButton1.setText("Reset All");
         ResetButton1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -216,7 +223,7 @@ public class Contactor extends javax.swing.JInternalFrame {
                 ResetButton1ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(ResetButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 20, -1, -1));
+        jPanelcustomerSearch.add(ResetButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -236,10 +243,14 @@ public class Contactor extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jPanelcustomerSearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, -1, -1));
-        jPanelcustomerSearch.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 110, -1));
+        jPanelcustomerSearch.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 110, -1, -1));
 
-        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 580, 510));
+        jLabel21.setText("Contactors Name");
+        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelcustomerSearch.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+        jPanelcustomerSearch.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 20, 160, -1));
+
+        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 660, 510));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -290,11 +301,11 @@ public class Contactor extends javax.swing.JInternalFrame {
 
         jTextFieldAddress2.setName("Address"); // NOI18N
         jPanel6.add(jTextFieldAddress2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 210, -1));
+        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 110, -1));
 
-        jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel21.setText("Contactors Name");
-        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-        jPanel6.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 50, 160, -1));
+        jLabel2.setText("Contractors ID");
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel6.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 60, 510, 520));
 
@@ -381,6 +392,11 @@ public class Contactor extends javax.swing.JInternalFrame {
       datePicker3.setText(date); 
     }//GEN-LAST:event_jTable3MouseClicked
 
+    private void jButtonDemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDemoActionPerformed
+ 
+
+    }//GEN-LAST:event_jButtonDemoActionPerformed
+
      private void generate_Contractor_ID(){
     AutoIdGenerator c_id = new AutoIdGenerator();
     jTextField4.setText(c_id.generate("ACC",Integer.toString(MainWindow.userid)));
@@ -435,19 +451,24 @@ public class Contactor extends javax.swing.JInternalFrame {
       
               
         public void ADDContactor(){
-            
-         
-   
     
       String c_id = jTextField4.getText();
       String c_name = jTextField1.getText();
       String phone = jTextFieldPhone.getText();
       String em =  jTextFieldEmail.getText();
-      String add = jTextFieldAddress.getText();
+      String add = jTextFieldAddress1.getText();
       String date = datePicker2.getText();
-
        
-   
+      if(c_id.isEmpty()||c_name.isEmpty()||phone.isEmpty()||em.isEmpty()||add.isEmpty()||date.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"FIELDS ARE EMPTY");
+    
+    }
+      else if(!phone.matches("^[0-9]+$")){
+      
+      JOptionPane.showMessageDialog(null,"Check the Number");
+      }
+      else{
               
     boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Contactor`\n"+
 "(`Contactor_ID`,\n" +
@@ -479,9 +500,9 @@ public class Contactor extends javax.swing.JInternalFrame {
         
         
         }}
+       
 
-
-          public void EditContactor(){
+        }          public void EditContactor(){
     
       String c_id = jTextField3.getText();
       String c_name = jTextField2.getText();
@@ -522,8 +543,8 @@ public class Contactor extends javax.swing.JInternalFrame {
         
            public void ConSearch() {
         {
-            String c_id= jTextField3.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Contactor WHERE Contactor_ID = '" + c_id + "'");
+            String c_name= jTextField2.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Contactor WHERE CompanyName = '" + c_name + "'");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
         }
 
@@ -539,7 +560,7 @@ public class Contactor extends javax.swing.JInternalFrame {
          jTextFieldPhone.setText("");
          
          jTextFieldEmail.setText("");
-         jTextFieldAddress.setText("");
+         jTextFieldAddress1.setText("");
          datePicker2.setDateToToday();
      }
          
@@ -613,6 +634,7 @@ public class Contactor extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButtonADD;
     private javax.swing.JButton jButtonADD1;
+    private javax.swing.JButton jButtonDemo;
     private javax.swing.JButton jButtonResetAll;
     private javax.swing.JButton jButtonResetAll1;
     private javax.swing.JLabel jLabel1;
@@ -644,7 +666,7 @@ public class Contactor extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextFieldAddress;
+    private javax.swing.JTextField jTextFieldAddress1;
     private javax.swing.JTextField jTextFieldAddress2;
     private javax.swing.JTextField jTextFieldEmail;
     private javax.swing.JTextField jTextFieldEmail2;

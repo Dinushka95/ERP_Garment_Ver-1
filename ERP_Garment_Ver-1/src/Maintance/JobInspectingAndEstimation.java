@@ -22,8 +22,11 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         datePicker2.setDateToToday();
         datePicker3.setDateToToday();
         generate_Machine_ID();
-        generate_Technician_ID();
+        //generate_Technician_ID();
         FillTextCombo1();
+        FillTextCombo3();
+       
+        
     }
 
     /**
@@ -52,11 +55,12 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jTextFieldTechnicianID = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         jTextFieldTechnicianName = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
         jComboBox2 = new javax.swing.JComboBox();
+        jComboBox3 = new javax.swing.JComboBox();
+        jButtonDemo = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
@@ -68,8 +72,6 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         dateSettings3.setFormatForDatesCommonEra("yyyy/MM/dd");
         dateSettings3.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(dateSettings3);
-        jLabel19 = new javax.swing.JLabel();
-        jTextFieldDepartment1 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
         jTextFieldMchinePart1 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
@@ -78,14 +80,16 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jTextFieldTechnicianName1 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jButtonADD1 = new javax.swing.JButton();
-        jPanelcustomerSearch = new javax.swing.JPanel();
-        jTextFieldSearchCustomerId = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jTextFieldSearchCustomerId = new javax.swing.JTextField();
+        jPanelcustomerSearch = new javax.swing.JPanel();
         jButton8 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+        jLabel19 = new javax.swing.JLabel();
+        jTextFieldDepartment1 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -161,10 +165,6 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
 
-        jTextFieldTechnicianID.setName("Email"); // NOI18N
-        jPanel2.add(jTextFieldTechnicianID, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 110, -1));
-        jTextFieldTechnicianID.getAccessibleContext().setAccessibleName("");
-
         jLabel12.setText("Technician Name");
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jPanel2.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
@@ -177,6 +177,18 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jPanel2.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 130, -1));
 
         jPanel2.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 120, -1));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "TechnicianID" }));
+        jPanel2.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 140, -1));
+
+        jButtonDemo.setText("Demo");
+        jButtonDemo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonDemo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDemoActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonDemo, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 320, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 510, 520));
 
@@ -222,26 +234,19 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         datePicker3.setName("dateSettings");
         jPanel6.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 250, -1, -1));
 
-        jLabel19.setText("Department");
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, -1, -1));
-
-        jTextFieldDepartment1.setName("Company name"); // NOI18N
-        jPanel6.add(jTextFieldDepartment1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 110, -1));
-
         jLabel20.setText("Machine Part");
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jTextFieldMchinePart1.setName("Phone number"); // NOI18N
-        jPanel6.add(jTextFieldMchinePart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, 110, -1));
+        jPanel6.add(jTextFieldMchinePart1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 130, 110, -1));
 
         jLabel21.setText("Technician ID");
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 180, -1, -1));
+        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         jTextFieldTechnicianID1.setName("Email"); // NOI18N
-        jPanel6.add(jTextFieldTechnicianID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 180, 110, -1));
+        jPanel6.add(jTextFieldTechnicianID1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 110, -1));
 
         jLabel22.setText("Technician Name");
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -268,15 +273,15 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         });
         jPanel6.add(jButtonADD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 330, -1, -1));
 
+        jLabel9.setText("Machine ID");
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel6.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
+        jPanel6.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, 110, -1));
+
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 30, 510, 520));
 
         jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelcustomerSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanelcustomerSearch.add(jTextFieldSearchCustomerId, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 110, -1));
-
-        jLabel9.setText("Machine ID");
-        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jButton8.setText("Reset");
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -285,7 +290,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 20, -1, -1));
 
         jButton5.setText("Search");
         jButton5.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -294,7 +299,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 20, -1, -1));
 
         jButton9.setText("View All");
         jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -303,7 +308,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
                 jButton9ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 20, -1, -1));
 
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -325,7 +330,14 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
 
         jPanelcustomerSearch.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
-        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 520, 510));
+        jLabel19.setText("Department");
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelcustomerSearch.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        jTextFieldDepartment1.setName("Company name"); // NOI18N
+        jPanelcustomerSearch.add(jTextFieldDepartment1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, 110, -1));
+
+        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 580, 510));
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
@@ -343,9 +355,10 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         JobInspectionAdd();
         TableLoad1();
         generate_Machine_ID();
-        generate_Technician_ID();
+       // generate_Technician_ID();
         FillTextCombo1();
-
+        FillTextCombo3();
+       
     }//GEN-LAST:event_jButtonADDCustomerActionPerformed
 
     private void jTextFieldMachineIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldMachineIDActionPerformed
@@ -394,7 +407,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         jTextFieldDescription.setText(description);
         jComboBox1.setSelectedItem(dep);
         jComboBox2.setSelectedItem(m_pa);
-        jTextFieldTechnicianID.setText(t_id);
+        jComboBox3.getSelectedItem().toString();
         jTextFieldTechnicianName.setText(t_name);
         datePicker3.setText(date);
     }//GEN-LAST:event_jTable1MouseClicked
@@ -418,15 +431,24 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         datePicker3.setText(date);
     }//GEN-LAST:event_jTable3MouseClicked
 
+    private void jButtonDemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDemoActionPerformed
+        jTextFieldDescription1.setText("GOODDDD");
+        jTextFieldDepartment1.setText("Finance");
+        jTextFieldTechnicianID1.setText("7");
+        jTextFieldTechnicianName1.setText("Sadun");
+        
+
+    }//GEN-LAST:event_jButtonDemoActionPerformed
+
     private void generate_Machine_ID() {
         AutoIdGenerator m_id = new AutoIdGenerator();
         jTextFieldMachineID.setText(m_id.generate("ACC", Integer.toString(MainWindow.userid)));
     }
 
-    private void generate_Technician_ID() {
-        AutoIdGenerator t_id = new AutoIdGenerator();
-        jTextFieldTechnicianID.setText(t_id.generate("ACC", Integer.toString(MainWindow.userid)));
-    }
+    //private void generate_Technician_ID() {
+        //AutoIdGenerator t_id = new AutoIdGenerator();
+      //  jComboBox3.setSelected(t_id.generate("ACC", Integer.toString(MainWindow.userid)));
+    //}
 
     private void TableLoad1() {
         AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM `garmentsystem`.`JobIspection_Estimation`");
@@ -448,10 +470,17 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         String description = jTextFieldDescription.getText();
         String dep = jComboBox1.getSelectedItem().toString();
         String m_pa = jComboBox2.getSelectedItem().toString();
-        String t_id = jTextFieldTechnicianID.getText();
+        String t_id = jComboBox3.getSelectedItem().toString();
         String t_name = jTextFieldTechnicianName.getText();
         String date = datePicker3.getText();
 
+        
+          if(m_id.isEmpty()||t_name.isEmpty()||date.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"FIELDS ARE EMPTY");
+    
+    }else{
+        
         boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`JobIspection_Estimation` \n"
                 + "(`MachineID`,\n"
                 + "`Description`,\n"
@@ -480,11 +509,18 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
 
         }
     }
+    }
     
     
     
     private void DeleteJobInspection() {
         String m_id = jTextFieldSearchCustomerId.getText();
+        
+                if(m_id.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"FIELDS ARE EMPTY");
+    
+    }else{
 
         boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`JobIspection_Estimation`\n"
                 + "WHERE MachineID LIKE '" + m_id + "';");
@@ -499,11 +535,11 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
-    
+    }
       public void MachSearch() {
         {
-            String m_id = jTextFieldSearchCustomerId.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.JobIspection_Estimation WHERE MachineID = '" + m_id + "'");
+            String dep = jTextFieldDepartment1.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.JobIspection_Estimation WHERE Department = '" + dep + "'");
             jTable3.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
         }
 
@@ -519,7 +555,11 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
         String t_name = jTextFieldTechnicianName1.getText();
         String date = datePicker3.getText();
                 
-         
+             if(m_id.isEmpty()||description.isEmpty()||dep.isEmpty()||m_pa.isEmpty()||t_id.isEmpty()||t_name.isEmpty()||date.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"FIELDS ARE EMPTY");
+    
+    }else{
          
         boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`JobIspection_Estimation`\n"
                 + "SET \n"
@@ -543,6 +583,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
 
         }
     }
+    }
 
     private void FillTextCombo1() {
         try {
@@ -558,6 +599,26 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
 
     }
 
+      private void FillTextCombo3() {
+        try {
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("select * from emp_table  where position = 'Technician'");
+
+            while (AutoDB_Connect.DB_ResultSet.next()) {
+                String t_id = AutoDB_Connect.DB_ResultSet.getString("emp_id");
+                jComboBox3.addItem(t_id);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+
+    }
+    
+    
+    
+    
+    
+    
+    
     private void TextBoxClear1() {
 
         jTextFieldMachineID.setText("");
@@ -565,7 +626,7 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
          //jComboBox1.setSelectedIndex(0);
 
         // jComboBox2.setSelectedIndex(0);
-        jTextFieldTechnicianID.setText("");
+        //jComboBox3.setText("");
         jTextFieldTechnicianName.setText("");
         datePicker2.setDateToToday();
     }
@@ -592,9 +653,11 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     private javax.swing.JButton jButton9;
     private javax.swing.JButton jButtonADD1;
     private javax.swing.JButton jButtonADDCustomer;
+    private javax.swing.JButton jButtonDemo;
     private javax.swing.JButton jButtonResetAll;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
+    private javax.swing.JComboBox jComboBox3;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel14;
@@ -626,7 +689,6 @@ public class JobInspectingAndEstimation extends javax.swing.JInternalFrame {
     private javax.swing.JTextField jTextFieldMachineID;
     private javax.swing.JTextField jTextFieldMchinePart1;
     private javax.swing.JTextField jTextFieldSearchCustomerId;
-    private javax.swing.JTextField jTextFieldTechnicianID;
     private javax.swing.JTextField jTextFieldTechnicianID1;
     private javax.swing.JTextField jTextFieldTechnicianName;
     private javax.swing.JTextField jTextFieldTechnicianName1;

@@ -62,7 +62,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
         dateSettings1.setFormatForDatesCommonEra("yyyy/MM/dd");
         dateSettings1.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker2 = new com.github.lgooddatepicker.components.DatePicker(dateSettings1);
-        jButtonADD = new javax.swing.JButton();
+        jButtonDemo = new javax.swing.JButton();
         jButtonResetAll = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -73,16 +73,17 @@ public class OrderParts extends javax.swing.JInternalFrame {
         jTextField1 = new javax.swing.JTextField();
         jComboBox1 = new javax.swing.JComboBox();
         jTextField2 = new javax.swing.JTextField();
+        jButtonADD2 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanelcustomerSearch = new javax.swing.JPanel();
-        jTextField = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         Search = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         ResetButton1 = new javax.swing.JButton();
+        jLabel19 = new javax.swing.JLabel();
+        ComName = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         jTextFieldDescription1 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
@@ -92,15 +93,15 @@ public class OrderParts extends javax.swing.JInternalFrame {
         dateSettings.setFormatForDatesBeforeCommonEra("uuuu/MM/dd");
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(dateSettings);
         jButtonADD1 = new javax.swing.JButton();
-        jLabel19 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jTextFieldAmount1 = new javax.swing.JTextField();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         jComboBox3 = new javax.swing.JComboBox();
-        jComboBox5 = new javax.swing.JComboBox();
         jTextField3 = new javax.swing.JTextField();
+        jTextField = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
@@ -156,14 +157,14 @@ public class OrderParts extends javax.swing.JInternalFrame {
         datePicker2.setName("");
         jPanel2.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
 
-        jButtonADD.setText("ADD ");
-        jButtonADD.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jButtonADD.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDemo.setText("Demo");
+        jButtonDemo.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonDemo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonADDActionPerformed(evt);
+                jButtonDemoActionPerformed(evt);
             }
         });
-        jPanel2.add(jButtonADD, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, -1, -1));
+        jPanel2.add(jButtonDemo, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 380, -1, -1));
 
         jButtonResetAll.setText("Reset All");
         jButtonResetAll.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -224,6 +225,20 @@ public class OrderParts extends javax.swing.JInternalFrame {
         });
         jPanel2.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 130, -1));
 
+        jButtonADD2.setText("ADD ");
+        jButtonADD2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jButtonADD2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonADD2MouseClicked(evt);
+            }
+        });
+        jButtonADD2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonADD2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButtonADD2, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, -1, -1));
+
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 510, 520));
 
         jTabbedPane1.addTab("Oder Add", jPanel1);
@@ -232,13 +247,6 @@ public class OrderParts extends javax.swing.JInternalFrame {
 
         jPanelcustomerSearch.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanelcustomerSearch.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldActionPerformed(evt);
-            }
-        });
-        jPanelcustomerSearch.add(jTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 20, 120, -1));
         jPanelcustomerSearch.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         jButton8.setText("View All");
@@ -248,7 +256,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
+        jPanelcustomerSearch.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 20, -1, -1));
 
         Search.setText("Search");
         Search.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -257,11 +265,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
                 SearchActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 20, -1, -1));
-
-        jLabel1.setText("Order ID");
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanelcustomerSearch.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, -1));
+        jPanelcustomerSearch.add(Search, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -290,26 +294,37 @@ public class OrderParts extends javax.swing.JInternalFrame {
                 ResetButton1ActionPerformed(evt);
             }
         });
-        jPanelcustomerSearch.add(ResetButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, -1));
+        jPanelcustomerSearch.add(ResetButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 20, -1, -1));
 
-        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 520, 500));
+        jLabel19.setText("Company Name");
+        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanelcustomerSearch.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
+
+        ComName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComNameActionPerformed(evt);
+            }
+        });
+        jPanelcustomerSearch.add(ComName, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 120, -1));
+
+        jPanel3.add(jPanelcustomerSearch, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, 550, 500));
 
         jPanel6.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTextFieldDescription1.setName("Customer Name"); // NOI18N
-        jPanel6.add(jTextFieldDescription1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 90, 110, -1));
+        jPanel6.add(jTextFieldDescription1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 110, -1));
 
         jLabel11.setText("Description");
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 100, -1, -1));
+        jPanel6.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
         jLabel14.setText("Date");
         jLabel14.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+        jPanel6.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
         datePicker3.setName(""); // NOI18N
-        jPanel6.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 290, -1, -1));
+        jPanel6.add(datePicker3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, -1, -1));
 
         jButtonADD1.setText("Delete");
         jButtonADD1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -320,24 +335,20 @@ public class OrderParts extends javax.swing.JInternalFrame {
         });
         jPanel6.add(jButtonADD1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 380, -1, -1));
 
-        jLabel19.setText("Company Name");
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 140, -1, -1));
-
         jLabel20.setText("Amount");
         jLabel20.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
+        jPanel6.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, -1, -1));
 
         jTextFieldAmount1.setName("Phone number"); // NOI18N
-        jPanel6.add(jTextFieldAmount1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 110, -1));
+        jPanel6.add(jTextFieldAmount1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 110, -1));
 
         jLabel21.setText("Technician ID(Recommend)");
         jLabel21.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, -1, -1));
+        jPanel6.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, -1, -1));
 
         jLabel22.setText("Technician Name");
         jLabel22.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, -1, -1));
+        jPanel6.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
         jButton4.setText("Edit");
         jButton4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -348,11 +359,19 @@ public class OrderParts extends javax.swing.JInternalFrame {
         });
         jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 380, -1, -1));
 
-        jPanel6.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 210, 130, -1));
+        jPanel6.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 130, -1));
+        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 130, -1));
 
-        jComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "ABANS", "SINGER" }));
-        jPanel6.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, 110, -1));
-        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 250, 130, -1));
+        jTextField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldActionPerformed(evt);
+            }
+        });
+        jPanel6.add(jTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 40, 120, -1));
+
+        jLabel1.setText("Order ID");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jPanel6.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 70, -1));
 
         jPanel3.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 30, 510, 520));
 
@@ -368,15 +387,9 @@ public class OrderParts extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonADDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADDActionPerformed
-        OrderAdd();
-        TableLoad1();
-
-
-    }//GEN-LAST:event_jButtonADDActionPerformed
-
     private void jButtonResetAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetAllActionPerformed
         TextBoxClear1();
+        generate_Oder_ID();
 
     }//GEN-LAST:event_jButtonResetAllActionPerformed
 
@@ -402,7 +415,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
 
         jTextField.setText(o_id);
         jTextFieldDescription1.setText(description);
-        jComboBox5.setSelectedItem(c_name);
+        ComName.setText(c_name);
         jTextFieldAmount1.setText(amount);
         jComboBox3.setSelectedItem(t_id);
         jTextField3.setText(t_name);
@@ -471,6 +484,30 @@ public class OrderParts extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_jTextFieldAmountKeyTyped
 
+    private void jButtonADD2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonADD2ActionPerformed
+        OrderAdd();
+        TableLoad1();
+         generate_Oder_ID();
+        
+    }//GEN-LAST:event_jButtonADD2ActionPerformed
+
+    private void jButtonDemoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDemoActionPerformed
+       jTextFieldDescription.setText("GOODDDD");
+       jComboBox6.setSelectedItem("SINGER");
+       jTextFieldAmount.setText("100");
+       jComboBox1.setSelectedItem("7");
+       jTextField2.setText("Sunil");
+       
+    }//GEN-LAST:event_jButtonDemoActionPerformed
+
+    private void jButtonADD2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonADD2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonADD2MouseClicked
+
+    private void ComNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComNameActionPerformed
+
     private void generate_Oder_ID() {
         AutoIdGenerator o_id = new AutoIdGenerator();
         jTextField1.setText(o_id.generate("ACC", Integer.toString(MainWindow.userid)));
@@ -504,6 +541,14 @@ public class OrderParts extends javax.swing.JInternalFrame {
             String t_id = jComboBox1.getSelectedItem().toString();
             String t_name = jTextField2.getText();
             String date = datePicker2.getText();
+            
+                    
+        
+        if(o_id.isEmpty()||description.isEmpty()||t_name.isEmpty()||date.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"FIELDS ARE EMPTY");
+    
+    }else{
 
             boolean x = autoSqlQuery.execute("INSERT INTO `garmentsystem`.`Order_Part`\n"
                     + "(`OrderID`,\n"
@@ -535,12 +580,22 @@ public class OrderParts extends javax.swing.JInternalFrame {
             }
         }
     }
+    }
 
     private void DeleteOder_Parts() {
-        String o_id = jTextField.getText();
-
-        boolean x = autoSqlQuery.execute("DELETE FROM `garmentsystem`.`Order_Part`\n"
-                + "WHERE OrderID LIKE '" + o_id + "';");
+        
+       String id =jTextField.getText();
+       
+              if(id.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"FIELDS ARE EMPTY");
+    
+    }else{
+       
+       
+             boolean x = autoSqlQuery.execute
+        ("DELETE FROM `garmentsystem`.`Order_Part`\n" +
+        "WHERE OrderID = '"+id+"';");
 
         try {
             if (x == true) {
@@ -552,11 +607,12 @@ public class OrderParts extends javax.swing.JInternalFrame {
             System.out.println(ex);
         }
     }
+    }
 
     public void TechSearch() {
         {
-            String o_id = jTextField.getText();
-            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Order_Part WHERE OrderID = '" + o_id + "'");
+            String c_name = ComName.getText();
+            AutoDB_Connect.DB_ResultSet = autoSqlQuery.executeQuery("SELECT * FROM garmentsystem.Order_Part WHERE CompanyName = '" + c_name + "'");
             jTable2.setModel(DbUtils.resultSetToTableModel(AutoDB_Connect.DB_ResultSet));
         }
 
@@ -566,21 +622,29 @@ public class OrderParts extends javax.swing.JInternalFrame {
 
         String o_id = jTextField.getText();
         String description = jTextFieldDescription1.getText();
-        String c_name = jComboBox5.getSelectedItem().toString();
+        String c_name = ComName.getText();
         float amount = Float.parseFloat(jTextFieldAmount1.getText());
         String t_id = jComboBox3.getSelectedItem().toString();
         String t_name = jTextField3.getText();
         String date = datePicker3.getText();
+        
+            
+        if(o_id.isEmpty()||description.isEmpty()||c_name.isEmpty()||t_name.isEmpty()||date.isEmpty()){
+            
+            JOptionPane.showMessageDialog(null,"FIELDS ARE EMPTY");
+    
+    }else{
 
-        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Order_Part`\n"
-                + "SET \n"
-                + "`Description` = '" + description + "',\n"
-                + "`CompanyName` = '" + c_name + "',\n"
-                + "`Amount` = '" + amount + "',\n"
-                + "`TechnicianID` = '" + t_id + "',\n"
-                + "`TechnicianName` = '" + t_name + "',\n"
-                + "`Date` = '" + date + "' \n"
-                + "WHERE `OrderID` = '" + o_id + "';");
+        boolean x = autoSqlQuery.execute("UPDATE `garmentsystem`.`Order_Part`\n" +
+                 "SET \n" +
+                 "`OrderID` = '" + o_id + "',\n" +
+                 "`CompanyName` = '" + c_name +"',\n" +
+                 "`Description` = '" + description + "',\n" +
+                 "`Amount` = '" + amount + "',\n" +
+                 "`TechnicianID` = '" + t_id + "',\n" +
+                 "`TechnicianName` = '" + t_name + "',\n" +
+                 "`Date` = '" + date + "' \n" +
+                 "WHERE `OrderID` = '" + o_id + "';");
 
         try {
             if (x == true) {
@@ -592,6 +656,7 @@ public class OrderParts extends javax.swing.JInternalFrame {
         } catch (Exception ex) {
             System.out.println(ex);
 
+        }
         }
     }
 
@@ -664,18 +729,19 @@ public class OrderParts extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ComName;
     private javax.swing.JButton ResetButton1;
     private javax.swing.JButton Search;
     private com.github.lgooddatepicker.components.DatePicker datePicker2;
     private com.github.lgooddatepicker.components.DatePicker datePicker3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButtonADD;
     private javax.swing.JButton jButtonADD1;
+    private javax.swing.JButton jButtonADD2;
+    private javax.swing.JButton jButtonDemo;
     private javax.swing.JButton jButtonResetAll;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox3;
-    private javax.swing.JComboBox jComboBox5;
     private javax.swing.JComboBox jComboBox6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
