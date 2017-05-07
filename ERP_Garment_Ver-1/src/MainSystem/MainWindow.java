@@ -65,6 +65,8 @@ import StyleManagement.CreateDesign;
 import StyleManagement.Update_Delete_Designs;
 import com.thehowtotutorial.splashscreen.JSplash;
 import java.awt.Color;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 /**
@@ -101,6 +103,32 @@ public static CuttingSchedule cuttingschedule ;
         autogetimage=new AutoGetImage();
         aid = new AutoIdGenerator();
         autoReport=new AutoReport(DB_connection);
+        setUserAccess();
+        // premition set loop
+        ResultSet pre=autoSqlQuery.executeAutoSearchSelected(new String[]{"Permission"},"users_table","emp_table_emp_id",Integer.toString(userid));
+        String prem=null;
+        
+    try {
+        pre.next();
+        prem = AutoDB_Connect.DB_ResultSet.getString("Permission");
+    } catch (SQLException ex) {
+        Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        //String prem="00000100000000";
+        for (int x=1;x<14;x++)
+        {   
+            char c=prem.charAt(x);
+            if(c=='0')
+            {
+            jTabbedPane.setEnabledAt(x,false);
+            }
+            else
+            {
+            jTabbedPane.setEnabledAt(x,true);
+            }
+        
+        }
+        
     }
     
 
@@ -113,7 +141,8 @@ public static CuttingSchedule cuttingschedule ;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jTabbedPane = new javax.swing.JTabbedPane();
+        jPanel10 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -184,7 +213,6 @@ public static CuttingSchedule cuttingschedule ;
         jButton59 = new javax.swing.JButton();
         jButton60 = new javax.swing.JButton();
         jButton61 = new javax.swing.JButton();
-        jPanel10 = new javax.swing.JPanel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -193,7 +221,20 @@ public static CuttingSchedule cuttingschedule ;
         setPreferredSize(new java.awt.Dimension(1365, 730));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jTabbedPane.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+
+        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
+        jPanel10.setLayout(jPanel10Layout);
+        jPanel10Layout.setHorizontalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1345, Short.MAX_VALUE)
+        );
+        jPanel10Layout.setVerticalGroup(
+            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 51, Short.MAX_VALUE)
+        );
+
+        jTabbedPane.addTab("", jPanel10);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -260,7 +301,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel1.add(jButton46, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 10, -1, -1));
 
-        jTabbedPane1.addTab("Sales ", jPanel1);
+        jTabbedPane.addTab("Sales ", jPanel1);
 
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -282,7 +323,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel11.add(jButton41, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
-        jTabbedPane1.addTab("Marketing", jPanel11);
+        jTabbedPane.addTab("Marketing", jPanel11);
 
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -318,7 +359,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel2.add(jButton23, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
-        jTabbedPane1.addTab("Design Management", jPanel2);
+        jTabbedPane.addTab("Design Management", jPanel2);
 
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -346,7 +387,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel14.add(jButton43, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
 
-        jTabbedPane1.addTab("Sampling Mgmt", jPanel14);
+        jTabbedPane.addTab("Sampling Mgmt", jPanel14);
 
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -382,7 +423,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel3.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
-        jTabbedPane1.addTab("Manufacturing Planning", jPanel3);
+        jTabbedPane.addTab("Manufacturing Planning", jPanel3);
 
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -418,7 +459,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel4.add(jButton38, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, -1, -1));
 
-        jTabbedPane1.addTab("Manufacturing", jPanel4);
+        jTabbedPane.addTab("Manufacturing", jPanel4);
 
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -446,7 +487,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel5.add(jButton27, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, -1, -1));
 
-        jTabbedPane1.addTab("Procurements ", jPanel5);
+        jTabbedPane.addTab("Procurements ", jPanel5);
 
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -493,7 +534,7 @@ public static CuttingSchedule cuttingschedule ;
         jButton24.setText("Re-Order List");
         jPanel6.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
 
-        jTabbedPane1.addTab("Inventory ", jPanel6);
+        jTabbedPane.addTab("Inventory ", jPanel6);
 
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -537,7 +578,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel12.add(jButton57, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 10, -1, -1));
 
-        jTabbedPane1.addTab("Distribution", jPanel12);
+        jTabbedPane.addTab("Distribution", jPanel12);
 
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -573,7 +614,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel13.add(jButton56, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 10, -1, -1));
 
-        jTabbedPane1.addTab("Maintenances", jPanel13);
+        jTabbedPane.addTab("Maintenances", jPanel13);
 
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -641,7 +682,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, -1, -1));
 
-        jTabbedPane1.addTab("Finance ", jPanel8);
+        jTabbedPane.addTab("Finance ", jPanel8);
 
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -677,7 +718,7 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel7.add(btnLeaves, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, -1, -1));
 
-        jTabbedPane1.addTab("Human Resource ", jPanel7);
+        jTabbedPane.addTab("Human Resource ", jPanel7);
 
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -700,22 +741,9 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel9.add(jButton61, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
-        jTabbedPane1.addTab("Settings", jPanel9);
+        jTabbedPane.addTab("Settings", jPanel9);
 
-        javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
-        jPanel10.setLayout(jPanel10Layout);
-        jPanel10Layout.setHorizontalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1345, Short.MAX_VALUE)
-        );
-        jPanel10Layout.setVerticalGroup(
-            jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 51, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("Help", jPanel10);
-
-        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1350, 70));
+        getContentPane().add(jTabbedPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 1350, 70));
 
         jDesktopPane1.setMaximumSize(new java.awt.Dimension(1365, 730));
         jDesktopPane1.setMinimumSize(new java.awt.Dimension(1365, 730));
@@ -1500,6 +1528,31 @@ public static CuttingSchedule cuttingschedule ;
     final int y = (screenSize.height - this.getHeight()) / 2;
     this.setLocation(x, y);
 }
+    
+    public void setUserAccess()
+    {
+        
+        
+        
+    } 
+    
+    public void Sales(){
+    
+    }
+    public void Marketing(){}
+    public void Design(){}
+    public void Sampling(){}
+    public void ManufaturingPlanning(){}
+    public void Manufaturing(){}
+    public void Procument(){}
+    public void Inventory(){}
+    public void Distribution(){}
+    public void Maintenance(){}
+    public void Finance(){}
+    public void HumanResource(){}
+    public void setting(){}
+    
+    
      public static void DisplaySplash()
     {
         try
@@ -1645,6 +1698,6 @@ public static CuttingSchedule cuttingschedule ;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTabbedPane jTabbedPane;
     // End of variables declaration//GEN-END:variables
 }
