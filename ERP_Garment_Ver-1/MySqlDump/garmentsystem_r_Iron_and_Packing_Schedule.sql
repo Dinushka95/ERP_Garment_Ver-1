@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -44,7 +46,7 @@ CREATE TABLE `r_Iron_and_Packing_Schedule` (
 
 LOCK TABLES `r_Iron_and_Packing_Schedule` WRITE;
 /*!40000 ALTER TABLE `r_Iron_and_Packing_Schedule` DISABLE KEYS */;
-INSERT INTO `r_Iron_and_Packing_Schedule` VALUES ('eed','trt','Final ironinng/ pressing','tyu',5,'2017-04-03','2017-04-03','44',88,'dgf',45),('IAP-SHI12d589bfc','STY124da5ebd','No ironing/ pressing','I003',33,'2017-04-01','2017-04-02','4',33,'WSH-SHI129dbc5c0',5),('IAP-SHI12d645df8','STY124da5ebd','Final ironinng/ pressing','I002',55,'2017-04-19','2017-04-13','4',445,'5',5);
+INSERT INTO `r_Iron_and_Packing_Schedule` VALUES ('eed','trt','Final ironinng/ pressing','tyu',5,'2017-04-03','2017-04-03','44',88,'dgf',45),('IAP-SHI12d589bfc','STY124da5ebd','No ironing/ pressing','I003',33,'2017-04-01','2017-04-02','4',33,'WSH-SHI129dbc5c0',5),('IAP-SHI12d645df8','STY124da5ebd','Final ironinng/ pressing','I002',55,'2017-04-19','2017-04-13','4',445,'5',5),('IAP-SHI1e6562aab','STY124da5ebd','Under ironing/ pressing','I003',22,'2017-05-12','2017-05-18','Uvini',222,'WSH-SHI129dbc5c0',5);
 /*!40000 ALTER TABLE `r_Iron_and_Packing_Schedule` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +59,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:28:13
+-- Dump completed on 2017-05-08 17:55:05

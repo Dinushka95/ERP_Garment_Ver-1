@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -42,7 +44,7 @@ CREATE TABLE `leaves_table` (
 
 LOCK TABLES `leaves_table` WRITE;
 /*!40000 ALTER TABLE `leaves_table` DISABLE KEYS */;
-INSERT INTO `leaves_table` VALUES ('1','1','2017-02-15','2017-02-14','2017-02-13','Sick','TRATLK',4,'Sick'),('2','2','2017-02-15','2017-02-14','2017-02-13','Sick','TRATLK',5,'Sick'),('3','2','2017-02-15','2017-02-14','2017-02-13','Sick','TRATLK',5,'Sick'),('4','2','2017-02-15','2017-02-14','2017-02-13','Sick','TRATLK',5,'Sick'),('5','2','2017-05-09','2017-05-10','2017-02-13','Sick','TRATLK',1,'Sick'),('7','1','2017-04-03','2017-04-03','2017-04-03','sick leave','tratlk',1,'person');
+INSERT INTO `leaves_table` VALUES ('1','1','2017-02-15','2017-02-14','2017-02-13','Sick','TRATLK',4,'Sick'),('2','2','2017-02-15','2017-02-14','2017-02-13','Sick','TRATLK',5,'Sick'),('3','2','2017-02-15','2017-02-14','2017-02-13','Sick','TRATLK',5,'Sick'),('4','2','2017-02-15','2017-02-14','2017-02-13','Sick','TRATLK',5,'Sick'),('5','2','2017-05-09','2017-05-10','2017-02-13','Sick','TRATLK',1,'Sick'),('7','1','2017-04-03','2017-04-03','2017-04-03','sick leave','tratlk',1,'person'),('8','1','2017-05-10','2017-05-01','2017-05-07','sick','tratlk',2,'sick'),('9','1','2017-05-09','2017-05-01','2017-05-08','Casual','Tratlk',2,'Personal');
 /*!40000 ALTER TABLE `leaves_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:28:21
+-- Dump completed on 2017-05-08 17:55:22

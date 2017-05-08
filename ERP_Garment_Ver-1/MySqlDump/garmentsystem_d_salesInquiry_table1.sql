@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -38,7 +40,7 @@ CREATE TABLE `d_salesInquiry_table1` (
 
 LOCK TABLES `d_salesInquiry_table1` WRITE;
 /*!40000 ALTER TABLE `d_salesInquiry_table1` DISABLE KEYS */;
-INSERT INTO `d_salesInquiry_table1` VALUES ('sii12ea8e452','FGD179c60f66','1'),('sii12ea8e452','FGD17a1683cd','1'),('sii12eb5dfa4','FGD179c4873e','6'),('sii12ebbc75f','FGD17a7c3f81','5'),('sii132510b6d','FGD131ee1f2c','1'),('sii132510b6d','FGD17a1683cd','2'),('sii17d95ffa9','FGD17a1683cd','5'),('sii17d95ffa9','FGD17a7c3f81','5'),('sii1dcd9f62c','FGD17a7c3f81','10');
+INSERT INTO `d_salesInquiry_table1` VALUES ('sii12ea8e452','FGD179c60f66','1'),('sii12ea8e452','FGD17a1683cd','1'),('sii12eb5dfa4','FGD179c4873e','6'),('sii12ebbc75f','FGD17a7c3f81','5'),('sii132510b6d','FGD131ee1f2c','1'),('sii132510b6d','FGD17a1683cd','2'),('sii17d95ffa9','FGD17a1683cd','5'),('sii17d95ffa9','FGD17a7c3f81','5'),('sii1dcd9f62c','FGD17a7c3f81','10'),('sii1e76cd552','FGD131effd8c','44');
 /*!40000 ALTER TABLE `d_salesInquiry_table1` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:27:40
+-- Dump completed on 2017-05-08 17:54:30

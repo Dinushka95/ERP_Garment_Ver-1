@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -41,7 +43,7 @@ CREATE TABLE `Accessory_Table` (
 
 LOCK TABLES `Accessory_Table` WRITE;
 /*!40000 ALTER TABLE `Accessory_Table` DISABLE KEYS */;
-INSERT INTO `Accessory_Table` VALUES ('ACC12fdbf040','Sequences','4','5200','23400.0','Sequences','2','2017-04-02'),('ACC131f1b6cb','GreenRibbons','150','50','7500.0','Ribbon','25','2017-04-03'),('ACC13278e919','RedRibbons','150','50','','Zippers','25','2017-04-03'),('ACC17080db4c','pins','7','567','3969.0','pin','200','2017-02-24'),('ACC1cd1428d8','RedRibbons','150','50','7500.0','Ribbon','25','2017-05-03'),('ACC1cd73d048','Blahh','150','50','7500.0','Threads','12','2017-05-03'),('ACC1cdf3f3d6','Linen','18','45','810.0','Neckline','12','2017-05-03'),('ACC1dddfe1ca','Linnen','95','1250','118750.0','Badge','45','2017-05-06'),('ACC1dde06408','BlackThreads','150','50','','Threads','25','2017-05-06'),('ACC1f475d77b','Pins','100','20','2000.0','Pins','10','2017-03-22'),('ACC1f54451f5','Lace','10','200','2000.0','Lace','100','2017-03-22');
+INSERT INTO `Accessory_Table` VALUES ('ACC12fdbf040','Sequences','4','5200','23400.0','Sequences','2','2017-04-02'),('ACC131f1b6cb','GreenRibbons','150','50','7500.0','Ribbon','25','2017-04-03'),('ACC17080db4c','pins','7','567','3969.0','pin','200','2017-02-24'),('ACC1cd1428d8','RedRibbons','150','50','7500.0','Ribbon','25','2017-05-03'),('ACC1cd73d048','Blahh','150','50','7500.0','Threads','12','2017-05-03'),('ACC1cdf3f3d6','Linen','18','45','810.0','Neckline','12','2017-05-03'),('ACC1dddfe1ca','Linnen','95','1250','118750.0','Badge','45','2017-05-06'),('ACC1dde06408','BlackThreads','150','50','','Threads','25','2017-05-06'),('ACC1e1fa2123','RedRibbons','150','40','6000.0','Zippers','25','2017-05-07'),('ACC1e1fc5ff6','Ribbons','200','50','10000.0','Ribbon','25','2017-05-07'),('ACC1e1ffc14b','RedRibbons','150','54','8100.0','Zippers','25','2017-05-07'),('ACC1e2288344','RedRibbons','150','4500','675000.0','Ribbon','25','2017-05-07'),('ACC1e626a0ba','RedRibbons','150','50','7500.0','Zippers','25','2017-05-08'),('ACC1e6402e0c','RedRibbons','150','50','7500.0','Zippers','25','2017-05-08'),('ACC1f475d77b','Pins','100','20','2000.0','Pins','10','2017-03-22'),('ACC1f54451f5','Lace','10','200','2000.0','Lace','100','2017-03-22');
 /*!40000 ALTER TABLE `Accessory_Table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:27:15
+-- Dump completed on 2017-05-08 17:54:04

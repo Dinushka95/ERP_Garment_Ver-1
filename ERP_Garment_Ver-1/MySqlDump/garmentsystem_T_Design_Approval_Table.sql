@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -40,7 +42,7 @@ CREATE TABLE `T_Design_Approval_Table` (
 
 LOCK TABLES `T_Design_Approval_Table` WRITE;
 /*!40000 ALTER TABLE `T_Design_Approval_Table` DISABLE KEYS */;
-INSERT INTO `T_Design_Approval_Table` VALUES ('AID12a7295b4','Harry ','STY124da5ebd','Approve','Start','2017-04-01'),('AID12ee6dc3c','Bhagya','STY124c9f493','Approve','Approved','2017-04-02'),('AID13258ea3f','Bhagya Engi','STY12ba57794','Approve','Approved','2017-04-03'),('AID1bf366e5f','Bhagya','STY12d52cdfb','Approve','Approved','2017-04-30'),('AID1d514fcfc','Bhagya','STY12fd7b4c4','Approve','Approved','2017-05-05'),('AID1d8b15391','L Rajendra','STY1ae2fcb46','Approve','Start ','2017-03-17'),('AID1ddf3b694','Bhagya','STY12ee4ae88','Approve','Approved','2017-05-06'),('AID1f43a168d','Surosh Chavi','STY1ae2fcb46','Approve','56555','2017-03-22'),('AID1fa99c220','Surosh Chavi','STY1d89659a9','Approve','Done','2017-03-23'),('AID1faa0fb1e','dinu','STY1ae2fcb46','Approve','XXXXX','2017-03-23');
+INSERT INTO `T_Design_Approval_Table` VALUES ('AID12a7295b4','Harry ','STY124da5ebd','Approve','Start','2017-04-01'),('AID12ee6dc3c','Bhagya','STY124c9f493','Approve','Approved','2017-04-02'),('AID13258ea3f','Bhagya Engi','STY12ba57794','Approve','Approved','2017-04-03'),('AID1bf366e5f','Bhagya','STY12d52cdfb','Approve','Approved','2017-04-30'),('AID1d514fcfc','Bhagya','STY12fd7b4c4','Approve','Approved','2017-05-05'),('AID1d8b15391','L Rajendra','STY1ae2fcb46','Approve','Start ','2017-03-17'),('AID1ddf3b694','Bhagya','STY12ee4ae88','Approve','Approved','2017-05-06'),('AID1e62a3829','Bhagya','STY12ee4ae88','Approve','Approved','2017-05-08'),('AID1e67157f3','Bhagya','STY12ee4ae88','Approve','Approved','2017-05-08'),('AID1f43a168d','Surosh Chavi','STY1ae2fcb46','Approve','56555','2017-03-22'),('AID1fa99c220','yyy','STY1d89659a9','Approve','Done','2017-03-23'),('AID1faa0fb1e','dinu','STY1ae2fcb46','Approve','XXXXX','2017-03-23');
 /*!40000 ALTER TABLE `T_Design_Approval_Table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:25:11
+-- Dump completed on 2017-05-08 17:51:41

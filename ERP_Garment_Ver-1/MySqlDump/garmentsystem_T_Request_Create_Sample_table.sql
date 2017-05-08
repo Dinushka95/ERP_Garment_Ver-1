@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -45,7 +47,7 @@ CREATE TABLE `T_Request_Create_Sample_table` (
 
 LOCK TABLES `T_Request_Create_Sample_table` WRITE;
 /*!40000 ALTER TABLE `T_Request_Create_Sample_table` DISABLE KEYS */;
-INSERT INTO `T_Request_Create_Sample_table` VALUES ('SAMID11518f7ef','Trouser','STY1b3b985a','Winter','Men','XL','Sketch Sample','Sethuni ','5','Customer','2017-03-28'),('SAMID11519f010','Short','STY1a1ea783c','Blah','Men','2XL','Sketch Sample','Hameez','1','Marketing','2017-03-28'),('SAMID1151a9020','Blouse','STY1f42cb781','Summer','Men','XL','Photo Sample','St Peterson','3','Customer','2017-03-28'),('SAMID12c130981','Trouser','STY129fbf121','Blush','Men','XL','Sketch Sample','Surosh Chavin','4','Customer','2017-04-02'),('SAMID12cffb54b','Shorts','STY12ba57794','Summer','Men','XL','Photo Sample','Surosh Chavi','2','Customer','2017-04-02'),('SAMID12fb66e31','Trouser','STY129fbf121','Blah','Men','XL','Photo Sample','Surosh Chavi','2','Customer','2017-04-02'),('SAMID12fd6cb3a','Trouser','STY12550b6d7','Blah','Men','XL','Photo Sample','Surosh Chavi','2','Customer','2017-04-02'),('SAMID1310e568e','Skirt','STY12a7ea5c5','Blah','Teenagers','M','Photo Sample','Surosh Chavi','2','Customer','2017-04-03');
+INSERT INTO `T_Request_Create_Sample_table` VALUES ('SAMID11518f7ef','Trouser','STY1b3b985a','Autumn','Men','Sketch Sample','L','Sethuni ','5','Customer','2017-05-07'),('SAMID11519f010','Short','STY1a1ea783c','Spring','Men','Photo Sample','XL','Hameez','3','Marketing','2017-04-26'),('SAMID1151a9020','Blouse','STY1f42cb781','Summer','Female','Photo Sample','M','St Peterson','3','Customer','2017-03-28'),('SAMID12c130981','Skirt','STY129fbf121','Summer','Female','Sketch Sample','S','Surosh Chavin','4','Customer','2017-04-02'),('SAMID12cffb54b','Shorts','STY12ba57794','Summer','Female','Photo Sample','L','Surosh Chavi','2','Customer/Marketing','2017-04-02'),('SAMID12fb66e31','Shirt','STY129fbf121','Winter','Men','Photo Sample','M','Ekanayake TW','8','Marketing','2017-04-02'),('SAMID12fd6cb3a','Trouser','STY12550b6d7','Summer','Men','Sketch Sample','L','Surosh Chavi','2','Customer','2017-04-02'),('SAMID1e434b0bb','Trouser','STY1cdb80cf4','Blah','Men','Photo Sample','XL','Surosh Chavi','2','Customer','2017-05-08'),('SAMID1e43507a4','Trouser','STY12ee4ae88','Blah','Female','Photo Sample','XL','Surosh Chavi','2','Customer','2017-05-08');
 /*!40000 ALTER TABLE `T_Request_Create_Sample_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:27:07
+-- Dump completed on 2017-05-08 17:53:56

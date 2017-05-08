@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -26,7 +28,7 @@ CREATE TABLE `T_New_Colour_table` (
   `ID` int(11) NOT NULL AUTO_INCREMENT,
   `NewColour` varchar(45) NOT NULL,
   PRIMARY KEY (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -35,7 +37,7 @@ CREATE TABLE `T_New_Colour_table` (
 
 LOCK TABLES `T_New_Colour_table` WRITE;
 /*!40000 ALTER TABLE `T_New_Colour_table` DISABLE KEYS */;
-INSERT INTO `T_New_Colour_table` VALUES (1,'red'),(2,'BlueBerry'),(3,'BlackRed'),(8,'LacticAcid'),(9,'PigeonAsh'),(10,'AshBlue');
+INSERT INTO `T_New_Colour_table` VALUES (1,'red'),(2,'BlueBerry'),(3,'BlackRed'),(8,'LacticAcid'),(9,'PigeonAsh'),(10,'AshBlue'),(11,'Pink');
 /*!40000 ALTER TABLE `T_New_Colour_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -48,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:27:32
+-- Dump completed on 2017-05-08 17:54:22

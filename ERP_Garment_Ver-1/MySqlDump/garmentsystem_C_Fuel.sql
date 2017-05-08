@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -43,7 +45,7 @@ CREATE TABLE `C_Fuel` (
 
 LOCK TABLES `C_Fuel` WRITE;
 /*!40000 ALTER TABLE `C_Fuel` DISABLE KEYS */;
-INSERT INTO `C_Fuel` VALUES ('100','VEH12cecb9ae','Ya789','Select','456','120','485','58200.0','2017-05-06',NULL),('FUEL1314b15a8','njvv','bd fgf','nydfy','ygecu','100','50','5000.0','2017-04-02',NULL),('FUEL131523bee','hjbds',' hagxf','haf','25248','100','61','6100.0','2017-04-02',NULL),('FUEL13153d617','usncf','jhcf','aiucwh','uacg','1000','100','100000.0','2017-04-02',NULL),('FUEL1325a1238','dnvkj','gjb hj','tgnjrh','gnvj','78','14','1092.0','2017-04-02',NULL),('FUEL1326d0346','dsrd','fdg','gz','1162','120','10','1200.0','2017-04-03',NULL),('FUEL134881038','jhdf','jhef','sjdfh','459','425','10','4250.0','2017-04-03',NULL),('FUEL1a08066cc','furhruhq','eofjeorimwoi','woemri3m','imeowrmei','40','50','2000.0','2017-03-06',NULL),('FUEL1dc7e29fb','VEH12cecb9ae','Ya789','Select','123ED','120','-234','-28080.0','2017-05-05',NULL),('FUEL1df6dd57d','VEH12cecb9ae','Ya789','Select','45','105','45','4725.0','2017-05-06',NULL),('FUEL1dfbb9644','VEH12cecb9ae','Ya789','Select','4875','120','78','9360.0','2017-05-06','Petrol'),('FUEL1e019c361','VEH12cecb9ae','Ya789','Select','789','120','48','5760.0','2017-05-06','Petrol'),('FUEL1e01c8c9c','VEH12cecb9ae','Ya789','Select','155','120','588d','70560.0','2017-05-06','Petrol');
+INSERT INTO `C_Fuel` VALUES ('FUEL1e62be633','VEH134aca984','DR1459','Jayawardhena','11','120','25','3000.0','2017-05-08','Petrol'),('FUEL1e68a4924','VEH12cecb9ae','Ya789','Select','123','120','45','5400.0','2017-05-08','Petrol'),('FUEL1e6b01018','VEH12cecb9ae','Ya789','COOP','1','120','40','4800.0','2017-05-01','Petrol'),('FUEL1e6b0ab21','VEH12d020b59','DR1459','Jayawardhena','2','105','20','2100.0','2017-05-03','Diesel'),('FUEL1e6b12b0d','VEH1a06fc46e','DR249','DSI','3','105','25','2625.0','2017-05-04','Diesel'),('FUEL1e6b1d6ab','VEH1e6a3dbfa','DR5789','United','4','120','15','1800.0','2017-05-02','Petrol'),('FUEL1e6b29d4c','VEH134aca984','DR1459','COOP','5','105','20','2100.0','2017-04-03','Diesel'),('FUEL1e6b4b47e','VEH12d020b59','Ya789','Jayawardhena','6','120','25','3000.0','2017-05-01','Petrol'),('FUEL1e6baf4ac','VEH134aca984','DR249','COOP','6','120','5','600.0','2017-05-02','Petrol'),('FUEL1e6bb942a','VEH1a06fc46e','DR5789','Jayawardhena','8','105','12','1260.0','2017-05-03','Diesel'),('FUEL1e6be110e','VEH1e6a3dbfa','DR1459','DSI','9','120','20','2400.0','2017-05-05','Petrol'),('FUEL1e8af4e79','VEH134aca984','DR249','Select','10','120','30','3600.0','2017-05-08','Petrol');
 /*!40000 ALTER TABLE `C_Fuel` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:21:13
+-- Dump completed on 2017-05-08 17:47:37

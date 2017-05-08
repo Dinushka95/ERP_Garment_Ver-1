@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -40,7 +42,7 @@ CREATE TABLE `Raw_Materials` (
 
 LOCK TABLES `Raw_Materials` WRITE;
 /*!40000 ALTER TABLE `Raw_Materials` DISABLE KEYS */;
-INSERT INTO `Raw_Materials` VALUES ('mat123','pins','1000','100','100000','100','2017-02-17'),('MAT131ecc3fa','LinenFabrickBlack','450','200','90000.0','100','2017-04-03'),('MAT132750492','gghvh','500',' 10','5000.0','5','2017-04-03'),('MAT1bcb611fe','LinenFabrickBlack','450','10','4500.0','100','2017-04-30'),('MAT1ddb2a4f4','fabrickBlue','500','30','15000.0','15','2017-05-10');
+INSERT INTO `Raw_Materials` VALUES ('mat123','Cotton','1000','100','100000','100','2017-02-17'),('MAT131ecc3fa','LinenFabrickBlack','450','200','90000.0','100','2017-04-03'),('MAT132750492','Silk','500',' 10','5000.0','5','2017-04-03'),('MAT1bcb611fe','LinenFabrickBlack','450','10','4500.0','100','2017-04-30'),('MAT1ddb2a4f4','fabrickBlue','500','30','15000.0','15','2017-05-10'),('MAT1e6252c94','LinenFabrickBlack','450','25','11250.0','100','2017-05-08'),('MAT1e63a3022','jsndjksns','500','20','10000.0','10','2017-05-08'),('MAT1e68163e0','dfdfds','500','30','15000.0','15','2017-05-08');
 /*!40000 ALTER TABLE `Raw_Materials` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:22:19
+-- Dump completed on 2017-05-08 17:48:43

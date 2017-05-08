@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -25,13 +27,15 @@ DROP TABLE IF EXISTS `users_table`;
 CREATE TABLE `users_table` (
   `userId` int(11) NOT NULL AUTO_INCREMENT,
   `UserName` varchar(45) NOT NULL,
-  `Password` varchar(45) NOT NULL,
+  `Password` varchar(300) NOT NULL,
   `emp_table_emp_id` int(11) NOT NULL,
+  `Dep` int(11) DEFAULT NULL,
+  `Permission` varchar(60) DEFAULT NULL,
   PRIMARY KEY (`userId`,`emp_table_emp_id`),
   UNIQUE KEY `userId_UNIQUE` (`userId`),
   KEY `fk_users_table_emp_table1_idx` (`emp_table_emp_id`),
   CONSTRAINT `fk_users_table_emp_table1` FOREIGN KEY (`emp_table_emp_id`) REFERENCES `emp_table` (`emp_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +44,7 @@ CREATE TABLE `users_table` (
 
 LOCK TABLES `users_table` WRITE;
 /*!40000 ALTER TABLE `users_table` DISABLE KEYS */;
-INSERT INTO `users_table` VALUES (1,'admin','admin',1),(2,'sss','sss',2),(3,'sss','sss',3),(4,'Aaquiff','4',4);
+INSERT INTO `users_table` VALUES (1,'admin','8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918',1,0,'11111111111111'),(28,'dinu','8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918',13,7,'1010101101010');
 /*!40000 ALTER TABLE `users_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:26:51
+-- Dump completed on 2017-05-08 17:53:31

@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -43,7 +45,7 @@ CREATE TABLE `d_customer_table` (
 
 LOCK TABLES `d_customer_table` WRITE;
 /*!40000 ALTER TABLE `d_customer_table` DISABLE KEYS */;
-INSERT INTO `d_customer_table` VALUES ('cus12cecaefe','Bob','Bob','0122334455','Bob@bob.lk','35 Jaya Road, Jayawatha ','2017-01-02',1),('cus12cef4dfc','Candy','Candices','0778632145','Candy@candices.lk','No 101 Candy Street, Malabe','2017-02-02',1),('cus12d3cc7f2','Dave','Dave','0781234567','Dava@davids.lk','32 Dugmud Road, Madapara','2017-04-02',1),('cus12de21000','Evana','Evanas','1212121212','Evana@Evanas.lk','No 99 Elvitigama, Evelen Road','2017-04-02',1),('cus132129746','aa aa','asdasd','1234567890','sadas@jhj.lk','dsffdsds','2017-04-03',1),('cus1324a1b3d','jack','jack','1234567890','sdsd@dr','dssdds','2017-04-03',1),('cus1324b20bd','fdfd','dffd','1235678906','sdsss2@KJ.LK','dffd','2017-04-03',1);
+INSERT INTO `d_customer_table` VALUES ('cus12cecaefe','Bob','Bob','0122334455','Bob@bob.lk','35 Jaya Road, Jayawatha ','2017-01-02',1),('cus12cef4dfc','Candy','Candices','0778632145','Candy@candices.lk','No 101 Candy Street, Malabe','2017-02-02',1),('cus12d3cc7f2','Dave','Dave','0781234567','Dava@davids.lk','32 Dugmud Road, Madapara','2017-04-02',1),('cus12de21000','Evana','Evanas','1212121212','Evana@Evanas.lk','No 99 Elvitigama, Evelen Road','2017-04-02',1),('cus1324a1b3d','jack','jack','1234567890','sdsd@dr','dssdds','2017-04-03',1),('cus1324b20bd','fdfd','dffd','1235678906','sdsss2@KJ.LK','dffd','2017-04-03',1),('cus1e6256ce6','dada','nocom','0778991634','sdadsad@sdd.lk','sdsdsd','2017-05-08',1);
 /*!40000 ALTER TABLE `d_customer_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:23:16
+-- Dump completed on 2017-05-08 17:49:43

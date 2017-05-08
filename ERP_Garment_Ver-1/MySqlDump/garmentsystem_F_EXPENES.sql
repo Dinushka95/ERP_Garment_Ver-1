@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -38,7 +40,7 @@ CREATE TABLE `F_EXPENES` (
 
 LOCK TABLES `F_EXPENES` WRITE;
 /*!40000 ALTER TABLE `F_EXPENES` DISABLE KEYS */;
-INSERT INTO `F_EXPENES` VALUES ('412','Administration Expences','2017-04-01','jkh',100),('78612','Description Expences','2017-04-01','malabe',450),('7892','Administration Expences','2017-04-01','mnhn ',7800),('ADM1ca56ac90','Administration Expences','2017-05-02',',mjn',7888),('DES131dc1535','Description Expences','2017-04-03','hapugoda',100000),('DES1d472ab1b','Description Expences','2017-05-04','iikk',555555),('DES1dc6b71c6','Description Expences','2017-05-06','gkkk',1000000),('FIN12d441ddd','Description Expences','2017-04-02','12',123),('OTH1deeeabde','Other Expences','2017-05-06','nnnn',999000);
+INSERT INTO `F_EXPENES` VALUES ('ADM1e39e34c0','Administration Expences','2017-05-07','nimali',500),('DES1e39de3c9','Select Expence','2017-05-07','kamali',8000),('FIN1e39ed203','Financial Expences','2017-05-07','piyal',500),('OTH1e1a40234','Select Expence','2017-05-07','amali',700);
 /*!40000 ALTER TABLE `F_EXPENES` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:24:47
+-- Dump completed on 2017-05-08 17:51:15

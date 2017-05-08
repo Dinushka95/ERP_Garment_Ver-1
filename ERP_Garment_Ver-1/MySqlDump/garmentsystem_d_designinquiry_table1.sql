@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -39,7 +41,7 @@ CREATE TABLE `d_designinquiry_table1` (
 
 LOCK TABLES `d_designinquiry_table1` WRITE;
 /*!40000 ALTER TABLE `d_designinquiry_table1` DISABLE KEYS */;
-INSERT INTO `d_designinquiry_table1` VALUES ('mdi12fb086a1','MS','1','Magenta',''),('sdi12df09c06','4XL','7','Sky Blue',''),('sdi12df09c06','L','5','Blue','Nave Blue'),('sdi12df09c06','MS','3','Magenta',''),('sdi12dfd8c09','2XL','5','Magenta',''),('sdi12dfd8c09','4XL','4','Blue',''),('sdi12e092b7f','L','5','Blood Red','plan soild colour'),('sdi12e0cec60','3XL','8','Blue',''),('sdi1324e3894','M','2','Magenta',''),('sdi1324e3894','XL','4','Light Blue','');
+INSERT INTO `d_designinquiry_table1` VALUES ('mdi12fb086a1','MS','1','Magenta',''),('sdi12df09c06','4XL','7','Sky Blue',''),('sdi12df09c06','L','5','Blue','Nave Blue'),('sdi12df09c06','MS','3','Magenta',''),('sdi12dfd8c09','2XL','5','Magenta',''),('sdi12dfd8c09','4XL','4','Blue',''),('sdi12e092b7f','L','5','Blood Red','plan soild colour'),('sdi12e0cec60','3XL','8','Blue',''),('sdi1324e3894','M','2','Magenta',''),('sdi1324e3894','XL','4','Light Blue',''),('sdi1e650ca14','MS','5','Red','');
 /*!40000 ALTER TABLE `d_designinquiry_table1` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:25:28
+-- Dump completed on 2017-05-08 17:51:57

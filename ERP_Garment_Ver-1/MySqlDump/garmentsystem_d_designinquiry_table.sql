@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -45,7 +47,7 @@ CREATE TABLE `d_designinquiry_table` (
 
 LOCK TABLES `d_designinquiry_table` WRITE;
 /*!40000 ALTER TABLE `d_designinquiry_table` DISABLE KEYS */;
-INSERT INTO `d_designinquiry_table` VALUES ('mdi12fb086a1','tubatuo','','2017-04-02','2017-04-02','false','null',NULL,'1',1),('sdi12df09c06','dinusha','This should be targeted to april season','2017-04-02','2017-04-02','Approved','dinusha','2017-04-03','cus12ce9c7f6',1),('sdi12dfd8c09','dinusha','only for testing market','2017-04-02','2017-04-02','Approved','dinusha','2017-04-02','cus12cef4dfc',1),('sdi12e092b7f','dinusha','need  to long slives','2017-04-02','2017-04-02','Approved','dinusha','2017-04-03','cus12d3cc7f2',1),('sdi12e0cec60','dinusha','need 3xl as main design','2017-04-02','2017-04-02','false','null',NULL,'cus12de21000',1),('sdi1324e3894','dinusha','','2017-04-03','2017-04-03','false','null',NULL,'cus12cef4dfc',1);
+INSERT INTO `d_designinquiry_table` VALUES ('mdi12fb086a1','tubatuo','','2017-04-02','2017-04-02','false','null',NULL,'1',1),('sdi12df09c06','dinusha','This should be targeted to april season','2017-04-02','2017-04-02','Approved','dinusha','2017-04-03','cus12ce9c7f6',1),('sdi12dfd8c09','dinusha','only for testing market','2017-04-02','2017-04-02','Approved','dinusha','2017-04-02','cus12cef4dfc',1),('sdi12e092b7f','dinusha','need  to long slives','2017-04-02','2017-04-02','Approved','admin','2017-05-07','cus12d3cc7f2',1),('sdi12e0cec60','dinusha','need 3xl as main design','2017-04-02','2017-04-02','false','null',NULL,'cus12de21000',1),('sdi1324e3894','dinusha','','2017-04-03','2017-04-03','false','null',NULL,'cus12cef4dfc',1),('sdi1e650ca14','admin','gery','2017-05-08','2017-05-08','false','null',NULL,'cus12d3cc7f2',1);
 /*!40000 ALTER TABLE `d_designinquiry_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -58,4 +60,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:22:52
+-- Dump completed on 2017-05-08 17:49:17

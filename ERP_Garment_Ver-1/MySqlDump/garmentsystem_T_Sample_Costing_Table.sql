@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -42,7 +44,7 @@ CREATE TABLE `T_Sample_Costing_Table` (
 
 LOCK TABLES `T_Sample_Costing_Table` WRITE;
 /*!40000 ALTER TABLE `T_Sample_Costing_Table` DISABLE KEYS */;
-INSERT INTO `T_Sample_Costing_Table` VALUES ('SAMID12c130981','Trouser','STY129fbf121','Blush','RedRibbons','ACC13278e919','12',150,1800),('SAMID12cffb54b','Trouser','Blah','STY12ba57794','hcisauhai','ACC12fdafc0a','45',12,540);
+INSERT INTO `T_Sample_Costing_Table` VALUES ('SAMID11518f7ef','Trouser','STY1b3b985a','Winter','Linen','ACC1cdf3f3d6','10',18,180),('SAMID1151a9020','Blouse','STY1f42cb781','Summer','RedRibbons','ACC13278e919','12',150,1800),('SAMID12c130981','Trouser','STY129fbf121','Blush','RedRibbons','ACC13278e919','12',150,1800),('SAMID12cffb54b','Trouser','Blah','STY12ba57794','hcisauhai','ACC12fdafc0a','45',12,540),('SAMID12fd6cb3a','Trouser','STY12550b6d7','Blah','RedRibbons','ACC1cd1428d8','12',150,1800),('SAMID1e43507a4','Trouser','STY12ee4ae88','Blah','Sequences','ACC12fdbf040','14',4,56);
 /*!40000 ALTER TABLE `T_Sample_Costing_Table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:23:49
+-- Dump completed on 2017-05-08 17:50:17

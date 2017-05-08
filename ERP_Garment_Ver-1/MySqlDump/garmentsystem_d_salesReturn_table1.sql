@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -38,7 +40,7 @@ CREATE TABLE `d_salesReturn_table1` (
 
 LOCK TABLES `d_salesReturn_table1` WRITE;
 /*!40000 ALTER TABLE `d_salesReturn_table1` DISABLE KEYS */;
-INSERT INTO `d_salesReturn_table1` VALUES ('sri192abd575','FGD17a7c3f81','5','1219','6095'),('sri192ae6ae7','FGD17a7c3f81','5','1219','6095');
+INSERT INTO `d_salesReturn_table1` VALUES ('sri192abd575','FGD17a7c3f81','5','1219','6095'),('sri192ae6ae7','FGD17a7c3f81','5','1219','6095'),('sri1e58ef61b','FGD17a7c3f81','1','1219','1219'),('sri1e66b3c0b','FGD17a7c3f81','1','1219','1219');
 /*!40000 ALTER TABLE `d_salesReturn_table1` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:28:05
+-- Dump completed on 2017-05-08 17:54:55

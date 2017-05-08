@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -41,7 +43,7 @@ CREATE TABLE `F_LOANDETAILS` (
 
 LOCK TABLES `F_LOANDETAILS` WRITE;
 /*!40000 ALTER TABLE `F_LOANDETAILS` DISABLE KEYS */;
-INSERT INTO `F_LOANDETAILS` VALUES ('BOC','iiiiiiiiiiiiii','4444444444','2017-05-06','12',10000,'7',700),('UNION','wellawaththe','483957','2017-04-03','2',45000,'10',4500),('Peoples Bank','xcvz','7516','2017-05-01','12',120000,'5',6000),('BOC','xcvz','751685','2017-05-01','12',120000,'5',6000),('Peoples Bank','homagama','758263','2017-04-03','4',780000,'12',93600),('HNB ','kaluthara','857934','2017-04-03','2',4870000,'15',730500),('BOC','pliyandala','859647','2017-04-03','4',100000,'10',10000);
+INSERT INTO `F_LOANDETAILS` VALUES ('Peoples Bank','kollupitiya','7893576925','2017-05-03','4',100000,'2',2000),('BOC','piliyandala','8796587269','2017-05-01','3',1200000,'10',120000);
 /*!40000 ALTER TABLE `F_LOANDETAILS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:25:45
+-- Dump completed on 2017-05-08 17:52:14

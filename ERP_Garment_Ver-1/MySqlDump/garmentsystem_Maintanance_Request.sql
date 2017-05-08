@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -39,7 +41,7 @@ CREATE TABLE `Maintanance_Request` (
 
 LOCK TABLES `Maintanance_Request` WRITE;
 /*!40000 ALTER TABLE `Maintanance_Request` DISABLE KEYS */;
-INSERT INTO `Maintanance_Request` VALUES ('464ihbh','hghgu','Maintenance','gh','2017-04-03',NULL),('ma113','ghhh','Maintenance','ljoljoj','2017-05-04',NULL),('ma114','hghgu','Maintenance','gh','2017-05-04',NULL),('ma115','hghgu','Maintenance','gh','2017-05-04',NULL),('ma123-6','good','m23','Swing Machine','Inventory','2017-05-06'),('ma123-623','good','m23','Swing Machine','Inventory','2017-05-06'),('MID1dd4a139e','gegg','rgeggerg','Washing Machine','Maintenance','2017-05-06'),('w223','good','Human Resource','a223','2017-04-03',NULL);
+INSERT INTO `Maintanance_Request` VALUES ('464ihbh','hghgu','Maintenance','gh','2017-04-03',NULL),('ma113','ghhh','Maintenance','ljoljoj','2017-05-04',NULL),('ma114','hghgu','Maintenance','gh','2017-05-04',NULL),('ma115','hghgu','Maintenance','gh','2017-05-04',NULL),('ma123-6','good','m23456','Swing Machine','Inventory','2017-05-07'),('ma123-623','good','m23459','Swing Machine','Inventory','2017-05-08'),('MID1e40e2af6','bad','MachineID1e40df80e','Washing Machine','Inventory','2017-05-07'),('w223','good','Human Resource','a223','2017-04-03',NULL);
 /*!40000 ALTER TABLE `Maintanance_Request` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:24:55
+-- Dump completed on 2017-05-08 17:51:23

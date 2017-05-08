@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -40,7 +42,7 @@ CREATE TABLE `Order_Part` (
 
 LOCK TABLES `Order_Part` WRITE;
 /*!40000 ALTER TABLE `Order_Part` DISABLE KEYS */;
-INSERT INTO `Order_Part` VALUES ('ACC12ff3a7e9','Good','SINGER',1000,'Technician ID','Manesha','2017-04-03'),('ACC12ff83ebb','good','SINGER',155,'Technician ID','suni','2017-04-03'),('ACC131cdddda','Bad','SINGER',500,'Technician ID','Nimal','2017-04-03'),('ACC132052000','Normal','SINGER',500,'Technician ID','Tiny','2017-04-03'),('ACC1321c4b0b','Bad','SINGER',500,'Technician ID','Tiny','2017-04-03'),('ACC1321d5b56','Normal','SINGER',10000,'Technician ID','Vihan','2017-04-03'),('ACC1327c8fff','good','SINGER',1000,'6','Adith','2017-04-03'),('ACC1d18db06d','bad','SINGER',5000,'Technician ID','sunil','2017-05-04'),('CONT18947a346','hu',NULL,9000,'fyt12','gu','2017-03-01'),('o_1296f7900','good','ABANS',8768,'6','Adithya','2017-04-01');
+INSERT INTO `Order_Part` VALUES ('ACC1e111279f','bad','SINGER',300,'6','Adith','2017-05-07'),('ACC1e2422b98','GOOD','SINGER',100,'7','Sunil','2017-05-07'),('ACC1e412e063','UK','SINGER',5000,'7','Ruth','2017-05-08');
 /*!40000 ALTER TABLE `Order_Part` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:21:46
+-- Dump completed on 2017-05-08 17:48:10

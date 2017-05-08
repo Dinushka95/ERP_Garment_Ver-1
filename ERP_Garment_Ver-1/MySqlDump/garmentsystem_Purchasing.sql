@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -43,6 +45,7 @@ CREATE TABLE `Purchasing` (
 
 LOCK TABLES `Purchasing` WRITE;
 /*!40000 ALTER TABLE `Purchasing` DISABLE KEYS */;
+INSERT INTO `Purchasing` VALUES ('PURLC1e67f71d3','RawMaterialsLace','Local','20',500,10000,5000,'Credit','KasunTraders','2017-05-08');
 /*!40000 ALTER TABLE `Purchasing` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:22:36
+-- Dump completed on 2017-05-08 17:49:00

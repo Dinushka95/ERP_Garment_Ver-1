@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -43,7 +45,7 @@ CREATE TABLE `salary_table` (
 
 LOCK TABLES `salary_table` WRITE;
 /*!40000 ALTER TABLE `salary_table` DISABLE KEYS */;
-INSERT INTO `salary_table` VALUES (1,4244234,1.5,13539338.46,3,232,'2',234,12,'January'),(3,345,354,19267.5,543,534,'3',5345,34,'January'),(4,9000,1.5,8620,3,700,'3',3,12,'January');
+INSERT INTO `salary_table` VALUES (4,9000,1.5,8620,3,700,'3',3,12,'January'),(5,7000,1.5,6110,3,90,'2',1,12,'February'),(6,8000,1.5,7080,3,20,'1',1,12,'March'),(7,5000,1.5,4800,3,500,'90',1,12,'March'),(9,700,1.5,602,3,0,'4',1,12,'January'),(10,3000,1.5,3510,3,600,'1',12,12,'March');
 /*!40000 ALTER TABLE `salary_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:28:45
+-- Dump completed on 2017-05-08 17:55:47

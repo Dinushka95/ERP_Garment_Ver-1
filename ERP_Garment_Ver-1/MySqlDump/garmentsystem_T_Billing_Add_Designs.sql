@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -40,7 +42,7 @@ CREATE TABLE `T_Billing_Add_Designs` (
 
 LOCK TABLES `T_Billing_Add_Designs` WRITE;
 /*!40000 ALTER TABLE `T_Billing_Add_Designs` DISABLE KEYS */;
-INSERT INTO `T_Billing_Add_Designs` VALUES ('Acc002','STY1a1ea783c','Buttons','5','Black',12,60),('ACC12fdafc0a','STY129fbf121','Velvet','5','RED',12,60),('ACC12fdbf040','STY12a7ea5c5','Sequences','25','Blue',4,100),('ACC17080db4c','STY129fbf121','pins','12','Black',7,84),('ACC1cdf3f3d6','STY12ee4ae88','Linen','12','Black',18,216),('ACC1f475d77b','STY1a1ea783c','Buttons','150','White',12,600),('ACC1f54451f5','STY129fbf121','Lace','12','Red',10,120);
+INSERT INTO `T_Billing_Add_Designs` VALUES ('Acc002','STY1a1ea783c','Buttons','5','Black',12,60),('ACC12fdafc0a','STY129fbf121','Velvet','5','RED',12,60),('ACC12fdbf040','STY12a7ea5c5','Sequences','25','Blue',4,100),('ACC17080db4c','STY129fbf121','pins','12','Black',7,84),('ACC1f475d77b','STY1a1ea783c','Buttons','25','White',12,600);
 /*!40000 ALTER TABLE `T_Billing_Add_Designs` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:24:14
+-- Dump completed on 2017-05-08 17:50:42

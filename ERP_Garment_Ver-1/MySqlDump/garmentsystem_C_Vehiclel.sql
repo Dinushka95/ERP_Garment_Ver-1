@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -41,7 +43,7 @@ CREATE TABLE `C_Vehiclel` (
 
 LOCK TABLES `C_Vehiclel` WRITE;
 /*!40000 ALTER TABLE `C_Vehiclel` DISABLE KEYS */;
-INSERT INTO `C_Vehiclel` VALUES ('VEH12cecb9ae','Lorry','A458S4568',6,'Ya789','Kumar','3month','3month'),('VEH12d020b59','Bike','Ne457A65',98,'DR1459','Wenura','MV49761','5'),('VEH134aca984','Lorry','MG4569',497,'DR249','Aman','AIY498','3month'),('VEH1a06fc46e','Van','HY47895',500000,'DR5789','Kelum','M1428888','5month');
+INSERT INTO `C_Vehiclel` VALUES ('VEH12cecb9ae','Lorry','A458S4568',6,'Ya789','Kumar','3459','3'),('VEH12d020b59','Bike','Ne457A65',98,'DR1459','Wenura','MV49761','5'),('VEH134aca984','Lorry','MG4569',497,'DR249','Aman','AIY498','3'),('VEH1a06fc46e','Van','HY47895',5000,'DR5789','Kelum','M1428888','5'),('VEH1e6a3dbfa','van','149752',59,'VEH12cecb9ae','Upul','457896','3'),('VEH1e6c3a61c','Lorry','1457896',90,'VEH12cecb9ae','Wenura','4789651','3'),('VEH1e8b4774a','Bike','459786',45,'VEH1e6a3dbfa','Sunil','456986','3');
 /*!40000 ALTER TABLE `C_Vehiclel` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:27:48
+-- Dump completed on 2017-05-08 17:54:39

@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -40,7 +42,7 @@ CREATE TABLE `JobIspection_Estimation` (
 
 LOCK TABLES `JobIspection_Estimation` WRITE;
 /*!40000 ALTER TABLE `JobIspection_Estimation` DISABLE KEYS */;
-INSERT INTO `JobIspection_Estimation` VALUES ('ACC13110c27a','bad','Inventory','MAC_PRT1f46d7a0e','ACC13110c279','Tharanga','2017-04-03'),('ACC131111f27','Normal','Inventory','MAC_PRT1f46d7a0e','ACC131111f26','Sajan','2017-04-03'),('ACC131239dff','Normal','Inventory','MAC_PRT1f46d7a0e','ACC131239dff','Maleesha','2017-04-03'),('ACC13211421a','good','Maintenance','MAC_PRT1f470c6a4','ACC13211421a','Nadun','2017-04-03');
+INSERT INTO `JobIspection_Estimation` VALUES ('ACC13110c27a','bad','Inventory','MAC_PRT1f46d7a0e','ACC13110c279','Tharanga','2017-04-03'),('ACC131111f27','Normal','Inventory','MAC_PRT1f46d7a0e','ACC131111f26','Sajan','2017-04-03'),('ACC13211421a','good','Maintenance','MAC_PRT1f470c6a4','ACC13211421a','Naduni','2017-05-07'),('ACC1e410daad','Normal','Maintenance','MAC_PRT1f46d7a0e','7','Sudath','2017-05-08');
 /*!40000 ALTER TABLE `JobIspection_Estimation` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:23:33
+-- Dump completed on 2017-05-08 17:50:00

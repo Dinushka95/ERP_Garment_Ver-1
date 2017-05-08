@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -40,7 +42,7 @@ CREATE TABLE `C_Maintaince` (
 
 LOCK TABLES `C_Maintaince` WRITE;
 /*!40000 ALTER TABLE `C_Maintaince` DISABLE KEYS */;
-INSERT INTO `C_Maintaince` VALUES ('MAIN130fce279','MG4598','punch','4865','2017-04-02','Unitad','Colombo','011147896'),('MAIN1326dcfbd','VT4879','Fuel Tank','7500','2017-04-02','Staferd','Nugegoda','014789654'),('MAIN1327173cb','Qt1549','Seat repair','94000','2017-04-02','Rathna','Anuradhapura','02578948'),('MAIN134b16f5c','MG4569','Body Repair','150000','2017-04-03','Unitad','Negambo','03879546'),('MAIN1df99dbcd','VEH12cecb9ae','gfkjsf','154','2017-05-06','ava','hdfgf','14569d');
+INSERT INTO `C_Maintaince` VALUES ('MAIN130fce279','MG4598','punch','4865','2017-04-02','Unitad','Colombo','011147896'),('MAIN1326dcfbd','VT4879','Fuel Tank','7500','2017-04-02','Staferd','Nugegoda','014789654'),('MAIN1327173cb','Qt1549','Seat repair','94000','2017-04-02','Rathna','Anuradhapura','02578948'),('MAIN134b16f5c','MG4569','Body Repair','150000','2017-04-03','Unitad','Negambo','03879546'),('MAIN1e6a96481','VEH12d020b59','Engine Repair','17800','2017-05-07','Rthna','Kelaniya','01124893278'),('MAIN1e6ad9ebc','VEH134aca984','Fuel Tank','17500','2017-05-04','United','Colombo','0114789641'),('MAIN1e6af0aeb','VEH1a06fc46e','Punch','1000','2017-05-01','Stafed','Nugegoda','014789456');
 /*!40000 ALTER TABLE `C_Maintaince` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -53,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:23:41
+-- Dump completed on 2017-05-08 17:50:08

@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -42,7 +44,7 @@ CREATE TABLE `d_salesPayment_table` (
 
 LOCK TABLES `d_salesPayment_table` WRITE;
 /*!40000 ALTER TABLE `d_salesPayment_table` DISABLE KEYS */;
-INSERT INTO `d_salesPayment_table` VALUES ('spi18facc6ea','cus178d439cd','sin17fda24b4',NULL,NULL,'8750','1000','7750',NULL),('spi18face8f6','cus178d439cd','sin17fda24b4',NULL,NULL,'7750','500','7250',NULL),('spi18fed612c','cus178d439cd','sin17fda24b4','2017-03-02','Cash','7250','1000',NULL,'1');
+INSERT INTO `d_salesPayment_table` VALUES ('spi18facc6ea','cus178d439cd','sin17fda24b4',NULL,NULL,'8750','1000','7750',NULL),('spi18face8f6','cus178d439cd','sin17fda24b4',NULL,NULL,'7750','500','7250',NULL),('spi18fed612c','cus178d439cd','sin17fda24b4','2017-03-02','Cash','7250','1000',NULL,'1'),('spi1e06c407b','cus12de21000','sin1dcee5321','2017-05-07','Cash','14625.0','1000','13625.0','1'),('spi1e06dd935','cus12de21000','sin1dcee5321','2017-05-07','Cash','13625.0','1000','12625.0','1'),('spi1e0710aa7','cus12de21000','sin1dcee5321','2017-05-07','Cash','12625.0','1000','11625.0','1'),('spi1e0762eaf','cus12de21000','sin1dcee5321','2017-05-07','Cash','11625.0','1000','10625.0','1'),('spi1e07dd448','cus12de21000','sin1dcee5321','2017-05-07','Cash','10625.0','1000','9625.0','1'),('spi1e66c584d','cus12de21000','sin1dcee5321','2017-05-08','Cash','9625.0','1000','8625.0','1'),('spi1e76de96f','cus12de21000','sin1dcee5321','2017-05-08','Cash','8625.0','1000','7625.0','1');
 /*!40000 ALTER TABLE `d_salesPayment_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:24:39
+-- Dump completed on 2017-05-08 17:51:07

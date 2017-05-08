@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -41,7 +43,7 @@ CREATE TABLE `T_Bill_Of_Material` (
 
 LOCK TABLES `T_Bill_Of_Material` WRITE;
 /*!40000 ALTER TABLE `T_Bill_Of_Material` DISABLE KEYS */;
-INSERT INTO `T_Bill_Of_Material` VALUES ('ACC12fdafc0a','STY12ee4ae88','Velvet',5,'RED',12,60,'2017-05-06'),('ACC14587jklm','STY124c9f493','Sequences',45,'White',12,120,'2017-04-20'),('ACC17080db4c','STY1a1ea783c','BlueLace',10,'Blue',3,120,'2017-03-26'),('ACC1cd73d048','STY12ee4ae88','Ribbon',45,'Black',150,6750,'2017-05-05'),('ACC1cd73d987','STY12ee4ae88','Blahh',45,'Black',150,6750,'2017-05-06'),('ACC1f54451f5','STY12a7ea5c5','Pins',12,'Red',10,600,'2017-04-30');
+INSERT INTO `T_Bill_Of_Material` VALUES ('ACC12fdafc0a','STY12ee4ae88','Velvet',5,'RED',12,60,'2017-05-06'),('ACC14587jklm','STY124c9f493','Sequences',45,'White',12,120,'2017-04-20'),('ACC1cd73d048','STY12ee4ae88','Ribbon',45,'Black',150,6750,'2017-05-05'),('ACC1cd73d987','STY12ee4ae88','Blahh',45,'Black',150,6750,'2017-05-06');
 /*!40000 ALTER TABLE `T_Bill_Of_Material` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:28:37
+-- Dump completed on 2017-05-08 17:55:39

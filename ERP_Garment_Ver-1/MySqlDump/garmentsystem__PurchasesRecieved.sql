@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -41,7 +43,7 @@ CREATE TABLE `_PurchasesRecieved` (
 
 LOCK TABLES `_PurchasesRecieved` WRITE;
 /*!40000 ALTER TABLE `_PurchasesRecieved` DISABLE KEYS */;
-INSERT INTO `_PurchasesRecieved` VALUES ('RCV1ddb29f4d','PURFR1dc98cd0c','RawMaterialsLace','Foreign','30','500.0','15000.0','2017-05-06');
+INSERT INTO `_PurchasesRecieved` VALUES ('RCV1ddb29f4d','PURFR1dc98cd0c','RawMaterialsLace','Foreign','30','500.0','15000.0','2017-05-06'),('RCV1e63a2765','PURLC1e636bcb2','RawMaterialsLace','Local','20','500.0','10000.0','2017-05-08'),('RCV1e67f6ee4','PURFR1e636bcb1','RawMaterialsZipper','Foreign','30','500.0','15000.0','2017-05-08');
 /*!40000 ALTER TABLE `_PurchasesRecieved` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -54,4 +56,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:26:43
+-- Dump completed on 2017-05-08 17:55:13

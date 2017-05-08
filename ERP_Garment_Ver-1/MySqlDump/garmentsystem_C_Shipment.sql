@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -42,7 +44,7 @@ CREATE TABLE `C_Shipment` (
 
 LOCK TABLES `C_Shipment` WRITE;
 /*!40000 ALTER TABLE `C_Shipment` DISABLE KEYS */;
-INSERT INTO `C_Shipment` VALUES ('SHI4879g56','Arise','Dilli','1048952','Select','2017-05-03','2017-04-19','Chathu','Low '),('SHPMT1326a65a7','aw','ras','14792','UK','2017-04-03','2017-04-03','fdr','kase'),('SHPMT13498d4db','chathu','colombo','0113497853','UK','2017-04-03','2017-04-03','tiny','High Qulity'),('SHPMT1349a169d','Andrw','Hydrabath','05579842','India','2017-03-01','2017-03-21','Tiny','Half '),('SHPMT134a1fa70','Benjamin','London','79451258','UK','2017-02-13','2017-04-01','Chathu','Out of qulity'),('SHPMT134a50f0d','Mifraz','Lahor','0987456','Pakisthan','2017-01-03','2017-03-21','Umana','Good Servise'),('SHPMT18774b02f','tiny','angoda','0112729729','Pakisthan','2017-02-16','2017-02-28','rumana','MNFT'),('SHPMT1d6e153a2','gh','hg','1234','USA','2017-05-04','2017-05-04','gfy','ghyt'),('SHPMT1dc45f200','dffgf','sdfgsdf','dfgsdf','Select','2017-05-05','2017-05-17','uyt8','hgfruyr'),('SHPMT1df233c9f','jfhgj','uitooi','164855','Select','2017-05-06','2017-05-01','yrt75t','hrgt7we5'),('SHPMT1df308e58','jfhgf','jhdguia','huitwg','India','2017-05-02','2017-04-25','jdhfgu','ne7rqw'),('SHPMT1df375321','jhdfd','jeuer','jhere','Select','2017-05-06','2017-05-01','yawg','jheru');
+INSERT INTO `C_Shipment` VALUES ('SHPMT13498d4db','chathu','colombo','0113497853','USE','2017-04-03','2017-04-03','tiny','High Qulity'),('SHPMT1349a169d','Andrw','Hydrabath','05579842','India','2017-03-01','2017-03-21','Tiny','Half '),('SHPMT134a1fa70','Benjamin','London','79451258','UK','2017-02-13','2017-04-01','Chathu','Out of '),('SHPMT134a50f0d','Mifraz','Lahor','0987456','Pakisthan','2017-01-03','2017-03-21','Umana','Good Servise'),('SHPMT18774b02f','tiny','angoda','0112729729','Pakisthan','2017-02-16','2017-02-28','rumana','MNFT'),('SHPMT1e6bead32','Liyon','lahor','457896320','India','2017-04-02','2017-05-03','Tiny','good'),('SHPMT1e6c24208','Kumar','Hydrabath','0154789621','India','2017-05-01','2017-05-05','rumana','low');
 /*!40000 ALTER TABLE `C_Shipment` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:24:23
+-- Dump completed on 2017-05-08 17:50:50

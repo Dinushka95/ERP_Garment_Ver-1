@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -36,7 +38,7 @@ CREATE TABLE `RETURN_CHEQUE` (
 
 LOCK TABLES `RETURN_CHEQUE` WRITE;
 /*!40000 ALTER TABLE `RETURN_CHEQUE` DISABLE KEYS */;
-INSERT INTO `RETURN_CHEQUE` VALUES ('Deposit','mjg','2017-05-04',200),('Withdraw','sunil','2017-05-04',1000),('Deposit','ghhc','2017-05-06',14000),('Withdraw','hfasas','2017-05-06',80000);
+INSERT INTO `RETURN_CHEQUE` VALUES ('Deposit','mjg','2017-05-04',200),('Withdraw','sunil','2017-05-04',1000),('Deposit','ghhc','2017-05-06',14000),('Withdraw','hfasas','2017-05-06',80000),('Deposit','kamal','2017-05-01',78000);
 /*!40000 ALTER TABLE `RETURN_CHEQUE` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +51,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:25:20
+-- Dump completed on 2017-05-08 17:51:49

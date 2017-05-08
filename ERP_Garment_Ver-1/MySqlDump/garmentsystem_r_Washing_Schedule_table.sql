@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -43,7 +45,7 @@ CREATE TABLE `r_Washing_Schedule_table` (
 
 LOCK TABLES `r_Washing_Schedule_table` WRITE;
 /*!40000 ALTER TABLE `r_Washing_Schedule_table` DISABLE KEYS */;
-INSERT INTO `r_Washing_Schedule_table` VALUES ('WSH-SHI129c3c544','STY1887b74a8',55,'2017-04-28','2017-04-29','5',33,'Stone wash','SWG-SHI12817a864',44),('WSH-SHI129dbc5c0','STY124da5ebd',44,'2017-04-07','2017-04-13','5',55,'Normal wash','SWG-SHI12817a864',5),('WSH-SHI12a46d39d','STY1887b74a8',55,'2017-04-13','2017-04-06','5',55,'Normal wash','SWG-SHI12726ab9e',5),('WSH-SHI12a4817a3','STY1887b74a8',44,'2017-04-13','2017-04-21','5',44,'Normal wash','SWG-SHI12726ab9e',4),('WSH-SHI12bf80f32','STY1887b74a8',447,'2017-04-06','2017-04-28','5',44,'Normal wash','SWG-SHI12726ab9e',5),('WSH-SHI12d3e2368','STY124da5ebd',2,'2017-04-01','2017-04-02','5',5,'Normal wash','SWG-SHI1283fce94',44),('WSH-SHI1325fb49e','STY124da5ebd',666,'2017-04-07','2017-04-06','5',44,'Normal wash','SWG-SHI1283fce94',44);
+INSERT INTO `r_Washing_Schedule_table` VALUES ('WSH-SHI129c3c544','STY1887b74a8',55,'2017-04-28','2017-04-29','5',33,'Stone wash','SWG-SHI12817a864',44),('WSH-SHI129dbc5c0','STY124da5ebd',44,'2017-04-07','2017-04-13','5',55,'Normal wash','SWG-SHI12817a864',5),('WSH-SHI12a46d39d','STY1887b74a8',55,'2017-04-13','2017-04-06','5',55,'Normal wash','SWG-SHI12726ab9e',5),('WSH-SHI12a4817a3','STY1887b74a8',44,'2017-04-13','2017-04-21','5',44,'Normal wash','SWG-SHI12726ab9e',4),('WSH-SHI12bf80f32','STY1887b74a8',447,'2017-04-06','2017-04-28','5',44,'Normal wash','SWG-SHI12726ab9e',5),('WSH-SHI12d3e2368','STY124da5ebd',2,'2017-04-01','2017-04-02','5',5,'Normal wash','SWG-SHI1283fce94',44),('WSH-SHI1325fb49e','STY124da5ebd',666,'2017-04-07','2017-04-06','5',44,'Normal wash','SWG-SHI1283fce94',44),('WSH-SHI1e2cf4f5c','STY124da5ebd',33,'2017-05-12','2017-05-19','m sl',32,'Normal wash','SWG-SHI12817a864',44),('WSH-SHI1e3879280','STY124da5ebd',432,'2017-05-11','2017-05-30','m sl',9,'Normal wash','SWG-SHI129da5eb4',44),('WSH-SHI1e6554e1e','STY1887b74a8',453,'2017-05-11','2017-05-26','m sl',34,'Normal wash','SWG-SHI131f68a19',5);
 /*!40000 ALTER TABLE `r_Washing_Schedule_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:23:57
+-- Dump completed on 2017-05-08 17:50:25

@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -43,7 +45,7 @@ CREATE TABLE `product_table` (
 
 LOCK TABLES `product_table` WRITE;
 /*!40000 ALTER TABLE `product_table` DISABLE KEYS */;
-INSERT INTO `product_table` VALUES ('FGD131ecf66f','TShirt','STY129fbf121','EmbarkBlack','Shirt','1200','100','120000.0','2000','2017-04-03'),('FGD131ee1f2c','TShirt','STY129fbf121','EmbarkBlack','Shirt','1200','99','120000.0','2000','2017-04-03'),('FGD131effd8c','TShirt','STY129fbf121','EmbarkRed','Shirt','1000','100','100000.0','2000','2017-04-03'),('FGD131f0c6a3','TShirt','STY129fbf121','EmbarkRed','Shirt','2000','100','100000.0','2000','2017-04-03'),('FGD13276f4f0','TShirt','STY129fbf121','EmbarkBlack','Socks','1200','100','','2000','2017-04-03'),('FGD132776fdc','TShirt','STY129fbf121','EmbarkBlack','Socks','1200','100','','2000','2017-04-03'),('FGD17a1683cd','blueeei','STY16ef070e4','bule polo t shirt','Shirt','650','24','16250.0','1100','2017-02-26'),('FGD17a7c3f81','checker check','STY16ee54437','check pattern shirt','Shirt','750','10','26250.0','1250','2017-02-26');
+INSERT INTO `product_table` VALUES ('FGD131ecf66f','TShirt','STY12ee4ae88','EmbarkBlack','Shirt','1200','100','120000.0','2500','2017-04-03'),('FGD131ee1f2c','TShirt','STY129fbf121','EmbarkBlack','Shirt','1200','99','120000.0','2000','2017-04-03'),('FGD131effd8c','TShirt','STY129fbf121','EmbarkRed','Shirt','1000','100','100000.0','2000','2017-04-03'),('FGD131f0c6a3','TShirt','STY129fbf121','EmbarkRed','Shirt','2000','100','100000.0','2000','2017-04-03'),('FGD132776fdc','TShirt','STY129fbf121','EmbarkBlack','Socks','1200','100','','2000','2017-04-03'),('FGD17a1683cd','blueeei','STY16ef070e4','bule polo t shirt','Shirt','650','24','16250.0','1100','2017-02-26'),('FGD17a7c3f81','checker check','STY16ee54437','check pattern shirt','Shirt','750','10','26250.0','1250','2017-02-26'),('FGD1e2810aa0','TShirt','STY12ee4ae88','EmbarkBlack','Shirt','1200','100','120000.0','2000','2017-05-07'),('FGD1e2812cf5','TShirt','STY12ee4ae88','EmbarkBlack','Shirt','1200','100','120000.0','2000','2017-05-07'),('FGD1e28481d7','TShirt','STY12ee4ae88','EmbarkBlack','Shirt','1200','100','','2000','2017-05-07'),('FGD1e287a8d2','TShirt','STY12ee4ae88','EmbarkBlack','Shirt','1200','100','','2000','2017-05-07'),('FGD1e288a399','TShirt','STY12ee4ae88','EmbarkBlack','Shirt','1200','100','','2000','2017-05-07'),('FGD1e625e02d','TShirt','STY12ee4ae88','EmbarkBlack','Shirt','1200','100','120000.0','2000','2017-05-08');
 /*!40000 ALTER TABLE `product_table` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -56,4 +58,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:26:01
+-- Dump completed on 2017-05-08 17:52:31

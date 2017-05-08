@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -23,12 +25,12 @@ DROP TABLE IF EXISTS `CASH_DETAILS`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `CASH_DETAILS` (
-  `Type` varchar(45) NOT NULL,
-  `Cash_ID` varchar(45) DEFAULT NULL,
+  `Cash_ID` varchar(45) NOT NULL,
+  `Type` varchar(45) DEFAULT NULL,
   `Date` date DEFAULT NULL,
   `Description` varchar(45) DEFAULT NULL,
   `Amount` float DEFAULT NULL,
-  PRIMARY KEY (`Type`)
+  PRIMARY KEY (`Cash_ID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,7 +40,7 @@ CREATE TABLE `CASH_DETAILS` (
 
 LOCK TABLES `CASH_DETAILS` WRITE;
 /*!40000 ALTER TABLE `CASH_DETAILS` DISABLE KEYS */;
-INSERT INTO `CASH_DETAILS` VALUES ('PAY1dcaf46c9','Payabels','2017-05-06','tygvg',780000),('PAY1de12eadb','Payabels','2017-05-06','sumanapala',20000),('PAY1dec30f70','Payabels','2017-05-06','kaluthara',50000),('RES1dcaf816a','Reservable','2017-05-06','rtiooo',90000);
+INSERT INTO `CASH_DETAILS` VALUES ('PAY1e394e87d','Payabels','2017-05-07','amal',5000),('PAY1e39ff078','Payabels','2017-05-07','sarath',80000),('RES1e6321155','Reservable','2017-05-08','kamal',5000);
 /*!40000 ALTER TABLE `CASH_DETAILS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -51,4 +53,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:22:27
+-- Dump completed on 2017-05-08 17:48:52

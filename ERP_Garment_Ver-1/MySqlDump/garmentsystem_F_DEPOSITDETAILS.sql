@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `garmentsystem` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `garmentsystem`;
 -- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: itp2016ver1fdgd.cht0bvbob1wj.us-west-2.rds.amazonaws.com    Database: garmentsystem
@@ -39,7 +41,7 @@ CREATE TABLE `F_DEPOSITDETAILS` (
 
 LOCK TABLES `F_DEPOSITDETAILS` WRITE;
 /*!40000 ALTER TABLE `F_DEPOSITDETAILS` DISABLE KEYS */;
-INSERT INTO `F_DEPOSITDETAILS` VALUES ('15225','cus1dc1287b1','UNION','kuliyapitiya','2017-05-06',800000),('69871','cus1d361d3d3','HNB ','horana','2017-05-04',201000),('78954','cus1d9357bce','BOC','galla','2017-05-05',78000),('87593','cus1d3569fc0','Peoples Bank','piliyandala','2017-05-04',1500000),('98569','cus1c9d1df8d','BOC','homagama','2017-05-01',30000);
+INSERT INTO `F_DEPOSITDETAILS` VALUES ('789256','cus1e3ce9767','Peoples Bank','piliyandala','2017-05-02',250000),('789489','cus1234','BOC','piliyandala','2017-05-08',40000),('7985478','cus1e38422','UNION','ampara','2017-05-04',12000),('852369','cus1e3cf14f4','Peoples Bank','kollupitiyae','2017-05-07',170000),('869222','cus98752h52','HNB ','mathara','2017-05-05',5000),('891746','cus1e3cf966a','Peoples Bank','maharagama','2017-05-04',300000);
 /*!40000 ALTER TABLE `F_DEPOSITDETAILS` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -52,4 +54,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-07  3:21:54
+-- Dump completed on 2017-05-08 17:48:18
