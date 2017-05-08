@@ -520,11 +520,31 @@ public class OrderParts extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
+
+        
+                                   try {
+
         String location = System.getProperty("user.dir")+"\\src\\Maintance\\Reports\\OrderParts.jrxml";
         System.err.println(location);
         
         String query = "SELECT * FROM Order_Part";
         autoReport.Query2Report(location, query);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                   
+                                                                      try {
+
+        String location = "\\src\\Maintance\\Reports\\OrderParts.jrxml";
+        System.err.println(location);
+        
+        String query = "SELECT * FROM Order_Part";
+        autoReport.Query2Report(location, query);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void generate_Oder_ID() {
