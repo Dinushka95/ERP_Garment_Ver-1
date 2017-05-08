@@ -108,7 +108,6 @@ public class Distribution extends javax.swing.JInternalFrame {
         jTextField11 = new javax.swing.JTextField();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
         setTitle("Distribution Management");
@@ -153,12 +152,12 @@ public class Distribution extends javax.swing.JInternalFrame {
         });
         jPanel6.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 300, -1, -1));
         jPanel6.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, 130, -1));
-        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 130, -1));
+        jPanel6.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 200, 140, -1));
         jPanel6.add(datePicker1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 160, -1, -1));
 
         dis_id.setEditable(false);
         dis_id.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jPanel6.add(dis_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 10, 130, -1));
+        jPanel6.add(dis_id, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 130, -1));
 
         jLabel8.setText("Distribution ID");
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -198,8 +197,8 @@ public class Distribution extends javax.swing.JInternalFrame {
         });
         jPanel6.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 300, -1, -1));
 
-        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton6.setText("Demo");
+        jButton6.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -217,9 +216,9 @@ public class Distribution extends javax.swing.JInternalFrame {
                 jComboBox1ActionPerformed(evt);
             }
         });
-        jPanel6.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 50, 130, -1));
+        jPanel6.add(jComboBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 50, 130, -1));
 
-        jPanel6.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 140, -1));
+        jPanel6.add(jComboBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 90, 130, -1));
 
         jPanel6.add(jComboBox3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 120, 130, -1));
 
@@ -235,7 +234,7 @@ public class Distribution extends javax.swing.JInternalFrame {
         jLabel9.setText("Distribution Date");
         jLabel9.setEnabled(false);
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jSearchDIS.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 60, -1, -1));
+        jSearchDIS.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 30, -1, 20));
 
         jButton8.setText("View All");
         jButton8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -244,7 +243,7 @@ public class Distribution extends javax.swing.JInternalFrame {
                 jButton8ActionPerformed(evt);
             }
         });
-        jSearchDIS.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 120, -1, -1));
+        jSearchDIS.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 80, 90, -1));
 
         jButton5.setText("Search");
         jButton5.setEnabled(false);
@@ -255,7 +254,7 @@ public class Distribution extends javax.swing.JInternalFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jSearchDIS.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 60, -1, -1));
+        jSearchDIS.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 30, 80, -1));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -275,10 +274,10 @@ public class Distribution extends javax.swing.JInternalFrame {
         });
         jScrollPane2.setViewportView(jTable2);
 
-        jSearchDIS.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 810, 320));
+        jSearchDIS.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 810, 250));
 
         datePicker2.setEnabled(false);
-        jSearchDIS.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 50, -1, -1));
+        jSearchDIS.add(datePicker2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 30, -1, -1));
 
         jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select", "Distribution Date", "Driver ID" }));
         jComboBox4.addItemListener(new java.awt.event.ItemListener() {
@@ -289,32 +288,34 @@ public class Distribution extends javax.swing.JInternalFrame {
         jSearchDIS.add(jComboBox4, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 30, -1, -1));
 
         jComboBox5.setEnabled(false);
-        jSearchDIS.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 100, 130, -1));
+        jSearchDIS.add(jComboBox5, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 80, 140, -1));
 
         jLabel16.setText("Search By");
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jSearchDIS.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel17.setText("Driver ID");
         jLabel17.setEnabled(false);
-        jSearchDIS.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 80, -1));
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jSearchDIS.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 80, 100, 20));
 
         jButton7.setText("Full Report");
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
             }
         });
-        jSearchDIS.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 150, -1, -1));
+        jSearchDIS.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 140, 140, -1));
 
         jButton9.setText("Search Report");
+        jButton9.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton9ActionPerformed(evt);
             }
         });
-        jSearchDIS.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 150, -1, -1));
+        jSearchDIS.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 140, -1, -1));
 
         jPanel3.add(jSearchDIS, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 850, 470));
 
@@ -387,9 +388,6 @@ public class Distribution extends javax.swing.JInternalFrame {
         jPanel3.add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 10, 470, 470));
 
         jTabbedPane1.addTab("Search & Update || Delete", jPanel3);
-
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
         jTabbedPane1.getAccessibleContext().setAccessibleName("ADD Discription");
@@ -558,7 +556,6 @@ public class Distribution extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
