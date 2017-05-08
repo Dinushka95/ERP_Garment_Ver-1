@@ -10,6 +10,9 @@ import MainSystem.MainWindow;
 import static MainSystem.MainWindow.autoReport;
 import static MainSystem.MainWindow.autoSqlQuery;
 import static MainSystem.MainWindow.validation;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -827,9 +830,23 @@ int RowCountjTable;
             {
                 JOptionPane.showMessageDialog(this, "Accessory Successfully Added");
                 TableLoad();
-                TextBoxClear();
                 TableLoad2();
-                clear();
+                
+                
+                String FILENAME = System.getProperty("user.dir")+"\\src\\InventoryManagement\\AccessoryLog.txt";
+                    Date d=new Date();
+                    BufferedWriter bw = 
+                            new BufferedWriter(new FileWriter(FILENAME,
+                                                                true)); 
+		            String content = "Accessory Add\t"+"Product ID :" +idfield.getText() +
+                            "\t Accessory Name : " +namefield.getText() + "\t Stock Value  : "+(valuefield.getText()+"\t Added Date : "+datePicker2.getText());
+;
+                    bw.write(content);
+                    bw.newLine();
+                    bw.close();
+                    
+                    clear();
+                    TextBoxClear();
             }
         }
         catch(Exception ex)
@@ -846,7 +863,7 @@ int RowCountjTable;
     
     private void EditAccessory()
     {
-        if(validation.ValidationCheck(namefield1, true, 45, 'a')&&validation.ValidationCheck(costfield1, true,0,'1')&&validation.ValidationCheck(quantityfield1, true,0,'1')&&validation.ValidationCheck(reorder1, true,0,'1'))
+        if(validation.ValidationCheck(namefield1, true, 0, 'a')&&validation.ValidationCheck(costfield1, true,0,'1')&&validation.ValidationCheck(quantityfield1, true,0,'1')&&validation.ValidationCheck(reorder1, true,0,'1'))
         {
             String id = idfield1.getText();
         String name = namefield1.getText();
@@ -876,6 +893,23 @@ int RowCountjTable;
                 JOptionPane.showMessageDialog(this, "Updated");
                 TableLoad();
                 TableLoad2();
+                
+                String FILENAME = System.getProperty("user.dir")+"\\src\\InventoryManagement\\AccessoryLog.txt";
+                    Date d=new Date();
+                    BufferedWriter bw = 
+                            new BufferedWriter(new FileWriter(FILENAME,
+                                                                true)); 
+		            String content = "Accessory Updated\t"+"Product ID :" +idfield1.getText() +
+                            "\t Accessory Name : " +namefield1.getText() + "\t Stock Value  : "+(valuefield1.getText()+"\t Added Date : "+datePicker3.getText());
+;
+                    bw.write(content);
+                    bw.newLine();
+                    bw.close();
+                    
+                    clear();
+                    TextBoxClear();
+                
+                
                 clear();
             }
         }
@@ -901,6 +935,22 @@ int RowCountjTable;
             if (x==true)
             {
                 JOptionPane.showMessageDialog(this, "Deleted");
+                
+                
+                String FILENAME = System.getProperty("user.dir")+"\\src\\InventoryManagement\\AccessoryLog.txt";
+                    Date d=new Date();
+                    BufferedWriter bw = 
+                            new BufferedWriter(new FileWriter(FILENAME,
+                                                                true)); 
+		            String content = "Accessory Deleted\t"+"Product ID :" +idfield1.getText() +
+                            "\t Accessory Name : " +namefield1.getText() + "\t Stock Value  : "+(valuefield1.getText()+"\t Added Date : "+datePicker3.getText());
+;
+                    bw.write(content);
+                    bw.newLine();
+                    bw.close();
+                    
+                    clear();
+                    TextBoxClear();
                 clear();
                 TableLoad2();
             }

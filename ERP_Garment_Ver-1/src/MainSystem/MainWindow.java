@@ -13,7 +13,7 @@ import Finance.EXPENCESS;
 import Finance.FIXASSETS;
 import Finance.LOANDETAILS;
 import Finance.PROFITANDLOSS;
-import Finance.balancesheet1;
+
 import Finance.income1;
 import HumanResource.Department;
 import HumanResource.Employee;
@@ -182,7 +182,6 @@ public static CuttingSchedule cuttingschedule ;
         jButton44 = new javax.swing.JButton();
         jButton45 = new javax.swing.JButton();
         jButton47 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         btnEmployee = new javax.swing.JButton();
         btnPayroll = new javax.swing.JButton();
@@ -650,14 +649,6 @@ public static CuttingSchedule cuttingschedule ;
             }
         });
         jPanel8.add(jButton47, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 10, -1, -1));
-
-        jButton7.setText("Balance Sheet");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
-        jPanel8.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 10, -1, -1));
 
         jTabbedPane.addTab("Finance ", jPanel8);
 
@@ -1469,20 +1460,6 @@ public static CuttingSchedule cuttingschedule ;
         in.setMaximizable(false);
     }//GEN-LAST:event_jButton33ActionPerformed
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        // TODO add your handling code here:
-         balancesheet1 in = new balancesheet1();
-        in.setVisible(true);
-        jDesktopPane1.removeAll();
-        jDesktopPane1.add(in);
-        try {
-            in.setMaximum(true);
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
-        in.setMaximizable(false);
-    }//GEN-LAST:event_jButton7ActionPerformed
-
     private void centerLocation() throws HeadlessException {
     final Toolkit toolkit = Toolkit.getDefaultToolkit();
     final Dimension screenSize = toolkit.getScreenSize();
@@ -1641,7 +1618,6 @@ public static CuttingSchedule cuttingschedule ;
     private javax.swing.JButton jButton57;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton60;
-    private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JDesktopPane jDesktopPane1;

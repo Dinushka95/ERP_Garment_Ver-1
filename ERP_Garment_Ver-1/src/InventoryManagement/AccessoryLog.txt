@@ -1,0 +1,7 @@
+Accessory Add	Product ID :ACC1e1fa52e5	 Accessory Name : 	 Stock Value  : 	 Added Date : 2017-05-07
+Accessory Add	Product ID :ACC1e1fc5ff6	 Accessory Name : Ribbons	 Stock Value  : 10000.0	 Added Date : 2017-05-07
+Accessory Add	Product ID :ACC1e1ffc14b	 Accessory Name : RedRibbons	 Stock Value  : 8100.0	 Added Date : 2017-05-07
+Accessory Add	Product ID :ACC1e2288344	 Accessory Name : RedRibbons	 Stock Value  : 675000.0	 Added Date : 2017-05-07
+Accessory Updated	Product ID :ACC1e229d621	 Accessory Name : 	 Stock Value  : 	 Added Date : 2017-05-07
+Accessory Updated	Product ID :ACC1e1f8d6ae	 Accessory Name : BlueRibbons	 Stock Value  : 9000.0	 Added Date : 2017-05-07
+Accessory Deleted	Product ID :ACC1e1f8d6ae	 Accessory Name : BlueRibbons	 Stock Value  : 9000.0	 Added Date : 2017-05-07
