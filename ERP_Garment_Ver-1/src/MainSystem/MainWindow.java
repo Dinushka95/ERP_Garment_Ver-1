@@ -21,6 +21,7 @@ import HumanResource.Leave;
 import HumanResource.Salary;
 import InventoryManagement.Accessories;
 import InventoryManagement.FinishedProducts;
+import InventoryManagement.Logs;
 import InventoryManagement.Machine_Parts;
 import InventoryManagement.Machinery;
 import InventoryManagement.RawMaterials;
@@ -65,6 +66,7 @@ import StyleManagement.CreateDesign;
 import StyleManagement.Update_Delete_Designs;
 import com.thehowtotutorial.splashscreen.JSplash;
 import java.awt.Color;
+import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
@@ -507,7 +509,12 @@ public static CuttingSchedule cuttingschedule ;
         });
         jPanel6.add(jButton22, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 10, -1, -1));
 
-        jButton24.setText("Re-Order List");
+        jButton24.setText("Log");
+        jButton24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton24ActionPerformed(evt);
+            }
+        });
         jPanel6.add(jButton24, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 10, -1, -1));
 
         jTabbedPane.addTab("Inventory ", jPanel6);
@@ -1459,6 +1466,25 @@ public static CuttingSchedule cuttingschedule ;
         }
         in.setMaximizable(false);
     }//GEN-LAST:event_jButton33ActionPerformed
+
+    private void jButton24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton24ActionPerformed
+
+        Logs lg = null;
+    try {
+        lg = new Logs();
+    } catch (IOException ex) {
+        Logger.getLogger(MainWindow.class.getName()).log(Level.SEVERE, null, ex);
+    }
+        lg.setVisible(true);
+        jDesktopPane1.removeAll();
+        jDesktopPane1.add(lg);
+        try {
+            lg.setMaximum(true);
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+        lg.setMaximizable(false);
+    }//GEN-LAST:event_jButton24ActionPerformed
 
     private void centerLocation() throws HeadlessException {
     final Toolkit toolkit = Toolkit.getDefaultToolkit();
