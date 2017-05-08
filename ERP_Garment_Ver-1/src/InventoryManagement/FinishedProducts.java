@@ -129,7 +129,6 @@ File Image;
         dateSettings2.setFormatForDatesBeforeCommonEra("uuuu-MM-dd");
         datePicker3 = new com.github.lgooddatepicker.components.DatePicker(dateSettings2);
         DesignId = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
 
         jMenuItem2.setText("Add Type");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -596,9 +595,6 @@ File Image;
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
-
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
         getAccessibleContext().setAccessibleName("");
@@ -1045,7 +1041,6 @@ File Image;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;

@@ -111,7 +111,6 @@ public class Machinery extends javax.swing.JInternalFrame {
         dpp1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         accdep1 = new javax.swing.JTextField();
-        jPanel4 = new javax.swing.JPanel();
 
         setResizable(true);
         setTitle("Machine Parts");
@@ -530,9 +529,6 @@ public class Machinery extends javax.swing.JInternalFrame {
 
         jTabbedPane1.addTab("Search & Edit || Delete", jPanel3);
 
-        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jTabbedPane1.addTab("Reports", jPanel4);
-
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1350, 590));
 
         getAccessibleContext().setAccessibleName("");
@@ -897,7 +893,6 @@ public class Machinery extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
