@@ -534,9 +534,20 @@ public static String styleid =null;
 
     private void ReportbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportbtnActionPerformed
 
+
+                        try {
         String FileLocation=System.getProperty
         ("user.dir")+"\\src\\StyleManagement\\Reports\\Approval.jrxml";
         autoReport.Table2Report(FileLocation, jTable2);
+        }
+        catch (Exception e )
+        {}       
+                                                try {
+        String FileLocation="\\src\\StyleManagement\\Reports\\Approval.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+        }
+        catch (Exception e )
+        {}  
     }//GEN-LAST:event_ReportbtnActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed

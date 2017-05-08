@@ -570,10 +570,21 @@ public class Design_Cost_Estimate extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_AccNumberMouseClicked
 
     private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-
-        String FileLocation=System.getProperty
+                                try {
+String FileLocation=System.getProperty
         ("user.dir")+"\\src\\StyleManagement\\Reports\\DesignCost.jrxml";
         autoReport.SimpleAllReport(FileLocation);
+        }
+        catch (Exception e )
+        {}  
+                                                                try {
+String FileLocation="\\src\\StyleManagement\\Reports\\DesignCost.jrxml";
+        autoReport.SimpleAllReport(FileLocation);
+        }
+        catch (Exception e )
+        {}  
+        
+        
     }//GEN-LAST:event_jButton18ActionPerformed
 
     private void AccNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AccNumberActionPerformed

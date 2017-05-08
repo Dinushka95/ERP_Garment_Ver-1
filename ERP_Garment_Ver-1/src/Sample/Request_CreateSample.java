@@ -432,8 +432,13 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
         });
         jPanel8.add(ResetSample, new org.netbeans.lib.awtextra.AbsoluteConstraints(488, 482, -1, -1));
 
-        ReportCreateSample.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         ReportCreateSample.setText("Report");
+        ReportCreateSample.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        ReportCreateSample.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReportCreateSampleActionPerformed(evt);
+            }
+        });
         jPanel8.add(ReportCreateSample, new org.netbeans.lib.awtextra.AbsoluteConstraints(581, 482, -1, -1));
         jPanel8.add(Samplesize, new org.netbeans.lib.awtextra.AbsoluteConstraints(1140, 20, 130, 30));
         jPanel8.add(sdesi, new org.netbeans.lib.awtextra.AbsoluteConstraints(840, 20, 130, 30));
@@ -598,12 +603,34 @@ public class Request_CreateSample extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_deletesampleActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-         String FileLocation=System.getProperty("user.dir")+"\\src\\Sample\\Reports\\report1.jrxml";
+
+        
+        
+        try {
+                 String FileLocation=System.getProperty("user.dir")+"\\src\\Sample\\Reports\\report1.jrxml";
         System.err.println(FileLocation);
         //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.T_Request_Create_Sample_table";
         autoReport.Query2Report(FileLocation, SQL); 
+        }
+        catch (Exception e )
+        {}
+        
+                
+        try {
+                 String FileLocation="\\src\\Sample\\Reports\\report1.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.T_Request_Create_Sample_table";
+        autoReport.Query2Report(FileLocation, SQL); 
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void ReportCreateSampleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportCreateSampleActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ReportCreateSampleActionPerformed
     private void generate_SAMID(){
     AutoIdGenerator sid = new AutoIdGenerator();
     SampleID.setText(sid.generate("SAMID",Integer.toString(MainWindow.userid)));

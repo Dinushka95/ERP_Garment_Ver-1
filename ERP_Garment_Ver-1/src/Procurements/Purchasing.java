@@ -1086,19 +1086,47 @@ public class Purchasing extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+                                        try {
 
         String FileLocation=System.getProperty("user.dir")+"\\src\\Procurements\\Reports\\Purchasing.jrxml";
         System.err.println(FileLocation);
 
         autoReport.Table2Report(FileLocation, jTable1);
+        }
+        catch (Exception e )
+        {}  
+                                        
+                                                                               try {
+
+        String FileLocation="\\src\\Procurements\\Reports\\Purchasing.jrxml";
+        System.err.println(FileLocation);
+
+        autoReport.Table2Report(FileLocation, jTable1);
+        }
+        catch (Exception e )
+        {}  
+        
     }//GEN-LAST:event_jButton12ActionPerformed
 
     private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+                                       try {
 
-        String FileLocation=System.getProperty("user.dir")+"\\src\\Procurements\\Reports\\Purchasing2.jrxml";
+String FileLocation=System.getProperty("user.dir")+"\\src\\Procurements\\Reports\\Purchasing2.jrxml";
         System.err.println(FileLocation);
 
         autoReport.Table2Report(FileLocation, jTable2);
+        }
+        catch (Exception e )
+        {}  
+                                               try {
+
+String FileLocation="\\src\\Procurements\\Reports\\Purchasing2.jrxml";
+        System.err.println(FileLocation);
+
+        autoReport.Table2Report(FileLocation, jTable2);
+        }
+        catch (Exception e )
+        {}  
     }//GEN-LAST:event_jButton13ActionPerformed
 
     private void jButton14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton14ActionPerformed
@@ -1124,10 +1152,26 @@ public class Purchasing extends javax.swing.JInternalFrame {
 
     private void jButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton16ActionPerformed
 
+
+        
+                                               try {
+
         String FileLocation=System.getProperty("user.dir")+"\\src\\Procurements\\Reports\\RecievedPurchases.jrxml";
         String Query = "SELECT * FROM `garmentsystem`.`_PurchasesRecieved`;";
         System.err.println(FileLocation);
         autoReport.Query2Report(FileLocation, Query);
+        }
+        catch (Exception e )
+        {}  
+                                                                                              try {
+
+        String FileLocation="\\src\\Procurements\\Reports\\RecievedPurchases.jrxml";
+        String Query = "SELECT * FROM `garmentsystem`.`_PurchasesRecieved`;";
+        System.err.println(FileLocation);
+        autoReport.Query2Report(FileLocation, Query);
+        }
+        catch (Exception e )
+        {}  
     }//GEN-LAST:event_jButton16ActionPerformed
 
     private void ClearRecievedPart()

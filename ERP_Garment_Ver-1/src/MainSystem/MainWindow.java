@@ -189,9 +189,7 @@ public static CuttingSchedule cuttingschedule ;
         btnDepartment = new javax.swing.JButton();
         btnLeaves = new javax.swing.JButton();
         jPanel9 = new javax.swing.JPanel();
-        jButton59 = new javax.swing.JButton();
         jButton60 = new javax.swing.JButton();
-        jButton61 = new javax.swing.JButton();
         jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -701,9 +699,6 @@ public static CuttingSchedule cuttingschedule ;
 
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton59.setText("Database Network Settings ");
-        jPanel9.add(jButton59, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
-
         jButton60.setText("User Settings");
         jButton60.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -711,14 +706,6 @@ public static CuttingSchedule cuttingschedule ;
             }
         });
         jPanel9.add(jButton60, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        jButton61.setText("Database Back-up");
-        jButton61.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton61ActionPerformed(evt);
-            }
-        });
-        jPanel9.add(jButton61, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
 
         jTabbedPane.addTab("Settings", jPanel9);
 
@@ -1496,10 +1483,6 @@ public static CuttingSchedule cuttingschedule ;
         in.setMaximizable(false);
     }//GEN-LAST:event_jButton7ActionPerformed
 
-    private void jButton61ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton61ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton61ActionPerformed
-
     private void centerLocation() throws HeadlessException {
     final Toolkit toolkit = Toolkit.getDefaultToolkit();
     final Dimension screenSize = toolkit.getScreenSize();
@@ -1656,10 +1639,8 @@ public static CuttingSchedule cuttingschedule ;
     private javax.swing.JButton jButton55;
     private javax.swing.JButton jButton56;
     private javax.swing.JButton jButton57;
-    private javax.swing.JButton jButton59;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton60;
-    private javax.swing.JButton jButton61;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;

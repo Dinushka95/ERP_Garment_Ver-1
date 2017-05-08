@@ -416,11 +416,27 @@ public class Sample_Costing extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_UPDATE_Sample_CostActionPerformed
 
     private void ViewAccessories1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewAccessories1ActionPerformed
+
+        
+                try {
            String FileLocation=System.getProperty("user.dir")+"\\src\\Sample\\Reports\\report2.jrxml";
         System.err.println(FileLocation);
         //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.T_Sample_Costing_Table";
         autoReport.Query2Report(FileLocation, SQL);
+        }
+        catch (Exception e )
+        {}        
+                
+                                try {
+           String FileLocation="\\src\\Sample\\Reports\\report2.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.T_Sample_Costing_Table";
+        autoReport.Query2Report(FileLocation, SQL);
+        }
+        catch (Exception e )
+        {}        
     }//GEN-LAST:event_ViewAccessories1ActionPerformed
     public void UpdateSampleCosting(){
           

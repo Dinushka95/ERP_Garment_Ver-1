@@ -663,16 +663,39 @@ SalesPaymentModel salesPaymentModel;
     }//GEN-LAST:event_jButton34ActionPerformed
 
     private void jButton35ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton35ActionPerformed
+
+        
+               try{
         String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\payment.jrxml";
         System.err.println(FileLocation);
         //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.d_salesPayment_table";
         autoReport.Query2Report(FileLocation, SQL); 
+       }
+       catch(Exception e){}
+               
+                              try{
+        String FileLocation="\\src\\Sales\\Reports\\payment.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.d_salesPayment_table";
+        autoReport.Query2Report(FileLocation, SQL); 
+       }
+       catch(Exception e){}
     }//GEN-LAST:event_jButton35ActionPerformed
 
     private void jButton36ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton36ActionPerformed
+         try{
         String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\payment.jrxml";
         autoReport.Table2Report(FileLocation, jTable3);
+       }
+       catch(Exception e){}
+         
+                try{
+        String FileLocation="\\src\\Sales\\Reports\\payment.jrxml";
+        autoReport.Table2Report(FileLocation, jTable3);
+       }
+       catch(Exception e){}
     }//GEN-LAST:event_jButton36ActionPerformed
 
     private void jButton37ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton37ActionPerformed
@@ -719,9 +742,19 @@ SalesPaymentModel salesPaymentModel;
     }//GEN-LAST:event_jTable3MouseClicked
 
     private void jButton27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton27ActionPerformed
+
+                       try{
         String FileLocation=System.getProperty("user.dir")+"\\src\\Sales\\Reports\\payment.jrxml";
         String SQL="SELECT * FROM garmentsystem.d_salesPayment_table where salesPaymentId ='"+jTextFieldSearchTSDIID.getText()+"'";
         autoReport.Query2Report(FileLocation, SQL);
+       }
+       catch(Exception e){}
+                                              try{
+        String FileLocation="\\src\\Sales\\Reports\\payment.jrxml";
+        String SQL="SELECT * FROM garmentsystem.d_salesPayment_table where salesPaymentId ='"+jTextFieldSearchTSDIID.getText()+"'";
+        autoReport.Query2Report(FileLocation, SQL);
+       }
+       catch(Exception e){}
     }//GEN-LAST:event_jButton27ActionPerformed
 
     private void jButton29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton29ActionPerformed

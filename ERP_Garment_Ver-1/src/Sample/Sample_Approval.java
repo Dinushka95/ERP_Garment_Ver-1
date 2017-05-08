@@ -644,10 +644,25 @@ public class Sample_Approval extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_SampleidsActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        
+        try {
         String FileLocation=System.getProperty
         ("user.dir")+"\\src\\StyleManagement\\Reports\\CreateSample.jrxml";
         autoReport.Table2Report(FileLocation, jTable2);
+        }
+        catch (Exception e )
+        {}        
+        
+                try {
+        String FileLocation="\\src\\StyleManagement\\Reports\\CreateSample.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+        }
+        catch (Exception e )
+        {}        
+
+
+// TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton5ActionPerformed
  
     

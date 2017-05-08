@@ -510,10 +510,22 @@ public class SupplierPortfolio extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+                                               try {
 
-        String FileLocation=System.getProperty("user.dir")+"\\src\\Procurements\\Reports\\Suppliers.jrxml";
+ String FileLocation=System.getProperty("user.dir")+"\\src\\Procurements\\Reports\\Suppliers.jrxml";
         System.err.println(FileLocation);
         autoReport.SimpleAllReport(FileLocation);
+        }
+        catch (Exception e )
+        {}  
+                                                       try {
+
+ String FileLocation="\\src\\Procurements\\Reports\\Suppliers.jrxml";
+        System.err.println(FileLocation);
+        autoReport.SimpleAllReport(FileLocation);
+        }
+        catch (Exception e )
+        {} 
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
