@@ -789,7 +789,7 @@ public class Distribution extends javax.swing.JInternalFrame {
         }
         
         else{
-              if(validation.isDigit(Dis_cost)&&validation.isDigit(Milage)&&validation.isDigit(date))
+              if(validation.isDigit(Dis_cost)&&validation.isDigit(Milage))
                {
               
             
