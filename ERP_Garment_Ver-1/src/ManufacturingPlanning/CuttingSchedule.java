@@ -1482,17 +1482,51 @@ public class CuttingSchedule extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        //String x=System.getProperty("user.dir");
+                 try {
+
         String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report1.jrxml";
         System.err.println(FileLocation);
         //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.r_Cutting_Schedule_table";
         autoReport.Query2Report(FileLocation, SQL); 
+                                                      
+        }
+        catch (Exception e )
+        {} 
+         try {
+
+        String FileLocation="\\src\\ManufacturingPlanning\\Reports\\report1.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.r_Cutting_Schedule_table";
+        autoReport.Query2Report(FileLocation, SQL); 
+                                                      
+        }
+        catch (Exception e )
+        {} 
+        
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report2.jrxml";
+
+        
+                         try {
+
+         String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report2.jrxml";
         autoReport.Table2Report(FileLocation, jTable1);
+                                                      
+        }
+        catch (Exception e )
+        {} 
+                         
+                                                  try {
+
+         String FileLocation="\\src\\ManufacturingPlanning\\Reports\\report2.jrxml";
+        autoReport.Table2Report(FileLocation, jTable1);
+                                                      
+        }
+        catch (Exception e )
+        {} 
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jComboBox13ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox13ItemStateChanged

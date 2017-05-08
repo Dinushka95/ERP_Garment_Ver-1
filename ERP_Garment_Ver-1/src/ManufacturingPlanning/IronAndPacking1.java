@@ -807,16 +807,53 @@ public class IronAndPacking1 extends javax.swing.JInternalFrame {
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
 
+
+        
+                                 try {
+
         String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report7.jrxml";
         System.err.println(FileLocation);
 
         String SQL="SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule";
         autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {} 
+                                 
+                                                                 try {
+
+        String FileLocation="\\src\\ManufacturingPlanning\\Reports\\report7.jrxml";
+        System.err.println(FileLocation);
+
+        String SQL="SELECT * FROM garmentsystem.r_Iron_and_Packing_Schedule";
+        autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report8.jrxml";
+ 
+        
+                                        try {
+
+       String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report8.jrxml";
         autoReport.Table2Report(FileLocation, jTable3);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                        
+        try {
+
+       String FileLocation="\\src\\ManufacturingPlanning\\Reports\\report8.jrxml";
+        autoReport.Table2Report(FileLocation, jTable3);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton11ActionPerformed
 
    private void FillComboSupervisor()

@@ -364,8 +364,8 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
 
         jPanel3.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 80, 440, 450));
 
-        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton7.setText("Full report");
+        jButton7.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -650,17 +650,43 @@ public class IronAndPacking2 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+        
+                
+                                                                 try {
         //String x=System.getProperty("user.dir");
         String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report7.jrxml";
         System.err.println(FileLocation);
         //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.ironNpacking";
         autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                                 
+                                                                 
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-        String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report8.jrxml";
+
+        
+                        
+                                                                 try {
+         String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report8.jrxml";
         autoReport.Table2Report(FileLocation, jTable2);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                                 
+                                                                                                                                  try {
+         String FileLocation="\\src\\Manufacturing\\Reports\\report8.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton9ActionPerformed
     
     private void generate_cdi(){

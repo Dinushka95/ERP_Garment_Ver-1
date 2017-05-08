@@ -1217,16 +1217,53 @@ public class SewingSchedule extends javax.swing.JInternalFrame {
     
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
         
+
+        
+    try {
+
         String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report3.jrxml";
         System.err.println(FileLocation);
         
         String SQL="SELECT * FROM garmentsystem.r_Sewing_Schedule";
         autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
+    
+       try {
+
+        String FileLocation="\\src\\ManufacturingPlanning\\Reports\\report3.jrxml";
+        System.err.println(FileLocation);
+        
+        String SQL="SELECT * FROM garmentsystem.r_Sewing_Schedule";
+        autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report4.jrxml";
+ 
+        
+           try {
+
+       String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report4.jrxml";
         autoReport.Table2Report(FileLocation, jTable1);
+                                                      
+        }
+        catch (Exception e )
+        {}
+           
+                      try {
+
+       String FileLocation="\\src\\ManufacturingPlanning\\Reports\\report4.jrxml";
+        autoReport.Table2Report(FileLocation, jTable1);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jComboBox13ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBox13ItemStateChanged

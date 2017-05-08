@@ -657,17 +657,56 @@ public class Washing1 extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox1MouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+        
+                                         try {
+
         //String x=System.getProperty("user.dir");
         String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report5.jrxml";
         System.err.println(FileLocation);
         //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.washing";
         autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                         
+                                                                                  try {
+
+        //String x=System.getProperty("user.dir");
+        String FileLocation="\\src\\Manufacturing\\Reports\\report5.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.washing";
+        autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
+
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+
+        
+                                                 try {
+
         String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report6.jrxml";
         autoReport.Table2Report(FileLocation, jTable2);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                 
+                                                                                                  try {
+
+        String FileLocation="\\src\\Manufacturing\\Reports\\report6.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton9ActionPerformed
 
    private void generate_cdi(){

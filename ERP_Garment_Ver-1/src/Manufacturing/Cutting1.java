@@ -795,16 +795,56 @@ public class Cutting1 extends javax.swing.JInternalFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         //String x=System.getProperty("user.dir");
-        String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report1.jrxml";
+ 
+        
+        
+        
+                           try {
+
+       String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report1.jrxml";
         System.err.println(FileLocation);
         //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.cutting";
         autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                           
+                                                      try {
+
+       String FileLocation="\\src\\Manufacturing\\Reports\\report1.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.cutting";
+        autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+
+        
+                                   try {
+
         String FileLocation=System.getProperty("user.dir")+"\\src\\Manufacturing\\Reports\\report2.jrxml";
         autoReport.Table2Report(FileLocation, jTable3);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                   
+                                                                    try {
+
+        String FileLocation="\\src\\Manufacturing\\Reports\\report2.jrxml";
+        autoReport.Table2Report(FileLocation, jTable3);
+                                                      
+        }
+        catch (Exception e )
+        {}
+
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jTextField9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField9MouseExited

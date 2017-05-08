@@ -977,17 +977,55 @@ public class WashingSchedule extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+
+                   try {
+
         String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report5.jrxml";
         autoReport.Table2Report(FileLocation, jTable3);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                   
+                                      try {
+
+        String FileLocation="\\src\\ManufacturingPlanning\\Reports\\report5.jrxml";
+        autoReport.Table2Report(FileLocation, jTable3);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                   
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+
+
+        
+                           try {
 
         String FileLocation=System.getProperty("user.dir")+"\\src\\ManufacturingPlanning\\Reports\\report6.jrxml";
         System.err.println(FileLocation);
 
         String SQL="SELECT * FROM garmentsystem.r_Washing_Schedule_table";
         autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                           
+        
+                           try {
+
+        String FileLocation="\\src\\ManufacturingPlanning\\Reports\\report6.jrxml";
+        System.err.println(FileLocation);
+
+        String SQL="SELECT * FROM garmentsystem.r_Washing_Schedule_table";
+        autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
