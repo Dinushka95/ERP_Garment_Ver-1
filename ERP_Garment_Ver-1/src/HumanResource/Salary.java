@@ -659,9 +659,25 @@ public class Salary extends javax.swing.JInternalFrame {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
 
-        String file = System.getProperty("user.dir")+"\\src\\HumanResource\\Reports\\salary.jrxml";
+       
+        
+                                                                         try {
+ String file = System.getProperty("user.dir")+"\\src\\HumanResource\\Reports\\salary.jrxml";
         String query = "SELECT * FROM salary_table";
         autoReport.Query2Report(file, query);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                                         
+                                                                                                                                                 try {
+ String file = "\\src\\HumanResource\\Reports\\salary.jrxml";
+        String query = "SELECT * FROM salary_table";
+        autoReport.Query2Report(file, query);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton4ActionPerformed
 
 

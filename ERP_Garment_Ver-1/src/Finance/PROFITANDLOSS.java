@@ -415,12 +415,34 @@ public class PROFITANDLOSS extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextField20MouseClicked
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        upDB();
+        
+        
+                                                                                 try {
+upDB();
         String FileLocation=System.getProperty("user.dir")+"\\src\\Finance\\Report\\report1.jrxml";
         System.err.println(FileLocation);
         
         String SQL="SELECT * FROM garmentsystem.Profitandloss";
         autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                                                 
+                                                                                   
+                                                                                 try {
+upDB();
+        String FileLocation="\\src\\Finance\\Report\\report1.jrxml";
+        System.err.println(FileLocation);
+        
+        String SQL="SELECT * FROM garmentsystem.Profitandloss";
+        autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                                                 
+                                                                                 
     }//GEN-LAST:event_jButton11ActionPerformed
 
     private void CostSalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostSalesActionPerformed

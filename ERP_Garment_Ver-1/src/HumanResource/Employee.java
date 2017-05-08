@@ -551,9 +551,25 @@ public class Employee extends javax.swing.JInternalFrame {
 
     private void btnUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate2ActionPerformed
 
+
+        
+                                                                                try {
         String file = System.getProperty("user.dir")+"\\src\\HumanResource\\Reports\\Employee.jrxml";
         String query = "SELECT * FROM emp_table";
         autoReport.Query2Report(file, query);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                                                
+                                                                                                                                                         try {
+        String file = "\\src\\HumanResource\\Reports\\Employee.jrxml";
+        String query = "SELECT * FROM emp_table";
+        autoReport.Query2Report(file, query);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_btnUpdate2ActionPerformed
 
     private void txtFirstNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFirstNameKeyTyped

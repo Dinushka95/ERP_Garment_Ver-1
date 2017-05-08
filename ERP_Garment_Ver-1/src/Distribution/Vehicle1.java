@@ -476,16 +476,52 @@ DefaultTableModel model;
     }//GEN-LAST:event_jComboBox2ItemStateChanged
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+        
+                                                                                                          try {
         String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report8.jrxml";
         autoReport.Table2Report(FileLocation, jTable2);
+        
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                                                                          
+                                                                                                                                                                                                                    try {
+        String FileLocation="\\src\\Distribution\\Reports\\report8.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+        
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-        String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report7.jrxml";
+ 
+                                                                                                  try {
+       String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report7.jrxml";
         System.err.println(FileLocation);
         //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.C_Vehiclel";
         autoReport.Query2Report(FileLocation, SQL);
+        
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                                                                  
+                                                                                                           try {
+       String FileLocation="\\src\\Distribution\\Reports\\report7.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.C_Vehiclel";
+        autoReport.Query2Report(FileLocation, SQL);
+        
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton6ActionPerformed
      private void generate_vehicleID() {
        

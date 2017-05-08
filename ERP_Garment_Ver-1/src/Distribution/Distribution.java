@@ -505,16 +505,48 @@ public class Distribution extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jComboBox4ItemStateChanged
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+
+        
+                                                                                         try {
         String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report1.jrxml";
         System.err.println(FileLocation);
         //./Reports/ipr.jrxml
         String SQL="SELECT * FROM garmentsystem.C_Distribution";
         autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                                                                                                                                                  try {
+        String FileLocation="\\src\\Distribution\\Reports\\report1.jrxml";
+        System.err.println(FileLocation);
+        //./Reports/ipr.jrxml
+        String SQL="SELECT * FROM garmentsystem.C_Distribution";
+        autoReport.Query2Report(FileLocation, SQL);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+
+          
+                                                                                 try {
        String FileLocation=System.getProperty("user.dir")+"\\src\\Distribution\\Reports\\report2.jrxml";
         autoReport.Table2Report(FileLocation, jTable2);
+                                                      
+        }
+        catch (Exception e )
+        {}
+                                                                                 
+                                                                                                                                                                  try {
+       String FileLocation="\\src\\Distribution\\Reports\\report2.jrxml";
+        autoReport.Table2Report(FileLocation, jTable2);
+                                                      
+        }
+        catch (Exception e )
+        {}
     }//GEN-LAST:event_jButton9ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
