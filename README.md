@@ -5,4 +5,4 @@ So we centralized the information, making it available to everybody.
 It is java windows form application developed, by a team of 8 students. 
 
 
-[![IMAGE ALT TEXT](http://img.youtube.com/vi/9yYF4XHEeXY/0.jpg)](http://www.youtube.com/watch?v=9yYF4XHEeXY "Demo Video")
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/9yYF4XHEeXY/0.jpg)](http://www.youtube.com/watch?v=9yYF4XHEeXY "ERP_Garment Demo Video")
