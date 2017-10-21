@@ -4,7 +4,9 @@ It was done as our second-year university project for information technology pro
 
 So we centralized the information, making it available to everybody. <br/>
 
-It is java windows form application developed, by a team of 8 students. 
+It is java windows form application developed, by a team of 8 students. <br/>
+
+Click the below to watch the video demo..
 
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/9yYF4XHEeXY/0.jpg)](http://www.youtube.com/watch?v=9yYF4XHEeXY "ERP_Garment Demo Video")
