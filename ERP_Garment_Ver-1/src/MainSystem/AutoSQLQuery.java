@@ -3,7 +3,7 @@ This class was developed to eliminate the need to type SQL statements, because e
 it was written to mySQL. 
 you can ADD,update(edit),delete and even files can be added such as images
 ###VERY IMPORTANT #######This class needs 'AutoDBConnect' class to work properly 
-Author -Dinushka95@yahoo.com
+Author -
 3/3/2017
 */
 
