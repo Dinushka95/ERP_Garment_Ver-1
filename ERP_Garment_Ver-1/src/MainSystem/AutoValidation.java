@@ -2,7 +2,7 @@ package MainSystem;
 
 /*
 This class is used to validate textboxes using jtextfield object. you can check isEmpty , lenth check and type check
-Author- Dinushka95@yahoo.com
+Author- Dinus/....
 Contructor needs the text object then weather u want to check the is empty check then you have to enter a number from 
 negative to postive number. for example negative -5 is less than five and 5 means  grater than five and zero means no length check
 then the final check is type check it needs a char input if a number is input it will allow numbers only if letter is input then only letters
